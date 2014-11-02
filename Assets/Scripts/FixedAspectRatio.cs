@@ -7,7 +7,7 @@ public class FixedAspectRatio : MonoBehaviour {
 	public float aspectRatioHeight = 9f;
 
 	void Start () {
-		InvokeRepeating ("Resize", 0, 0.5f);
+		InvokeRepeating ("Resize", 0, 0.2f);
 	}
 
 	void Resize () {

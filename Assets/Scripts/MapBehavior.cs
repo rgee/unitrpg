@@ -29,6 +29,11 @@ public class MapBehavior : GridBehaviour<RectPoint> {
 		mapSelector.SetActive(true);
 	}
 
+	public void Update() {
+		if (Input.GetKeyDown (KeyCode.H)) {
+		}
+	}
+
 	private void OnClick(RectPoint point) {
 		if (selectedSourcePoint == null) {
 			MapCellScript clickedCell = (MapCellScript)Grid.GetCell(point);
