@@ -4,6 +4,7 @@ using System.Collections;
 public class CombatForecast : MonoBehaviour {
 
 	GameObject attackerHalf;
+	bool triggered = false;
 	GameObject defenderHalf;
 
 	// Use this for initialization
@@ -14,9 +15,10 @@ public class CombatForecast : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown(KeyCode.N)) {
-			attackerHalf.GetComponent<Animator>().SetTrigger("open");
-			defenderHalf.GetComponent<Animator>().SetTrigger("open");
+		if (!triggered && Input.GetKeyDown(KeyCode.N)) {
+			attackerHalf.GetComponent<Animator>().SetTrigger("open_vertical");
+			defenderHalf.GetComponent<Animator>().SetTrigger("open_vertical");
+			triggered = true;
 		}
 	}
 }
