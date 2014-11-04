@@ -173,7 +173,7 @@ Transition:
   - m_ConditionMode: 5
     m_ConditionEvent: 
     m_EventTreshold: 0
-    m_ExitTime: .899999976
+    m_ExitTime: 1.5
   m_Atomic: 1
   m_Solo: 0
   m_Mute: 0
@@ -239,10 +239,10 @@ State:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Slide Out
-  m_Speed: 1
+  m_Speed: 7
   m_CycleOffset: 0
   m_Motions:
-  - {fileID: 0}
+  - {fileID: 7400000, guid: 5dd65caee2bb140e794bf8ecd7f35aa8, type: 2}
   - {fileID: 0}
   m_ParentStateMachine: {fileID: 110797563}
   m_Position: {x: 540, y: 12, z: 0}
@@ -273,9 +273,24 @@ State:
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
-  - {fileID: 0}
+  - {fileID: 7400000, guid: d66689fe6f42e44daa9a74df70670853, type: 2}
   m_ParentStateMachine: {fileID: 110700000}
   m_Position: {x: 768, y: 96, z: 0}
+  m_IKOnFeet: 0
+  m_Mirror: 0
+  m_Tag: 
+--- !u!1102 &110238592
+State:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: forecast_diag_open_end
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Motions:
+  - {fileID: 7400000, guid: d66689fe6f42e44daa9a74df70670853, type: 2}
+  m_ParentStateMachine: {fileID: 110700000}
+  m_Position: {x: 978, y: 486, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
@@ -294,16 +309,31 @@ State:
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
+--- !u!1102 &110250602
+State:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: forecast_slide_out
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Motions:
+  - {fileID: 7400000, guid: 5dd65caee2bb140e794bf8ecd7f35aa8, type: 2}
+  m_ParentStateMachine: {fileID: 110700000}
+  m_Position: {x: 943, y: 421, z: 0}
+  m_IKOnFeet: 0
+  m_Mirror: 0
+  m_Tag: 
 --- !u!1102 &110253721
 State:
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Rotate To Corner
-  m_Speed: 1
+  m_Speed: 7
   m_CycleOffset: 0
   m_Motions:
-  - {fileID: 0}
+  - {fileID: 7400000, guid: e85db68e62f3c422eb56c1dbd5f0e481, type: 2}
   - {fileID: 0}
   m_ParentStateMachine: {fileID: 110797563}
   m_Position: {x: 276, y: 12, z: 0}
@@ -355,6 +385,21 @@ State:
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
+--- !u!1102 &110283145
+State:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: forecast_rotate_to_corner
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Motions:
+  - {fileID: 7400000, guid: e85db68e62f3c422eb56c1dbd5f0e481, type: 2}
+  m_ParentStateMachine: {fileID: 110700000}
+  m_Position: {x: 908, y: 356, z: 0}
+  m_IKOnFeet: 0
+  m_Mirror: 0
+  m_Tag: 
 --- !u!1102 &110285092
 State:
   m_ObjectHideFlags: 3
@@ -402,6 +447,9 @@ StateMachine:
   - {fileID: 110263514}
   - {fileID: 110236683}
   - {fileID: 110267439}
+  - {fileID: 110283145}
+  - {fileID: 110250602}
+  - {fileID: 110238592}
   m_ChildStateMachine:
   - {fileID: 110785083}
   - {fileID: 110797563}
@@ -489,4 +537,4 @@ StateMachine:
   m_OrderedTransitions: {}
   m_MotionSetCount: 2
   m_AnyStatePosition: {x: 50, y: 20, z: 0}
-  m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
+  m_ParentStateMachinePosition: {x: 432, y: -120, z: 0}
