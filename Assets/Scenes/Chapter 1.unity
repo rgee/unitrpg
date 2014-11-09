@@ -30638,7 +30638,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &533767567
 Transform:
   m_ObjectHideFlags: 0
@@ -36805,7 +36805,7 @@ MonoBehaviour:
   highlightOn: 0
   passable: 1
   mapSelector: {fileID: 400000, guid: 2bf78ad1c21f7457ba2fde155e6808ea, type: 2}
-  occupyingUnit: {fileID: 2039697034}
+  occupyingUnit: {fileID: 0}
 --- !u!61 &655661402
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -40316,7 +40316,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ac205e4d324144e38c6ec013240e6a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  combatForecastType: {fileID: 100026, guid: b24b8669561084eebaa233f0cfcbacaf, type: 2}
   combatForecastGutter: 20
 --- !u!1001 &701949302
 Prefab:
@@ -41079,7 +41078,7 @@ Prefab:
     - target: {fileID: 11400000, guid: f6f405b23c0d04fc28758f67fce4e28e, type: 2}
       propertyPath: occupyingUnit
       value: 
-      objectReference: {fileID: 2039697034}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f6f405b23c0d04fc28758f67fce4e28e, type: 2}
   m_RootGameObject: {fileID: 655661399}
@@ -87681,6 +87680,10 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: f6f405b23c0d04fc28758f67fce4e28e, type: 2}
+      propertyPath: occupyingUnit
+      value: 
+      objectReference: {fileID: 2039697034}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f6f405b23c0d04fc28758f67fce4e28e, type: 2}
   m_RootGameObject: {fileID: 1664987682}
@@ -96364,7 +96367,7 @@ MonoBehaviour:
   highlightOn: 0
   passable: 1
   mapSelector: {fileID: 400000, guid: 2bf78ad1c21f7457ba2fde155e6808ea, type: 2}
-  occupyingUnit: {fileID: 0}
+  occupyingUnit: {fileID: 2039697034}
 --- !u!61 &1664987685
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -5,7 +5,6 @@ using Gamelogic.Grids;
 
 public class MapBehavior : GridBehaviour<RectPoint> {
 
-	public GameObject combatForecastType;
 	public int combatForecastGutter = 20;
 
 	private GameObject mapSelector;
@@ -58,13 +57,6 @@ public class MapBehavior : GridBehaviour<RectPoint> {
 				MapCellScript cell = (MapCellScript)Grid.GetCell(neighbor);
 				cell.Color = Color.blue;
 			}
-
-			GameObject forecast = Instantiate(combatForecastType);
-
-			Vector3 forecastPos = forecast.transform.localPosition;
-			forecastPos.x = Map[point].x - combatForecastGutter;
-
-			forecast.transform.localPosition = forecastPos;
 		} else {
 			units.MoveUnit(selectedSourcePoint.GetValueOrDefault(), point);
 			foreach (RectPoint rect in Grid) {
