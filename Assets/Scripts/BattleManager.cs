@@ -6,6 +6,7 @@ public class BattleManager : MonoBehaviour {
 	private Animator battleStateManager;
 	private Dictionary<int, BattleState> battleStateHash = new Dictionary<int, BattleState>();
 	private BattleState currentBattleState;
+	private GameObject playerPhaseText;
 
 	public enum BattleState {
 		Player_Phase_Intro,
@@ -16,11 +17,13 @@ public class BattleManager : MonoBehaviour {
 		Select_Target,
 		Confirm_Forecast,
 		Select_Move,
-		Select_Move_Target
+		Select_Move_Target,
+		Battle_End
 	}
 
 	void GetAnimationStates() {
 		foreach (BattleState state in (BattleState[])System.Enum.GetValues(typeof(BattleState))) {
+
 			int hash = Animator.StringToHash("Base Layer." + state.ToString());
 			battleStateHash.Add(hash, state);
 		}
@@ -28,6 +31,8 @@ public class BattleManager : MonoBehaviour {
 
 	void Start () {
 		battleStateManager = GetComponent<Animator>();
+		GetAnimationStates();
+		playerPhaseText = transform.Find("Canvas/Player Phase Text").gameObject;
 	}
 	
 	void Update () {
