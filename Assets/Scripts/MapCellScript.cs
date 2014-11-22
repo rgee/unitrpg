@@ -8,6 +8,7 @@ public class MapCellScript : SpriteCell {
 
 	private Transform currentSelector;
 
+
 	public void OnMouseOver() {
 		GameObject selector = GameObject.Find("map_selector");
 		if (selector != null) {

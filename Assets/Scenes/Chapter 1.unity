@@ -12433,6 +12433,47 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_Size: {x: 32, y: 32}
   m_Center: {x: 0, y: 0}
+--- !u!1 &223444005
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 223444007}
+  - 114: {fileID: 223444006}
+  m_Layer: 0
+  m_Name: ActionMenuSpawner
+  m_TagString: ActionMenuSpawn
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &223444006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 223444005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 494c88244c7af4a4dbfe3ede8ccd2cd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionMenuType: {fileID: 0}
+  maxWedges: 8
+--- !u!4 &223444007
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 223444005}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -115.856003, y: 9.82247353, z: 17.125}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 74
 --- !u!1 &224417655
 GameObject:
   m_ObjectHideFlags: 0
@@ -30632,6 +30673,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 533767567}
   - 114: {fileID: 533767568}
+  - 114: {fileID: 533767570}
+  - 114: {fileID: 533767569}
   m_Layer: 0
   m_Name: Forecast
   m_TagString: Untagged
@@ -30664,6 +30707,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50f283c4abf284853a9512fa82e47f20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &533767569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 533767566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 494c88244c7af4a4dbfe3ede8ccd2cd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionMenuType: {fileID: 0}
+  maxWedges: 8
+--- !u!114 &533767570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 533767566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 494c88244c7af4a4dbfe3ede8ccd2cd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionMenuType: {fileID: 0}
+  maxWedges: 8
 --- !u!1001 &534333388
 Prefab:
   m_ObjectHideFlags: 0
@@ -38948,7 +39017,7 @@ GameObject:
   - 114: {fileID: 701657831}
   m_Layer: 0
   m_Name: Map
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84412,6 +84481,7 @@ GameObject:
   - 212: {fileID: 1441864864}
   - 95: {fileID: 1441864863}
   - 114: {fileID: 1441864865}
+  - 114: {fileID: 1441864866}
   m_Layer: 0
   m_Name: Liat
   m_TagString: Untagged
@@ -84485,6 +84555,20 @@ MonoBehaviour:
   isDead: 0
   currentHealth: 0
   characterName: Liat
+--- !u!114 &1441864866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1441864861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c216ab0a2949f45b6b8c33cb88fd22ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Character: {fileID: 11400000, guid: a8c9be45f85a64ae598b2b1def8186c8, type: 2}
+  GridPosition: {x: 10, y: 14}
+  Health: 0
 --- !u!1001 &1442096769
 Prefab:
   m_ObjectHideFlags: 0
