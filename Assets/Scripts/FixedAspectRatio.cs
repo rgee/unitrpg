@@ -41,7 +41,4 @@ public class FixedAspectRatio : MonoBehaviour {
 			camera.rect = rect;
 		}
 	}
-
-
-
 }

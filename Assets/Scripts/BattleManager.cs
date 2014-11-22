@@ -7,6 +7,8 @@ public class BattleManager : MonoBehaviour {
 	private Dictionary<int, BattleState> battleStateHash = new Dictionary<int, BattleState>();
 	private BattleState currentBattleState;
 	private GameObject playerPhaseText;
+	private GameObject canvas;
+	private Animator playerPhaseTextAnimator;
 
 	public enum BattleState {
 		Player_Phase_Intro,
@@ -21,6 +23,11 @@ public class BattleManager : MonoBehaviour {
 		Battle_End
 	}
 
+	public void StartPlayerPhase() {
+		battleStateManager.SetTrigger("Player Phase Intro Animated");
+		print ("player phase starting");
+	}
+
 	void GetAnimationStates() {
 		foreach (BattleState state in (BattleState[])System.Enum.GetValues(typeof(BattleState))) {
 
@@ -33,11 +40,19 @@ public class BattleManager : MonoBehaviour {
 		battleStateManager = GetComponent<Animator>();
 		GetAnimationStates();
 		playerPhaseText = transform.Find("Canvas/Player Phase Text").gameObject;
+		canvas = transform.Find ("Canvas").gameObject;
+		playerPhaseTextAnimator = playerPhaseText.GetComponent<Animator>();
+	
+		RectTransform rect = playerPhaseText.GetComponent<RectTransform>();
+		rect.anchorMax = new Vector2(0f, 0.5f);
+		rect.anchorMin = new Vector2(0f, 0.5f);
+		rect.anchoredPosition = new Vector3();
 	}
 	
 	void Update () {
 		currentBattleState = battleStateHash[battleStateManager.GetCurrentAnimatorStateInfo(0).nameHash];
 		DispatchOnBatleState();
+
 	}
 
 	void OnGUI() {
