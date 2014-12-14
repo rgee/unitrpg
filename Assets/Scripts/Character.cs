@@ -14,5 +14,6 @@ public class Character {
 	public int maxHealth;
 	public int level = 1;
 	public Army army;
+	public int movement = 10;
 	
 }

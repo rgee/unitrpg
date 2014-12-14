@@ -35,9 +35,11 @@ public class MapBehavior : GridBehaviour<RectPoint> {
 	}
 
 	private void OnClick(RectPoint point) {
+		MapCellScript clickedCell = (MapCellScript)Grid.GetCell(point);
+		Unit unit = clickedCell.GetUnit();
+		int movement = unit.GetMovement();
+		Debug.Log("unit movement: " + movement);
 		if (selectedSourcePoint == null) {
-			MapCellScript clickedCell = (MapCellScript)Grid.GetCell(point);
-			Unit unit = clickedCell.GetUnit();
 			if (unit == null || unit.GetArmy() != Character.Army.PLAYER) {
 				return;
 			}
@@ -49,9 +51,9 @@ public class MapBehavior : GridBehaviour<RectPoint> {
 				MapCellScript destinationCell = (MapCellScript)Grid.GetCell(p2);
 
 				bool passable = destinationCell.passable && !destinationCell.IsOccupied();
+				int manhattanDist = MathUtils.ManhattanDistance(point.X, point.Y, p2.X, p2.Y);
 
-				// Todo: Get this from the unit at the cell
-				return MathUtils.ManhattanDistance(point.X, point.Y, p2.X, p2.Y) <= 4 && passable;
+				return (manhattanDist <= movement) && passable;
 			});
 
 			foreach (RectPoint neighbor in movableNeighbors) {
@@ -59,7 +61,7 @@ public class MapBehavior : GridBehaviour<RectPoint> {
 				cell.Color = Color.blue;
 			}
 		} else {
-			units.MoveUnit(selectedSourcePoint.GetValueOrDefault(), point);
+			units.MoveUnit(unit, selectedSourcePoint.GetValueOrDefault(), point);
 			foreach (RectPoint rect in Grid) {
 				Grid.GetCell(rect).Color = Color.white;
 			}

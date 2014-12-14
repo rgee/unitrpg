@@ -38,16 +38,15 @@ public class UnitManager : MonoBehaviour {
 		return units;
 	}
 
-	public void MoveUnit (RectPoint src, RectPoint dest) {
-		StartCoroutine(SlideUnit(src, dest));
+	public void MoveUnit (Unit unit, RectPoint src, RectPoint dest) {
+		StartCoroutine(SlideUnit(unit, src, dest));
 	}
 
-	private IEnumerator SlideUnit(RectPoint src, RectPoint dest) {
+	private IEnumerator SlideUnit(Unit unit, RectPoint src, RectPoint dest) {
 
 		if (childrenByWorldPosition.ContainsKey(src)) {
       		Transform child = childrenByWorldPosition[src];
 			Animator childAnimator = child.GetComponent<Animator>();
-
 
 			System.Func<TileCell, bool> isAccessible = (cell) => {
 				MapCellScript mapCell = (MapCellScript)cell;
@@ -56,7 +55,7 @@ public class UnitManager : MonoBehaviour {
 
 			System.Func<RectPoint, RectPoint, float> cost = (p1, p2) => {
 				// Ensure that no point on the path goes further than the character can actually end up.
-				if (MathUtils.ManhattanDistance(src.X, src.Y, p2.X, p2.Y) > 4) {
+				if (MathUtils.ManhattanDistance(src.X, src.Y, p2.X, p2.Y) > unit.GetMovement()) {
 					return float.MaxValue;
 				} else {
 					return p1.DistanceFrom(p2);

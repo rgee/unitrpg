@@ -20,7 +20,9 @@ public class BattleManager : MonoBehaviour {
 		Confirm_Forecast,
 		Select_Move,
 		Select_Move_Target,
-		Battle_End
+		Battle_End,
+		Forecasting,
+		Performing_Action
 	}
 
 	public void StartPlayerPhase() {

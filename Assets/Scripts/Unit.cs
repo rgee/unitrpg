@@ -17,4 +17,8 @@ public class Unit : MonoBehaviour {
 	public Character.Army GetArmy() {
 		return character.army;
 	}
+
+	public int GetMovement() { 
+		return character.movement;
+	}
 }
