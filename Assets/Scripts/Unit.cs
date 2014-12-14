@@ -7,18 +7,18 @@ public class Unit : MonoBehaviour {
 	public int currentHealth;
 	public string characterName;
 
-	private Character character;
+	private Models.Character character;
 
 	public void Start() {
 		character = SaveGame.current.getByName(characterName);
-		currentHealth = character.maxHealth;
+		currentHealth = character.MaxHealth;
 	}
 
-	public Character.Army GetArmy() {
-		return character.army;
+	public bool IsEnemy() {
+		return character.IsEnemy;
 	}
 
 	public int GetMovement() { 
-		return character.movement;
+		return character.Movement;
 	}
 }

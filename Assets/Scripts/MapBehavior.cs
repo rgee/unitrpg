@@ -9,6 +9,8 @@ public class MapBehavior : GridBehaviour<RectPoint> {
 
 	private GameObject mapSelector;
 	private UnitManager units;
+
+	private Unit selectedUnit;
 	private RectPoint? selectedSourcePoint;
 	private bool selectorEnabled;
 	private ActionMenuSpawn menuSpawner;
@@ -36,14 +38,13 @@ public class MapBehavior : GridBehaviour<RectPoint> {
 
 	private void OnClick(RectPoint point) {
 		MapCellScript clickedCell = (MapCellScript)Grid.GetCell(point);
-		Unit unit = clickedCell.GetUnit();
-		int movement = unit.GetMovement();
-		Debug.Log("unit movement: " + movement);
 		if (selectedSourcePoint == null) {
-			if (unit == null || unit.GetArmy() != Character.Army.PLAYER) {
+			Unit unit = clickedCell.GetUnit();
+			int movement = unit.GetMovement();
+			if (unit == null || unit.IsEnemy()) {
 				return;
 			}
-
+			selectedUnit = unit;
 			selectedSourcePoint = point;
 
 			HashSet<RectPoint> movableNeighbors = Algorithms.GetConnectedSet(Grid, point, 
@@ -61,12 +62,13 @@ public class MapBehavior : GridBehaviour<RectPoint> {
 				cell.Color = Color.blue;
 			}
 		} else {
-			units.MoveUnit(unit, selectedSourcePoint.GetValueOrDefault(), point);
+			units.MoveUnit(selectedUnit, selectedSourcePoint.GetValueOrDefault(), point);
 			foreach (RectPoint rect in Grid) {
 				Grid.GetCell(rect).Color = Color.white;
 			}
 
 			selectedSourcePoint = null;
+			selectedUnit = null;
         }
 	}
 }

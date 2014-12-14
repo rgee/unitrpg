@@ -10,7 +10,7 @@ public class SaveGame {
 
 	public int chapter;
 
-	public Dictionary<string, Character> characters = new Dictionary<string, Character>();
+	public Dictionary<string, Models.Character> characters = new Dictionary<string, Models.Character>();
 
 	public static List<SaveGame> saveGames = new List<SaveGame>();
 
@@ -41,11 +41,11 @@ public class SaveGame {
 		}
 	}
 
-	public Character getByName(string name) {
+	public Models.Character getByName(string name) {
 		if (SaveGame.current.characters.ContainsKey(name)) {
 			return SaveGame.current.characters[name];
 		}
 
-		return DefaultCharacters.getByName(name);
+		return (Models.Character)Resources.Load("Characters/" + name);
 	}
 }	

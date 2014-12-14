@@ -14,6 +14,7 @@ namespace Models {
 		public int StrengthGrowth;
 		public int DefenseGrowth;
 		public int MovementGrowth;
+		public bool IsEnemy;
 
 		public string Name;
 	}
