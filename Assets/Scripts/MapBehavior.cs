@@ -32,7 +32,16 @@ public class MapBehavior : GridBehaviour<RectPoint> {
 	}
 
 	public void Update() {
-		if (Input.GetKeyDown (KeyCode.H)) {
+		if (Input.GetKeyDown (KeyCode.Escape)) {
+			ClearMovementRange();
+		}
+	}
+
+	private void ClearMovementRange() {
+		selectedSourcePoint = null;
+		selectedUnit = null;
+		foreach (RectPoint rect in Grid) {
+			Grid.GetCell(rect).Color = Color.white;
 		}
 	}
 
@@ -63,12 +72,7 @@ public class MapBehavior : GridBehaviour<RectPoint> {
 			}
 		} else {
 			units.MoveUnit(selectedUnit, selectedSourcePoint.GetValueOrDefault(), point);
-			foreach (RectPoint rect in Grid) {
-				Grid.GetCell(rect).Color = Color.white;
-			}
-
-			selectedSourcePoint = null;
-			selectedUnit = null;
+			ClearMovementRange();
         }
 	}
 }

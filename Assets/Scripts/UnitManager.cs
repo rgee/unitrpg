@@ -53,6 +53,8 @@ public class UnitManager : MonoBehaviour {
 				return mapCell.passable && !mapCell.IsOccupied();
 			};
 
+			Debug.Log(unit.GetMovement());
+
 			System.Func<RectPoint, RectPoint, float> cost = (p1, p2) => {
 				// Ensure that no point on the path goes further than the character can actually end up.
 				if (MathUtils.ManhattanDistance(src.X, src.Y, p2.X, p2.Y) > unit.GetMovement()) {
