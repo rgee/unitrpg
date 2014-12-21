@@ -8,6 +8,7 @@ public class BattleManager : MonoBehaviour {
 	private BattleState currentBattleState;
 	private GameObject playerPhaseText;
 	private GameObject canvas;
+	private MapBehavior map;
 	private Animator playerPhaseTextAnimator;
 
 	public enum BattleState {
@@ -32,7 +33,6 @@ public class BattleManager : MonoBehaviour {
 
 	void GetAnimationStates() {
 		foreach (BattleState state in (BattleState[])System.Enum.GetValues(typeof(BattleState))) {
-
 			int hash = Animator.StringToHash("Base Layer." + state.ToString());
 			battleStateHash.Add(hash, state);
 		}
@@ -49,12 +49,13 @@ public class BattleManager : MonoBehaviour {
 		rect.anchorMax = new Vector2(0f, 0.5f);
 		rect.anchorMin = new Vector2(0f, 0.5f);
 		rect.anchoredPosition = new Vector3();
+
+		map = GameObject.FindGameObjectWithTag("Map").GetComponent<MapBehavior>();
 	}
 	
 	void Update () {
 		currentBattleState = battleStateHash[battleStateManager.GetCurrentAnimatorStateInfo(0).nameHash];
 		DispatchOnBatleState();
-
 	}
 
 	void OnGUI() {

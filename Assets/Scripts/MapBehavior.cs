@@ -44,6 +44,10 @@ public class MapBehavior : GridBehaviour<RectPoint> {
 			Grid.GetCell(rect).Color = Color.white;
 		}
 	}
+	
+	public Unit GetSelectedUnit() {
+		return selectedUnit;
+	}
 
 	private void OnClick(RectPoint point) {
 		MapCellScript clickedCell = (MapCellScript)Grid.GetCell(point);
