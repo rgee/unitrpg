@@ -11,10 +11,21 @@ public class CutscenePortrait : MonoBehaviour {
 	}
 
 	public void Activate() {
-
+		StartCoroutine(TintToColor(Color.white, 0.5f));
 	}
 
 	public void Deactivate() {
+		StartCoroutine(TintToColor(new Color(0.5f, 0.5f, 0.5f), 0.5f));
+	}
 
+	private IEnumerator TintToColor(Color color, float time) {
+
+		float elapsedTime = 0;
+		Color startColor = portrait.color;
+		while (elapsedTime < time) {
+			portrait.color = Color.Lerp(startColor, color, (elapsedTime/time));
+			elapsedTime += Time.deltaTime;
+			yield return new WaitForEndOfFrame();
+		}
 	}
 }

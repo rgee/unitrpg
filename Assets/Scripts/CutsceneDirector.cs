@@ -20,7 +20,11 @@ public class CutsceneDirector : MonoBehaviour {
 
 		// Grab handles to all the portraits of the actors in the scene.
 		foreach (CutsceneActor actor in Cutscene.actors) {
-			Transform portrait = transform.FindChild(actor.name);
+			Debug.Log(actor.name);
+
+			Transform portrait = transform.FindChild("Canvas")
+									      .FindChild("Portraits")
+					  					  .FindChild(actor.name);
 			if (portrait != null) {
 				portraits.Add(actor.name, portrait.gameObject);
 			}
@@ -31,6 +35,8 @@ public class CutsceneDirector : MonoBehaviour {
 	}
 	
 	void Update () {
+		// Advance to the next deck of dialogue cards if the user presses
+		// the space bar, and the current animation is complete.
 		if (Input.GetKeyDown(KeyCode.Space) && cardAnimator.complete) {
 			deckIndex++;
 			advance();
@@ -39,10 +45,22 @@ public class CutsceneDirector : MonoBehaviour {
 
 	private void advance() {
 		Models.Deck newDeck = Cutscene.decks[deckIndex];
+
+		// Activate the new speaker and deactivate all others.
+		portraits[newDeck.speaker].GetComponent<CutscenePortrait>().Activate();
+		foreach (KeyValuePair<string, GameObject> pair in portraits) {
+			if (pair.Key != newDeck.speaker) {
+				pair.Value.GetComponent<CutscenePortrait>().Deactivate();
+			}
+		}
+
+		// Set up the text box and the animator for the next deck
 		text.text = "";
 		deckAnimator.textObject = text;
 		deckAnimator.deck = newDeck;
 		deckAnimator.Reset();
+
+		// Begin showing the next deck
 		deckAnimator.StartAnimation();
 	}
 }
