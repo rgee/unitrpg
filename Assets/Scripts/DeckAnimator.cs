@@ -5,6 +5,8 @@ using System.Collections;
 public class DeckAnimator : MonoBehaviour {
 	public Models.Deck deck;
 	public Text textObject;
+
+	[HideInInspector]
 	public CardAnimator animator;
 
 	public bool complete;
