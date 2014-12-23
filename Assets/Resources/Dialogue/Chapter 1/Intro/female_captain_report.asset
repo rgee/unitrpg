@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ac952867ef1a4d8ea6052bb3b0336bb, type: 3}
+  m_Name: female_captain_report
+  m_EditorClassIdentifier: 
+  decks:
+  - cards:
+    - lines:
+      - text: Report.
+        delayOverride: 0
+    speaker: Liat
+  - cards:
+    - lines:
+      - text: "We\u2019ve placed extra personnel on the third floor gatehouse from
+          reserves. "
+        delayOverride: 0
+      - text: Sounding horns are being prepared for testing, and the gatehouse water
+          routes have been fitted with barbed siege wires.
+        delayOverride: 0
+    - lines:
+      - text: Your orders?
+        delayOverride: 0
+    speaker: Female Soldier
+  - cards:
+    - lines:
+      - text: Just one - keep yourself available.
+        delayOverride: 0
+      - text: Depending on how the intercept goes tonight, I may need extra hands
+          at the ceremony tomorrow morning.
+        delayOverride: 0
+    speaker: Liat
+  - cards:
+    - lines:
+      - text: Understood.
+        delayOverride: 0
+    - lines:
+      - text: 'Good luck tonight, Captain. '
+        delayOverride: 0
+      - text: "We\u2019re a shout away if you need backup."
+        delayOverride: 0
+    speaker: Female Soldier
+  actors:
+  - name: Liat
+    sprite: {fileID: 21300000, guid: a596204798e544cb88b440b2257a6664, type: 3}
+  - name: Female Soldier
+    sprite: {fileID: 21300000, guid: 6094640caefb64abdac2a4118b46c09f, type: 3}
