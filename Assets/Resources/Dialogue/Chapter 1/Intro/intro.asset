@@ -12,10 +12,33 @@ MonoBehaviour:
   m_Name: intro
   m_EditorClassIdentifier: 
   decks:
-  - {fileID: 11400000, guid: 0bc0b0bad2a5344aca7f25fcf8b178a8, type: 2}
-  - {fileID: 11400000, guid: 28d91b68aa626417f9dc0fb975bf6f34, type: 2}
+  - cards:
+    - lines:
+      - text: Report
+        delayOverride: 0
+    speaker: Liat
+  - cards:
+    - lines:
+      - text: Rotated guard pairs thrice today and conducted five patrols in the west
+          keep in the last hour.
+        delayOverride: 0
+    - lines:
+      - text: 'We caught your decoy intruder half an hour ago trying to pick the door
+          to the solar.
+
+'
+        delayOverride: 0
+      - text: Nice touch, Captain.
+        delayOverride: 0
+    speaker: Male Soldier
+  - cards:
+    - lines:
+      - text: Good work. Let her out of the lockup and tell her to find me for her
+          next assignment.
+        delayOverride: 0
+    speaker: Liat
   actors:
-  - name: Yul
+  - name: Liat
     sprite: {fileID: 21300000, guid: a596204798e544cb88b440b2257a6664, type: 3}
-  - name: Rhodry
+  - name: Male Soldier
     sprite: {fileID: 21300000, guid: 6094640caefb64abdac2a4118b46c09f, type: 3}

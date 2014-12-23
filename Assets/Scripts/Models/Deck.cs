@@ -2,7 +2,8 @@
 using System.Collections;
 
 namespace Models {
-	public class Deck : ScriptableObject {
+	[System.Serializable]
+	public class Deck {
 		public Card[] cards;
 		public string speaker;
 	}

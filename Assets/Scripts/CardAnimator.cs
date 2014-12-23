@@ -17,26 +17,25 @@ public class CardAnimator : MonoBehaviour {
 
 	IEnumerator Animate() {
 		int sentenceIndex = 0;
-		foreach (string sentence in card.Sentences) {
+		foreach (Models.DialogueLine line in card.lines) {
 
-			foreach (char letter in sentence) {
+			// Show the sentence character at a time
+			foreach (char letter in line.text) {
 				textObject.text += letter;
 				yield return new WaitForSeconds(0.02f);
 			}
 
+			// Enforce spaces between sentences
 			textObject.text += " ";
-			if (sentenceIndex <= card.Delays.Length - 1) {
-				float delay = card.Delays[sentenceIndex];
-				if (delay > 0f) {
-					yield return new WaitForSeconds(delay);
-				} else {
-					yield return new WaitForSeconds(0.4f);
-				}
-			} else {
-				yield return new WaitForSeconds(0.4f);
+
+			float delay = 0.4f;
+			if (line.delayOverride > 0f) {
+				delay = line.delayOverride;
 			}
 
-			Debug.Log ("Says: " + sentence);
+			yield return new WaitForSeconds(delay);
+
+			Debug.Log ("Says: " + line.text);
 			sentenceIndex++;
 		}
 		complete = true;

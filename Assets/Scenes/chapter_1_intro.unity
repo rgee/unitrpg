@@ -86,7 +86,7 @@ GameObject:
   - 114: {fileID: 148711739}
   - 114: {fileID: 148711741}
   m_Layer: 0
-  m_Name: Yul
+  m_Name: Liat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -569,7 +569,7 @@ GameObject:
   - 114: {fileID: 1470992689}
   - 114: {fileID: 1470992691}
   m_Layer: 0
-  m_Name: Rhodry
+  m_Name: Male Soldier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -659,7 +659,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75a395a4252564a65af3e704c8e26119, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deck: {fileID: 0}
+  deck:
+    cards: []
+    speaker: 
   textObject: {fileID: 0}
   animator: {fileID: 0}
   complete: 0
@@ -674,7 +676,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7b484fde101944eba0b10065d8d57ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 0}
+  card:
+    lines: []
   textObject: {fileID: 0}
   complete: 0
 --- !u!114 &1531716110

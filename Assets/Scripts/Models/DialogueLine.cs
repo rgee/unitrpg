@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;
 
 namespace Models {
 	[System.Serializable]
-	public class Card {
-		public DialogueLine[] lines;
+	public class DialogueLine {
+		public string text;
+		public float delayOverride;
 	}
 }
