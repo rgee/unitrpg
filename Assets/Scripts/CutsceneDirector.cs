@@ -11,12 +11,15 @@ public class CutsceneDirector : MonoBehaviour {
 	private Text text;
 	private int deckIndex;
 	private Dictionary<string, GameObject> portraits = new Dictionary<string, GameObject>();
+	private SceneFader sceneTransitioner;
 
 	void Start () {
 		cardAnimator = GetComponent<CardAnimator>();
 		deckAnimator = GetComponent<DeckAnimator>();
 		text = gameObject.GetComponentInChildren<Text>();
 		deckAnimator.animator = cardAnimator;
+
+		sceneTransitioner = GameObject.FindGameObjectWithTag("SceneTransitioner").GetComponent<SceneFader>();
 
 		// Grab handles to all the portraits of the actors in the scene.
 		foreach (CutsceneActor actor in Cutscene.actors) {
@@ -31,7 +34,13 @@ public class CutsceneDirector : MonoBehaviour {
 		}
 
 		// Kick the first deck off immediately.
-		advance();
+		StartCoroutine(Begin());
+	}
+
+	IEnumerator Begin() {
+		yield return StartCoroutine(sceneTransitioner.FadeIn());
+		yield return new WaitForSeconds(0.3f);
+		Advance();
 	}
 	
 	void Update () {
@@ -39,11 +48,22 @@ public class CutsceneDirector : MonoBehaviour {
 		// the space bar, and the current animation is complete.
 		if (Input.GetKeyDown(KeyCode.Space) && cardAnimator.complete) {
 			deckIndex++;
-			advance();
+
+			if (deckIndex >= Cutscene.decks.Length) {
+				StartCoroutine(TransitionToNextScene());
+			} else {
+				Advance();
+			}
 		}
 	}
 
-	private void advance() {
+	private IEnumerator TransitionToNextScene() {
+		yield return StartCoroutine(sceneTransitioner.FadeOut());
+		Application.LoadLevel(Cutscene.nextScene);
+	}
+
+	private void Advance() {
+
 		Models.Deck newDeck = Cutscene.decks[deckIndex];
 
 		// Activate the new speaker and deactivate all others.

@@ -33,6 +33,7 @@ public class CardAnimator : MonoBehaviour {
 				delay = line.delayOverride;
 			}
 
+
 			yield return new WaitForSeconds(delay);
 
 			Debug.Log ("Says: " + line.text);
