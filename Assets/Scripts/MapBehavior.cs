@@ -13,14 +13,12 @@ public class MapBehavior : GridBehaviour<RectPoint> {
 	private Unit selectedUnit;
 	private RectPoint? selectedSourcePoint;
 	private bool selectorEnabled;
-	private ActionMenuSpawn menuSpawner;
 
 	public override void InitGrid ()
 	{
 		base.InitGrid();
 		units = GameObject.Find("Units").GetComponent<UnitManager>();
 		mapSelector = GameObject.Find("map_selector");
-		menuSpawner = GameObject.FindGameObjectWithTag("ActionMenuSpawn").GetComponent<ActionMenuSpawn>();
 	}
 
 	public void disableSelector() {

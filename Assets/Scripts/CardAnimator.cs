@@ -20,7 +20,7 @@ public class CardAnimator : MonoBehaviour {
 		foreach (Models.DialogueLine line in card.lines) {
 
 			// Show the sentence character at a time
-			foreach (char letter in line.text) {
+			foreach (char letter in line.text.Trim()) {
 				textObject.text += letter;
 				yield return new WaitForSeconds(0.02f);
 			}
