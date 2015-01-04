@@ -8,10 +8,13 @@ using System.Runtime.Serialization.Formatters.Binary;
 public class SaveGame {
 	public static SaveGame current = new SaveGame();
 
+    // Which chapter the player is on
 	public int chapter;
 
+    // All the characters by name
 	public Dictionary<string, Models.Character> characters = new Dictionary<string, Models.Character>();
 
+    // All other save games.
 	public static List<SaveGame> saveGames = new List<SaveGame>();
 
 	public static void Select (int index) {

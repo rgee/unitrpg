@@ -2,17 +2,14 @@
 using System.Collections;
 
 namespace Models {
-	public class Unit : MonoBehaviour {
-
+	public class Unit {
 
 		public Character Character;
 		public Vector2 GridPosition;
 		public int Health;
-		private MapBehavior Map;
 
 		void Awake() {
 			Health = Character.MaxHealth;
-			Map = GameObject.FindGameObjectWithTag("Map").GetComponent<MapBehavior>();
 		}
 
 		public void TakeDamage(int damage) {
