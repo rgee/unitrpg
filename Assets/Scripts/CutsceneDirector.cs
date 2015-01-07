@@ -67,7 +67,16 @@ public class CutsceneDirector : MonoBehaviour {
 		Models.Deck newDeck = Cutscene.decks[deckIndex];
 
 		// Activate the new speaker and deactivate all others.
-		portraits[newDeck.speaker].GetComponent<CutscenePortrait>().Activate();
+		CutscenePortrait speaker = portraits[newDeck.speaker].GetComponent<CutscenePortrait>();
+		speaker.Activate();
+		speaker.ChangeEmotion(newDeck.emotionType);
+
+		Models.Deck previousDeck = deckAnimator.deck;
+		if (portraits.ContainsKey(previousDeck.speaker)) {
+			GameObject previousSpeaker = portraits[previousDeck.speaker];
+			previousSpeaker.GetComponent<CutscenePortrait>().ChangeEmotion(Models.EmotionType.DEFAULT);
+		}
+
 		foreach (KeyValuePair<string, GameObject> pair in portraits) {
 			if (pair.Key != newDeck.speaker) {
 				pair.Value.GetComponent<CutscenePortrait>().Deactivate();
