@@ -35,8 +35,6 @@ public class CardAnimator : MonoBehaviour {
 
 
 			yield return new WaitForSeconds(delay);
-
-			Debug.Log ("Says: " + line.text);
 			sentenceIndex++;
 		}
 		complete = true;
