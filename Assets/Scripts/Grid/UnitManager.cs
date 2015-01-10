@@ -31,8 +31,12 @@ namespace Grid {
                     Vector2 gridPos = maybeGridPos.Value;
  
                     GameObject tile = Grid.GetTileAt(gridPos);
-                    foreach (GameObject unit in unitsByPosition.Values) {
-                        unit.transform.position = tile.renderer.bounds.center;
+
+                    // Do not move to blocked tiles.
+                    if (!tile.GetComponent<MapTile>().blocked) {
+                        foreach (GameObject unit in unitsByPosition.Values) {
+                            unit.transform.position = tile.renderer.bounds.center;
+                        }
                     }
                 }
             }

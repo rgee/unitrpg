@@ -21,7 +21,10 @@ public class MapGrid : MonoBehaviour {
     }
 
     public void Awake() {
-        ResetTiles();
+        foreach (Transform child in transform) {
+            MapTile tile = child.GetComponent<MapTile>();
+            tilesByPosition.Add(tile.gridPosition, tile);
+        }
     }
 
     public Vector2? GetMouseGridPosition() {
