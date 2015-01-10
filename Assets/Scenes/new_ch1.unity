@@ -9061,7 +9061,7 @@ GameObject:
   - 4: {fileID: 214650197}
   - 212: {fileID: 214650196}
   m_Layer: 0
-  m_Name: chapter1_10
+  m_Name: Drawbridge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9096,11 +9096,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 214650195}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -414, y: 196.899994, z: 0}
+  m_LocalPosition: {x: -289.756226, y: 207.238235, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_Father: {fileID: 1868829877}
+  m_RootOrder: 30
 --- !u!1 &222286138
 GameObject:
   m_ObjectHideFlags: 0
@@ -34151,6 +34151,7 @@ GameObject:
   - 4: {fileID: 850181707}
   - 114: {fileID: 850181709}
   - 212: {fileID: 850181708}
+  - 95: {fileID: 850181710}
   m_Layer: 8
   m_Name: (8, 19)
   m_TagString: Tile
@@ -34191,7 +34192,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300028, guid: 89037f888a2504a05afc949c90eb3373, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 91a1c6a8bddda43899f77e1201955ecb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &850181709
 MonoBehaviour:
@@ -34206,6 +34207,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridPosition: {x: 8, y: 19}
   blocked: 0
+--- !u!95 &850181710
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 850181706}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6765ae627d7fc4270acdb1670c215571, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &850431546
 GameObject:
   m_ObjectHideFlags: 0
@@ -73969,6 +73985,7 @@ Transform:
   - {fileID: 232581691}
   - {fileID: 2002681148}
   - {fileID: 136308082}
+  - {fileID: 214650197}
   m_Father: {fileID: 0}
   m_RootOrder: 5
 --- !u!1 &1871369982
