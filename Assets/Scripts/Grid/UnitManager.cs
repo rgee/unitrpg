@@ -50,11 +50,17 @@ namespace Grid {
             if (unitsByPosition.ContainsKey(position)) {
                 selectedUnit = unitsByPosition[position];
                 selectedGridPosition = position;
+
+                MapTile tile = Grid.GetTileAt(position).GetComponent<MapTile>();
+                tile.Select(Color.blue);
             }
         }
 
         private void ClearSelectedUnit() {
             selectedUnit = null;
+
+            MapTile tile = Grid.GetTileAt(selectedGridPosition.Value).GetComponent<MapTile>();
+            tile.Deselect();
             selectedGridPosition = null;
         }
 
