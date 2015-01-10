@@ -9,6 +9,9 @@ namespace Grid {
         private List<GameObject> units = new List<GameObject>();
         private Dictionary<Vector2, GameObject> unitsByPosition = new Dictionary<Vector2, GameObject>();
 
+        private GameObject selectedUnit;
+        private Vector2? selectedGridPosition;
+
         // Use this for initialization
         void Start() {
             foreach (Transform t in transform) {
@@ -27,18 +30,46 @@ namespace Grid {
 
             if (Input.GetMouseButtonDown(0)) {
                 Vector2? maybeGridPos = Grid.GetMouseGridPosition();
-                if (maybeGridPos.HasValue) {
-                    Vector2 gridPos = maybeGridPos.Value;
- 
-                    GameObject tile = Grid.GetTileAt(gridPos);
 
-                    // Do not move to blocked tiles.
-                    if (!tile.GetComponent<MapTile>().blocked) {
-                        foreach (GameObject unit in unitsByPosition.Values) {
-                            unit.transform.position = tile.renderer.bounds.center;
-                        }
+                // If the click happened at a grid point
+                if (maybeGridPos.HasValue) {
+
+                    if (selectedUnit == null) {
+                        SelectUnit(maybeGridPos.Value);
+                    } else {
+                        MoveSelectedUnitTo(maybeGridPos.Value);
                     }
+                } else {
+
+                    ClearSelectedUnit();
                 }
+            }
+        }
+
+        private void SelectUnit(Vector2 position) {
+            if (unitsByPosition.ContainsKey(position)) {
+                selectedUnit = unitsByPosition[position];
+                selectedGridPosition = position;
+            }
+        }
+
+        private void ClearSelectedUnit() {
+            selectedUnit = null;
+            selectedGridPosition = null;
+        }
+
+        private void MoveSelectedUnitTo(Vector2 position) {
+            if (selectedUnit == null) {
+                return;
+            }
+
+            GameObject tile = Grid.GetTileAt(position);
+            if (!tile.GetComponent<MapTile>().blocked) {
+                selectedUnit.transform.position = tile.renderer.bounds.center;
+                unitsByPosition.Remove(selectedGridPosition.Value);
+                unitsByPosition.Add(position, selectedUnit);
+
+                ClearSelectedUnit();
             }
         }
     }
