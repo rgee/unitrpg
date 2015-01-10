@@ -24,7 +24,7 @@ public class MapGrid : MonoBehaviour {
         ResetTiles();
     }
 
-    public Vector2? GetGridMousePosition() {
+    public Vector2? GetMouseGridPosition() {
 
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
 

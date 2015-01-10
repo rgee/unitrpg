@@ -26,7 +26,7 @@ namespace Grid {
         void Update() {
 
             if (Input.GetMouseButtonDown(0)) {
-                Vector2? maybeGridPos = Grid.GetGridMousePosition();
+                Vector2? maybeGridPos = Grid.GetMouseGridPosition();
                 if (maybeGridPos.HasValue) {
                     Vector2 gridPos = maybeGridPos.Value;
  
