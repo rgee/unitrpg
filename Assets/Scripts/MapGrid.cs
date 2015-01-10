@@ -40,13 +40,18 @@ public class MapGrid : MonoBehaviour {
         int worldY = ((int)mousePos.y - worldStartY) * (height) / (worldEndY - worldStartY);
 
 
+        // Reject if the grid position is out of bounds.
         Vector2 gridPos = new Vector2(worldX, worldY);
-        if (gridPos.x < 0 || gridPos.x >= width ||
-            gridPos.y >= height || gridPos.y < 0) {
+        if (!IsInGrid(gridPos)) {
                 return null;
         }
 
         return gridPos;
+    }
+
+    private bool IsInGrid(Vector2 gridPos) {
+        return gridPos.x >= 0 && gridPos.x < width &&
+               gridPos.y < height && gridPos.y >= 0;
     }
 
     public void ResetTiles() {
