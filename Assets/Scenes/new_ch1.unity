@@ -22875,7 +22875,6 @@ GameObject:
   - 20: {fileID: 546419720}
   - 92: {fileID: 546419719}
   - 124: {fileID: 546419718}
-  - 81: {fileID: 546419717}
   - 114: {fileID: 546419716}
   - 114: {fileID: 546419721}
   m_Layer: 0
@@ -22911,14 +22910,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aspectRatioWidth: 16
   aspectRatioHeight: 9
---- !u!81 &546419717
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 8191918, guid: 5b2d6b95a03e4f644b413af693f32b46,
-    type: 2}
-  m_PrefabInternal: {fileID: 879570181}
-  m_GameObject: {fileID: 546419714}
-  m_Enabled: 1
 --- !u!124 &546419718
 Behaviour:
   m_ObjectHideFlags: 0
@@ -35818,6 +35809,7 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8191916, guid: 5b2d6b95a03e4f644b413af693f32b46, type: 2}
+    - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: 5b2d6b95a03e4f644b413af693f32b46, type: 2}
   m_RootGameObject: {fileID: 1277527665}
   m_IsPrefabParent: 0
