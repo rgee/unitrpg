@@ -149,7 +149,6 @@ GameObject:
   - 20: {fileID: 408532794}
   - 92: {fileID: 408532799}
   - 124: {fileID: 408532798}
-  - 81: {fileID: 408532797}
   - 114: {fileID: 408532796}
   m_Layer: 0
   m_Name: Main Camera
@@ -217,14 +216,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aspectRatioWidth: 16
   aspectRatioHeight: 9
---- !u!81 &408532797
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 8191918, guid: 5b2d6b95a03e4f644b413af693f32b46,
-    type: 2}
-  m_PrefabInternal: {fileID: 750430394}
-  m_GameObject: {fileID: 408532793}
-  m_Enabled: 1
 --- !u!124 &408532798
 Behaviour:
   m_ObjectHideFlags: 0
@@ -328,7 +319,7 @@ RectTransform:
   m_GameObject: {fileID: 414267884}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: .0185185187, y: .0185185187, z: .0185185187}
+  m_LocalScale: {x: .0185085833, y: .0185085833, z: .0185085833}
   m_Children:
   - {fileID: 814642280}
   - {fileID: 1134021047}
@@ -337,7 +328,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 125.615105, y: -39.4989929}
-  m_SizeDelta: {x: 1922.1145, y: 0}
+  m_SizeDelta: {x: 1920, y: 0}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &414267889
 MonoBehaviour:

@@ -227,7 +227,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &100975862
 RectTransform:
   m_ObjectHideFlags: 0
@@ -296,7 +296,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 2
   m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 1976318382}
   m_PlaneDistance: 100
   m_PixelPerfect: 1
   m_ReceivesEvents: 1
@@ -1062,7 +1062,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22441568, guid: 60d7105787cfc4bf59e2b593c8815384, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22441568, guid: 60d7105787cfc4bf59e2b593c8815384, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -1106,8 +1106,20 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 141568, guid: 60d7105787cfc4bf59e2b593c8815384, type: 2}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11441572, guid: 60d7105787cfc4bf59e2b593c8815384, type: 2}
+      propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 22341568, guid: 60d7105787cfc4bf59e2b593c8815384, type: 2}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22341568, guid: 60d7105787cfc4bf59e2b593c8815384, type: 2}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1976318382}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 60d7105787cfc4bf59e2b593c8815384, type: 2}
   m_RootGameObject: {fileID: 100975861}
@@ -1295,7 +1307,7 @@ RectTransform:
   m_GameObject: {fileID: 1736954072}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: .00926435646, y: .00926435646, z: .00926435646}
+  m_LocalScale: {x: .00925677549, y: .00925677549, z: .00925677549}
   m_Children:
   - {fileID: 609062278}
   - {fileID: 614642826}
@@ -1304,7 +1316,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1921.05701, y: 0}
+  m_SizeDelta: {x: 1919.48486, y: 0}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1736954074
 MonoBehaviour:
@@ -1483,7 +1495,6 @@ GameObject:
   - 20: {fileID: 1976318382}
   - 92: {fileID: 1976318381}
   - 124: {fileID: 1976318380}
-  - 81: {fileID: 1976318379}
   - 114: {fileID: 1976318384}
   m_Layer: 0
   m_Name: Main Camera
@@ -1492,14 +1503,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &1976318379
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 8191918, guid: 5b2d6b95a03e4f644b413af693f32b46,
-    type: 2}
-  m_PrefabInternal: {fileID: 663067249}
-  m_GameObject: {fileID: 1976318378}
-  m_Enabled: 1
 --- !u!124 &1976318380
 Behaviour:
   m_ObjectHideFlags: 0
