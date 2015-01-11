@@ -52,6 +52,25 @@ public class MapGrid : MonoBehaviour {
         return gridPos;
     }
 
+    public Vector3 GetWorldPosForGridPos(Vector2 gridPos) {
+        int gridEndX = width;
+
+        int worldStartX = -((width / 2) * (int)tileSizeInPixels);
+        int worldEndX = -worldStartX;
+
+        int worldX = ((int)gridPos.x) * (worldEndX - worldStartX) / width + worldStartX;
+
+
+        int gridEndY = height;
+
+        int worldStartY = -((height / 2) * (int)tileSizeInPixels);
+        int worldEndY = -worldStartY;
+
+        int worldY = ((int)gridPos.y) * (worldEndY - worldStartY) / height + worldStartY;
+
+        return new Vector3(worldX, worldY, 0);
+    }
+
     private bool IsInGrid(Vector2 gridPos) {
         return gridPos.x >= 0 && gridPos.x < width &&
                gridPos.y < height && gridPos.y >= 0;

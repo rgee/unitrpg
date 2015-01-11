@@ -69,12 +69,14 @@ namespace Grid {
                 return;
             }
 
+            Unit unitComp = selectedUnit.GetComponent<Unit>();
+
             GameObject tile = Grid.GetTileAt(position);
             if (!tile.GetComponent<MapTile>().blocked) {
-                selectedUnit.transform.position = tile.renderer.bounds.center;
+                //selectedUnit.transform.position = tile.renderer.bounds.center;
                 unitsByPosition.Remove(selectedGridPosition.Value);
                 unitsByPosition.Add(position, selectedUnit);
-
+                unitComp.MoveTo(selectedGridPosition.Value, Grid);
                 ClearSelectedUnit();
             }
         }
