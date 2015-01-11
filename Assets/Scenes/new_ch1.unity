@@ -859,6 +859,7 @@ GameObject:
   - 4: {fileID: 21485865}
   - 114: {fileID: 21485867}
   - 212: {fileID: 21485866}
+  - 95: {fileID: 21485868}
   m_Layer: 8
   m_Name: (6, 18)
   m_TagString: Tile
@@ -899,7 +900,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300028, guid: 89037f888a2504a05afc949c90eb3373, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 91a1c6a8bddda43899f77e1201955ecb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &21485867
 MonoBehaviour:
@@ -914,6 +915,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridPosition: {x: 6, y: 18}
   blocked: 0
+--- !u!95 &21485868
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 21485864}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6765ae627d7fc4270acdb1670c215571, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &21652251
 GameObject:
   m_ObjectHideFlags: 0
@@ -2640,6 +2656,7 @@ GameObject:
   - 4: {fileID: 63495174}
   - 114: {fileID: 63495176}
   - 212: {fileID: 63495175}
+  - 95: {fileID: 63495177}
   m_Layer: 8
   m_Name: (8, 13)
   m_TagString: Tile
@@ -2680,7 +2697,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300028, guid: 89037f888a2504a05afc949c90eb3373, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 91a1c6a8bddda43899f77e1201955ecb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &63495176
 MonoBehaviour:
@@ -2695,6 +2712,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridPosition: {x: 8, y: 13}
   blocked: 0
+--- !u!95 &63495177
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 63495173}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6765ae627d7fc4270acdb1670c215571, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &69255723
 GameObject:
   m_ObjectHideFlags: 0
@@ -3283,6 +3315,7 @@ GameObject:
   - 4: {fileID: 83735973}
   - 114: {fileID: 83735975}
   - 212: {fileID: 83735974}
+  - 95: {fileID: 83735976}
   m_Layer: 8
   m_Name: (4, 12)
   m_TagString: Tile
@@ -3323,7 +3356,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300028, guid: 89037f888a2504a05afc949c90eb3373, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 91a1c6a8bddda43899f77e1201955ecb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &83735975
 MonoBehaviour:
@@ -3338,6 +3371,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridPosition: {x: 4, y: 12}
   blocked: 0
+--- !u!95 &83735976
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 83735972}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6765ae627d7fc4270acdb1670c215571, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &85432765
 GameObject:
   m_ObjectHideFlags: 0
@@ -9144,7 +9192,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 214650195}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -289.756226, y: 207.238235, z: 1}
+  m_LocalPosition: {x: -289.799988, y: 217.5, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1868829877}
@@ -22401,6 +22449,7 @@ GameObject:
   - 4: {fileID: 532978721}
   - 114: {fileID: 532978723}
   - 212: {fileID: 532978722}
+  - 95: {fileID: 532978724}
   m_Layer: 8
   m_Name: (3, 14)
   m_TagString: Tile
@@ -22441,7 +22490,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300028, guid: 89037f888a2504a05afc949c90eb3373, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 91a1c6a8bddda43899f77e1201955ecb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &532978723
 MonoBehaviour:
@@ -22456,6 +22505,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridPosition: {x: 3, y: 14}
   blocked: 0
+--- !u!95 &532978724
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 532978720}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6765ae627d7fc4270acdb1670c215571, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &537173540
 GameObject:
   m_ObjectHideFlags: 0
@@ -24033,6 +24097,7 @@ GameObject:
   - 4: {fileID: 571160013}
   - 114: {fileID: 571160015}
   - 212: {fileID: 571160014}
+  - 95: {fileID: 571160016}
   m_Layer: 8
   m_Name: (6, 14)
   m_TagString: Tile
@@ -24073,7 +24138,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300028, guid: 89037f888a2504a05afc949c90eb3373, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 91a1c6a8bddda43899f77e1201955ecb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &571160015
 MonoBehaviour:
@@ -24088,6 +24153,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridPosition: {x: 6, y: 14}
   blocked: 0
+--- !u!95 &571160016
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 571160012}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6765ae627d7fc4270acdb1670c215571, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &571767396
 GameObject:
   m_ObjectHideFlags: 0
@@ -30606,6 +30686,7 @@ GameObject:
   - 4: {fileID: 725430467}
   - 114: {fileID: 725430469}
   - 212: {fileID: 725430468}
+  - 95: {fileID: 725430470}
   m_Layer: 8
   m_Name: (5, 13)
   m_TagString: Tile
@@ -30646,7 +30727,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300028, guid: 89037f888a2504a05afc949c90eb3373, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 91a1c6a8bddda43899f77e1201955ecb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &725430469
 MonoBehaviour:
@@ -30661,6 +30742,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridPosition: {x: 5, y: 13}
   blocked: 0
+--- !u!95 &725430470
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 725430466}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6765ae627d7fc4270acdb1670c215571, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &730209677
 GameObject:
   m_ObjectHideFlags: 0
@@ -36295,6 +36391,7 @@ GameObject:
   - 4: {fileID: 889583603}
   - 114: {fileID: 889583605}
   - 212: {fileID: 889583604}
+  - 95: {fileID: 889583606}
   m_Layer: 8
   m_Name: (6, 13)
   m_TagString: Tile
@@ -36335,7 +36432,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300028, guid: 89037f888a2504a05afc949c90eb3373, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 91a1c6a8bddda43899f77e1201955ecb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &889583605
 MonoBehaviour:
@@ -36350,6 +36447,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridPosition: {x: 6, y: 13}
   blocked: 0
+--- !u!95 &889583606
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 889583602}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6765ae627d7fc4270acdb1670c215571, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &889740910
 GameObject:
   m_ObjectHideFlags: 0
@@ -39884,6 +39996,7 @@ GameObject:
   - 4: {fileID: 981219471}
   - 114: {fileID: 981219473}
   - 212: {fileID: 981219472}
+  - 95: {fileID: 981219474}
   m_Layer: 8
   m_Name: (6, 19)
   m_TagString: Tile
@@ -39924,7 +40037,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300028, guid: 89037f888a2504a05afc949c90eb3373, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 91a1c6a8bddda43899f77e1201955ecb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &981219473
 MonoBehaviour:
@@ -39939,6 +40052,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridPosition: {x: 6, y: 19}
   blocked: 0
+--- !u!95 &981219474
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 981219470}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6765ae627d7fc4270acdb1670c215571, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &984979704
 GameObject:
   m_ObjectHideFlags: 0
@@ -52437,6 +52565,7 @@ GameObject:
   - 4: {fileID: 1308401560}
   - 114: {fileID: 1308401562}
   - 212: {fileID: 1308401561}
+  - 95: {fileID: 1308401563}
   m_Layer: 8
   m_Name: (4, 14)
   m_TagString: Tile
@@ -52477,7 +52606,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300028, guid: 89037f888a2504a05afc949c90eb3373, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 91a1c6a8bddda43899f77e1201955ecb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &1308401562
 MonoBehaviour:
@@ -52492,6 +52621,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridPosition: {x: 4, y: 14}
   blocked: 0
+--- !u!95 &1308401563
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1308401559}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6765ae627d7fc4270acdb1670c215571, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1308976749
 GameObject:
   m_ObjectHideFlags: 0
@@ -53950,6 +54094,7 @@ GameObject:
   - 4: {fileID: 1349756782}
   - 114: {fileID: 1349756784}
   - 212: {fileID: 1349756783}
+  - 95: {fileID: 1349756785}
   m_Layer: 8
   m_Name: (5, 19)
   m_TagString: Tile
@@ -53990,7 +54135,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300028, guid: 89037f888a2504a05afc949c90eb3373, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 91a1c6a8bddda43899f77e1201955ecb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &1349756784
 MonoBehaviour:
@@ -54005,6 +54150,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridPosition: {x: 5, y: 19}
   blocked: 0
+--- !u!95 &1349756785
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1349756781}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6765ae627d7fc4270acdb1670c215571, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1350316783
 GameObject:
   m_ObjectHideFlags: 0
@@ -54310,6 +54470,7 @@ GameObject:
   - 4: {fileID: 1355804561}
   - 114: {fileID: 1355804563}
   - 212: {fileID: 1355804562}
+  - 95: {fileID: 1355804564}
   m_Layer: 8
   m_Name: (4, 13)
   m_TagString: Tile
@@ -54350,7 +54511,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300028, guid: 89037f888a2504a05afc949c90eb3373, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 91a1c6a8bddda43899f77e1201955ecb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &1355804563
 MonoBehaviour:
@@ -54365,6 +54526,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridPosition: {x: 4, y: 13}
   blocked: 0
+--- !u!95 &1355804564
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1355804560}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6765ae627d7fc4270acdb1670c215571, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1356678675
 GameObject:
   m_ObjectHideFlags: 0
@@ -58022,6 +58198,7 @@ GameObject:
   - 4: {fileID: 1446913097}
   - 114: {fileID: 1446913099}
   - 212: {fileID: 1446913098}
+  - 95: {fileID: 1446913100}
   m_Layer: 8
   m_Name: (7, 13)
   m_TagString: Tile
@@ -58062,7 +58239,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300028, guid: 89037f888a2504a05afc949c90eb3373, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 91a1c6a8bddda43899f77e1201955ecb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &1446913099
 MonoBehaviour:
@@ -58077,6 +58254,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridPosition: {x: 7, y: 13}
   blocked: 0
+--- !u!95 &1446913100
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1446913096}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6765ae627d7fc4270acdb1670c215571, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1447533219
 GameObject:
   m_ObjectHideFlags: 0
@@ -58137,6 +58329,7 @@ GameObject:
   - 4: {fileID: 1448620058}
   - 114: {fileID: 1448620060}
   - 212: {fileID: 1448620059}
+  - 95: {fileID: 1448620061}
   m_Layer: 8
   m_Name: (7, 18)
   m_TagString: Tile
@@ -58177,7 +58370,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300028, guid: 89037f888a2504a05afc949c90eb3373, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 91a1c6a8bddda43899f77e1201955ecb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &1448620060
 MonoBehaviour:
@@ -58192,6 +58385,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridPosition: {x: 7, y: 18}
   blocked: 0
+--- !u!95 &1448620061
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1448620057}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6765ae627d7fc4270acdb1670c215571, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1452007805
 GameObject:
   m_ObjectHideFlags: 0
@@ -59396,6 +59604,7 @@ GameObject:
   - 4: {fileID: 1486037044}
   - 114: {fileID: 1486037046}
   - 212: {fileID: 1486037045}
+  - 95: {fileID: 1486037047}
   m_Layer: 8
   m_Name: (3, 12)
   m_TagString: Tile
@@ -59436,7 +59645,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300028, guid: 89037f888a2504a05afc949c90eb3373, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 91a1c6a8bddda43899f77e1201955ecb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &1486037046
 MonoBehaviour:
@@ -59451,6 +59660,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridPosition: {x: 3, y: 12}
   blocked: 0
+--- !u!95 &1486037047
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1486037043}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6765ae627d7fc4270acdb1670c215571, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1493408374
 GameObject:
   m_ObjectHideFlags: 0
@@ -61086,6 +61310,7 @@ GameObject:
   - 4: {fileID: 1530126903}
   - 114: {fileID: 1530126905}
   - 212: {fileID: 1530126904}
+  - 95: {fileID: 1530126906}
   m_Layer: 8
   m_Name: (8, 14)
   m_TagString: Tile
@@ -61126,7 +61351,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300028, guid: 89037f888a2504a05afc949c90eb3373, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 91a1c6a8bddda43899f77e1201955ecb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &1530126905
 MonoBehaviour:
@@ -61141,6 +61366,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridPosition: {x: 8, y: 14}
   blocked: 0
+--- !u!95 &1530126906
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1530126902}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6765ae627d7fc4270acdb1670c215571, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1532074304
 GameObject:
   m_ObjectHideFlags: 0
@@ -66471,6 +66711,7 @@ GameObject:
   - 4: {fileID: 1666284791}
   - 114: {fileID: 1666284793}
   - 212: {fileID: 1666284792}
+  - 95: {fileID: 1666284794}
   m_Layer: 8
   m_Name: (5, 14)
   m_TagString: Tile
@@ -66511,7 +66752,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300028, guid: 89037f888a2504a05afc949c90eb3373, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 91a1c6a8bddda43899f77e1201955ecb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &1666284793
 MonoBehaviour:
@@ -66526,6 +66767,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridPosition: {x: 5, y: 14}
   blocked: 0
+--- !u!95 &1666284794
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1666284790}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6765ae627d7fc4270acdb1670c215571, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1670193025
 GameObject:
   m_ObjectHideFlags: 0
@@ -67842,6 +68098,7 @@ GameObject:
   - 4: {fileID: 1705590355}
   - 114: {fileID: 1705590357}
   - 212: {fileID: 1705590356}
+  - 95: {fileID: 1705590358}
   m_Layer: 8
   m_Name: (5, 18)
   m_TagString: Tile
@@ -67882,7 +68139,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300028, guid: 89037f888a2504a05afc949c90eb3373, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 91a1c6a8bddda43899f77e1201955ecb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &1705590357
 MonoBehaviour:
@@ -67897,6 +68154,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridPosition: {x: 5, y: 18}
   blocked: 0
+--- !u!95 &1705590358
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1705590354}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6765ae627d7fc4270acdb1670c215571, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1706779185
 GameObject:
   m_ObjectHideFlags: 0
@@ -68937,6 +69209,7 @@ GameObject:
   - 4: {fileID: 1729508264}
   - 114: {fileID: 1729508266}
   - 212: {fileID: 1729508265}
+  - 95: {fileID: 1729508267}
   m_Layer: 8
   m_Name: (7, 19)
   m_TagString: Tile
@@ -68977,7 +69250,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300028, guid: 89037f888a2504a05afc949c90eb3373, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 91a1c6a8bddda43899f77e1201955ecb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &1729508266
 MonoBehaviour:
@@ -68992,6 +69265,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridPosition: {x: 7, y: 19}
   blocked: 0
+--- !u!95 &1729508267
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1729508263}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6765ae627d7fc4270acdb1670c215571, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1733866452
 GameObject:
   m_ObjectHideFlags: 0
@@ -79449,6 +79737,7 @@ GameObject:
   - 4: {fileID: 2025752982}
   - 114: {fileID: 2025752984}
   - 212: {fileID: 2025752983}
+  - 95: {fileID: 2025752985}
   m_Layer: 8
   m_Name: (7, 14)
   m_TagString: Tile
@@ -79489,7 +79778,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300028, guid: 89037f888a2504a05afc949c90eb3373, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 91a1c6a8bddda43899f77e1201955ecb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &2025752984
 MonoBehaviour:
@@ -79504,6 +79793,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridPosition: {x: 7, y: 14}
   blocked: 0
+--- !u!95 &2025752985
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2025752981}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6765ae627d7fc4270acdb1670c215571, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &2026528823
 GameObject:
   m_ObjectHideFlags: 0
@@ -81507,6 +81811,7 @@ GameObject:
   - 4: {fileID: 2072404013}
   - 114: {fileID: 2072404015}
   - 212: {fileID: 2072404014}
+  - 95: {fileID: 2072404016}
   m_Layer: 8
   m_Name: (3, 13)
   m_TagString: Tile
@@ -81547,7 +81852,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300028, guid: 89037f888a2504a05afc949c90eb3373, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 91a1c6a8bddda43899f77e1201955ecb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &2072404015
 MonoBehaviour:
@@ -81562,6 +81867,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridPosition: {x: 3, y: 13}
   blocked: 0
+--- !u!95 &2072404016
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2072404012}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6765ae627d7fc4270acdb1670c215571, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &2072409311
 GameObject:
   m_ObjectHideFlags: 0
@@ -84912,6 +85232,7 @@ GameObject:
   - 4: {fileID: 2147364174}
   - 114: {fileID: 2147364176}
   - 212: {fileID: 2147364175}
+  - 95: {fileID: 2147364177}
   m_Layer: 8
   m_Name: (8, 18)
   m_TagString: Tile
@@ -84952,7 +85273,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300028, guid: 89037f888a2504a05afc949c90eb3373, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 91a1c6a8bddda43899f77e1201955ecb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &2147364176
 MonoBehaviour:
@@ -84967,3 +85288,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridPosition: {x: 8, y: 18}
   blocked: 0
+--- !u!95 &2147364177
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2147364173}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6765ae627d7fc4270acdb1670c215571, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1

@@ -37,7 +37,6 @@ namespace Grid {
                     if (selectedUnit == null) {
                         SelectUnit(maybeGridPos.Value);
                     } else {
-						Debug.Log(maybeGridPos);
                         MoveSelectedUnitTo(maybeGridPos.Value);
                     }
                 } else {
