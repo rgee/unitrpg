@@ -58,12 +58,13 @@ public class MapGrid : MonoBehaviour {
         int worldStartX = -((width / 2) * (int)tileSizeInPixels);
         int worldEndX = -worldStartX;
 
+
         int worldX = ((int)gridPos.x) * (worldEndX - worldStartX) / width + worldStartX;
 
 
         int gridEndY = height;
 
-        int worldStartY = -((height / 2) * (int)tileSizeInPixels);
+        int worldStartY = -((height  / 2) * (int)tileSizeInPixels);
         int worldEndY = -worldStartY;
 
         int worldY = ((int)gridPos.y) * (worldEndY - worldStartY) / height + worldStartY;

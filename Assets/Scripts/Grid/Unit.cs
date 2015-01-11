@@ -20,9 +20,6 @@ namespace Grid {
 
         private void OnPathFound(Pathfinding.Path p) {
             if (p.vectorPath.Count > 0) {
-                foreach (Vector3 seg in p.vectorPath) {
-                    Debug.Log(seg);
-                }
                 Vector3 end = p.vectorPath[p.vectorPath.Count - 1];
                 transform.position = end;
             }

@@ -37,6 +37,7 @@ namespace Grid {
                     if (selectedUnit == null) {
                         SelectUnit(maybeGridPos.Value);
                     } else {
+						Debug.Log(maybeGridPos);
                         MoveSelectedUnitTo(maybeGridPos.Value);
                     }
                 } else {
@@ -76,7 +77,7 @@ namespace Grid {
                 //selectedUnit.transform.position = tile.renderer.bounds.center;
                 unitsByPosition.Remove(selectedGridPosition.Value);
                 unitsByPosition.Add(position, selectedUnit);
-                unitComp.MoveTo(selectedGridPosition.Value, Grid);
+                unitComp.MoveTo(position, Grid);
                 ClearSelectedUnit();
             }
         }
