@@ -18,8 +18,29 @@ public class DeckAnimator : MonoBehaviour {
 	}
 
 	public void Update() {
-		if (!complete && animator.complete && Input.GetKeyDown(KeyCode.Space)) {
-			StartAnimation();
+		if (!complete) {
+			if (Input.GetKeyDown (KeyCode.Escape)) {
+				cardIdx = 0;
+				textObject.text = "";
+				animator.Reset ();
+
+				while (!complete) {
+					Models.Card currentCard = deck.cards[cardIdx];
+					animator.textObject = textObject;
+					animator.card = currentCard;
+
+					animator.Skip();
+
+					cardIdx++;
+					if (cardIdx >= deck.cards.Length) {
+						complete = true;
+					}
+				}
+			} else if (Input.GetKeyDown(KeyCode.Space)) {
+				if (animator.complete) {
+					StartAnimation();
+				} 
+			}
 		}
 	}
 

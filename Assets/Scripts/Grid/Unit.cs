@@ -16,7 +16,6 @@ namespace Grid {
         public void MoveTo(Vector2 pos, MapGrid grid, OnPathingComplete callback) {
 
             Vector3 destination = grid.GetWorldPosForGridPos(pos);
-			Debug.Log ("Dest: " + destination);
 			seeker.StartPath(transform.position, destination, (p) => {
 				if (!p.error) {
 

@@ -12,7 +12,17 @@ public class CardAnimator : MonoBehaviour {
 	}
 
 	public Coroutine StartAnimation() {
-		return StartCoroutine(Animate());
+		return StartCoroutine("Animate");
+	}
+
+	public void Skip() {
+		StopCoroutine("Animate");
+
+		foreach (Models.DialogueLine line in card.lines) {
+			textObject.text += line.text.Trim() + " ";
+		}
+
+		complete = true;
 	}
 
 	IEnumerator Animate() {
