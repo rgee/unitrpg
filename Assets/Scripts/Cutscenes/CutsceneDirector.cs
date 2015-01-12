@@ -12,6 +12,7 @@ public class CutsceneDirector : MonoBehaviour {
 	private int deckIndex;
 	private Dictionary<string, GameObject> portraits = new Dictionary<string, GameObject>();
 	private SceneFader sceneTransitioner;
+    private bool complete;
 
 	void Start () {
 		cardAnimator = GetComponent<CardAnimator>();
@@ -44,6 +45,10 @@ public class CutsceneDirector : MonoBehaviour {
 	}
 	
 	void Update () {
+        if (complete) {
+            return;
+        }
+
 		// Advance to the next deck of dialogue cards if the user presses
 		// the space bar, and the current animation is complete.
 		if (Input.GetKeyDown(KeyCode.Space) && cardAnimator.complete) {
@@ -58,6 +63,7 @@ public class CutsceneDirector : MonoBehaviour {
 	}
 
 	private IEnumerator TransitionToNextScene() {
+        complete = true;
 		yield return StartCoroutine(sceneTransitioner.FadeOut());
 		Application.LoadLevel(Cutscene.nextScene);
 	}
