@@ -38,6 +38,8 @@ public class DeckAnimator : MonoBehaviour {
 				}
 			} else if (Input.GetKeyDown(KeyCode.Space)) {
 				if (animator.complete) {
+                    // Completing a card should wipe the textbox to make room for the next.
+                    textObject.text = "";
 					StartAnimation();
 				} 
 			}
