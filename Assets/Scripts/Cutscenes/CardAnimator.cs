@@ -18,6 +18,11 @@ public class CardAnimator : MonoBehaviour {
 	public void Skip() {
 		StopCoroutine("Animate");
 
+        if (textObject == null) {
+            return;
+        }
+
+        textObject.text = "";
 		foreach (Models.DialogueLine line in card.lines) {
 			textObject.text += line.text.Trim() + " ";
 		}

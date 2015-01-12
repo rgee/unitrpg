@@ -20,22 +20,12 @@ public class DeckAnimator : MonoBehaviour {
 	public void Update() {
 		if (!complete) {
 			if (Input.GetKeyDown (KeyCode.Escape)) {
-				cardIdx = 0;
-				textObject.text = "";
-				animator.Reset ();
 
-				while (!complete) {
-					Models.Card currentCard = deck.cards[cardIdx];
-					animator.textObject = textObject;
-					animator.card = currentCard;
-
-					animator.Skip();
-
-					cardIdx++;
-					if (cardIdx >= deck.cards.Length) {
-						complete = true;
-					}
-				}
+                // Do not allow the user to skip a card that has already been completed.
+                if (!animator.complete) {
+                    animator.Skip();
+                    NextCard(); 
+                }
 			} else if (Input.GetKeyDown(KeyCode.Space)) {
 				if (animator.complete) {
                     // Completing a card should wipe the textbox to make room for the next.
@@ -46,35 +36,34 @@ public class DeckAnimator : MonoBehaviour {
 		}
 	}
 
+    /// <summary>
+    /// Begin animating the current deck.
+    /// </summary>
 	public void StartAnimation() {
 		StartCoroutine(AnimateCurrentCard());
 	}
 
+    /// <summary>
+    /// Set up the state to look at the next card in the list.
+    /// </summary>
+    private void NextCard() {
+        cardIdx++;
+        if (cardIdx >= deck.cards.Length) {
+            complete = true;
+        }
+    }
+
 	private IEnumerator AnimateCurrentCard() {
+        if (cardIdx >= deck.cards.Length) {
+            Debug.Log("Shit's fuct at: " + cardIdx);
+            yield return null;
+        }
 		Models.Card currentCard = deck.cards[cardIdx];
 		animator.textObject = textObject;
 		animator.card = currentCard;
 		animator.Reset();
 		yield return animator.StartAnimation();
 
-		cardIdx++;
-		if (cardIdx >= deck.cards.Length) {
-			complete = true;
-		}
-	}
-
-	IEnumerator Animate() {
-
-		Models.Card newCard = deck.cards[cardIdx];
-
-		// Because a deck is just a series of cards with a speaker
-		// just animate them in order.
-		animator.textObject = textObject;
-		foreach (Models.Card card in deck.cards) {
-			animator.card = card;
-			animator.Reset();
-			yield return animator.StartAnimation();
-		}
-		complete = true;
+        NextCard();
 	}
 }
