@@ -19,19 +19,16 @@ public class DeckAnimator : MonoBehaviour {
 
 	public void Update() {
 		if (!complete) {
-			if (Input.GetKeyDown (KeyCode.Escape)) {
-
-                // Do not allow the user to skip a card that has already been completed.
-                if (!animator.complete) {
-                    animator.Skip();
-                    NextCard(); 
-                }
-			} else if (Input.GetKeyDown(KeyCode.Space)) {
+	        if (Input.GetKeyDown(KeyCode.Space)) {
+          
+                long currentTimeMs = System.DateTime.Now.Ticks;
 				if (animator.complete) {
                     // Completing a card should wipe the textbox to make room for the next.
                     textObject.text = "";
 					StartAnimation();
-				} 
+                } else {
+                    StartCoroutine(EndCurrentCard());
+                }
 			}
 		}
 	}
@@ -53,11 +50,22 @@ public class DeckAnimator : MonoBehaviour {
         }
     }
 
+    private IEnumerator EndCurrentCard() {
+        // We must wait for the end of this frame to do this, otherwise:
+        // The 'Skip' call will force the card animator to complete, 
+        // and if the CutsceneDirector's Update method runs after ours
+        // it will see that in this frame, both the card animation is complete
+        // and the space bar is down, so it will immediately advance to the next deck.
+        //
+        // This way, nothing in this frame will see that the card animator completed,
+        // and on the next frame, the space key will probably have been released.
+        yield return new WaitForEndOfFrame();
+        animator.Skip();
+        NextCard();
+    }
+
 	private IEnumerator AnimateCurrentCard() {
-        if (cardIdx >= deck.cards.Length) {
-            Debug.Log("Shit's fuct at: " + cardIdx);
-            yield return null;
-        }
+        Debug.Log("current");
 		Models.Card currentCard = deck.cards[cardIdx];
 		animator.textObject = textObject;
 		animator.card = currentCard;
