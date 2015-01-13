@@ -28,33 +28,31 @@ public class MapGrid : MonoBehaviour {
     }
 
 
-    private int mapRange(int fromStart, int fromEnd, int toStart, int toEnd, int value) {
-        return toStart + (value - fromStart) * (toEnd - toStart) / (fromEnd - fromStart);
+    private float mapRange(float fromStart, float fromEnd, float toStart, float toEnd, float value) {
+        float inputRange = fromEnd - fromStart;
+        float outputRange = toEnd - toStart;
+        return (value - fromStart) * outputRange / inputRange + toStart;
+
     }
 
     public Vector2? GetMouseGridPosition() {
+      
 
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Debug.Log("Pre-map mouse coords: " + Input.mousePosition);
 
-        int worldStartX = -((width / 2) * (int)tileSizeInPixels);
-        int worldEndX = -worldStartX;
+        int tileSize = (int)tileSizeInPixels;
+        float widthExtent = (width / 2) * tileSize;
+        float heightExtent = (height / 2) * tileSize;
+        Debug.Log("Test X: " + mapRange(-widthExtent, widthExtent, 0, width, mousePos.x));
+        Debug.Log("Test Y: " + mapRange(-heightExtent, heightExtent, 0, height, mousePos.y));
+        Vector2 result =  new Vector3(
+            (float)Math.Floor(mapRange(-widthExtent, widthExtent, 0, width, mousePos.x)),
+            (float)Math.Floor(mapRange(-heightExtent, heightExtent, 0, height, mousePos.y))
+        );
 
-        int worldX = ((int)mousePos.x - worldStartX) * (width) / (worldEndX - worldStartX);
-
-
-        int worldStartY = -((height / 2) * (int)tileSizeInPixels);
-        int worldEndY = -worldStartY;
-
-        int worldY = ((int)mousePos.y - worldStartY) * (height) / (worldEndY - worldStartY);
-
-
-        // Reject if the grid position is out of bounds.
-        Vector2 gridPos = new Vector2(worldX, worldY);
-        if (!IsInGrid(gridPos)) {
-                return null;
-        }
-
-        return gridPos;
+        Debug.Log("Mapping " + mousePos + " to " + result);
+        return result;
     }
 
     public Vector3 GetWorldPosForGridPos(Vector2 gridPos) {
@@ -63,17 +61,18 @@ public class MapGrid : MonoBehaviour {
         }
 
         int tileSize = (int)tileSizeInPixels;
-        int widthExtent = ((int)(width/2))*tileSize;
-        int heightExtent = ((int)(height/2))*tileSize;
+        float widthExtent = (width/2)*tileSize;
+        float heightExtent = (height/2)*tileSize;
 
-        Debug.Log("Height ext: " + heightExtent);
-        Debug.Log("Width ext: " + widthExtent);
-
-        return new Vector3(
-            mapRange(0, width, -widthExtent, widthExtent, (int)gridPos.x),
-            mapRange(0, height, -heightExtent, heightExtent, (int)gridPos.y) - 16, 
+        Vector3 result = new Vector3(
+            mapRange(0, width, -widthExtent, widthExtent, gridPos.x),
+            mapRange(0, height, -304, 304, gridPos.y), 
             0
         );
+
+        Debug.Log("Mapping " + gridPos + " to " + result);
+
+        return result;
     }
 
     private bool IsInGrid(Vector2 gridPos) {
