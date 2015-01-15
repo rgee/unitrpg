@@ -82,6 +82,8 @@ namespace Grid {
 					if (found) {
 			            unitsByPosition.Remove(selectedPosition);
 			            unitsByPosition.Add(position, selectedUnit);
+
+						Grid.pathfinder.Scan();
 			        }
 			    });
 			    ClearSelectedUnit();

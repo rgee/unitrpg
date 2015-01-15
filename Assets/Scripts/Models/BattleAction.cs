@@ -6,5 +6,7 @@ public enum BattleAction {
 	ATTACK,
 	WAIT,
 	BRACE,
-	FIGHT
+	FIGHT,
+	TRADE,
+	ITEM
 }
