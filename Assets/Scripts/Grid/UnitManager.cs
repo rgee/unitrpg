@@ -83,7 +83,7 @@ namespace Grid {
 			            unitsByPosition.Remove(selectedPosition);
 			            unitsByPosition.Add(position, selectedUnit);
 
-						Grid.pathfinder.Scan();
+						Grid.Pathfinder.Scan();
 			        }
 			    });
 			    ClearSelectedUnit();

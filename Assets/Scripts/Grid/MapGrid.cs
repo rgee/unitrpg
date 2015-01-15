@@ -14,7 +14,7 @@ public class MapGrid : MonoBehaviour {
     public GameObject defaultTile;
 
     private Dictionary<Vector2, MapTile> tilesByPosition = new Dictionary<Vector2, MapTile>();
-	public AstarPath pathfinder;
+	public AstarPath Pathfinder;
 
     public void OnDrawGizmos() {
         Gizmos.color = Color.white;
@@ -27,7 +27,7 @@ public class MapGrid : MonoBehaviour {
             tilesByPosition.Add(tile.gridPosition, tile);
         }
 
-		pathfinder = GetComponent<AstarPath>();
+		Pathfinder = GetComponent<AstarPath>();
     }
 
 
