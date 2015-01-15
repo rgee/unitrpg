@@ -4,5 +4,7 @@ using System.Collections;
 public enum BattleAction {
 	MOVE,
 	ATTACK,
-	WAIT
+	WAIT,
+	BRACE,
+	FIGHT
 }
