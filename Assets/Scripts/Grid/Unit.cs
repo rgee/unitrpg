@@ -5,12 +5,17 @@ namespace Grid {
     public class Unit : MonoBehaviour {
 
         public Vector2 gridPosition;
+		public Models.Unit model;
         private Seeker seeker;
 
         void Start() {
             seeker = GetComponent<Seeker>();
             seeker.startEndModifier.exactEndPoint = Pathfinding.StartEndModifier.Exactness.SnapToNode;
         }
+
+		public void TakeDamage(int damage) {
+			model.TakeDamage(damage);
+		}
 
 		public delegate void OnPathingComplete(bool moved);
 

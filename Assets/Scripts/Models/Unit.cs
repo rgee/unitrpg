@@ -2,14 +2,16 @@
 using System.Collections;
 
 namespace Models {
+	[System.Serializable]
 	public class Unit {
 
 		public Character Character;
 		public Vector2 GridPosition;
 		public int Health;
-
-		void Awake() {
-			Health = Character.MaxHealth;
+		public bool IsAlive {
+			get {
+				return Health > 0;
+			}
 		}
 
 		public void TakeDamage(int damage) {

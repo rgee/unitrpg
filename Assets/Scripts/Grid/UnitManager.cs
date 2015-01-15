@@ -6,7 +6,8 @@ namespace Grid {
     public class UnitManager : MonoBehaviour {
         public MapGrid Grid;
 
-        private List<GameObject> units = new List<GameObject>();
+		private List<Models.Unit> unitModels = new List<Models.Unit>();
+        private List<GameObject> unitGameObjects = new List<GameObject>();
         private Dictionary<Vector2, GameObject> unitsByPosition = new Dictionary<Vector2, GameObject>();
 
         private GameObject selectedUnit;
@@ -15,10 +16,13 @@ namespace Grid {
         // Use this for initialization
         void Start() {
             foreach (Transform t in transform) {
-                units.Add(t.gameObject);
+                unitGameObjects.Add(t.gameObject);
 
-                Vector2 gridPos = t.gameObject.GetComponent<Grid.Unit>().gridPosition;
+				Grid.Unit unit = t.gameObject.GetComponent<Grid.Unit>();
+                Vector2 gridPos = unit.gridPosition;
                 unitsByPosition.Add(gridPos, t.gameObject);
+
+				unitModels.Add(unit.model);
 
                 GameObject tile = Grid.GetTileAt(gridPos);
                 Vector3 tileCenter = tile.renderer.bounds.center;
