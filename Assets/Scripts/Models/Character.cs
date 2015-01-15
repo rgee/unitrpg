@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace Models {
 	public class Character : ScriptableObject {
@@ -17,5 +18,7 @@ namespace Models {
 		public bool IsEnemy;
 
 		public string Name;
+
+		public List<BattleAction> AvailableActions;
 	}
 }
