@@ -6,7 +6,9 @@ public class ActionMenuManager : MonoBehaviour {
     private GameObject openMenu;
 
 	public void ShowActionMenu(Grid.Unit unit) {
-        GameObject menu = Instantiate(TestMenu) as GameObject;
+        GameObject menu = TestMenu;
+
+        menu.SetActive(true);
         menu.transform.SetParent(unit.transform, true);
         menu.transform.localPosition = new Vector3(-16, 35, 0);
 
@@ -14,7 +16,9 @@ public class ActionMenuManager : MonoBehaviour {
 	}
 
     public void HideCurrentMenu() {
-        Destroy(openMenu);
-        openMenu = null;
+        if (openMenu != null) {
+            openMenu.SetActive(false);
+            openMenu = null;
+        }
     }
 }

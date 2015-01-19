@@ -10,6 +10,7 @@ public class BattleManager : MonoBehaviour {
 
 	public GameObject playerPhaseText;
     public Grid.UnitManager unitManager;
+    public ActionMenuManager menuManager;
     public GridCameraController cameraController;
 
 	public enum BattleState {
@@ -17,10 +18,10 @@ public class BattleManager : MonoBehaviour {
 		Enemy_Phase,
 		Enemy_Phase_Intro,
 		Select_Unit,
+        Select_Fight_Action,
 		Select_Action,
 		Select_Target,
 		Confirm_Forecast,
-		Select_Move,
 		Select_Move_Target,
 		Battle_End,
 		Forecasting,
@@ -31,6 +32,30 @@ public class BattleManager : MonoBehaviour {
 		battleStateManager.SetTrigger("Player Phase Intro Animated");
         StartCoroutine(WaitAndUnlockControls());
 	}
+
+    public void StartActionSelect() {
+        battleStateManager.SetTrigger("Unit Selected");
+    }
+
+    public void SelectBattleAction(string actionString) {
+        switch (actionString) {
+            case "move":
+                SelectBattleAction(BattleAction.MOVE);
+                break;
+        }
+    }
+
+    public void CompletedMovement() {
+        battleStateManager.SetTrigger("Movement Complete");
+    }
+
+    public void SelectBattleAction(BattleAction action) {
+        if (action == BattleAction.MOVE) {
+            battleStateManager.SetTrigger("Moving");
+        } else if (action == BattleAction.FIGHT) {
+            battleStateManager.SetTrigger("Acting");
+        }
+    }
 
     private IEnumerator WaitAndUnlockControls() {
         yield return new WaitForSeconds(0.5f);
@@ -90,14 +115,17 @@ public class BattleManager : MonoBehaviour {
 		case BattleState.Select_Unit:
 			break;
 		case BattleState.Select_Action:
+            LockControls();
 			break;
 		case BattleState.Select_Target:
 			break;
 		case BattleState.Confirm_Forecast:
 			break;
-		case BattleState.Select_Move:
-			break;
+        case BattleState.Select_Fight_Action:
+            break;
 		case BattleState.Select_Move_Target:
+            UnlockControls();
+            menuManager.HideCurrentMenu();
 			break;
 		default:
 			break;

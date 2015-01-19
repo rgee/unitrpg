@@ -9,6 +9,7 @@ namespace Grid {
 		private List<Models.Unit> unitModels = new List<Models.Unit>();
         private List<GameObject> unitGameObjects = new List<GameObject>();
         private Dictionary<Vector2, GameObject> unitsByPosition = new Dictionary<Vector2, GameObject>();
+        private BattleManager battleManager;
 
         private bool locked;
         private GameObject selectedUnit;
@@ -29,6 +30,8 @@ namespace Grid {
                 Vector3 tileCenter = tile.renderer.bounds.center;
                 t.transform.position = tileCenter;
             }
+
+            battleManager = GameObject.FindGameObjectWithTag("BattleManager").GetComponent<BattleManager>();
         }
 
         public void Lock() {
@@ -56,7 +59,6 @@ namespace Grid {
                         MoveSelectedUnitTo(maybeGridPos.Value);
                     }
                 } else {
-
                     ClearSelectedUnit();
                 }
             }
@@ -76,17 +78,23 @@ namespace Grid {
 
                 MapTile tile = Grid.GetTileAt(position).GetComponent<MapTile>();
                 tile.Select(Color.blue);
+
+                battleManager.StartActionSelect();
             }
         }
 
         private void ClearSelectedUnit() {
-            selectedUnit.GetComponent<Unit>().Deselect();
+            Unit unitComponent = selectedUnit.GetComponent<Unit>();
+            unitComponent.Deselect();
+
             selectedUnit = null;
             
             MapTile tile = Grid.GetTileAt(selectedGridPosition.Value).GetComponent<MapTile>();
             tile.Deselect();
             selectedGridPosition = null;
         }
+
+
 
         private void MoveSelectedUnitTo(Vector2 position) {
             if (selectedUnit == null) {
@@ -106,6 +114,7 @@ namespace Grid {
 						Grid.Pathfinder.Scan();
 			        }
                     ClearSelectedUnit();
+                    battleManager.CompletedMovement();
 			    });
             }
         }
