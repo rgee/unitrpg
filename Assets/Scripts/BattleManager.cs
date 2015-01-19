@@ -6,9 +6,7 @@ public class BattleManager : MonoBehaviour {
 	private Animator battleStateManager;
 	private Dictionary<int, BattleState> battleStateHash = new Dictionary<int, BattleState>();
 	private BattleState currentBattleState;
-	private GameObject playerPhaseText;
-	private GameObject canvas;
-	private MapBehavior map;
+	public GameObject playerPhaseText;
 	private Animator playerPhaseTextAnimator;
 
 	public enum BattleState {
@@ -28,7 +26,7 @@ public class BattleManager : MonoBehaviour {
 
 	public void StartPlayerPhase() {
 		battleStateManager.SetTrigger("Player Phase Intro Animated");
-		print ("player phase starting");
+		Debug.Log("player phase starting");
 	}
 
 	void GetAnimationStates() {
@@ -41,8 +39,6 @@ public class BattleManager : MonoBehaviour {
 	void Start () {
 		battleStateManager = GetComponent<Animator>();
 		GetAnimationStates();
-		playerPhaseText = transform.Find("Canvas/Player Phase Text").gameObject;
-		canvas = transform.Find ("Canvas").gameObject;
 		playerPhaseTextAnimator = playerPhaseText.GetComponent<Animator>();
 	
 		RectTransform rect = playerPhaseText.GetComponent<RectTransform>();
@@ -50,7 +46,7 @@ public class BattleManager : MonoBehaviour {
 		rect.anchorMin = new Vector2(0f, 0.5f);
 		rect.anchoredPosition = new Vector3();
 
-		map = GameObject.FindGameObjectWithTag("Map").GetComponent<MapBehavior>();
+        playerPhaseTextAnimator.SetTrigger("visible");
 	}
 	
 	void Update () {
