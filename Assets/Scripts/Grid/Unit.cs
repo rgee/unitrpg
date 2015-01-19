@@ -8,6 +8,7 @@ namespace Grid {
 		public Models.Unit model;
         private Seeker seeker;
         private ActionMenuManager menuManager;
+        
 
         void Start() {
             menuManager = GameObject.FindGameObjectWithTag("ActionMenuManager").GetComponent<ActionMenuManager>();
@@ -37,6 +38,7 @@ namespace Grid {
 				if (!p.error) {
 					Vector3 end = p.vectorPath[p.vectorPath.Count - 1];
 					transform.position = end;
+                    gridPosition = pos;
 					callback(true);
 				} else {
 					callback(false);
