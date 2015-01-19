@@ -6,9 +6,10 @@ public class BattleManager : MonoBehaviour {
 	private Animator battleStateManager;
 	private Dictionary<int, BattleState> battleStateHash = new Dictionary<int, BattleState>();
 	private BattleState currentBattleState;
-	public GameObject playerPhaseText;
-	private Animator playerPhaseTextAnimator;
+    private Animator playerPhaseTextAnimator;
 
+	public GameObject playerPhaseText;
+    public Grid.UnitManager unitManager;
     public GridCameraController cameraController;
 
 	public enum BattleState {
@@ -28,14 +29,23 @@ public class BattleManager : MonoBehaviour {
 
 	public void StartPlayerPhase() {
 		battleStateManager.SetTrigger("Player Phase Intro Animated");
-
-        StartCoroutine(WaitAndUnlockCamera());
+        StartCoroutine(WaitAndUnlockControls());
 	}
 
-    private IEnumerator WaitAndUnlockCamera() {
+    private IEnumerator WaitAndUnlockControls() {
         yield return new WaitForSeconds(0.5f);
-        cameraController.Unlock();
+        UnlockControls();
         yield return null;
+    }
+
+    private void UnlockControls() {
+        cameraController.Unlock();
+        unitManager.Unlock();
+    }
+
+    private void LockControls() {
+        cameraController.Lock();
+        unitManager.Lock();
     }
 
 	void GetAnimationStates() {
@@ -55,7 +65,7 @@ public class BattleManager : MonoBehaviour {
 		rect.anchorMin = new Vector2(0f, 0.5f);
 		rect.anchoredPosition = new Vector3();
 
-        cameraController.Lock();
+        LockControls();
         playerPhaseTextAnimator.SetTrigger("visible");
 	}
 	

@@ -10,6 +10,7 @@ namespace Grid {
         private List<GameObject> unitGameObjects = new List<GameObject>();
         private Dictionary<Vector2, GameObject> unitsByPosition = new Dictionary<Vector2, GameObject>();
 
+        private bool locked;
         private GameObject selectedUnit;
         private Vector2? selectedGridPosition;
 
@@ -30,7 +31,19 @@ namespace Grid {
             }
         }
 
+        public void Lock() {
+            locked = true;
+        }
+
+        public void Unlock() {
+            locked = false;
+        }
+
         void Update() {
+
+            if (locked) {
+                return;
+            }
 
             if (Input.GetMouseButtonDown(0)) {
                 Vector2? maybeGridPos = Grid.GetMouseGridPosition();
