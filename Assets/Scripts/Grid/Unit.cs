@@ -7,8 +7,10 @@ namespace Grid {
         public Vector2 gridPosition;
 		public Models.Unit model;
         private Seeker seeker;
+        private ActionMenuManager menuManager;
 
         void Start() {
+            menuManager = GameObject.FindGameObjectWithTag("ActionMenuManager").GetComponent<ActionMenuManager>();
             seeker = GetComponent<Seeker>();
             seeker.startEndModifier.exactEndPoint = Pathfinding.StartEndModifier.Exactness.SnapToNode;
         }
@@ -18,6 +20,14 @@ namespace Grid {
 		}
 
 		public delegate void OnPathingComplete(bool moved);
+
+        public void Select() {
+            menuManager.ShowActionMenu(this);
+        }
+
+        public void Deselect() {
+            menuManager.HideCurrentMenu();
+        }
 
         public void MoveTo(Vector2 pos, MapGrid grid, OnPathingComplete callback) {
 

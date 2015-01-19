@@ -48,6 +48,10 @@ namespace Grid {
                     ClearSelectedUnit();
                 }
             }
+
+            if (Input.GetKeyDown(KeyCode.Escape)) {
+                ClearSelectedUnit();
+            }
         }
 
         private void SelectUnit(Vector2 position) {
@@ -55,14 +59,17 @@ namespace Grid {
                 selectedUnit = unitsByPosition[position];
                 selectedGridPosition = position;
 
+                selectedUnit.GetComponent<Unit>().Select();
+
                 MapTile tile = Grid.GetTileAt(position).GetComponent<MapTile>();
                 tile.Select(Color.blue);
             }
         }
 
         private void ClearSelectedUnit() {
+            selectedUnit.GetComponent<Unit>().Deselect();
             selectedUnit = null;
-
+            
             MapTile tile = Grid.GetTileAt(selectedGridPosition.Value).GetComponent<MapTile>();
             tile.Deselect();
             selectedGridPosition = null;
