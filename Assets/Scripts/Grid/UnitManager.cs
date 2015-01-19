@@ -37,7 +37,6 @@ namespace Grid {
 
                 // If the click happened at a grid point
                 if (maybeGridPos.HasValue) {
-
                     if (selectedUnit == null) {
                         SelectUnit(maybeGridPos.Value);
                     } else {
@@ -49,7 +48,7 @@ namespace Grid {
                 }
             }
 
-            if (Input.GetKeyDown(KeyCode.Escape)) {
+            if (selectedUnit != null && Input.GetKeyDown(KeyCode.Escape)) {
                 ClearSelectedUnit();
             }
         }
@@ -59,7 +58,8 @@ namespace Grid {
                 selectedUnit = unitsByPosition[position];
                 selectedGridPosition = position;
 
-                selectedUnit.GetComponent<Unit>().Select();
+                Unit unitComponent = selectedUnit.GetComponent<Unit>();
+                unitComponent.Select();
 
                 MapTile tile = Grid.GetTileAt(position).GetComponent<MapTile>();
                 tile.Select(Color.blue);
@@ -87,13 +87,13 @@ namespace Grid {
             if (!tile.GetComponent<MapTile>().blocked) {
                 unitComp.MoveTo(position, Grid, (found) => {
 					if (found) {
-			            unitsByPosition.Remove(selectedPosition);
+                        unitsByPosition.Remove(selectedPosition);
 			            unitsByPosition.Add(position, selectedUnit);
 
 						Grid.Pathfinder.Scan();
 			        }
+                    ClearSelectedUnit();
 			    });
-			    ClearSelectedUnit();
             }
         }
     }
