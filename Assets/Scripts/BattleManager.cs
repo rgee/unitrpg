@@ -9,6 +9,8 @@ public class BattleManager : MonoBehaviour {
 	public GameObject playerPhaseText;
 	private Animator playerPhaseTextAnimator;
 
+    public GridCameraController cameraController;
+
 	public enum BattleState {
 		Player_Phase_Intro,
 		Enemy_Phase,
@@ -26,8 +28,15 @@ public class BattleManager : MonoBehaviour {
 
 	public void StartPlayerPhase() {
 		battleStateManager.SetTrigger("Player Phase Intro Animated");
-		Debug.Log("player phase starting");
+
+        StartCoroutine(WaitAndUnlockCamera());
 	}
+
+    private IEnumerator WaitAndUnlockCamera() {
+        yield return new WaitForSeconds(0.5f);
+        cameraController.Unlock();
+        yield return null;
+    }
 
 	void GetAnimationStates() {
 		foreach (BattleState state in (BattleState[])System.Enum.GetValues(typeof(BattleState))) {
@@ -46,6 +55,7 @@ public class BattleManager : MonoBehaviour {
 		rect.anchorMin = new Vector2(0f, 0.5f);
 		rect.anchoredPosition = new Vector3();
 
+        cameraController.Lock();
         playerPhaseTextAnimator.SetTrigger("visible");
 	}
 	
