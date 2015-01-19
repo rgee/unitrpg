@@ -5,6 +5,7 @@ namespace Grid {
     public class Unit : MonoBehaviour {
 
         public Vector2 gridPosition;
+        public bool friendly;
 		public Models.Unit model;
         private Seeker seeker;
         private ActionMenuManager menuManager;

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Grid {
     public class UnitManager : MonoBehaviour {
@@ -10,6 +11,8 @@ namespace Grid {
         private List<GameObject> unitGameObjects = new List<GameObject>();
         private Dictionary<Vector2, GameObject> unitsByPosition = new Dictionary<Vector2, GameObject>();
         private BattleManager battleManager;
+
+        private HashSet<Grid.Unit> unmovedUnits = new HashSet<Unit>();
 
         private bool locked;
         private GameObject selectedUnit;
@@ -31,7 +34,21 @@ namespace Grid {
                 t.transform.position = tileCenter;
             }
 
+            ResetMovedUnits(true);
             battleManager = GameObject.FindGameObjectWithTag("BattleManager").GetComponent<BattleManager>();
+        }
+
+        public bool UnitsRemainingToMove() {
+            return unmovedUnits.Count > 0;
+        }
+
+        public void ResetMovedUnits(bool friendlyTurn) {
+            IEnumerable<Unit> unmovedUnitQuery = unitGameObjects
+                .Select(unit => unit.GetComponent<Unit>())
+                .Where(unit => unit.friendly == friendlyTurn);
+
+            unmovedUnits = new HashSet<Unit>(unmovedUnitQuery);
+            Debug.Log(unmovedUnits.Count);
         }
 
         public void Lock() {
@@ -114,6 +131,8 @@ namespace Grid {
 						Grid.Pathfinder.Scan();
 			        }
                     ClearSelectedUnit();
+
+                    unmovedUnits.Remove(unitComp);
                     battleManager.CompletedMovement();
 			    });
             }

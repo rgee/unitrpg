@@ -5,8 +5,10 @@ using System.Collections.Generic;
 public class BattleManager : MonoBehaviour {
 	private Animator battleStateManager;
 	private Dictionary<int, BattleState> battleStateHash = new Dictionary<int, BattleState>();
-	private BattleState currentBattleState;
+	private BattleState? currentBattleState = null;
     private Animator playerPhaseTextAnimator;
+
+    private int turn = 0;
 
 	public GameObject playerPhaseText;
     public Grid.UnitManager unitManager;
@@ -89,30 +91,37 @@ public class BattleManager : MonoBehaviour {
 		rect.anchorMax = new Vector2(0f, 0.5f);
 		rect.anchorMin = new Vector2(0f, 0.5f);
 		rect.anchoredPosition = new Vector3();
-
-        LockControls();
-        playerPhaseTextAnimator.SetTrigger("visible");
 	}
 	
 	void Update () {
-		currentBattleState = battleStateHash[battleStateManager.GetCurrentAnimatorStateInfo(0).nameHash];
-		DispatchOnBatleState();
-	}
+        BattleState nextState = battleStateHash[battleStateManager.GetCurrentAnimatorStateInfo(0).nameHash];
+        bool stateChange = !currentBattleState.HasValue || nextState != currentBattleState.Value;
+        currentBattleState = nextState;
 
-	void OnGUI() {
-		DispatchOnBatleState();
+        if (stateChange) {
+            DispatchOnBatleState();
+        }
 	}
 
 	void DispatchOnBatleState() {
 
-		switch (currentBattleState) {
+		switch (currentBattleState.Value) {
 		case BattleState.Player_Phase_Intro:
+            LockControls();
+            playerPhaseTextAnimator.SetTrigger("visible");
 			break;
 		case BattleState.Enemy_Phase:
+            turn++;
+            unitManager.ResetMovedUnits(true);
 			break;
 		case BattleState.Enemy_Phase_Intro:
 			break;
 		case BattleState.Select_Unit:
+            if (!unitManager.UnitsRemainingToMove()) {
+                battleStateManager.SetTrigger("All Units Acted");
+                turn++;
+                unitManager.ResetMovedUnits(false);
+            }
 			break;
 		case BattleState.Select_Action:
             LockControls();
