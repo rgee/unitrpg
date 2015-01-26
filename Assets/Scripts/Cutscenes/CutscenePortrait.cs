@@ -21,12 +21,18 @@ public class CutscenePortrait : MonoBehaviour {
 	private Image Head;
 	private Image Body;
 
+	public Models.EmotionType currentEmotion = Models.EmotionType.DEFAULT;
+
 	void Start() {
 		Portrait = GetComponent<Image>();
 		Head = transform.FindChild("Head").gameObject.GetComponent<Image>();
 		Head.sprite = FindSpriteForEmotion(Models.EmotionType.DEFAULT);
 
 		Body = transform.FindChild("Body").gameObject.GetComponent<Image>();
+	}
+	
+	void Update () {
+		Head.sprite = FindSpriteForEmotion (currentEmotion);
 	}
 
 	public void ChangeEmotion(Models.EmotionType type) {
