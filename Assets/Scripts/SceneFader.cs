@@ -7,7 +7,7 @@ public class SceneFader : MonoBehaviour {
 	public GameObject overlay;
 	private Image image;
 
-	void Start () {
+	void Awake () {
 		image = overlay.GetComponent<Image>();
 	}
 
