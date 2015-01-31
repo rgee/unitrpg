@@ -34,11 +34,28 @@ MonoBehaviour:
         delayOverride: 0
     speaker: Audric
     emotionType: 0
-  - cards: []
+  - cards:
+    - lines:
+      - text: Now is not a  good -
+        delayOverride: 0
     speaker: Liat
     emotionType: 0
-  - cards: []
+  - cards:
+    - lines:
+      - text: Please?
+        delayOverride: 0
     speaker: Audric
+    emotionType: 0
+  - cards:
+    - lines:
+      - text: '...'
+        delayOverride: 0
+    - lines:
+      - text: 'Make the rounds, Janek. '
+        delayOverride: 0
+      - text: I wont be long.
+        delayOverride: 0
+    speaker: Liat
     emotionType: 0
   actors:
   - name: Liat
@@ -47,4 +64,4 @@ MonoBehaviour:
     sprite: {fileID: 0}
   - name: Audric
     sprite: {fileID: 0}
-  nextScene: 0
+  nextScene: 4
