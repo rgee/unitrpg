@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace Grid {
     public class Unit : MonoBehaviour {
@@ -7,6 +8,7 @@ namespace Grid {
         public Vector2 gridPosition;
         public bool friendly;
 		public Models.Unit model;
+		public float timePerMoveSquare = 0.3f;
         private Seeker seeker;
         private ActionMenuManager menuManager;
         
@@ -31,16 +33,29 @@ namespace Grid {
             menuManager.HideCurrentMenu();
         }
 
+		public IEnumerator MoveAlongPath(IList<Vector3> path, OnPathingComplete callback) {
+			foreach (Vector3 point in path) {
+				yield return StartCoroutine(MoveToPoint(point, timePerMoveSquare));
+			}
+			callback(true);
+		}
+
+		public IEnumerator MoveToPoint(Vector3 dest, float time) {
+			float elapsedTime = 0;
+			Vector3 startPosition = transform.position;
+			while (elapsedTime < time) {
+				transform.position = Vector3.Lerp (startPosition, dest, (elapsedTime / time));
+				elapsedTime += Time.deltaTime;
+				yield return null;
+			}
+		}
+
         public void MoveTo(Vector2 pos, MapGrid grid, OnPathingComplete callback) {
 
             Vector3 destination = grid.GetWorldPosForGridPos(pos);
-            Debug.Log("Finding Path from " + transform.position + " to " + destination);
 			seeker.StartPath(transform.position, destination, (p) => {
 				if (!p.error) {
-					Vector3 end = p.vectorPath[p.vectorPath.Count - 1];
-					transform.position = end;
-                    gridPosition = pos;
-					callback(true);
+					StartCoroutine(MoveAlongPath(p.vectorPath, callback));
 				} else {
 					callback(false);
 				}
