@@ -9,14 +9,23 @@ namespace Grid {
         public bool friendly;
 		public Models.Unit model;
 		public float timePerMoveSquare = 0.3f;
+
         private Seeker seeker;
         private ActionMenuManager menuManager;
-        
+		private Animator animator;
+
+		private static Dictionary<MathUtils.CardinalDirection, int> animatorDirections = new Dictionary<MathUtils.CardinalDirection, int>() {
+			{ MathUtils.CardinalDirection.W, 1},
+			{ MathUtils.CardinalDirection.N, 2},
+			{ MathUtils.CardinalDirection.E, 3},
+			{ MathUtils.CardinalDirection.S, 4}
+		};
 
         void Start() {
             menuManager = GameObject.FindGameObjectWithTag("ActionMenuManager").GetComponent<ActionMenuManager>();
             seeker = GetComponent<Seeker>();
             seeker.startEndModifier.exactEndPoint = Pathfinding.StartEndModifier.Exactness.SnapToNode;
+			animator = GetComponent<Animator>();
         }
 
 		public void TakeDamage(int damage) {
@@ -33,16 +42,25 @@ namespace Grid {
             menuManager.HideCurrentMenu();
         }
 
-		public IEnumerator MoveAlongPath(IList<Vector3> path, OnPathingComplete callback) {
-			foreach (Vector3 point in path) {
+		public IEnumerator MoveAlongPath(List<Vector3> path, OnPathingComplete callback) {
+			animator.SetBool("Running", true);
+
+			Vector3 prevPoint = transform.position;
+			foreach (Vector3 point in path.GetRange(1, path.Count-1)) {
+				MathUtils.CardinalDirection dir = MathUtils.DirectionTo(prevPoint, point);
+				animator.SetInteger("Direction", animatorDirections[dir]);
 				yield return StartCoroutine(MoveToPoint(point, timePerMoveSquare));
+				prevPoint = point;
 			}
+
+			animator.SetBool("Running", false);
 			callback(true);
 		}
 
 		public IEnumerator MoveToPoint(Vector3 dest, float time) {
 			float elapsedTime = 0;
 			Vector3 startPosition = transform.position;
+
 			while (elapsedTime < time) {
 				transform.position = Vector3.Lerp (startPosition, dest, (elapsedTime / time));
 				elapsedTime += Time.deltaTime;
