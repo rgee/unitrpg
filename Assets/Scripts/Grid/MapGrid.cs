@@ -35,7 +35,7 @@ public class MapGrid : MonoBehaviour {
         float inputRange = fromEnd - fromStart;
         float outputRange = toEnd - toStart;
         return (value - fromStart) * outputRange / inputRange + toStart;
-
+        
     }
 
     public Vector2? GetMouseGridPosition() {
@@ -64,12 +64,16 @@ public class MapGrid : MonoBehaviour {
         }
 
         int tileSize = (int)tileSizeInPixels;
+        float halfTileSize = tileSizeInPixels / 2;
         float widthExtent = (width/2)*tileSize;
         float heightExtent = (height/2)*tileSize;
 
+        // Map the input values for the x and y axis in grid space to world space.
+        // Be sure to output the center of the tile in world space by adding
+        // 1/2 the tile height and width!
         Vector3 result = new Vector3(
-            mapRange(0, width, -widthExtent, widthExtent, gridPos.x),
-            mapRange(0, height, -304, 304, gridPos.y), 
+            mapRange(0, width, -widthExtent, widthExtent, gridPos.x) + halfTileSize,
+            mapRange(0, height, -heightExtent, heightExtent, gridPos.y) + halfTileSize, 
             0
         );
 
