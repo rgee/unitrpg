@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System;
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -30,6 +31,25 @@ public class MapGrid : MonoBehaviour {
 		Pathfinder = GetComponent<AstarPath>();
     }
 
+    private HashSet<Vector2> generateSurroundingPoints(Vector2 origin, int range) {
+        float leftEdge = origin.x + range;
+        float rightEdge = origin.x - range;
+
+        float topEdge = origin.y + range;
+        float bottomEdge = origin.y - range;
+
+        HashSet<Vector2> results = new HashSet<Vector2>();
+        for (int x = (int)(origin.x - range); x <= origin.x + range; x++)
+        {
+            for (int y = (int)(origin.y - range); y <= origin.y + range; y++)
+            {
+                results.Add(new Vector2(x, y));
+            }
+        }
+
+        return results;
+    }
+
 
     private float mapRange(float fromStart, float fromEnd, float toStart, float toEnd, float value) {
         float inputRange = fromEnd - fromStart;
@@ -40,22 +60,28 @@ public class MapGrid : MonoBehaviour {
 
     public Vector2? GetMouseGridPosition() {
       
-
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Debug.Log("Pre-map mouse coords: " + Input.mousePosition);
 
         int tileSize = (int)tileSizeInPixels;
         float widthExtent = (width / 2) * tileSize;
         float heightExtent = (height / 2) * tileSize;
-        Debug.Log("Test X: " + mapRange(-widthExtent, widthExtent, 0, width, mousePos.x));
-        Debug.Log("Test Y: " + mapRange(-heightExtent, heightExtent, 0, height, mousePos.y));
         Vector2 result =  new Vector3(
             (float)Math.Floor(mapRange(-widthExtent, widthExtent, 0, width, mousePos.x)),
             (float)Math.Floor(mapRange(-heightExtent, heightExtent, 0, height, mousePos.y))
         );
 
-        Debug.Log("Mapping " + mousePos + " to " + result);
         return result;
+    }
+
+    public HashSet<Vector2> GetWalkableTilesInRange(Vector2 origin, int range) {
+
+        return new HashSet<Vector2>(
+            generateSurroundingPoints(origin, range)
+            .Where((point) => {
+                Pathfinding.NNInfo nearest = AstarPath.active.GetNearest(GetWorldPosForGridPos(point));
+                return MathUtils.ManhattanDistance((int)point.x, (int)point.y, (int)origin.x, (int)origin.y) <= 4 && nearest.node.Walkable;
+            })
+        );
     }
 
     public Vector3 GetWorldPosForGridPos(Vector2 gridPos) {
@@ -76,8 +102,6 @@ public class MapGrid : MonoBehaviour {
             mapRange(0, height, -heightExtent, heightExtent, gridPos.y) + halfTileSize, 
             0
         );
-
-        Debug.Log("Mapping " + gridPos + " to " + result);
 
         return result;
     }
