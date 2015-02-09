@@ -79,7 +79,7 @@ public class MapGrid : MonoBehaviour {
             generateSurroundingPoints(origin, range)
             .Where((point) => {
                 Pathfinding.NNInfo nearest = AstarPath.active.GetNearest(GetWorldPosForGridPos(point));
-                return MathUtils.ManhattanDistance((int)point.x, (int)point.y, (int)origin.x, (int)origin.y) <= 4 && nearest.node.Walkable;
+                return MathUtils.ManhattanDistance((int)point.x, (int)point.y, (int)origin.x, (int)origin.y) <= range && nearest.node.Walkable;
             })
         );
     }
