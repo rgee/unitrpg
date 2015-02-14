@@ -15,6 +15,7 @@ public class BattleManager : MonoBehaviour {
     public Grid.UnitManager unitManager;
     public ActionMenuManager menuManager;
     public GridCameraController cameraController;
+    public AI ai;
 
 	public enum BattleState {
 		Player_Phase_Intro,
@@ -38,6 +39,12 @@ public class BattleManager : MonoBehaviour {
 
     public void StartActionSelect() {
         battleStateManager.SetTrigger("Unit Selected");
+    }
+
+    public void EndEnemyPhase() {
+        turn++;
+        unitManager.ResetMovedUnits(true);
+        battleStateManager.SetTrigger("Enemy Turn Complete");
     }
 
     public void SelectBattleAction(string actionString) {
@@ -118,8 +125,7 @@ public class BattleManager : MonoBehaviour {
             playerPhaseTextAnimator.SetTrigger("visible");
 			break;
 		case BattleState.Enemy_Phase:
-            turn++;
-            unitManager.ResetMovedUnits(true);
+            ai.TakeTurn();
 			break;
 		case BattleState.Enemy_Phase_Intro:
 			break;
