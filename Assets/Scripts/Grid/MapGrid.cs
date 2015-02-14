@@ -73,6 +73,19 @@ public class MapGrid : MonoBehaviour {
         return result;
     }
 
+    public void SelectTiles(ICollection<Vector2> tilePositions, Color color) {
+        ClearSelection();
+        foreach (MapTile tile in tilePositions.Select((position) => tilesByPosition[position])) {
+            tile.Select(color);
+        }
+    }
+
+    public void ClearSelection() {
+        foreach (MapTile tile in tilesByPosition.Values) {
+            tile.Deselect();
+        }
+    }
+
     public HashSet<Vector2> GetWalkableTilesInRange(Vector2 origin, int range) {
 
         return new HashSet<Vector2>(

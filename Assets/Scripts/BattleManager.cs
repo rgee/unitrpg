@@ -11,6 +11,7 @@ public class BattleManager : MonoBehaviour {
     private int turn = 0;
 
 	public GameObject playerPhaseText;
+    public MapGrid map;
     public Grid.UnitManager unitManager;
     public ActionMenuManager menuManager;
     public GridCameraController cameraController;
@@ -138,9 +139,19 @@ public class BattleManager : MonoBehaviour {
 		case BattleState.Select_Move_Target:
             UnlockControls();
             menuManager.HideCurrentMenu();
+            SelectWalkableArea();
 			break;
 		default:
 			break;
 		}
 	}
+
+    private void SelectWalkableArea()
+    {
+        Vector2? maybePosition = unitManager.GetSelectedGridPosition();
+        if (maybePosition.HasValue) {
+            HashSet<Vector2> positions = map.GetWalkableTilesInRange(maybePosition.Value, 4);
+            map.SelectTiles(positions, Color.blue);
+        }
+    }
 }

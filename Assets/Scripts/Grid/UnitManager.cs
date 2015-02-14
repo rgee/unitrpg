@@ -85,6 +85,10 @@ namespace Grid {
             }
         }
 
+        public Vector2? GetSelectedGridPosition() {
+            return selectedGridPosition;
+        }
+
         private void SelectUnit(Vector2 position) {
             if (unitsByPosition.ContainsKey(position)) {
                 selectedUnit = unitsByPosition[position];
