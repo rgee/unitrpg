@@ -44,6 +44,9 @@ public class BattleManager : MonoBehaviour {
             case "move":
                 SelectBattleAction(BattleAction.MOVE);
                 break;
+            case "fight":
+                SelectBattleAction(BattleAction.FIGHT);
+                break;
         }
     }
 

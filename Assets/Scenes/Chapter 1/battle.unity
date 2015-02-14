@@ -60607,6 +60607,7 @@ GameObject:
   - 224: {fileID: 1501118503}
   - 222: {fileID: 1501118505}
   - 114: {fileID: 1501118504}
+  - 114: {fileID: 1501118506}
   m_Layer: 5
   m_Name: top_right
   m_TagString: Untagged
@@ -60661,6 +60662,36 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 721772347}
   m_GameObject: {fileID: 1501118502}
+--- !u!114 &1501118506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1501118502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1097953931}
+          m_MethodName: SelectBattleAction
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: fight
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!1 &1502002370
 GameObject:
   m_ObjectHideFlags: 0
