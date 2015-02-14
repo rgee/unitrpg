@@ -39,11 +39,12 @@ public class MapGrid : MonoBehaviour {
         float bottomEdge = origin.y - range;
 
         HashSet<Vector2> results = new HashSet<Vector2>();
-        for (int x = (int)(origin.x - range); x <= origin.x + range; x++)
-        {
-            for (int y = (int)(origin.y - range); y <= origin.y + range; y++)
-            {
-                results.Add(new Vector2(x, y));
+        for (int x = (int)(origin.x - range); x <= origin.x + range; x++) {
+            for (int y = (int)(origin.y - range); y <= origin.y + range; y++) {
+                Vector2 neighbor = new Vector2(x, y);
+                if (neighbor != origin) {
+                    results.Add(new Vector2(x, y));
+                }
             }
         }
 
