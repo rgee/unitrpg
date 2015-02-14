@@ -91,10 +91,14 @@ namespace Grid {
 
         private void SelectUnit(Vector2 position) {
             if (unitsByPosition.ContainsKey(position)) {
-                selectedUnit = unitsByPosition[position];
-                selectedGridPosition = position;
+                GameObject potentialUnit = unitsByPosition[position];
+                Unit unitComponent = potentialUnit.GetComponent<Unit>();
+                if (!unitComponent.friendly) {
+                    return;
+                }
 
-                Unit unitComponent = selectedUnit.GetComponent<Unit>();
+                selectedUnit = potentialUnit;
+                selectedGridPosition = position;
                 unitComponent.Select();
 
                 MapTile tile = Grid.GetTileAt(position).GetComponent<MapTile>();
