@@ -60,6 +60,9 @@ public class BattleManager : MonoBehaviour {
             battleStateManager.SetTrigger("Moving");
         } else if (action == BattleAction.FIGHT) {
             battleStateManager.SetTrigger("Acting");
+
+            // TODO: Figure out why this extra state is here;
+            battleStateManager.SetTrigger("Action Confirmed");
         }
     }
 
@@ -131,6 +134,9 @@ public class BattleManager : MonoBehaviour {
             LockControls();
 			break;
 		case BattleState.Select_Target:
+            UnlockControls();
+            menuManager.HideCurrentMenu();
+            SelectAttackableArea(); 
 			break;
 		case BattleState.Confirm_Forecast:
 			break;
@@ -146,8 +152,15 @@ public class BattleManager : MonoBehaviour {
 		}
 	}
 
-    private void SelectWalkableArea()
-    {
+    private void SelectAttackableArea() {
+        Vector2? maybePosition = unitManager.GetSelectedGridPosition();
+        if (maybePosition.HasValue) {
+            HashSet<Vector2> positions = map.GetWalkableTilesInRange(maybePosition.Value, 1);
+            map.SelectTiles(positions, Color.red);
+        }
+    }
+
+    private void SelectWalkableArea() {
         Vector2? maybePosition = unitManager.GetSelectedGridPosition();
         if (maybePosition.HasValue) {
             HashSet<Vector2> positions = map.GetWalkableTilesInRange(maybePosition.Value, 4);
