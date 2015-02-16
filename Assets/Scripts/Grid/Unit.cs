@@ -42,6 +42,10 @@ namespace Grid {
             menuManager.HideCurrentMenu();
         }
 
+        public IEnumerator MoveAlongPath(List<Vector3> path) {
+            yield return StartCoroutine(MoveAlongPath(path, (moved) => { }));
+        }
+
 		public IEnumerator MoveAlongPath(List<Vector3> path, OnPathingComplete callback) {
 			animator.SetBool("Running", true);
 

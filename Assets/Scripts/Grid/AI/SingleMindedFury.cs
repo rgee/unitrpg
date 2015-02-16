@@ -17,14 +17,31 @@ public class SingleMindedFury : MonoBehaviour, AIStrategy {
     public Grid.UnitManager UnitManager;
 
     private Seeker Seeker;
+    private Grid.Unit Unit;
 
     public void Awake() {
         Seeker = GetComponent<Seeker>();
+        Unit = GetComponent<Grid.Unit>();
     }
 
 
     public IEnumerator act() {
-        Debug.Log("RAGE");
-        yield return null;
+        Pathfinding.Path path = null;
+        Seeker.StartPath(transform.position, Target.transform.position, (p) => {
+            path = p;
+        });
+        while (path == null) {
+            yield return new WaitForEndOfFrame();
+        }
+
+
+        if (!path.error)
+        {
+            yield return StartCoroutine(Unit.MoveAlongPath(path.vectorPath));
+        }
+        else
+        {
+            yield break;
+        }
     }
 }

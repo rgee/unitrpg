@@ -161,7 +161,7 @@ public class BattleManager : MonoBehaviour {
     private void SelectAttackableArea() {
         Vector2? maybePosition = unitManager.GetSelectedGridPosition();
         if (maybePosition.HasValue) {
-            HashSet<Vector2> positions = map.GetWalkableTilesInRange(maybePosition.Value, 1);
+            HashSet<MapTile> positions = map.GetWalkableTilesInRange(maybePosition.Value, 1);
             map.SelectTiles(positions, Color.red);
         }
     }
@@ -169,7 +169,7 @@ public class BattleManager : MonoBehaviour {
     private void SelectWalkableArea() {
         Vector2? maybePosition = unitManager.GetSelectedGridPosition();
         if (maybePosition.HasValue) {
-            HashSet<Vector2> positions = map.GetWalkableTilesInRange(maybePosition.Value, 4);
+            HashSet<MapTile> positions = map.GetWalkableTilesInRange(maybePosition.Value, 4);
             map.SelectTiles(positions, Color.blue);
         }
     }

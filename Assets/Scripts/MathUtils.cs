@@ -15,11 +15,11 @@ public static class MathUtils {
 			throw new System.ArgumentException("Points are equal!");
 		}
 
-		if (start.x > end.x) {
+		if (start.x < end.x) {
 			return CardinalDirection.E;
 		}
 
-		if (start.x < end.x) {
+		if (start.x > end.x) {
 			return CardinalDirection.W;
 		}
 

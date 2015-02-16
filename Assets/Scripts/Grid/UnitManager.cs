@@ -55,7 +55,6 @@ namespace Grid {
                 .Where(unit => unit.friendly == friendlyTurn);
 
             unmovedUnits = new HashSet<Unit>(unmovedUnitQuery);
-            Debug.Log(unmovedUnits.Count);
         }
 
         public void Lock() {

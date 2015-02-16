@@ -65,7 +65,10 @@ public class RangeFinder {
         {
             for (int y = (int)(origin.y - range); y <= origin.y + range; y++)
             {
-                results.Add(new Vector2(x, y));
+                Vector2 point = new Vector2(x, y);
+                if (point != origin) {
+                    results.Add(point);
+                }
             }
         }
 

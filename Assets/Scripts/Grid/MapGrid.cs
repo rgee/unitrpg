@@ -74,9 +74,9 @@ public class MapGrid : MonoBehaviour {
         return result;
     }
 
-    public void SelectTiles(ICollection<Vector2> tilePositions, Color color) {
+    public void SelectTiles(ICollection<MapTile> tiles, Color color) {
         ClearSelection();
-        foreach (MapTile tile in tilePositions.Select((position) => tilesByPosition[position])) {
+        foreach (MapTile tile in tiles) {
             tile.Select(color);
         }
     }
@@ -87,15 +87,8 @@ public class MapGrid : MonoBehaviour {
         }
     }
 
-    public HashSet<Vector2> GetWalkableTilesInRange(Vector2 origin, int range) {
-
-        return new HashSet<Vector2>(
-            generateSurroundingPoints(origin, range)
-            .Where((point) => {
-                Pathfinding.NNInfo nearest = AstarPath.active.GetNearest(GetWorldPosForGridPos(point));
-                return MathUtils.ManhattanDistance((int)point.x, (int)point.y, (int)origin.x, (int)origin.y) <= range && nearest.node.Walkable;
-            })
-        );
+    public HashSet<MapTile> GetWalkableTilesInRange(Vector2 origin, int range) {
+        return new RangeFinder(this).GetOpenTilesInRange(origin, range);
     }
 
     public Vector3 GetWorldPosForGridPos(Vector2 gridPos) {
