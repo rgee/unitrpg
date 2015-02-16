@@ -125,7 +125,7 @@ public class BattleManager : MonoBehaviour {
             playerPhaseTextAnimator.SetTrigger("visible");
 			break;
 		case BattleState.Enemy_Phase:
-            ai.TakeTurn();
+            StartCoroutine(ai.TakeTurn());
 			break;
 		case BattleState.Enemy_Phase_Intro:
 			break;
