@@ -32,6 +32,7 @@ namespace Grid {
 			model.TakeDamage(damage);
 		}
 
+        public delegate void OnSearchComplete(bool foundPath);
 		public delegate void OnPathingComplete(bool moved);
 
         public void Select() {
@@ -72,10 +73,11 @@ namespace Grid {
 			}
 		}
 
-        public void MoveTo(Vector2 pos, MapGrid grid, OnPathingComplete callback) {
+        public void MoveTo(Vector2 pos, MapGrid grid, OnSearchComplete searchCb, OnPathingComplete callback) {
 
             Vector3 destination = grid.GetWorldPosForGridPos(pos);
 			seeker.StartPath(transform.position, destination, (p) => {
+                searchCb(!p.error);
 				if (!p.error) {
 					StartCoroutine(MoveAlongPath(p.vectorPath, callback));
 				} else {

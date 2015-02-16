@@ -137,7 +137,14 @@ namespace Grid {
 
 			Vector2 selectedPosition = selectedGridPosition.Value;
             if (!tile.GetComponent<MapTile>().blocked) {
-                unitComp.MoveTo(position, Grid, (found) => {
+                unitComp.MoveTo(position, Grid, 
+                (gotPath) => {
+                    if (gotPath) {
+                        battleManager.FoundPlayerPath();
+                    }
+                },
+
+                (found) => {
 					if (found) {
                         unitsByPosition.Remove(selectedPosition);
 			            unitsByPosition.Add(position, selectedUnit);

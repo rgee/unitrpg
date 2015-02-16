@@ -58,6 +58,10 @@ public class BattleManager : MonoBehaviour {
         }
     }
 
+    public void FoundPlayerPath() {
+        map.ClearSelection();
+    }
+
     public void CompletedMovement() {
         battleStateManager.SetTrigger("Movement Complete");
     }
