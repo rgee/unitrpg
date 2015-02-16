@@ -15,7 +15,7 @@ public class BattleManager : MonoBehaviour {
     public Grid.UnitManager unitManager;
     public ActionMenuManager menuManager;
     public GridCameraController cameraController;
-    public AI ai;
+    public AIManager ai;
 
 	public enum BattleState {
 		Player_Phase_Intro,

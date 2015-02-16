@@ -5,18 +5,11 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 
-public class AI : MonoBehaviour {
+public class AIManager : MonoBehaviour {
 
     public BattleManager BattleManager;
     public Grid.UnitManager UnitManager;
     public float EnemyActionDelaySeconds = 0.2f;
-    
-    private Seeker seeker;
-
-    public void Awake() {
-        seeker = GetComponent<Seeker>();
-    }
-
 
     public IEnumerator TakeTurn() {
         foreach (Grid.Unit unit in UnitManager.GetEnemies()) {
