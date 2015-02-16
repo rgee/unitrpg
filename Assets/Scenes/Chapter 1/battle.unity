@@ -74857,6 +74857,7 @@ GameObject:
   - 61: {fileID: 1844736224}
   - 114: {fileID: 1844736225}
   - 95: {fileID: 1844736226}
+  - 114: {fileID: 1844736227}
   m_Layer: 10
   m_Name: Liat
   m_TagString: Untagged
@@ -74975,6 +74976,20 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &1844736227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1844736220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b2fb53fc2ec7d54185561c3d5c86bd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1844736220}
+  AggroRange: 2147483647
+  UnitManager: {fileID: 61936474}
 --- !u!1 &1846375149
 GameObject:
   m_ObjectHideFlags: 0
@@ -84486,8 +84501,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f9a10128a0f50b41a6c92023568548c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  battleManager: {fileID: 1097953931}
-  unitManager: {fileID: 61936474}
 --- !u!4 &2092342360
 Transform:
   m_ObjectHideFlags: 0
@@ -84511,8 +84524,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a9ea17f34800514ebcc69a989168799, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  battleManager: {fileID: 1097953931}
-  unitManager: {fileID: 61936474}
+  BattleManager: {fileID: 0}
+  UnitManager: {fileID: 0}
+  AggroRadius: -1
 --- !u!1 &2096059697
 GameObject:
   m_ObjectHideFlags: 0

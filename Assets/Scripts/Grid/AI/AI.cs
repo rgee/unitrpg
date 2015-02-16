@@ -6,8 +6,10 @@ using UnityEngine;
 
 public class AI : MonoBehaviour {
 
-    public BattleManager battleManager;
-    public Grid.UnitManager unitManager;
+    public BattleManager BattleManager;
+    public Grid.UnitManager UnitManager;
+    public int AggroRadius = -1;
+    
     private Seeker seeker;
 
     public void Awake() {
@@ -16,6 +18,6 @@ public class AI : MonoBehaviour {
 
 
     public void TakeTurn() {
-        battleManager.EndEnemyPhase();
+        BattleManager.EndEnemyPhase();
     }
 }
