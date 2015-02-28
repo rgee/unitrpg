@@ -30,17 +30,15 @@ public class SingleMindedFury : MonoBehaviour, AIStrategy {
         Seeker.StartPath(transform.position, Target.transform.position, (p) => {
             path = p;
         });
+
         while (path == null) {
             yield return new WaitForEndOfFrame();
         }
 
 
-        if (!path.error)
-        {
+        if (!path.error) {
             yield return StartCoroutine(Unit.MoveAlongPath(path.vectorPath));
-        }
-        else
-        {
+        } else {
             yield break;
         }
     }
