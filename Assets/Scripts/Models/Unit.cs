@@ -18,5 +18,9 @@ namespace Models {
 			int resultingHealth = Health - (damage - Character.Defense);
 			Health = Mathf.Max(0, resultingHealth);
 		}
+
+        public LevelUpResults LevelUp() {
+            return Character.LevelUp();
+        }
 	}
 }
