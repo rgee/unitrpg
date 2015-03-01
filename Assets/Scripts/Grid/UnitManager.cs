@@ -16,6 +16,10 @@ namespace Grid {
 
         private bool locked;
         private GameObject selectedUnit;
+		public GameObject SelectedUnit {
+			get { return selectedUnit; }
+		}
+
         private Vector2? selectedGridPosition;
 
         // Use this for initialization
@@ -79,7 +83,14 @@ namespace Grid {
                     if (selectedUnit == null) {
                         SelectUnit(maybeGridPos.Value);
                     } else {
-                        MoveSelectedUnitTo(maybeGridPos.Value);
+						switch (battleManager.CurrentBattleState.Value) {
+						case BattleManager.BattleState.Select_Move_Target:
+							MoveSelectedUnitTo(maybeGridPos.Value);
+							break;
+						case BattleManager.BattleState.Select_Target:
+							AttemptAttack(maybeGridPos.Value);
+							break;
+						}
                     }
                 } else {
                     ClearSelectedUnit();
@@ -90,6 +101,13 @@ namespace Grid {
                 ClearSelectedUnit();
             }
         }
+
+		private void AttemptAttack(Vector2 position) {
+			if (unitsByPosition.ContainsKey(position)) {
+				GameObject unit = unitsByPosition[position];
+				battleManager.SelectTarget(unit);
+			}
+		}
 
         public Vector2? GetSelectedGridPosition() {
             return selectedGridPosition;
@@ -124,7 +142,6 @@ namespace Grid {
             tile.Deselect();
             selectedGridPosition = null;
         }
-
 
 
         private void MoveSelectedUnitTo(Vector2 position) {

@@ -12,6 +12,7 @@ namespace Models
         public bool Defense;
         public bool Movement;
         public bool Speed;
+		public bool Skill;
 
     }
 }

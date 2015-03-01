@@ -12,11 +12,13 @@ namespace Models {
 		public int Defense;
 		public int Movement;
 		public int Speed;
+		public int Skill;
 
 		public int SpeedGrowth;
 		public int StrengthGrowth;
 		public int DefenseGrowth;
 		public int MovementGrowth;
+		public int SkillGrowth;
 		public bool IsEnemy;
 
 		public string Name;
@@ -46,6 +48,12 @@ namespace Models {
                 Movement++;
                 result.Movement = true;
             }
+
+			if (DidLevel(SkillGrowth)) {
+				Skill++;
+				result.Skill = true;
+			}
+
             return result;
         }
 

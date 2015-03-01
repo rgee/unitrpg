@@ -5,7 +5,12 @@ using System.Collections.Generic;
 public class BattleManager : MonoBehaviour {
 	private Animator battleStateManager;
 	private Dictionary<int, BattleState> battleStateHash = new Dictionary<int, BattleState>();
+
 	private BattleState? currentBattleState = null;
+	public BattleState? CurrentBattleState {
+		get { return currentBattleState; }
+	}
+
     private Animator playerPhaseTextAnimator;
 
     private int turn = 0;
@@ -16,6 +21,7 @@ public class BattleManager : MonoBehaviour {
     public ActionMenuManager menuManager;
     public GridCameraController cameraController;
     public AIManager ai;
+	public CombatForecaster forecaster;
 
 	public enum BattleState {
 		Player_Phase_Intro,
@@ -65,6 +71,11 @@ public class BattleManager : MonoBehaviour {
     public void CompletedMovement() {
         battleStateManager.SetTrigger("Movement Complete");
     }
+
+	public void SelectTarget(GameObject unit) {
+		forecaster.ShowAttackForecast(unitManager.SelectedUnit, unit);
+		LockControls();
+	}
 
     public void SelectBattleAction(BattleAction action) {
         if (action == BattleAction.MOVE) {
