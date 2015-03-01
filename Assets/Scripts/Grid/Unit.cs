@@ -26,6 +26,7 @@ namespace Grid {
             seeker = GetComponent<Seeker>();
             seeker.startEndModifier.exactEndPoint = Pathfinding.StartEndModifier.Exactness.SnapToNode;
 			animator = GetComponent<Animator>();
+			model.Health = model.Character.MaxHealth;
         }
 
 		public void TakeDamage(int damage) {

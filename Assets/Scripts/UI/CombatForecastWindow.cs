@@ -30,20 +30,22 @@ public class CombatForecastWindow : MonoBehaviour {
 		ChangeText(defenderHitPctText, ((defender.Character.Skill + 70) - attacker.Character.Speed).ToString());
 	}
 
-	void Start() {
-		attackerHealthText = FindChild("atk_healthValue");
-		attackerDamageText = FindChild("atk_damageValue");
-	    attackerHitPctText = FindChild("atk_hitPctValue");
-		attackerCritPctText = FindChild("atk_critPctText");
+	void Awake() {
+		attackerHealthText = FindChild("Window/Attacker/atk_healthValue");
+		attackerDamageText = FindChild("Window/Attacker/atk_damageValue");
+	    attackerHitPctText = FindChild("Window/Attacker/atk_hitPctValue");
+		attackerCritPctText = FindChild("Window/Attacker/atk_critPctValue");
 
-		defenderHealthText = FindChild("def_healthValue");
-		defenderDamageText = FindChild("def_damageValue");
-		defenderHitPctText = FindChild("def_hitPctValue");
-		defenderCritPctText = FindChild("def_critPctText");
+		defenderHealthText = FindChild("Window/Defender/def_healthValue");
+		defenderDamageText = FindChild("Window/Defender/def_damageValue");
+		defenderHitPctText = FindChild("Window/Defender/def_hitPctValue");
+		defenderCritPctText = FindChild("Window/Defender/def_critPctValue");
+
+		Debug.Log (attackerHealthText);
 	}
 
 	private GameObject FindChild(string name) {
-		return transform.FindChild(name).gameObject;
+		return transform.Find(name).gameObject;
 	}
 
 	private static void ChangeText(GameObject obj, string text) {
