@@ -5,7 +5,7 @@ AnimatorController:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: level_up_burst
+  m_Name: Stat
   serializedVersion: 2
   m_AnimatorParameters:
   - m_Name: Burst
@@ -17,7 +17,7 @@ AnimatorController:
   m_AnimatorLayers:
   - serializedVersion: 3
     m_Name: Base Layer
-    m_StateMachine: {fileID: 110741290}
+    m_StateMachine: {fileID: 110752336}
     m_Mask: {fileID: 0}
     m_BlendingMode: 0
     m_SyncedLayerIndex: -1
@@ -26,15 +26,15 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
---- !u!1101 &110102334
+--- !u!1101 &110174596
 Transition:
   serializedVersion: 2
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: 
-  m_SrcState: {fileID: 110275190}
-  m_DstState: {fileID: 110241290}
+  m_SrcState: {fileID: 110295826}
+  m_DstState: {fileID: 110252336}
   m_TransitionDuration: .100000001
   m_TransitionOffset: 0
   m_Conditions:
@@ -46,42 +46,57 @@ Transition:
   m_Solo: 0
   m_Mute: 0
   m_CanTransitionToSelf: 0
---- !u!1101 &110117560
+--- !u!1101 &110187060
 Transition:
   serializedVersion: 2
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: 
-  m_SrcState: {fileID: 110241290}
-  m_DstState: {fileID: 110275190}
-  m_TransitionDuration: 0
+  m_SrcState: {fileID: 110252336}
+  m_DstState: {fileID: 110276882}
+  m_TransitionDuration: .25
   m_TransitionOffset: 0
   m_Conditions:
   - m_ConditionMode: 5
-    m_ConditionEvent: 
+    m_ConditionEvent: Burst
     m_EventTreshold: 0
-    m_ExitTime: 1
+    m_ExitTime: .75
   m_Atomic: 1
   m_Solo: 0
   m_Mute: 0
   m_CanTransitionToSelf: 0
---- !u!1102 &110241290
+--- !u!1102 &110252336
 State:
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Bursting
+  m_Name: Burst
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
-  - {fileID: 7400000, guid: b36704716a1528b4598cb657f2c8ac5e, type: 2}
-  m_ParentStateMachine: {fileID: 110741290}
-  m_Position: {x: 36, y: 48, z: 0}
+  - {fileID: 7400000, guid: b20a383bf91c33f45b27c67f886971cd, type: 2}
+  m_ParentStateMachine: {fileID: 110752336}
+  m_Position: {x: -132, y: 120, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
---- !u!1102 &110275190
+--- !u!1102 &110276882
+State:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Pulse
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Motions:
+  - {fileID: 7400000, guid: ab2b34ffe7f729c4c898e3ac07f78059, type: 2}
+  m_ParentStateMachine: {fileID: 110752336}
+  m_Position: {x: 156, y: 120, z: 0}
+  m_IKOnFeet: 0
+  m_Mirror: 0
+  m_Tag: 
+--- !u!1102 &110295826
 State:
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
@@ -91,33 +106,37 @@ State:
   m_CycleOffset: 0
   m_Motions:
   - {fileID: 0}
-  m_ParentStateMachine: {fileID: 110741290}
-  m_Position: {x: -276, y: 48, z: 0}
+  m_ParentStateMachine: {fileID: 110752336}
+  m_Position: {x: -408, y: 120, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
---- !u!1107 &110741290
+--- !u!1107 &110752336
 StateMachine:
   serializedVersion: 2
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Base Layer
-  m_DefaultState: {fileID: 110275190}
+  m_DefaultState: {fileID: 110295826}
   m_States:
-  - {fileID: 110241290}
-  - {fileID: 110275190}
+  - {fileID: 110252336}
+  - {fileID: 110276882}
+  - {fileID: 110295826}
   m_ChildStateMachine: []
   m_ChildStateMachinePosition: []
   m_OrderedTransitions:
     data:
-      first: {fileID: 110275190}
+      first: {fileID: 110295826}
       second:
-      - {fileID: 110102334}
+      - {fileID: 110174596}
     data:
-      first: {fileID: 110241290}
+      first: {fileID: 110276882}
+      second: []
+    data:
+      first: {fileID: 110252336}
       second:
-      - {fileID: 110117560}
+      - {fileID: 110187060}
   m_MotionSetCount: 1
   m_AnyStatePosition: {x: 50, y: 20, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
