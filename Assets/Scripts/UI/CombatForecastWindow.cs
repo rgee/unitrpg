@@ -21,13 +21,13 @@ public class CombatForecastWindow : MonoBehaviour {
 		// TODO: Externalize
 		attackerHealthText.GetComponent<Text>().text = attacker.Health.ToString();
 		attackerDamageText.GetComponent<Text>().text = (attacker.Character.Strength - defender.Character.Defense).ToString();
-		attackerHitPctText.GetComponent<Text>().text = ((attacker.Character.Skill + 70) - defender.Character.Speed).ToString();
+		attackerHitPctText.GetComponent<Text>().text = ((attacker.Character.Skill*2 + 50) - defender.Character.Speed).ToString();
 		attackerCritPctText.GetComponent<Text>().text = (attacker.Character.Skill - defender.Character.Speed).ToString();
 
 		ChangeText(defenderHealthText, defender.Health.ToString());
 		ChangeText(defenderDamageText, (defender.Character.Strength - attacker.Character.Defense).ToString());
 		ChangeText(defenderCritPctText, (defender.Character.Skill - attacker.Character.Speed).ToString());
-		ChangeText(defenderHitPctText, ((defender.Character.Skill + 70) - attacker.Character.Speed).ToString());
+		ChangeText(defenderHitPctText, ((defender.Character.Skill*2 + 50) - attacker.Character.Speed).ToString());
 	}
 
 	void Awake() {
