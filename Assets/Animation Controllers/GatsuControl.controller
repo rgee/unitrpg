@@ -1851,7 +1851,7 @@ State:
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
-  - {fileID: 7400000, guid: 4847cfc214a144cf89ed10482d8ff296, type: 2}
+  - {fileID: 7400000, guid: e6ac7cfa1454a3548b88bdbab45a4c3e, type: 2}
   m_ParentStateMachine: {fileID: 110700000}
   m_Position: {x: -168, y: 228, z: 0}
   m_IKOnFeet: 0
@@ -1869,6 +1869,21 @@ State:
   - {fileID: 7400000, guid: 424a0b52e845b44abb175f8b3120ec7c, type: 2}
   m_ParentStateMachine: {fileID: 110700000}
   m_Position: {x: 1236, y: 228, z: 0}
+  m_IKOnFeet: 0
+  m_Mirror: 0
+  m_Tag: 
+--- !u!1102 &110280992
+State:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: gatsu_run_west
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Motions:
+  - {fileID: 7400000, guid: e6ac7cfa1454a3548b88bdbab45a4c3e, type: 2}
+  m_ParentStateMachine: {fileID: 110700000}
+  m_Position: {x: 527, y: -211, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
@@ -1918,13 +1933,10 @@ StateMachine:
   - {fileID: 110260792}
   - {fileID: 110278116}
   - {fileID: 110245551}
+  - {fileID: 110280992}
   m_ChildStateMachine: []
   m_ChildStateMachinePosition: []
   m_OrderedTransitions:
-    data:
-      first: {fileID: 110245551}
-      second:
-      - {fileID: 110177530}
     data:
       first: {fileID: 0}
       second: []
@@ -2044,6 +2056,10 @@ StateMachine:
       first: {fileID: 110278116}
       second:
       - {fileID: 110130551}
+    data:
+      first: {fileID: 110245551}
+      second:
+      - {fileID: 110177530}
   m_MotionSetCount: 1
   m_AnyStatePosition: {x: 192, y: -204, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}

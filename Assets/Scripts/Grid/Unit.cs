@@ -18,7 +18,7 @@ namespace Grid {
 			{ MathUtils.CardinalDirection.W, 1},
 			{ MathUtils.CardinalDirection.N, 2},
 			{ MathUtils.CardinalDirection.E, 3},
-			{ MathUtils.CardinalDirection.S, 4}
+			{ MathUtils.CardinalDirection.S, 0}
 		};
 
         void Start() {
