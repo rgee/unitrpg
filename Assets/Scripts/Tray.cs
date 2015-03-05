@@ -4,7 +4,6 @@ using System.Collections;
 public class Tray : MonoBehaviour {
 
 	public float xThresholdPct;
-	public MapBehavior map;
 	private bool doneOnce;
 
 	private TrayPortrait[] portraits;
@@ -25,11 +24,6 @@ public class Tray : MonoBehaviour {
 
 		bool shouldOpen = pctToRight > xThresholdPct;
 		animator.SetBool("visible", shouldOpen);
-		if (shouldOpen) {
-			map.disableSelector();
-		} else {
-			map.enableSelector();
-		}
 
 		foreach (TrayPortrait portrait in portraits) {
 			if (portrait.character.isDead) {

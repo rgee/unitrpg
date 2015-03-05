@@ -187,8 +187,8 @@ namespace Pathfinding {
 			Bounds b;
 			
 			if (points == null || points.Length == 0) {
-				if (collider != null) b = collider.bounds;
-				else if (renderer != null) b = renderer.bounds;
+				if (GetComponent<Collider>() != null) b = GetComponent<Collider>().bounds;
+				else if (GetComponent<Renderer>() != null) b = GetComponent<Renderer>().bounds;
 				else {
 					//Debug.LogWarning ("Cannot apply GraphUpdateScene, no points defined and no renderer or collider attached");
 					return new Bounds(Vector3.zero, Vector3.zero);
@@ -232,8 +232,8 @@ namespace Pathfinding {
 			if (points == null || points.Length == 0) {
 				
 				Bounds b;
-				if (collider != null) b = collider.bounds;
-				else if (renderer != null) b = renderer.bounds;
+				if (GetComponent<Collider>() != null) b = GetComponent<Collider>().bounds;
+				else if (GetComponent<Renderer>() != null) b = GetComponent<Renderer>().bounds;
 				else {
 					Debug.LogWarning ("Cannot apply GraphUpdateScene, no points defined and no renderer or collider attached");
 					return;

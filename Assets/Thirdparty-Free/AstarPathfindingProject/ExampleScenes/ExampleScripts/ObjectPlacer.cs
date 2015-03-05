@@ -32,7 +32,7 @@ public class ObjectPlacer : MonoBehaviour {
 			GameObject obj = (GameObject)GameObject.Instantiate (go,p,Quaternion.identity);
 			
 			if (issueGUOs) {
-				Bounds b = obj.collider.bounds;
+				Bounds b = obj.GetComponent<Collider>().bounds;
 				//Pathfinding.Console.Write ("// Placing Object\n");
 				GraphUpdateObject guo = new GraphUpdateObject(b);
 				AstarPath.active.UpdateGraphs (guo);

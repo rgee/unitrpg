@@ -35,9 +35,9 @@ public class GraphUpdateSceneEditor : Editor {
 		if (script.points == null) script.points = new Vector3[0];
 		
 		if (script.points == null || script.points.Length == 0) {
-			if (script.collider != null) {
+			if (script.GetComponent<Collider>() != null) {
 				EditorGUILayout.HelpBox ("No points, using collider.bounds", MessageType.Info);
-			} else if (script.renderer != null) {
+			} else if (script.GetComponent<Renderer>() != null) {
 				EditorGUILayout.HelpBox ("No points, using renderer.bounds", MessageType.Info);
 			} else {
 				EditorGUILayout.HelpBox ("No points and no collider or renderer attached, will not affect anything", MessageType.Warning);

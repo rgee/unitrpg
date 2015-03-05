@@ -34,7 +34,7 @@ namespace Grid {
 				unitModels.Add(unit.model);
 
                 GameObject tile = Grid.GetTileAt(gridPos);
-                Vector3 tileCenter = tile.renderer.bounds.center;
+                Vector3 tileCenter = tile.GetComponent<Renderer>().bounds.center;
                 t.transform.position = tileCenter;
             }
 

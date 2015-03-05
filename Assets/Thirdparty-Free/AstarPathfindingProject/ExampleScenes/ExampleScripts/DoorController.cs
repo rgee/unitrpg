@@ -14,7 +14,7 @@ public class DoorController : MonoBehaviour {
 	Bounds bounds;
 	
 	public void Start () {
-		bounds = collider.bounds;
+		bounds = GetComponent<Collider>().bounds;
 		SetState (open);
 	}
 	
@@ -41,9 +41,9 @@ public class DoorController : MonoBehaviour {
 		}
 		
 		if (open) {
-			animation.Play ("Open");
+			GetComponent<Animation>().Play ("Open");
 		} else {
-			animation.Play ("Close");
+			GetComponent<Animation>().Play ("Close");
 		}
 	}
 	
