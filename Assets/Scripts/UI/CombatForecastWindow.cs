@@ -40,8 +40,6 @@ public class CombatForecastWindow : MonoBehaviour {
 		defenderDamageText = FindChild("Window/Defender/def_damageValue");
 		defenderHitPctText = FindChild("Window/Defender/def_hitPctValue");
 		defenderCritPctText = FindChild("Window/Defender/def_critPctValue");
-
-		Debug.Log (attackerHealthText);
 	}
 
 	private GameObject FindChild(string name) {
@@ -50,5 +48,13 @@ public class CombatForecastWindow : MonoBehaviour {
 
 	private static void ChangeText(GameObject obj, string text) {
 		obj.GetComponent<Text>().text = text;
+	}
+
+	public void Confirm() {
+		Debug.Log ("Confirmed attack");
+	}
+
+	public void Reject() {
+		Debug.Log ("Rejected attack");
 	}
 }
