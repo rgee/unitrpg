@@ -123,7 +123,7 @@ public class BattleManager : MonoBehaviour {
 	}
 	
 	void Update () {
-        BattleState nextState = battleStateHash[battleStateManager.GetCurrentAnimatorStateInfo(0).nameHash];
+        BattleState nextState = battleStateHash[battleStateManager.GetCurrentAnimatorStateInfo(0).fullPathHash];
         bool stateChange = !currentBattleState.HasValue || nextState != currentBattleState.Value;
         currentBattleState = nextState;
 
