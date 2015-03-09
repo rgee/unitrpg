@@ -11,6 +11,7 @@ GameObject:
   - 114: {fileID: 11433108}
   - 223: {fileID: 22333156}
   - 114: {fileID: 11433110}
+  - 114: {fileID: 11485462}
   m_Layer: 0
   m_Name: Combat Forecast
   m_TagString: Untagged
@@ -1034,6 +1035,22 @@ MonoBehaviour:
           m_CallState: 2
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+--- !u!114 &11485462
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 133110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!222 &22233116
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -1619,4 +1636,3 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 133110}
   m_IsPrefabParent: 1
-  m_IsExploded: 1
