@@ -8,11 +8,13 @@ public class SceneFader : MonoBehaviour {
 	private Image image;
 
 	void Awake () {
+		overlay.SetActive(false);
 		image = overlay.GetComponent<Image>();
 	}
 
 
 	public IEnumerator FadeOut() {
+		overlay.SetActive(true);
 		if (image.color.a > 0) {
 			image.color = ImageColorWithAlpha(0);
 		}
@@ -21,6 +23,7 @@ public class SceneFader : MonoBehaviour {
 	}
 
 	public IEnumerator FadeIn() {
+		overlay.SetActive(true);
 		if (image.color.a < 1) {
 			image.color = ImageColorWithAlpha(1);
 		}
