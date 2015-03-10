@@ -3,6 +3,9 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class PhaseIntro : StateMachineBehaviour {
+	public Grid.UnitManager UnitManager;
+	public GridCameraController CameraController;
+
 	public GameObject PhaseTextPrefab;
     public float SlideSeconds = 0.5f;
     public float CenterPauseSeconds = 0.5f;
@@ -16,6 +19,10 @@ public class PhaseIntro : StateMachineBehaviour {
 
 	 // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
 	override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
+		UnitManager = GameObject.Find("Unit Manager").GetComponent<Grid.UnitManager>();
+		CameraController = GameObject.Find("Grid Camera/Main Camera").GetComponent<GridCameraController>();
+
+		LockControls();
         phaseTextCanvas = Instantiate(PhaseTextPrefab);
         currentPhaseText = phaseTextCanvas.transform.FindChild("Phase Text").gameObject;
 
@@ -60,6 +67,17 @@ public class PhaseIntro : StateMachineBehaviour {
 
 	// OnStateExit is called when a transition ends and the state machine finishes evaluating this state
 	override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
+		UnlockControls();
         Destroy(phaseTextCanvas);        	
+	}
+
+	private void LockControls() {
+		UnitManager.Lock();
+		CameraController.Lock();
+	}
+
+	private void UnlockControls() {
+		UnitManager.Unlock();
+		CameraController.Unlock();
 	}
 }

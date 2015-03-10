@@ -13,13 +13,13 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: phase_text_complete
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -34,6 +34,22 @@ AnimatorController:
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
   m_MultiThreadedStateMachine: 1
+--- !u!114 &11444310
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b97e0f130a0e48679f608946692e63b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UnitManager: {fileID: 0}
+  CameraController: {fileID: 0}
+  PhaseTextPrefab: {fileID: 186724, guid: 5f4ab0e9e011bdc48b1d363038fac324, type: 2}
+  SlideSeconds: .5
+  CenterPauseSeconds: .5
 --- !u!114 &11471858
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -45,6 +61,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b97e0f130a0e48679f608946692e63b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UnitManager: {fileID: 0}
+  CameraController: {fileID: 0}
   PhaseTextPrefab: {fileID: 142432, guid: 847a5fb8c57473446a831592fedfd723, type: 2}
   SlideSeconds: .699999988
   CenterPauseSeconds: .699999988
@@ -277,7 +295,10 @@ AnimatorStateTransition:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: 
-  m_Conditions: []
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: phase_text_complete
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 110796510}
   m_DstState: {fileID: 0}
   m_Solo: 0
@@ -720,7 +741,8 @@ AnimatorState:
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 110158082}
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: 11444310}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1

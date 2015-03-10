@@ -267,7 +267,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
 --- !u!1 &4249007
 GameObject:
   m_ObjectHideFlags: 0
@@ -9391,57 +9391,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridPosition: {x: 21, y: 13}
   blocked: 0
---- !u!1 &207835058
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 224: {fileID: 207835059}
-  - 223: {fileID: 207835060}
-  m_Layer: 0
-  m_Name: Phase Text
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &207835059
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 207835058}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
-  m_Children:
-  - {fileID: 1044391319}
-  m_Father: {fileID: 0}
-  m_RootOrder: 12
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0}
---- !u!223 &207835060
-Canvas:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 207835058}
-  m_Enabled: 1
-  serializedVersion: 2
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
-  m_ReceivesEvents: 1
-  m_OverrideSorting: 0
-  m_OverridePixelPerfect: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!1 &209046532
 GameObject:
   m_ObjectHideFlags: 0
@@ -41375,7 +41324,7 @@ Prefab:
     - target: {fileID: 11428984, guid: 5dfb6c7c29956be469fb68ffaa8f4c7b, type: 2}
       propertyPath: model.Character
       value: 
-      objectReference: {fileID: 11400000, guid: c51db7c59aada4651b80d4d804306915,
+      objectReference: {fileID: 11400000, guid: b63e6187e15b34f70acdcf7446448502,
         type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5dfb6c7c29956be469fb68ffaa8f4c7b, type: 2}
@@ -42346,7 +42295,7 @@ Prefab:
     - target: {fileID: 11425048, guid: f9c4e8655aad264438010e3fb4de1652, type: 2}
       propertyPath: model.Character
       value: 
-      objectReference: {fileID: 11400000, guid: a8c9be45f85a64ae598b2b1def8186c8,
+      objectReference: {fileID: 11400000, guid: b2dcf0b23ea99450c93271a7c2c0b462,
         type: 2}
     - target: {fileID: 11425048, guid: f9c4e8655aad264438010e3fb4de1652, type: 2}
       propertyPath: model.Health
@@ -44569,103 +44518,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridPosition: {x: 30, y: 10}
   blocked: 0
---- !u!1 &1044391315
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 224: {fileID: 1044391319}
-  - 222: {fileID: 1044391318}
-  - 114: {fileID: 1044391317}
-  - 95: {fileID: 1044391316}
-  - 114: {fileID: 1044391320}
-  m_Layer: 0
-  m_Name: Player
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!95 &1044391316
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1044391315}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c85822effc8d94196a6fed443d19d66d, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 1
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &1044391317
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1044391315}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FontData:
-    m_Font: {fileID: 12800000, guid: f2cc24dae4bac41ffbbccd9b3766de5b, type: 3}
-    m_FontSize: 48
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
-    m_Alignment: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: Player Phase
---- !u!222 &1044391318
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1044391315}
---- !u!224 &1044391319
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1044391315}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 207835059}
-  m_RootOrder: 0
-  m_AnchorMin: {x: .5, y: .5}
-  m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 2.14576721e-05, y: -8.10624806e-06}
-  m_SizeDelta: {x: 269.899994, y: 60.9000015}
-  m_Pivot: {x: .5, y: .5}
---- !u!114 &1044391320
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1044391315}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccf934457238f46828322155574ab661, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  battleManager: {fileID: 1097953931}
 --- !u!1 &1045897958
 GameObject:
   m_ObjectHideFlags: 0
@@ -46743,7 +46595,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1097953931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46755,7 +46607,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1e05b7d9dd284b04a282cf37f78d1cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPhaseText: {fileID: 1044391315}
+  playerPhaseText: {fileID: 0}
   map: {fileID: 1130954359}
   unitManager: {fileID: 61936474}
   menuManager: {fileID: 1779922616}
@@ -49059,7 +48911,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   astarData:
     hasBeenReverted: 0
-    data: 504b0304140000080800f7ba6446996b64d0240200003a0400000b0024006772617068302e6a736f6e0a002000000000000100180090346d2cfc56d00190346d2cfc56d00190346d2cfc56d0017553db8eda3010fd95cacf013957086f5b28b4d2b6bb5a5af5a1ea83711c62e1d891ed748115ffdeb19340d8aa20419873e6cc990b6f68dff2022dded01f225a861628c7e12e26791ce3192de6119ed0a4c8f288c67119e382b1145d02444cc3a87d21962bb40803c48daa99d59c3ec8bd00151c20adac83a5d33ea2453483d8c92367f8040dcaa465ba87efc06908702ba92075c38a2d3fb39e15865147cc12a72055c13a348e404f09c14d5fd19e1ad7cc0b39a100159c803b570bac568cef2b0b8646194f656998ed6c93d38a6b68ce0ba18fca56a0501373180d294a3357bf93fafa0f0650a955fdb9af1462d0b515a707b043898150498461f7c1d5d864dbdccd259de6194eb224997f9ae0b91fd2044ff3ee955c469d2c2b46c18dd52d1bfcf5a1be642b5f8938909d603f2b26bfa98d56ad2c6eb061d1aacbbfb8b68f4bc1eb9df731fc783872e3c70781ad506ece39c04cc336be40037eebc6a740cc99fa61d877b237d7227d78cdb5b100f88e496bd52397878de6c58d394457dcd8475e733f4d58bc6b6ca75a0d4cb4866f58116ded5269c9f42dbb6192087b7a866af67ecbef90ff65ac09b5aadb488ff4f77d4ff7c12bd76d9b4bc827e2b9c37d4918941c162361d5e0dcf5fa61a349e34eacd0e475c3cfb532038bcb526da9664c3e8d726b02ffb3e3f5e080fd2b0ebb5b988701eedfef2e66742d1e1e32b22880273c8b93791a0133036c92a6b947e33c98c461f79ce5019e625703e77110febe5cfe02504b0304140000080800f7ba6446287e18aa4300000048000000120024006772617068305f656469746f722e6a736f6e0a002000000000000100180090346d2cfc56d00190346d2cfc56d00190346d2cfc56d001ab56cac94fce4e4d51b22a292a4dd5512acec82f77ad28294a54b24a4bcc29068a94a456949416a58665166726e5a4c2d4156496e59728592939a7e695a41629d50200504b0304140000080800f7ba64465e78bd1a7500000083000000090024006d6574612e6a736f6e0a002000000000000100180090346d2cfc56d00190346d2cfc56d00190346d2cfc56d0011d8cb10e82301040ffe5666c4a4fd4b232b01977c3507b0774f04a4a3131c67f97babde1bdf78117a7354481165035ca40055372cbbc425befb805dae90e56d70f7416519f3d5d8c3ef8239dacf188236a626e60a820bf17beba27ff8b9bcbf31884824caa4f81fa722d9644e22e6e928ba687ef0f504b01022d00140000080800f7ba6446996b64d0240200003a0400000b00240000000000000000000000000000006772617068302e6a736f6e0a002000000000000100180090346d2cfc56d00190346d2cfc56d00190346d2cfc56d001504b01022d00140000080800f7ba6446287e18aa43000000480000001200240000000000000000000000710200006772617068305f656469746f722e6a736f6e0a002000000000000100180090346d2cfc56d00190346d2cfc56d00190346d2cfc56d001504b01022d00140000080800f7ba64465e78bd1a75000000830000000900240000000000000000000000080300006d6574612e6a736f6e0a002000000000000100180090346d2cfc56d00190346d2cfc56d00190346d2cfc56d001504b050600000000030003001c010000c80300000000
+    data: 504b0304140000080800d89c6a46996b64d0240200003a0400000b0024006772617068302e6a736f6e0a00200000000000010018002804e25b8b5bd0011e04e25b8b5bd0011404e25b8b5bd0017553db8eda3010fd95cacf013957086f5b28b4d2b6bb5a5af5a1ea83711c62e1d891ed748115ffdeb19340d8aa20419873e6cc990b6f68dff2022dded01f225a861628c7e12e26791ce3192de6119ed0a4c8f288c67119e382b1145d02444cc3a87d21962bb40803c48daa99d59c3ec8bd00151c20adac83a5d33ea2453483d8c92367f8040dcaa465ba87efc06908702ba92075c38a2d3fb39e15865147cc12a72055c13a348e404f09c14d5fd19e1ad7cc0b39a100159c803b570bac568cef2b0b8646194f656998ed6c93d38a6b68ce0ba18fca56a0501373180d294a3357bf93fafa0f0650a955fdb9af1462d0b515a707b043898150498461f7c1d5d864dbdccd259de6194eb224997f9ae0b91fd2044ff3ee955c469d2c2b46c18dd52d1bfcf5a1be642b5f8938909d603f2b26bfa98d56ad2c6eb061d1aacbbfb8b68f4bc1eb9df731fc783872e3c70781ad506ece39c04cc336be40037eebc6a740cc99fa61d877b237d7227d78cdb5b100f88e496bd52397878de6c58d394457dcd8475e733f4d58bc6b6ca75a0d4cb4866f58116ded5269c9f42dbb6192087b7a866af67ecbef90ff65ac09b5aadb488ff4f77d4ff7c12bd76d9b4bc827e2b9c37d4918941c162361d5e0dcf5fa61a349e34eacd0e475c3cfb532038bcb526da9664c3e8d726b02ffb3e3f5e080fd2b0ebb5b988701eedfef2e66742d1e1e32b22880273c8b93791a0133036c92a6b947e33c98c461f79ce5019e625703e77110febe5cfe02504b0304140000080800d89c6a46287e18aa4300000048000000120024006772617068305f656469746f722e6a736f6e0a0020000000000001001800ec21e25b8b5bd001ec21e25b8b5bd001e221e25b8b5bd001ab56cac94fce4e4d51b22a292a4dd5512acec82f77ad28294a54b24a4bcc29068a94a456949416a58665166726e5a4c2d4156496e59728592939a7e695a41629d50200504b0304140000080800d89c6a465e78bd1a7500000083000000090024006d6574612e6a736f6e0a0020000000000001001800922be25b8b5bd001922be25b8b5bd001922be25b8b5bd0011d8cb10e82301040ffe5666c4a4fd4b232b01977c3507b0774f04a4a3131c67f97babde1bdf78117a7354481165035ca40055372cbbc425befb805dae90e56d70f7416519f3d5d8c3ef8239dacf188236a626e60a820bf17beba27ff8b9bcbf31884824caa4f81fa722d9644e22e6e928ba687ef0f504b01022d00140000080800d89c6a46996b64d0240200003a0400000b00240000000000000000000000000000006772617068302e6a736f6e0a00200000000000010018002804e25b8b5bd0011e04e25b8b5bd0011404e25b8b5bd001504b01022d00140000080800d89c6a46287e18aa43000000480000001200240000000000000000000000710200006772617068305f656469746f722e6a736f6e0a0020000000000001001800ec21e25b8b5bd001ec21e25b8b5bd001e221e25b8b5bd001504b01022d00140000080800d89c6a465e78bd1a75000000830000000900240000000000000000000000080300006d6574612e6a736f6e0a0020000000000001001800922be25b8b5bd001922be25b8b5bd001922be25b8b5bd001504b050600000000030003001c010000c80300000000
     dataChecksum: 846619278
     data_backup: 
     data_cachedStartup: 
@@ -60017,6 +59869,51 @@ SpriteRenderer:
   m_SortingOrder: 15
   m_Sprite: {fileID: 21300000, guid: ecfd0a5bf31bb7e4fa74ccb246cf30cc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &1410701930
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1410701932}
+  - 95: {fileID: 1410701931}
+  m_Layer: 0
+  m_Name: BattleManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!95 &1410701931
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1410701930}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ea1e4023fe7cd470b98e39a1570f1b1f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!4 &1410701932
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1410701930}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 103.946335, y: 27.6357269, z: -4.125}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
 --- !u!1 &1411559997
 GameObject:
   m_ObjectHideFlags: 0
@@ -63430,7 +63327,7 @@ Prefab:
     - target: {fileID: 11428984, guid: 5dfb6c7c29956be469fb68ffaa8f4c7b, type: 2}
       propertyPath: model.Character
       value: 
-      objectReference: {fileID: 11400000, guid: c51db7c59aada4651b80d4d804306915,
+      objectReference: {fileID: 11400000, guid: b63e6187e15b34f70acdcf7446448502,
         type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5dfb6c7c29956be469fb68ffaa8f4c7b, type: 2}
