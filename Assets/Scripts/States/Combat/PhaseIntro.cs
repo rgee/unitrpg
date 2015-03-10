@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class PlayerPhaseIntro : StateMachineBehaviour {
+public class PhaseIntro : StateMachineBehaviour {
 	public GameObject PhaseTextPrefab;
     public float SlideSeconds = 0.5f;
     public float CenterPauseSeconds = 0.5f;
