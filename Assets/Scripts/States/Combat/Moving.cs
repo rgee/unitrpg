@@ -1,15 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Moving : MonoBehaviour {
+public class Moving : StateMachineBehaviour {
+    private BattleState State;
+    private MapGrid Grid;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
+        State = GameObject.Find("BattleManager").GetComponent<BattleState>();
+		Grid = GameObject.Find("Grid").GetComponent<MapGrid>();
+
+        Grid.Unit unit = State.SelectedUnit;
+        unit.MoveTo(State.MovementDestination, Grid, (arg) => { }, (arg) => {
+            State.Reset();
+            animator.SetTrigger("unit_moved");
+        });
+    }
 }
