@@ -16,6 +16,15 @@ public class CombatForecastWindow : MonoBehaviour {
 	private GameObject defenderHitPctText;
 	private GameObject defenderCritPctText;
 
+    public enum ForecastResponse {
+        CONFIRM,
+        REJECT
+    }
+
+    public delegate void ForecastResponseHandler(ForecastResponse resp);
+
+    public event ForecastResponseHandler OnForecastResponse;
+
 	public void SetUnits(Models.Unit attacker, Models.Unit defender) {
 
 		// TODO: Externalize
@@ -51,10 +60,14 @@ public class CombatForecastWindow : MonoBehaviour {
 	}
 
 	public void Confirm() {
-		Debug.Log ("Confirmed attack");
+        if (OnForecastResponse != null) {
+            OnForecastResponse(ForecastResponse.CONFIRM);
+        }
 	}
 
 	public void Reject() {
-		Debug.Log ("Rejected attack");
+        if (OnForecastResponse != null) {
+            OnForecastResponse(ForecastResponse.REJECT);
+        }
 	}
 }
