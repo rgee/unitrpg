@@ -8,9 +8,7 @@ public class CombatForecaster : MonoBehaviour {
 	private GameObject currentForecast;
 
 	public void ShowAttackForecast(GameObject attacker, GameObject defender) {
-		if (currentForecast != null) {
-			Destroy(currentForecast);
-		}
+        HideCurrentForecast();
 
 		currentForecast = Instantiate(ForecastPrefab) as GameObject;
 		currentForecast.transform.SetParent(gameObject.transform);
@@ -18,4 +16,10 @@ public class CombatForecaster : MonoBehaviour {
 		CombatForecastWindow forecast = currentForecast.GetComponent<CombatForecastWindow>();
 		forecast.SetUnits(attacker.GetComponent<Grid.Unit>().model, defender.GetComponent<Grid.Unit>().model);
 	}
+
+    public void HideCurrentForecast() {
+		if (currentForecast != null) {
+			Destroy(currentForecast);
+		}
+    }
 }

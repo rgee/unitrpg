@@ -40,5 +40,6 @@ public class SelectingFightTarget : StateMachineBehaviour {
 
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         Grid.OnGridClicked -= new MapGrid.GridClickHandler(HandleGridClick);
+        Grid.ClearSelection();
     }
 }
