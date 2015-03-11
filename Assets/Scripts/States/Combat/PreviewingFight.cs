@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class PreviewingFight : StateMachineBehaviour {
+public class PreviewingFight : CancelableCombatState {
 
     private CombatForecaster Forecaster;
     private BattleState State;
     private Animator Animator;
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
+        base.OnStateEnter(animator, stateInfo, layerIndex);
+
         Forecaster = GameObject.Find("Combat Forecast Manager").GetComponent<CombatForecaster>();
         State = GameObject.Find("BattleManager").GetComponent<BattleState>();
         Animator = animator;
