@@ -52,6 +52,13 @@ namespace Grid {
                 .ToList();
         }
 
+        public List<Grid.Unit> GetFriendlies() {
+            return unitGameObjects
+                .Select(unit => unit.GetComponent<Unit>())
+                .Where(unit => unit.friendly)
+                .ToList();
+        }
+
         public bool UnitsRemainingToMove() {
             return unmovedUnits.Count > 0;
         }

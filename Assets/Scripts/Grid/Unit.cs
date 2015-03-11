@@ -36,6 +36,10 @@ namespace Grid {
         public delegate void OnSearchComplete(bool foundPath);
 		public delegate void OnPathingComplete(bool moved);
 
+        public Models.Character GetCharacter() {
+            return model.Character;
+        }
+
         public void Select() {
             //menuManager.ShowActionMenu(this);
         }

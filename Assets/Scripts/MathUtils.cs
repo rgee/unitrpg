@@ -6,6 +6,10 @@ public static class MathUtils {
 		return Mathf.Abs(x2 - x1) + Mathf.Abs(y2 - y1);
 	}
 
+    public static int ManhattanDistance(Vector2 start, Vector2 end) {
+        return ManhattanDistance((int)start.x, (int)start.y, (int)end.x, (int)end.y);
+    }
+
 	public enum CardinalDirection {
 		N, S, E, W
 	}

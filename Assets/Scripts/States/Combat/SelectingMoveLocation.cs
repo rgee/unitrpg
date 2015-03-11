@@ -14,7 +14,7 @@ public class SelectingMoveLocation : CancelableCombatState {
 		State = GameObject.Find("BattleManager").GetComponent<BattleState>();
 		Animator = animator;
 
-		int mov = State.SelectedUnit.model.Character.Movement;
+        int mov = State.GetRemainingDistance(State.SelectedUnit);
 		HashSet<MapTile> walkableTiles = Grid.GetWalkableTilesInRange(State.SelectedGridPosition, mov);
         Grid.SelectTiles(walkableTiles, Color.blue);
 
