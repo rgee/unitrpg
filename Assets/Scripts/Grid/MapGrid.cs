@@ -12,6 +12,10 @@ public class MapGrid : MonoBehaviour {
     public int test;
     public int height;
 
+
+	public delegate void GridClickHandler(Vector2 location);
+	public event GridClickHandler OnGridClicked;
+
     public GameObject defaultTile;
 
     private Dictionary<Vector2, MapTile> tilesByPosition = new Dictionary<Vector2, MapTile>();
@@ -58,6 +62,15 @@ public class MapGrid : MonoBehaviour {
         return (value - fromStart) * outputRange / inputRange + toStart;
         
     }
+
+	public void Update() {
+		if (Input.GetMouseButtonDown(0)) {
+			Vector2? maybePos = GetMouseGridPosition();
+			if (maybePos.HasValue && OnGridClicked != null) {
+				OnGridClicked(maybePos.Value);
+			}
+		}
+	}
 
     public Vector2? GetMouseGridPosition() {
       

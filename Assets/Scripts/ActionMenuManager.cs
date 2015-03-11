@@ -1,7 +1,12 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
 
 public class ActionMenuManager : MonoBehaviour {
+
+	public delegate void ActionSelectedHandler(BattleAction action);
+	public event ActionSelectedHandler OnActionSelected;
+
     public GameObject TestMenu;
     private GameObject openMenu;
 
@@ -21,4 +26,11 @@ public class ActionMenuManager : MonoBehaviour {
             openMenu = null;
         }
     }
+
+	public void SelectAction(string name) {
+		BattleAction action = (BattleAction)Enum.Parse(typeof(BattleAction), name);
+		if (OnActionSelected != null) {
+			OnActionSelected(action);
+		}
+	}
 }

@@ -20,7 +20,7 @@ namespace Grid {
 			get { return selectedUnit; }
 		}
 
-		public delegate void UnitClickedEventHandler(Unit e);
+		public delegate void UnitClickedEventHandler(Unit e, Vector2 gridPosition);
 		public event UnitClickedEventHandler OnUnitClick;
 
         private Vector2? selectedGridPosition;
@@ -121,7 +121,7 @@ namespace Grid {
                 GameObject potentialUnit = unitsByPosition[position];
                 Unit unitComponent = potentialUnit.GetComponent<Unit>();
 				if (OnUnitClick != null) {
-					OnUnitClick(unitComponent);
+					OnUnitClick(unitComponent, position);
 				}
 
                 if (!unitComponent.friendly) {
@@ -132,10 +132,10 @@ namespace Grid {
                 selectedGridPosition = position;
                 unitComponent.Select();
 
-                MapTile tile = Grid.GetTileAt(position).GetComponent<MapTile>();
-                tile.Select(Color.blue);
+                //MapTile tile = Grid.GetTileAt(position).GetComponent<MapTile>();
+                //tile.Select(Color.blue);
 
-                battleManager.StartActionSelect();
+                //battleManager.StartActionSelect();
             }
         }
 

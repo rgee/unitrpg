@@ -2,14 +2,7 @@
 using System.Collections;
 
 public class BattleState : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+	public Grid.Unit SelectedUnit;
+	public Vector2 SelectedGridPosition;
+	public Vector2 MovementDestination;
 }

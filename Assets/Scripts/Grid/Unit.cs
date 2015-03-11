@@ -37,11 +37,11 @@ namespace Grid {
 		public delegate void OnPathingComplete(bool moved);
 
         public void Select() {
-            menuManager.ShowActionMenu(this);
+            //menuManager.ShowActionMenu(this);
         }
 
         public void Deselect() {
-            menuManager.HideCurrentMenu();
+            //menuManager.HideCurrentMenu();
         }
 
         public IEnumerator MoveAlongPath(List<Vector3> path) {
