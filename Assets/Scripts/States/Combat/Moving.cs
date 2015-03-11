@@ -13,8 +13,9 @@ public class Moving : StateMachineBehaviour {
 
         Grid.Unit unit = State.SelectedUnit;
         unit.MoveTo(State.MovementDestination, Grid, (arg) => { }, (arg) => {
-            UnitManager.ChangeUnitPosition(State.SelectedUnit.gameObject, State.SelectedGridPosition);
+            UnitManager.ChangeUnitPosition(State.SelectedUnit.gameObject, State.MovementDestination);
             State.Reset();
+            Grid.RescanGraph();
             animator.SetTrigger("unit_moved");
         });
     }

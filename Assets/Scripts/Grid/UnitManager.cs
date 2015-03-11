@@ -80,19 +80,19 @@ namespace Grid {
 
             if (Input.GetMouseButtonDown(0)) {
                 Vector2? maybeGridPos = Grid.GetMouseGridPosition();
+                SelectUnit(maybeGridPos.Value);
 
                 // If the click happened at a grid point
                 if (maybeGridPos.HasValue) {
                     if (selectedUnit == null) {
-                        SelectUnit(maybeGridPos.Value);
                     }
                 } else {
-                    ClearSelectedUnit();
+                    //ClearSelectedUnit();
                 }
             }
 
             if (selectedUnit != null && Input.GetKeyDown(KeyCode.Escape)) {
-                ClearSelectedUnit();
+                //ClearSelectedUnit();
             }
         }
 
