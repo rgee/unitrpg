@@ -14,6 +14,7 @@ public class SelectingMoveLocation : StateMachineBehaviour {
 
 		int mov = State.SelectedUnit.model.Character.Movement;
 		HashSet<MapTile> walkableTiles = Grid.GetWalkableTilesInRange(State.SelectedGridPosition, mov);
+        Grid.SelectTiles(walkableTiles, Color.blue);
 
 		Grid.OnGridClicked += new MapGrid.GridClickHandler(HandleGridClick);
 	}

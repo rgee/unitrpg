@@ -86,6 +86,7 @@ namespace Grid {
                     if (selectedUnit == null) {
                         SelectUnit(maybeGridPos.Value);
                     } else {
+                        /*j
 						switch (battleManager.CurrentBattleState.Value) {
 						case BattleManager.BattleState.Select_Move_Target:
 							MoveSelectedUnitTo(maybeGridPos.Value);
@@ -94,6 +95,7 @@ namespace Grid {
 							AttemptAttack(maybeGridPos.Value);
 							break;
 						}
+                        */
                     }
                 } else {
                     ClearSelectedUnit();
