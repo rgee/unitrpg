@@ -20,6 +20,9 @@ namespace Grid {
 			get { return selectedUnit; }
 		}
 
+		public delegate void UnitClickedEventHandler(Unit e);
+		public event UnitClickedEventHandler OnUnitClick;
+
         private Vector2? selectedGridPosition;
 
         // Use this for initialization
@@ -39,7 +42,7 @@ namespace Grid {
             }
 
             ResetMovedUnits(true);
-            battleManager = GameObject.FindGameObjectWithTag("BattleManager").GetComponent<BattleManager>();
+            //battleManager = GameObject.FindGameObjectWithTag("BattleManager").GetComponent<BattleManager>();
         }
 
         public List<Grid.Unit> GetEnemies() {
@@ -117,6 +120,10 @@ namespace Grid {
             if (unitsByPosition.ContainsKey(position)) {
                 GameObject potentialUnit = unitsByPosition[position];
                 Unit unitComponent = potentialUnit.GetComponent<Unit>();
+				if (OnUnitClick != null) {
+					OnUnitClick(unitComponent);
+				}
+
                 if (!unitComponent.friendly) {
                     return;
                 }

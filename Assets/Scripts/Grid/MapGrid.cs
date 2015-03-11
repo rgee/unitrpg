@@ -5,7 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class MapGrid : MonoBehaviour {
-
+	
     public string tileTag = "Tile";
     public float tileSizeInPixels = 32f;
     public int width;
