@@ -152,6 +152,10 @@ namespace Grid {
             selectedGridPosition = null;
         }
 
+        public void ChangeUnitPosition(GameObject unit, Vector2 position) {
+            unitsByPosition.Remove(position);
+            unitsByPosition.Add(position, unit);
+        }
 
         private void MoveSelectedUnitTo(Vector2 position) {
             if (selectedUnit == null) {
@@ -172,8 +176,7 @@ namespace Grid {
 
                 (found) => {
 					if (found) {
-                        unitsByPosition.Remove(selectedPosition);
-			            unitsByPosition.Add(position, selectedUnit);
+                        ChangeUnitPosition(selectedUnit, position);
 
 						Grid.Pathfinder.Scan();
 			        }
