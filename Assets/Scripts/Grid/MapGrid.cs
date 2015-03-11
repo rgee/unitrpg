@@ -21,6 +21,10 @@ public class MapGrid : MonoBehaviour {
     private Dictionary<Vector2, MapTile> tilesByPosition = new Dictionary<Vector2, MapTile>();
 	public AstarPath Pathfinder;
 
+    public void RescanGraph() {
+        Pathfinder.Scan();
+    }
+
     public void OnDrawGizmos() {
         Gizmos.color = Color.white;
         Gizmos.DrawWireCube(transform.position, new Vector3(width * tileSizeInPixels, height * tileSizeInPixels, 0));

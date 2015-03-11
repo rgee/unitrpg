@@ -11,6 +11,7 @@ public class Moving : StateMachineBehaviour {
 
         Grid.Unit unit = State.SelectedUnit;
         unit.MoveTo(State.MovementDestination, Grid, (arg) => { }, (arg) => {
+            Grid.ClearSelection();
             State.Reset();
             animator.SetTrigger("unit_moved");
         });

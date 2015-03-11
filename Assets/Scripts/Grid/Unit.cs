@@ -77,7 +77,17 @@ namespace Grid {
         public void MoveTo(Vector2 pos, MapGrid grid, OnSearchComplete searchCb, OnPathingComplete callback) {
 
             Vector3 destination = grid.GetWorldPosForGridPos(pos);
+
+            // Remove this unit's collider so the pathfinder wont see the currently-occupied Grid square
+            // as a blockage.
+            BoxCollider2D collider = GetComponent<BoxCollider2D>();
+            collider.enabled = false;
+            grid.RescanGraph();
 			seeker.StartPath(transform.position, destination, (p) => {
+
+                // Re-enable the collider and scan the graph so other units see us.
+                collider.enabled = true;
+                grid.RescanGraph();
                 searchCb(!p.error);
 				if (!p.error) {
 					StartCoroutine(MoveAlongPath(p.vectorPath, callback));
