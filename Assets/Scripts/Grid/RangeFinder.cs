@@ -46,7 +46,7 @@ public class RangeFinder {
 
     private bool InRange(Vector2 point, Vector2 origin, int range) {
 
-        float dist = MathUtils.ManhattanDistance((int)point.x, (int)point.y, (int)origin.x, (int)origin.y);
+        float dist = MathUtils.ManhattanDistance(point, origin);
 
         return dist <= range;
     }

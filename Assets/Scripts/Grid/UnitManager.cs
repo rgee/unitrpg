@@ -25,6 +25,13 @@ namespace Grid {
 
         private Vector2? selectedGridPosition;
 
+        public Grid.Unit GetUnitByPosition(Vector2 pos) {
+            if (!unitsByPosition.ContainsKey(pos)) {
+                return null;
+            }
+            return unitsByPosition[pos].GetComponent<Grid.Unit>();
+        }
+
         // Use this for initialization
         void Start() {
             foreach (Transform t in transform) {

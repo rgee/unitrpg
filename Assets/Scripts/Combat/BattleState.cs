@@ -3,10 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class BattleState : MonoBehaviour {
-    // Movement
 	public Grid.Unit SelectedUnit;
 	public Vector2 SelectedGridPosition;
+
+    // Movement
 	public Vector2 MovementDestination;
+
+    // Attack
+    public Grid.Unit AttackTarget;
 
 
     // Record of a unit's actions during a single turn
@@ -19,6 +23,7 @@ public class BattleState : MonoBehaviour {
 
     public void ResetMovementState() {
         SelectedUnit = null;
+        AttackTarget = null;
         SelectedGridPosition = Vector2.zero;
         MovementDestination = Vector2.zero;
     }
