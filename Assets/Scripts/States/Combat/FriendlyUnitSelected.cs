@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class FriendlyUnitSelected : StateMachineBehaviour {
+public class FriendlyUnitSelected : CancelableCombatState {
 
 	private BattleState BattleState;
 	private ActionMenuManager MenuManager;

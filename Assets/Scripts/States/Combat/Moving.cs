@@ -13,7 +13,6 @@ public class Moving : StateMachineBehaviour {
 
         Grid.Unit unit = State.SelectedUnit;
         unit.MoveTo(State.MovementDestination, Grid, (arg) => { }, (arg) => {
-            Grid.ClearSelection();
             UnitManager.ChangeUnitPosition(State.SelectedUnit.gameObject, State.SelectedGridPosition);
             State.Reset();
             animator.SetTrigger("unit_moved");

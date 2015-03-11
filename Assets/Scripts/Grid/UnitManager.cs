@@ -85,17 +85,6 @@ namespace Grid {
                 if (maybeGridPos.HasValue) {
                     if (selectedUnit == null) {
                         SelectUnit(maybeGridPos.Value);
-                    } else {
-                        /*j
-						switch (battleManager.CurrentBattleState.Value) {
-						case BattleManager.BattleState.Select_Move_Target:
-							MoveSelectedUnitTo(maybeGridPos.Value);
-							break;
-						case BattleManager.BattleState.Select_Target:
-							AttemptAttack(maybeGridPos.Value);
-							break;
-						}
-                        */
                     }
                 } else {
                     ClearSelectedUnit();
@@ -129,15 +118,6 @@ namespace Grid {
                 if (!unitComponent.friendly) {
                     return;
                 }
-
-                selectedUnit = potentialUnit;
-                selectedGridPosition = position;
-                unitComponent.Select();
-
-                //MapTile tile = Grid.GetTileAt(position).GetComponent<MapTile>();
-                //tile.Select(Color.blue);
-
-                //battleManager.StartActionSelect();
             }
         }
 
@@ -156,37 +136,7 @@ namespace Grid {
             unitsByPosition.Remove(position);
             unitsByPosition.Add(position, unit);
         }
-
-        private void MoveSelectedUnitTo(Vector2 position) {
-            if (selectedUnit == null) {
-                return;
-            }
-
-            Unit unitComp = selectedUnit.GetComponent<Unit>();
-            GameObject tile = Grid.GetTileAt(position);
-
-			Vector2 selectedPosition = selectedGridPosition.Value;
-            if (!tile.GetComponent<MapTile>().blocked) {
-                unitComp.MoveTo(position, Grid, 
-                (gotPath) => {
-                    if (gotPath) {
-                        battleManager.FoundPlayerPath();
-                    }
-                },
-
-                (found) => {
-					if (found) {
-                        ChangeUnitPosition(selectedUnit, position);
-
-						Grid.Pathfinder.Scan();
-			        }
-                    ClearSelectedUnit();
-
-                    unmovedUnits.Remove(unitComp);
-                    battleManager.CompletedMovement();
-			    });
-            }
-        }
+      
     }
 }
 

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Linq;
 using System.Collections.Generic;
 
-public class SelectingMoveLocation : StateMachineBehaviour {
+public class SelectingMoveLocation : CancelableCombatState {
 	private MapGrid Grid;
 	private BattleState State;
 	private Animator Animator;
@@ -31,5 +31,6 @@ public class SelectingMoveLocation : StateMachineBehaviour {
 
 	public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
 		Grid.OnGridClicked -= new MapGrid.GridClickHandler(HandleGridClick);
+        Grid.ClearSelection();
 	}
 }
