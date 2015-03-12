@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
+using System.Linq;
 using System.Collections;
+using System.Collections.Generic;
 
 public class InitialPlayerPhase : StateMachineBehaviour {
 
@@ -11,7 +13,16 @@ public class InitialPlayerPhase : StateMachineBehaviour {
 		Animator = animator;
 		UnitManager = GameObject.Find("Unit Manager").GetComponent<Grid.UnitManager>();
 		BattleState = GameObject.Find("BattleManager").GetComponent<BattleState>();
-		UnitManager.OnUnitClick += new Grid.UnitManager.UnitClickedEventHandler(OnUnitClicked);
+
+        List<Grid.Unit> friendlyUnits = UnitManager.GetFriendlies();
+        bool turnComplete = friendlyUnits.All(unit => BattleState.UnitActed(unit));
+
+        if (turnComplete) {
+            animator.SetTrigger("actions_exhausted");
+            BattleState.ResetTurnState();
+        } else {
+            UnitManager.OnUnitClick += new Grid.UnitManager.UnitClickedEventHandler(OnUnitClicked);
+        }
 	}
 
 	private void OnUnitClicked(Grid.Unit unit, Vector2 gridPosition) {

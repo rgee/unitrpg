@@ -3,13 +3,13 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class PhaseIntro : StateMachineBehaviour {
-	public Grid.UnitManager UnitManager;
-	public GridCameraController CameraController;
 
 	public GameObject PhaseTextPrefab;
     public float SlideSeconds = 0.5f;
     public float CenterPauseSeconds = 0.5f;
 
+	private Grid.UnitManager UnitManager;
+	private GridCameraController CameraController;
     private GameObject currentPhaseText;
     private GameObject phaseTextCanvas;
     private PhaseText phaseTextBehavior;
@@ -39,6 +39,7 @@ public class PhaseIntro : StateMachineBehaviour {
         // Jank...can't start a coroutine from StateMachineBehaviours
         phaseTextBehavior = phaseTextCanvas.GetComponent<PhaseText>();
         phaseTextBehavior.StartCoroutine(MoveText());
+        Debug.Log("player phase intro");
 	}
 
     private IEnumerator MoveText() {
