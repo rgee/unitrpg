@@ -36,8 +36,40 @@ namespace Grid {
         public delegate void OnSearchComplete(bool foundPath);
 		public delegate void OnPathingComplete(bool moved);
 
+        public delegate void CombatPreparationHandler();
+        public delegate void AttackCompletionHandler();
+
+        public event AttackCompletionHandler OnAttackComplete;
+        public event CombatPreparationHandler OnPreparedForCombat;
+
         public Models.Character GetCharacter() {
             return model.Character;
+        }
+
+        void AttackComplete() {
+            if (OnAttackComplete != null) {
+                OnAttackComplete();
+            }
+        }
+
+        void Prepared() {
+            if (OnPreparedForCombat != null) {
+                OnPreparedForCombat();
+            }
+        }
+
+        public void PrepareForCombat() {
+            // TODO: Infer direction from target.
+            animator.SetInteger("Direction", 3);
+            animator.SetBool("In Combat", true);
+        }
+
+        public void Attack() {
+            animator.SetTrigger("Attack");
+        }
+
+        public void ReturnToRest() {
+            animator.SetBool("In Combat", false);
         }
 
         public void Select() {
