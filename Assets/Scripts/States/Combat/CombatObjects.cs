@@ -8,4 +8,12 @@ public static class CombatObjects {
     public static BattleState GetBattleState() {
         return GameObject.Find("BattleManager").GetComponent<BattleState>();
     }
+
+    public static Grid.UnitManager GetUnitManager() {
+        return GameObject.Find("Unit Manager").GetComponent<Grid.UnitManager>();
+    }
+
+    public static GridCameraController GetCameraController() {
+        return GameObject.Find("Grid Camera/Main Camera").GetComponent<GridCameraController>();
+    }
 }

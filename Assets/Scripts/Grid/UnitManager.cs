@@ -70,6 +70,7 @@ namespace Grid {
             unitModels.Remove(unit.model);
 
             GameObject gameObject = unit.gameObject;
+            unitGameObjects.Remove(gameObject);
             Destroy(gameObject);
         }
 
