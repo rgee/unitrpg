@@ -5,6 +5,7 @@ using System.Collections;
 public class PhaseIntro : StateMachineBehaviour {
 
 	public GameObject PhaseTextPrefab;
+    public string TransitionTriggerName;
     public float SlideSeconds = 0.5f;
     public float CenterPauseSeconds = 0.5f;
 
@@ -39,20 +40,24 @@ public class PhaseIntro : StateMachineBehaviour {
         // Jank...can't start a coroutine from StateMachineBehaviours
         phaseTextBehavior = phaseTextCanvas.GetComponent<PhaseText>();
         phaseTextBehavior.StartCoroutine(MoveText());
-        Debug.Log("player phase intro");
 	}
 
     private IEnumerator MoveText() {
         // Move the text to the center, pause for a bit, then move it off the right side.
+        Debug.Log("Moving to middle");
         yield return phaseTextBehavior.StartCoroutine(MoveTextTo(textTransform.anchoredPosition, new Vector2(canvasTransform.rect.width / 2, 0), SlideSeconds));
+
+        Debug.Log("pausing");
         yield return new WaitForSeconds(CenterPauseSeconds);
+
+        Debug.Log("Moving off");
         yield return phaseTextBehavior.StartCoroutine(MoveTextTo(textTransform.anchoredPosition, new Vector2(canvasTransform.rect.width + textTransform.rect.width, 0), SlideSeconds));
         textMoved = true;
     }
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         if (textMoved) {
-            animator.SetTrigger("phase_text_complete");
+            animator.SetTrigger(TransitionTriggerName);
         }
     }
 
