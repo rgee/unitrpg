@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,12 +33,22 @@ namespace Grid {
             return unitsByPosition[pos].GetComponent<Grid.Unit>();
         }
 
+        public void RemoveUnit() {
+
+        }
+
+        void OnUnitDeath(EventArgs e) {
+
+        }
+
         // Use this for initialization
         void Start() {
             foreach (Transform t in transform) {
                 unitGameObjects.Add(t.gameObject);
 
 				Grid.Unit unit = t.gameObject.GetComponent<Grid.Unit>();
+                unit.OnDeath += OnUnitDeath;
+
                 Vector2 gridPos = unit.gridPosition;
                 unitsByPosition.Add(gridPos, t.gameObject);
 
@@ -50,6 +61,16 @@ namespace Grid {
 
             ResetMovedUnits(true);
             //battleManager = GameObject.FindGameObjectWithTag("BattleManager").GetComponent<BattleManager>();
+        }
+
+        void OnUnitDeath(object sender, EventArgs e) {
+            Grid.Unit unit = (Grid.Unit)sender;
+
+            unitsByPosition.Remove(unit.gridPosition);
+            unitModels.Remove(unit.model);
+
+            GameObject gameObject = unit.gameObject;
+            Destroy(gameObject);
         }
 
         public List<Grid.Unit> GetEnemies() {

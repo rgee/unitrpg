@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -29,8 +30,15 @@ namespace Grid {
 			model.Health = model.Character.MaxHealth;
         }
 
+        public bool IsAlive() {
+            return model.IsAlive;
+        }
+
 		public void TakeDamage(int damage) {
 			model.TakeDamage(damage);
+            if (!model.IsAlive) {
+                animator.SetTrigger("Dead");
+            }
 		}
 
         public delegate void OnSearchComplete(bool foundPath);
@@ -38,9 +46,11 @@ namespace Grid {
 
         public delegate void CombatPreparationHandler();
         public delegate void AttackCompletionHandler();
+        public delegate void DeathHandler();
 
         public event AttackCompletionHandler OnAttackComplete;
         public event CombatPreparationHandler OnPreparedForCombat;
+        public event EventHandler OnDeath;
 
         public Models.Character GetCharacter() {
             return model.Character;
@@ -55,6 +65,12 @@ namespace Grid {
         void Prepared() {
             if (OnPreparedForCombat != null) {
                 OnPreparedForCombat();
+            }
+        }
+
+        void Dead() {
+            if (OnDeath != null) {
+                OnDeath(this, EventArgs.Empty);
             }
         }
 

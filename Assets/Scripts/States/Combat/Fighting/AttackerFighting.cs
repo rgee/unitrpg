@@ -21,7 +21,12 @@ public class AttackerFighting : StateMachineBehaviour {
     }
 
     void OnAttackComplete() {
-        Animator.SetTrigger("defender_survived");
+        State.AttackTarget.TakeDamage(1000);
+        if (!State.AttackTarget.IsAlive()) {
+            Animator.SetTrigger("defender_died");
+        } else {
+            Animator.SetTrigger("defender_survived");
+        }
     }
 
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
