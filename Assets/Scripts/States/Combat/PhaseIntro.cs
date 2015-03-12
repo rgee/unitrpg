@@ -44,13 +44,10 @@ public class PhaseIntro : StateMachineBehaviour {
 
     private IEnumerator MoveText() {
         // Move the text to the center, pause for a bit, then move it off the right side.
-        Debug.Log("Moving to middle");
         yield return phaseTextBehavior.StartCoroutine(MoveTextTo(textTransform.anchoredPosition, new Vector2(canvasTransform.rect.width / 2, 0), SlideSeconds));
 
-        Debug.Log("pausing");
         yield return new WaitForSeconds(CenterPauseSeconds);
 
-        Debug.Log("Moving off");
         yield return phaseTextBehavior.StartCoroutine(MoveTextTo(textTransform.anchoredPosition, new Vector2(canvasTransform.rect.width + textTransform.rect.width, 0), SlideSeconds));
         textMoved = true;
     }

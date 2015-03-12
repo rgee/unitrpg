@@ -24,6 +24,10 @@ public class FriendlyUnitSelected : CancelableCombatState {
 		case BattleAction.MOVE:
 			Animator.SetTrigger("move_selected");
 			break;
+        case BattleAction.WAIT:
+            BattleState.MarkUnitActed(BattleState.SelectedUnit);
+            Animator.SetTrigger("wait_selected");
+            break;
 		}
 	}
 
