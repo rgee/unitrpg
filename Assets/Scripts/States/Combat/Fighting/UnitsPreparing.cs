@@ -15,8 +15,11 @@ public class UnitsPreparing : StateMachineBehaviour {
 
         State.SelectedUnit.OnPreparedForCombat += OnAttackerPrepared;
 
-        State.SelectedUnit.PrepareForCombat();
-        State.AttackTarget.PrepareForCombat();
+        Grid.Unit attacker = State.SelectedUnit;
+        Grid.Unit defender = State.AttackTarget;
+
+        attacker.PrepareForCombat(MathUtils.CardinalDirection.W);
+        defender.PrepareForCombat(MathUtils.CardinalDirection.E);
     }
 
     void OnAttackerPrepared() {

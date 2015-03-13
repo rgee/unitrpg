@@ -74,9 +74,9 @@ namespace Grid {
             }
         }
 
-        public void PrepareForCombat() {
+        public void PrepareForCombat(MathUtils.CardinalDirection facing) {
             // TODO: Infer direction from target.
-            animator.SetInteger("Direction", 3);
+            animator.SetInteger("Direction", animatorDirections[facing]);
             animator.SetBool("In Combat", true);
         }
 
