@@ -15,6 +15,11 @@ public static class MathUtils {
 	}
 
 	public static CardinalDirection DirectionTo(Vector3 start, Vector3 end) {
+        return DirectionTo(new Vector2(start.x, start.y), new Vector2(end.x, end.y));
+    }
+
+    public static CardinalDirection DirectionTo(Vector2 start, Vector2 end) {
+
 		if (start == end) {
 			throw new System.ArgumentException("Points are equal!");
 		}

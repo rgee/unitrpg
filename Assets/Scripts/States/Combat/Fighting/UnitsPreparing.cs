@@ -18,8 +18,11 @@ public class UnitsPreparing : StateMachineBehaviour {
         Grid.Unit attacker = State.SelectedUnit;
         Grid.Unit defender = State.AttackTarget;
 
-        attacker.PrepareForCombat(MathUtils.CardinalDirection.W);
-        defender.PrepareForCombat(MathUtils.CardinalDirection.E);
+        MathUtils.CardinalDirection attackerDirection = MathUtils.DirectionTo(attacker.gridPosition, defender.gridPosition);
+        MathUtils.CardinalDirection defenderDirection = MathUtils.DirectionTo(defender.gridPosition, attacker.gridPosition);
+
+        attacker.PrepareForCombat(attackerDirection);
+        defender.PrepareForCombat(defenderDirection);
     }
 
     void OnAttackerPrepared() {
