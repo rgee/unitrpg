@@ -59917,6 +59917,7 @@ GameObject:
   - 4: {fileID: 1410701932}
   - 95: {fileID: 1410701931}
   - 114: {fileID: 1410701933}
+  - 114: {fileID: 1410701934}
   m_Layer: 0
   m_Name: BattleManager
   m_TagString: Untagged
@@ -59968,6 +59969,17 @@ MonoBehaviour:
   SelectedGridPosition: {x: 0, y: 0}
   MovementDestination: {x: 0, y: 0}
   AttackTarget: {fileID: 0}
+--- !u!114 &1410701934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1410701930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 767ba290be5fb1a43b1842f805600f76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1411559997
 GameObject:
   m_ObjectHideFlags: 0
@@ -63332,11 +63344,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 428984, guid: 5dfb6c7c29956be469fb68ffaa8f4c7b, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -129.699997
+      value: 255.800003
       objectReference: {fileID: 0}
     - target: {fileID: 428984, guid: 5dfb6c7c29956be469fb68ffaa8f4c7b, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 149.100006
+      value: -7.80000019
       objectReference: {fileID: 0}
     - target: {fileID: 428984, guid: 5dfb6c7c29956be469fb68ffaa8f4c7b, type: 2}
       propertyPath: m_LocalPosition.z
@@ -63368,11 +63380,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11428984, guid: 5dfb6c7c29956be469fb68ffaa8f4c7b, type: 2}
       propertyPath: gridPosition.x
-      value: 13
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 11428984, guid: 5dfb6c7c29956be469fb68ffaa8f4c7b, type: 2}
       propertyPath: gridPosition.y
-      value: 14
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 11428984, guid: 5dfb6c7c29956be469fb68ffaa8f4c7b, type: 2}
       propertyPath: model.Health
@@ -63383,6 +63395,10 @@ Prefab:
       value: 
       objectReference: {fileID: 11400000, guid: b63e6187e15b34f70acdcf7446448502,
         type: 2}
+    - target: {fileID: 128984, guid: 5dfb6c7c29956be469fb68ffaa8f4c7b, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5dfb6c7c29956be469fb68ffaa8f4c7b, type: 2}
   m_IsPrefabParent: 0

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
+[RequireComponent(typeof(Objective))]
 public class BattleState : MonoBehaviour {
 	public Grid.Unit SelectedUnit;
 	public Vector2 SelectedGridPosition;
@@ -12,7 +13,6 @@ public class BattleState : MonoBehaviour {
     // Attack
     public Grid.Unit AttackTarget;
 
-
     // Record of a unit's actions during a single turn
     private struct UnitActionState {
         public int DistanceMoved;
@@ -20,6 +20,14 @@ public class BattleState : MonoBehaviour {
     }
 
     private Dictionary<Grid.Unit, UnitActionState> States = new Dictionary<Grid.Unit, UnitActionState>();
+
+    public bool isWon() {
+        return GetComponent<Objective>().IsComplete();
+    }
+
+    public bool isLost() {
+        return GetComponent<Objective>().IsFailed();
+    }
 
     public void ResetMovementState() {
         SelectedUnit = null;
