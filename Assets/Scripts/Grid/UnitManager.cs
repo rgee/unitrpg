@@ -72,6 +72,8 @@ namespace Grid {
             GameObject gameObject = unit.gameObject;
             unitGameObjects.Remove(gameObject);
             Destroy(gameObject);
+
+            Grid.RescanGraph();
         }
 
         public List<Grid.Unit> GetEnemies() {
