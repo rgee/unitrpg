@@ -13,37 +13,37 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 3
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Running
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: In Combat
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Attack
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Dodge
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Dead
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -1731,7 +1731,7 @@ AnimatorState:
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
   m_Mirror: 0
-  m_Motion: {fileID: 7400000, guid: bd42cb8206b5e418cac5d9e6bcff608c, type: 2}
+  m_Motion: {fileID: 7400000, guid: 85a327bb42d26c74297bf6d8d8656374, type: 2}
   m_Tag: 
 --- !u!1102 &110219334
 AnimatorState:
@@ -1905,6 +1905,23 @@ AnimatorState:
   m_WriteDefaultValues: 1
   m_Mirror: 0
   m_Motion: {fileID: 7400000, guid: 7966e3d98e91b438cbac4ac3d722b2a3, type: 2}
+  m_Tag: 
+--- !u!1102 &110250116
+AnimatorState:
+  serializedVersion: 5
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: gatsu_combat_idle_east
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_Motion: {fileID: 7400000, guid: 85a327bb42d26c74297bf6d8d8656374, type: 2}
   m_Tag: 
 --- !u!1102 &110251479
 AnimatorState:
@@ -2225,6 +2242,9 @@ AnimatorStateMachine:
   - serializedVersion: 1
     m_State: {fileID: 110286906}
     m_Position: {x: 168, y: -276, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 110250116}
+    m_Position: {x: 203, y: -211, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
   - {fileID: 110180980}

@@ -11,7 +11,7 @@ AnimatorController:
   - m_Name: Direction
     m_Type: 3
     m_DefaultFloat: 0
-    m_DefaultInt: 3
+    m_DefaultInt: 1
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
   - m_Name: Running
@@ -278,7 +278,7 @@ AnimatorStateTransition:
   m_TransitionDuration: .100000001
   m_TransitionOffset: 0
   m_ExitTime: .100000001
-  m_HasExitTime: 1
+  m_HasExitTime: 0
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 0
@@ -347,7 +347,7 @@ AnimatorStateTransition:
   m_TransitionDuration: .100000039
   m_TransitionOffset: 0
   m_ExitTime: .00999999139
-  m_HasExitTime: 1
+  m_HasExitTime: 0
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 0
@@ -1229,7 +1229,7 @@ AnimatorStateTransition:
   m_TransitionDuration: 0
   m_TransitionOffset: 0
   m_ExitTime: .899999976
-  m_HasExitTime: 1
+  m_HasExitTime: 0
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 0
@@ -1502,7 +1502,7 @@ AnimatorStateTransition:
   m_TransitionDuration: .100000001
   m_TransitionOffset: 0
   m_ExitTime: .100000001
-  m_HasExitTime: 1
+  m_HasExitTime: 0
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 0
@@ -1867,7 +1867,7 @@ AnimatorState:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Idle In
-  m_Speed: .5
+  m_Speed: .300000012
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 110120294}
@@ -2088,7 +2088,24 @@ AnimatorState:
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
   m_Mirror: 0
-  m_Motion: {fileID: 7400000, guid: db4b04be0521745e58dc6d29e72b2696, type: 2}
+  m_Motion: {fileID: 7400000, guid: 12d7cd097892747efa5e63f1f3b56199, type: 2}
+  m_Tag: 
+--- !u!1102 &110269982
+AnimatorState:
+  serializedVersion: 5
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: mc_attack_west
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_Motion: {fileID: 7400000, guid: 12d7cd097892747efa5e63f1f3b56199, type: 2}
   m_Tag: 
 --- !u!1102 &110272323
 AnimatorState:
@@ -2290,6 +2307,9 @@ AnimatorStateMachine:
   - serializedVersion: 1
     m_State: {fileID: 110275432}
     m_Position: {x: 132, y: -300, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 110269982}
+    m_Position: {x: 167, y: -235, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
   - {fileID: 110114492}
