@@ -41,6 +41,16 @@ public class BattleState : MonoBehaviour {
         return States[unit].Acted;
     }
 
+    public bool UnitMoved(Grid.Unit unit) {
+
+        if (!States.ContainsKey(unit)) {
+            States[unit] = new UnitActionState();
+        }
+
+        Models.Character character = unit.GetCharacter();
+        return States[unit].DistanceMoved >= character.Movement;
+    }
+
     public int GetRemainingDistance(Grid.Unit unit) {
 
         if (!States.ContainsKey(unit)) {

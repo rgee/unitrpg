@@ -15,7 +15,10 @@ public class InitialPlayerPhase : StateMachineBehaviour {
 		BattleState = GameObject.Find("BattleManager").GetComponent<BattleState>();
 
         List<Grid.Unit> friendlyUnits = UnitManager.GetFriendlies();
-        bool turnComplete = friendlyUnits.All(unit => BattleState.UnitActed(unit));
+        bool turnComplete = friendlyUnits.All(unit => {
+            return BattleState.UnitActed(unit) && 
+                   BattleState.UnitMoved(unit);
+        });
 
         if (turnComplete) {
             animator.SetTrigger("actions_exhausted");
