@@ -11,6 +11,6 @@ public struct Participants {
 	}
 	
 	public Participants Invert() {
-		return new Participants(Attacker, Defender);
+		return new Participants(Defender, Attacker);
 	}
 }
