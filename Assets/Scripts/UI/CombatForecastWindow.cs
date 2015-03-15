@@ -26,17 +26,25 @@ public class CombatForecastWindow : MonoBehaviour {
     public event ForecastResponseHandler OnForecastResponse;
 
 	public void SetUnits(Models.Unit attacker, Models.Unit defender) {
+		Fight fight = new Fight(
+			new Participants(attacker, defender),
+			AttackType.BASIC,
+			new DefaultFightResolution()
+		);
+
+		FightResult result = fight.SimulateFight();
+		FightPhaseResult initialPhase = result.InitialAttack;
 
 		// TODO: Externalize
 		attackerHealthText.GetComponent<Text>().text = attacker.Health.ToString();
-		attackerDamageText.GetComponent<Text>().text = (attacker.Character.Strength - defender.Character.Defense).ToString();
-		attackerHitPctText.GetComponent<Text>().text = ((attacker.Character.Skill*2 + 50) - defender.Character.Speed).ToString();
-		attackerCritPctText.GetComponent<Text>().text = (attacker.Character.Skill - defender.Character.Speed).ToString();
+		attackerDamageText.GetComponent<Text>().text = initialPhase.AttackerDamage.ToString();
+		attackerHitPctText.GetComponent<Text>().text = initialPhase.AttackerParams.HitChance.ToString();
+		attackerCritPctText.GetComponent<Text>().text = initialPhase.AttackerParams.CritChance.ToString();
 
 		ChangeText(defenderHealthText, defender.Health.ToString());
-		ChangeText(defenderDamageText, (defender.Character.Strength - attacker.Character.Defense).ToString());
-		ChangeText(defenderCritPctText, (defender.Character.Skill - attacker.Character.Speed).ToString());
-		ChangeText(defenderHitPctText, ((defender.Character.Skill*2 + 50) - attacker.Character.Speed).ToString());
+		ChangeText(defenderDamageText, initialPhase.CounterDamage.ToString());
+		ChangeText(defenderCritPctText, initialPhase.CounterParams.CritChance.ToString());
+		ChangeText(defenderHitPctText, initialPhase.CounterParams.HitChance.ToString());
 	}
 
 	void Awake() {

@@ -11,7 +11,7 @@ public class FightPhaseResult {
 		}
 	}
 
-	public int DefenderDamage {
+	public int CounterDamage {
 		get {
 			return CounterParams.Damage;
 		}
@@ -22,7 +22,7 @@ public class FightPhaseResult {
 
 	public bool AttackerDies {
 		get {
-			return !DefenderDies && Participants.Attacker.Health <= DefenderDamage;
+			return !DefenderDies && Participants.Attacker.Health <= CounterDamage;
 		}
 	}
 

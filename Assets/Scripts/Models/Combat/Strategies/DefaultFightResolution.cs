@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
 
 public class DefaultFightResolution : ResolutionStrategy {
@@ -23,7 +24,7 @@ public class DefaultFightResolution : ResolutionStrategy {
 		Models.Character atkChar = attacker.Character;
 		Models.Character defChar = defender.Character;
 
-		int damage = defChar.Defense - atkChar.Strength;
+		int damage = Math.Abs(defChar.Defense - atkChar.Strength);
 		int numHits = atkChar.Speed - defChar.Speed > 10 ? 2 : 1;
 		int hitChance = percentage((atkChar.Skill + 50) - defChar.Speed);
 		int critChance = percentage(atkChar.Skill - defChar.Speed);
@@ -39,6 +40,6 @@ public class DefaultFightResolution : ResolutionStrategy {
 	}
 
 	private static int percentage(int val) {
-		return Mathf.Min(val, 100);
+		return Math.Min(val, 100);
 	}
 }
