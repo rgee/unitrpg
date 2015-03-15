@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 using System.Collections;
 
 public class FightPhaseResult {
@@ -19,8 +20,21 @@ public class FightPhaseResult {
 	
 	public readonly FightParameters AttackerParams;
 	public readonly FightParameters CounterParams;
-	public readonly int ActualAttackerDamage;
-	public readonly int ActualDefenderDamage;
+
+	public readonly List<Hit> AttackerHits;
+	public readonly List<Hit> DefenderHits;
+
+	public bool AttackerDoubles {
+		get {
+			return AttackerHits.Count > 2;
+		}
+	}
+
+	public bool DefenderDoubles {
+		get {
+			return DefenderHits.Count > 2;
+		}
+	}
 
 	public bool AttackerDies {
 		get {
@@ -35,12 +49,12 @@ public class FightPhaseResult {
 	}
 
 	public FightPhaseResult (Participants participants, FightParameters attackerParams, FightParameters counterParams, 
-	                         int actualAttackerDamage, int actualDefenderDamage)
+	                         List<Hit> attackerHits, List<Hit> defenderHits)
 	{
 		this.Participants = participants;
 		this.AttackerParams = attackerParams;
 		this.CounterParams = counterParams;
-		this.ActualAttackerDamage = actualAttackerDamage;
-		this.ActualDefenderDamage = actualDefenderDamage;
+		this.AttackerHits = attackerHits;
+		this.DefenderHits = defenderHits;
 	}
 }

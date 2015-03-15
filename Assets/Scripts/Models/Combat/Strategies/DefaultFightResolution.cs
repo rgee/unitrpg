@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 
 public class DefaultFightResolution : ResolutionStrategy {
 	public FightPhaseResult SimulateFightPhase (Participants participants, AttackType attack) {
@@ -16,17 +17,23 @@ public class DefaultFightResolution : ResolutionStrategy {
 		);
 	}
 
-	private int SimulateParams(FightParameters parameters) {
-		int result = ComputeActualDamage(parameters);
+	private List<Hit> SimulateParams(FightParameters parameters) {
+
+		Hit firstHit = ComputeActualDamage(parameters);
+		List<Hit> result = new ArrayList();
+		result.Add(firstHit);
+
 		if (parameters.Hits == 2) {
-			result += ComputeActualDamage(parameters);
+			result.Add (ComputeActualDamage(parameters));
 		}
 
 		return result;
 	}
 
 
-	private int ComputeActualDamage(FightParameters parameters) {
+	private Hit ComputeActualDamage(FightParameters parameters) {
+		bool crit = false;
+		bool glance = false;
 		int actualDamage = parameters.Damage;
 		bool didHit =  RollDice() > parameters.HitChance;
 		if (!didHit) {
@@ -37,13 +44,15 @@ public class DefaultFightResolution : ResolutionStrategy {
 
 			// Crits cannot also glance.
 			if (didCrit) {
+				crit = true;
 				actualDamage *= 2;
 			} else if (didGlance) {
+				glance = true;
 				actualDamage /= 2;
 			}
 		}
 		
-		return actualDamage;
+		return new Hit(actualDamage, glance, crit);
 	}
 
 	private FightParameters ComputeAttackParams(Participants participants) {
