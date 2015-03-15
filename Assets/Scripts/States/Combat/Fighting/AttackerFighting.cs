@@ -39,5 +39,6 @@ public class AttackerFighting : StateMachineBehaviour {
 
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         State.SelectedUnit.OnAttackComplete -= OnAttackComplete;
+		numAttacks = 0;
     }
 }
