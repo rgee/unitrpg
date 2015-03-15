@@ -19,6 +19,8 @@ public class FightPhaseResult {
 	
 	public readonly FightParameters AttackerParams;
 	public readonly FightParameters CounterParams;
+	public readonly int ActualAttackerDamage;
+	public readonly int ActualDefenderDamage;
 
 	public bool AttackerDies {
 		get {
@@ -32,10 +34,13 @@ public class FightPhaseResult {
 		}
 	}
 
-	public FightPhaseResult (Participants participants, FightParameters attackerParams, FightParameters counterParams)
+	public FightPhaseResult (Participants participants, FightParameters attackerParams, FightParameters counterParams, 
+	                         int actualAttackerDamage, int actualDefenderDamage)
 	{
 		this.Participants = participants;
 		this.AttackerParams = attackerParams;
 		this.CounterParams = counterParams;
+		this.ActualAttackerDamage = actualAttackerDamage;
+		this.ActualDefenderDamage = actualDefenderDamage;
 	}
 }

@@ -3,13 +3,47 @@ using System;
 using System.Collections;
 
 public class DefaultFightResolution : ResolutionStrategy {
-
 	public FightPhaseResult SimulateFightPhase (Participants participants, AttackType attack) {
+		FightParameters attackParams = ComputeAttackParams(participants);
+		FightParameters counterParams = ComputeCounterParams(participants);
+
 		return new FightPhaseResult(
 			participants,
-			ComputeAttackParams(participants),
-			ComputeCounterParams(participants)
+			attackParams,
+			counterParams,
+			SimulateParams(attackParams),
+			SimulateParams(counterParams)
 		);
+	}
+
+	private int SimulateParams(FightParameters parameters) {
+		int result = ComputeActualDamage(parameters);
+		if (parameters.Hits == 2) {
+			result += ComputeActualDamage(parameters);
+		}
+
+		return result;
+	}
+
+
+	private int ComputeActualDamage(FightParameters parameters) {
+		int actualDamage = parameters.Damage;
+		bool didHit =  RollDice() > parameters.HitChance;
+		if (!didHit) {
+			actualDamage = 0;
+		} else {
+			bool didCrit = RollDice() > parameters.CritChance;
+			bool didGlance = RollDice() > parameters.GlanceChance;
+
+			// Crits cannot also glance.
+			if (didCrit) {
+				actualDamage *= 2;
+			} else if (didGlance) {
+				actualDamage /= 2;
+			}
+		}
+		
+		return actualDamage;
 	}
 
 	private FightParameters ComputeAttackParams(Participants participants) {
@@ -24,11 +58,11 @@ public class DefaultFightResolution : ResolutionStrategy {
 		Models.Character atkChar = attacker.Character;
 		Models.Character defChar = defender.Character;
 
-		int damage = Math.Abs(defChar.Defense - atkChar.Strength);
 		int numHits = atkChar.Speed - defChar.Speed > 10 ? 2 : 1;
-		int hitChance = percentage((atkChar.Skill + 50) - defChar.Speed);
-		int critChance = percentage(atkChar.Skill - defChar.Speed);
-		int glanceChance = percentage(atkChar.Skill - defChar.Skill);
+		int hitChance = Percentage((atkChar.Skill + 50) - defChar.Speed);
+		int critChance = Percentage(atkChar.Skill - defChar.Speed);
+		int glanceChance = Percentage(atkChar.Skill - defChar.Skill);
+		int damage = Math.Abs(defChar.Defense - atkChar.Strength);
 
 		return new FightParameters(
 			damage,
@@ -39,7 +73,11 @@ public class DefaultFightResolution : ResolutionStrategy {
 		);
 	}
 
-	private static int percentage(int val) {
+	private static int Percentage(int val) {
 		return Math.Min(val, 100);
+	}
+
+	private static int RollDice() {
+		return (int)(UnityEngine.Random.value * 100);
 	}
 }
