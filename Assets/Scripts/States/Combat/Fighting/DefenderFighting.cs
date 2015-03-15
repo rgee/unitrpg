@@ -36,5 +36,6 @@ public class DefenderFighting : StateMachineBehaviour {
 
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         State.AttackTarget.OnAttackComplete -= OnAttackComplete;
+		numAttacks = 0;
     }
 }
