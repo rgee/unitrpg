@@ -13,6 +13,12 @@ public class Fight {
 	}
 
 	public FightResult SimulateFight() {
-		return null;
+		FightPhaseResult initiatorAttack = Strategy.SimulateFightPhase(Participants, Attack);
+		if (initiatorAttack.AttackerDies) {
+			return new FightResult(initiatorAttack);
+		}
+
+		FightPhaseResult counterAttack = Strategy.SimulateFightPhase(Participants.Invert(), Attack);
+		return new FightResult(initiatorAttack, counterAttack);
 	}
 }

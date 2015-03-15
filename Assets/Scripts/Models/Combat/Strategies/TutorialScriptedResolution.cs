@@ -1,15 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TutorialScriptedResolution : MonoBehaviour {
+public class TutorialScriptedResolution : ResolutionStrategy {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+	public FightPhaseResult SimulateFightPhase (Participants participants, AttackType attack)
+	{
+		throw new System.NotImplementedException();
 	}
 }

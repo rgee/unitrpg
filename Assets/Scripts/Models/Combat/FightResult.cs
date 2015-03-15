@@ -1,15 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class FightResult : MonoBehaviour {
+public class FightResult {
+	public readonly FightPhaseResult InitialAttack;
+	public readonly FightPhaseResult CounterAttack;
 
-	// Use this for initialization
-	void Start () {
-	
+	public FightResult(FightPhaseResult initialAttack) {
+		InitialAttack = initialAttack;
+		CounterAttack = null;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+
+	public FightResult(FightPhaseResult initialAttack, FightPhaseResult counter) {
+		InitialAttack = initialAttack;
+		CounterAttack = counter;
 	}
 }
