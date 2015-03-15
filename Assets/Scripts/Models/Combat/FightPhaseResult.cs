@@ -5,32 +5,37 @@ public class FightPhaseResult {
 
 	private readonly Participants Participants;
 
-	public readonly int AttackerDamage;
-	public readonly int DefenderDamage;
+	public int AttackerDamage {
+		get {
+			return AttackerParams.Damage;
+		}
+	}
+
+	public int DefenderDamage {
+		get {
+			return CounterParams.Damage;
+		}
+	}
 	
 	public readonly FightParameters AttackerParams;
-	public readonly FightParameters DefenderParams;
+	public readonly FightParameters CounterParams;
 
 	public bool AttackerDies {
 		get {
-			return !DefenderDies && Participants.Attacker.model.Health <= DefenderDamage;
+			return !DefenderDies && Participants.Attacker.Health <= DefenderDamage;
 		}
 	}
 
 	public bool DefenderDies {
 		get {
-			return Participants.Defender.model.Health <= AttackerDamage;
+			return Participants.Defender.Health <= AttackerDamage;
 		}
 	}
 
-	public FightPhaseResult (Participants participants, 
-	                         int attackerDamage, int defenderDamage,
-	                         FightParameters attackerParams, FightParameters defenderParams)
+	public FightPhaseResult (Participants participants, FightParameters attackerParams, FightParameters counterParams)
 	{
 		this.Participants = participants;
-		this.AttackerDamage = attackerDamage;
-		this.DefenderDamage = defenderDamage;
 		this.AttackerParams = attackerParams;
-		this.DefenderParams = defenderParams;
+		this.CounterParams = counterParams;
 	}
 }
