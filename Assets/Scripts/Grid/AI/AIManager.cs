@@ -7,7 +7,6 @@ using UnityEngine;
 
 public class AIManager : MonoBehaviour {
 
-    public BattleManager BattleManager;
     public Grid.UnitManager UnitManager;
     public float EnemyActionDelaySeconds = 0.2f;
 
@@ -27,6 +26,6 @@ public class AIManager : MonoBehaviour {
             yield return new WaitForSeconds(EnemyActionDelaySeconds);
         }
 
-        BattleManager.EndEnemyPhase();
+        //BattleManager.EndEnemyPhase();
     }
 }

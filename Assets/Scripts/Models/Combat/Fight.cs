@@ -15,10 +15,10 @@ public class Fight {
 	public FightResult SimulateFight() {
 		FightPhaseResult initiatorAttack = Strategy.SimulateFightPhase(Participants, Attack);
 		if (initiatorAttack.AttackerDies) {
-			return new FightResult(initiatorAttack);
+			return new FightResult(initiatorAttack, Participants);
 		}
 
 		FightPhaseResult counterAttack = Strategy.SimulateFightPhase(Participants.Invert(), Attack);
-		return new FightResult(initiatorAttack, counterAttack);
+		return new FightResult(initiatorAttack, counterAttack, Participants);
 	}
 }

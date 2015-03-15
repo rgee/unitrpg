@@ -12,6 +12,7 @@ public class BattleState : MonoBehaviour {
 
     // Attack
     public Grid.Unit AttackTarget;
+	public FightResult FightResult;
 
     // Record of a unit's actions during a single turn
     private struct UnitActionState {
@@ -32,6 +33,7 @@ public class BattleState : MonoBehaviour {
     public void ResetMovementState() {
         SelectedUnit = null;
         AttackTarget = null;
+		FightResult = null;
         SelectedGridPosition = Vector2.zero;
         MovementDestination = Vector2.zero;
     }

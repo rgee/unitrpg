@@ -20,7 +20,7 @@ public class DefaultFightResolution : ResolutionStrategy {
 	private List<Hit> SimulateParams(FightParameters parameters) {
 
 		Hit firstHit = ComputeActualDamage(parameters);
-		List<Hit> result = new ArrayList();
+		List<Hit> result = new List<Hit>();
 		result.Add(firstHit);
 
 		if (parameters.Hits == 2) {

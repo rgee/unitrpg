@@ -267,7 +267,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 12
 --- !u!1 &4249007
 GameObject:
   m_ObjectHideFlags: 0
@@ -3299,12 +3299,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridPosition: {x: 12, y: 3}
   blocked: 0
---- !u!114 &74784498
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11425702, guid: 93c625cbff62f4518bb311d3006bdb9b,
-    type: 2}
-  m_PrefabInternal: {fileID: 2065000472}
-  m_Script: {fileID: 11500000, guid: 6232e82b80b044388bd042738e006ff4, type: 3}
 --- !u!1 &75255536
 GameObject:
   m_ObjectHideFlags: 0
@@ -46617,70 +46611,6 @@ SpriteRenderer:
   m_SortingOrder: 15
   m_Sprite: {fileID: 21300000, guid: ecfd0a5bf31bb7e4fa74ccb246cf30cc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
---- !u!1 &1097953930
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1097953932}
-  - 114: {fileID: 1097953931}
-  - 95: {fileID: 1097953933}
-  m_Layer: 0
-  m_Name: Battle Manager
-  m_TagString: BattleManager
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &1097953931
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1097953930}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1e05b7d9dd284b04a282cf37f78d1cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerPhaseText: {fileID: 0}
-  map: {fileID: 1130954359}
-  unitManager: {fileID: 61936474}
-  menuManager: {fileID: 1779922616}
-  cameraController: {fileID: 1675086715}
-  ai: {fileID: 2092342361}
-  forecaster: {fileID: 74784498}
---- !u!4 &1097953932
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1097953930}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 154.617477, y: 29.3897667, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
---- !u!95 &1097953933
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1097953930}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 435230b0da2b5427cad436bd34b40b5a, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 1
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1100642418
 GameObject:
   m_ObjectHideFlags: 0
@@ -59953,7 +59883,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
 --- !u!114 &1410701933
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71389,12 +71319,6 @@ SpriteRenderer:
   m_SortingOrder: 15
   m_Sprite: {fileID: 21300000, guid: ecfd0a5bf31bb7e4fa74ccb246cf30cc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
---- !u!114 &1675086715
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11454164, guid: b1dc8d07bdb6548ad93472a6f3926d5b,
-    type: 2}
-  m_PrefabInternal: {fileID: 1184717933}
-  m_Script: {fileID: 11500000, guid: 20c8ea0ba2d7e43cd8ac80e4dc9b31b6, type: 3}
 --- !u!1 &1675706397
 GameObject:
   m_ObjectHideFlags: 0
@@ -78018,7 +77942,7 @@ Prefab:
     - target: {fileID: 11425104, guid: b5a6562da0eed8147843b1c768ee5cf5, type: 2}
       propertyPath: battleManager
       value: 
-      objectReference: {fileID: 1097953931}
+      objectReference: {fileID: 0}
     - target: {fileID: 11425104, guid: b5a6562da0eed8147843b1c768ee5cf5, type: 2}
       propertyPath: m_Enabled
       value: 1
@@ -88287,7 +88211,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a9ea17f34800514ebcc69a989168799, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BattleManager: {fileID: 1097953931}
   UnitManager: {fileID: 61936474}
   EnemyActionDelaySeconds: .200000003
 --- !u!1 &2096059697

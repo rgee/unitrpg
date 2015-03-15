@@ -11,7 +11,6 @@ namespace Grid {
 		private List<Models.Unit> unitModels = new List<Models.Unit>();
         private List<GameObject> unitGameObjects = new List<GameObject>();
         private Dictionary<Vector2, GameObject> unitsByPosition = new Dictionary<Vector2, GameObject>();
-        private BattleManager battleManager;
 
         private HashSet<Grid.Unit> unmovedUnits = new HashSet<Unit>();
 
@@ -137,7 +136,6 @@ namespace Grid {
 		private void AttemptAttack(Vector2 position) {
 			if (unitsByPosition.ContainsKey(position)) {
 				GameObject unit = unitsByPosition[position];
-				battleManager.SelectTarget(unit);
 			}
 		}
 

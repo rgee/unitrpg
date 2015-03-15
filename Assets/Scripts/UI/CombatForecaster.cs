@@ -12,7 +12,7 @@ public class CombatForecaster : MonoBehaviour {
     public event ForecastResponseHandler OnConfirm;
     public event ForecastResponseHandler OnReject;
 
-	public void ShowAttackForecast(GameObject attacker, GameObject defender) {
+	public void ShowAttackForecast(FightResult result, GameObject attacker, GameObject defender) {
         HideCurrentForecast();
 
 		currentForecast = Instantiate(ForecastPrefab) as GameObject;
@@ -20,7 +20,7 @@ public class CombatForecaster : MonoBehaviour {
 
 		CombatForecastWindow forecast = currentForecast.GetComponent<CombatForecastWindow>();
         forecast.OnForecastResponse += new CombatForecastWindow.ForecastResponseHandler(HandleForecastResponse);
-		forecast.SetUnits(attacker.GetComponent<Grid.Unit>().model, defender.GetComponent<Grid.Unit>().model);
+		forecast.SetForecastData(result);
 	}
 
     public void HideCurrentForecast() {

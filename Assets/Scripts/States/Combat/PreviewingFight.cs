@@ -8,6 +8,7 @@ public class PreviewingFight : CancelableCombatState {
     private CombatForecaster Forecaster;
     private BattleState State;
     private Animator Animator;
+	private FightResult PreviewResult;
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         base.OnStateEnter(animator, stateInfo, layerIndex);
@@ -16,12 +17,21 @@ public class PreviewingFight : CancelableCombatState {
         State = GameObject.Find("BattleManager").GetComponent<BattleState>();
         Animator = animator;
 
+		Fight fight = new Fight(
+			new Participants(State.SelectedUnit.GetComponent<Grid.Unit>().model, State.AttackTarget.GetComponent<Grid.Unit>().model),
+			AttackType.BASIC,
+			new DefaultFightResolution()
+		);
+
+		PreviewResult = fight.SimulateFight();
+
         Forecaster.OnConfirm += new CombatForecaster.ForecastResponseHandler(OnConfirm);
         Forecaster.OnReject += new CombatForecaster.ForecastResponseHandler(OnReject);
-        Forecaster.ShowAttackForecast(State.SelectedUnit.gameObject, State.AttackTarget.gameObject);
+        Forecaster.ShowAttackForecast(PreviewResult, State.SelectedUnit.gameObject, State.AttackTarget.gameObject);
     }
 
     private void OnConfirm() {
+		State.FightResult = PreviewResult;
         Animator.SetTrigger("attack_confirmed");
     }
 
@@ -30,4 +40,8 @@ public class PreviewingFight : CancelableCombatState {
     }
 
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-        Forecaster.OnConfirm -= new CombatForecaster.ForecastResponseHandler(OnConfirm);        Forecaster.OnReject -= new CombatForecaster.ForecastResponseHandler(OnReject);        Forecaster.HideCurrentForecast();    }}
+        Forecaster.OnConfirm -= new CombatForecaster.ForecastResponseHandler(OnConfirm);
+        Forecaster.OnReject -= new CombatForecaster.ForecastResponseHandler(OnReject);
+        Forecaster.HideCurrentForecast();
+    }
+}

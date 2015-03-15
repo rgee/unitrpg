@@ -3,8 +3,6 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class CombatForecastWindow : MonoBehaviour {
-	private Models.Unit attacker;
-	private Models.Unit defender;
 
 	private GameObject attackerHealthText;
 	private GameObject attackerDamageText;
@@ -16,6 +14,8 @@ public class CombatForecastWindow : MonoBehaviour {
 	private GameObject defenderHitPctText;
 	private GameObject defenderCritPctText;
 
+	private FightResult ForecastData;
+
     public enum ForecastResponse {
         CONFIRM,
         REJECT
@@ -25,15 +25,12 @@ public class CombatForecastWindow : MonoBehaviour {
 
     public event ForecastResponseHandler OnForecastResponse;
 
-	public void SetUnits(Models.Unit attacker, Models.Unit defender) {
-		Fight fight = new Fight(
-			new Participants(attacker, defender),
-			AttackType.BASIC,
-			new DefaultFightResolution()
-		);
+	public void SetForecastData(FightResult forecast) {
+		ForecastData = forecast;
 
-		FightResult result = fight.SimulateFight();
-		FightPhaseResult initialPhase = result.InitialAttack;
+		Models.Unit attacker = ForecastData.Participants.Attacker;
+		Models.Unit defender = ForecastData.Participants.Defender;
+		FightPhaseResult initialPhase = ForecastData.InitialAttack;
 
 		// TODO: Externalize
 		attackerHealthText.GetComponent<Text>().text = attacker.Health.ToString();
