@@ -106,5 +106,6 @@ public class EXPBubble : MonoBehaviour {
 			elapsedTime += Time.deltaTime;
 			yield return null;
 		}
+		ExpPercent = endingExp;
 	}
 }

@@ -24,9 +24,18 @@ public class ShowingEXP : StateMachineBehaviour {
 		LockControls();
 
 		ExpPanel = Instantiate(ExpPanelPrefab) as GameObject;
-		ExpBubble = ExpPanel.transform.FindChild("Panel/EXP Bubble").GetComponent<EXPBubble>();
 
 		SelectedUnit = CombatObjects.GetBattleState().SelectedUnit;
+
+		EXPGainDialog dialog = ExpPanel.GetComponent<EXPGainDialog>();
+
+		Models.Character character = SelectedUnit.GetComponent<Grid.Unit>().GetCharacter();
+		dialog.CharacterName = character.name;
+		dialog.CharacterLevel = character.Level;
+		dialog.StartingEXP = character.Exp;
+
+		ExpBubble = ExpPanel.transform.FindChild("Panel/EXP Bubble").GetComponent<EXPBubble>();
+
 		SelectedUnit.ApplyExp(50);
 		ExpBubble.StartCoroutine(AnimateThenExit());
     }
