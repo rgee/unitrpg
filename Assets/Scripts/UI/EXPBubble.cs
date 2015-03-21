@@ -15,7 +15,6 @@ public class EXPBubble : MonoBehaviour {
 		InnerCircle = transform.FindChild("Inner").gameObject;
 		OuterCircle = transform.FindChild("Outer").gameObject;
 		InnerCircleTransform = InnerCircle.GetComponent<RectTransform>();
-		StartCoroutine(FlipToEmpty());
 	}
 	
 	// Update is called once per frame
@@ -48,8 +47,8 @@ public class EXPBubble : MonoBehaviour {
 	}
 		
 
-	public IEnumerator AnimateToExp(float targetPercent) {
-		return IncreaseExp(Math.Min(targetPercent, 100 - ExpPercent), 1f);
+	public IEnumerator AnimateToExp(float targetPercent, float timeInSeconds) {
+		yield return StartCoroutine(IncreaseExp(Math.Min(targetPercent, 100 - ExpPercent), timeInSeconds));
 	}
 
 	private struct RotationRequest {
