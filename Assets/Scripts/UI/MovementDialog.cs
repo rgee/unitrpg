@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections.Generic;
 using System.Collections;
 
@@ -9,7 +10,6 @@ public class MovementDialog : MonoBehaviour {
 
 	private List<GameObject> Pips = new List<GameObject>();
 
-	// Use this for initialization
 	void Start () {
 		GameObject pipParent = transform.FindChild("Panel/Pips").gameObject;
 		for (int i = 0; i < TotalMoves; i++) {
@@ -20,8 +20,18 @@ public class MovementDialog : MonoBehaviour {
 		}
 	}
 	
-	// Update is called once per frame
 	void Update () {
-		
+		int enabledPips = TotalMoves - UsedMoves;
+		int numEnabled = 0;
+
+		foreach (GameObject pip in Pips) {
+			Pip comp = pip.GetComponent<Pip>();
+			if (numEnabled < enabledPips) {
+				comp.IsEnabled = true;
+				numEnabled++;
+			} else {
+				comp.IsEnabled = false;
+			}
+		}
 	}
 }
