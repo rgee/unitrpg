@@ -87,6 +87,14 @@ namespace Grid {
         public void ReturnToRest() {
             animator.SetBool("In Combat", false);
         }
+	
+		public bool CanLevel() {
+			return model.Character.Exp >= 100;
+		}
+		
+		public void ApplyExp(int amt) {
+			model.Character.ApplyExp(amt);
+		}
 
         public void Select() {
             //menuManager.ShowActionMenu(this);

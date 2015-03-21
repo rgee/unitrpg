@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
@@ -12,7 +12,7 @@ public class LevelUpScreen : MonoBehaviour {
     public Models.Character Character {
         set {
             
-            headerText.GetComponent<Text>().text = value.Name.ToUpper() + " LEVEL " + value.level;
+            headerText.GetComponent<Text>().text = value.Name.ToUpper() + " LEVEL " + value.Level;
             UpdatePortrait(value);
 
             character = value;

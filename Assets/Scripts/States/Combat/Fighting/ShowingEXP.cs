@@ -6,6 +6,7 @@ public class ShowingEXP : StateMachineBehaviour {
 
 	public GameObject ExpPanelPrefab;
 
+	private Grid.Unit SelectedUnit;
 	private EXPBubble ExpBubble;
 	private GameObject ExpPanel;
 	private Animator Animator;
@@ -24,13 +25,21 @@ public class ShowingEXP : StateMachineBehaviour {
 
 		ExpPanel = Instantiate(ExpPanelPrefab) as GameObject;
 		ExpBubble = ExpPanel.transform.FindChild("Panel/EXP Bubble").GetComponent<EXPBubble>();
+
+		SelectedUnit = CombatObjects.GetBattleState().SelectedUnit;
+		SelectedUnit.ApplyExp(50);
 		ExpBubble.StartCoroutine(AnimateThenExit());
     }
 
 	private IEnumerator AnimateThenExit() {
 		yield return ExpBubble.StartCoroutine(ExpBubble.AnimateToExp(50, 0.7f));
 		yield return new WaitForSeconds(2);
-		Animator.SetTrigger("no_exp");
+
+		if (SelectedUnit.CanLevel()) {
+			Animator.SetTrigger("gained_level");
+		} else {
+			Animator.SetTrigger("no_exp");
+		}
 	}
 
 	public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {

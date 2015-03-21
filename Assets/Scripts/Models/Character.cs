@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
 namespace Models {
 	public class Character : ScriptableObject {
 
-        public int level = 1;
+        public int Level = 1;
+		public int Exp = 0;
 
 		public int MaxHealth;
 		public int Strength;
@@ -24,6 +26,10 @@ namespace Models {
 		public string Name;
 
 		public List<BattleAction> AvailableActions;
+
+		public void ApplyExp(int amount) {
+			Exp = Math.Min(Exp+amount, 100);
+		}
 
         public LevelUpResults LevelUp() {
             LevelUpResults result = new LevelUpResults();
@@ -58,7 +64,7 @@ namespace Models {
         }
 
         private bool DidLevel(int growthPct) {
-            return Random.Range(0, 100) < growthPct;
+            return UnityEngine.Random.Range(0, 100) < growthPct;
         }
 	}
 }
