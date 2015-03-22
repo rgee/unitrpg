@@ -16,9 +16,16 @@ public class AttackerFighting : StateMachineBehaviour {
 
         State = CombatObjects.GetBattleState();
 
+		FightPhaseResult result = State.FightResult.InitialAttack;
+		Hit firstHit = result.AttackerHits[0];
+
         Grid.Unit unit = State.SelectedUnit;
         unit.OnAttackComplete += OnAttackComplete;
         unit.Attack();
+
+		if (firstHit.Missed) {
+			State.AttackTarget.Dodge();
+		}
     }
 
     void OnAttackComplete() {
@@ -33,7 +40,11 @@ public class AttackerFighting : StateMachineBehaviour {
 				Animator.SetTrigger("defender_survived");
 			} else {
 				State.SelectedUnit.Attack();
-			}
+				Hit nextHit = result.InitialAttack.AttackerHits[numAttacks];
+				if (nextHit.Missed) {
+					State.AttackTarget.Dodge();
+				}
+			}	
 		}
     }
 

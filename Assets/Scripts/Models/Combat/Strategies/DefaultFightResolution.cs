@@ -24,7 +24,7 @@ public class DefaultFightResolution : ResolutionStrategy {
 		result.Add(firstHit);
 
 		if (parameters.Hits == 2) {
-			result.Add (ComputeActualDamage(parameters));
+			result.Add(ComputeActualDamage(parameters));
 		}
 
 		return result;
@@ -34,13 +34,15 @@ public class DefaultFightResolution : ResolutionStrategy {
 	private Hit ComputeActualDamage(FightParameters parameters) {
 		bool crit = false;
 		bool glance = false;
+		bool missed = false;
 		int actualDamage = parameters.Damage;
-		bool didHit =  RollDice() > parameters.HitChance;
+		bool didHit =  RollDice() < parameters.HitChance;
 		if (!didHit) {
 			actualDamage = 0;
+			missed = true;
 		} else {
-			bool didCrit = RollDice() > parameters.CritChance;
-			bool didGlance = RollDice() > parameters.GlanceChance;
+			bool didCrit = RollDice() < parameters.CritChance;
+			bool didGlance = RollDice() < parameters.GlanceChance;
 
 			// Crits cannot also glance.
 			if (didCrit) {
@@ -52,7 +54,7 @@ public class DefaultFightResolution : ResolutionStrategy {
 			}
 		}
 		
-		return new Hit(actualDamage, glance, crit);
+		return new Hit(actualDamage, glance, crit, missed);
 	}
 
 	private FightParameters ComputeAttackParams(Participants participants) {
@@ -83,7 +85,7 @@ public class DefaultFightResolution : ResolutionStrategy {
 	}
 
 	private static int Percentage(int val) {
-		return Math.Min(val, 100);
+		return Math.Min(Math.Max(val, 0), 100);
 	}
 
 	private static int RollDice() {

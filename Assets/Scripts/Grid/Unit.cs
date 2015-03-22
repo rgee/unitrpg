@@ -80,6 +80,10 @@ namespace Grid {
             animator.SetBool("In Combat", true);
         }
 
+		public void Dodge() {
+			animator.SetTrigger("Dodge");
+		}
+
         public void Attack() {
             animator.SetTrigger("Attack");
         }

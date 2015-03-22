@@ -18,6 +18,11 @@ public class DefenderFighting : StateMachineBehaviour {
 
         defender.OnAttackComplete += OnAttackComplete;
         defender.Attack();
+
+		FightPhaseResult firstAttack = State.FightResult.CounterAttack;
+		if (firstAttack.AttackerHits[0].Missed) {
+			State.SelectedUnit.Dodge();
+		}
     }
 
     void OnAttackComplete() {
@@ -31,6 +36,9 @@ public class DefenderFighting : StateMachineBehaviour {
 			Animator.SetTrigger("fight_completed");
 		} else {
 			State.AttackTarget.Attack();
+			if (result.CounterAttack.AttackerHits[numAttacks].Missed) {
+				State.SelectedUnit.Dodge();
+			}
 		}
     }
 
