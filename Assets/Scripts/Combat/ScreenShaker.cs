@@ -3,12 +3,12 @@ using System.Collections;
 
 public class ScreenShaker : MonoBehaviour {
 	
-	public bool Shaking = false;
 	public float ShakeDecay = 0.01f;
-	public float DefaultShakeIntensity = 0.1f;
+	public float CritIntensity = 6;
+	public float RegularIntensity = 4;
 
-	private float ShakeIntensity = 0;    
-
+	private bool Shaking = false;
+	private float ShakeIntensity = 0;   
 	private Vector3 OriginalPos;
 	private Quaternion OriginalRot;
 
@@ -28,10 +28,16 @@ public class ScreenShaker : MonoBehaviour {
 	}    
 
 	public void Shake() {
-		Debug.Log("Shake yo booty");
 		OriginalPos = transform.position;
 		OriginalRot = transform.rotation;
 		Shaking = true;
-		ShakeIntensity = DefaultShakeIntensity;
+		ShakeIntensity = RegularIntensity;
 	}    
+
+	public void CritShake() {
+		OriginalPos = transform.position;
+		OriginalRot = transform.rotation;
+		Shaking = true;
+		ShakeIntensity = CritIntensity;
+	}
 }

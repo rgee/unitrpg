@@ -20,6 +20,13 @@ namespace Grid {
 		private Grid.Unit CurrentAttackTarget;
 		private Hit CurrentHit;
 
+		public class AttackConnectedEventArgs : System.EventArgs {
+			public AttackConnectedEventArgs(Hit hit) {
+				this.hit = hit;
+			}
+
+			public readonly Hit hit;
+		}
 
 		private static Dictionary<MathUtils.CardinalDirection, int> animatorDirections = new Dictionary<MathUtils.CardinalDirection, int>() {
 			{ MathUtils.CardinalDirection.W, 1},
@@ -57,7 +64,7 @@ namespace Grid {
         public event AttackCompletionHandler OnAttackComplete;
         public event CombatPreparationHandler OnPreparedForCombat;
         public event EventHandler OnDeath;
-		public event EventHandler OnHitConnect;
+		public event EventHandler<AttackConnectedEventArgs> OnHitConnect;
 
         public Models.Character GetCharacter() {
             return model.Character;
@@ -80,7 +87,7 @@ namespace Grid {
 
 			// Only trigger this event if it wasn't a miss.
 			if (OnHitConnect != null && !CurrentHit.Missed) {
-				OnHitConnect(this, EventArgs.Empty);
+				OnHitConnect(this, new AttackConnectedEventArgs(CurrentHit));
 			}
 		}
 

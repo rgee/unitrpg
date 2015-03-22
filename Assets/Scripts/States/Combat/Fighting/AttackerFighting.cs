@@ -29,8 +29,13 @@ public class AttackerFighting : StateMachineBehaviour {
 		}
     }
 
-	void OnHitConnect(object sender, EventArgs args) {
-		CombatObjects.GetCameraController().gameObject.GetComponent<ScreenShaker>().Shake();
+	void OnHitConnect(object sender, Grid.Unit.AttackConnectedEventArgs args) {
+		ScreenShaker shaker = CombatObjects.GetCameraController().gameObject.GetComponent<ScreenShaker>();
+		if (args.hit.Crit) {
+			shaker.CritShake();
+		} else {
+			shaker.Shake();
+		}
 	}
 
     void OnAttackComplete() {
