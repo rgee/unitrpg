@@ -10,10 +10,14 @@ namespace Grid {
         public bool friendly;
 		public Models.Unit model;
 		public float timePerMoveSquare = 0.3f;
+		public GameObject HitConfirmPrefab;
 
         private Seeker seeker;
         private ActionMenuManager menuManager;
 		private Animator animator;
+		private Grid.Unit CurrentAttackTarget;
+		private Hit CurrentHit;
+
 
 		private static Dictionary<MathUtils.CardinalDirection, int> animatorDirections = new Dictionary<MathUtils.CardinalDirection, int>() {
 			{ MathUtils.CardinalDirection.W, 1},
@@ -60,7 +64,19 @@ namespace Grid {
             if (OnAttackComplete != null) {
                 OnAttackComplete();
             }
+			CurrentAttackTarget = null;
         }
+
+		void AttackConnected() {
+			if (!CurrentHit.Missed) {
+				ShowHit();
+			}
+		}
+
+		void ShowHit() {
+			GameObject hitConfirmation = Instantiate(HitConfirmPrefab) as GameObject;
+			hitConfirmation.transform.parent = CurrentAttackTarget.gameObject.transform;
+		}
 
         void Prepared() {
             if (OnPreparedForCombat != null) {
@@ -84,7 +100,9 @@ namespace Grid {
 			animator.SetTrigger("Dodge");
 		}
 
-        public void Attack() {
+        public void Attack(Grid.Unit target, Hit hit) {
+			this.CurrentAttackTarget = target;
+			this.CurrentHit = hit;
             animator.SetTrigger("Attack");
         }
 
