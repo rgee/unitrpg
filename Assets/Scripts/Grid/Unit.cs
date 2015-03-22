@@ -12,6 +12,7 @@ namespace Grid {
 		public float timePerMoveSquare = 0.3f;
 		public GameObject HitConfirmPrefab;
 		public GameObject CritConfirmPrefab;
+		public GameObject GlanceConfirmPrefab;
 
         private Seeker seeker;
         private ActionMenuManager menuManager;
@@ -70,6 +71,8 @@ namespace Grid {
 		void AttackConnected() {
 			if (CurrentHit.Crit) {
 				ShowCrit();
+			} else if (CurrentHit.Glanced) {
+				ShowGlance();
 			} else if (!CurrentHit.Missed) {
 				ShowHit();
 			}
@@ -83,6 +86,12 @@ namespace Grid {
 
 		void ShowHit() {
 			GameObject hitConfirmation = Instantiate(HitConfirmPrefab) as GameObject;
+			hitConfirmation.transform.parent = CurrentAttackTarget.gameObject.transform;
+			hitConfirmation.transform.localPosition = new Vector3();
+		}
+
+		void ShowGlance() {
+			GameObject hitConfirmation = Instantiate(GlanceConfirmPrefab) as GameObject;
 			hitConfirmation.transform.parent = CurrentAttackTarget.gameObject.transform;
 			hitConfirmation.transform.localPosition = new Vector3();
 		}

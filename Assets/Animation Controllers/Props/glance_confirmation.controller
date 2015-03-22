@@ -5,13 +5,13 @@ AnimatorController:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: hitconfirmsheet_40_0
+  m_Name: glance_confirmation
   serializedVersion: 5
   m_AnimatorParameters: []
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
-    m_StateMachine: {fileID: 110769502}
+    m_StateMachine: {fileID: 110773722}
     m_Mask: {fileID: 0}
     m_Motions: []
     m_Behaviours: []
@@ -22,13 +22,13 @@ AnimatorController:
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 0}
   m_MultiThreadedStateMachine: 1
---- !u!1102 &110283956
+--- !u!1102 &110249428
 AnimatorState:
   serializedVersion: 5
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: hit_confirm_explode
+  m_Name: glance_confirmation
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -37,9 +37,9 @@ AnimatorState:
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
   m_Mirror: 0
-  m_Motion: {fileID: 7400000, guid: 2fbb841c7d5a3418b9fa3f7c3f060469, type: 2}
+  m_Motion: {fileID: 7400000, guid: b9d183e2095d54a55aa061e2d3fe6d54, type: 2}
   m_Tag: 
---- !u!1107 &110769502
+--- !u!1107 &110773722
 AnimatorStateMachine:
   serializedVersion: 5
   m_ObjectHideFlags: 1
@@ -48,18 +48,15 @@ AnimatorStateMachine:
   m_Name: Base Layer
   m_ChildStates:
   - serializedVersion: 1
-    m_State: {fileID: 110283956}
-    m_Position: {x: 348, y: 120, z: 0}
+    m_State: {fileID: 110249428}
+    m_Position: {x: 200, y: 0, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
-  m_StateMachineTransitions:
-    data:
-      first: {fileID: 110769502}
-      second: []
+  m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 50, y: 20, z: 0}
   m_EntryPosition: {x: 50, y: 120, z: 0}
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
-  m_DefaultState: {fileID: 110283956}
+  m_DefaultState: {fileID: 110249428}

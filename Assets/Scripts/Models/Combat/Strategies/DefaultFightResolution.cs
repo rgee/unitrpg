@@ -72,7 +72,7 @@ public class DefaultFightResolution : ResolutionStrategy {
 		int numHits = atkChar.Speed - defChar.Speed > 10 ? 2 : 1;
 		int hitChance = Percentage((atkChar.Skill + 50) - defChar.Speed);
 		int critChance = Percentage(atkChar.Skill - defChar.Speed);
-		int glanceChance = Percentage(atkChar.Skill - defChar.Skill);
+		int glanceChance = 100;//Percentage(atkChar.Skill - defChar.Skill);
 		int damage = Math.Abs(defChar.Defense - atkChar.Strength);
 
 		return new FightParameters(
