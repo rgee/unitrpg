@@ -57,6 +57,7 @@ namespace Grid {
         public event AttackCompletionHandler OnAttackComplete;
         public event CombatPreparationHandler OnPreparedForCombat;
         public event EventHandler OnDeath;
+		public event EventHandler OnHitConnect;
 
         public Models.Character GetCharacter() {
             return model.Character;
@@ -75,6 +76,11 @@ namespace Grid {
 				ShowGlance();
 			} else if (!CurrentHit.Missed) {
 				ShowHit();
+			}
+
+			// Only trigger this event if it wasn't a miss.
+			if (OnHitConnect != null && !CurrentHit.Missed) {
+				OnHitConnect(this, EventArgs.Empty);
 			}
 		}
 

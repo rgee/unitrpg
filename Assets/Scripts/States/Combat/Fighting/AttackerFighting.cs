@@ -20,6 +20,7 @@ public class AttackerFighting : StateMachineBehaviour {
 		Hit firstHit = result.AttackerHits[0];
 
         Grid.Unit unit = State.SelectedUnit;
+		unit.OnHitConnect += OnHitConnect;
         unit.OnAttackComplete += OnAttackComplete;
         unit.Attack(State.AttackTarget, firstHit);
 
@@ -27,6 +28,10 @@ public class AttackerFighting : StateMachineBehaviour {
 			State.AttackTarget.Dodge();
 		}
     }
+
+	void OnHitConnect(object sender, EventArgs args) {
+		CombatObjects.GetCameraController().gameObject.GetComponent<ScreenShaker>().Shake();
+	}
 
     void OnAttackComplete() {
 		FightResult result = State.FightResult;
@@ -51,6 +56,7 @@ public class AttackerFighting : StateMachineBehaviour {
 
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         State.SelectedUnit.OnAttackComplete -= OnAttackComplete;
+		State.SelectedUnit.OnHitConnect -= OnHitConnect;
 		numAttacks = 0;
     }
 }
