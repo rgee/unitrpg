@@ -64,7 +64,6 @@ namespace Grid {
             if (OnAttackComplete != null) {
                 OnAttackComplete();
             }
-			CurrentAttackTarget = null;
         }
 
 		void AttackConnected() {
@@ -76,6 +75,7 @@ namespace Grid {
 		void ShowHit() {
 			GameObject hitConfirmation = Instantiate(HitConfirmPrefab) as GameObject;
 			hitConfirmation.transform.parent = CurrentAttackTarget.gameObject.transform;
+			hitConfirmation.transform.localPosition = new Vector3();
 		}
 
         void Prepared() {
