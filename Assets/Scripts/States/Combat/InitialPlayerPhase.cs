@@ -16,8 +16,7 @@ public class InitialPlayerPhase : StateMachineBehaviour {
 
         List<Grid.Unit> friendlyUnits = UnitManager.GetFriendlies();
         bool turnComplete = friendlyUnits.All(unit => {
-            return BattleState.UnitActed(unit) && 
-                   BattleState.UnitMoved(unit);
+			return BattleState.UnitActed(unit);
         });
 
         if (turnComplete) {
