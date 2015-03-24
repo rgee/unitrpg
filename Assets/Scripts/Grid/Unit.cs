@@ -83,6 +83,8 @@ namespace Grid {
 				ShowGlance();
 			} else if (!CurrentHit.Missed) {
 				ShowHit();
+			} else {
+				SoundFX.Instance.PlayMiss();
 			}
 
 			// Only trigger this event if it wasn't a miss.
@@ -95,18 +97,25 @@ namespace Grid {
 			GameObject hitConfirmation = Instantiate(CritConfirmPrefab) as GameObject;
 			hitConfirmation.transform.parent = CurrentAttackTarget.gameObject.transform;
 			hitConfirmation.transform.localPosition = new Vector3();
+
+			SoundFX.Instance.PlayCrit();
 		}
 
 		void ShowHit() {
 			GameObject hitConfirmation = Instantiate(HitConfirmPrefab) as GameObject;
 			hitConfirmation.transform.parent = CurrentAttackTarget.gameObject.transform;
 			hitConfirmation.transform.localPosition = new Vector3();
+
+			SoundFX.Instance.PlayHit();
 		}
 
 		void ShowGlance() {
+			SoundFX.Instance.PlayGlance();
 			GameObject hitConfirmation = Instantiate(GlanceConfirmPrefab) as GameObject;
 			hitConfirmation.transform.parent = CurrentAttackTarget.gameObject.transform;
 			hitConfirmation.transform.localPosition = new Vector3();
+
+			SoundFX.Instance.PlayGlance();
 		}
 
         void Prepared() {
