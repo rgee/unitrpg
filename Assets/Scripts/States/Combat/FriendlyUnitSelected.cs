@@ -8,6 +8,8 @@ public class FriendlyUnitSelected : CancelableCombatState {
 	private Animator Animator;
 
 	public override void OnStateEnter (Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
+		base.OnStateEnter(animator, stateInfo, layerIndex);
+
 		Animator = animator;
 		BattleState = GameObject.Find("BattleManager").GetComponent<BattleState>();
 		MenuManager = GameObject.Find("ActionMenuManager").GetComponent<ActionMenuManager>();
