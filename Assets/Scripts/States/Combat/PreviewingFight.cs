@@ -14,7 +14,7 @@ public class PreviewingFight : CancelableCombatState {
         base.OnStateEnter(animator, stateInfo, layerIndex);
 
         Forecaster = GameObject.Find("Combat Forecast Manager").GetComponent<CombatForecaster>();
-        State = GameObject.Find("BattleManager").GetComponent<BattleState>();
+        State = CombatObjects.GetBattleState();
         Animator = animator;
 
 		Fight fight = new Fight(
@@ -28,6 +28,15 @@ public class PreviewingFight : CancelableCombatState {
         Forecaster.OnConfirm += new CombatForecaster.ForecastResponseHandler(OnConfirm);
         Forecaster.OnReject += new CombatForecaster.ForecastResponseHandler(OnReject);
         Forecaster.ShowAttackForecast(PreviewResult, State.SelectedUnit.gameObject, State.AttackTarget.gameObject);
+
+        Grid.Unit attacker = State.SelectedUnit;
+        Grid.Unit defender = State.AttackTarget;
+
+        MathUtils.CardinalDirection attackerDirection = MathUtils.DirectionTo(attacker.gridPosition, defender.gridPosition);
+        MathUtils.CardinalDirection defenderDirection = MathUtils.DirectionTo(defender.gridPosition, attacker.gridPosition);
+
+        attacker.PrepareForCombat(attackerDirection);
+        defender.PrepareForCombat(defenderDirection);
     }
 
     private void OnConfirm() {
@@ -37,6 +46,8 @@ public class PreviewingFight : CancelableCombatState {
 
     private void OnReject() {
         Animator.SetTrigger("attack_rejected");
+        State.SelectedUnit.ReturnToRest();
+        State.AttackTarget.ReturnToRest();
     }
 
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
