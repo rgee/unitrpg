@@ -4,6 +4,14 @@ using System.Collections;
 public class GridCameraController : CameraController {
 	
 	public MapGrid grid;
+    public GameObject GridHighlightPrefab;
+
+    private GameObject GridHighlight;
+
+    public void Start() {
+
+        GridHighlight = Instantiate(GridHighlightPrefab) as GameObject;
+    }
 
 	public void Update () {
 		base.Update();
@@ -43,5 +51,9 @@ public class GridCameraController : CameraController {
 		if (bottomEdge < minY) {
 			transform.position = new Vector3(transform.position.x, minY + halfVSize, transform.position.z);
 		}
+
+        Vector2? mouseGridPos = grid.GetMouseGridPosition();
+        Vector3 gridPosWorldCenter = grid.GetWorldPosForGridPos(mouseGridPos.Value);
+        GridHighlight.transform.localPosition = gridPosWorldCenter;
 	}
 }
