@@ -4,7 +4,7 @@ using System.Collections;
 public class CameraController : MonoBehaviour {
 
 	public float speed = 10;
-    private bool locked;
+    protected bool locked;
 
     public void Lock() {
         locked = true;

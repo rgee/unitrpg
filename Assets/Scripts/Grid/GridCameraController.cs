@@ -52,11 +52,16 @@ public class GridCameraController : CameraController {
 			transform.position = new Vector3(transform.position.x, minY + halfVSize, transform.position.z);
 		}
 
-        // Map the mouse position to a grid-space position, then map that position back to world-space to get the center
-        // of the grid over which the mouse is set.
-        Vector2? mouseGridPos = grid.GetMouseGridPosition();
-        Vector3 gridPosWorldCenter = grid.GetWorldPosForGridPos(mouseGridPos.Value);
+        if (locked) {
+            GridHighlight.SetActive(false);
+        } else {
+            GridHighlight.SetActive(true);
+            // Map the mouse position to a grid-space position, then map that position back to world-space to get the center
+            // of the grid over which the mouse is set.
+            Vector2? mouseGridPos = grid.GetMouseGridPosition();
+            Vector3 gridPosWorldCenter = grid.GetWorldPosForGridPos(mouseGridPos.Value);
 
-        GridHighlight.transform.localPosition = gridPosWorldCenter;
+            GridHighlight.transform.localPosition = gridPosWorldCenter;
+        }
 	}
 }
