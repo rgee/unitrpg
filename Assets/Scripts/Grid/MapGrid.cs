@@ -81,8 +81,8 @@ public class MapGrid : MonoBehaviour {
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         int tileSize = (int)tileSizeInPixels;
-        float widthExtent = (width / 2) * tileSize;
-        float heightExtent = (height / 2) * tileSize;
+        float widthExtent = (width / 2f) * tileSize;
+        float heightExtent = (height / 2f) * tileSize;
         Vector2 result =  new Vector3(
             (float)Math.Floor(mapRange(-widthExtent, widthExtent, 0, width, mousePos.x)),
             (float)Math.Floor(mapRange(-heightExtent, heightExtent, 0, height, mousePos.y))
@@ -114,9 +114,10 @@ public class MapGrid : MonoBehaviour {
         }
 
         int tileSize = (int)tileSizeInPixels;
-        float halfTileSize = tileSizeInPixels / 2;
-        float widthExtent = (width/2)*tileSize;
-        float heightExtent = (height/2)*tileSize;
+        float widthExtent = (width/2f)*tileSize;
+        float heightExtent = (height/2f)*tileSize;
+
+        float halfTileSize = tileSizeInPixels / 2; 
 
         // Map the input values for the x and y axis in grid space to world space.
         // Be sure to output the center of the tile in world space by adding
