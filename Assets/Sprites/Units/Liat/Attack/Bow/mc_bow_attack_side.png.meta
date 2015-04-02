@@ -1,20 +1,18 @@
 fileFormatVersion: 2
-guid: a2d2260ff9d7b40f5a8e42687e307b9d
+guid: dbe6da80061d44555bbf3debe8dfcf0d
 TextureImporter:
   fileIDToRecycleName:
-    21300000: mc_attack_south_0
-    21300002: mc_attack_south_1
-    21300004: mc_attack_south_2
-    21300006: mc_attack_south_3
-    21300008: mc_attack_south_4
-    21300010: mc_attack_south_5
-    21300012: mc_attack_south_6
-    21300014: mc_attack_south_7
-    21300016: mc_attack_south_8
-    21300018: mc_attack_south_9
-    21300020: mc_attack_south_10
-    21300022: mc_attack_south_11
-    21300024: mc_attack_south_12
+    21300000: mc_bow_attack_side_0
+    21300002: mc_bow_attack_side_1
+    21300004: mc_bow_attack_side_2
+    21300006: mc_bow_attack_side_3
+    21300008: mc_bow_attack_side_4
+    21300010: mc_bow_attack_side_5
+    21300012: mc_bow_attack_side_6
+    21300014: mc_bow_attack_side_7
+    21300016: mc_bow_attack_side_8
+    21300018: mc_bow_attack_side_9
+    21300020: mc_bow_attack_side_10
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -33,6 +31,9 @@ TextureImporter:
   isReadable: 0
   grayScaleToAlpha: 0
   generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
   textureFormat: -3
   maxTextureSize: 1024
@@ -43,6 +44,7 @@ TextureImporter:
     wrapMode: 1
   nPOTScale: 0
   lightmap: 0
+  rGBM: 0
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
@@ -50,141 +52,123 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: .5, y: .5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 1.20000005
+  spritePixelsToUnits: 1
   alphaIsTransparency: 1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: mc_attack_south_0
+    - name: mc_bow_attack_side_0
       rect:
         serializedVersion: 2
         x: 0
         y: 600
-        width: 50
-        height: 50
+        width: 60
+        height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: mc_attack_south_1
+    - name: mc_bow_attack_side_1
       rect:
         serializedVersion: 2
         x: 0
-        y: 550
-        width: 50
-        height: 50
+        y: 540
+        width: 60
+        height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: mc_attack_south_2
+    - name: mc_bow_attack_side_2
       rect:
         serializedVersion: 2
         x: 0
-        y: 500
-        width: 50
-        height: 50
+        y: 480
+        width: 60
+        height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: mc_attack_south_3
+    - name: mc_bow_attack_side_3
       rect:
         serializedVersion: 2
         x: 0
-        y: 450
-        width: 50
-        height: 50
+        y: 420
+        width: 60
+        height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: mc_attack_south_4
+    - name: mc_bow_attack_side_4
       rect:
         serializedVersion: 2
         x: 0
-        y: 400
-        width: 50
-        height: 50
+        y: 360
+        width: 60
+        height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: mc_attack_south_5
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 350
-        width: 50
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: mc_attack_south_6
+    - name: mc_bow_attack_side_5
       rect:
         serializedVersion: 2
         x: 0
         y: 300
-        width: 50
-        height: 50
+        width: 60
+        height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: mc_attack_south_7
+    - name: mc_bow_attack_side_6
       rect:
         serializedVersion: 2
         x: 0
-        y: 250
-        width: 50
-        height: 50
+        y: 240
+        width: 60
+        height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: mc_attack_south_8
+    - name: mc_bow_attack_side_7
       rect:
         serializedVersion: 2
         x: 0
-        y: 200
-        width: 50
-        height: 50
+        y: 180
+        width: 60
+        height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: mc_attack_south_9
+    - name: mc_bow_attack_side_8
       rect:
         serializedVersion: 2
         x: 0
-        y: 150
-        width: 50
-        height: 50
+        y: 120
+        width: 60
+        height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: mc_attack_south_10
+    - name: mc_bow_attack_side_9
       rect:
         serializedVersion: 2
         x: 0
-        y: 100
-        width: 50
-        height: 50
+        y: 60
+        width: 60
+        height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: mc_attack_south_11
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 50
-        width: 50
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: mc_attack_south_12
+    - name: mc_bow_attack_side_10
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 50
-        height: 50
+        width: 60
+        height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
+  assetBundleName: 
+  assetBundleVariant: 
