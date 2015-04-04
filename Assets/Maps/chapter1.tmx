@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="35" height="20" tilewidth="32" tileheight="32" nextobjectid="19">
+ <tileset firstgid="1" name="chapter_1_props" tilewidth="32" tileheight="32">
+  <image source="../Sprites/Tilesets/chapter_1_props.png" width="640" height="640"/>
+ </tileset>
+ <tileset firstgid="401" name="chapter1" tilewidth="32" tileheight="32">
+  <image source="../Sprites/Tilesets/chapter1.png" width="640" height="640"/>
+  <tile id="0">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0" width="32" height="32"/>
+   </objectgroup>
+  </tile>
+  <tile id="1">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0" width="32" height="32"/>
+   </objectgroup>
+  </tile>
+  <tile id="2">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0" width="32" height="32"/>
+   </objectgroup>
+  </tile>
+  <tile id="3">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0" width="32" height="32"/>
+   </objectgroup>
+  </tile>
+  <tile id="20">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0" width="32" height="32"/>
+   </objectgroup>
+  </tile>
+ </tileset>
+ <tileset firstgid="801" name="water" tilewidth="32" tileheight="32">
+  <image source="../Sprites/Tilesets/water_sheet_32.png" width="32" height="224"/>
+  <tile id="6">
+   <animation>
+    <frame tileid="0" duration="100"/>
+    <frame tileid="1" duration="100"/>
+    <frame tileid="2" duration="100"/>
+    <frame tileid="3" duration="100"/>
+    <frame tileid="4" duration="100"/>
+    <frame tileid="5" duration="100"/>
+    <frame tileid="6" duration="100"/>
+   </animation>
+  </tile>
+ </tileset>
+ <layer name="Water" width="35" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYMAE6syoeKAAujsG0i2jYHADbGlloNLLYHHLQIcDNrcMBjBY3DJY3AECgzGtDLRbBjr/jrpl1C2jbqEuAADnIgqB
+  </data>
+ </layer>
+ <layer name="Outside Ground" width="35" height="20">
+  <data encoding="base64" compression="zlib">
+   eJztk7EJwDAMBO39N7FnULxDJooeInjcufovfCDUHjoUvbXIGf9+claOAvbAfkUe7FI+U+jCN1H2AXwXZZ/dRdmnXNT/s7uo+7CLuk+5OPQBDv9TuPQBLn2ASx/g0ge49LlcTvkAoR0lFw==
+  </data>
+ </layer>
+ <layer name="Outside Props L1" width="35" height="20">
+  <data encoding="base64" compression="zlib">
+   eJw7wMjAcBCIBwO4MkjcAQIvBpFbRsEoGAWjYBSMglEwCkYB+QAALX4DQg==
+  </data>
+ </layer>
+ <layer name="Outside Props L2" width="35" height="20">
+  <data encoding="base64" compression="zlib">
+   eJztzjkSglAQRdEuPiiCuQMK7H8jzkOuoIK5imPoXUUXQd+qE78n0p5mnsgcCyyxwhobbLHD3tP5cmDniAIlTjjjggo1rkpfbuzc8UCDJ15444MvfkpfnBPxEaCDLkL0ECFG3+l8GbAzxAhjJJhgihQZcqUvlmVZlmW1tz++RhwI
+  </data>
+ </layer>
+ <layer name="Inner Walls" width="35" height="20">
+  <data encoding="base64" compression="zlib">
+   eJzNlg1OAjEQhXfHnysoXgH1DOAZgDOoZwDP4NZuuYCScEtek04yzhZomU10kpe2j+7rR7dptmnO1xU1zU87VJe0H0kldXeExf0By/QEixNMeqy93FzZL6k4r4e2UEhtlIe+hPyRfm7Mnk88vpClUxzc5vbqErnUllQ8uyEx8P70I7J0FSzx7DIDc4zJsq9gmf4jlli8PvPI96X7LHm25LM8lu+9lmWrcnWe9PXaUkE965JfWpIhtMP/mPstqHVze9OnsxsqWGLxfSDvhmucpRvoln7fHdL3J+ZLv6Z27VD3yJhAD2T3rSyPyHiCnsnuW1lmyJhDL2T3rSwLZCyhFdl9K8srMt6gd7L7VpY1MjbQB9l9K8snMjrIkd23snzH76yYS3b/APVPG04=
+  </data>
+ </layer>
+ <layer name="Shadows" width="35" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYKAM7GKk0AAqApBbdlIJEwtw6QW5hVqYWHCOEROPglFACqB3/sEHzmJJz+TiUTAKRsEoGAUjGwAAX+ZAiQ==
+  </data>
+ </layer>
+ <layer name="Outer Walls" width="35" height="20">
+  <data encoding="base64" compression="zlib">
+   eJzt0EcyRFEUxvHb3SOZBcgsQGYBMguQWYDMAqTGAmSKoRyKoRyKqUxRZjJFGaCD8O9pu7fK4L07UE7Vb3Le7fN91UL8z1+fYYsQI5bf7VVvjZp5bi9I7sv2qrdGzTa3dyT3ZXvVW9W88vYN73DACRfcihtn7M8l32R71dsLyc7HKoQv/OCPAAQiCMEIsf78zRN3niW3ZHvV2xfJLpSsMIQjApGIQjRiECvpYsR4/pdRrz5xZMUjAYlIQjJSkIo0k7p4ZtGrSzpZGchEFrKRg1zkIV9jlwKyClGEYpSgFGUoR4WJXbynkqwqVKMGtahDPRrQqLFLE1nNaEEr2mBHOzrQqbFLF1nd6EEv+tCPAQxiSGOXMbLGMYFJTGEaM5jFnMYuS2QtYwWrWMM6NrCJLY1ddsnawz4OcIgjHOMEpxq7XJJ1hWvc4BZ3uMcDHjV2cZDlhAtufOATX54ONiEsNnPzvwHV8F7f
+  </data>
+ </layer>
+ <objectgroup name="Colliders" opacity="0.01">
+  <object id="4" x="96" y="192" width="288" height="288">
+   <ellipse/>
+  </object>
+  <object id="11" x="288" y="0" width="32" height="208"/>
+  <object id="12" x="480" y="0" width="640" height="256"/>
+  <object id="14" x="1056" y="256" width="64" height="384"/>
+  <object id="16" x="384" y="352" width="672" height="288"/>
+  <object id="18" x="344" y="-96"/>
+ </objectgroup>
+</map>
