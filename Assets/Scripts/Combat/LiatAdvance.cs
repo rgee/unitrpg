@@ -12,7 +12,11 @@ public class LiatAdvance : MonoBehaviour {
 
 	public void Advance() {
 		Vector3 advancePos = CombatObjects.GetBattleState().AttackTarget.transform.position;
-		iTween.MoveTo(gameObject, advancePos, 0.1f);
+		iTween.MoveTo(gameObject, iTween.Hash(
+			"position", advancePos,
+			"time", 0.1f,
+			"easetype", iTween.EaseType.easeOutExpo
+		));
 	}
 
 	public void Update() {
