@@ -64,7 +64,11 @@ public class GridCameraController : CameraController {
             Vector2? mouseGridPos = grid.GetMouseGridPosition();
             Vector3 gridPosWorldCenter = grid.GetWorldPosForGridPos(mouseGridPos.Value);
 
-            GridHighlight.transform.localPosition = gridPosWorldCenter;
+            if (gridPosWorldCenter.x == float.MaxValue || gridPosWorldCenter.y == float.MaxValue) {
+                GridHighlight.SetActive(false);
+            } else {
+                GridHighlight.transform.localPosition = gridPosWorldCenter;
+            }
         }
 	}
 }
