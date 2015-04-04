@@ -19,6 +19,7 @@ namespace Grid {
 		private Animator animator;
 		private Grid.Unit CurrentAttackTarget;
 		private Hit CurrentHit;
+		private UnitController Controller;
 
 		public class AttackConnectedEventArgs : System.EventArgs {
 			public AttackConnectedEventArgs(Hit hit) {
@@ -40,6 +41,7 @@ namespace Grid {
             seeker = GetComponent<Seeker>();
             seeker.startEndModifier.exactEndPoint = Pathfinding.StartEndModifier.Exactness.SnapToNode;
 			animator = GetComponent<Animator>();
+			Controller = GetComponent<UnitController>();
 			model.Health = model.Character.MaxHealth;
         }
 
@@ -167,36 +169,14 @@ namespace Grid {
         }
 
         public IEnumerator MoveAlongPath(List<Vector3> path) {
-            yield return StartCoroutine(MoveAlongPath(path, (moved) => { }));
+			bool complete = false;
+			Controller.MoveAlongPath(path, () => complete = true);
+			while (!complete) {
+				yield return new WaitForEndOfFrame();
+			}
         }
 
-		public IEnumerator MoveAlongPath(List<Vector3> path, OnPathingComplete callback) {
-			animator.SetBool("Running", true);
-
-			Vector3 prevPoint = transform.position;
-			foreach (Vector3 point in path.GetRange(1, path.Count-1)) {
-				MathUtils.CardinalDirection dir = MathUtils.DirectionTo(prevPoint, point);
-				animator.SetInteger("Direction", animatorDirections[dir]);
-				yield return StartCoroutine(MoveToPoint(point, timePerMoveSquare));
-				prevPoint = point;
-			}
-
-			animator.SetBool("Running", false);
-			callback(true);
-		}
-
-		public IEnumerator MoveToPoint(Vector3 dest, float time) {
-			float elapsedTime = 0;
-			Vector3 startPosition = transform.position;
-
-			while (elapsedTime < time) {
-				transform.position = Vector3.Lerp (startPosition, dest, (elapsedTime / time));
-				elapsedTime += Time.deltaTime;
-				yield return null;
-			}
-		}
-
-        public void MoveTo(Vector2 pos, MapGrid grid, OnSearchComplete searchCb, OnPathingComplete callback) {
+        public void MoveTo(Vector2 pos, MapGrid grid, OnSearchComplete searchCb, Action callback) {
 
             Vector3 destination = grid.GetWorldPosForGridPos(pos);
 
@@ -212,9 +192,10 @@ namespace Grid {
                 grid.RescanGraph();
                 searchCb(!p.error);
 				if (!p.error) {
-					StartCoroutine(MoveAlongPath(p.vectorPath, callback));
+					List<Vector3> trimmedPath = p.vectorPath.GetRange(1, p.vectorPath.Count-1);
+					Controller.MoveAlongPath(trimmedPath, callback);
 				} else {
-					callback(false);
+					callback();
 				}
 			});
         }
