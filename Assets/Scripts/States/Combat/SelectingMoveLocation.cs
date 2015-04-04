@@ -16,8 +16,7 @@ public class SelectingMoveLocation : CancelableCombatState {
 
         int mov = State.GetRemainingDistance(State.SelectedUnit);
 		WalkableLocations = Grid.GetWalkableTilesInRange(State.SelectedGridPosition, mov);
-        Debug.Log("Re-implement move square highlighting");
-        //Grid.SelectTiles(walkableTiles, Color.blue);
+        Grid.SelectTiles(WalkableLocations, MapGrid.SelectionType.MOVEMENT);
 
 		Grid.OnGridClicked += new MapGrid.GridClickHandler(HandleGridClick);
 	}

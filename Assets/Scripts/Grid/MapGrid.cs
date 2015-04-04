@@ -9,11 +9,21 @@ public class MapGrid : MonoBehaviour {
     public float tileSizeInPixels = 32f;
     public int width;
     public int height;
+    public GameObject MapHighlightPrefab;
+    public Material AttackSelectionMaterial;
+    public Material MovementSelectionMaterial;
+
 
 	public delegate void GridClickHandler(Vector2 location);
 	public event GridClickHandler OnGridClicked;
+
     private Dictionary<Vector2, MapTile> tilesByPosition = new Dictionary<Vector2, MapTile>();
 	private AstarPath Pathfinder;
+
+    public enum SelectionType {
+        MOVEMENT,
+        ATTACK
+    }
 
     public void RescanGraph() {
         Pathfinder.Scan();
@@ -80,15 +90,29 @@ public class MapGrid : MonoBehaviour {
         return result;
     }
 
-    public void SelectTiles(ICollection<MapTile> tiles, Color color) {
+    public void SelectTiles(ICollection<Vector2> tiles, SelectionType type) {
         ClearSelection();
-        foreach (MapTile tile in tiles) {
-            tile.Select(color);
+
+        foreach (Vector2 pos in tiles) {
+            GameObject highlight = Instantiate(MapHighlightPrefab) as GameObject;
+            highlight.transform.position = GetWorldPosForGridPos(pos);
+
+            Renderer renderer = highlight.GetComponent<Renderer>();
+            renderer.sortingLayerName = "Default";
+            renderer.sortingOrder = 15;
+            if (type == SelectionType.ATTACK) {
+                renderer.material = AttackSelectionMaterial;
+            } else if (type == SelectionType.MOVEMENT) {
+                renderer.material = MovementSelectionMaterial;
+            }
+
         }
     }
 
     public void ClearSelection() {
-        Debug.Log("Re-implement ClearSelection");
+        foreach (GameObject obj in GameObject.FindGameObjectsWithTag("Highlight")) {
+            Destroy(obj);
+        }
     }
 
     public HashSet<Vector2> GetWalkableTilesInRange(Vector2 origin, int range) {

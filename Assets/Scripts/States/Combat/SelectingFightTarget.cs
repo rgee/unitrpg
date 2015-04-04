@@ -21,8 +21,7 @@ public class SelectingFightTarget : StateMachineBehaviour {
             .Where(pos => UnitManager.GetUnitByPosition(pos) != null)
             .ToHashSet();
 
-        Debug.Log("Re-implement attack square highlighting.");
-        ///Grid.SelectTiles(tiles, Color.red);
+        Grid.SelectTiles(AttackableLocations, MapGrid.SelectionType.ATTACK);
 
         Grid.OnGridClicked += new MapGrid.GridClickHandler(HandleGridClick);
     }
