@@ -15,7 +15,7 @@ public class Moving : StateMachineBehaviour {
         unit.MoveTo(State.MovementDestination, Grid, (arg) => {
             int distanceMoved = MathUtils.ManhattanDistance(State.SelectedGridPosition, State.MovementDestination);
             State.MarkUnitMoved(State.SelectedUnit, distanceMoved);
-        }, (arg) => {
+        }, () => {
             UnitManager.ChangeUnitPosition(State.SelectedUnit.gameObject, State.MovementDestination);
             State.ResetMovementState();
             Grid.RescanGraph();
