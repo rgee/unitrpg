@@ -19,6 +19,7 @@ public class MapGrid : MonoBehaviour {
 
     private Dictionary<Vector2, MapTile> tilesByPosition = new Dictionary<Vector2, MapTile>();
 	private AstarPath Pathfinder;
+    private Seeker Seeker;
 
     public enum SelectionType {
         MOVEMENT,
@@ -29,13 +30,9 @@ public class MapGrid : MonoBehaviour {
         Pathfinder.Scan();
     }
 
-    public void OnDrawGizmos() {
-        Gizmos.color = Color.white;
-        Gizmos.DrawWireCube(transform.position, new Vector3(width * tileSizeInPixels, height * tileSizeInPixels, 0));
-    }
-
     public void Awake() {
 		Pathfinder = GetComponent<AstarPath>();
+        Seeker = GetComponent<Seeker>();
     }
 
     private HashSet<Vector2> generateSurroundingPoints(Vector2 origin, int range) {
@@ -78,13 +75,17 @@ public class MapGrid : MonoBehaviour {
     public Vector2? GetMouseGridPosition() {
       
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        return GridPositionForWorldPosition(mousePos);
+    }
+
+    public Vector2 GridPositionForWorldPosition(Vector3 worldPos) {
 
         int tileSize = (int)tileSizeInPixels;
         float widthExtent = (width / 2f) * tileSize;
         float heightExtent = (height / 2f) * tileSize;
         Vector2 result =  new Vector3(
-            (float)Math.Floor(mapRange(-widthExtent, widthExtent, 0, width, mousePos.x)),
-            (float)Math.Floor(mapRange(-heightExtent, heightExtent, 0, height, mousePos.y))
+            (float)Math.Floor(mapRange(-widthExtent, widthExtent, 0, width, worldPos.x)),
+            (float)Math.Floor(mapRange(-heightExtent, heightExtent, 0, height, worldPos.y))
         );
 
         return result;
@@ -116,7 +117,18 @@ public class MapGrid : MonoBehaviour {
     }
 
     public HashSet<Vector2> GetWalkableTilesInRange(Vector2 origin, int range) {
-        return new RangeFinder(this).GetOpenTilesInRange(origin, range);
+        HashSet<Vector2> openTiles = new RangeFinder(this).GetOpenTilesInRange(origin, range);
+        HashSet<Vector3> openWorldPositions = openTiles.Select(tile => GetWorldPosForGridPos(tile)).ToHashSet();
+
+        HashSet<Vector2> validGridPositions = new HashSet<Vector2>();
+        Vector3 originWorldPosition = GetWorldPosForGridPos(origin);
+
+        Pathfinding.GraphNode startNode = AstarPath.active.GetNearest(originWorldPosition).node;
+        List<Pathfinding.GraphNode> bfsResult = Pathfinding.PathUtilities.BFS(startNode, range);
+
+        return bfsResult.Select((node) => {
+            return GridPositionForWorldPosition((Vector3)node.position);
+        }).ToHashSet();
     }
 
     public Vector3 GetWorldPosForGridPos(Vector2 gridPos) {

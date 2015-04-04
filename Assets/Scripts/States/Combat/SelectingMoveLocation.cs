@@ -15,7 +15,18 @@ public class SelectingMoveLocation : CancelableCombatState {
 		Animator = animator;
 
         int mov = State.GetRemainingDistance(State.SelectedUnit);
-		WalkableLocations = Grid.GetWalkableTilesInRange(State.SelectedGridPosition, mov);
+
+        // So we do not confuse the pathfinder, disable the unit who is moving so they
+        // are no longer on the grid.
+        GameObject movingUnit = State.SelectedUnit.gameObject;
+        movingUnit.SetActive(false);
+        Grid.RescanGraph();
+
+        WalkableLocations = Grid.GetWalkableTilesInRange(State.SelectedGridPosition, mov);
+
+        movingUnit.SetActive(true);
+        Grid.RescanGraph();
+
         Grid.SelectTiles(WalkableLocations, MapGrid.SelectionType.MOVEMENT);
 
 		Grid.OnGridClicked += new MapGrid.GridClickHandler(HandleGridClick);
