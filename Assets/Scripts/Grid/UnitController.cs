@@ -43,7 +43,6 @@ public class UnitController : MonoBehaviour {
 			MathUtils.CardinalDirection dir = MathUtils.DirectionTo(PreviousPoint, currentDestination);
 			Animator.SetInteger("Direction", animatorDirections[dir]);
 
-
 			iTween.MoveTo(gameObject, iTween.Hash(
 				"position", currentDestination,
 				"time", 0.3f,
