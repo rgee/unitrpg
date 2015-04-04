@@ -212,7 +212,8 @@ namespace Grid {
                 grid.RescanGraph();
                 searchCb(!p.error);
 				if (!p.error) {
-					StartCoroutine(MoveAlongPath(p.vectorPath, callback));
+					GetComponent<UnitController>().MoveAlongPath(p.vectorPath);
+					//StartCoroutine(MoveAlongPath(p.vectorPath, callback));
 				} else {
 					callback(false);
 				}
