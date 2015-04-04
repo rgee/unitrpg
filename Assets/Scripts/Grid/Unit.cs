@@ -14,6 +14,8 @@ namespace Grid {
 		public GameObject CritConfirmPrefab;
 		public GameObject GlanceConfirmPrefab;
 
+		public bool Attacking;
+
         private Seeker seeker;
         private ActionMenuManager menuManager;
 		private Animator animator;
@@ -73,6 +75,8 @@ namespace Grid {
         }
 
         void AttackComplete() {
+			Attacking = false;
+
             if (OnAttackComplete != null) {
                 OnAttackComplete();
             }
@@ -146,6 +150,7 @@ namespace Grid {
 			this.CurrentAttackTarget = target;
 			this.CurrentHit = hit;
             animator.SetTrigger("Attack");
+			Attacking = true;
         }
 
         public void ReturnToRest() {
