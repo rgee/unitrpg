@@ -11,19 +11,18 @@ public class SelectingFightTarget : StateMachineBehaviour {
     private HashSet<Vector2> AttackableLocations;
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-        Grid = GameObject.Find("Grid").GetComponent<MapGrid>();
-        State = GameObject.Find("BattleManager").GetComponent<BattleState>();
-        UnitManager = GameObject.Find("Unit Manager").GetComponent<Grid.UnitManager>();
+        State = CombatObjects.GetBattleState();
+        Grid = CombatObjects.GetMap();
+        UnitManager = CombatObjects.GetUnitManager();
         Animator = animator;
 
         RangeFinder rangeFinder = new RangeFinder(Grid);
-        HashSet<MapTile> tiles = rangeFinder.GetTilesInRange(State.SelectedGridPosition, 1)
-            .Where(tile => UnitManager.GetUnitByPosition(tile.gridPosition) != null)
+        AttackableLocations = rangeFinder.GetTilesInRange(State.SelectedGridPosition, 1)
+            .Where(pos => UnitManager.GetUnitByPosition(pos) != null)
             .ToHashSet();
 
-        AttackableLocations = tiles.Select(tile => tile.gridPosition).ToHashSet();
-
-        Grid.SelectTiles(tiles, Color.red);
+        Debug.Log("Re-implement attack square highlighting.");
+        ///Grid.SelectTiles(tiles, Color.red);
 
         Grid.OnGridClicked += new MapGrid.GridClickHandler(HandleGridClick);
     }

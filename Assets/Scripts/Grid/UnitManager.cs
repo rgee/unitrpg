@@ -53,13 +53,10 @@ namespace Grid {
 
 				unitModels.Add(unit.model);
 
-                GameObject tile = Grid.GetTileAt(gridPos);
-                Vector3 tileCenter = tile.GetComponent<Renderer>().bounds.center;
-                t.transform.position = tileCenter;
+                t.transform.position = Grid.GetWorldPosForGridPos(gridPos);
             }
 
             ResetMovedUnits(true);
-            //battleManager = GameObject.FindGameObjectWithTag("BattleManager").GetComponent<BattleManager>();
         }
 
         void OnUnitDeath(object sender, EventArgs e) {
@@ -163,8 +160,9 @@ namespace Grid {
 
             selectedUnit = null;
             
-            MapTile tile = Grid.GetTileAt(selectedGridPosition.Value).GetComponent<MapTile>();
-            tile.Deselect();
+            //MapTile tile = Grid.GetTileAt(selectedGridPosition.Value).GetComponent<MapTile>();
+            //tile.Deselect();
+            Debug.Log("Re-implement ClearSelectedUnit");
             selectedGridPosition = null;
         }
 

@@ -12,28 +12,18 @@ public class RangeFinder {
         this.grid = grid;
     }
 
-    public HashSet<MapTile> GetOpenTilesInRange(Vector2 origin, int range) {
+    public HashSet<Vector2> GetOpenTilesInRange(Vector2 origin, int range) {
 
         return generateSurroundingPoints(origin, range)
             .Where((point) => InRange(point, origin, range) && IsOpen(point))
-            .Select(ToTile())
             .ToHashSet();
     }
 
-    public HashSet<MapTile> GetTilesInRange(Vector2 origin, int range) {
+    public HashSet<Vector2> GetTilesInRange(Vector2 origin, int range) {
 
         return generateSurroundingPoints(origin, range)
             .Where((point) => InRange(point, origin, range))
-            .Select(ToTile())
             .ToHashSet();
-    }
-
-    private Func<Vector2, MapTile> ToTile() {
-
-        return (point) =>
-        {
-            return grid.GetTileAt(point).GetComponent<MapTile>();
-        };
     }
 
     private bool IsOpen(Vector2 point) {

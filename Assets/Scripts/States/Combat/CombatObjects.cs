@@ -5,6 +5,10 @@ using System.Text;
 using UnityEngine;
 
 public static class CombatObjects {
+    public static MapGrid GetMap() {
+        return GameObject.FindGameObjectWithTag("Map").GetComponent<MapGrid>();
+    }
+
     public static BattleState GetBattleState() {
         return GameObject.Find("BattleManager").GetComponent<BattleState>();
     }

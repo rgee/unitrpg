@@ -10,15 +10,15 @@ public class SelectingMoveLocation : CancelableCombatState {
     private HashSet<Vector2> WalkableLocations;
 
 	public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-		Grid = GameObject.Find("Grid").GetComponent<MapGrid>();
-		State = GameObject.Find("BattleManager").GetComponent<BattleState>();
+        Grid = CombatObjects.GetMap();
+        State = CombatObjects.GetBattleState();
 		Animator = animator;
 
         int mov = State.GetRemainingDistance(State.SelectedUnit);
-		HashSet<MapTile> walkableTiles = Grid.GetWalkableTilesInRange(State.SelectedGridPosition, mov);
-        Grid.SelectTiles(walkableTiles, Color.blue);
+		WalkableLocations = Grid.GetWalkableTilesInRange(State.SelectedGridPosition, mov);
+        Debug.Log("Re-implement move square highlighting");
+        //Grid.SelectTiles(walkableTiles, Color.blue);
 
-        WalkableLocations = walkableTiles.Select(tile => tile.gridPosition).ToHashSet();
 		Grid.OnGridClicked += new MapGrid.GridClickHandler(HandleGridClick);
 	}
 

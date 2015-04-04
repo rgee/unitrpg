@@ -16,7 +16,10 @@ public class GridCameraController : CameraController {
 	public void Update () {
 		base.Update();
 
-		Vector2 gridCenter = grid.transform.position;
+        float gridWidth = grid.tileSizeInPixels * grid.width;
+        float gridHeight = grid.tileSizeInPixels * grid.height;
+        Vector2 gridCenter = grid.transform.position + new Vector3(gridWidth/2, -(gridHeight/2), 0);
+
 		float vSize = Camera.main.orthographicSize * 2.0f;
 		float hSize = vSize * ((float)Screen.width / Screen.height);
 		

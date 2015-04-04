@@ -73,7 +73,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 451940}
   - 61: {fileID: 6168718}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RectangleObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -207,7 +207,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 443714}
   - 61: {fileID: 6152308}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RectangleObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -241,7 +241,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 476218}
   - 61: {fileID: 6194196}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RectangleObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -272,6 +272,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 490958}
   - 114: {fileID: 11460774}
+  - 114: {fileID: 11421922}
   m_Layer: 0
   m_Name: chapter1
   m_TagString: Untagged
@@ -321,7 +322,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 477628}
   - 58: {fileID: 5899362}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CircleObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -337,7 +338,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 486644}
   - 61: {fileID: 6181516}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RectangleObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -353,7 +354,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 478434}
   - 61: {fileID: 6194370}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RectangleObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -660,7 +661,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 166228}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -560, y: 319.940002, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 414536}
@@ -1059,6 +1060,61 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1874989c5e2da094ea00112c6a895694, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11421922
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 166228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78396926cbbfc4ac3b48fc5fc34a87d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  astarData:
+    hasBeenReverted: 0
+    data: 504b0304140000080800b1528446fc58b1510e020000180400000b0024006772617068302e6a736f6e0a0020000000000001001800dd8614a8e26ed001dd8614a8e26ed001dd8614a8e26ed0017553c18eda3010fd95cae704392481c06d0b8556da76574bab1eaa1e4c32100bc78e6ca70bacf8f71d3b0990951aa420cf7b33efcd8cf346f60d2fc8fc8dfc63a2013227348bd2491a65148a641cd37118c7c5349e6128ce53c8202297803053436e5f98e58acca38070a32ab09ae70f722fb00a0d8856d6c1d2d53e92f9788ab19347cef8c61a39480bba8307e02842b891b960550dc5869fa163c5a9a78d5dba5405b410eae74a086e3a357baa5d232fec4402527086ce9c0ed24ae0fbd26281bb8ca7ddce806d2db3d3926b6ccc17229f952db142c5cce16e404ebbadf37d0884cef54eabea6ba71251ac694b9e1fd04ace0c86764c18180697f7069b7a308fe836acdeeea2841c55ad6ea0f7d185bada8d7c65e2c0b6027e97207fa8b5568d2cfa8cc6c078d91e2eaeb5e342f06aebf5fac3c3911b3f220c6c8472b39c210c1a07fe0d8dfaad1a9f8231e7e997819f6c6fae16baf08a6b6311f07db0c6aa472e0f6bcd8b1bb38f2eb9b18fbce27e6ab85bd7d756351a996485ffb886bcb10ba525e85b760d92097b7a46353bdce407e47f192b965bd54ebe43bafb3ba4fbe095ebb6ca25e633f1dce25e120725fb294b5c293a77bd7e5a6b56bb6b5468f6bae6e74a999ec5e54e6d720d209f7c6e275a31fc908ed78b85f43f74346b9f24a0dd2f1dcd2634992449f625a459107ea4f4c72bd1d3681046d351e2802c0ac259c7423a6d93699a04d1dfcbe51d504b0304140000080800b1528446287e18aa4300000048000000120024006772617068305f656469746f722e6a736f6e0a0020000000000001001800dd8614a8e26ed001dd8614a8e26ed001dd8614a8e26ed001ab56cac94fce4e4d51b22a292a4dd5512acec82f77ad28294a54b24a4bcc29068a94a456949416a58665166726e5a4c2d4156496e59728592939a7e695a41629d50200504b0304140000080800b15284469fbe98db7500000083000000090024006d6574612e6a736f6e0a0020000000000001001800dd8614a8e26ed001dd8614a8e26ed001dd8614a8e26ed0011d8c310fc2201046ffcbcd9500278a5d1dba1977d38178677b83d0506a628cff5d707bf9f2def78117e75552841e503965a1832987655ea1371537a14a37d0deb883335e33ed2d6abb43a4239eea8477c79e0d8c1d94f7c297f0e47f710d657e482489931ab2d0d05e9b1513f1396db1344d8fdf1f504b01022d00140000080800b1528446fc58b1510e020000180400000b00240000000000000000000000000000006772617068302e6a736f6e0a0020000000000001001800dd8614a8e26ed001dd8614a8e26ed001dd8614a8e26ed001504b01022d00140000080800b1528446287e18aa430000004800000012002400000000000000000000005b0200006772617068305f656469746f722e6a736f6e0a0020000000000001001800dd8614a8e26ed001dd8614a8e26ed001dd8614a8e26ed001504b01022d00140000080800b15284469fbe98db75000000830000000900240000000000000000000000f20200006d6574612e6a736f6e0a0020000000000001001800dd8614a8e26ed001dd8614a8e26ed001dd8614a8e26ed001504b050600000000030003001c010000b20300000000
+    dataChecksum: 3390463566
+    data_backup: 
+    data_cachedStartup: 
+    revertData: 
+    cacheStartup: 0
+    compress: 0
+  showNavGraphs: 1
+  showUnwalkableNodes: 1
+  debugMode: 0
+  debugFloor: 0
+  debugRoof: 20000
+  showSearchTree: 0
+  unwalkableNodeDebugSize: .300000012
+  logPathResults: 1
+  maxNearestNodeDistance: 100
+  scanOnStartup: 1
+  fullGetNearestSearch: 0
+  prioritizeGraphs: 0
+  prioritizeGraphsLimit: 1
+  colorSettings:
+    _NodeConnection: {r: 1, g: 1, b: 1, a: .899999976}
+    _UnwalkableNode: {r: 1, g: 0, b: 0, a: .5}
+    _BoundsHandles: {r: .289999992, g: .453999996, b: .740999997, a: .899999976}
+    _ConnectionLowLerp: {r: 0, g: 1, b: 0, a: .5}
+    _ConnectionHighLerp: {r: 1, g: 0, b: 0, a: .5}
+    _MeshEdgeColor: {r: 0, g: 0, b: 0, a: .5}
+    _MeshColor: {r: .125, g: .68599999, b: 0, a: .189999998}
+    _AreaColors: []
+  tagNames: []
+  heuristic: 2
+  heuristicScale: 1
+  threadCount: 0
+  maxFrameTime: 1
+  minAreaSize: 10
+  limitGraphUpdates: 1
+  maxGraphUpdateFreq: .200000003
+  lastScanTime: .00400009984
+  inGameDebugPath: 
+  isScanning: 0
+  showGraphs: 1
+  lastUniqueAreaIndex: 0
 --- !u!114 &11431164
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -6,20 +6,14 @@ using System.Collections.Generic;
 
 public class MapGrid : MonoBehaviour {
 	
-    public string tileTag = "Tile";
     public float tileSizeInPixels = 32f;
     public int width;
-    public int test;
     public int height;
-
 
 	public delegate void GridClickHandler(Vector2 location);
 	public event GridClickHandler OnGridClicked;
-
-    public GameObject defaultTile;
-
     private Dictionary<Vector2, MapTile> tilesByPosition = new Dictionary<Vector2, MapTile>();
-	public AstarPath Pathfinder;
+	private AstarPath Pathfinder;
 
     public void RescanGraph() {
         Pathfinder.Scan();
@@ -31,11 +25,6 @@ public class MapGrid : MonoBehaviour {
     }
 
     public void Awake() {
-        foreach (Transform child in transform) {
-            MapTile tile = child.GetComponent<MapTile>();
-            tilesByPosition.Add(tile.gridPosition, tile);
-        }
-
 		Pathfinder = GetComponent<AstarPath>();
     }
 
@@ -99,12 +88,10 @@ public class MapGrid : MonoBehaviour {
     }
 
     public void ClearSelection() {
-        foreach (MapTile tile in tilesByPosition.Values) {
-            tile.Deselect();
-        }
+        Debug.Log("Re-implement ClearSelection");
     }
 
-    public HashSet<MapTile> GetWalkableTilesInRange(Vector2 origin, int range) {
+    public HashSet<Vector2> GetWalkableTilesInRange(Vector2 origin, int range) {
         return new RangeFinder(this).GetOpenTilesInRange(origin, range);
     }
 
@@ -134,42 +121,5 @@ public class MapGrid : MonoBehaviour {
     private bool IsInGrid(Vector2 gridPos) {
         return gridPos.x >= 0 && gridPos.x < width &&
                gridPos.y < height && gridPos.y >= 0;
-    }
-
-    public void ResetTiles() {
-
-        foreach (GameObject obj in GameObject.FindGameObjectsWithTag(tileTag)) {
-            DestroyImmediate(obj);
-            tilesByPosition = new Dictionary<Vector2, MapTile>();
-        }
-
-        Vector2 tileOrigin = new Vector2(
-            -((width) / 2) * tileSizeInPixels ,
-            -((height) / 2) * tileSizeInPixels
-        );
-
-        for (int row = 0; row < height; row++) {
-            for (int col = 0; col < width; col++) {
-                GameObject tile = Instantiate(defaultTile) as GameObject;
-
-                Vector2 gridPos = new Vector2(col, row);
-                MapTile tileComponent = tile.GetComponent<MapTile>();
-                tileComponent.gridPosition = gridPos;
-                tilesByPosition.Add(gridPos, tileComponent);
-                
-
-                tile.transform.parent = transform;
-                tile.tag = tileTag;
-                tile.name = System.String.Format("({0}, {1})", col, row);
-
-                float xOffset = col * tileSizeInPixels;
-                float yOffset = row * tileSizeInPixels;
-                tile.transform.position = new Vector3(tileOrigin.x + xOffset , tileOrigin.y + yOffset + (tileSizeInPixels/2), 0);
-            }
-        }
-    }
-
-    public GameObject GetTileAt(Vector2 position) {
-        return tilesByPosition[position].gameObject;
     }
 }

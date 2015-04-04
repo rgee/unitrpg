@@ -7,9 +7,9 @@ public class Moving : StateMachineBehaviour {
     private Grid.UnitManager UnitManager;
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-        State = GameObject.Find("BattleManager").GetComponent<BattleState>();
-		Grid = GameObject.Find("Grid").GetComponent<MapGrid>();
-        UnitManager = GameObject.Find("Unit Manager").GetComponent<Grid.UnitManager>();
+        State = CombatObjects.GetBattleState();
+        Grid = CombatObjects.GetMap();
+        UnitManager = CombatObjects.GetUnitManager();
 
         Grid.Unit unit = State.SelectedUnit;
         unit.MoveTo(State.MovementDestination, Grid, (arg) => {
