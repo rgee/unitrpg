@@ -35,9 +35,12 @@ public class SingleMindedFury : MonoBehaviour, AIStrategy {
             yield return new WaitForEndOfFrame();
         }
 
+		// Limit the path found to the unit's move range.
+		int moveRange = Unit.model.Character.Movement;
+		List<Vector3> limitedPath = path.vectorPath.Take(moveRange).ToList();
 
         if (!path.error) {
-            yield return StartCoroutine(Unit.MoveAlongPath(path.vectorPath));
+            yield return StartCoroutine(Unit.MoveAlongPath(limitedPath));
         } else {
             yield break;
         }

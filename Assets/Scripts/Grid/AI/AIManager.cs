@@ -25,7 +25,5 @@ public class AIManager : MonoBehaviour {
             // Add in some delay between each unit taking its turn.
             yield return new WaitForSeconds(EnemyActionDelaySeconds);
         }
-
-        //BattleManager.EndEnemyPhase();
     }
 }

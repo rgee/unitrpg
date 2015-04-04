@@ -1,13 +1,23 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 using UnityEngine;
 
 public class EnemiesMoving : StateMachineBehaviour {
+	private AIManager AI;
+	private Animator Animator;
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-        animator.SetTrigger("enemies_acted");
+		AI = CombatObjects.GetAIManager();
+		Animator = animator;
+
+		AI.StartCoroutine(RunAI());
     }
+
+	private IEnumerator RunAI() {
+		yield return AI.StartCoroutine(AI.TakeTurn());
+        Animator.SetTrigger("enemies_acted");
+	}
 }

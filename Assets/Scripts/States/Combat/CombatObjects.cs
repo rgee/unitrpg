@@ -9,6 +9,10 @@ public static class CombatObjects {
         return GameObject.FindGameObjectWithTag("Map").GetComponent<MapGrid>();
     }
 
+	public static AIManager GetAIManager() {
+		return GameObject.Find("AI Manager").GetComponent<AIManager>();
+	}
+
     public static BattleState GetBattleState() {
         return GameObject.Find("BattleManager").GetComponent<BattleState>();
     }

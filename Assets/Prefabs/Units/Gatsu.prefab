@@ -85,6 +85,7 @@ MonoBehaviour:
   CritConfirmPrefab: {fileID: 157400, guid: 10f28569e2938456dae075b2015293a7, type: 2}
   GlanceConfirmPrefab: {fileID: 181190, guid: e42d4dd13253d459f8d6e617ae2b1d3f, type: 2}
   Attacking: 0
+  Killing: 0
 --- !u!114 &11452258
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -102,8 +103,8 @@ MonoBehaviour:
   startEndModifier:
     priority: 1
     addPoints: 0
-    exactStartPoint: 3
-    exactEndPoint: 3
+    exactStartPoint: 0
+    exactEndPoint: 0
     useRaycasting: 0
     mask:
       serializedVersion: 2
