@@ -15,6 +15,7 @@ namespace Grid {
 		public GameObject GlanceConfirmPrefab;
 
 		public bool Attacking;
+        public bool Killing;
 
         private Seeker seeker;
         private ActionMenuManager menuManager;
@@ -76,6 +77,7 @@ namespace Grid {
 
         void AttackComplete() {
 			Attacking = false;
+            Killing = false;
 
             if (OnAttackComplete != null) {
                 OnAttackComplete();
@@ -146,11 +148,12 @@ namespace Grid {
 			animator.SetTrigger("Dodge");
 		}
 
-        public void Attack(Grid.Unit target, Hit hit) {
+        public void Attack(Grid.Unit target, Hit hit, bool killingBlow) {
 			this.CurrentAttackTarget = target;
 			this.CurrentHit = hit;
             animator.SetTrigger("Attack");
 			Attacking = true;
+            Killing = killingBlow;
         }
 
         public void ReturnToRest() {

@@ -22,7 +22,7 @@ public class AttackerFighting : StateMachineBehaviour {
         Grid.Unit unit = State.SelectedUnit;
 		unit.OnHitConnect += OnHitConnect;
         unit.OnAttackComplete += OnAttackComplete;
-        unit.Attack(State.AttackTarget, firstHit);
+        unit.Attack(State.AttackTarget, firstHit, result.DefenderDies);
 
 		if (firstHit.Missed) {
 			State.AttackTarget.Dodge();
@@ -51,7 +51,7 @@ public class AttackerFighting : StateMachineBehaviour {
 			} else {
 				Hit nextHit = result.InitialAttack.AttackerHits[numAttacks];
 
-				State.SelectedUnit.Attack(State.AttackTarget, nextHit);
+				State.SelectedUnit.Attack(State.AttackTarget, nextHit, result.InitialAttack.DefenderDies);
 				if (nextHit.Missed) {
 					State.AttackTarget.Dodge();
 				}

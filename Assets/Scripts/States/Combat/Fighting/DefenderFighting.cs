@@ -20,7 +20,7 @@ public class DefenderFighting : StateMachineBehaviour {
 
 		FightPhaseResult firstAttack = State.FightResult.CounterAttack;
 		Hit firstHit = firstAttack.AttackerHits[0];
-		defender.Attack(State.SelectedUnit, firstHit);
+		defender.Attack(State.SelectedUnit, firstHit, firstAttack.DefenderDies);
 
 		if (firstHit.Missed) {
 			State.SelectedUnit.Dodge();
@@ -38,7 +38,7 @@ public class DefenderFighting : StateMachineBehaviour {
 			Animator.SetTrigger("fight_completed");
 		} else {
 			Hit nextHit = result.CounterAttack.AttackerHits[numAttacks];
-			State.AttackTarget.Attack(State.SelectedUnit, nextHit);
+			State.AttackTarget.Attack(State.SelectedUnit, nextHit, result.CounterAttack.DefenderDies);
 			if (nextHit.Missed) {
 				State.SelectedUnit.Dodge();
 			}

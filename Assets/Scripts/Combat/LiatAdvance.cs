@@ -20,7 +20,7 @@ public class LiatAdvance : MonoBehaviour {
 	}
 
 	public void Update() {
-		if (Unit.Attacking && Input.GetMouseButtonDown(0)) {
+		if (Unit.Attacking && Unit.Killing && Input.GetMouseButtonDown(0)) {
 			Animator.SetTrigger("Special");
 		}
 	}

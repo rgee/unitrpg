@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
+using System.Linq;
 
 public class FightPhaseResult {
 
@@ -38,13 +39,20 @@ public class FightPhaseResult {
 
 	public bool AttackerDies {
 		get {
-			return !DefenderDies && Participants.Attacker.Health <= CounterDamage;
+            int trueCounterDamage = DefenderHits
+                .Select((hit) => { return hit.Damage; })
+                .Sum();
+			return !DefenderDies && Participants.Attacker.Health <= trueCounterDamage;
 		}
 	}
 
 	public bool DefenderDies {
 		get {
-			return Participants.Defender.Health <= AttackerDamage;
+            int trueAttackerDamage = AttackerHits
+                .Select((hit) => { return hit.Damage; })
+                .Sum();
+
+            return Participants.Defender.Health <= trueAttackerDamage;
 		}
 	}
 
