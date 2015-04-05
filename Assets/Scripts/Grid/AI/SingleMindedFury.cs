@@ -12,6 +12,7 @@ using UnityEngine;
 [RequireComponent(typeof(Seeker))]
 [RequireComponent(typeof(Grid.Unit))]
 public class SingleMindedFury : MonoBehaviour, AIStrategy {
+    public GameObject ExecutorPrefab;
     public GameObject Target;
     public int AggroRange = int.MaxValue;
     public Grid.UnitManager UnitManager;
@@ -22,15 +23,19 @@ public class SingleMindedFury : MonoBehaviour, AIStrategy {
     private int AttackRange;
     private int MoveRange;
 
+    private GridCameraController CameraController;
+
     public void Awake() {
         Seeker = GetComponent<Seeker>();
         Unit = GetComponent<Grid.Unit>();
 		Grid = CombatObjects.GetMap();
         AttackRange = 1;
         MoveRange = Unit.model.Character.Movement;
+        CameraController = CombatObjects.GetCameraController();
     }
 
     public IEnumerator act() {
+        CameraController.Lock();
         /**
          * Strategy:
          * 
@@ -53,6 +58,7 @@ public class SingleMindedFury : MonoBehaviour, AIStrategy {
                 yield return StartCoroutine(ApproachTarget());
             }
         }
+        CameraController.Unlock();
     }
 
     private Vector2? FindAttackableLocation() {
@@ -123,7 +129,28 @@ public class SingleMindedFury : MonoBehaviour, AIStrategy {
     }
 
     private IEnumerator AttackTarget() {
-        Debug.Log("About to hit the target. Trust me.");
-        yield return null;
+        Grid.Unit targetUnit = Target.GetComponent<Grid.Unit>();
+             
+        Participants participants = new Participants(
+            Unit.model,
+            targetUnit.model
+        );
+        Fight fight = new Fight(participants, AttackType.BASIC, new DefaultFightResolution());
+        FightResult result = fight.SimulateFight();
+
+
+        MathUtils.CardinalDirection attackerDirection = MathUtils.DirectionTo(Unit.gridPosition, targetUnit.gridPosition);
+        MathUtils.CardinalDirection defenderDirection = MathUtils.DirectionTo(targetUnit.gridPosition, Unit.gridPosition);
+
+        Unit.PrepareForCombat(attackerDirection);
+        targetUnit.PrepareForCombat(defenderDirection);
+
+        GameObject executorObj = Instantiate(ExecutorPrefab) as GameObject;
+        FightExecutor executor = executorObj.GetComponent<FightExecutor>();
+        yield return StartCoroutine(executor.RunFight(
+            gameObject,
+            Target,
+            result
+        ));
     }
 }
