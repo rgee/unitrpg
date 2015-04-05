@@ -9,10 +9,12 @@ public class PreviewingFight : CancelableCombatState {
     private BattleState State;
     private Animator Animator;
 	private FightResult PreviewResult;
+    private GridCameraController Camera;
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         base.OnStateEnter(animator, stateInfo, layerIndex);
 
+        Camera = CombatObjects.GetCameraController();
         Forecaster = GameObject.Find("Combat Forecast Manager").GetComponent<CombatForecaster>();
         State = CombatObjects.GetBattleState();
         Animator = animator;
@@ -37,6 +39,8 @@ public class PreviewingFight : CancelableCombatState {
 
         attacker.PrepareForCombat(attackerDirection);
         defender.PrepareForCombat(defenderDirection);
+
+        Camera.DisbleGridSelector();
     }
 
     private void OnConfirm() {
@@ -54,5 +58,6 @@ public class PreviewingFight : CancelableCombatState {
         Forecaster.OnConfirm -= new CombatForecaster.ForecastResponseHandler(OnConfirm);
         Forecaster.OnReject -= new CombatForecaster.ForecastResponseHandler(OnReject);
         Forecaster.HideCurrentForecast();
+        Camera.EnableGridSelector();
     }
 }

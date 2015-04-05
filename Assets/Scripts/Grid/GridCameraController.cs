@@ -7,6 +7,25 @@ public class GridCameraController : CameraController {
     public GameObject GridHighlightPrefab;
 
     private GameObject GridHighlight;
+    private bool gridSelectorLocked;
+
+    public override void Lock() {
+        locked = true;
+        gridSelectorLocked = true;
+    }
+
+    public override void Unlock() {
+        locked = false;
+        gridSelectorLocked = false;
+    }
+
+    public void DisbleGridSelector() {
+        gridSelectorLocked = true;
+    }
+
+    public void EnableGridSelector() {
+        gridSelectorLocked = false;
+    }
 
     public void Start() {
 
@@ -55,7 +74,7 @@ public class GridCameraController : CameraController {
 			transform.position = new Vector3(transform.position.x, minY + halfVSize, transform.position.z);
 		}
 
-        if (locked) {
+        if (gridSelectorLocked) {
             GridHighlight.SetActive(false);
         } else {
             GridHighlight.SetActive(true);

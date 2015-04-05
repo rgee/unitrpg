@@ -6,11 +6,11 @@ public class CameraController : MonoBehaviour {
 	public float speed = 10;
     protected bool locked;
 
-    public void Lock() {
+    public virtual void Lock() {
         locked = true;
     }
 
-    public void Unlock() {
+    public virtual void Unlock() {
         locked = false;
     }
 
