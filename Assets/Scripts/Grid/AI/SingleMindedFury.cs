@@ -18,10 +18,12 @@ public class SingleMindedFury : MonoBehaviour, AIStrategy {
 
     private Seeker Seeker;
     private Grid.Unit Unit;
+	private MapGrid Grid;
 
     public void Awake() {
         Seeker = GetComponent<Seeker>();
         Unit = GetComponent<Grid.Unit>();
+		Grid = CombatObjects.GetMap();
     }
 
 
@@ -41,6 +43,10 @@ public class SingleMindedFury : MonoBehaviour, AIStrategy {
 
         if (!path.error) {
             yield return StartCoroutine(Unit.MoveAlongPath(limitedPath));
+
+			Vector2 destination = Grid.GridPositionForWorldPosition(limitedPath.Last());
+			UnitManager.ChangeUnitPosition(gameObject, destination);
+			Grid.RescanGraph();
         } else {
             yield break;
         }

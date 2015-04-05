@@ -167,7 +167,7 @@ namespace Grid {
         }
 
         public void ChangeUnitPosition(GameObject unit, Vector2 position) {
-            unitsByPosition.Remove(position);
+            unitsByPosition.Remove(unit.GetComponent<Grid.Unit>().gridPosition);
             unitsByPosition.Add(position, unit);
             unit.GetComponent<Unit>().gridPosition = position;
         }
