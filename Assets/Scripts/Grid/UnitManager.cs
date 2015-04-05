@@ -32,14 +32,6 @@ namespace Grid {
             return unitsByPosition[pos].GetComponent<Grid.Unit>();
         }
 
-        public void RemoveUnit() {
-
-        }
-
-        void OnUnitDeath(EventArgs e) {
-
-        }
-
         // Use this for initialization
         void Start() {
             foreach (Transform t in transform) {
