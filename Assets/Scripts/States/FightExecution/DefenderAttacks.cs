@@ -19,6 +19,9 @@ public class DefenderAttacks : StateMachineBehaviour {
         FightPhaseResult phase = State.Result.CounterAttack;
         Grid.Unit attacker = GetUnitComponent(State.Defender);
         Grid.Unit defender = GetUnitComponent(State.Attacker);
+        if (phase == null) {
+            Debug.Log("Null phase");
+        }
 
         FightPhaseExecutor phaseExecutor = new FightPhaseExecutor(attacker, defender, phase.AttackerHits);
         phaseExecutor.OnComplete += TransitionToComplete;
