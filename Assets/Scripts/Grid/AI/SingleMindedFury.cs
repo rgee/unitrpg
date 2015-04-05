@@ -63,25 +63,13 @@ public class SingleMindedFury : MonoBehaviour, AIStrategy {
 
     private Vector2? FindAttackableLocation() {
 
-        Vector2 targetLoc = Grid.GridPositionForWorldPosition(Target.transform.position);
-
-        gameObject.SetActive(false);
-        Grid.RescanGraph();
-
-        Pathfinding.GraphNode occupiedNode = AstarPath.active.GetNearest(transform.position).node;
-        List<Pathfinding.GraphNode> bfsResult = Pathfinding.PathUtilities.BFS(occupiedNode, MoveRange);
-
-        gameObject.SetActive(true);
-        Grid.RescanGraph();
-
-        // Find the locations that are within move range
-        List<Vector2> gridResults = (from node in bfsResult
-                                     select Grid.GridPositionForWorldPosition((Vector3)node.position)).ToList();
-
         // Find the locations that are within attack range
-        List<Vector2> attackableLocations = (from loc in gridResults
+        Vector2 targetLoc = Grid.GridPositionForWorldPosition(Target.transform.position);
+        List<Vector2> attackableLocations = (from loc in BreadthFirstSearch() 
                                              where MathUtils.ManhattanDistance(loc, targetLoc) <= AttackRange
                                              select loc).ToList();
+
+        // If an attack and be launched from any of the locations 
         if (attackableLocations.Any()) {
             // Get the nearest one to us.
             return attackableLocations
@@ -92,6 +80,36 @@ public class SingleMindedFury : MonoBehaviour, AIStrategy {
         }
 
         return null;
+    }
+
+    private List<Vector2> BreadthFirstSearch() {
+
+        /**
+         * Sigh.
+         * 
+         * I'd love to find a more elegant solution to this problem, but the issue is
+         * that A* Pathfinding Project's BFS implementation returns 0 results if the start
+         * node is not walkable. This makes sense, but our start node is the node on which
+         * we're currently standing, so it's always unwalkable. 
+         * 
+         * To temporarily gloss over this, we remove ourselves from the world, trigger a graph
+         * update, run the search, add ourselves back and trigger another graph update.
+         *
+         * Hope their raycasting graph building procedure is fast...
+         */
+        gameObject.SetActive(false);
+        Grid.RescanGraph();
+
+        Pathfinding.GraphNode occupiedNode = AstarPath.active.GetNearest(transform.position).node;
+        List<Pathfinding.GraphNode> bfsResult = Pathfinding.PathUtilities.BFS(occupiedNode, MoveRange);
+
+        gameObject.SetActive(true);
+        Grid.RescanGraph();
+
+        List<Vector2> gridResults = (from node in bfsResult
+                                     select Grid.GridPositionForWorldPosition((Vector3)node.position)).ToList();
+
+        return gridResults;
     }
 
     private IEnumerator MoveThenAttack(Vector2 attackPosition) {
