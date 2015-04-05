@@ -14,6 +14,21 @@ public static class MathUtils {
 		N, S, E, W
 	}
 
+    public static CardinalDirection GetOpposite(this CardinalDirection dir) {
+        switch (dir) {
+            case CardinalDirection.N:
+                return CardinalDirection.S;
+            case CardinalDirection.S:
+                return CardinalDirection.N;
+            case CardinalDirection.W:
+                return CardinalDirection.E;
+            case CardinalDirection.E:
+                return CardinalDirection.W;
+            default:
+                throw new System.ArgumentException("Invalid direction.");
+        }
+    }
+
 	public static CardinalDirection DirectionTo(Vector3 start, Vector3 end) {
         return DirectionTo(new Vector2(start.x, start.y), new Vector2(end.x, end.y));
     }

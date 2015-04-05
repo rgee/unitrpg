@@ -35,7 +35,7 @@ public class PreviewingFight : CancelableCombatState {
         Grid.Unit defender = State.AttackTarget;
 
         MathUtils.CardinalDirection attackerDirection = MathUtils.DirectionTo(attacker.gridPosition, defender.gridPosition);
-        MathUtils.CardinalDirection defenderDirection = MathUtils.DirectionTo(defender.gridPosition, attacker.gridPosition);
+        MathUtils.CardinalDirection defenderDirection = attackerDirection.GetOpposite();
 
         attacker.PrepareForCombat(attackerDirection);
         defender.PrepareForCombat(defenderDirection);
