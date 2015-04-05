@@ -10,7 +10,7 @@ public class FightPhaseExecutor {
     private Grid.Unit Attacker;
     private Grid.Unit Defender;
     private List<Hit> Hits;
-    private int CurrentHit = 0;
+    private int HitIndex = 0;
 
     public FightPhaseExecutor(Grid.Unit attacker, Grid.Unit defender, List<Hit> hits) {
         this.Attacker = attacker;
@@ -20,13 +20,13 @@ public class FightPhaseExecutor {
 
     public void Run() {
         Attacker.OnAttackComplete += () => {
-            Hit hit = Hits[CurrentHit];
+            Hit hit = Hits[HitIndex];
             Defender.TakeDamage(hit.Damage);
-            CurrentHit++;
+            HitIndex++;
 
             if (!Defender.IsAlive() && OnTargetDied != null) {
                 OnTargetDied(this, EventArgs.Empty);
-            } else if (CurrentHit >= Hits.Count) {
+            } else if (HitIndex >= Hits.Count) {
                 if (OnComplete != null) {
                     OnComplete(this, EventArgs.Empty);
                 }
@@ -39,7 +39,7 @@ public class FightPhaseExecutor {
     }
 
     private void Attack() {
-        Hit hit = Hits[CurrentHit];
+        Hit hit = Hits[HitIndex];
         bool killingBlow = !hit.Missed && hit.Damage > Defender.model.Health;
         if (hit.Missed) {
             Defender.Dodge();

@@ -17,8 +17,8 @@ public class DefenderAttacks : StateMachineBehaviour {
         StateMachine = stateMachine;
 
         FightPhaseResult phase = State.Result.CounterAttack;
-        Grid.Unit attacker = GetUnitComponent(State.Attacker);
-        Grid.Unit defender = GetUnitComponent(State.Defender);
+        Grid.Unit attacker = GetUnitComponent(State.Defender);
+        Grid.Unit defender = GetUnitComponent(State.Attacker);
 
         FightPhaseExecutor phaseExecutor = new FightPhaseExecutor(attacker, defender, phase.AttackerHits);
         phaseExecutor.OnComplete += TransitionToComplete;

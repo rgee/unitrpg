@@ -29,6 +29,7 @@ public class Fighting : StateMachineBehaviour {
             state.AttackTarget.gameObject,
             state.FightResult
         ));
-        stateMachine.SetTrigger("fight_complete");
+        Destroy(executor);
+        stateMachine.SetTrigger("fight_completed");
     }
 }
