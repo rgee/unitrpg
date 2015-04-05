@@ -1,0 +1,10 @@
+﻿using strange.extensions.signal.impl;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+
+public static class CombatEventBus {
+    public static Signal<Hit> Hits = new Signal<Hit>();
+}

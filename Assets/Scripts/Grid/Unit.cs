@@ -85,15 +85,15 @@ namespace Grid {
         }
 
 		void AttackConnected() {
-			if (CurrentHit.Crit) {
-				ShowCrit();
-			} else if (CurrentHit.Glanced) {
-				ShowGlance();
-			} else if (!CurrentHit.Missed) {
-				ShowHit();
-			} else {
-				SoundFX.Instance.PlayMiss();
-			}
+            if (CurrentHit.Crit) {
+                ShowCrit();
+            } else if (CurrentHit.Glanced) {
+                ShowGlance();
+            } else if (!CurrentHit.Missed) {
+                ShowHit();
+            }
+
+            CombatEventBus.Hits.Dispatch(CurrentHit);
 
 			// Only trigger this event if it wasn't a miss.
 			if (OnHitConnect != null && !CurrentHit.Missed) {
@@ -106,15 +106,12 @@ namespace Grid {
 			hitConfirmation.transform.parent = CurrentAttackTarget.gameObject.transform;
 			hitConfirmation.transform.localPosition = new Vector3();
 
-			SoundFX.Instance.PlayCrit();
 		}
 
 		void ShowHit() {
 			GameObject hitConfirmation = Instantiate(HitConfirmPrefab) as GameObject;
 			hitConfirmation.transform.parent = CurrentAttackTarget.gameObject.transform;
 			hitConfirmation.transform.localPosition = new Vector3();
-
-			SoundFX.Instance.PlayHit();
 		}
 
 		void ShowGlance() {
@@ -122,8 +119,6 @@ namespace Grid {
 			GameObject hitConfirmation = Instantiate(GlanceConfirmPrefab) as GameObject;
 			hitConfirmation.transform.parent = CurrentAttackTarget.gameObject.transform;
 			hitConfirmation.transform.localPosition = new Vector3();
-
-			SoundFX.Instance.PlayGlance();
 		}
 
         void Prepared() {

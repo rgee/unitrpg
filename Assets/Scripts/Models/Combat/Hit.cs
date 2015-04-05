@@ -7,8 +7,7 @@ public struct Hit {
 	public readonly bool Crit;
 	public readonly bool Missed;
 
-	public Hit (int damage, bool glanced, bool crit, bool missed)
-	{
+	public Hit (int damage, bool glanced, bool crit, bool missed) {
 		this.Damage = damage;
 		this.Glanced = glanced;
 		this.Crit = crit;
