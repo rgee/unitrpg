@@ -24,14 +24,6 @@ namespace Grid {
 		private Hit CurrentHit;
 		private UnitController Controller;
 
-		public class AttackConnectedEventArgs : System.EventArgs {
-			public AttackConnectedEventArgs(Hit hit) {
-				this.hit = hit;
-			}
-
-			public readonly Hit hit;
-		}
-
 		private static Dictionary<MathUtils.CardinalDirection, int> animatorDirections = new Dictionary<MathUtils.CardinalDirection, int>() {
 			{ MathUtils.CardinalDirection.W, 1},
 			{ MathUtils.CardinalDirection.N, 2},
