@@ -39,34 +39,14 @@ public class PhaseIntro : StateMachineBehaviour {
 
         // Jank...can't start a coroutine from StateMachineBehaviours
         phaseTextBehavior = phaseTextCanvas.GetComponent<PhaseText>();
-        phaseTextBehavior.StartCoroutine(MoveText());
+
+		Vector2 center = new Vector2(canvasTransform.rect.width / 2, 0);
+		Vector2 offscreen = new Vector2(canvasTransform.rect.width + textTransform.rect.width, 0);
+		PhaseText mover = currentPhaseText.GetComponent<PhaseText>();
+		mover.MoveThroughScreen(center, offscreen, SlideSeconds, CenterPauseSeconds, () => {
+			animator.SetTrigger(TransitionTriggerName);
+		});
 	}
-
-    private IEnumerator MoveText() {
-        // Move the text to the center, pause for a bit, then move it off the right side.
-        yield return phaseTextBehavior.StartCoroutine(MoveTextTo(textTransform.anchoredPosition, new Vector2(canvasTransform.rect.width / 2, 0), SlideSeconds));
-
-        yield return new WaitForSeconds(CenterPauseSeconds);
-
-        yield return phaseTextBehavior.StartCoroutine(MoveTextTo(textTransform.anchoredPosition, new Vector2(canvasTransform.rect.width + textTransform.rect.width, 0), SlideSeconds));
-        textMoved = true;
-    }
-
-    public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-        if (textMoved) {
-            animator.SetTrigger(TransitionTriggerName);
-        }
-    }
-
-    private IEnumerator MoveTextTo(Vector2 source, Vector2 destination, float duration) {
-        float startTime = Time.time;
-        while (Time.time < startTime + duration) {
-            textTransform.anchoredPosition = Vector2.Lerp(source, destination, (Time.time - startTime) / duration);
-            yield return null;
-        }
-        textTransform.anchoredPosition = destination;
-        Debug.Log("Final Position: " + textTransform.anchoredPosition);
-    }
 
 	// OnStateExit is called when a transition ends and the state machine finishes evaluating this state
 	override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
