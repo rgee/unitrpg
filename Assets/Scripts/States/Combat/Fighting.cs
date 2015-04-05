@@ -32,7 +32,7 @@ public class Fighting : StateMachineBehaviour {
         Destroy(executor.gameObject);
 
         if (state.SelectedUnit == null) {
-            stateMachine.SetTrigger("friendly_died");
+            stateMachine.SetTrigger("friendly_dies");
         } else { 
             stateMachine.SetTrigger("fight_completed");
         }
