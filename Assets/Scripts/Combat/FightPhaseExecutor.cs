@@ -19,23 +19,25 @@ public class FightPhaseExecutor {
     }
 
     public void Run() {
-        Attacker.OnAttackComplete += () => {
-            Hit hit = Hits[HitIndex];
-            Defender.TakeDamage(hit.Damage);
-            HitIndex++;
-
-            if (!Defender.IsAlive() && OnTargetDied != null) {
-                OnTargetDied(this, EventArgs.Empty);
-            } else if (HitIndex >= Hits.Count) {
-                if (OnComplete != null) {
-                    OnComplete(this, EventArgs.Empty);
-                }
-            } else {
-                Attack();
-            }
-        };
-
+        Attacker.OnAttackComplete += OnHit;
         Attack();
+    }
+
+    private void OnHit() { 
+        Hit hit = Hits[HitIndex];
+        Defender.TakeDamage(hit.Damage);
+        HitIndex++;
+
+        if (!Defender.IsAlive() && OnTargetDied != null) {
+            OnTargetDied(this, EventArgs.Empty);
+        } else if (HitIndex >= Hits.Count) {
+            if (OnComplete != null) {
+                OnComplete(this, EventArgs.Empty);
+            }
+            Attacker.OnAttackComplete -= OnHit;
+        } else {
+            Attack();
+        }
     }
 
     private void Attack() {
