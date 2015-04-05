@@ -38,7 +38,6 @@ namespace Grid {
                 unitGameObjects.Add(t.gameObject);
 
 				Grid.Unit unit = t.gameObject.GetComponent<Grid.Unit>();
-                unit.OnDeath += OnUnitDeath;
 
                 Vector2 gridPos = unit.gridPosition;
                 unitsByPosition.Add(gridPos, t.gameObject);
@@ -49,11 +48,15 @@ namespace Grid {
             }
 
             ResetMovedUnits(true);
+
+            CombatEventBus.Deaths.AddListener(OnUnitDeath);
         }
 
-        void OnUnitDeath(object sender, EventArgs e) {
-            Grid.Unit unit = (Grid.Unit)sender;
+        void OnDestroy() {
+            CombatEventBus.Deaths.RemoveListener(OnUnitDeath);
+        }
 
+        void OnUnitDeath(Grid.Unit unit) {
             unitsByPosition.Remove(unit.gridPosition);
             unitModels.Remove(unit.model);
 
@@ -144,18 +147,6 @@ namespace Grid {
                     return;
                 }
             }
-        }
-
-        private void ClearSelectedUnit() {
-            Unit unitComponent = selectedUnit.GetComponent<Unit>();
-            unitComponent.Deselect();
-
-            selectedUnit = null;
-            
-            //MapTile tile = Grid.GetTileAt(selectedGridPosition.Value).GetComponent<MapTile>();
-            //tile.Deselect();
-            Debug.Log("Re-implement ClearSelectedUnit");
-            selectedGridPosition = null;
         }
 
         public void ChangeUnitPosition(GameObject unit, Vector2 position) {

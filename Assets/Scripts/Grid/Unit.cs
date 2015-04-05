@@ -68,7 +68,6 @@ namespace Grid {
 
         public event AttackCompletionHandler OnAttackComplete;
         public event CombatPreparationHandler OnPreparedForCombat;
-        public event EventHandler OnDeath;
 		public event EventHandler<AttackConnectedEventArgs> OnHitConnect;
 
         public Models.Character GetCharacter() {
@@ -128,9 +127,7 @@ namespace Grid {
         }
 
         void Dead() {
-            if (OnDeath != null) {
-                OnDeath(this, EventArgs.Empty);
-            }
+            CombatEventBus.Deaths.Dispatch(this);
         }
 
         public void PrepareForCombat(MathUtils.CardinalDirection facing) {
@@ -162,14 +159,6 @@ namespace Grid {
 		public void ApplyExp(int amt) {
 			model.Character.ApplyExp(amt);
 		}
-
-        public void Select() {
-            //menuManager.ShowActionMenu(this);
-        }
-
-        public void Deselect() {
-            //menuManager.HideCurrentMenu();
-        }
 
         public IEnumerator MoveAlongPath(List<Vector3> path) {
 			bool complete = false;

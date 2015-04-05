@@ -9,6 +9,10 @@ public class CombatAudioDirector : Singleton<CombatAudioDirector> {
         CombatEventBus.Hits.AddListener(PlayHit);
     }
 
+    void OnDestroy() {
+        CombatEventBus.Hits.RemoveListener(PlayHit);
+    }
+
     private void PlayHit(Hit hit) {
         SoundFX fx = SoundFX.Instance;
         if (hit.Crit) {
