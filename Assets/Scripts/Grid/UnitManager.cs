@@ -50,10 +50,12 @@ namespace Grid {
             ResetMovedUnits(true);
 
             CombatEventBus.Deaths.AddListener(OnUnitDeath);
+            CombatEventBus.Moves.AddListener(ChangeUnitPosition);
         }
 
         void OnDestroy() {
             CombatEventBus.Deaths.RemoveListener(OnUnitDeath);
+            CombatEventBus.Moves.RemoveListener(ChangeUnitPosition);
         }
 
         void OnUnitDeath(Grid.Unit unit) {
@@ -149,9 +151,9 @@ namespace Grid {
             }
         }
 
-        public void ChangeUnitPosition(GameObject unit, Vector2 position) {
-            unitsByPosition.Remove(unit.GetComponent<Grid.Unit>().gridPosition);
-            unitsByPosition.Add(position, unit);
+        private void ChangeUnitPosition(Grid.Unit unit, Vector2 position) {
+            unitsByPosition.Remove(unit.gridPosition);
+            unitsByPosition.Add(position, unit.gameObject);
             unit.GetComponent<Unit>().gridPosition = position;
         }
       

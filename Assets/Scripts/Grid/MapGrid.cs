@@ -26,6 +26,18 @@ public class MapGrid : MonoBehaviour {
         ATTACK
     }
 
+    void Start() {
+        CombatEventBus.Moves.AddListener(HandleMovement);
+    }
+
+    void OnDestroy() {
+        CombatEventBus.Moves.RemoveListener(HandleMovement);
+    }
+
+    private void HandleMovement(Grid.Unit unit, Vector2 destination) {
+        RescanGraph();
+    }
+
     public void RescanGraph() {
         Pathfinder.Scan();
     }

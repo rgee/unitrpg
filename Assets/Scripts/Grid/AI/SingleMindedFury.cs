@@ -19,7 +19,7 @@ public class SingleMindedFury : MonoBehaviour, AIStrategy {
 
     private Seeker Seeker;
     private Grid.Unit Unit;
-	private MapGrid Grid;
+    private MapGrid Grid;
     private int AttackRange;
     private int MoveRange;
 
@@ -28,7 +28,7 @@ public class SingleMindedFury : MonoBehaviour, AIStrategy {
     public void Awake() {
         Seeker = GetComponent<Seeker>();
         Unit = GetComponent<Grid.Unit>();
-		Grid = CombatObjects.GetMap();
+        Grid = CombatObjects.GetMap();
         AttackRange = 1;
         MoveRange = Unit.model.Character.Movement;
         CameraController = CombatObjects.GetCameraController();
@@ -121,8 +121,7 @@ public class SingleMindedFury : MonoBehaviour, AIStrategy {
             yield return StartCoroutine(Unit.MoveAlongPath(limitedPath));
 
 			Vector2 destination = Grid.GridPositionForWorldPosition(limitedPath.Last());
-			UnitManager.ChangeUnitPosition(gameObject, destination);
-			Grid.RescanGraph();
+            CombatEventBus.Moves.Dispatch(Unit, destination);
         } else {
             yield break;
         }
@@ -140,7 +139,7 @@ public class SingleMindedFury : MonoBehaviour, AIStrategy {
 
 
         MathUtils.CardinalDirection attackerDirection = MathUtils.DirectionTo(Unit.gridPosition, targetUnit.gridPosition);
-        MathUtils.CardinalDirection defenderDirection = MathUtils.DirectionTo(targetUnit.gridPosition, Unit.gridPosition);
+        MathUtils.CardinalDirection defenderDirection = attackerDirection.GetOpposite();
 
         Unit.PrepareForCombat(attackerDirection);
         targetUnit.PrepareForCombat(defenderDirection);
