@@ -8,20 +8,15 @@ using UnityEngine;
 public class DefenderAttacks : StateMachineBehaviour {
     
     private FightExcecutionState State;
-    private ScreenShaker ScreenShaker;
     private Animator StateMachine;
 
     public override void OnStateEnter(Animator stateMachine, AnimatorStateInfo stateInfo, int layerIndex) {
         State = FightExecutionObjects.GetState();
-        ScreenShaker = FightExecutionObjects.GetScreenShaker();
         StateMachine = stateMachine;
 
         FightPhaseResult phase = State.Result.CounterAttack;
         Grid.Unit attacker = GetUnitComponent(State.Defender);
         Grid.Unit defender = GetUnitComponent(State.Attacker);
-        if (phase == null) {
-            Debug.Log("Null phase");
-        }
 
         FightPhaseExecutor phaseExecutor = new FightPhaseExecutor(attacker, defender, phase.AttackerHits);
         phaseExecutor.OnComplete += TransitionToComplete;
@@ -40,14 +35,5 @@ public class DefenderAttacks : StateMachineBehaviour {
 
     private static Grid.Unit GetUnitComponent(GameObject gameObject) {
         return gameObject.GetComponent<Grid.Unit>();
-    }
-
-    // TODO: Extract to some sort of global dispatcher / listener
-    private void ShakeScreen(object sender, Grid.Unit.AttackConnectedEventArgs args) {
-        if (args.hit.Crit) {
-            ScreenShaker.CritShake();
-        } else {
-            ScreenShaker.Shake();
-        }
     }
 }

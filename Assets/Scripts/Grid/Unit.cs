@@ -68,7 +68,6 @@ namespace Grid {
 
         public event AttackCompletionHandler OnAttackComplete;
         public event CombatPreparationHandler OnPreparedForCombat;
-		public event EventHandler<AttackConnectedEventArgs> OnHitConnect;
 
         public Models.Character GetCharacter() {
             return model.Character;
@@ -93,11 +92,6 @@ namespace Grid {
             }
 
             CombatEventBus.Hits.Dispatch(CurrentHit);
-
-			// Only trigger this event if it wasn't a miss.
-			if (OnHitConnect != null && !CurrentHit.Missed) {
-				OnHitConnect(this, new AttackConnectedEventArgs(CurrentHit));
-			}
 		}
 
 		void ShowCrit() {

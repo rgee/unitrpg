@@ -14,7 +14,22 @@ public class ScreenShaker : MonoBehaviour {
 
 	void Start() {
 		ShakeIntensity = 0;
+        CombatEventBus.Hits.AddListener(HandleHit);
 	}
+
+    void OnDestroy() {
+        CombatEventBus.Hits.RemoveListener(HandleHit);
+    }
+
+    void HandleHit(Hit hit) {
+        if (!hit.Missed) {
+            if (hit.Crit) {
+                CritShake();
+            } else {
+                Shake();
+            } 
+        }
+    }
 	
 	// Update is called once per frame
 	void Update () {
