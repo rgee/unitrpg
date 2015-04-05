@@ -15,6 +15,7 @@ public class InitialPlayerPhase : StateMachineBehaviour {
 		BattleState = GameObject.Find("BattleManager").GetComponent<BattleState>();
 
         List<Grid.Unit> friendlyUnits = UnitManager.GetFriendlies();
+
         bool turnComplete = friendlyUnits.All(unit => {
 			return BattleState.UnitActed(unit);
         });

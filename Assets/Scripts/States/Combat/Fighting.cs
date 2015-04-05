@@ -30,6 +30,11 @@ public class Fighting : StateMachineBehaviour {
             state.FightResult
         ));
         Destroy(executor.gameObject);
-        stateMachine.SetTrigger("fight_completed");
+
+        if (state.SelectedUnit == null) {
+            stateMachine.SetTrigger("friendly_died");
+        } else { 
+            stateMachine.SetTrigger("fight_completed");
+        }
     }
 }
