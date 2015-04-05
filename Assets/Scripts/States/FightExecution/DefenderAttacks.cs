@@ -5,7 +5,8 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 
-public class AttackerAttacks : StateMachineBehaviour {
+public class DefenderAttacks : StateMachineBehaviour {
+    
     private FightExcecutionState State;
     private ScreenShaker ScreenShaker;
     private Animator StateMachine;
@@ -15,11 +16,9 @@ public class AttackerAttacks : StateMachineBehaviour {
         ScreenShaker = FightExecutionObjects.GetScreenShaker();
         StateMachine = stateMachine;
 
-        FightPhaseResult phase = State.Result.InitialAttack;
+        FightPhaseResult phase = State.Result.CounterAttack;
         Grid.Unit attacker = GetUnitComponent(State.Attacker);
         Grid.Unit defender = GetUnitComponent(State.Defender);
-
-        attacker.OnHitConnect += ShakeScreen;
 
         FightPhaseExecutor phaseExecutor = new FightPhaseExecutor(attacker, defender, phase.AttackerHits);
         phaseExecutor.OnComplete += TransitionToComplete;
@@ -28,18 +27,19 @@ public class AttackerAttacks : StateMachineBehaviour {
         phaseExecutor.Run();
     }
 
+    private void TransitionToDead(object snder, EventArgs args) {
+        StateMachine.SetTrigger("attacker_dead");
+    }
+
+    private void TransitionToComplete(object sender, EventArgs args) {
+        StateMachine.SetTrigger("defender_attack_complete");
+    }
+
     private static Grid.Unit GetUnitComponent(GameObject gameObject) {
         return gameObject.GetComponent<Grid.Unit>();
     }
 
-    private void TransitionToDead(object sender, EventArgs args) {
-        StateMachine.SetTrigger("defender_dead");
-    }
-
-    private void TransitionToComplete(object sender, EventArgs args) {
-        StateMachine.SetTrigger("attacker_attack_complete");
-    }
-
+    // TODO: Extract to some sort of global dispatcher / listener
     private void ShakeScreen(object sender, Grid.Unit.AttackConnectedEventArgs args) {
         if (args.hit.Crit) {
             ScreenShaker.CritShake();
@@ -47,5 +47,4 @@ public class AttackerAttacks : StateMachineBehaviour {
             ScreenShaker.Shake();
         }
     }
-
 }
