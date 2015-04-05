@@ -77,8 +77,12 @@ public class SingleMindedFury : MonoBehaviour, AIStrategy {
                                              where MathUtils.ManhattanDistance(loc, targetLoc) <= AttackRange
                                              select loc).ToList();
         if (attackableLocations.Any()) {
-            int randomIndex = UnityEngine.Random.Range(0, attackableLocations.Count - 1);
-            return attackableLocations[randomIndex];
+            // Get the nearest one to us.
+            return attackableLocations
+                .OrderBy((loc) => {
+                    return MathUtils.ManhattanDistance(Unit.gridPosition, loc);
+                })
+                .First();
         }
 
         return null;
