@@ -37,13 +37,12 @@ public class PhaseIntro : StateMachineBehaviour {
         // Position the text all the way off the left hand side of the screen.
         textTransform.anchoredPosition = new Vector3(-textTransform.rect.width/2, 0, textTransform.position.z);
 
-        // Jank...can't start a coroutine from StateMachineBehaviours
-        phaseTextBehavior = phaseTextCanvas.GetComponent<PhaseText>();
-
 		Vector2 center = new Vector2(canvasTransform.rect.width / 2, 0);
 		Vector2 offscreen = new Vector2(canvasTransform.rect.width + textTransform.rect.width, 0);
 		PhaseText mover = currentPhaseText.GetComponent<PhaseText>();
-		mover.MoveThroughScreen(center, offscreen, SlideSeconds, CenterPauseSeconds, () => {
+
+		PhaseTextFlyByCommand flyBy = new PhaseTextFlyByCommand(center, offscreen, SlideSeconds, CenterPauseSeconds);
+		mover.MoveThroughScreen(flyBy, () => {
 			animator.SetTrigger(TransitionTriggerName);
 		});
 	}

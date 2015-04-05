@@ -15,16 +15,16 @@ public class PhaseText : MonoBehaviour {
 		RectTransform = GetComponent<RectTransform>();
 	}
 
-	public void MoveThroughScreen(Vector2 center, Vector2 offScreen, float moveTime, float delay, Action onComplete) {
-		MoveTime = moveTime;
-		Delay = delay;
+	public void MoveThroughScreen(PhaseTextFlyByCommand command, Action onComplete) {
+		MoveTime = command.moveTime;
+		Delay = command.pause;
 		OnComplete = onComplete;
-		OffScreen = offScreen;
+		OffScreen = command.offscreen;
 
 		iTween.ValueTo(gameObject, iTween.Hash(
-			"time", moveTime,
+			"time", MoveTime,
 			"from", RectTransform.anchoredPosition,
-			"to", center,
+			"to", command.center,
 			"onupdate", "SetNewPosition",
 			"oncomplete", "MoveOffScreen"
 		));
