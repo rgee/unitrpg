@@ -169,5 +169,6 @@ public class SingleMindedFury : MonoBehaviour, AIStrategy {
             Target,
             result
         ));
+        Destroy(executorObj);
     }
 }
