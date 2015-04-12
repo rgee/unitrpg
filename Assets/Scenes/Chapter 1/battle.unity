@@ -202,7 +202,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Grid: {fileID: 2058661009}
---- !u!4 &95142805
+--- !u!4 &95142805 stripped
 Transform:
   m_PrefabParentObject: {fileID: 482158, guid: 4479fc52f4c5a4f479916905a86684e3, type: 2}
   m_PrefabInternal: {fileID: 993838872}
@@ -260,7 +260,7 @@ SpriteRenderer:
   m_SortingOrder: 5
   m_Sprite: {fileID: 21300018, guid: 89037f888a2504a05afc949c90eb3373, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
---- !u!4 &166721824
+--- !u!4 &166721824 stripped
 Transform:
   m_PrefabParentObject: {fileID: 482158, guid: 4479fc52f4c5a4f479916905a86684e3, type: 2}
   m_PrefabInternal: {fileID: 519940121}
@@ -364,11 +364,11 @@ SpriteRenderer:
   m_SortingOrder: 5
   m_Sprite: {fileID: 21300018, guid: 89037f888a2504a05afc949c90eb3373, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
---- !u!1 &244723713
+--- !u!1 &244723713 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 128984, guid: 5dfb6c7c29956be469fb68ffaa8f4c7b, type: 2}
   m_PrefabInternal: {fileID: 951667556}
---- !u!4 &244723719
+--- !u!4 &244723719 stripped
 Transform:
   m_PrefabParentObject: {fileID: 428984, guid: 5dfb6c7c29956be469fb68ffaa8f4c7b, type: 2}
   m_PrefabInternal: {fileID: 951667556}
@@ -441,11 +441,11 @@ SpriteRenderer:
   m_SortingOrder: 5
   m_Sprite: {fileID: 21300014, guid: 89037f888a2504a05afc949c90eb3373, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
---- !u!4 &293632567
+--- !u!4 &293632567 stripped
 Transform:
   m_PrefabParentObject: {fileID: 482158, guid: 4479fc52f4c5a4f479916905a86684e3, type: 2}
   m_PrefabInternal: {fileID: 420882722}
---- !u!4 &318607065
+--- !u!4 &318607065 stripped
 Transform:
   m_PrefabParentObject: {fileID: 482158, guid: 4479fc52f4c5a4f479916905a86684e3, type: 2}
   m_PrefabInternal: {fileID: 652105017}
@@ -671,7 +671,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 8
 --- !u!1001 &471313063
 Prefab:
   m_ObjectHideFlags: 0
@@ -974,7 +974,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4479fc52f4c5a4f479916905a86684e3, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &667585128
+--- !u!1 &667585128 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 141568, guid: 60d7105787cfc4bf59e2b593c8815384, type: 2}
   m_PrefabInternal: {fileID: 481026640}
@@ -1138,15 +1138,15 @@ SpriteRenderer:
   m_SortingOrder: 5
   m_Sprite: {fileID: 21300002, guid: 89037f888a2504a05afc949c90eb3373, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
---- !u!4 &839209576
+--- !u!4 &839209576 stripped
 Transform:
   m_PrefabParentObject: {fileID: 482158, guid: 4479fc52f4c5a4f479916905a86684e3, type: 2}
   m_PrefabInternal: {fileID: 1274605413}
---- !u!4 &866016435
+--- !u!4 &866016435 stripped
 Transform:
   m_PrefabParentObject: {fileID: 482158, guid: 4479fc52f4c5a4f479916905a86684e3, type: 2}
   m_PrefabInternal: {fileID: 471313063}
---- !u!1 &910141199
+--- !u!1 &910141199 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100002, guid: b796fe79a11784458b513bde38abc116, type: 2}
   m_PrefabInternal: {fileID: 721772347}
@@ -1248,6 +1248,10 @@ Prefab:
       propertyPath: startEndModifier.exactEndPoint
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11488254, guid: 5dfb6c7c29956be469fb68ffaa8f4c7b, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5dfb6c7c29956be469fb68ffaa8f4c7b, type: 2}
   m_IsPrefabParent: 0
@@ -1316,11 +1320,19 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: eb43ec6af12ec4fd0afa8716991d31c2,
         type: 3}
+    - target: {fileID: 11493554, guid: f9c4e8655aad264438010e3fb4de1652, type: 2}
+      propertyPath: drawGizmos
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11493554, guid: f9c4e8655aad264438010e3fb4de1652, type: 2}
+      propertyPath: detailedGizmos
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: f9c4e8655aad264438010e3fb4de1652, type: 2}
   m_IsPrefabParent: 0
---- !u!4 &979676851
+--- !u!4 &979676851 stripped
 Transform:
   m_PrefabParentObject: {fileID: 482158, guid: 4479fc52f4c5a4f479916905a86684e3, type: 2}
   m_PrefabInternal: {fileID: 383010914}
@@ -1628,7 +1640,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 15
 --- !u!114 &1410701933
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1655,11 +1667,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 767ba290be5fb1a43b1842f805600f76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1461477501
+--- !u!1 &1461477501 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100012, guid: b796fe79a11784458b513bde38abc116, type: 2}
   m_PrefabInternal: {fileID: 721772347}
---- !u!1 &1501118502
+--- !u!1 &1501118502 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100008, guid: b796fe79a11784458b513bde38abc116, type: 2}
   m_PrefabInternal: {fileID: 721772347}
@@ -1872,7 +1884,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 11
 --- !u!1001 &1820651681
 Prefab:
   m_ObjectHideFlags: 0
@@ -1978,11 +1990,11 @@ Prefab:
     - {fileID: 11425104, guid: b5a6562da0eed8147843b1c768ee5cf5, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: b5a6562da0eed8147843b1c768ee5cf5, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1844736220
+--- !u!1 &1844736220 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 125048, guid: f9c4e8655aad264438010e3fb4de1652, type: 2}
   m_PrefabInternal: {fileID: 977904194}
---- !u!4 &1844736223
+--- !u!4 &1844736223 stripped
 Transform:
   m_PrefabParentObject: {fileID: 425048, guid: f9c4e8655aad264438010e3fb4de1652, type: 2}
   m_PrefabInternal: {fileID: 977904194}
@@ -15808,11 +15820,39 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 184238, guid: d67788e3dd56138499b50cc6dd8dcc09, type: 2}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 134716, guid: d67788e3dd56138499b50cc6dd8dcc09, type: 2}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 161094, guid: d67788e3dd56138499b50cc6dd8dcc09, type: 2}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 173308, guid: d67788e3dd56138499b50cc6dd8dcc09, type: 2}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 115314, guid: d67788e3dd56138499b50cc6dd8dcc09, type: 2}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 131536, guid: d67788e3dd56138499b50cc6dd8dcc09, type: 2}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 182044, guid: d67788e3dd56138499b50cc6dd8dcc09, type: 2}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11470874, guid: d67788e3dd56138499b50cc6dd8dcc09, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: d67788e3dd56138499b50cc6dd8dcc09, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &2058661008
+--- !u!1 &2058661008 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 166228, guid: d67788e3dd56138499b50cc6dd8dcc09, type: 2}
   m_PrefabInternal: {fileID: 2058661007}
@@ -15848,8 +15888,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   astarData:
     hasBeenReverted: 0
-    data: 504b0304140000080800cbae854677c95f6f2e020000500400000b0024006772617068302e6a736f6e0a0020000000000001001800dab8389a0c70d001d0b8389a0c70d001c6b8389a0c70d0017553db8e9b3010fd95cacf10d9dc0279db264d5a69db5d6d5af5a1ea83639c60056c649be6b2e2df7730900d2b954804e6cc9c3933c7bca2432372b47845ff68d970b4406940d99c6409a124c8935deecfd38c6484d0798071cc32865a0f515373665fa8150a2d8887845115b75ab007792881057b482bdbc1b2e33ea3453087d8c52157b80307e3d2723dc013708609e08d6425ad6a9e6fc5950f6984047d6612751452e5bc47c3000855590a33b4b497ba9be6855e90877241415ed70cb4165c1c0a0b8aee2a9ef67bc36daf9b5e5642c3748e087d56b600868a9ae3dd96481c26ed48f57d8af99df8bd56d5d7a111c1406b0bc18ea0865103a13d2d0d9f0657f71a1b79a2e591ee4afebbe0f287da68d548b0c9ea06ca1ac383d5f8729b615970761ca3bdb249a8a927bb8e675982a3248ad22f3e4edde27d3ccbfa2b6adb6ee6f3b214d5ce558c2f0f6761dcee20b02d55b7e40c60aec18a6f20df796e5c09c43a5dbf0cff490fe636f4105e0b6d2c006e5eda58f528e471a345fe9e394657c2d8475109b74b70bd9b6da71a0d99680dffe00f6bec5269c9f57b75cd252dede519bad9a9c51f90ff55ac29b3aaf7634086d33d4d77c15b2ec653e0599d064f8504565a3ef7a01302eb93a33d12ec8779ba0d7cda685a77a72ed7f4b411d74a99314bc8bdda32cdb97c72b583948ac2c777be1d4248ff1392decc947878f87db0fcce6e078f1549e0c1139e87511a07909900e6c771e6d030f3fc90f4cf49e6c1b78aa107ce82c4237fdbf60d504b0304140000080800cbae8546287e18aa4300000048000000120024006772617068305f656469746f722e6a736f6e0a00200000000000010018008ec8389a0c70d0018ec8389a0c70d00184c8389a0c70d001ab56cac94fce4e4d51b22a292a4dd5512acec82f77ad28294a54b24a4bcc29068a94a456949416a58665166726e5a4c2d4156496e59728592939a7e695a41629d50200504b0304140000080800cbae8546c0b9b65a7400000081000000090024006d6574612e6a736f6e0a002000000000000100180048d2389a0c70d00148d2389a0c70d0013ed2389a0c70d0011d8cb10ec2201040ffe5e6da7018a17475e866dc4d8793c3f606a1a1d4c418ffdde2f686f7de075e21af9222f4706c0d3430655ae6157adc7113dee9069d266fd11924d46cee7cb09d438748562b75f2cec3d840792fe142cff02fae54e687449638b543161eeab55a317138a72d96aaa9f1fb03504b01022d00140000080800cbae854677c95f6f2e020000500400000b00240000000000000000000000000000006772617068302e6a736f6e0a0020000000000001001800dab8389a0c70d001d0b8389a0c70d001c6b8389a0c70d001504b01022d00140000080800cbae8546287e18aa430000004800000012002400000000000000000000007b0200006772617068305f656469746f722e6a736f6e0a00200000000000010018008ec8389a0c70d0018ec8389a0c70d00184c8389a0c70d001504b01022d00140000080800cbae8546c0b9b65a74000000810000000900240000000000000000000000120300006d6574612e6a736f6e0a002000000000000100180048d2389a0c70d00148d2389a0c70d0013ed2389a0c70d001504b050600000000030003001c010000d10300000000
-    dataChecksum: 1387310282
+    data: 504b03041400000808006c8a8c4634d12f293a0200005d0400000b0024006772617068302e6a736f6e0a002000000000000100180086c5555a6675d00186c5555a6675d00186c5555a6675d0017553cb8e9b3014fd95ca6b886cde64374d2669a569673469d545d585639c60056c649be631cabff7622013462a91089c731fe7de63ded0be15059abfa1bfb46a399aa32ca02c25794228098a645bf86996939c109a0618c72c67e8ea216a1aceec2bb542a139f19030aae6560bf620f71554c11ed2ca76b4ec6a9fd03c48013b3be60277a8c1b8b45c0f744f46b32409f2300ec2479fa47de40c13086e25ab68ddf062232e7cc82124e8d392a8ab2755c17b360ca0baaa2a6186fef6dc74a3bdd233f250212868ed3a83f0928b7d6941de5dc6f36e67b8ed87a0e7a5d030aa2b843e2b5b42859a9ac3ddca481c26d7b1d4b729e777e2775ad55f86460443595b0a7600358c1a8076b4327c0a2eef35b6f248ab03dd56fc57c9e577b5d6aa95e099d52da4b58607cbf1e536c3a2e4ec30a2bdb209d43693c5c7b33cc1511245d9a38f33b7781fcff2fe8aaed76ee6d3a212f5d6658c2f0f2761dcee00d854aa5b720e34d760c55790ef0e8071298075ba7e1afe83eecd6de8015e096d2c106e5eda5af524e461ad45f11e39a24b61ec93a885db25b8decdb655ad8648b4827ff087b576a1b4e4fa3dbbe19256f6fc02ddecd4e20fccff32569459d5fb3130c3519f863bf0168bf1947851c7c15321a12aad5e7ad20981f5c9d11e09f6c33cdd063ead356dba5357687a5c8b4badcc1825e44e6d98e65c3ebbdc414a4de14b3cdd0e2184ff0e496f66463c3cfc3e587e67b7a3c78c24f0e009a76194c5014426c0f9719c3b36cc3d3f24fd73927bf0ad62e881f320f1c89febf51f504b03041400000808006c8a8c46287e18aa4300000048000000120024006772617068305f656469746f722e6a736f6e0a002000000000000100180086c5555a6675d00186c5555a6675d00186c5555a6675d001ab56cac94fce4e4d51b22a292a4dd5512acec82f77ad28294a54b24a4bcc29068a94a456949416a58665166726e5a4c2d4156496e59728592939a7e695a41629d50200504b03041400000808006c8a8c46c0b9b65a7400000081000000090024006d6574612e6a736f6e0a002000000000000100180086c5555a6675d00186c5555a6675d00186c5555a6675d0011d8cb10ec2201040ffe5e6da7018a17475e866dc4d8793c3f606a1a1d4c418ffdde2f686f7de075e21af9222f4706c0d3430655ae6157adc7113dee9069d266fd11924d46cee7cb09d438748562b75f2cec3d840792fe142cff02fae54e687449638b543161eeab55a317138a72d96aaa9f1fb03504b01022d001400000808006c8a8c4634d12f293a0200005d0400000b00240000000000000000000000000000006772617068302e6a736f6e0a002000000000000100180086c5555a6675d00186c5555a6675d00186c5555a6675d001504b01022d001400000808006c8a8c46287e18aa43000000480000001200240000000000000000000000870200006772617068305f656469746f722e6a736f6e0a002000000000000100180086c5555a6675d00186c5555a6675d00186c5555a6675d001504b01022d001400000808006c8a8c46c0b9b65a740000008100000009002400000000000000000000001e0300006d6574612e6a736f6e0a002000000000000100180086c5555a6675d00186c5555a6675d00186c5555a6675d001504b050600000000030003001c010000dd0300000000
+    dataChecksum: 1713333585
     data_backup: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
@@ -15862,8 +15902,8 @@ MonoBehaviour:
   manualDebugFloorRoof: 0
   showSearchTree: 0
   unwalkableNodeDebugSize: .300000012
-  logPathResults: 1
-  maxNearestNodeDistance: 100
+  logPathResults: 0
+  maxNearestNodeDistance: 1
   scanOnStartup: 1
   fullGetNearestSearch: 0
   prioritizeGraphs: 0
@@ -15917,7 +15957,7 @@ MonoBehaviour:
   minAreaSize: 0
   limitGraphUpdates: 1
   maxGraphUpdateFreq: .200000003
-  lastScanTime: .0198960006
+  lastScanTime: .0156298
   inGameDebugPath: 
   isScanning: 0
   euclideanEmbedding:
@@ -15973,7 +16013,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 93c625cbff62f4518bb311d3006bdb9b, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &2092342358
+--- !u!1 &2092342358 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 125104, guid: b5a6562da0eed8147843b1c768ee5cf5, type: 2}
   m_PrefabInternal: {fileID: 1839374353}
