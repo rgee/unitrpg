@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.Collections;
 
@@ -23,7 +24,7 @@ public class UnitController : MonoBehaviour {
 	}
 
 	public void MoveAlongPath(List<Vector3> path, Action callback) {
-		CurrentPath = path;
+		CurrentPath = path.Distinct().ToList();
 		CurrentPathIdx = -1;
 		CurrentCallback = callback;
 
