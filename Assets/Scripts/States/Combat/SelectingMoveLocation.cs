@@ -69,12 +69,14 @@ public class SelectingMoveLocation : CancelableCombatState {
 
                     if (!p.error && p.path.First() != p.path.Last()) {
                         LastHoveredGridPoint = mouseGridPos;
+                        PathArrowManager.Instance.ShowPath(p.vectorPath.ToList());
 
                         // Update the dialog to reflect the new path, minus one node becuase it's the start point.
                         List<Vector3> trimmedPath = p.vectorPath.GetRange(1, p.vectorPath.Count - 1);
                         MovementPipDialogComponent.UsedMoves = trimmedPath.Count + UsedDistance;
                     } else {
                         MovementPipDialogComponent.UsedMoves = UsedDistance;
+                        PathArrowManager.Instance.ClearPath();
                     }
                 });
             }
