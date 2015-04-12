@@ -10,6 +10,8 @@ public class SelectingMoveLocation : CancelableCombatState {
     private HashSet<Vector2> WalkableLocations;
 
 	public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
+		base.OnStateEnter(animator, stateInfo, layerIndex);
+
         Grid = CombatObjects.GetMap();
         State = CombatObjects.GetBattleState();
 		Animator = animator;
@@ -40,6 +42,8 @@ public class SelectingMoveLocation : CancelableCombatState {
 	}
 
 	public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
+		base.OnStateExit(animator, stateInfo, layerIndex);
+
 		Grid.OnGridClicked -= new MapGrid.GridClickHandler(HandleGridClick);
         Grid.ClearSelection();
 	}
