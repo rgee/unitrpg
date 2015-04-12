@@ -27,10 +27,12 @@ public class RangeFinder {
     }
 
     private bool IsOpen(Vector2 point) {
+        if (!grid.IsInGrid(point)) {
+            return false;
+        }
 
         Vector2 worldPosition = grid.GetWorldPosForGridPos(point);
         Pathfinding.NNInfo nearest = AstarPath.active.GetNearest(worldPosition);
-
         return nearest.node.Walkable;
     }
 

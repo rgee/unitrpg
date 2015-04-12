@@ -166,7 +166,7 @@ public class MapGrid : MonoBehaviour {
         return result;
     }
 
-    private bool IsInGrid(Vector2 gridPos) {
+    public bool IsInGrid(Vector2 gridPos) {
         return gridPos.x >= 0 && gridPos.x < width &&
                gridPos.y < height && gridPos.y >= 0;
     }
