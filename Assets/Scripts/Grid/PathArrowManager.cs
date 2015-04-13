@@ -31,64 +31,153 @@ public class PathArrowManager : Singleton<PathArrowManager> {
         PathSprites.Clear();
     }
 
-    public void ShowPath(List<Vector3> pathSegments) {
-        ClearPath();
+    private struct Junction {
+        public Transition Entrance;
+        public Transition? Exit;
 
-        Vector3 prevSegment = pathSegments[0];
-        foreach (Vector3 segment in pathSegments.GetRange(1, pathSegments.Count - 1)) {
-            MathUtils.CardinalDirection dir = MathUtils.DirectionTo(prevSegment, segment);
-            Sprite sprite;
-            switch (dir) {
-                case MathUtils.CardinalDirection.E:
-                    sprite = EastSegment;
-                    break;
-                case MathUtils.CardinalDirection.W:
-                    sprite = WestSegment;
-                    break;
-                case MathUtils.CardinalDirection.S:
-                    sprite = SouthSegment;
-                    break;
-                case MathUtils.CardinalDirection.N:
-                    sprite = NorthSegment;
-                    break;
-                default:
-                    throw new ArgumentException("uh, can't find the direction to render the path.");
+        public bool IsCorner() {
+            if (!Exit.HasValue) { 
+                return false;
             }
 
-            GameObject obj = new GameObject("path_segment");
-            obj.transform.position = segment;
-            SpriteRenderer renderer = obj.AddComponent<SpriteRenderer>();
-            renderer.sprite = sprite;
-            renderer.sortingOrder = 16;
+            MathUtils.CardinalDirection entranceDirection = Entrance.Direction;
+            MathUtils.CardinalDirection exitDirection = Exit.Value.Direction;
+            return entranceDirection.GetOrientation() != exitDirection.GetOrientation();
+        }
+    }
 
-            PathSprites.Add(obj);
+    private struct Transition {
+        public Vector3 Destination;
+        public MathUtils.CardinalDirection Direction;
+    }
 
-            prevSegment = segment;
+    private List<Junction> ConvertToJunctions(List<Vector3> points) {
+        if (points.Count < 2) {
+            throw new ArgumentException("At least two points are required to make a path.");
         }
 
-        GameObject arrowHead = PathSprites.Last();
-        GameObject headConnector = PathSprites[PathSprites.Count - 2];
+        List<Junction> result = new List<Junction>();
 
-        MathUtils.CardinalDirection dirToEnd = MathUtils.DirectionTo(headConnector.transform.position, arrowHead.transform.position);
-        Sprite arrowHeadSprite;
-        switch (dirToEnd) {
+        int prevIdx = 0;
+        int currentIdx = 1;
+        int nextIdx = 2;
+
+        // Iterate in a sliding window of three points on the path.
+        for (; currentIdx < points.Count; prevIdx++, currentIdx++, nextIdx++) {
+            Junction junction = new Junction();
+
+            Transition entrance = new Transition();
+            entrance.Destination = points[currentIdx];
+            entrance.Direction = MathUtils.DirectionTo(points[prevIdx], entrance.Destination);
+            junction.Entrance = entrance;
+
+            // If there is no next point, we've reached the end.
+            if (nextIdx < points.Count) {
+                Transition exit = new Transition();
+                exit.Destination = points[nextIdx];
+                exit.Direction = MathUtils.DirectionTo(entrance.Destination, exit.Destination);
+                junction.Exit = exit;
+            }
+
+            result.Add(junction);
+        }
+
+        return result;
+    }
+
+    private void AddPathSegment(Vector3 position, Sprite sprite) {
+        GameObject obj = new GameObject("path_segment");
+        obj.transform.position = position;
+        SpriteRenderer renderer = obj.AddComponent<SpriteRenderer>();
+        renderer.sprite = sprite;
+        renderer.sortingOrder = 16;
+
+        PathSprites.Add(obj);
+    }
+
+    private Sprite GetSpriteForDirection(MathUtils.CardinalDirection dir) {
+        switch (dir) {
             case MathUtils.CardinalDirection.E:
-                arrowHeadSprite = EastHead;
-                break;
+                return EastSegment;
             case MathUtils.CardinalDirection.W:
-                arrowHeadSprite = WestHead;
-                break;
+                return WestSegment;
             case MathUtils.CardinalDirection.S:
-                arrowHeadSprite = SouthHead;
-                break;
+                return SouthSegment;
             case MathUtils.CardinalDirection.N:
-                arrowHeadSprite = NorthHead;
-                break;
+                return NorthSegment;
             default:
                 throw new ArgumentException("uh, can't find the direction to render the path.");
         }
-        arrowHead.GetComponent<SpriteRenderer>().sprite = arrowHeadSprite;
+    }
 
-        Debug.Log("Added " + PathSprites.Count + " segment sprites");
+    private Sprite GetHeadSpriteForDirection(MathUtils.CardinalDirection dir) {
+        switch (dir) {
+            case MathUtils.CardinalDirection.E:
+                return EastHead;
+            case MathUtils.CardinalDirection.W:
+                return WestHead;
+            case MathUtils.CardinalDirection.S:
+                return SouthHead;
+            case MathUtils.CardinalDirection.N:
+                return NorthHead;
+            default:
+                throw new ArgumentException("uh, can't find the direction to render the path.");
+        }
+    }
+
+    private Sprite GetCornerSpriteForDirections(MathUtils.CardinalDirection enterDir, MathUtils.CardinalDirection exitDir) {
+        if (enterDir == MathUtils.CardinalDirection.N) {
+            if (exitDir == MathUtils.CardinalDirection.E) {
+                return NorthEastCorner;
+            } else {
+                return NorthWestCorner;
+            }
+        }
+
+        if (enterDir == MathUtils.CardinalDirection.S) {
+            if (exitDir == MathUtils.CardinalDirection.E) {
+                return SouthEastCorner;
+            } else {
+                return SouthWestCorner;
+            }
+        }
+
+        if (enterDir == MathUtils.CardinalDirection.E) {
+            if (exitDir == MathUtils.CardinalDirection.N) {
+                return SouthWestCorner;
+            } else {
+                return NorthWestCorner;
+            }
+        }
+
+        if (enterDir == MathUtils.CardinalDirection.W) {
+            if (exitDir == MathUtils.CardinalDirection.S) {
+                return NorthEastCorner;
+            } else {
+                return SouthWestCorner;
+            }
+        }
+
+        throw new ArgumentException("uh, can't find the direction to render the path.");
+    }
+
+    public void ShowPath(List<Vector3> pathSegments) {
+        ClearPath();
+
+        List<Junction> junctions = ConvertToJunctions(pathSegments);
+        foreach (Junction jct in junctions) {
+            Vector3 destination = jct.Entrance.Destination;
+            MathUtils.CardinalDirection direction = jct.Entrance.Direction;
+
+            if (jct.IsCorner()) {
+                AddPathSegment(destination, GetCornerSpriteForDirections(direction, jct.Exit.Value.Direction));
+            } else {
+                if (jct.Exit.HasValue) {
+                    AddPathSegment(destination, GetSpriteForDirection(jct.Entrance.Direction));
+                } else {
+                    AddPathSegment(destination, GetHeadSpriteForDirection(jct.Entrance.Direction));
+                }
+            }
+        }
     }
 }

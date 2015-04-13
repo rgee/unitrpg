@@ -14,6 +14,11 @@ public static class MathUtils {
 		N, S, E, W
 	}
 
+    public enum Orientation {
+        HORIZONTAL,
+        VERTICAL
+    }
+
     public static CardinalDirection GetOpposite(this CardinalDirection dir) {
         switch (dir) {
             case CardinalDirection.N:
@@ -28,6 +33,20 @@ public static class MathUtils {
                 throw new System.ArgumentException("Invalid direction.");
         }
     }
+
+    public static Orientation GetOrientation(this CardinalDirection dir) {
+        switch (dir) {
+            case CardinalDirection.W:
+            case CardinalDirection.E:
+                return Orientation.HORIZONTAL;
+            case CardinalDirection.S:
+            case CardinalDirection.N:
+                return Orientation.VERTICAL;
+            default:
+                throw new System.ArgumentException("Invalid direction.");
+        }
+    }
+
 
 	public static CardinalDirection DirectionTo(Vector3 start, Vector3 end) {
         return DirectionTo(new Vector2(start.x, start.y), new Vector2(end.x, end.y));
