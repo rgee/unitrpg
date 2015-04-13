@@ -93,6 +93,7 @@ public class SelectingMoveLocation : CancelableCombatState {
 	public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
 		base.OnStateExit(animator, stateInfo, layerIndex);
 
+        PathArrowManager.Instance.ClearPath();
 		Grid.OnGridClicked -= new MapGrid.GridClickHandler(HandleGridClick);
         Grid.ClearSelection();
         Destroy(MovementPipDialogObject);
