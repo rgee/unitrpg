@@ -154,7 +154,7 @@ public class PathArrowManager : Singleton<PathArrowManager> {
             if (exitDir == MathUtils.CardinalDirection.S) {
                 return NorthEastCorner;
             } else {
-                return SouthWestCorner;
+                return SouthEastCorner;
             }
         }
 
