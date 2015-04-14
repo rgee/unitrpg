@@ -25,7 +25,6 @@ public class PathArrowManager : Singleton<PathArrowManager> {
 
     public void ClearPath() {
         foreach (GameObject sprite in PathSprites) {
-            Debug.Log("Destroying path");
             Destroy(sprite);
         }
         PathSprites.Clear();

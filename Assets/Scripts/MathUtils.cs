@@ -55,7 +55,7 @@ public static class MathUtils {
     public static CardinalDirection DirectionTo(Vector2 start, Vector2 end) {
 
 		if (start == end) {
-			throw new System.ArgumentException("Points are equal!");
+			throw new System.ArgumentException("Points " + start + " and " + end + " are equal!");
 		}
 
 		if (start.x < end.x) {

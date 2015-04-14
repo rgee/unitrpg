@@ -122,8 +122,15 @@ public class SingleMindedFury : MonoBehaviour, AIStrategy {
         yield return StartCoroutine(ApproachPosition(Target.transform.position));
     }
     private IEnumerator ApproachPosition(Vector3 position) {
+        // Remove this unit's collider so the pathfinder wont see the currently-occupied Grid square
+        // as a blockage.
+        BoxCollider2D collider = GetComponent<BoxCollider2D>();
+        collider.enabled = false;
+        Grid.RescanGraph();
         Pathfinding.Path path = null;
         Seeker.StartPath(transform.position, position, (p) => {
+            collider.enabled = true;
+            Grid.RescanGraph();
             path = p;
         });
 
@@ -133,7 +140,13 @@ public class SingleMindedFury : MonoBehaviour, AIStrategy {
 
 		// Limit the path found to the unit's move range.
 		int moveRange = Unit.model.Character.Movement;
-		List<Vector3> limitedPath = path.vectorPath.Take(moveRange).ToList();
+		List<Vector3> limitedPath = path.vectorPath
+            .GetRange(1, path.vectorPath.Count - 1)
+            .Take(moveRange).ToList();
+
+        foreach (Vector3 node in limitedPath) {
+            Debug.Log(node);
+        }
 
         if (!path.error) {
             yield return StartCoroutine(Unit.MoveAlongPath(limitedPath));
