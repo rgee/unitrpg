@@ -81,6 +81,17 @@ public class UnitInfoManager : Singleton<UnitInfoManager> {
         rectTransform.offsetMin = new Vector2();
         rectTransform.localScale = new Vector3(1,1,1);
         Portraits.Add(headPortraitInstance);
+
+
+        GameObject bigPortraitContainer = FindWithinMenu("Portrait") as GameObject;
+        GameObject bigPortraitInstance = Instantiate(bigPortrait) as GameObject;
+        bigPortraitInstance.transform.SetParent(bigPortraitContainer.transform);
+
+        RectTransform bigTransform = bigPortraitInstance.GetComponent<RectTransform>();
+        bigTransform.offsetMin = new Vector2();
+        bigTransform.offsetMax = new Vector2();
+        bigTransform.localScale = new Vector3(1, 1, 1);
+        Portraits.Add(bigPortraitInstance);
     }
 
     public void HideUnitInfo() {
