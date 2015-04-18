@@ -20,7 +20,7 @@ namespace Grid {
 			get { return selectedUnit; }
 		}
 
-		public delegate void UnitClickedEventHandler(Unit e, Vector2 gridPosition);
+		public delegate void UnitClickedEventHandler(Unit e, Vector2 gridPosition, bool rightClick);
 		public event UnitClickedEventHandler OnUnitClick;
 
         private Vector2? selectedGridPosition;
@@ -111,19 +111,10 @@ namespace Grid {
 
             if (Input.GetMouseButtonDown(0)) {
                 Vector2? maybeGridPos = Grid.GetMouseGridPosition();
-                SelectUnit(maybeGridPos.Value);
-
-                // If the click happened at a grid point
-                if (maybeGridPos.HasValue) {
-                    if (selectedUnit == null) {
-                    }
-                } else {
-                    //ClearSelectedUnit();
-                }
-            }
-
-            if (selectedUnit != null && Input.GetKeyDown(KeyCode.Escape)) {
-                //ClearSelectedUnit();
+                SelectUnit(maybeGridPos.Value, false);
+            } else if (Input.GetMouseButtonDown(1)) {
+                Vector2? maybeGridPos = Grid.GetMouseGridPosition();
+                SelectUnit(maybeGridPos.Value, true);
             }
         }
 
@@ -137,12 +128,12 @@ namespace Grid {
             return selectedGridPosition;
         }
 
-        private void SelectUnit(Vector2 position) {
+        private void SelectUnit(Vector2 position, bool rightClick) {
             if (unitsByPosition.ContainsKey(position)) {
                 GameObject potentialUnit = unitsByPosition[position];
                 Unit unitComponent = potentialUnit.GetComponent<Unit>();
 				if (OnUnitClick != null) {
-					OnUnitClick(unitComponent, position);
+					OnUnitClick(unitComponent, position, rightClick);
 				}
 
                 if (!unitComponent.friendly) {

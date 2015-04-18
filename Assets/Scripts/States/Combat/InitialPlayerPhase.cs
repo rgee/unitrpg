@@ -28,12 +28,17 @@ public class InitialPlayerPhase : StateMachineBehaviour {
         }
 	}
 
-	private void OnUnitClicked(Grid.Unit unit, Vector2 gridPosition) {
+	private void OnUnitClicked(Grid.Unit unit, Vector2 gridPosition, bool rightClick) {
 		BattleState.SelectedUnit = unit;
+        if (unit == null) {
+            Debug.Log("wtf");
+        }
 		BattleState.SelectedGridPosition = gridPosition;
 
 		string trigger = "enemy_selected";
-		if (unit.friendly) {
+        if (rightClick) {
+            trigger = "info_selected";
+        } else if (unit.friendly) {
 			trigger = "friendly_selected";
 		}
 
