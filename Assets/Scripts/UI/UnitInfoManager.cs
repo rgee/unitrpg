@@ -9,16 +9,19 @@ public class UnitInfoManager : Singleton<UnitInfoManager> {
     public GameObject MenuPrefab;
 
     private GameObject MenuInstance;
+    private static string RESOURCE_PATH = "Portraits"; 
 
     private Text HPText;
     private Text MovText;
     private Text NameText;
     private Text LevelText;
 
+    private List<GameObject> Portraits = new List<GameObject>();
+
     public void Start() {
         MenuInstance = Instantiate(MenuPrefab) as GameObject;
-        HPText = FindWithinSummary("HP/Label").GetComponent<Text>();
-        MovText = FindWithinSummary("Movement/Label").GetComponent<Text>();
+        HPText = FindWithinSummary("HP/Value").GetComponent<Text>();
+        MovText = FindWithinSummary("Movement/Value").GetComponent<Text>();
         NameText = FindWithinSummary("Name").GetComponent<Text>();
         LevelText = FindWithinSummary("Level").GetComponent<Text>();
 
@@ -42,12 +45,42 @@ public class UnitInfoManager : Singleton<UnitInfoManager> {
 
         Models.Unit model = unit.model;
 
+        string name = model.Character.Name;
         HPText.text = String.Format("{0}/{1}", model.Health, model.Character.MaxHealth);
         MovText.text = model.Character.Movement.ToString();
-        NameText.text = model.Character.Name.ToUpper();
+        NameText.text = name.ToUpper();
         LevelText.text = "LEVEL " + model.Character.Level.ToString();
 
+        if (unit.friendly) {
+            AddPortraits(name);
+        } else {
+            ClearPortraits();
+        }
+
         MenuInstance.SetActive(true);
+    }
+
+    private void ClearPortraits() {
+        foreach (GameObject portrait in Portraits) {
+            Destroy(portrait);
+        }
+
+        Portraits.Clear();
+    }
+
+    private void AddPortraits(String unitName) {
+        GameObject bigPortrait = Resources.Load(RESOURCE_PATH + "/" + unitName) as GameObject;
+        GameObject headPortrait = Resources.Load(RESOURCE_PATH + "/" + unitName + "_head") as GameObject;
+
+        GameObject portraitContainer = FindWithinMenu("Summary Panel/Small Portrait");
+        GameObject headPortraitInstance = Instantiate(headPortrait) as GameObject;
+        headPortraitInstance.transform.SetParent(portraitContainer.transform);
+
+        RectTransform rectTransform = headPortraitInstance.GetComponent<RectTransform>();
+        rectTransform.offsetMax = new Vector2();
+        rectTransform.offsetMin = new Vector2();
+        rectTransform.localScale = new Vector3(1,1,1);
+        Portraits.Add(headPortraitInstance);
     }
 
     public void HideUnitInfo() {
