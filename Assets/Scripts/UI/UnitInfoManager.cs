@@ -85,11 +85,9 @@ public class UnitInfoManager : Singleton<UnitInfoManager> {
 
         GameObject bigPortraitContainer = FindWithinMenu("Portrait") as GameObject;
         GameObject bigPortraitInstance = Instantiate(bigPortrait) as GameObject;
-        bigPortraitInstance.transform.SetParent(bigPortraitContainer.transform);
-
         RectTransform bigTransform = bigPortraitInstance.GetComponent<RectTransform>();
-        bigTransform.offsetMin = new Vector2();
-        bigTransform.offsetMax = new Vector2();
+        bigPortraitInstance.transform.SetParent(bigPortraitContainer.transform);
+        bigTransform.anchoredPosition = new Vector3();
         bigTransform.localScale = new Vector3(1, 1, 1);
         Portraits.Add(bigPortraitInstance);
     }
