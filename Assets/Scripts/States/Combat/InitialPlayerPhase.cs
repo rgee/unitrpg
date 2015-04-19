@@ -14,7 +14,7 @@ public class InitialPlayerPhase : StateMachineBehaviour {
 		UnitManager = GameObject.Find("Unit Manager").GetComponent<Grid.UnitManager>();
 		BattleState = GameObject.Find("BattleManager").GetComponent<BattleState>();
 
-        MapGrid.Instance.HoverSelectorEnabled = true;
+        MapHighlightManager.Instance.HoverSelectorEnabled = true;
 
         List<Grid.Unit> friendlyUnits = UnitManager.GetFriendlies();
 
@@ -45,7 +45,7 @@ public class InitialPlayerPhase : StateMachineBehaviour {
 	}
 
 	public override void OnStateExit (Animator animator, AnimatorStateInfo stateInfo, int layerIndex)	{
-        MapGrid.Instance.HoverSelectorEnabled = false;
+        MapHighlightManager.Instance.HoverSelectorEnabled = false;
 		UnitManager.OnUnitClick -= new Grid.UnitManager.UnitClickedEventHandler(OnUnitClicked);
 	}
 }
