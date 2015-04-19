@@ -21,7 +21,7 @@ public class SelectingFightTarget : StateMachineBehaviour {
             .Where(pos => UnitManager.GetUnitByPosition(pos) != null)
             .ToHashSet();
 
-        MapHighlightManager.Instance.SelectTiles(AttackableLocations, MapHighlightManager.SelectionType.ATTACK);
+        MapHighlightManager.Instance.HighlightTiles(AttackableLocations, MapHighlightManager.HiglightType.ATTACK);
 
         Grid.OnGridClicked += new MapGrid.GridClickHandler(HandleGridClick);
     }
@@ -38,6 +38,6 @@ public class SelectingFightTarget : StateMachineBehaviour {
 
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         Grid.OnGridClicked -= new MapGrid.GridClickHandler(HandleGridClick);
-        MapHighlightManager.Instance.ClearSelection();
+        MapHighlightManager.Instance.ClearHighlight();
     }
 }

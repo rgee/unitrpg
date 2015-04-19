@@ -13,17 +13,17 @@ public class MapHighlightManager : Singleton<MapHighlightManager> {
     public bool HoverSelectorEnabled { get; set;  }
 
     private GameObject HoverHighlight;
-    private List<GameObject> SelectionTiles = new List<GameObject>();
+    private List<GameObject> HighlightedTiles = new List<GameObject>();
     private Grid.UnitManager UnitManager;
 
-    public enum SelectionType {
+    public enum HiglightType {
         MOVEMENT,
         ATTACK,
         HOVER
     }
 
     void Start() {
-        HoverHighlight = CreateHighlight(new Vector2(0, 0), SelectionType.HOVER);
+        HoverHighlight = CreateHighlight(new Vector2(0, 0), HiglightType.HOVER);
         HoverHighlight.SetActive(false);
 
         UnitManager = CombatObjects.GetUnitManager();
@@ -33,20 +33,20 @@ public class MapHighlightManager : Singleton<MapHighlightManager> {
         HighlightHoveredTile();
     }
 
-    public void SelectTiles(ICollection<Vector2> tiles, SelectionType type) {
-        ClearSelection();
-        SelectionTiles = tiles.Select((tile) => CreateHighlight(tile, type)).ToList();
+    public void HighlightTiles(ICollection<Vector2> tiles, HiglightType type) {
+        ClearHighlight();
+        HighlightedTiles = tiles.Select((tile) => CreateHighlight(tile, type)).ToList();
     }
 
-    public void ClearSelection() {
-        foreach (GameObject obj in SelectionTiles) {
+    public void ClearHighlight() {
+        foreach (GameObject obj in HighlightedTiles) {
             Destroy(obj);
         }
 
-        SelectionTiles.Clear();
+        HighlightedTiles.Clear();
     }
 
-    private GameObject CreateHighlight(Vector2 pos, SelectionType type) {
+    private GameObject CreateHighlight(Vector2 pos, HiglightType type) {
 
         GameObject highlight = Instantiate(MapHighlightPrefab) as GameObject;
         highlight.transform.position = MapGrid.Instance.GetWorldPosForGridPos(pos);
@@ -54,11 +54,11 @@ public class MapHighlightManager : Singleton<MapHighlightManager> {
         Renderer renderer = highlight.GetComponent<Renderer>();
         renderer.sortingLayerName = "Default";
         renderer.sortingOrder = 4;
-        if (type == SelectionType.ATTACK) {
+        if (type == HiglightType.ATTACK) {
             renderer.material = AttackSelectionMaterial;
-        } else if (type == SelectionType.MOVEMENT) {
+        } else if (type == HiglightType.MOVEMENT) {
             renderer.material = MovementSelectionMaterial;
-        } else if (type == SelectionType.HOVER) {
+        } else if (type == HiglightType.HOVER) {
             renderer.material = HoverSelectionMaterial;
         }
 

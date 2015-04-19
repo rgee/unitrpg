@@ -39,7 +39,7 @@ public class SelectingMoveLocation : CancelableCombatState {
         movingUnit.SetActive(true);
         Grid.RescanGraph();
 
-        MapHighlightManager.Instance.SelectTiles(WalkableLocations, MapHighlightManager.SelectionType.MOVEMENT);
+        MapHighlightManager.Instance.HighlightTiles(WalkableLocations, MapHighlightManager.HiglightType.MOVEMENT);
 
 		Grid.OnGridClicked += new MapGrid.GridClickHandler(HandleGridClick);
 
@@ -94,7 +94,7 @@ public class SelectingMoveLocation : CancelableCombatState {
 		base.OnStateExit(animator, stateInfo, layerIndex);
         PathArrowManager.Instance.ClearPath();
 		Grid.OnGridClicked -= new MapGrid.GridClickHandler(HandleGridClick);
-        MapHighlightManager.Instance.ClearSelection();
+        MapHighlightManager.Instance.ClearHighlight();
         Destroy(MovementPipDialogObject);
 	}
 }
