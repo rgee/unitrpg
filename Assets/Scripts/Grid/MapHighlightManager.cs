@@ -10,11 +10,25 @@ public class MapHighlightManager : Singleton<MapHighlightManager> {
     public Material AttackSelectionMaterial;
     public Material MovementSelectionMaterial;
     public Material HoverSelectionMaterial;
+    public int BaseSortOrder = 4;
     public bool HoverSelectorEnabled { get; set;  }
 
     private GameObject HoverHighlight;
     private List<GameObject> HighlightedTiles = new List<GameObject>();
     private Grid.UnitManager UnitManager;
+
+    private Dictionary<HighlightLevel, List<Selection>> SelectionsByLevel = new Dictionary<HighlightLevel, List<Selection>>();
+
+    /**
+     * Levels defined in first to last in render order.
+     */
+    public enum HighlightLevel {
+        GLOBAL_ENEMY_MOVE = 0,
+        SPECIFIC_ENEMY_MOVE,
+        PLAYER_MOVE,
+        PLAYER_ATTACK,
+        PLAYER_HOVER
+    }
 
     public enum HiglightType {
         MOVEMENT,
@@ -23,7 +37,7 @@ public class MapHighlightManager : Singleton<MapHighlightManager> {
     }
 
     void Start() {
-        HoverHighlight = CreateHighlight(new Vector2(0, 0), HiglightType.HOVER);
+        HoverHighlight = CreateHighlight(Vector2.zero, HiglightType.HOVER);
         HoverHighlight.SetActive(false);
 
         UnitManager = CombatObjects.GetUnitManager();
@@ -33,9 +47,15 @@ public class MapHighlightManager : Singleton<MapHighlightManager> {
         HighlightHoveredTile();
     }
 
+    public void HighlightTiles(ICollection<Vector2> tiles, HighlightLevel level) {
+        ClearHighlight();
+    }
+
     public void HighlightTiles(ICollection<Vector2> tiles, HiglightType type) {
         ClearHighlight();
-        HighlightedTiles = tiles.Select((tile) => CreateHighlight(tile, type)).ToList();
+
+        HashSet<GameObject> createdTiles = tiles.Select((tile) => CreateHighlight(tile, type)).ToHashSet();
+        Selection sel = new Selection { Name = "test", Tiles = createdTiles };
     }
 
     public void ClearHighlight() {
@@ -46,6 +66,30 @@ public class MapHighlightManager : Singleton<MapHighlightManager> {
         HighlightedTiles.Clear();
     }
 
+    private GameObject CreateHighlight(Vector2 pos, HighlightLevel level) {
+
+        GameObject highlight = Instantiate(MapHighlightPrefab) as GameObject;
+        highlight.transform.position = MapGrid.Instance.GetWorldPosForGridPos(pos);
+
+        Renderer renderer = highlight.GetComponent<Renderer>();
+        renderer.sortingLayerName = "Default";
+        renderer.sortingOrder = BaseSortOrder + (int)level;
+
+        switch (level) {
+            case HighlightLevel.PLAYER_MOVE:
+                renderer.material = MovementSelectionMaterial;
+                break;
+            case HighlightLevel.PLAYER_ATTACK:
+                renderer.material = AttackSelectionMaterial;
+                break;
+            case HighlightLevel.PLAYER_HOVER:
+                renderer.material = HoverSelectionMaterial;
+                break;
+        }
+
+        return highlight;
+    }
+
     private GameObject CreateHighlight(Vector2 pos, HiglightType type) {
 
         GameObject highlight = Instantiate(MapHighlightPrefab) as GameObject;
@@ -53,7 +97,7 @@ public class MapHighlightManager : Singleton<MapHighlightManager> {
 
         Renderer renderer = highlight.GetComponent<Renderer>();
         renderer.sortingLayerName = "Default";
-        renderer.sortingOrder = 4;
+        renderer.sortingOrder = BaseSortOrder;
         if (type == HiglightType.ATTACK) {
             renderer.material = AttackSelectionMaterial;
         } else if (type == HiglightType.MOVEMENT) {
