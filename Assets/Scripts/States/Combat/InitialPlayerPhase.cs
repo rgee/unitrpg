@@ -14,6 +14,8 @@ public class InitialPlayerPhase : StateMachineBehaviour {
 		UnitManager = GameObject.Find("Unit Manager").GetComponent<Grid.UnitManager>();
 		BattleState = GameObject.Find("BattleManager").GetComponent<BattleState>();
 
+        MapGrid.Instance.HoverSelectorEnabled = true;
+
         List<Grid.Unit> friendlyUnits = UnitManager.GetFriendlies();
 
         bool turnComplete = friendlyUnits.All(unit => {
@@ -30,9 +32,6 @@ public class InitialPlayerPhase : StateMachineBehaviour {
 
 	private void OnUnitClicked(Grid.Unit unit, Vector2 gridPosition, bool rightClick) {
 		BattleState.SelectedUnit = unit;
-        if (unit == null) {
-            Debug.Log("wtf");
-        }
 		BattleState.SelectedGridPosition = gridPosition;
 
 		string trigger = "enemy_selected";
@@ -46,6 +45,7 @@ public class InitialPlayerPhase : StateMachineBehaviour {
 	}
 
 	public override void OnStateExit (Animator animator, AnimatorStateInfo stateInfo, int layerIndex)	{
+        MapGrid.Instance.HoverSelectorEnabled = false;
 		UnitManager.OnUnitClick -= new Grid.UnitManager.UnitClickedEventHandler(OnUnitClicked);
 	}
 }

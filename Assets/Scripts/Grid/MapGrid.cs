@@ -4,7 +4,7 @@ using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 
-public class MapGrid : MonoBehaviour {
+public class MapGrid : Singleton<MapGrid> {
 	
     public float tileSizeInPixels = 32f;
     public int width;
@@ -13,6 +13,8 @@ public class MapGrid : MonoBehaviour {
     public Material AttackSelectionMaterial;
     public Material MovementSelectionMaterial;
     public Material HoverSelectionMaterial;
+
+    public bool HoverSelectorEnabled { get; set;  }
 
 
 	public delegate void GridClickHandler(Vector2 location);
@@ -23,15 +25,17 @@ public class MapGrid : MonoBehaviour {
     private Seeker Seeker;
     private GameObject HoverHighlight;
     private Grid.UnitManager UnitManager;
+    private List<GameObject> SelectionTiles = new List<GameObject>();
 
     public enum SelectionType {
         MOVEMENT,
-        ATTACK
+        ATTACK,
+        HOVER
     }
 
     void Start() {
         CombatEventBus.Moves.AddListener(HandleMovement);
-        HoverHighlight = Instantiate(MapHighlightPrefab) as GameObject;
+        HoverHighlight = CreateHighlight(new Vector2(0, 0), SelectionType.HOVER);
         HoverHighlight.SetActive(false);
 
         UnitManager = CombatObjects.GetUnitManager();
@@ -114,26 +118,31 @@ public class MapGrid : MonoBehaviour {
 
     public void SelectTiles(ICollection<Vector2> tiles, SelectionType type) {
         ClearSelection();
+        SelectionTiles = tiles.Select((tile) => CreateHighlight(tile, type)).ToList();
+    }
 
-        foreach (Vector2 pos in tiles) {
-            GameObject highlight = Instantiate(MapHighlightPrefab) as GameObject;
-            highlight.transform.position = GetWorldPosForGridPos(pos);
+    private GameObject CreateHighlight(Vector2 pos, SelectionType type) {
 
-            Renderer renderer = highlight.GetComponent<Renderer>();
-            renderer.sortingLayerName = "Default";
-            renderer.sortingOrder = 15;
-            if (type == SelectionType.ATTACK) {
-                renderer.material = AttackSelectionMaterial;
-            } else if (type == SelectionType.MOVEMENT) {
-                renderer.material = MovementSelectionMaterial;
-            }
+        GameObject highlight = Instantiate(MapHighlightPrefab) as GameObject;
+        highlight.transform.position = GetWorldPosForGridPos(pos);
 
+        Renderer renderer = highlight.GetComponent<Renderer>();
+        renderer.sortingLayerName = "Default";
+        renderer.sortingOrder = 4;
+        if (type == SelectionType.ATTACK) {
+            renderer.material = AttackSelectionMaterial;
+        } else if (type == SelectionType.MOVEMENT) {
+            renderer.material = MovementSelectionMaterial;
+        } else if (type == SelectionType.HOVER) {
+            renderer.material = HoverSelectionMaterial;
         }
+
+        return highlight;
     }
 
     public void HighlightHoveredTile() {
         Vector2? gridPos = GetMouseGridPosition();
-        if (gridPos.HasValue) {
+        if (HoverSelectorEnabled && gridPos.HasValue) {
             Vector3 worldPosition = GetWorldPosForGridPos(gridPos.Value);
             HoverHighlight.transform.position = worldPosition;
 
@@ -150,24 +159,18 @@ public class MapGrid : MonoBehaviour {
                 shouldHighlight = nearestNode != null && nearestNode.Walkable;
             }
 
-            if (shouldHighlight) {
-                Renderer renderer = HoverHighlight.GetComponent<Renderer>();
-                renderer.sortingLayerName = "Default";
-                renderer.sortingOrder = 4;
-                renderer.material = HoverSelectionMaterial;
-                HoverHighlight.SetActive(true);
-            } else {
-                HoverHighlight.SetActive(false);
-            }
+            HoverHighlight.SetActive(shouldHighlight);
         } else {
             HoverHighlight.SetActive(false);
         }
     }
 
     public void ClearSelection() {
-        foreach (GameObject obj in GameObject.FindGameObjectsWithTag("Highlight")) {
+        foreach (GameObject obj in SelectionTiles) {
             Destroy(obj);
         }
+
+        SelectionTiles.Clear();
     }
 
     public HashSet<Vector2> GetWalkableTilesInRange(Vector2 origin, int range) {
