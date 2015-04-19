@@ -12,6 +12,7 @@ public class MapGrid : MonoBehaviour {
     public GameObject MapHighlightPrefab;
     public Material AttackSelectionMaterial;
     public Material MovementSelectionMaterial;
+    public Material HoverSelectionMaterial;
 
 
 	public delegate void GridClickHandler(Vector2 location);
@@ -20,6 +21,8 @@ public class MapGrid : MonoBehaviour {
     private Dictionary<Vector2, MapTile> tilesByPosition = new Dictionary<Vector2, MapTile>();
 	private AstarPath Pathfinder;
     private Seeker Seeker;
+    private GameObject HoverHighlight;
+    private Grid.UnitManager UnitManager;
 
     public enum SelectionType {
         MOVEMENT,
@@ -28,6 +31,10 @@ public class MapGrid : MonoBehaviour {
 
     void Start() {
         CombatEventBus.Moves.AddListener(HandleMovement);
+        HoverHighlight = Instantiate(MapHighlightPrefab) as GameObject;
+        HoverHighlight.SetActive(false);
+
+        UnitManager = CombatObjects.GetUnitManager();
     }
 
     void OnDestroy() {
@@ -82,6 +89,8 @@ public class MapGrid : MonoBehaviour {
 				OnGridClicked(maybePos.Value);
 			}
 		}
+
+        HighlightHoveredTile();
 	}
 
     public Vector2? GetMouseGridPosition() {
@@ -119,6 +128,39 @@ public class MapGrid : MonoBehaviour {
                 renderer.material = MovementSelectionMaterial;
             }
 
+        }
+    }
+
+    public void HighlightHoveredTile() {
+        Vector2? gridPos = GetMouseGridPosition();
+        if (gridPos.HasValue) {
+            Vector3 worldPosition = GetWorldPosForGridPos(gridPos.Value);
+            HoverHighlight.transform.position = worldPosition;
+
+            // Okay, so.
+            // If there's a unit on the square, we know it's walkable, so highlight it. Done and done.
+            bool shouldHighlight = false;
+            Grid.Unit occupyingUnit = UnitManager.GetUnitByPosition(gridPos.Value);
+            if (occupyingUnit != null) {
+                shouldHighlight = true;
+
+            // If not, we have to ensure that it's walkable by checking the graph.
+            } else {
+                Pathfinding.GraphNode nearestNode = AstarPath.active.GetNearest(worldPosition).node;
+                shouldHighlight = nearestNode != null && nearestNode.Walkable;
+            }
+
+            if (shouldHighlight) {
+                Renderer renderer = HoverHighlight.GetComponent<Renderer>();
+                renderer.sortingLayerName = "Default";
+                renderer.sortingOrder = 4;
+                renderer.material = HoverSelectionMaterial;
+                HoverHighlight.SetActive(true);
+            } else {
+                HoverHighlight.SetActive(false);
+            }
+        } else {
+            HoverHighlight.SetActive(false);
         }
     }
 

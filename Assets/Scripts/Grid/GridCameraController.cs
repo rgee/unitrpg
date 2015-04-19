@@ -4,7 +4,6 @@ using System.Collections;
 public class GridCameraController : CameraController {
 	
 	public MapGrid grid;
-    public GameObject GridHighlightPrefab;
 
     private GameObject GridHighlight;
     private bool gridSelectorLocked;
@@ -27,10 +26,6 @@ public class GridCameraController : CameraController {
         gridSelectorLocked = false;
     }
 
-    public void Start() {
-
-        GridHighlight = Instantiate(GridHighlightPrefab) as GameObject;
-    }
 
 	public void Update () {
 		base.Update();
@@ -73,21 +68,5 @@ public class GridCameraController : CameraController {
 		if (bottomEdge < minY) {
 			transform.position = new Vector3(transform.position.x, minY + halfVSize, transform.position.z);
 		}
-
-        if (gridSelectorLocked) {
-            GridHighlight.SetActive(false);
-        } else {
-            GridHighlight.SetActive(true);
-            // Map the mouse position to a grid-space position, then map that position back to world-space to get the center
-            // of the grid over which the mouse is set.
-            Vector2? mouseGridPos = grid.GetMouseGridPosition();
-            Vector3 gridPosWorldCenter = grid.GetWorldPosForGridPos(mouseGridPos.Value);
-
-            if (gridPosWorldCenter.x == float.MaxValue || gridPosWorldCenter.y == float.MaxValue) {
-                GridHighlight.SetActive(false);
-            } else {
-                GridHighlight.transform.localPosition = gridPosWorldCenter;
-            }
-        }
 	}
 }
