@@ -39,7 +39,7 @@ public class SelectingMoveLocation : CancelableCombatState {
         movingUnit.SetActive(true);
         Grid.RescanGraph();
 
-        MapHighlightManager.Instance.HighlightTiles(WalkableLocations, MapHighlightManager.HiglightType.MOVEMENT);
+        MapHighlightManager.Instance.HighlightTiles(WalkableLocations, MapHighlightManager.HighlightLevel.PLAYER_MOVE);
 
 		Grid.OnGridClicked += new MapGrid.GridClickHandler(HandleGridClick);
 

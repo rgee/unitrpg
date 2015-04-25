@@ -21,7 +21,7 @@ public class SelectingFightTarget : StateMachineBehaviour {
             .Where(pos => UnitManager.GetUnitByPosition(pos) != null)
             .ToHashSet();
 
-        MapHighlightManager.Instance.HighlightTiles(AttackableLocations, MapHighlightManager.HiglightType.ATTACK);
+        MapHighlightManager.Instance.HighlightTiles(AttackableLocations, MapHighlightManager.HighlightLevel.PLAYER_ATTACK);
 
         Grid.OnGridClicked += new MapGrid.GridClickHandler(HandleGridClick);
     }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 
-public class Selection {
+public class MapSelection {
     public HashSet<GameObject> Tiles { get; set; }
     public string Name { get; set; }
 }
