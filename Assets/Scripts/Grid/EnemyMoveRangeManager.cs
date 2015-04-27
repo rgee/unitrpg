@@ -7,6 +7,17 @@ using UnityEngine;
 public class EnemyMoveRangeManager : Singleton<EnemyMoveRangeManager> {
     private static readonly string GLOBAL_MOVE_RANGE_NAME = "_global_move_range_";
     private readonly Dictionary<Grid.Unit, MoveRangePreviewState> StatesByUnit = new Dictionary<Grid.Unit, MoveRangePreviewState>();
+    private bool GlobalMoveRangeActive = false;
+
+    public void Update() {
+        if (Input.GetKeyDown(KeyCode.M)) {
+            if (GlobalMoveRangeActive) {
+                HideAllMoveRanges();
+            } else {
+                ShowAllEnemyMoveRanges();
+            }
+        }
+    }
 
     public void ShowUnitMoveRange(Grid.Unit unit)
     {
@@ -73,6 +84,7 @@ public class EnemyMoveRangeManager : Singleton<EnemyMoveRangeManager> {
 
     public void HideAllMoveRanges() {
         MapHighlightManager.Instance.ClearHighlight(GLOBAL_MOVE_RANGE_NAME);
+        GlobalMoveRangeActive = false;
     }
 
     public void ShowAllEnemyMoveRanges()
@@ -86,5 +98,6 @@ public class EnemyMoveRangeManager : Singleton<EnemyMoveRangeManager> {
 
         var mapHighlightManager = MapHighlightManager.Instance;
         mapHighlightManager.HighlightTiles(walkableTiles, MapHighlightManager.HighlightLevel.GLOBAL_ENEMY_MOVE, GLOBAL_MOVE_RANGE_NAME);
+        GlobalMoveRangeActive = true;
     }
 }
