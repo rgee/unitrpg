@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -18,7 +19,7 @@ public class MapHighlightManager : Singleton<MapHighlightManager> {
     private readonly List<GameObject> HighlightedTiles = new List<GameObject>();
     private Grid.UnitManager UnitManager;
 
-    private Dictionary<HighlightLevel, List<MapSelection>> SelectionsByLevel = new Dictionary<HighlightLevel, List<MapSelection>>();
+    private Dictionary<string, MapSelection> SelectionsByName = new Dictionary<string, MapSelection>();
 
     /**
      * Levels defined in first to last in render order.
@@ -42,11 +43,28 @@ public class MapHighlightManager : Singleton<MapHighlightManager> {
         HighlightHoveredTile();
     }
 
+    public void HighlightTiles(ICollection<Vector2> tiles, HighlightLevel level, string name) {
+        ClearHighlight(name);
+        HashSet<GameObject> createdTiles = tiles.Select((tile) => CreateHighlight(tile, level)).ToHashSet();
+        MapSelection selection = new MapSelection { Name = name, Tiles = createdTiles };
+        SelectionsByName[name] = selection;
+    }
+
     public void HighlightTiles(ICollection<Vector2> tiles, HighlightLevel level) {
         ClearHighlight();
         var createdTiles = from tile in tiles
                            select CreateHighlight(tile, level);
         HighlightedTiles.AddRange(createdTiles);
+    }
+
+    public void ClearHighlight(string name) {
+        if (!SelectionsByName.ContainsKey(name)) {
+            return;
+        }
+
+        foreach (var obj in SelectionsByName[name].Tiles) {
+            Destroy(obj);
+        } 
     }
 
     public void ClearHighlight() {

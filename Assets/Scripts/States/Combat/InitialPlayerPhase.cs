@@ -3,7 +3,6 @@ using System.Linq;
 using System.Collections.Generic;
 
 public class InitialPlayerPhase : StateMachineBehaviour {
-
 	private Grid.UnitManager UnitManager;
 	private Animator Animator;
 	private BattleState BattleState;
@@ -39,7 +38,7 @@ public class InitialPlayerPhase : StateMachineBehaviour {
                 Animator.SetTrigger("friendly_selected");
 	        }
 	    } else if (!rightClick) {
-           ShowEnemyMoveRange(unit, gridPosition); 
+            EnemyMoveRangeManager.Instance.ShowUnitMoveRange(unit);
         }
 
 	}
@@ -48,21 +47,4 @@ public class InitialPlayerPhase : StateMachineBehaviour {
         MapHighlightManager.Instance.HoverSelectorEnabled = false;
 	    UnitManager.OnUnitClick -= OnUnitClicked;
 	}
-
-
-    private void ShowEnemyMoveRange(Grid.Unit unit, Vector2 gridPosition) {
-        var grid = CombatObjects.GetMap();
-
-        unit.gameObject.SetActive(false);
-        grid.RescanGraph();
-
-        var walkableTiles = grid.GetWalkableTilesInRange(gridPosition, unit.model.Character.Movement);
-        walkableTiles.Remove(gridPosition);
-        
-        MapHighlightManager.Instance.HighlightTiles(walkableTiles, MapHighlightManager.HighlightLevel.SPECIFIC_ENEMY_MOVE);
-
-        unit.gameObject.SetActive(true);
-        grid.RescanGraph();
-        
-    }
 }
