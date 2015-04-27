@@ -28,12 +28,6 @@ public class MapHighlightManager : Singleton<MapHighlightManager> {
         PLAYER_HOVER
     }
 
-    public enum HiglightType {
-        MOVEMENT,
-        ATTACK,
-        HOVER
-    }
-
     void Start() {
         HoverHighlight = CreateHighlight(Vector2.zero, HighlightLevel.PLAYER_HOVER);
         HoverHighlight.SetActive(false);
