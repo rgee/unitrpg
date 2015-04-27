@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Linq;
-using System.Collections;
 using System.Collections.Generic;
 
 public class InitialPlayerPhase : StateMachineBehaviour {
@@ -26,26 +25,44 @@ public class InitialPlayerPhase : StateMachineBehaviour {
             animator.SetTrigger("actions_exhausted");
             BattleState.ResetTurnState();
         } else {
-            UnitManager.OnUnitClick += new Grid.UnitManager.UnitClickedEventHandler(OnUnitClicked);
+            UnitManager.OnUnitClick += OnUnitClicked;
         }
 	}
 
 	private void OnUnitClicked(Grid.Unit unit, Vector2 gridPosition, bool rightClick) {
-		BattleState.SelectedUnit = unit;
-		BattleState.SelectedGridPosition = gridPosition;
+	    if (unit.friendly) {
+	        if (rightClick) {
+	            Animator.SetTrigger("info_selected");
+	        } else {
+                BattleState.SelectedUnit = unit;
+                BattleState.SelectedGridPosition = gridPosition;
+                Animator.SetTrigger("friendly_selected");
+	        }
+	    } else if (!rightClick) {
+           ShowEnemyMoveRange(unit, gridPosition); 
+        }
 
-		string trigger = "enemy_selected";
-        if (rightClick) {
-            trigger = "info_selected";
-        } else if (unit.friendly) {
-			trigger = "friendly_selected";
-		}
-
-		Animator.SetTrigger(trigger);
 	}
 
 	public override void OnStateExit (Animator animator, AnimatorStateInfo stateInfo, int layerIndex)	{
         MapHighlightManager.Instance.HoverSelectorEnabled = false;
-		UnitManager.OnUnitClick -= new Grid.UnitManager.UnitClickedEventHandler(OnUnitClicked);
+	    UnitManager.OnUnitClick -= OnUnitClicked;
 	}
+
+
+    private void ShowEnemyMoveRange(Grid.Unit unit, Vector2 gridPosition) {
+        var grid = CombatObjects.GetMap();
+
+        unit.gameObject.SetActive(false);
+        grid.RescanGraph();
+
+        var walkableTiles = grid.GetWalkableTilesInRange(gridPosition, unit.model.Character.Movement);
+        walkableTiles.Remove(gridPosition);
+        
+        MapHighlightManager.Instance.HighlightTiles(walkableTiles, MapHighlightManager.HighlightLevel.SPECIFIC_ENEMY_MOVE);
+
+        unit.gameObject.SetActive(true);
+        grid.RescanGraph();
+        
+    }
 }

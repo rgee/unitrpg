@@ -8,6 +8,9 @@ public class MapHighlightManager : Singleton<MapHighlightManager> {
     public Material AttackSelectionMaterial;
     public Material MovementSelectionMaterial;
     public Material HoverSelectionMaterial;
+    public Material SpecificEnemyMaterial;
+    public Material GlobalEnemyMaterial;
+
     public int BaseSortOrder = 4;
     public bool HoverSelectorEnabled { get; set; }
 
@@ -72,6 +75,12 @@ public class MapHighlightManager : Singleton<MapHighlightManager> {
                 break;
             case HighlightLevel.PLAYER_HOVER:
                 highlightRenderer.material = HoverSelectionMaterial;
+                break;
+            case HighlightLevel.SPECIFIC_ENEMY_MOVE:
+                highlightRenderer.material = SpecificEnemyMaterial;
+                break;
+            case HighlightLevel.GLOBAL_ENEMY_MOVE:
+                highlightRenderer.material = GlobalEnemyMaterial;
                 break;
         }
 
