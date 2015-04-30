@@ -16,7 +16,6 @@ public class MapHighlightManager : Singleton<MapHighlightManager> {
     public bool HoverSelectorEnabled { get; set; }
 
     private GameObject HoverHighlight;
-    private readonly List<GameObject> HighlightedTiles = new List<GameObject>();
     private Grid.UnitManager UnitManager;
 
     private Dictionary<string, MapSelection> SelectionsByName = new Dictionary<string, MapSelection>();
@@ -50,13 +49,6 @@ public class MapHighlightManager : Singleton<MapHighlightManager> {
         SelectionsByName[name] = selection;
     }
 
-    public void HighlightTiles(ICollection<Vector2> tiles, HighlightLevel level) {
-        ClearHighlight();
-        var createdTiles = from tile in tiles
-                           select CreateHighlight(tile, level);
-        HighlightedTiles.AddRange(createdTiles);
-    }
-
     public void ClearHighlight(string name) {
         if (!SelectionsByName.ContainsKey(name)) {
             return;
@@ -65,14 +57,6 @@ public class MapHighlightManager : Singleton<MapHighlightManager> {
         foreach (var obj in SelectionsByName[name].Tiles) {
             Destroy(obj);
         } 
-    }
-
-    public void ClearHighlight() {
-        foreach (var obj in HighlightedTiles) {
-            Destroy(obj);
-        }
-
-        HighlightedTiles.Clear();
     }
 
     private GameObject CreateHighlight(Vector2 pos, HighlightLevel level) {

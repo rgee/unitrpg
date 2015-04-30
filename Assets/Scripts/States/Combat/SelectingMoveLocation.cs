@@ -17,6 +17,8 @@ public class SelectingMoveLocation : CancelableCombatState {
     private int UsedDistance;
     private Vector2 LastHoveredGridPoint;
 
+    private static readonly string PLAYER_MOVE_RANGE = "player_move_range";
+
 	public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
 		base.OnStateEnter(animator, stateInfo, layerIndex);
 
@@ -39,7 +41,7 @@ public class SelectingMoveLocation : CancelableCombatState {
         movingUnit.SetActive(true);
         Grid.RescanGraph();
 
-        MapHighlightManager.Instance.HighlightTiles(WalkableLocations, MapHighlightManager.HighlightLevel.PLAYER_MOVE);
+        MapHighlightManager.Instance.HighlightTiles(WalkableLocations, MapHighlightManager.HighlightLevel.PLAYER_MOVE, PLAYER_MOVE_RANGE);
 
 		Grid.OnGridClicked += new MapGrid.GridClickHandler(HandleGridClick);
 
@@ -101,7 +103,7 @@ public class SelectingMoveLocation : CancelableCombatState {
 		base.OnStateExit(animator, stateInfo, layerIndex);
         PathArrowManager.Instance.ClearPath();
 		Grid.OnGridClicked -= new MapGrid.GridClickHandler(HandleGridClick);
-        MapHighlightManager.Instance.ClearHighlight();
+        MapHighlightManager.Instance.ClearHighlight(PLAYER_MOVE_RANGE);
         Destroy(MovementPipDialogObject);
 	}
 }

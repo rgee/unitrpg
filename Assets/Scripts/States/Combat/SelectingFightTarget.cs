@@ -10,6 +10,8 @@ public class SelectingFightTarget : StateMachineBehaviour {
     private Grid.UnitManager UnitManager;
     private HashSet<Vector2> AttackableLocations;
 
+    private static readonly string ATTACK_SELECTION_NAME = "player_attack_range";
+
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         State = CombatObjects.GetBattleState();
         Grid = CombatObjects.GetMap();
@@ -21,7 +23,7 @@ public class SelectingFightTarget : StateMachineBehaviour {
             .Where(pos => UnitManager.GetUnitByPosition(pos) != null)
             .ToHashSet();
 
-        MapHighlightManager.Instance.HighlightTiles(AttackableLocations, MapHighlightManager.HighlightLevel.PLAYER_ATTACK);
+        MapHighlightManager.Instance.HighlightTiles(AttackableLocations, MapHighlightManager.HighlightLevel.PLAYER_ATTACK, ATTACK_SELECTION_NAME);
 
         Grid.OnGridClicked += new MapGrid.GridClickHandler(HandleGridClick);
     }
@@ -38,6 +40,6 @@ public class SelectingFightTarget : StateMachineBehaviour {
 
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         Grid.OnGridClicked -= new MapGrid.GridClickHandler(HandleGridClick);
-        MapHighlightManager.Instance.ClearHighlight();
+        MapHighlightManager.Instance.ClearHighlight(ATTACK_SELECTION_NAME);
     }
 }
