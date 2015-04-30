@@ -85,7 +85,7 @@ public class SelectingMoveLocation : CancelableCombatState {
                         MovementPipDialogComponent.UsedMoves = UsedDistance;
                         PathArrowManager.Instance.ClearPath();
                     }
-                });
+                }, 1 << 0);
             }
         }
     }

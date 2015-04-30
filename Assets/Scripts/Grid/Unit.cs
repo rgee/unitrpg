@@ -175,7 +175,7 @@ namespace Grid {
 				} else {
 					callback();
 				}
-			});
+			}, 1 << 0);
         }
     }
 }

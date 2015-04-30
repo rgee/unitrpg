@@ -96,14 +96,14 @@ public class MapGrid : Singleton<MapGrid> {
         return result;
     }
 
-    public HashSet<Vector2> GetWalkableTilesInRange(Vector2 origin, int range) {
-        HashSet<Vector2> openTiles = new RangeFinder(this).GetOpenTilesInRange(origin, range);
-        HashSet<Vector3> openWorldPositions = openTiles.Select(tile => GetWorldPosForGridPos(tile)).ToHashSet();
+    public HashSet<Vector2> GetWalkableTilesInRange(Vector2 origin, int range, bool ignoreOtherUnits = false) {
 
-        HashSet<Vector2> validGridPositions = new HashSet<Vector2>();
+        Pathfinding.NNConstraint searchConstraint = ignoreOtherUnits ? PathfindingUtils.GetUnitlessGraphConstraint() :
+            PathfindingUtils.GetMainGraphConstraint();
+
         Vector3 originWorldPosition = GetWorldPosForGridPos(origin);
 
-        Pathfinding.GraphNode startNode = AstarPath.active.GetNearest(originWorldPosition).node;
+        Pathfinding.GraphNode startNode = AstarPath.active.GetNearest(originWorldPosition, searchConstraint).node;
         List<Pathfinding.GraphNode> bfsResult = Pathfinding.PathUtilities.BFS(startNode, range);
 
         return bfsResult.Select((node) => {

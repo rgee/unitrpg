@@ -51,20 +51,20 @@ public class EnemyMoveRangeManager : Singleton<EnemyMoveRangeManager> {
             case MoveRangePreviewState.PreviewType.OFF:
                 return new HashSet<Vector2>();
              case MoveRangePreviewState.PreviewType.RANGE_WITHOUT_OBSTACLES:
-                return GetWalkableTilesFromUnit(unit);
+                return GetWalkableTilesFromUnit(unit, true);
             case MoveRangePreviewState.PreviewType.RANGE_WITH_OBSTACLES:
                 return GetWalkableTilesFromUnit(unit);
         }
         throw new ArgumentException("Invalid preview type");
     } 
 
-    private HashSet<Vector2> GetWalkableTilesFromUnit(Grid.Unit unit)
+    private HashSet<Vector2> GetWalkableTilesFromUnit(Grid.Unit unit, bool ignoreUnits = false)
     {
         var grid = CombatObjects.GetMap();
 
         unit.gameObject.SetActive(false);
         grid.RescanGraph();
-        var tiles = grid.GetWalkableTilesInRange(unit.gridPosition, unit.model.Character.Movement);
+        var tiles = grid.GetWalkableTilesInRange(unit.gridPosition, unit.model.Character.Movement, ignoreUnits);
         tiles.Remove(unit.gridPosition);
         unit.gameObject.SetActive(true);
         grid.RescanGraph();

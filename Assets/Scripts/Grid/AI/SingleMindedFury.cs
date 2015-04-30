@@ -132,7 +132,7 @@ public class SingleMindedFury : MonoBehaviour, AIStrategy {
             collider.enabled = true;
             Grid.RescanGraph();
             path = p;
-        });
+        }, 1 << 0);
 
         while (path == null) {
             yield return new WaitForEndOfFrame();

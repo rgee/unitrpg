@@ -32,7 +32,7 @@ public class RangeFinder {
         }
 
         Vector2 worldPosition = grid.GetWorldPosForGridPos(point);
-        Pathfinding.NNInfo nearest = AstarPath.active.GetNearest(worldPosition);
+        Pathfinding.NNInfo nearest = AstarPath.active.GetNearest(worldPosition, PathfindingUtils.GetMainGraphConstraint());
         return nearest.node.Walkable;
     }
 
