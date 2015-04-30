@@ -53,11 +53,18 @@ public class SelectingMoveLocation : CancelableCombatState {
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         base.OnStateUpdate(animator, stateInfo, layerIndex);
 
+        // If we're in the middle of cancelling this state, we will have deselected the unit,
+        // so we cannot update the movement arrow anymore. 
+        if (State.SelectedUnit == null) {
+            return;
+        }
+
         Vector2? maybeMouseGridPos = Grid.GetMouseGridPosition();
         if (maybeMouseGridPos.HasValue) {
             Vector2 mouseGridPos = maybeMouseGridPos.Value;
             if (mouseGridPos != LastHoveredGridPoint) {
-                Vector3 src = State.SelectedUnit.transform.position;
+                Grid.Unit unit = State.SelectedUnit;
+                Vector3 src = unit.transform.position;
                 Vector3 dest = Grid.GetWorldPosForGridPos(mouseGridPos);
 
                 BoxCollider2D collider = State.SelectedUnit.gameObject.GetComponent<BoxCollider2D>();
