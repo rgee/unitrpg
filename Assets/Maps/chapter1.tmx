@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="35" height="20" tilewidth="32" tileheight="32" nextobjectid="39">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="35" height="20" tilewidth="32" tileheight="32" nextobjectid="51">
  <tileset firstgid="1" name="chapter_1_props" tilewidth="32" tileheight="32">
   <image source="../Sprites/Tilesets/chapter_1_props.png" width="640" height="640"/>
  </tileset>
@@ -95,7 +95,7 @@
    eJztzscuRVEYxfF9t5LozJDozJDozJDozJDozJDozJDozJDozJDoPIDOA+g8gM4U19X+ZidxZlvO6K7kN/jWOcleQlhjjTX/nReTEK94gxnvsODDZOwOBymEI5zgDBe4wg3u8JDGbfHhLV/4wR8BCEQQghFi4JYI3opEFKIRg1jEIR4JBm5J4a1UpCEdGchEFrKRY+CWAt4qRBGKUYJSlKEcFTpbbOnsYC/Ve21quGtRh3o0oBFNaEaLzhZPOi94S/Vemw7uTnShGz3oRR/6MaCzJZQuDOFSvddmhHsUYxjHBCYxhWnM6GxJpEtCslTvtVngXsQSlrGCVaxhHRs6W3Lp8pAv1XttNrm3sI0d7GIP+zjAoc6WSroqVEv1Xpsj7mOc4BRnOMcFLnGls6WVrg3tUr3X5pr7Bre4wz0e8IgnPOtsGaQbwrBU77Uxc7/Dgg984gvfv//ZCGGy+btllm9zmJfq/Q+7/WEZ
   </data>
  </layer>
- <objectgroup name="Colliders" opacity="0.01">
+ <objectgroup name="Colliders">
   <object id="4" x="96" y="192" width="288" height="288">
    <ellipse/>
   </object>
@@ -103,6 +103,9 @@
   <object id="12" x="480" y="0" width="640" height="256"/>
   <object id="14" x="1056" y="256" width="64" height="384"/>
   <object id="16" x="384" y="352" width="672" height="288"/>
-  <object id="18" x="344" y="-96"/>
+  <object id="43" x="384" y="352" height="272"/>
+  <object id="46" x="320" y="336" width="64" height="304"/>
+  <object id="49" x="0" y="0" width="320" height="640"/>
+  <object id="50" x="320" y="0" width="160" height="96"/>
  </objectgroup>
 </map>
