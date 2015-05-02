@@ -9,11 +9,17 @@ namespace Models.Combat {
         private readonly IMap _map;
         private readonly IObjective _objective;
         private readonly ITurn _turnState;
+        private readonly IActionProber _actionProber;
 
-        public Battle(IMap map, IObjective objective, ITurn turnState) {
+        public Battle(IMap map, IObjective objective, ITurn turnState, IActionProber actionProber) {
             _map = map;
             _objective = objective;
             _turnState = turnState;
+            _actionProber = actionProber;
+        }
+
+        public IEnumerable<CombatAction> GetAvailableActions(Unit unit) {
+            return _actionProber.GetAvailableActions(unit);
         }
 
         public int TurnCount { get; private set; }

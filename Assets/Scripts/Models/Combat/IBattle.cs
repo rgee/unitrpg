@@ -16,6 +16,7 @@ namespace Models.Combat {
         bool CanAct(Unit unit);
         void WaitUnit(Unit unit);
         void MoveUnit(Unit unit, List<Vector2> path, Vector2 location);
+        IEnumerable<CombatAction> GetAvailableActions(Unit unit); 
 
         #endregion
 

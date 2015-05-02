@@ -6,6 +6,7 @@
         Trade,
         Talk,
         Wait,
-        Brace
+        Brace,
+        Cover
     }
 }

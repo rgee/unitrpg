@@ -12,7 +12,7 @@ namespace Models.Combat {
             _turn = turn;
         }
 
-        public List<CombatAction> GetAvailableActions(Unit unit) {
+        public IEnumerable<CombatAction> GetAvailableActions(Unit unit) {
             var results = new List<CombatAction>();
             if (CanFight(unit)) {
                 results.Add(CombatAction.Fight);
