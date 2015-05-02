@@ -1,12 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Models.Combat.Objectives;
 using UnityEngine;
 
 namespace Models.Combat {
     public class Battle : IBattle {
-        public int TurnCount { get; private set; }
-
         private readonly IMap _map;
         private readonly IObjective _objective;
         private readonly ITurn _turnState;
@@ -16,6 +15,8 @@ namespace Models.Combat {
             _objective = objective;
             _turnState = turnState;
         }
+
+        public int TurnCount { get; private set; }
 
         public bool CanAct(Unit unit) {
             return _turnState.CanAct(unit);
@@ -64,7 +65,7 @@ namespace Models.Combat {
         }
 
         public Fight SimulateFight(Unit attacker, AttackType attack, Unit defender) {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public void ExecuteFight(Fight fight) {

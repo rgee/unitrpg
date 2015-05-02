@@ -1,7 +1,7 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using Models;
+using UnityEngine;
 
-namespace Models {
+namespace Models.Combat {
 	[System.Serializable]
 	public class Unit {
 

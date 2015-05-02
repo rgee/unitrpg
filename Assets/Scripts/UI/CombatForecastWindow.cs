@@ -28,8 +28,8 @@ public class CombatForecastWindow : MonoBehaviour {
 	public void SetForecastData(FightResult forecast) {
 		ForecastData = forecast;
 
-		Models.Unit attacker = ForecastData.Participants.Attacker;
-		Models.Unit defender = ForecastData.Participants.Defender;
+		Models.Combat.Unit attacker = ForecastData.Participants.Attacker;
+		Models.Combat.Unit defender = ForecastData.Participants.Defender;
 		FightPhaseResult initialPhase = ForecastData.InitialAttack;
 
 		// TODO: Externalize

@@ -8,7 +8,7 @@ namespace Grid {
 
         public Vector2 gridPosition;
         public bool friendly;
-		public Models.Unit model;
+		public Models.Combat.Unit model;
 		public float timePerMoveSquare = 0.3f;
 		public GameObject HitConfirmPrefab;
 		public GameObject CritConfirmPrefab;

@@ -8,7 +8,7 @@ namespace Grid {
     public class UnitManager : MonoBehaviour {
         public MapGrid Grid;
 
-		private List<Models.Unit> unitModels = new List<Models.Unit>();
+		private List<Models.Combat.Unit> unitModels = new List<Models.Combat.Unit>();
         private List<GameObject> unitGameObjects = new List<GameObject>();
         private Dictionary<Vector2, GameObject> unitsByPosition = new Dictionary<Vector2, GameObject>();
 

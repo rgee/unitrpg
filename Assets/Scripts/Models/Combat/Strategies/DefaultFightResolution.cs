@@ -65,7 +65,7 @@ public class DefaultFightResolution : ResolutionStrategy {
 		return ComputeParams(participants.Defender, participants.Defender);
 	}
 
-	private FightParameters ComputeParams(Models.Unit attacker, Models.Unit defender) {
+	private FightParameters ComputeParams(Models.Combat.Unit attacker, Models.Combat.Unit defender) {
 		Models.Character atkChar = attacker.Character;
 		Models.Character defChar = defender.Character;
 

@@ -43,7 +43,7 @@ public class UnitInfoManager : Singleton<UnitInfoManager> {
             Debug.LogWarning("Call to activate unit info menu that is already active.");
         }
 
-        Models.Unit model = unit.model;
+        Models.Combat.Unit model = unit.model;
 
         string name = model.Character.Name;
         HPText.text = String.Format("{0}/{1}", model.Health, model.Character.MaxHealth);

@@ -2,9 +2,9 @@
 using System.Collections;
 
 public struct Participants {
-	public readonly Models.Unit Attacker;
-	public readonly Models.Unit Defender;
-	public Participants (Models.Unit attacker, Models.Unit defender)
+	public readonly Models.Combat.Unit Attacker;
+	public readonly Models.Combat.Unit Defender;
+	public Participants (Models.Combat.Unit attacker, Models.Combat.Unit defender)
 	{
 		this.Attacker = attacker;
 		this.Defender = defender;
