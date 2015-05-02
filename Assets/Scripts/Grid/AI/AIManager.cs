@@ -1,21 +1,16 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections;
+using Grid;
 using UnityEngine;
 
 public class AIManager : MonoBehaviour {
-
-    public Grid.UnitManager UnitManager;
     public float EnemyActionDelaySeconds = 0.2f;
+    public UnitManager UnitManager;
 
     public IEnumerator TakeTurn() {
-        foreach (Grid.Unit unit in UnitManager.GetEnemies()) {
-
+        foreach (var unit in UnitManager.GetEnemies()) {
             // Unfortunately Unity requires us to use the non-generic method to get a component
             // that is an interface type.
-            AIStrategy strat = (AIStrategy) unit.GetComponent(typeof(AIStrategy));
+            var strat = (AIStrategy) unit.GetComponent(typeof (AIStrategy));
             if (strat != null) {
                 yield return StartCoroutine(strat.act());
             } else {

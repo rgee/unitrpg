@@ -1,8 +1,8 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System;
+using UnityEngine;
 
-[System.Serializable]
+[Serializable]
 public class CutsceneActor {
-	public string name;
-	public Sprite sprite;
+    public string name;
+    public Sprite sprite;
 }

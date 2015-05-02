@@ -1,29 +1,26 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class Pip : MonoBehaviour {
-	public bool IsEnabled = true;
-	public GameObject Enabled;
-	public GameObject Disabled;
+    public GameObject Disabled;
+    private GameObject DisabledInstance;
+    public GameObject Enabled;
+    private GameObject EnabledInstance;
+    public bool IsEnabled = true;
+    // Use this for initialization
+    private void Start() {
+        EnabledInstance = Instantiate(Enabled);
+        DisabledInstance = Instantiate(Disabled);
 
-	private GameObject EnabledInstance;
-	private GameObject DisabledInstance;
+        EnabledInstance.transform.parent = transform;
+        EnabledInstance.transform.localPosition = new Vector3();
 
-	// Use this for initialization
-	void Start () {
-		EnabledInstance = Instantiate(Enabled);
-		DisabledInstance = Instantiate(Disabled);
+        DisabledInstance.transform.parent = transform;
+        DisabledInstance.transform.localPosition = new Vector3();
+    }
 
-		EnabledInstance.transform.parent = transform;
-		EnabledInstance.transform.localPosition = new Vector3();
-
-		DisabledInstance.transform.parent = transform;
-		DisabledInstance.transform.localPosition = new Vector3();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		EnabledInstance.SetActive(IsEnabled);
-		DisabledInstance.SetActive(!IsEnabled);
-	}
+    // Update is called once per frame
+    private void Update() {
+        EnabledInstance.SetActive(IsEnabled);
+        DisabledInstance.SetActive(!IsEnabled);
+    }
 }

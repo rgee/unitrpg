@@ -1,21 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CombatCursor : Singleton<CombatCursor> {
-
+    private Animator Animator;
     private bool interactive;
+    private RectTransform Transform;
+
     public bool Interactive {
         get { return interactive; }
-        set {
-            Animator.SetBool("Interactive", value);
-        }
+        set { Animator.SetBool("Interactive", value); }
     }
-
-    private RectTransform Transform;
-    private Animator Animator;
 
     public void Start() {
         Transform = GetComponent<RectTransform>();
@@ -23,8 +16,8 @@ public class CombatCursor : Singleton<CombatCursor> {
     }
 
     public void Update() {
-        Vector2 size = Transform.sizeDelta;
-        size.Scale(new Vector2(.5f * Transform.localScale.x, .5f * transform.localScale.y));
+        var size = Transform.sizeDelta;
+        size.Scale(new Vector2(.5f*Transform.localScale.x, .5f*transform.localScale.y));
 
         Transform.anchoredPosition3D = Input.mousePosition - new Vector3(size.x, size.y);
     }

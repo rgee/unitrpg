@@ -1,57 +1,57 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using Models;
+using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
 
 public class CardAnimator : MonoBehaviour {
-	public Models.Card card;
-	public Text textObject;
-	public bool complete;
-	
-	public void Reset() {
-		complete = false;
-	}
+    public Card card;
+    public bool complete;
+    public Text textObject;
 
-	public Coroutine StartAnimation() {
-		return StartCoroutine("Animate");
-	}
+    public void Reset() {
+        complete = false;
+    }
 
-	public void Skip() {
-		StopCoroutine("Animate");
+    public Coroutine StartAnimation() {
+        return StartCoroutine("Animate");
+    }
+
+    public void Skip() {
+        StopCoroutine("Animate");
 
         if (textObject == null) {
             return;
         }
 
         textObject.text = "";
-		foreach (Models.DialogueLine line in card.lines) {
-			textObject.text += line.text.Trim() + " ";
-		}
+        foreach (var line in card.lines) {
+            textObject.text += line.text.Trim() + " ";
+        }
 
-		complete = true;
-	}
+        complete = true;
+    }
 
-	IEnumerator Animate() {
-		int sentenceIndex = 0;
-		foreach (Models.DialogueLine line in card.lines) {
+    private IEnumerator Animate() {
+        var sentenceIndex = 0;
+        foreach (var line in card.lines) {
+            // Show the sentence character at a time
+            foreach (var letter in line.text.Trim()) {
+                textObject.text += letter;
+                yield return new WaitForSeconds(0.02f);
+            }
 
-			// Show the sentence character at a time
-			foreach (char letter in line.text.Trim()) {
-				textObject.text += letter;
-				yield return new WaitForSeconds(0.02f);
-			}
+            // Enforce spaces between sentences
+            textObject.text += " ";
 
-			// Enforce spaces between sentences
-			textObject.text += " ";
-
-			float delay = 0.4f;
-			if (line.delayOverride > 0f) {
-				delay = line.delayOverride;
-			}
+            var delay = 0.4f;
+            if (line.delayOverride > 0f) {
+                delay = line.delayOverride;
+            }
 
 
-			yield return new WaitForSeconds(delay);
-			sentenceIndex++;
-		}
-		complete = true;
-	}
+            yield return new WaitForSeconds(delay);
+            sentenceIndex++;
+        }
+        complete = true;
+    }
 }

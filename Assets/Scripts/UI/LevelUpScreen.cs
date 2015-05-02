@@ -1,17 +1,18 @@
+using System.Collections.Generic;
+using Models;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
-using System.Collections.Generic;
 
 public class LevelUpScreen : MonoBehaviour {
-
+    private Character character;
+    private GameObject currentPortrait;
+    private GameObject headerText;
+    private GameObject portraitContainer;
     public List<GameObject> Portraits;
-    public Models.LevelUpResults Results;
+    public LevelUpResults Results;
 
-    private Models.Character character;
-    public Models.Character Character {
+    public Character Character {
         set {
-            
             headerText.GetComponent<Text>().text = value.Name.ToUpper() + " LEVEL " + value.Level;
             UpdatePortrait(value);
 
@@ -19,20 +20,16 @@ public class LevelUpScreen : MonoBehaviour {
         }
     }
 
-    private GameObject headerText;
-    private GameObject currentPortrait;
-    private GameObject portraitContainer;
-
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    private void Start() {
         headerText = transform.FindChild("Header").gameObject;
         portraitContainer = transform.FindChild("Character").gameObject;
-	}
+    }
 
-    private void UpdatePortrait(Models.Character character) {
+    private void UpdatePortrait(Character character) {
         Destroy(currentPortrait);
-        foreach (GameObject obj in Portraits) {
-            Portrait portraitScript = obj.GetComponent<Portrait>();
+        foreach (var obj in Portraits) {
+            var portraitScript = obj.GetComponent<Portrait>();
             if (portraitScript.CharacterName == character.Name) {
                 currentPortrait = Instantiate(obj, new Vector3(), Quaternion.identity) as GameObject;
                 currentPortrait.transform.SetParent(portraitContainer.transform, false);

@@ -1,11 +1,10 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System;
 
 namespace Models {
-	[System.Serializable]
-	public class Deck {
-		public Card[] cards;
-		public string speaker;
-		public EmotionType emotionType = EmotionType.DEFAULT;
-	}
+    [Serializable]
+    public class Deck {
+        public Card[] cards;
+        public EmotionType emotionType = EmotionType.DEFAULT;
+        public string speaker;
+    }
 }

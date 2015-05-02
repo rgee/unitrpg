@@ -1,28 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using Grid;
 using UnityEngine;
 
 public class MapHighlightManager : Singleton<MapHighlightManager> {
-
-    public GameObject MapHighlightPrefab;
-    public Material AttackSelectionMaterial;
-    public Material MovementSelectionMaterial;
-    public Material HoverSelectionMaterial;
-    public Material SpecificEnemyMaterial;
-    public Material GlobalEnemyMaterial;
-
-    public int BaseSortOrder = 4;
-    public bool HoverSelectorEnabled { get; set; }
-
-    private GameObject HoverHighlight;
-    private Grid.UnitManager UnitManager;
-
-    private Dictionary<string, MapSelection> SelectionsByName = new Dictionary<string, MapSelection>();
-
     /**
      * Levels defined in first to last in render order.
      */
+
     public enum HighlightLevel {
         GLOBAL_ENEMY_MOVE = 0,
         SPECIFIC_ENEMY_MOVE,
@@ -31,21 +16,33 @@ public class MapHighlightManager : Singleton<MapHighlightManager> {
         PLAYER_HOVER
     }
 
-    void Start() {
+    private readonly Dictionary<string, MapSelection> SelectionsByName = new Dictionary<string, MapSelection>();
+    public Material AttackSelectionMaterial;
+    public int BaseSortOrder = 4;
+    public Material GlobalEnemyMaterial;
+    private GameObject HoverHighlight;
+    public Material HoverSelectionMaterial;
+    public GameObject MapHighlightPrefab;
+    public Material MovementSelectionMaterial;
+    public Material SpecificEnemyMaterial;
+    private UnitManager UnitManager;
+    public bool HoverSelectorEnabled { get; set; }
+
+    private void Start() {
         HoverHighlight = CreateHighlight(Vector2.zero, HighlightLevel.PLAYER_HOVER);
         HoverHighlight.SetActive(false);
 
         UnitManager = CombatObjects.GetUnitManager();
     }
 
-    void Update() {
+    private void Update() {
         HighlightHoveredTile();
     }
 
     public void HighlightTiles(ICollection<Vector2> tiles, HighlightLevel level, string name) {
         ClearHighlight(name);
-        HashSet<GameObject> createdTiles = tiles.Select((tile) => CreateHighlight(tile, level)).ToHashSet();
-        MapSelection selection = new MapSelection { Name = name, Tiles = createdTiles };
+        var createdTiles = tiles.Select(tile => CreateHighlight(tile, level)).ToHashSet();
+        var selection = new MapSelection {Name = name, Tiles = createdTiles};
         SelectionsByName[name] = selection;
     }
 
@@ -56,17 +53,16 @@ public class MapHighlightManager : Singleton<MapHighlightManager> {
 
         foreach (var obj in SelectionsByName[name].Tiles) {
             Destroy(obj);
-        } 
+        }
     }
 
     private GameObject CreateHighlight(Vector2 pos, HighlightLevel level) {
-
         var highlight = Instantiate(MapHighlightPrefab);
         highlight.transform.position = MapGrid.Instance.GetWorldPosForGridPos(pos);
 
         var highlightRenderer = highlight.GetComponent<Renderer>();
         highlightRenderer.sortingLayerName = "Default";
-        highlightRenderer.sortingOrder = BaseSortOrder + (int)level;
+        highlightRenderer.sortingOrder = BaseSortOrder + (int) level;
 
         switch (level) {
             case HighlightLevel.PLAYER_MOVE:
@@ -89,9 +85,8 @@ public class MapHighlightManager : Singleton<MapHighlightManager> {
         return highlight;
     }
 
-
     private void HighlightHoveredTile() {
-        Vector2? gridPos = MapGrid.Instance.GetMouseGridPosition();
+        var gridPos = MapGrid.Instance.GetMouseGridPosition();
         if (HoverSelectorEnabled && gridPos.HasValue) {
             var worldPosition = MapGrid.Instance.GetWorldPosForGridPos(gridPos.Value);
             HoverHighlight.transform.position = worldPosition;
@@ -103,7 +98,7 @@ public class MapHighlightManager : Singleton<MapHighlightManager> {
             if (occupyingUnit != null) {
                 shouldHighlight = true;
 
-            // If not, we have to ensure that it's walkable by checking the graph.
+                // If not, we have to ensure that it's walkable by checking the graph.
             } else {
                 var nearestNode = AstarPath.active.GetNearest(worldPosition).node;
                 shouldHighlight = nearestNode != null && nearestNode.Walkable;

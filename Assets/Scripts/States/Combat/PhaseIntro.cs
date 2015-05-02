@@ -1,29 +1,25 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
-using System.Collections;
+﻿using Grid;
+using UnityEngine;
 
 public class PhaseIntro : StateMachineBehaviour {
-
-	public GameObject PhaseTextPrefab;
-    public string TransitionTriggerName;
-    public float SlideSeconds = 0.5f;
-    public float CenterPauseSeconds = 0.5f;
-
-	private Grid.UnitManager UnitManager;
-	private GridCameraController CameraController;
-    private GameObject currentPhaseText;
-    private GameObject phaseTextCanvas;
-    private PhaseText phaseTextBehavior;
+    private GridCameraController CameraController;
     private RectTransform canvasTransform;
-    private RectTransform textTransform;
+    public float CenterPauseSeconds = 0.5f;
+    private GameObject currentPhaseText;
+    private PhaseText phaseTextBehavior;
+    private GameObject phaseTextCanvas;
+    public GameObject PhaseTextPrefab;
+    public float SlideSeconds = 0.5f;
     private bool textMoved;
+    private RectTransform textTransform;
+    public string TransitionTriggerName;
+    private UnitManager UnitManager;
+    // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
+    public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
+        UnitManager = GameObject.Find("Unit Manager").GetComponent<UnitManager>();
+        CameraController = GameObject.Find("Grid Camera/Main Camera").GetComponent<GridCameraController>();
 
-	 // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
-	override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-		UnitManager = GameObject.Find("Unit Manager").GetComponent<Grid.UnitManager>();
-		CameraController = GameObject.Find("Grid Camera/Main Camera").GetComponent<GridCameraController>();
-
-		LockControls();
+        LockControls();
         phaseTextCanvas = Instantiate(PhaseTextPrefab);
         currentPhaseText = phaseTextCanvas.transform.FindChild("Phase Text").gameObject;
 
@@ -37,29 +33,27 @@ public class PhaseIntro : StateMachineBehaviour {
         // Position the text all the way off the left hand side of the screen.
         textTransform.anchoredPosition = new Vector3(-textTransform.rect.width/2, 0, textTransform.position.z);
 
-		Vector2 center = new Vector2(canvasTransform.rect.width / 2, 0);
-		Vector2 offscreen = new Vector2(canvasTransform.rect.width + textTransform.rect.width, 0);
-		PhaseText mover = currentPhaseText.GetComponent<PhaseText>();
+        var center = new Vector2(canvasTransform.rect.width/2, 0);
+        var offscreen = new Vector2(canvasTransform.rect.width + textTransform.rect.width, 0);
+        var mover = currentPhaseText.GetComponent<PhaseText>();
 
-		PhaseTextFlyByCommand flyBy = new PhaseTextFlyByCommand(center, offscreen, SlideSeconds, CenterPauseSeconds);
-		mover.MoveThroughScreen(flyBy, () => {
-			animator.SetTrigger(TransitionTriggerName);
-		});
-	}
+        var flyBy = new PhaseTextFlyByCommand(center, offscreen, SlideSeconds, CenterPauseSeconds);
+        mover.MoveThroughScreen(flyBy, () => { animator.SetTrigger(TransitionTriggerName); });
+    }
 
-	// OnStateExit is called when a transition ends and the state machine finishes evaluating this state
-	override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-		UnlockControls();
-        Destroy(phaseTextCanvas);        	
-	}
+    // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
+    public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
+        UnlockControls();
+        Destroy(phaseTextCanvas);
+    }
 
-	private void LockControls() {
-		UnitManager.Lock();
-		CameraController.Lock();
-	}
+    private void LockControls() {
+        UnitManager.Lock();
+        CameraController.Lock();
+    }
 
-	private void UnlockControls() {
-		UnitManager.Unlock();
-		CameraController.Unlock();
-	}
+    private void UnlockControls() {
+        UnitManager.Unlock();
+        CameraController.Unlock();
+    }
 }

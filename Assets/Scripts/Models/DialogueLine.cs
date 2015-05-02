@@ -1,10 +1,9 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System;
 
 namespace Models {
-	[System.Serializable]
-	public class DialogueLine {
-		public string text;
-		public float delayOverride;
-	}
+    [Serializable]
+    public class DialogueLine {
+        public float delayOverride;
+        public string text;
+    }
 }

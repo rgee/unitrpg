@@ -1,10 +1,8 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class CameraController : MonoBehaviour {
-
-	public float speed = 10;
     protected bool locked;
+    public float speed = 10;
 
     public virtual void Lock() {
         locked = true;
@@ -14,13 +12,12 @@ public class CameraController : MonoBehaviour {
         locked = false;
     }
 
-	// Update is called once per frame
-	public void Update () {
+    // Update is called once per frame
+    public void Update() {
         if (!locked) {
-            float horizontalSpeed = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
-            float veritcalSpeed = Input.GetAxis("Vertical") * speed * Time.deltaTime;
+            var horizontalSpeed = Input.GetAxis("Horizontal")*speed*Time.deltaTime;
+            var veritcalSpeed = Input.GetAxis("Vertical")*speed*Time.deltaTime;
             transform.Translate(new Vector3(horizontalSpeed, veritcalSpeed, 0));
         }
-
-	}
+    }
 }

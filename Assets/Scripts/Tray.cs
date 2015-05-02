@@ -1,35 +1,32 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class Tray : MonoBehaviour {
+    private Animator animator;
+    private bool doneOnce;
+    private TrayPortrait[] portraits;
+    public float xThresholdPct;
 
-	public float xThresholdPct;
-	private bool doneOnce;
+    private void Start() {
+        animator = GetComponent<Animator>();
+        portraits = GetComponentsInChildren<TrayPortrait>();
+    }
 
-	private TrayPortrait[] portraits;
-	private Animator animator;
+    private void Update() {
+        var mouseX = Input.mousePosition.x;
+        if (mouseX < 0 || mouseX > Screen.width) {
+            return;
+        }
 
-	void Start() {
-		animator = GetComponent<Animator>();
-		portraits = GetComponentsInChildren<TrayPortrait>();
-	}
+        var pctToRight = mouseX/Screen.width;
 
-	void Update () {
-		float mouseX = Input.mousePosition.x;
-		if (mouseX < 0 || mouseX > Screen.width) {
-			return;
-		}
+        var shouldOpen = pctToRight > xThresholdPct;
+        animator.SetBool("visible", shouldOpen);
 
-		float pctToRight = mouseX / Screen.width;
-
-		bool shouldOpen = pctToRight > xThresholdPct;
-		animator.SetBool("visible", shouldOpen);
-
-		foreach (TrayPortrait portrait in portraits) {
-			if (portrait.character.isDead) {
-				print ("disabling");
-				portrait.gameObject.SetActive(false);
-			}
-		}
-	}
+        foreach (var portrait in portraits) {
+            if (portrait.character.isDead) {
+                print("disabling");
+                portrait.gameObject.SetActive(false);
+            }
+        }
+    }
 }

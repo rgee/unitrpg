@@ -1,20 +1,15 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-
-using UnityEngine;
+﻿using Pathfinding;
 
 public static class PathfindingUtils {
-    public static Pathfinding.NNConstraint GetMainGraphConstraint() {
-        Pathfinding.NNConstraint constraint = Pathfinding.NNConstraint.None;
+    public static NNConstraint GetMainGraphConstraint() {
+        var constraint = NNConstraint.None;
         constraint.graphMask = 1 << 0;
 
         return constraint;
     }
 
-    public static Pathfinding.NNConstraint GetUnitlessGraphConstraint() {
-        Pathfinding.NNConstraint constraint = Pathfinding.NNConstraint.None;
+    public static NNConstraint GetUnitlessGraphConstraint() {
+        var constraint = NNConstraint.None;
         constraint.graphMask = 1 << 1;
 
         return constraint;

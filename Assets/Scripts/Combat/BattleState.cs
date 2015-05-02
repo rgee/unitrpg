@@ -1,25 +1,15 @@
-﻿using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
-[RequireComponent(typeof(Objective))]
+[RequireComponent(typeof (Objective))]
 public class BattleState : MonoBehaviour {
-	public Grid.Unit SelectedUnit;
-	public Vector2 SelectedGridPosition;
-
-    // Movement
-	public Vector2 MovementDestination;
-
     // Attack
     public Grid.Unit AttackTarget;
-	public FightResult FightResult;
-
-    // Record of a unit's actions during a single turn
-    private struct UnitActionState {
-        public int DistanceMoved;
-        public bool Acted;
-    }
-
+    public FightResult FightResult;
+    // Movement
+    public Vector2 MovementDestination;
+    public Vector2 SelectedGridPosition;
+    public Grid.Unit SelectedUnit;
     private Dictionary<Grid.Unit, UnitActionState> States = new Dictionary<Grid.Unit, UnitActionState>();
 
     public bool isWon() {
@@ -33,7 +23,7 @@ public class BattleState : MonoBehaviour {
     public void ResetMovementState() {
         SelectedUnit = null;
         AttackTarget = null;
-		FightResult = null;
+        FightResult = null;
         SelectedGridPosition = Vector2.zero;
         MovementDestination = Vector2.zero;
     }
@@ -43,7 +33,6 @@ public class BattleState : MonoBehaviour {
     }
 
     public bool UnitActed(Grid.Unit unit) {
-
         if (!States.ContainsKey(unit)) {
             States[unit] = new UnitActionState();
         }
@@ -52,12 +41,11 @@ public class BattleState : MonoBehaviour {
     }
 
     public bool UnitMoved(Grid.Unit unit) {
-
         if (!States.ContainsKey(unit)) {
             States[unit] = new UnitActionState();
         }
 
-        Models.Character character = unit.GetCharacter();
+        var character = unit.GetCharacter();
         return States[unit].DistanceMoved >= character.Movement;
     }
 
@@ -69,20 +57,18 @@ public class BattleState : MonoBehaviour {
     }
 
     public int GetRemainingDistance(Grid.Unit unit) {
-
         if (!States.ContainsKey(unit)) {
             States[unit] = new UnitActionState();
         }
-        Models.Character character = unit.GetCharacter();
+        var character = unit.GetCharacter();
         return character.Movement - States[unit].DistanceMoved;
     }
 
     public void MarkUnitMoved(Grid.Unit unit, int distance) {
-        
         if (!States.ContainsKey(unit)) {
             States[unit] = new UnitActionState();
         }
-        UnitActionState state = States[unit];
+        var state = States[unit];
         state.DistanceMoved += distance;
 
         States[unit] = state;
@@ -92,9 +78,15 @@ public class BattleState : MonoBehaviour {
         if (!States.ContainsKey(unit)) {
             States[unit] = new UnitActionState();
         }
-        UnitActionState state = States[unit];
+        var state = States[unit];
         state.Acted = true;
 
         States[unit] = state;
+    }
+
+    // Record of a unit's actions during a single turn
+    private struct UnitActionState {
+        public bool Acted;
+        public int DistanceMoved;
     }
 }

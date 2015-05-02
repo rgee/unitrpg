@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using Grid;
 using UnityEngine;
 
 public static class CombatObjects {
@@ -9,16 +6,16 @@ public static class CombatObjects {
         return GameObject.FindGameObjectWithTag("Map").GetComponent<MapGrid>();
     }
 
-	public static AIManager GetAIManager() {
-		return GameObject.Find("AI Manager").GetComponent<AIManager>();
-	}
+    public static AIManager GetAIManager() {
+        return GameObject.Find("AI Manager").GetComponent<AIManager>();
+    }
 
     public static BattleState GetBattleState() {
         return GameObject.Find("BattleManager").GetComponent<BattleState>();
     }
 
-    public static Grid.UnitManager GetUnitManager() {
-        return GameObject.Find("Unit Manager").GetComponent<Grid.UnitManager>();
+    public static UnitManager GetUnitManager() {
+        return GameObject.Find("Unit Manager").GetComponent<UnitManager>();
     }
 
     public static GridCameraController GetCameraController() {

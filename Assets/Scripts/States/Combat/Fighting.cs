@@ -1,18 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Collections;
-using System.Text;
+﻿using System.Collections;
 using UnityEngine;
 
 public class Fighting : StateMachineBehaviour {
-    public GameObject FightExecutorPrefab;
     private CameraController camController;
+    public GameObject FightExecutorPrefab;
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-        GameObject executorObject = Instantiate(FightExecutorPrefab) as GameObject;
-        FightExecutor executor = executorObject.GetComponent<FightExecutor>();
-        BattleState state = CombatObjects.GetBattleState();
+        var executorObject = Instantiate(FightExecutorPrefab);
+        var executor = executorObject.GetComponent<FightExecutor>();
+        var state = CombatObjects.GetBattleState();
         camController = CombatObjects.GetCameraController();
 
         camController.Lock();
@@ -28,12 +24,12 @@ public class Fighting : StateMachineBehaviour {
             state.SelectedUnit.gameObject,
             state.AttackTarget.gameObject,
             state.FightResult
-        ));
+            ));
         Destroy(executor.gameObject);
 
         if (state.SelectedUnit == null) {
             stateMachine.SetTrigger("friendly_dies");
-        } else { 
+        } else {
             stateMachine.SetTrigger("fight_completed");
         }
     }

@@ -1,35 +1,31 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class CombatForecaster : MonoBehaviour {
-
-	public GameObject ForecastPrefab;
-
-	private GameObject currentForecast;
-
     public delegate void ForecastResponseHandler();
 
+    private GameObject currentForecast;
+    public GameObject ForecastPrefab;
     public event ForecastResponseHandler OnConfirm;
     public event ForecastResponseHandler OnReject;
 
-	public void ShowAttackForecast(FightResult result, GameObject attacker, GameObject defender) {
+    public void ShowAttackForecast(FightResult result, GameObject attacker, GameObject defender) {
         HideCurrentForecast();
 
-		currentForecast = Instantiate(ForecastPrefab) as GameObject;
-		currentForecast.transform.SetParent(gameObject.transform);
+        currentForecast = Instantiate(ForecastPrefab);
+        currentForecast.transform.SetParent(gameObject.transform);
 
-		CombatForecastWindow forecast = currentForecast.GetComponent<CombatForecastWindow>();
-        forecast.OnForecastResponse += new CombatForecastWindow.ForecastResponseHandler(HandleForecastResponse);
-		forecast.SetForecastData(result);
-	}
+        var forecast = currentForecast.GetComponent<CombatForecastWindow>();
+        forecast.OnForecastResponse += HandleForecastResponse;
+        forecast.SetForecastData(result);
+    }
 
     public void HideCurrentForecast() {
-		if (currentForecast != null) {
-            CombatForecastWindow window = currentForecast.GetComponent<CombatForecastWindow>();
-            window.OnForecastResponse -= new CombatForecastWindow.ForecastResponseHandler(HandleForecastResponse);
+        if (currentForecast != null) {
+            var window = currentForecast.GetComponent<CombatForecastWindow>();
+            window.OnForecastResponse -= HandleForecastResponse;
 
-			Destroy(currentForecast);
-		}
+            Destroy(currentForecast);
+        }
     }
 
     private void HandleForecastResponse(CombatForecastWindow.ForecastResponse resp) {

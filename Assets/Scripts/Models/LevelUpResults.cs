@@ -1,18 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Models
-{
+﻿namespace Models {
     public class LevelUpResults {
-
-        public bool Health;
-        public bool Strength;
         public bool Defense;
+        public bool Health;
         public bool Movement;
+        public bool Skill;
         public bool Speed;
-		public bool Skill;
-
+        public bool Strength;
     }
 }

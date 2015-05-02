@@ -1,12 +1,8 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class MapTile : MonoBehaviour {
-
-    public Vector2 gridPosition;
-
     public bool blocked;
-
+    public Vector2 gridPosition;
     private SpriteRenderer renderer;
 
     public void Start() {

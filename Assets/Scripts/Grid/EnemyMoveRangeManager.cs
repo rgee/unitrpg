@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using UnityEngine;
 
 public class EnemyMoveRangeManager : Singleton<EnemyMoveRangeManager> {
     private static readonly string GLOBAL_MOVE_RANGE_NAME = "_global_move_range_";
-    private readonly Dictionary<Grid.Unit, MoveRangePreviewState> StatesByUnit = new Dictionary<Grid.Unit, MoveRangePreviewState>();
-    private bool GlobalMoveRangeActive = false;
+
+    private readonly Dictionary<Grid.Unit, MoveRangePreviewState> StatesByUnit =
+        new Dictionary<Grid.Unit, MoveRangePreviewState>();
+
+    private bool GlobalMoveRangeActive;
 
     public void Update() {
         if (Input.GetKeyDown(KeyCode.M)) {
@@ -19,23 +21,20 @@ public class EnemyMoveRangeManager : Singleton<EnemyMoveRangeManager> {
         }
     }
 
-    public void ShowUnitMoveRange(Grid.Unit unit)
-    {
+    public void ShowUnitMoveRange(Grid.Unit unit) {
         MoveRangePreviewState state;
-        if (StatesByUnit.ContainsKey(unit))
-        {
+        if (StatesByUnit.ContainsKey(unit)) {
             state = StatesByUnit[unit];
-            MoveRangePreviewState.PreviewType nextType = state.GetNextType();
+            var nextType = state.GetNextType();
             state.Type = nextType;
 
             MapHighlightManager.Instance.ClearHighlight(state.SelectionName);
 
-            HashSet<Vector2> tiles = GetWalkableTilesForPreviewType(unit, nextType);
-            MapHighlightManager.Instance.HighlightTiles(tiles, MapHighlightManager.HighlightLevel.SPECIFIC_ENEMY_MOVE, state.SelectionName);
+            var tiles = GetWalkableTilesForPreviewType(unit, nextType);
+            MapHighlightManager.Instance.HighlightTiles(tiles, MapHighlightManager.HighlightLevel.SPECIFIC_ENEMY_MOVE,
+                state.SelectionName);
             StatesByUnit[unit] = state;
-        }
-        else
-        {
+        } else {
             state = new MoveRangePreviewState {
                 SelectionName = Guid.NewGuid().ToString(),
                 Type = MoveRangePreviewState.PreviewType.OFF
@@ -46,20 +45,18 @@ public class EnemyMoveRangeManager : Singleton<EnemyMoveRangeManager> {
     }
 
     private HashSet<Vector2> GetWalkableTilesForPreviewType(Grid.Unit unit, MoveRangePreviewState.PreviewType type) {
-        switch (type)
-        {
+        switch (type) {
             case MoveRangePreviewState.PreviewType.OFF:
                 return new HashSet<Vector2>();
-             case MoveRangePreviewState.PreviewType.RANGE_WITHOUT_OBSTACLES:
+            case MoveRangePreviewState.PreviewType.RANGE_WITHOUT_OBSTACLES:
                 return GetWalkableTilesFromUnit(unit, true);
             case MoveRangePreviewState.PreviewType.RANGE_WITH_OBSTACLES:
                 return GetWalkableTilesFromUnit(unit);
         }
         throw new ArgumentException("Invalid preview type");
-    } 
+    }
 
-    private HashSet<Vector2> GetWalkableTilesFromUnit(Grid.Unit unit, bool ignoreUnits = false)
-    {
+    private HashSet<Vector2> GetWalkableTilesFromUnit(Grid.Unit unit, bool ignoreUnits = false) {
         var grid = CombatObjects.GetMap();
 
         unit.gameObject.SetActive(false);
@@ -70,16 +67,16 @@ public class EnemyMoveRangeManager : Singleton<EnemyMoveRangeManager> {
         grid.RescanGraph();
 
         return tiles;
-    } 
+    }
 
     public void HideUnitMoveRange(Grid.Unit unit) {
-        if (StatesByUnit.ContainsKey(unit))
-        {
-            MoveRangePreviewState state = StatesByUnit[unit];
+        if (StatesByUnit.ContainsKey(unit)) {
+            var state = StatesByUnit[unit];
             state.Type = MoveRangePreviewState.PreviewType.OFF;
-            HashSet<Vector2> tiles = GetWalkableTilesForPreviewType(unit, MoveRangePreviewState.PreviewType.OFF);
-            MapHighlightManager.Instance.HighlightTiles(tiles, MapHighlightManager.HighlightLevel.SPECIFIC_ENEMY_MOVE, state.SelectionName);
-        }  
+            var tiles = GetWalkableTilesForPreviewType(unit, MoveRangePreviewState.PreviewType.OFF);
+            MapHighlightManager.Instance.HighlightTiles(tiles, MapHighlightManager.HighlightLevel.SPECIFIC_ENEMY_MOVE,
+                state.SelectionName);
+        }
     }
 
     public void HideAllMoveRanges() {
@@ -87,17 +84,17 @@ public class EnemyMoveRangeManager : Singleton<EnemyMoveRangeManager> {
         GlobalMoveRangeActive = false;
     }
 
-    public void ShowAllEnemyMoveRanges()
-    {
+    public void ShowAllEnemyMoveRanges() {
         var unitManager = CombatObjects.GetUnitManager();
 
-        HashSet<Vector2> walkableTiles = unitManager 
+        var walkableTiles = unitManager
             .GetEnemies()
-            .SelectMany((unit) => GetWalkableTilesFromUnit(unit))
+            .SelectMany(unit => GetWalkableTilesFromUnit(unit))
             .ToHashSet();
 
         var mapHighlightManager = MapHighlightManager.Instance;
-        mapHighlightManager.HighlightTiles(walkableTiles, MapHighlightManager.HighlightLevel.GLOBAL_ENEMY_MOVE, GLOBAL_MOVE_RANGE_NAME);
+        mapHighlightManager.HighlightTiles(walkableTiles, MapHighlightManager.HighlightLevel.GLOBAL_ENEMY_MOVE,
+            GLOBAL_MOVE_RANGE_NAME);
         GlobalMoveRangeActive = true;
     }
 }

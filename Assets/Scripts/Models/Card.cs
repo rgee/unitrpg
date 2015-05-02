@@ -1,10 +1,8 @@
-﻿using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 
 namespace Models {
-	[System.Serializable]
-	public class Card {
-		public DialogueLine[] lines;
-	}
+    [Serializable]
+    public class Card {
+        public DialogueLine[] lines;
+    }
 }

@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ViewingUnitInfo : StateMachineBehaviour {
-    private BattleState State;
     private Animator Animator;
+    private BattleState State;
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         State = CombatObjects.GetBattleState();

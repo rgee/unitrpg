@@ -1,24 +1,22 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using Models;
+using UnityEngine;
 
 public class Unit : MonoBehaviour {
+    private Character character;
+    public string characterName;
+    public int currentHealth;
+    public bool isDead;
 
-	public bool isDead;
-	public int currentHealth;
-	public string characterName;
+    public void Start() {
+        character = SaveGame.current.getByName(characterName);
+        currentHealth = character.MaxHealth;
+    }
 
-	private Models.Character character;
+    public bool IsEnemy() {
+        return character.IsEnemy;
+    }
 
-	public void Start() {
-		character = SaveGame.current.getByName(characterName);
-		currentHealth = character.MaxHealth;
-	}
-
-	public bool IsEnemy() {
-		return character.IsEnemy;
-	}
-
-	public int GetMovement() { 
-		return character.Movement;
-	}
+    public int GetMovement() {
+        return character.Movement;
+    }
 }

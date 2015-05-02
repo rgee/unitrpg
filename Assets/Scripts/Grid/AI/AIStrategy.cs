@@ -1,5 +1,5 @@
 ﻿using System.Collections;
 
-interface AIStrategy {
+internal interface AIStrategy {
     IEnumerator act();
 }

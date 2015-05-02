@@ -1,18 +1,13 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections;
 using UnityEngine;
 
 public class FightExecutor : MonoBehaviour {
-    private static string FIGHT_START_TRIGGER = "fight_start";
-
+    private static readonly string FIGHT_START_TRIGGER = "fight_start";
+    private bool resolved;
     private FightExcecutionState State;
     private Animator StateMachine;
-    private bool resolved;
 
-    void Awake() {
+    private void Awake() {
         State = GetComponent<FightExcecutionState>();
         StateMachine = GetComponent<Animator>();
     }

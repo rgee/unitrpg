@@ -1,54 +1,52 @@
-﻿using UnityEngine;
-using System.IO;
-using System.Collections;
+﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using Models;
+using UnityEngine;
 
-[System.Serializable]
+[Serializable]
 public class SaveGame {
-	public static SaveGame current = new SaveGame();
-
-    // Which chapter the player is on
-	public int chapter;
-
-    // All the characters by name
-	public Dictionary<string, Models.Character> characters = new Dictionary<string, Models.Character>();
-
+    public static SaveGame current = new SaveGame();
     // All other save games.
-	public static List<SaveGame> saveGames = new List<SaveGame>();
+    public static List<SaveGame> saveGames = new List<SaveGame>();
+    // Which chapter the player is on
+    public int chapter;
+    // All the characters by name
+    public Dictionary<string, Character> characters = new Dictionary<string, Character>();
 
-	public static void Select (int index) {
-		SaveGame.current = saveGames[index];
-	}
+    public static void Select(int index) {
+        current = saveGames[index];
+    }
 
-	public static void Save() {
-		saveGames.Add(SaveGame.current);
-		BinaryFormatter formatter = new BinaryFormatter();
+    public static void Save() {
+        saveGames.Add(current);
+        var formatter = new BinaryFormatter();
 
-		string path = Application.persistentDataPath + "/saveGames.gd";
-		Debug.Log ("Saving to " + path);
+        var path = Application.persistentDataPath + "/saveGames.gd";
+        Debug.Log("Saving to " + path);
 
-		FileStream file = File.Create(path);
-		formatter.Serialize(file, SaveGame.saveGames);
-		file.Close();
-	}
+        var file = File.Create(path);
+        formatter.Serialize(file, saveGames);
+        file.Close();
+    }
 
-	public static void Load() {
-		string path = Application.persistentDataPath + "/saveGames.gd";
-		Debug.Log ("Loading save files from " + path);
-		if (File.Exists (path)) {
-			BinaryFormatter formatter = new BinaryFormatter();
-			FileStream file = File.Open(path, FileMode.Open);
-			SaveGame.saveGames = (List<SaveGame>)formatter.Deserialize(file);
-			file.Close();
-		}
-	}
+    public static void Load() {
+        var path = Application.persistentDataPath + "/saveGames.gd";
+        Debug.Log("Loading save files from " + path);
+        if (File.Exists(path)) {
+            var formatter = new BinaryFormatter();
+            var file = File.Open(path, FileMode.Open);
+            saveGames = (List<SaveGame>) formatter.Deserialize(file);
+            file.Close();
+        }
+    }
 
-	public Models.Character getByName(string name) {
-		if (SaveGame.current.characters.ContainsKey(name)) {
-			return SaveGame.current.characters[name];
-		}
+    public Character getByName(string name) {
+        if (current.characters.ContainsKey(name)) {
+            return current.characters[name];
+        }
 
-		return (Models.Character)Resources.Load("Characters/" + name);
-	}
-}	
+        return (Character) Resources.Load("Characters/" + name);
+    }
+}

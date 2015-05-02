@@ -1,101 +1,100 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
+using Models;
+using UnityEngine;
+using UnityEngine.UI;
 
 public class CutsceneDirector : MonoBehaviour {
-	public Models.Cutscene Cutscene;
-
-	private CardAnimator cardAnimator;
-	private DeckAnimator deckAnimator;
-	private Text text;
-	private int deckIndex;
-	private Dictionary<string, GameObject> portraits = new Dictionary<string, GameObject>();
-	private SceneFader sceneTransitioner;
+    private readonly Dictionary<string, GameObject> portraits = new Dictionary<string, GameObject>();
+    private CardAnimator cardAnimator;
     private bool complete;
+    public Cutscene Cutscene;
+    private DeckAnimator deckAnimator;
+    private int deckIndex;
+    private SceneFader sceneTransitioner;
+    private Text text;
 
-	void Start () {
-		cardAnimator = GetComponent<CardAnimator>();
-		deckAnimator = GetComponent<DeckAnimator>();
-		text = gameObject.GetComponentInChildren<Text>();
-		deckAnimator.animator = cardAnimator;
+    private void Start() {
+        cardAnimator = GetComponent<CardAnimator>();
+        deckAnimator = GetComponent<DeckAnimator>();
+        text = gameObject.GetComponentInChildren<Text>();
+        deckAnimator.animator = cardAnimator;
 
-		sceneTransitioner = GameObject.FindGameObjectWithTag("SceneTransitioner").GetComponent<SceneFader>();
+        sceneTransitioner = GameObject.FindGameObjectWithTag("SceneTransitioner").GetComponent<SceneFader>();
 
-		// Grab handles to all the portraits of the actors in the scene.
-		foreach (CutsceneActor actor in Cutscene.actors) {
-			Debug.Log(actor.name);
+        // Grab handles to all the portraits of the actors in the scene.
+        foreach (var actor in Cutscene.actors) {
+            Debug.Log(actor.name);
 
-			Transform portrait = transform.FindChild("Canvas")
-									      .FindChild("Portraits")
-					  					  .FindChild(actor.name);
-			if (portrait != null) {
-				portraits.Add(actor.name, portrait.gameObject);
-			}
-		}
+            var portrait = transform.FindChild("Canvas")
+                                    .FindChild("Portraits")
+                                    .FindChild(actor.name);
+            if (portrait != null) {
+                portraits.Add(actor.name, portrait.gameObject);
+            }
+        }
 
-		// Kick the first deck off immediately.
-		StartCoroutine(Begin());
-	}
+        // Kick the first deck off immediately.
+        StartCoroutine(Begin());
+    }
 
-	IEnumerator Begin() {
-		yield return StartCoroutine(sceneTransitioner.FadeIn());
-		yield return new WaitForSeconds(0.3f);
-		Advance();
-	}
-	
-	void Update () {
+    private IEnumerator Begin() {
+        yield return StartCoroutine(sceneTransitioner.FadeIn());
+        yield return new WaitForSeconds(0.3f);
+        Advance();
+    }
+
+    private void Update() {
         if (complete) {
             return;
         }
 
-		// Advance to the next deck of dialogue cards if the user presses
-		// the space bar, and the current animation is complete.
-		if (Input.GetKeyDown(KeyCode.Space) && cardAnimator.complete) {
-			deckIndex++;
+        // Advance to the next deck of dialogue cards if the user presses
+        // the space bar, and the current animation is complete.
+        if (Input.GetKeyDown(KeyCode.Space) && cardAnimator.complete) {
+            deckIndex++;
 
-			if (deckIndex >= Cutscene.decks.Length) {
-				StartCoroutine(TransitionToNextScene());
-			} else {
-				Advance();
-			}
-		}
-	}
+            if (deckIndex >= Cutscene.decks.Length) {
+                StartCoroutine(TransitionToNextScene());
+            } else {
+                Advance();
+            }
+        }
+    }
 
-	private IEnumerator TransitionToNextScene() {
+    private IEnumerator TransitionToNextScene() {
         complete = true;
-		yield return StartCoroutine(sceneTransitioner.FadeOut());
-		Application.LoadLevel(Cutscene.nextScene);
-	}
+        yield return StartCoroutine(sceneTransitioner.FadeOut());
+        Application.LoadLevel(Cutscene.nextScene);
+    }
 
-	private void Advance() {
+    private void Advance() {
+        var newDeck = Cutscene.decks[deckIndex];
 
-		Models.Deck newDeck = Cutscene.decks[deckIndex];
+        // Activate the new speaker and deactivate all others.
+        var speaker = portraits[newDeck.speaker].GetComponent<CutscenePortrait>();
+        speaker.Activate();
+        speaker.ChangeEmotion(newDeck.emotionType);
 
-		// Activate the new speaker and deactivate all others.
-		CutscenePortrait speaker = portraits[newDeck.speaker].GetComponent<CutscenePortrait>();
-		speaker.Activate();
-		speaker.ChangeEmotion(newDeck.emotionType);
+        var previousDeck = deckAnimator.deck;
+        if (portraits.ContainsKey(previousDeck.speaker)) {
+            var previousSpeaker = portraits[previousDeck.speaker];
+            previousSpeaker.GetComponent<CutscenePortrait>().ChangeEmotion(EmotionType.DEFAULT);
+        }
 
-		Models.Deck previousDeck = deckAnimator.deck;
-		if (portraits.ContainsKey(previousDeck.speaker)) {
-			GameObject previousSpeaker = portraits[previousDeck.speaker];
-			previousSpeaker.GetComponent<CutscenePortrait>().ChangeEmotion(Models.EmotionType.DEFAULT);
-		}
+        foreach (var pair in portraits) {
+            if (pair.Key != newDeck.speaker) {
+                pair.Value.GetComponent<CutscenePortrait>().Deactivate();
+            }
+        }
 
-		foreach (KeyValuePair<string, GameObject> pair in portraits) {
-			if (pair.Key != newDeck.speaker) {
-				pair.Value.GetComponent<CutscenePortrait>().Deactivate();
-			}
-		}
+        // Set up the text box and the animator for the next deck
+        text.text = "";
+        deckAnimator.textObject = text;
+        deckAnimator.deck = newDeck;
+        deckAnimator.Reset();
 
-		// Set up the text box and the animator for the next deck
-		text.text = "";
-		deckAnimator.textObject = text;
-		deckAnimator.deck = newDeck;
-		deckAnimator.Reset();
-
-		// Begin showing the next deck
-		deckAnimator.StartAnimation();
-	}
+        // Begin showing the next deck
+        deckAnimator.StartAnimation();
+    }
 }

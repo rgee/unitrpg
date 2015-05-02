@@ -1,10 +1,7 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System;
 
 public class TutorialScriptedResolution : ResolutionStrategy {
-
-	public FightPhaseResult SimulateFightPhase (Participants participants, AttackType attack)
-	{
-		throw new System.NotImplementedException();
-	}
+    public FightPhaseResult SimulateFightPhase(Participants participants, AttackType attack) {
+        throw new NotImplementedException();
+    }
 }

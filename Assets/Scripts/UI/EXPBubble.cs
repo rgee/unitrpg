@@ -1,111 +1,109 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
-using System;
-using System.Linq;
+﻿using System;
 using System.Collections;
-using System.Collections.Generic;
+using UnityEngine;
 
 public class EXPBubble : MonoBehaviour {
-	private RectTransform InnerCircleTransform;
-	private GameObject InnerCircle;
-	private GameObject OuterCircle;
-	public float ExpPercent = 0;
+    public float ExpPercent;
+    private GameObject InnerCircle;
+    private RectTransform InnerCircleTransform;
+    private GameObject OuterCircle;
 
-	void Start () {
-		InnerCircle = transform.FindChild("Inner").gameObject;
-		OuterCircle = transform.FindChild("Outer").gameObject;
-		InnerCircleTransform = InnerCircle.GetComponent<RectTransform>();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		float expMultiplier = Math.Min(ExpPercent / 100f, 100);
-		float scale = 1.04f * expMultiplier;
+    private void Start() {
+        InnerCircle = transform.FindChild("Inner").gameObject;
+        OuterCircle = transform.FindChild("Outer").gameObject;
+        InnerCircleTransform = InnerCircle.GetComponent<RectTransform>();
+    }
 
-		InnerCircleTransform.localScale = new Vector3(scale, scale, 1);
-	}
+    // Update is called once per frame
+    private void Update() {
+        var expMultiplier = Math.Min(ExpPercent/100f, 100);
+        var scale = 1.04f*expMultiplier;
 
-	public IEnumerator FlipToEmpty() {
-		GameObject dupeOuter = Instantiate(OuterCircle);
-		GameObject dupeInner = Instantiate(InnerCircle);
+        InnerCircleTransform.localScale = new Vector3(scale, scale, 1);
+    }
 
-		dupeOuter.transform.SetParent(transform);
-		dupeInner.transform.SetParent(transform);
-		dupeInner.transform.localScale = new Vector3();
-		yield return new WaitForSeconds(3);
-		yield return RotateAboutY(new RotationRequest(dupeOuter, dupeInner, 90f), new RotationRequest(InnerCircle, OuterCircle, 90f), 1f);
+    public IEnumerator FlipToEmpty() {
+        var dupeOuter = Instantiate(OuterCircle);
+        var dupeInner = Instantiate(InnerCircle);
 
-		Destroy(InnerCircle);
-		Destroy(OuterCircle);
+        dupeOuter.transform.SetParent(transform);
+        dupeInner.transform.SetParent(transform);
+        dupeInner.transform.localScale = new Vector3();
+        yield return new WaitForSeconds(3);
+        yield return
+            RotateAboutY(new RotationRequest(dupeOuter, dupeInner, 90f),
+                new RotationRequest(InnerCircle, OuterCircle, 90f), 1f);
 
-		InnerCircle = dupeInner;
-		OuterCircle = dupeOuter;
-		InnerCircleTransform = dupeInner.GetComponent<RectTransform>();
-		ExpPercent = 0;
+        Destroy(InnerCircle);
+        Destroy(OuterCircle);
 
-		yield return RotateAboutY(new RotationRequest(dupeOuter, dupeInner, 180f), 1f);
-	}
-		
+        InnerCircle = dupeInner;
+        OuterCircle = dupeOuter;
+        InnerCircleTransform = dupeInner.GetComponent<RectTransform>();
+        ExpPercent = 0;
 
-	public IEnumerator AnimateToExp(float targetPercent, float timeInSeconds) {
-		yield return StartCoroutine(IncreaseExp(Math.Min(targetPercent, 100 - ExpPercent), timeInSeconds));
-	}
+        yield return RotateAboutY(new RotationRequest(dupeOuter, dupeInner, 180f), 1f);
+    }
 
-	private struct RotationRequest {
-		public GameObject Outer;
-		public GameObject Inner;
-		public float TargetYRotation;
-		public float StartYRotation;
+    public IEnumerator AnimateToExp(float targetPercent, float timeInSeconds) {
+        yield return StartCoroutine(IncreaseExp(Math.Min(targetPercent, 100 - ExpPercent), timeInSeconds));
+    }
 
-		public RotationRequest(GameObject outer, GameObject inner, float yRotation) {
-			this.Outer = outer;
-			this.Inner = inner;
-			this.TargetYRotation = yRotation;
-			this.StartYRotation = Outer.transform.rotation.y;
-		}
-	}
+    private IEnumerator RotateAboutY(RotationRequest front, float time) {
+        float elapsedTime = 0;
 
-	IEnumerator RotateAboutY(RotationRequest front, float time) {
-		float elapsedTime = 0;
-		
-		while (elapsedTime < time) {
-			float frontRot = Mathf.Lerp(front.StartYRotation, front.TargetYRotation, (elapsedTime/time));
+        while (elapsedTime < time) {
+            var frontRot = Mathf.Lerp(front.StartYRotation, front.TargetYRotation, (elapsedTime/time));
 
-			front.Outer.GetComponent<RectTransform>().localRotation = new Quaternion(0, frontRot, 0, 0);
-			front.Inner.GetComponent<RectTransform>().localRotation = new Quaternion(0, frontRot, 0, 0);
-			
-			elapsedTime += Time.deltaTime;
-			yield return null;
-		}	
-	}
+            front.Outer.GetComponent<RectTransform>().localRotation = new Quaternion(0, frontRot, 0, 0);
+            front.Inner.GetComponent<RectTransform>().localRotation = new Quaternion(0, frontRot, 0, 0);
 
-	IEnumerator RotateAboutY(RotationRequest front, RotationRequest back, float time) {
-		float elapsedTime = 0;
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+    }
 
-		while (elapsedTime < time) {
-			float frontRot = Mathf.Lerp(front.StartYRotation, front.TargetYRotation, (elapsedTime/time));
-			float backRot = Mathf.Lerp(back.StartYRotation, back.TargetYRotation, (elapsedTime/time));
+    private IEnumerator RotateAboutY(RotationRequest front, RotationRequest back, float time) {
+        float elapsedTime = 0;
 
-			front.Outer.GetComponent<RectTransform>().localRotation = new Quaternion(0, frontRot, 0, 0);
-			front.Inner.GetComponent<RectTransform>().localRotation = new Quaternion(0, frontRot, 0, 0);
+        while (elapsedTime < time) {
+            var frontRot = Mathf.Lerp(front.StartYRotation, front.TargetYRotation, (elapsedTime/time));
+            var backRot = Mathf.Lerp(back.StartYRotation, back.TargetYRotation, (elapsedTime/time));
 
-			back.Outer.GetComponent<RectTransform>().localRotation = new Quaternion(0, backRot, 0, 0);
-			back.Inner.GetComponent<RectTransform>().localRotation = new Quaternion(0, backRot, 0, 0);
+            front.Outer.GetComponent<RectTransform>().localRotation = new Quaternion(0, frontRot, 0, 0);
+            front.Inner.GetComponent<RectTransform>().localRotation = new Quaternion(0, frontRot, 0, 0);
 
-			elapsedTime += Time.deltaTime;
-			yield return null;
-		}
-	}
+            back.Outer.GetComponent<RectTransform>().localRotation = new Quaternion(0, backRot, 0, 0);
+            back.Inner.GetComponent<RectTransform>().localRotation = new Quaternion(0, backRot, 0, 0);
 
-	IEnumerator IncreaseExp(float endingExp, float time) {
-		float elapsedTime = 0;
-		float startingExp = ExpPercent;
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+    }
 
-		while (elapsedTime < time) {
-			ExpPercent = Mathf.Lerp (startingExp, endingExp, (elapsedTime / time));
-			elapsedTime += Time.deltaTime;
-			yield return null;
-		}
-		ExpPercent = endingExp;
-	}
+    private IEnumerator IncreaseExp(float endingExp, float time) {
+        float elapsedTime = 0;
+        var startingExp = ExpPercent;
+
+        while (elapsedTime < time) {
+            ExpPercent = Mathf.Lerp(startingExp, endingExp, (elapsedTime/time));
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        ExpPercent = endingExp;
+    }
+
+    private struct RotationRequest {
+        public readonly GameObject Inner;
+        public readonly GameObject Outer;
+        public readonly float StartYRotation;
+        public readonly float TargetYRotation;
+
+        public RotationRequest(GameObject outer, GameObject inner, float yRotation) {
+            Outer = outer;
+            Inner = inner;
+            TargetYRotation = yRotation;
+            StartYRotation = Outer.transform.rotation.y;
+        }
+    }
 }

@@ -1,24 +1,22 @@
-﻿using UnityEngine;
-using System;
-using System.Collections;
+﻿using System;
+using UnityEngine;
 
 public class ActionMenuManager : MonoBehaviour {
+    public delegate void ActionSelectedHandler(BattleAction action);
 
-	public delegate void ActionSelectedHandler(BattleAction action);
-	public event ActionSelectedHandler OnActionSelected;
-
-    public GameObject TestMenu;
     private GameObject openMenu;
+    public GameObject TestMenu;
+    public event ActionSelectedHandler OnActionSelected;
 
-	public void ShowActionMenu(Grid.Unit unit) {
-        GameObject menu = TestMenu;
+    public void ShowActionMenu(Grid.Unit unit) {
+        var menu = TestMenu;
 
         menu.SetActive(true);
         menu.transform.SetParent(unit.transform, true);
         menu.transform.localPosition = new Vector3(-16, 35, 0);
 
         openMenu = menu;
-	}
+    }
 
     public void HideCurrentMenu() {
         if (openMenu != null) {
@@ -27,10 +25,10 @@ public class ActionMenuManager : MonoBehaviour {
         }
     }
 
-	public void SelectAction(string name) {
-		BattleAction action = (BattleAction)Enum.Parse(typeof(BattleAction), name);
-		if (OnActionSelected != null) {
-			OnActionSelected(action);
-		}
-	}
+    public void SelectAction(string name) {
+        var action = (BattleAction) Enum.Parse(typeof (BattleAction), name);
+        if (OnActionSelected != null) {
+            OnActionSelected(action);
+        }
+    }
 }
