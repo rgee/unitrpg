@@ -72,9 +72,9 @@ public class SelectingMoveLocation : CancelableCombatState {
         highlights.HighlightTiles(AttackableLocations, MapHighlightManager.HighlightLevel.PLAYER_ATTACK, PLAYER_ATTACK_PREVIEW_RANGE);
         highlights.HighlightTiles(WalkableLocations, MapHighlightManager.HighlightLevel.PLAYER_MOVE, PLAYER_MOVE_RANGE);
 
-		Grid.OnGridClicked += new MapGrid.GridClickHandler(HandleGridClick);
+	    Grid.OnGridClicked += HandleGridClick;
 
-        MovementPipDialogObject = Instantiate(MovementPipPrefab) as GameObject;
+        MovementPipDialogObject = Instantiate(MovementPipPrefab);
         MovementPipDialogComponent = MovementPipDialogObject.GetComponent<MovementDialog>();
         MovementPipDialogComponent.TotalMoves = State.SelectedUnit.GetComponent<Grid.Unit>().model.Character.Movement;
 
@@ -135,8 +135,11 @@ public class SelectingMoveLocation : CancelableCombatState {
 	public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
 		base.OnStateExit(animator, stateInfo, layerIndex);
         PathArrowManager.Instance.ClearPath();
-		Grid.OnGridClicked -= new MapGrid.GridClickHandler(HandleGridClick);
+	    Grid.OnGridClicked -= HandleGridClick;
+
         MapHighlightManager.Instance.ClearHighlight(PLAYER_MOVE_RANGE);
+        MapHighlightManager.Instance.ClearHighlight(PLAYER_ATTACK_PREVIEW_RANGE);
+
         Destroy(MovementPipDialogObject);
 	}
 }
