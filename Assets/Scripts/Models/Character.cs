@@ -9,6 +9,7 @@ namespace Models {
         public int Defense;
         public int DefenseGrowth;
         public int Exp;
+        public int AttackRange;
         public bool IsEnemy;
         public int Level = 1;
         public int MaxHealth;
