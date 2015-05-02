@@ -7,6 +7,7 @@ namespace Models {
 
 		public Character Character;
 		public Vector2 GridPosition;
+	    public bool IsFriendly;
 		public int Health;
 		public bool IsAlive {
 			get {
