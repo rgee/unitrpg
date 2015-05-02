@@ -1,30 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 public class FightPhaseExecutor {
-    public event EventHandler OnTargetDied;
-    public event EventHandler OnComplete;
-
-    private Grid.Unit Attacker;
-    private Grid.Unit Defender;
-    private List<Hit> Hits;
-    private int HitIndex = 0;
+    private readonly Grid.Unit Attacker;
+    private readonly Grid.Unit Defender;
+    private readonly List<Hit> Hits;
+    private int HitIndex;
 
     public FightPhaseExecutor(Grid.Unit attacker, Grid.Unit defender, List<Hit> hits) {
-        this.Attacker = attacker;
-        this.Defender = defender;
-        this.Hits = hits;
+        Attacker = attacker;
+        Defender = defender;
+        Hits = hits;
     }
+
+    public event EventHandler OnTargetDied;
+    public event EventHandler OnComplete;
 
     public void Run() {
         Attacker.OnAttackComplete += OnHit;
         Attack();
     }
 
-    private void OnHit() { 
-        Hit hit = Hits[HitIndex];
+    private void OnHit() {
+        var hit = Hits[HitIndex];
         Defender.TakeDamage(hit.Damage);
         HitIndex++;
 
@@ -41,8 +39,8 @@ public class FightPhaseExecutor {
     }
 
     private void Attack() {
-        Hit hit = Hits[HitIndex];
-        bool killingBlow = !hit.Missed && hit.Damage > Defender.model.Health;
+        var hit = Hits[HitIndex];
+        var killingBlow = !hit.Missed && hit.Damage > Defender.model.Health;
         if (hit.Missed) {
             Defender.Dodge();
         }

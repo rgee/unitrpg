@@ -1,5 +1,4 @@
-﻿namespace Models.Combat
-{
+﻿namespace Models.Combat {
     public enum CombatAction {
         Move,
         Fight,
@@ -7,6 +6,6 @@
         Trade,
         Talk,
         Wait,
-        Brace  
+        Brace
     }
 }

@@ -1,8 +1,5 @@
-﻿using UnityEngine;
-using System.Collections;
-
-public enum AttackType {
-	BASIC,
-	RANGED,
-	KINESIS
+﻿public enum AttackType {
+    BASIC,
+    RANGED,
+    KINESIS
 }

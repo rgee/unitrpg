@@ -11,8 +11,8 @@
         }
 
         public FightResult SimulateFight() {
-            FightPhaseResult initiatorAttack = Strategy.SimulateFightPhase(Participants, Attack);
-            FightPhaseResult counterAttack = Strategy.SimulateFightPhase(Participants.Invert(), Attack);
+            var initiatorAttack = Strategy.SimulateFightPhase(Participants, Attack);
+            var counterAttack = Strategy.SimulateFightPhase(Participants.Invert(), Attack);
             return new FightResult(initiatorAttack, counterAttack, Participants);
         }
     }

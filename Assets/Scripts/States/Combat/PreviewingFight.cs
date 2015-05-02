@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Models.Combat;
+﻿using Models.Combat;
 using UnityEngine;
 
 public class PreviewingFight : CancelableCombatState {
-
-    private CombatForecaster Forecaster;
-    private BattleState State;
     private Animator Animator;
-	private FightResult PreviewResult;
     private GridCameraController Camera;
+    private CombatForecaster Forecaster;
+    private FightResult PreviewResult;
+    private BattleState State;
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         base.OnStateEnter(animator, stateInfo, layerIndex);
@@ -20,23 +16,24 @@ public class PreviewingFight : CancelableCombatState {
         State = CombatObjects.GetBattleState();
         Animator = animator;
 
-		Fight fight = new Fight(
-			new Participants(State.SelectedUnit.GetComponent<Grid.Unit>().model, State.AttackTarget.GetComponent<Grid.Unit>().model),
-			AttackType.BASIC,
-			new DefaultFightResolution()
-		);
+        var fight = new Fight(
+            new Participants(State.SelectedUnit.GetComponent<Grid.Unit>().model,
+                State.AttackTarget.GetComponent<Grid.Unit>().model),
+            AttackType.BASIC,
+            new DefaultFightResolution()
+            );
 
-		PreviewResult = fight.SimulateFight();
+        PreviewResult = fight.SimulateFight();
 
-        Forecaster.OnConfirm += new CombatForecaster.ForecastResponseHandler(OnConfirm);
-        Forecaster.OnReject += new CombatForecaster.ForecastResponseHandler(OnReject);
+        Forecaster.OnConfirm += OnConfirm;
+        Forecaster.OnReject += OnReject;
         Forecaster.ShowAttackForecast(PreviewResult, State.SelectedUnit.gameObject, State.AttackTarget.gameObject);
 
-        Grid.Unit attacker = State.SelectedUnit;
-        Grid.Unit defender = State.AttackTarget;
+        var attacker = State.SelectedUnit;
+        var defender = State.AttackTarget;
 
-        MathUtils.CardinalDirection attackerDirection = MathUtils.DirectionTo(attacker.gridPosition, defender.gridPosition);
-        MathUtils.CardinalDirection defenderDirection = attackerDirection.GetOpposite();
+        var attackerDirection = MathUtils.DirectionTo(attacker.gridPosition, defender.gridPosition);
+        var defenderDirection = attackerDirection.GetOpposite();
 
         attacker.PrepareForCombat(attackerDirection);
         defender.PrepareForCombat(defenderDirection);
@@ -45,7 +42,7 @@ public class PreviewingFight : CancelableCombatState {
     }
 
     private void OnConfirm() {
-		State.FightResult = PreviewResult;
+        State.FightResult = PreviewResult;
         Animator.SetTrigger("attack_confirmed");
     }
 
@@ -56,8 +53,8 @@ public class PreviewingFight : CancelableCombatState {
     }
 
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-        Forecaster.OnConfirm -= new CombatForecaster.ForecastResponseHandler(OnConfirm);
-        Forecaster.OnReject -= new CombatForecaster.ForecastResponseHandler(OnReject);
+        Forecaster.OnConfirm -= OnConfirm;
+        Forecaster.OnReject -= OnReject;
         Forecaster.HideCurrentForecast();
         Camera.EnableGridSelector();
     }

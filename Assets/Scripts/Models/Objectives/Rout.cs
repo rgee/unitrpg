@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
+﻿using System.Linq;
+using Grid;
 using UnityEngine;
 
 public class Rout : Objective {
-
-    private Grid.UnitManager UnitManager;
     private Animator StateMachine;
+    private UnitManager UnitManager;
 
     public void Awake() {
         UnitManager = CombatObjects.GetUnitManager();

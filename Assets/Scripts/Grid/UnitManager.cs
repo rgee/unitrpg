@@ -1,48 +1,39 @@
-﻿using UnityEngine;
-using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 namespace Grid {
     public class UnitManager : MonoBehaviour {
+        public delegate void UnitClickedEventHandler(Unit e, Vector2 gridPosition, bool rightClick);
+
+        private readonly List<GameObject> unitGameObjects = new List<GameObject>();
+        private readonly List<Models.Combat.Unit> unitModels = new List<Models.Combat.Unit>();
+        private readonly Dictionary<Vector2, GameObject> unitsByPosition = new Dictionary<Vector2, GameObject>();
         public MapGrid Grid;
-
-		private List<Models.Combat.Unit> unitModels = new List<Models.Combat.Unit>();
-        private List<GameObject> unitGameObjects = new List<GameObject>();
-        private Dictionary<Vector2, GameObject> unitsByPosition = new Dictionary<Vector2, GameObject>();
-
-        private HashSet<Grid.Unit> unmovedUnits = new HashSet<Unit>();
-
         private bool locked;
-        private GameObject selectedUnit;
-		public GameObject SelectedUnit {
-			get { return selectedUnit; }
-		}
-
-		public delegate void UnitClickedEventHandler(Unit e, Vector2 gridPosition, bool rightClick);
-		public event UnitClickedEventHandler OnUnitClick;
-
         private Vector2? selectedGridPosition;
+        private HashSet<Unit> unmovedUnits = new HashSet<Unit>();
+        public GameObject SelectedUnit { get; private set; }
+        public event UnitClickedEventHandler OnUnitClick;
 
-        public Grid.Unit GetUnitByPosition(Vector2 pos) {
+        public Unit GetUnitByPosition(Vector2 pos) {
             if (!unitsByPosition.ContainsKey(pos)) {
                 return null;
             }
-            return unitsByPosition[pos].GetComponent<Grid.Unit>();
+            return unitsByPosition[pos].GetComponent<Unit>();
         }
 
         // Use this for initialization
-        void Start() {
+        private void Start() {
             foreach (Transform t in transform) {
                 unitGameObjects.Add(t.gameObject);
 
-				Grid.Unit unit = t.gameObject.GetComponent<Grid.Unit>();
+                var unit = t.gameObject.GetComponent<Unit>();
 
-                Vector2 gridPos = unit.gridPosition;
+                var gridPos = unit.gridPosition;
                 unitsByPosition.Add(gridPos, t.gameObject);
 
-				unitModels.Add(unit.model);
+                unitModels.Add(unit.model);
 
                 t.transform.position = Grid.GetWorldPosForGridPos(gridPos);
             }
@@ -53,30 +44,30 @@ namespace Grid {
             CombatEventBus.Moves.AddListener(ChangeUnitPosition);
         }
 
-        void OnDestroy() {
+        private void OnDestroy() {
             CombatEventBus.Deaths.RemoveListener(OnUnitDeath);
             CombatEventBus.Moves.RemoveListener(ChangeUnitPosition);
         }
 
-        void OnUnitDeath(Grid.Unit unit) {
+        private void OnUnitDeath(Unit unit) {
             unitsByPosition.Remove(unit.gridPosition);
             unitModels.Remove(unit.model);
 
-            GameObject gameObject = unit.gameObject;
+            var gameObject = unit.gameObject;
             unitGameObjects.Remove(gameObject);
             Destroy(gameObject);
 
             Grid.RescanGraph();
         }
 
-        public List<Grid.Unit> GetEnemies() {
+        public List<Unit> GetEnemies() {
             return unitGameObjects
                 .Select(unit => unit.GetComponent<Unit>())
                 .Where(unit => !unit.friendly)
                 .ToList();
         }
 
-        public List<Grid.Unit> GetFriendlies() {
+        public List<Unit> GetFriendlies() {
             return unitGameObjects
                 .Select(unit => unit.GetComponent<Unit>())
                 .Where(unit => unit.friendly)
@@ -88,7 +79,7 @@ namespace Grid {
         }
 
         public void ResetMovedUnits(bool friendlyTurn) {
-            IEnumerable<Unit> unmovedUnitQuery = unitGameObjects
+            var unmovedUnitQuery = unitGameObjects
                 .Select(unit => unit.GetComponent<Unit>())
                 .Where(unit => unit.friendly == friendlyTurn);
 
@@ -103,26 +94,25 @@ namespace Grid {
             locked = false;
         }
 
-        void Update() {
-
+        private void Update() {
             if (locked) {
                 return;
             }
 
             if (Input.GetMouseButtonDown(0)) {
-                Vector2? maybeGridPos = Grid.GetMouseGridPosition();
+                var maybeGridPos = Grid.GetMouseGridPosition();
                 SelectUnit(maybeGridPos.Value, false);
             } else if (Input.GetMouseButtonDown(1)) {
-                Vector2? maybeGridPos = Grid.GetMouseGridPosition();
+                var maybeGridPos = Grid.GetMouseGridPosition();
                 SelectUnit(maybeGridPos.Value, true);
             }
         }
 
-		private void AttemptAttack(Vector2 position) {
-			if (unitsByPosition.ContainsKey(position)) {
-				GameObject unit = unitsByPosition[position];
-			}
-		}
+        private void AttemptAttack(Vector2 position) {
+            if (unitsByPosition.ContainsKey(position)) {
+                var unit = unitsByPosition[position];
+            }
+        }
 
         public Vector2? GetSelectedGridPosition() {
             return selectedGridPosition;
@@ -130,24 +120,21 @@ namespace Grid {
 
         private void SelectUnit(Vector2 position, bool rightClick) {
             if (unitsByPosition.ContainsKey(position)) {
-                GameObject potentialUnit = unitsByPosition[position];
-                Unit unitComponent = potentialUnit.GetComponent<Unit>();
-				if (OnUnitClick != null) {
-					OnUnitClick(unitComponent, position, rightClick);
-				}
+                var potentialUnit = unitsByPosition[position];
+                var unitComponent = potentialUnit.GetComponent<Unit>();
+                if (OnUnitClick != null) {
+                    OnUnitClick(unitComponent, position, rightClick);
+                }
 
                 if (!unitComponent.friendly) {
-                    return;
                 }
             }
         }
 
-        private void ChangeUnitPosition(Grid.Unit unit, Vector2 position) {
+        private void ChangeUnitPosition(Unit unit, Vector2 position) {
             unitsByPosition.Remove(unit.gridPosition);
             unitsByPosition.Add(position, unit.gameObject);
             unit.GetComponent<Unit>().gridPosition = position;
         }
-      
     }
 }
-

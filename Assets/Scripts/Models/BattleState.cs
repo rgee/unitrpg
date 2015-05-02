@@ -1,12 +1,10 @@
-﻿using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace Models {
-    
     public class BattleState {
-        public List<Models.Combat.Unit> units;
-        public int turn = 1;
         public Vector2 cameraPosition;
+        public int turn = 1;
+        public List<Combat.Unit> units;
     }
 }

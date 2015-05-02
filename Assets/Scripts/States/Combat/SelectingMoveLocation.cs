@@ -1,40 +1,36 @@
-﻿using UnityEngine;
-using System;
-using System.Collections;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Collections.Generic;
+using UnityEngine;
 
 public class SelectingMoveLocation : CancelableCombatState {
-    public GameObject MovementPipPrefab;
-
-	private MapGrid Grid;
-	private BattleState State;
-	private Animator Animator;
-    private HashSet<Vector2> WalkableLocations;
-    private GameObject MovementPipDialogObject;
-    private MovementDialog MovementPipDialogComponent;
-    private Seeker SelectedSeeker;
-    private int UsedDistance;
-    private Vector2 LastHoveredGridPoint;
-
     private static readonly string PLAYER_ATTACK_PREVIEW_RANGE = "player_attack_preview_range";
     private static readonly string PLAYER_MOVE_RANGE = "player_move_range";
     private static readonly int DEFAULT_ATTACK_RANGE = 1;
+    private Animator Animator;
+    private MapGrid Grid;
+    private Vector2 LastHoveredGridPoint;
+    private MovementDialog MovementPipDialogComponent;
+    private GameObject MovementPipDialogObject;
+    public GameObject MovementPipPrefab;
+    private Seeker SelectedSeeker;
+    private BattleState State;
+    private int UsedDistance;
+    private HashSet<Vector2> WalkableLocations;
 
-	public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-		base.OnStateEnter(animator, stateInfo, layerIndex);
+    public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
+        base.OnStateEnter(animator, stateInfo, layerIndex);
 
         Grid = CombatObjects.GetMap();
         State = CombatObjects.GetBattleState();
-		Animator = animator;
+        Animator = animator;
 
-        int attackRange = DEFAULT_ATTACK_RANGE;
-        int mov = State.GetRemainingDistance(State.SelectedUnit);
+        var attackRange = DEFAULT_ATTACK_RANGE;
+        var mov = State.GetRemainingDistance(State.SelectedUnit);
         UsedDistance = State.GetUsedDistance(State.SelectedUnit);
 
         // So we do not confuse the pathfinder, disable the unit who is moving so they
         // are no longer on the grid.
-        GameObject movingUnit = State.SelectedUnit.gameObject;
+        var movingUnit = State.SelectedUnit.gameObject;
         movingUnit.SetActive(false);
         Grid.RescanGraph();
 
@@ -51,14 +47,14 @@ public class SelectingMoveLocation : CancelableCombatState {
         // This is because the unit-ignoring grid search for squares is unhindered by other units, so it's a 
         // superset of the attackable squares a unit can reach just by walking, but we also need to include
         // squares occupied by the enemy in the results.
-        HashSet<Vector2> AttackableLocations = Grid.GetWalkableTilesInRange(State.SelectedGridPosition, mov + attackRange, true);
+        var AttackableLocations = Grid.GetWalkableTilesInRange(State.SelectedGridPosition, mov + attackRange, true);
         AttackableLocations = AttackableLocations
             .Except(WalkableLocations)
-            .Where((loc) => {
+            .Where(loc => {
                 // Where this location is within attack range of any Walkable point.
-                return WalkableLocations.Any((walkable) => {
-                    return MathUtils.ManhattanDistance(walkable, loc) == attackRange;
-                });
+                return
+                    WalkableLocations.Any(
+                        walkable => { return MathUtils.ManhattanDistance(walkable, loc) == attackRange; });
             })
             .ToHashSet();
 
@@ -68,18 +64,19 @@ public class SelectingMoveLocation : CancelableCombatState {
         movingUnit.SetActive(true);
         Grid.RescanGraph();
 
-        MapHighlightManager highlights = MapHighlightManager.Instance;
-        highlights.HighlightTiles(AttackableLocations, MapHighlightManager.HighlightLevel.PLAYER_ATTACK, PLAYER_ATTACK_PREVIEW_RANGE);
+        var highlights = MapHighlightManager.Instance;
+        highlights.HighlightTiles(AttackableLocations, MapHighlightManager.HighlightLevel.PLAYER_ATTACK,
+            PLAYER_ATTACK_PREVIEW_RANGE);
         highlights.HighlightTiles(WalkableLocations, MapHighlightManager.HighlightLevel.PLAYER_MOVE, PLAYER_MOVE_RANGE);
 
-	    Grid.OnGridClicked += HandleGridClick;
+        Grid.OnGridClicked += HandleGridClick;
 
         MovementPipDialogObject = Instantiate(MovementPipPrefab);
         MovementPipDialogComponent = MovementPipDialogObject.GetComponent<MovementDialog>();
         MovementPipDialogComponent.TotalMoves = State.SelectedUnit.GetComponent<Grid.Unit>().model.Character.Movement;
 
         SelectedSeeker = State.SelectedUnit.GetComponent<Seeker>();
-	}
+    }
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         base.OnStateUpdate(animator, stateInfo, layerIndex);
@@ -90,22 +87,22 @@ public class SelectingMoveLocation : CancelableCombatState {
             return;
         }
 
-        Vector2? maybeMouseGridPos = Grid.GetMouseGridPosition();
+        var maybeMouseGridPos = Grid.GetMouseGridPosition();
         if (maybeMouseGridPos.HasValue) {
-            Vector2 mouseGridPos = maybeMouseGridPos.Value;
+            var mouseGridPos = maybeMouseGridPos.Value;
             if (mouseGridPos != LastHoveredGridPoint) {
                 if (!WalkableLocations.Contains(mouseGridPos)) {
                     return;
                 }
 
-                Grid.Unit unit = State.SelectedUnit;
-                Vector3 src = unit.transform.position;
-                Vector3 dest = Grid.GetWorldPosForGridPos(mouseGridPos);
+                var unit = State.SelectedUnit;
+                var src = unit.transform.position;
+                var dest = Grid.GetWorldPosForGridPos(mouseGridPos);
 
-                BoxCollider2D collider = State.SelectedUnit.gameObject.GetComponent<BoxCollider2D>();
+                var collider = State.SelectedUnit.gameObject.GetComponent<BoxCollider2D>();
                 collider.enabled = false;
                 Grid.RescanGraph();
-                SelectedSeeker.StartPath(src, dest, (p) => {
+                SelectedSeeker.StartPath(src, dest, p => {
                     collider.enabled = true;
                     Grid.RescanGraph();
 
@@ -114,7 +111,7 @@ public class SelectingMoveLocation : CancelableCombatState {
                         PathArrowManager.Instance.ShowPath(p.vectorPath.ToList());
 
                         // Update the dialog to reflect the new path, minus one node becuase it's the start point.
-                        List<Vector3> trimmedPath = p.vectorPath.GetRange(1, p.vectorPath.Count - 1);
+                        var trimmedPath = p.vectorPath.GetRange(1, p.vectorPath.Count - 1);
                         MovementPipDialogComponent.UsedMoves = trimmedPath.Count + UsedDistance;
                     } else {
                         MovementPipDialogComponent.UsedMoves = UsedDistance;
@@ -125,21 +122,21 @@ public class SelectingMoveLocation : CancelableCombatState {
         }
     }
 
-	private void HandleGridClick(Vector2 location) {
+    private void HandleGridClick(Vector2 location) {
         if (WalkableLocations.Contains(location)) {
             State.MovementDestination = location;
             Animator.SetTrigger("move_location_selected");
         }
-	}
+    }
 
-	public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-		base.OnStateExit(animator, stateInfo, layerIndex);
+    public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
+        base.OnStateExit(animator, stateInfo, layerIndex);
         PathArrowManager.Instance.ClearPath();
-	    Grid.OnGridClicked -= HandleGridClick;
+        Grid.OnGridClicked -= HandleGridClick;
 
         MapHighlightManager.Instance.ClearHighlight(PLAYER_MOVE_RANGE);
         MapHighlightManager.Instance.ClearHighlight(PLAYER_ATTACK_PREVIEW_RANGE);
 
         Destroy(MovementPipDialogObject);
-	}
+    }
 }

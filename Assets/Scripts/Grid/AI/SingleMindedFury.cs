@@ -1,39 +1,29 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using Grid;
 using Models.Combat;
+using Pathfinding;
 using UnityEngine;
 
 /**
  * This AI brain on every turn just tries to seek out a target.
  * Can hold off until the target is within a certain range, as well.
  */
-[RequireComponent(typeof(Seeker))]
-[RequireComponent(typeof(Grid.Unit))]
+
+[RequireComponent(typeof (Seeker))]
+[RequireComponent(typeof (Grid.Unit))]
 public class SingleMindedFury : MonoBehaviour, AIStrategy {
-    public GameObject ExecutorPrefab;
-    public GameObject Target;
     public int AggroRange = int.MaxValue;
-    public Grid.UnitManager UnitManager;
-
-    private Seeker Seeker;
-    private Grid.Unit Unit;
-    private MapGrid Grid;
     private int AttackRange;
-    private int MoveRange;
-
     private GridCameraController CameraController;
-
-    public void Awake() {
-        Seeker = GetComponent<Seeker>();
-        Unit = GetComponent<Grid.Unit>();
-        Grid = CombatObjects.GetMap();
-        AttackRange = 1;
-        MoveRange = Unit.model.Character.Movement;
-        CameraController = CombatObjects.GetCameraController();
-    }
+    public GameObject ExecutorPrefab;
+    private MapGrid Grid;
+    private int MoveRange;
+    private Seeker Seeker;
+    public GameObject Target;
+    private Grid.Unit Unit;
+    public UnitManager UnitManager;
 
     public IEnumerator act() {
         CameraController.Lock();
@@ -47,12 +37,12 @@ public class SingleMindedFury : MonoBehaviour, AIStrategy {
          * - If there are some, choose one at random, move to that square, then attack.
          */
 
-        Vector2 targetLoc = Grid.GridPositionForWorldPosition(Target.transform.position);
-        Vector2 ourGridPos = Unit.gridPosition;
+        var targetLoc = Grid.GridPositionForWorldPosition(Target.transform.position);
+        var ourGridPos = Unit.gridPosition;
         if (MathUtils.ManhattanDistance(targetLoc, ourGridPos) <= AttackRange) {
             yield return StartCoroutine(AttackTarget());
         } else {
-            Vector2? attackPosition = FindAttackableLocation();
+            var attackPosition = FindAttackableLocation();
             if (attackPosition.HasValue) {
                 yield return StartCoroutine(MoveThenAttack(attackPosition.Value));
             } else {
@@ -62,21 +52,27 @@ public class SingleMindedFury : MonoBehaviour, AIStrategy {
         CameraController.Unlock();
     }
 
-    private Vector2? FindAttackableLocation() {
+    public void Awake() {
+        Seeker = GetComponent<Seeker>();
+        Unit = GetComponent<Grid.Unit>();
+        Grid = CombatObjects.GetMap();
+        AttackRange = 1;
+        MoveRange = Unit.model.Character.Movement;
+        CameraController = CombatObjects.GetCameraController();
+    }
 
+    private Vector2? FindAttackableLocation() {
         // Find the locations that are within attack range
-        Vector2 targetLoc = Grid.GridPositionForWorldPosition(Target.transform.position);
-        List<Vector2> attackableLocations = (from loc in BreadthFirstSearch() 
-                                             where MathUtils.ManhattanDistance(loc, targetLoc) <= AttackRange
-                                             select loc).ToList();
+        var targetLoc = Grid.GridPositionForWorldPosition(Target.transform.position);
+        var attackableLocations = (from loc in BreadthFirstSearch()
+                                   where MathUtils.ManhattanDistance(loc, targetLoc) <= AttackRange
+                                   select loc).ToList();
 
         // If an attack and be launched from any of the locations 
         if (attackableLocations.Any()) {
             // Get the nearest one to us.
             return attackableLocations
-                .OrderBy((loc) => {
-                    return MathUtils.ManhattanDistance(Unit.gridPosition, loc);
-                })
+                .OrderBy(loc => { return MathUtils.ManhattanDistance(Unit.gridPosition, loc); })
                 .First();
         }
 
@@ -84,7 +80,6 @@ public class SingleMindedFury : MonoBehaviour, AIStrategy {
     }
 
     private List<Vector2> BreadthFirstSearch() {
-
         /**
          * Sigh.
          * 
@@ -101,20 +96,20 @@ public class SingleMindedFury : MonoBehaviour, AIStrategy {
         gameObject.SetActive(false);
         Grid.RescanGraph();
 
-        Pathfinding.GraphNode occupiedNode = AstarPath.active.GetNearest(transform.position).node;
-        List<Pathfinding.GraphNode> bfsResult = Pathfinding.PathUtilities.BFS(occupiedNode, MoveRange);
+        var occupiedNode = AstarPath.active.GetNearest(transform.position).node;
+        var bfsResult = PathUtilities.BFS(occupiedNode, MoveRange);
 
         gameObject.SetActive(true);
         Grid.RescanGraph();
 
-        List<Vector2> gridResults = (from node in bfsResult
-                                     select Grid.GridPositionForWorldPosition((Vector3)node.position)).ToList();
+        var gridResults = (from node in bfsResult
+                           select Grid.GridPositionForWorldPosition((Vector3) node.position)).ToList();
 
         return gridResults;
     }
 
     private IEnumerator MoveThenAttack(Vector2 attackPosition) {
-        Vector3 worldPos = Grid.GetWorldPosForGridPos(attackPosition);
+        var worldPos = Grid.GetWorldPosForGridPos(attackPosition);
         yield return StartCoroutine(ApproachPosition(worldPos));
         yield return StartCoroutine(AttackTarget());
     }
@@ -122,14 +117,15 @@ public class SingleMindedFury : MonoBehaviour, AIStrategy {
     private IEnumerator ApproachTarget() {
         yield return StartCoroutine(ApproachPosition(Target.transform.position));
     }
+
     private IEnumerator ApproachPosition(Vector3 position) {
         // Remove this unit's collider so the pathfinder wont see the currently-occupied Grid square
         // as a blockage.
-        BoxCollider2D collider = GetComponent<BoxCollider2D>();
+        var collider = GetComponent<BoxCollider2D>();
         collider.enabled = false;
         Grid.RescanGraph();
-        Pathfinding.Path path = null;
-        Seeker.StartPath(transform.position, position, (p) => {
+        Path path = null;
+        Seeker.StartPath(transform.position, position, p => {
             collider.enabled = true;
             Grid.RescanGraph();
             path = p;
@@ -139,50 +135,48 @@ public class SingleMindedFury : MonoBehaviour, AIStrategy {
             yield return new WaitForEndOfFrame();
         }
 
-		// Limit the path found to the unit's move range.
-		int moveRange = Unit.model.Character.Movement;
-		List<Vector3> limitedPath = path.vectorPath
-            .GetRange(1, path.vectorPath.Count - 1)
-            .Take(moveRange).ToList();
+        // Limit the path found to the unit's move range.
+        var moveRange = Unit.model.Character.Movement;
+        var limitedPath = path.vectorPath
+                              .GetRange(1, path.vectorPath.Count - 1)
+                              .Take(moveRange).ToList();
 
-        foreach (Vector3 node in limitedPath) {
+        foreach (var node in limitedPath) {
             Debug.Log(node);
         }
 
         if (!path.error) {
             yield return StartCoroutine(Unit.MoveAlongPath(limitedPath));
 
-			Vector2 destination = Grid.GridPositionForWorldPosition(limitedPath.Last());
+            var destination = Grid.GridPositionForWorldPosition(limitedPath.Last());
             CombatEventBus.Moves.Dispatch(Unit, destination);
-        } else {
-            yield break;
         }
     }
 
     private IEnumerator AttackTarget() {
-        Grid.Unit targetUnit = Target.GetComponent<Grid.Unit>();
-             
-        Participants participants = new Participants(
+        var targetUnit = Target.GetComponent<Grid.Unit>();
+
+        var participants = new Participants(
             Unit.model,
             targetUnit.model
-        );
-        Fight fight = new Fight(participants, AttackType.BASIC, new DefaultFightResolution());
-        FightResult result = fight.SimulateFight();
+            );
+        var fight = new Fight(participants, AttackType.BASIC, new DefaultFightResolution());
+        var result = fight.SimulateFight();
 
 
-        MathUtils.CardinalDirection attackerDirection = MathUtils.DirectionTo(Unit.gridPosition, targetUnit.gridPosition);
-        MathUtils.CardinalDirection defenderDirection = attackerDirection.GetOpposite();
+        var attackerDirection = MathUtils.DirectionTo(Unit.gridPosition, targetUnit.gridPosition);
+        var defenderDirection = attackerDirection.GetOpposite();
 
         Unit.PrepareForCombat(attackerDirection);
         targetUnit.PrepareForCombat(defenderDirection);
 
-        GameObject executorObj = Instantiate(ExecutorPrefab) as GameObject;
-        FightExecutor executor = executorObj.GetComponent<FightExecutor>();
+        var executorObj = Instantiate(ExecutorPrefab);
+        var executor = executorObj.GetComponent<FightExecutor>();
         yield return StartCoroutine(executor.RunFight(
             gameObject,
             Target,
             result
-        ));
+            ));
         Destroy(executorObj);
     }
 }

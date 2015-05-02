@@ -1,53 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using UnityEngine;
 
 public class PathArrowManager : Singleton<PathArrowManager> {
-    public Sprite NorthSegment;
-    public Sprite SouthSegment;
+    private readonly List<GameObject> PathSprites = new List<GameObject>();
+    public Sprite EastHead;
     public Sprite EastSegment;
+    public Sprite NorthEastCorner;
+    public Sprite NorthHead;
+    public Sprite NorthSegment;
+    public Sprite NorthWestCorner;
+    public Sprite SouthEastCorner;
+    public Sprite SouthHead;
+    public Sprite SouthSegment;
+    public Sprite SouthWestCorner;
+    public Sprite WestHead;
     public Sprite WestSegment;
 
-    public Sprite NorthHead;
-    public Sprite SouthHead;
-    public Sprite EastHead;
-    public Sprite WestHead;
-
-    public Sprite NorthWestCorner;
-    public Sprite SouthWestCorner;
-    public Sprite NorthEastCorner;
-    public Sprite SouthEastCorner;
-
-
-    private List<GameObject> PathSprites = new List<GameObject>();
-
     public void ClearPath() {
-        foreach (GameObject sprite in PathSprites) {
+        foreach (var sprite in PathSprites) {
             Destroy(sprite);
         }
         PathSprites.Clear();
-    }
-
-    private struct Junction {
-        public Transition Entrance;
-        public Transition? Exit;
-
-        public bool IsCorner() {
-            if (!Exit.HasValue) { 
-                return false;
-            }
-
-            MathUtils.CardinalDirection entranceDirection = Entrance.Direction;
-            MathUtils.CardinalDirection exitDirection = Exit.Value.Direction;
-            return entranceDirection.GetOrientation() != exitDirection.GetOrientation();
-        }
-    }
-
-    private struct Transition {
-        public Vector3 Destination;
-        public MathUtils.CardinalDirection Direction;
     }
 
     private List<Junction> ConvertToJunctions(List<Vector3> points) {
@@ -55,24 +29,24 @@ public class PathArrowManager : Singleton<PathArrowManager> {
             throw new ArgumentException("At least two points are required to make a path.");
         }
 
-        List<Junction> result = new List<Junction>();
+        var result = new List<Junction>();
 
-        int prevIdx = 0;
-        int currentIdx = 1;
-        int nextIdx = 2;
+        var prevIdx = 0;
+        var currentIdx = 1;
+        var nextIdx = 2;
 
         // Iterate in a sliding window of three points on the path.
         for (; currentIdx < points.Count; prevIdx++, currentIdx++, nextIdx++) {
-            Junction junction = new Junction();
+            var junction = new Junction();
 
-            Transition entrance = new Transition();
+            var entrance = new Transition();
             entrance.Destination = points[currentIdx];
             entrance.Direction = MathUtils.DirectionTo(points[prevIdx], entrance.Destination);
             junction.Entrance = entrance;
 
             // If there is no next point, we've reached the end.
             if (nextIdx < points.Count) {
-                Transition exit = new Transition();
+                var exit = new Transition();
                 exit.Destination = points[nextIdx];
                 exit.Direction = MathUtils.DirectionTo(entrance.Destination, exit.Destination);
                 junction.Exit = exit;
@@ -85,9 +59,9 @@ public class PathArrowManager : Singleton<PathArrowManager> {
     }
 
     private void AddPathSegment(Vector3 position, Sprite sprite) {
-        GameObject obj = new GameObject("path_segment");
+        var obj = new GameObject("path_segment");
         obj.transform.position = position;
-        SpriteRenderer renderer = obj.AddComponent<SpriteRenderer>();
+        var renderer = obj.AddComponent<SpriteRenderer>();
         renderer.sprite = sprite;
         renderer.sortingOrder = 16;
 
@@ -124,37 +98,34 @@ public class PathArrowManager : Singleton<PathArrowManager> {
         }
     }
 
-    private Sprite GetCornerSpriteForDirections(MathUtils.CardinalDirection enterDir, MathUtils.CardinalDirection exitDir) {
+    private Sprite GetCornerSpriteForDirections(MathUtils.CardinalDirection enterDir,
+                                                MathUtils.CardinalDirection exitDir) {
         if (enterDir == MathUtils.CardinalDirection.N) {
             if (exitDir == MathUtils.CardinalDirection.E) {
                 return NorthEastCorner;
-            } else {
-                return NorthWestCorner;
             }
+            return NorthWestCorner;
         }
 
         if (enterDir == MathUtils.CardinalDirection.S) {
             if (exitDir == MathUtils.CardinalDirection.E) {
                 return SouthEastCorner;
-            } else {
-                return SouthWestCorner;
             }
+            return SouthWestCorner;
         }
 
         if (enterDir == MathUtils.CardinalDirection.E) {
             if (exitDir == MathUtils.CardinalDirection.N) {
                 return SouthWestCorner;
-            } else {
-                return NorthWestCorner;
             }
+            return NorthWestCorner;
         }
 
         if (enterDir == MathUtils.CardinalDirection.W) {
             if (exitDir == MathUtils.CardinalDirection.S) {
                 return NorthEastCorner;
-            } else {
-                return SouthEastCorner;
             }
+            return SouthEastCorner;
         }
 
         throw new ArgumentException("uh, can't find the direction to render the path.");
@@ -163,10 +134,10 @@ public class PathArrowManager : Singleton<PathArrowManager> {
     public void ShowPath(List<Vector3> pathSegments) {
         ClearPath();
 
-        List<Junction> junctions = ConvertToJunctions(pathSegments);
-        foreach (Junction jct in junctions) {
-            Vector3 destination = jct.Entrance.Destination;
-            MathUtils.CardinalDirection direction = jct.Entrance.Direction;
+        var junctions = ConvertToJunctions(pathSegments);
+        foreach (var jct in junctions) {
+            var destination = jct.Entrance.Destination;
+            var direction = jct.Entrance.Direction;
 
             if (jct.IsCorner()) {
                 AddPathSegment(destination, GetCornerSpriteForDirections(direction, jct.Exit.Value.Direction));
@@ -178,5 +149,25 @@ public class PathArrowManager : Singleton<PathArrowManager> {
                 }
             }
         }
+    }
+
+    private struct Junction {
+        public Transition Entrance;
+        public Transition? Exit;
+
+        public bool IsCorner() {
+            if (!Exit.HasValue) {
+                return false;
+            }
+
+            var entranceDirection = Entrance.Direction;
+            var exitDirection = Exit.Value.Direction;
+            return entranceDirection.GetOrientation() != exitDirection.GetOrientation();
+        }
+    }
+
+    private struct Transition {
+        public Vector3 Destination;
+        public MathUtils.CardinalDirection Direction;
     }
 }

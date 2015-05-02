@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using UnityEngine;
 
 public class AttackerAttacks : StateMachineBehaviour {
@@ -13,11 +9,11 @@ public class AttackerAttacks : StateMachineBehaviour {
         State = FightExecutionObjects.GetState();
         StateMachine = stateMachine;
 
-        FightPhaseResult phase = State.Result.InitialAttack;
-        Grid.Unit attacker = GetUnitComponent(State.Attacker);
-        Grid.Unit defender = GetUnitComponent(State.Defender);
+        var phase = State.Result.InitialAttack;
+        var attacker = GetUnitComponent(State.Attacker);
+        var defender = GetUnitComponent(State.Defender);
 
-        FightPhaseExecutor phaseExecutor = new FightPhaseExecutor(attacker, defender, phase.AttackerHits);
+        var phaseExecutor = new FightPhaseExecutor(attacker, defender, phase.AttackerHits);
         phaseExecutor.OnComplete += TransitionToComplete;
         phaseExecutor.OnTargetDied += TransitionToDead;
 

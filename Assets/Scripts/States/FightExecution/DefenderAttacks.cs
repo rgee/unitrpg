@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using UnityEngine;
 
 public class DefenderAttacks : StateMachineBehaviour {
-    
     private FightExcecutionState State;
     private Animator StateMachine;
 
@@ -14,11 +9,11 @@ public class DefenderAttacks : StateMachineBehaviour {
         State = FightExecutionObjects.GetState();
         StateMachine = stateMachine;
 
-        FightPhaseResult phase = State.Result.CounterAttack;
-        Grid.Unit attacker = GetUnitComponent(State.Defender);
-        Grid.Unit defender = GetUnitComponent(State.Attacker);
+        var phase = State.Result.CounterAttack;
+        var attacker = GetUnitComponent(State.Defender);
+        var defender = GetUnitComponent(State.Attacker);
 
-        FightPhaseExecutor phaseExecutor = new FightPhaseExecutor(attacker, defender, phase.AttackerHits);
+        var phaseExecutor = new FightPhaseExecutor(attacker, defender, phase.AttackerHits);
         phaseExecutor.OnComplete += TransitionToComplete;
         phaseExecutor.OnTargetDied += TransitionToDead;
 

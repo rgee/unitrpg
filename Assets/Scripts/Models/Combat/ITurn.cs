@@ -3,9 +3,9 @@
         int TurnCount { get; }
         TurnControl Control { get; }
         void End();
-        void RecordMove(Models.Combat.Unit unit, int squares);
-        void RecordAction(Models.Combat.Unit unit);
-        int GetRemainingMoves(Models.Combat.Unit unit);
-        bool CanAct(Models.Combat.Unit unit);
+        void RecordMove(Unit unit, int squares);
+        void RecordAction(Unit unit);
+        int GetRemainingMoves(Unit unit);
+        bool CanAct(Unit unit);
     }
 }
