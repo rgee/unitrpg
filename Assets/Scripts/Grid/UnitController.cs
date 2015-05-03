@@ -17,9 +17,11 @@ public class UnitController : MonoBehaviour {
     private List<Vector3> CurrentPath;
     private int CurrentPathIdx = -1;
     private Vector3 PreviousPoint;
+    private BattleState _battleState;
 
     public void Start() {
         Animator = GetComponent<Animator>();
+        _battleState = CombatObjects.GetBattleState();
     }
 
     public void MoveAlongPath(List<Vector3> path, Action callback) {
@@ -51,7 +53,22 @@ public class UnitController : MonoBehaviour {
                 ));
         } else {
             Animator.SetBool("Running", false);
+            CommitMoveToModel();
             CurrentCallback();
         }
+    }
+
+    private void CommitMoveToModel() {
+        var unitModel = GetComponent<Grid.Unit>().model;
+        var battleModel = _battleState.Model;
+        var grid = CombatObjects.GetMap();
+
+        var gridPointPath = (from point in CurrentPath
+                             select grid.GridPositionForWorldPosition(point))
+                             .ToList();
+
+        var destination = gridPointPath.Last();
+
+        battleModel.MoveUnit(unitModel, gridPointPath, destination);
     }
 }

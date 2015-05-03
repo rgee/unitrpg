@@ -60,6 +60,12 @@ namespace Grid {
             Grid.RescanGraph();
         }
 
+        public List<Unit> GetAllUnits() {
+            return unitGameObjects
+                .Select(unit => unit.GetComponent<Unit>())
+                .ToList();
+        }
+
         public List<Unit> GetEnemies() {
             return unitGameObjects
                 .Select(unit => unit.GetComponent<Unit>())

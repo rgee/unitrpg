@@ -1,8 +1,11 @@
 ﻿using System.Collections.Generic;
+using Models.Combat;
 using UnityEngine;
 
 [RequireComponent(typeof (Objective))]
 public class BattleState : MonoBehaviour {
+    public IBattle Model;
+
     // Attack
     public Grid.Unit AttackTarget;
     public FightResult FightResult;

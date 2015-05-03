@@ -383,9 +383,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b2fb53fc2ec7d54185561c3d5c86bd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AggroRange: 2147483647
   ExecutorPrefab: {fileID: 193992, guid: 5a3b99e90e1b2024cb3d3bfc144323ef, type: 2}
   Target: {fileID: 1844736220}
-  AggroRange: 2147483647
   UnitManager: {fileID: 61936474}
 --- !u!4 &293632567 stripped
 Transform:
@@ -1226,6 +1226,14 @@ Prefab:
       propertyPath: detailedGizmos
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11428984, guid: 5dfb6c7c29956be469fb68ffaa8f4c7b, type: 2}
+      propertyPath: model.GridPosition.x
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 11428984, guid: 5dfb6c7c29956be469fb68ffaa8f4c7b, type: 2}
+      propertyPath: model.GridPosition.y
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5dfb6c7c29956be469fb68ffaa8f4c7b, type: 2}
   m_IsPrefabParent: 0
@@ -1300,6 +1308,18 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11493554, guid: f9c4e8655aad264438010e3fb4de1652, type: 2}
       propertyPath: detailedGizmos
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11425048, guid: f9c4e8655aad264438010e3fb4de1652, type: 2}
+      propertyPath: model.GridPosition.x
+      value: 27
+      objectReference: {fileID: 0}
+    - target: {fileID: 11425048, guid: f9c4e8655aad264438010e3fb4de1652, type: 2}
+      propertyPath: model.GridPosition.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 11425048, guid: f9c4e8655aad264438010e3fb4de1652, type: 2}
+      propertyPath: model.IsFriendly
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
@@ -1632,10 +1652,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77c2f7e691e0b45018dd46ed73ee176f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SelectedUnit: {fileID: 0}
-  SelectedGridPosition: {x: 0, y: 0}
-  MovementDestination: {x: 0, y: 0}
   AttackTarget: {fileID: 0}
+  MovementDestination: {x: 0, y: 0}
+  SelectedGridPosition: {x: 0, y: 0}
+  SelectedUnit: {fileID: 0}
 --- !u!114 &1410701934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1991,9 +2011,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b2fb53fc2ec7d54185561c3d5c86bd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AggroRange: 2147483647
   ExecutorPrefab: {fileID: 0}
   Target: {fileID: 1844736220}
-  AggroRange: 2147483647
   UnitManager: {fileID: 61936474}
 --- !u!1 &1858884300
 GameObject:
@@ -16072,9 +16092,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6b7379bd1189494aa967feef91e1ebb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  height: 20
   tileSizeInPixels: 32
   width: 35
-  height: 20
 --- !u!114 &2058661010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16178,17 +16198,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8636db776d7959a4ab5c7fb7edcb640e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MapHighlightPrefab: {fileID: 133506, guid: 93f3a9d030a037b428cae048d1f6bf91, type: 2}
   AttackSelectionMaterial: {fileID: 2100000, guid: 90594c636de501e428f525f0c11f0d0b,
     type: 2}
-  MovementSelectionMaterial: {fileID: 2100000, guid: ab88c5ac613a069478342536ecd4c80d,
-    type: 2}
+  BaseSortOrder: 6
+  GlobalEnemyMaterial: {fileID: 2100000, guid: 8481194d3a0650243ac2f1ff9519d8ef, type: 2}
   HoverSelectionMaterial: {fileID: 2100000, guid: c84bef2265f8d3f4d8ac900e2f4c2d31,
+    type: 2}
+  MapHighlightPrefab: {fileID: 133506, guid: 93f3a9d030a037b428cae048d1f6bf91, type: 2}
+  MovementSelectionMaterial: {fileID: 2100000, guid: ab88c5ac613a069478342536ecd4c80d,
     type: 2}
   SpecificEnemyMaterial: {fileID: 2100000, guid: dbe564274e8c99040bce9d5fd242642e,
     type: 2}
-  GlobalEnemyMaterial: {fileID: 2100000, guid: 8481194d3a0650243ac2f1ff9519d8ef, type: 2}
-  BaseSortOrder: 6
 --- !u!114 &2058661013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16200,18 +16220,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85e7f277474df6a48be0cc09f7975888, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NorthSegment: {fileID: 21300008, guid: 9e2e5c6142f1b734cb25de9ce515342c, type: 3}
-  SouthSegment: {fileID: 21300008, guid: 9e2e5c6142f1b734cb25de9ce515342c, type: 3}
-  EastSegment: {fileID: 21300006, guid: 9e2e5c6142f1b734cb25de9ce515342c, type: 3}
-  WestSegment: {fileID: 21300006, guid: 9e2e5c6142f1b734cb25de9ce515342c, type: 3}
-  NorthHead: {fileID: 21300010, guid: 9e2e5c6142f1b734cb25de9ce515342c, type: 3}
-  SouthHead: {fileID: 21300012, guid: 9e2e5c6142f1b734cb25de9ce515342c, type: 3}
   EastHead: {fileID: 21300002, guid: 9e2e5c6142f1b734cb25de9ce515342c, type: 3}
-  WestHead: {fileID: 21300004, guid: 9e2e5c6142f1b734cb25de9ce515342c, type: 3}
-  NorthWestCorner: {fileID: 21300018, guid: 9e2e5c6142f1b734cb25de9ce515342c, type: 3}
-  SouthWestCorner: {fileID: 21300016, guid: 9e2e5c6142f1b734cb25de9ce515342c, type: 3}
+  EastSegment: {fileID: 21300006, guid: 9e2e5c6142f1b734cb25de9ce515342c, type: 3}
   NorthEastCorner: {fileID: 21300000, guid: 9e2e5c6142f1b734cb25de9ce515342c, type: 3}
+  NorthHead: {fileID: 21300010, guid: 9e2e5c6142f1b734cb25de9ce515342c, type: 3}
+  NorthSegment: {fileID: 21300008, guid: 9e2e5c6142f1b734cb25de9ce515342c, type: 3}
+  NorthWestCorner: {fileID: 21300018, guid: 9e2e5c6142f1b734cb25de9ce515342c, type: 3}
   SouthEastCorner: {fileID: 21300014, guid: 9e2e5c6142f1b734cb25de9ce515342c, type: 3}
+  SouthHead: {fileID: 21300012, guid: 9e2e5c6142f1b734cb25de9ce515342c, type: 3}
+  SouthSegment: {fileID: 21300008, guid: 9e2e5c6142f1b734cb25de9ce515342c, type: 3}
+  SouthWestCorner: {fileID: 21300016, guid: 9e2e5c6142f1b734cb25de9ce515342c, type: 3}
+  WestHead: {fileID: 21300004, guid: 9e2e5c6142f1b734cb25de9ce515342c, type: 3}
+  WestSegment: {fileID: 21300006, guid: 9e2e5c6142f1b734cb25de9ce515342c, type: 3}
 --- !u!114 &2058661015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16366,8 +16386,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a9ea17f34800514ebcc69a989168799, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UnitManager: {fileID: 61936474}
   EnemyActionDelaySeconds: .200000003
+  UnitManager: {fileID: 61936474}
 --- !u!1001 &2114864115
 Prefab:
   m_ObjectHideFlags: 0

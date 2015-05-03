@@ -30,7 +30,7 @@ namespace Models.Combat {
         }
 
         public void MoveUnit(Unit unit, Vector2 location) {
-            if (_unitsByPosition[location] != null) {
+            if (_unitsByPosition.ContainsKey(location)) {
                 throw new ArgumentException("Cannot move to square already occupied: " + location);
             }
 
