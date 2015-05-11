@@ -26,8 +26,8 @@ namespace Models.Combat {
             get { return _turnState.TurnCount; }
         }
 
-        public void EndTurn() {
-            _turnState.End();
+        public void EndTurn(TurnControl control) {
+            _turnState.End(control);
         }
 
         public bool CanAct(Unit unit) {

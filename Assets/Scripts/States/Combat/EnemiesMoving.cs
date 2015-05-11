@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Models.Combat;
 using UnityEngine;
 
 public class EnemiesMoving : StateMachineBehaviour {
@@ -15,5 +16,6 @@ public class EnemiesMoving : StateMachineBehaviour {
     private IEnumerator RunAI() {
         yield return AI.StartCoroutine(AI.TakeTurn());
         Animator.SetTrigger("enemies_acted");
+        CombatObjects.GetBattleState().Model.EndTurn(TurnControl.Enemy);
     }
 }

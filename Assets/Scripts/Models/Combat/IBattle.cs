@@ -12,7 +12,7 @@ namespace Models.Combat {
 
         bool IsComplete();
         bool IsFailed();
-        void EndTurn();
+        void EndTurn(TurnControl control);
         int TurnCount { get; }
 
         #endregion

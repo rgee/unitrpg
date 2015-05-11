@@ -1,10 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Models.Combat {
     public class Turn : ITurn {
         private readonly IMap _map;
         private IDictionary<Unit, UnitTurnState> _turnState;
+        private bool _friendlyComplete;
 
         public Turn(IMap map) {
             _map = map;
@@ -14,11 +16,17 @@ namespace Models.Combat {
         public int TurnCount { get; private set; }
         public TurnControl Control { get; private set; }
 
-        public void End() {
-            TurnCount++;
+        public void End(TurnControl control) {
+            if (_friendlyComplete) {
+                if (control == TurnControl.Enemy) {
+                    TurnCount++;
+                    _friendlyComplete = false;
+                }
+            } else if (control == TurnControl.Friendly) {
+                _friendlyComplete = true;
+            }
 
-            // Friendly has control on even turns
-            Control = TurnCount%2 == 0 ? TurnControl.Friendly : TurnControl.Enemy;
+            Control = control == TurnControl.Friendly ? TurnControl.Enemy : TurnControl.Friendly;
             InitializeTurn();
         }
 

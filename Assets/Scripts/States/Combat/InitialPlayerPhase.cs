@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using Grid;
+using Models.Combat;
 using UnityEngine;
 
 public class InitialPlayerPhase : StateMachineBehaviour {
@@ -16,9 +17,10 @@ public class InitialPlayerPhase : StateMachineBehaviour {
 
         var friendlyUnits = UnitManager.GetFriendlies();
 
-        var turnComplete = friendlyUnits.All(unit => { return BattleState.UnitActed(unit); });
+        var turnComplete = friendlyUnits.All(unit => BattleState.UnitActed(unit));
 
         if (turnComplete) {
+            BattleState.Model.EndTurn(TurnControl.Friendly);
             animator.SetTrigger("actions_exhausted");
             BattleState.ResetTurnState();
         } else {

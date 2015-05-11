@@ -21,8 +21,8 @@ public class FightComplete : StateMachineBehaviour {
         var battle = battleState.Model;
         Fight fight = new Fight(
             new Participants(
-                battleState.SelectedUnit.model,
-                battleState.AttackTarget.model
+                FightExecutionObjects.GetState().Attacker.GetComponent<Grid.Unit>().model,
+                null
             ), 
             AttackType.BASIC,
             new DefaultFightResolution()
