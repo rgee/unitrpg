@@ -18,6 +18,7 @@ namespace Models.Combat {
 
         #region Unit Action Operations
 
+        bool CanMove(Unit unit);
         bool CanAct(Unit unit);
         void WaitUnit(Unit unit);
         void MoveUnit(Unit unit, List<Vector2> path, Vector2 location);
@@ -27,6 +28,7 @@ namespace Models.Combat {
 
         #region Unit Query Operations
 
+        int GetMovesUsed(Unit unit);
         int GetRemainingMoves(Unit unit);
         Unit GetUnitByName(string name);
         Unit GetUnitByLocation(Vector2 position);

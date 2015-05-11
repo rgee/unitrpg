@@ -28,6 +28,14 @@ namespace Models.Combat {
             return _turnState.CanAct(unit);
         }
 
+        public bool CanMove(Unit unit) {
+            return GetRemainingMoves(unit) > 0;
+        }
+
+        public int GetMovesUsed(Unit unit) {
+            return _turnState.GetUsedMoves(unit);
+        }
+
         public int GetRemainingMoves(Unit unit) {
             return _turnState.GetRemainingMoves(unit);
         }

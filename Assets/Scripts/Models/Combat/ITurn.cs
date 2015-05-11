@@ -6,6 +6,7 @@
         void RecordMove(Unit unit, int squares);
         void RecordAction(Unit unit);
         int GetRemainingMoves(Unit unit);
+        int GetUsedMoves(Unit unit);
         bool CanAct(Unit unit);
     }
 }

@@ -35,6 +35,13 @@ namespace Models.Combat {
             state.Acted = true;
         }
 
+        public int GetUsedMoves(Unit unit) {
+            var total = unit.Character.Movement;
+            var remaining = GetRemainingMoves(unit);
+
+            return total - remaining;
+        }
+
         public int GetRemainingMoves(Unit unit) {
             return _turnState[unit].MovesRemaining;
         }
