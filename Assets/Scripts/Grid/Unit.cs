@@ -156,6 +156,10 @@ namespace Grid {
             }
         }
 
+        public void MoveTo(Vector2 pos, MapGrid grid, Action onMovementComplete) {
+            MoveTo(pos, grid, arg => { }, onMovementComplete);
+        }
+
         public void MoveTo(Vector2 pos, MapGrid grid, OnSearchComplete searchCb, Action callback) {
             var destination = grid.GetWorldPosForGridPos(pos);
 
