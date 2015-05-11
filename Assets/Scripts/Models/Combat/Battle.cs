@@ -22,7 +22,13 @@ namespace Models.Combat {
             return _actionProber.GetAvailableActions(unit);
         }
 
-        public int TurnCount { get; private set; }
+        public int TurnCount {
+            get { return _turnState.TurnCount; }
+        }
+
+        public void EndTurn() {
+            _turnState.End();
+        }
 
         public bool CanAct(Unit unit) {
             return _turnState.CanAct(unit);
