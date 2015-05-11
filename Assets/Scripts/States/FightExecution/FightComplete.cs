@@ -1,9 +1,11 @@
-﻿using UnityEngine;
+﻿using Models.Combat;
+using UnityEngine;
 
 public class FightComplete : StateMachineBehaviour {
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         var state = FightExecutionObjects.GetState();
         if (state.Attacker != null) {
+            CommitFightToModels();
             state.Attacker.GetComponent<Grid.Unit>().ReturnToRest();
         }
 
@@ -11,5 +13,22 @@ public class FightComplete : StateMachineBehaviour {
             state.Defender.GetComponent<Grid.Unit>().ReturnToRest();
         }
         state.Complete = true;
+
+    }
+
+    private void CommitFightToModels() {
+        var battleState = CombatObjects.GetBattleState();
+        var battle = battleState.Model;
+        Fight fight = new Fight(
+            new Participants(
+                battleState.SelectedUnit.model,
+                battleState.AttackTarget.model
+            ), 
+            AttackType.BASIC,
+            new DefaultFightResolution()
+        );
+
+        // TODO: Move fight execution into here.
+        battle.ExecuteFight(fight);
     }
 }

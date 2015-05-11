@@ -16,9 +16,6 @@ public class ShowingEXP : StateMachineBehaviour {
         CameraController = CombatObjects.GetCameraController();
         Animator = animator;
 
-        var state = CombatObjects.GetBattleState();
-        state.MarkUnitActed(state.SelectedUnit);
-
         LockControls();
 
         ExpPanel = Instantiate(ExpPanelPrefab);

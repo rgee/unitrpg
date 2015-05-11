@@ -141,10 +141,6 @@ public class SingleMindedFury : MonoBehaviour, AIStrategy {
                               .GetRange(1, path.vectorPath.Count - 1)
                               .Take(moveRange).ToList();
 
-        foreach (var node in limitedPath) {
-            Debug.Log(node);
-        }
-
         if (!path.error) {
             yield return StartCoroutine(Unit.MoveAlongPath(limitedPath));
 

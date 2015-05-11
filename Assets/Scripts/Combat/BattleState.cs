@@ -13,7 +13,6 @@ public class BattleState : MonoBehaviour {
     public Vector2 MovementDestination;
     public Vector2 SelectedGridPosition;
     public Grid.Unit SelectedUnit;
-    private Dictionary<Grid.Unit, UnitActionState> States = new Dictionary<Grid.Unit, UnitActionState>();
 
     public bool isWon() {
         return GetComponent<Objective>().IsComplete();
@@ -32,15 +31,11 @@ public class BattleState : MonoBehaviour {
     }
 
     public void ResetTurnState() {
-        States = new Dictionary<Grid.Unit, UnitActionState>();
+
     }
 
     public bool UnitActed(Grid.Unit unit) {
-        if (!States.ContainsKey(unit)) {
-            States[unit] = new UnitActionState();
-        }
-
-        return States[unit].Acted;
+        return !Model.CanAct(unit.model);
     }
 
     public bool UnitMoved(Grid.Unit unit) {
@@ -53,21 +48,5 @@ public class BattleState : MonoBehaviour {
 
     public int GetRemainingDistance(Grid.Unit unit) {
         return Model.GetRemainingMoves(unit.model);
-    }
-
-    public void MarkUnitActed(Grid.Unit unit) {
-        if (!States.ContainsKey(unit)) {
-            States[unit] = new UnitActionState();
-        }
-        var state = States[unit];
-        state.Acted = true;
-
-        States[unit] = state;
-    }
-
-    // Record of a unit's actions during a single turn
-    private struct UnitActionState {
-        public bool Acted;
-        public int DistanceMoved;
     }
 }
