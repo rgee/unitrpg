@@ -2,6 +2,11 @@
 using UnityEngine;
 
 namespace Models.Combat {
+    /// <summary>
+    /// This is the main controller interface to the game logic. 
+    /// All code on the surface of and beneath this interface should be ignorant of 
+    /// any concept of a view or a screen or player input.
+    /// </summary>
     public interface IBattle {
         #region Turn Operations
 

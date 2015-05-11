@@ -60,11 +60,7 @@ public class BattleState : MonoBehaviour {
     }
 
     public int GetRemainingDistance(Grid.Unit unit) {
-        if (!States.ContainsKey(unit)) {
-            States[unit] = new UnitActionState();
-        }
-        var character = unit.GetCharacter();
-        return character.Movement - States[unit].DistanceMoved;
+        return Model.GetRemainingMoves(unit.model);
     }
 
     public void MarkUnitMoved(Grid.Unit unit, int distance) {

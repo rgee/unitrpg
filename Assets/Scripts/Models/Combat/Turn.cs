@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace Models.Combat {
     public class Turn : ITurn {
@@ -23,7 +24,10 @@ namespace Models.Combat {
 
         public void RecordMove(Unit unit, int squares) {
             var state = _turnState[unit];
+            var moves = state.MovesRemaining;
             state.MovesRemaining -= squares;
+
+            Debug.Log("Moves remaining reduced from " + moves + " to " + state.MovesRemaining);
         }
 
         public void RecordAction(Unit unit) {
@@ -58,7 +62,7 @@ namespace Models.Combat {
             return new UnitTurnState(unit.Character.Movement, false);
         }
 
-        private struct UnitTurnState {
+        private class UnitTurnState {
             public bool Acted;
             public int MovesRemaining;
 
