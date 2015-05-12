@@ -7,26 +7,25 @@ using UnityEngine;
 public class ActionMenuManager : MonoBehaviour {
     public delegate void ActionSelectedHandler(BattleAction action);
 
-    private GameObject openMenu;
     public GameObject TestMenu;
     public event ActionSelectedHandler OnActionSelected;
 
-    // For when there are enemies nearby, but no friendlies
+    [Tooltip("For when there are enemies nearby, but no friendlies")]
     public GameObject MoveFightFull;
 
-    // For when there are no enemies or friendly units around and the
-    // unit can still move.
+    [Tooltip("For when there are no enemies or friendly units around and the unit can still move")]
     public GameObject MoveBraceItem;
 
-    private Dictionary<CombatAction, GameObject> PrefabsByActions = new Dictionary<CombatAction, GameObject>();
+    private GameObject _openMenu;
+    private readonly Dictionary<CombatAction, GameObject> _prefabsByActions = new Dictionary<CombatAction, GameObject>();
 
     public void Start() {
-        PrefabsByActions.Add(
+        _prefabsByActions.Add(
             CombatAction.Fight | CombatAction.Wait | CombatAction.Move | CombatAction.Brace | CombatAction.Item,
             MoveFightFull
         );
 
-        PrefabsByActions.Add(
+        _prefabsByActions.Add(
             CombatAction.Move | CombatAction.Wait | CombatAction.Brace | CombatAction.Item,
             MoveBraceItem
         );
@@ -41,7 +40,7 @@ public class ActionMenuManager : MonoBehaviour {
             .Aggregate((value, next) => value | next);
 
         var menu = TestMenu;
-        if (PrefabsByActions.ContainsKey(availableActions)) {
+        if (_prefabsByActions.ContainsKey(availableActions)) {
             Debug.Log("Matched menu from bit mask");
         }
 
@@ -49,13 +48,13 @@ public class ActionMenuManager : MonoBehaviour {
         menu.transform.SetParent(unit.transform, true);
         menu.transform.localPosition = new Vector3(-16, 35, 0);
 
-        openMenu = menu;
+        _openMenu = menu;
     }
 
     public void HideCurrentMenu() {
-        if (openMenu != null) {
-            openMenu.SetActive(false);
-            openMenu = null;
+        if (_openMenu != null) {
+            _openMenu.SetActive(false);
+            _openMenu = null;
         }
     }
 

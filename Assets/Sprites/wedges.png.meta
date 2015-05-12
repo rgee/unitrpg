@@ -1,10 +1,12 @@
 fileFormatVersion: 2
 guid: 85032ca7656214800ab40fcb4e1c76c4
+timeCreated: 1431397841
+licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: wedges_0
-    21300002: wedges_1
-    21300004: wedges_2
+    21300000: wedge_quarter
+    21300002: wedge_half
+    21300004: wedge_eighth
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -23,6 +25,9 @@ TextureImporter:
   isReadable: 0
   grayScaleToAlpha: 0
   generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
   textureFormat: -1
   maxTextureSize: 1024
@@ -33,6 +38,7 @@ TextureImporter:
     wrapMode: 1
   nPOTScale: 0
   lightmap: 0
+  rGBM: 0
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
@@ -46,7 +52,7 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: wedges_0
+    - name: wedge_quarter
       rect:
         serializedVersion: 2
         x: 0
@@ -54,9 +60,9 @@ TextureImporter:
         width: 432
         height: 439
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: wedges_1
+    - name: wedge_half
       rect:
         serializedVersion: 2
         x: 451
@@ -64,9 +70,9 @@ TextureImporter:
         width: 881
         height: 429
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: wedges_2
+    - name: wedge_eighth
       rect:
         serializedVersion: 2
         x: 1351
@@ -74,7 +80,9 @@ TextureImporter:
         width: 300
         height: 334
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
+  assetBundleName: 
+  assetBundleVariant: 
