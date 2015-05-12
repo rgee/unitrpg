@@ -15,6 +15,9 @@ public class ActionMenuManager : MonoBehaviour {
     [Tooltip("For when there are no enemies or friendly units around and the unit can still move")]
     public GameObject MoveBraceItem;
 
+    [Tooltip("For when there are no enemies nearby, nor friendlies and the unit cannot move")]
+    public GameObject BraceItem;
+
     private GameObject _openMenu;
     private readonly Dictionary<CombatAction, GameObject> _prefabsByActions = new Dictionary<CombatAction, GameObject>();
 
@@ -27,6 +30,11 @@ public class ActionMenuManager : MonoBehaviour {
         _prefabsByActions.Add(
             CombatAction.Move | CombatAction.Wait | CombatAction.Brace | CombatAction.Item,
             MoveBraceItem
+        );
+
+        _prefabsByActions.Add(
+            CombatAction.Wait | CombatAction.Brace | CombatAction.Item,
+            BraceItem
         );
     }
 
@@ -46,7 +54,6 @@ public class ActionMenuManager : MonoBehaviour {
         }
 
         var menu = Instantiate(menuPrefab);
-        menu.SetActive(true);
         menu.transform.SetParent(unit.transform, true);
         menu.transform.localPosition = new Vector3(-16, 35, 0);
 
@@ -55,7 +62,7 @@ public class ActionMenuManager : MonoBehaviour {
 
     public void HideCurrentMenu() {
         if (_openMenu != null) {
-            _openMenu.SetActive(false);
+            Destroy(_openMenu);
             _openMenu = null;
         }
     }
