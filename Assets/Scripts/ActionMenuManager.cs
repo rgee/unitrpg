@@ -7,7 +7,6 @@ using UnityEngine;
 public class ActionMenuManager : MonoBehaviour {
     public delegate void ActionSelectedHandler(BattleAction action);
 
-    public GameObject TestMenu;
     public event ActionSelectedHandler OnActionSelected;
 
     [Tooltip("For when there are enemies nearby, but no friendlies")]
@@ -39,11 +38,14 @@ public class ActionMenuManager : MonoBehaviour {
         var availableActions = availableActionEnums
             .Aggregate((value, next) => value | next);
 
-        var menu = TestMenu;
+        var menuPrefab = MoveBraceItem;
         if (_prefabsByActions.ContainsKey(availableActions)) {
-            Debug.Log("Matched menu from bit mask");
+            menuPrefab = _prefabsByActions[availableActions];
+        } else {
+            Debug.LogWarning("Could not match menu item.");
         }
 
+        var menu = Instantiate(menuPrefab);
         menu.SetActive(true);
         menu.transform.SetParent(unit.transform, true);
         menu.transform.localPosition = new Vector3(-16, 35, 0);
