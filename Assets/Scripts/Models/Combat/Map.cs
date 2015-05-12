@@ -41,7 +41,14 @@ namespace Models.Combat {
             CombatEventBus.MoveSignal.Dispatch(unit, location);
         }
 
+        public bool IsOccupied(Vector2 position) {
+            return _unitsByPosition.ContainsKey(position);
+        }
+
         public Unit GetUnitByPosition(Vector2 position) {
+            if (!_unitsByPosition.ContainsKey(position)) {
+                return null;
+            }
             return _unitsByPosition[position];
         }
 

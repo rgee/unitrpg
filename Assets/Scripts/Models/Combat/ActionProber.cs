@@ -21,12 +21,13 @@ namespace Models.Combat {
             if (CanAct(unit)) {
                 results.Add(CombatAction.Item);
                 results.Add(CombatAction.Brace);
+
+                if (AnyAdjacentFriendlies(unit)) {
+                    results.Add(CombatAction.Cover);
+                    results.Add(CombatAction.Trade);
+                }
             }
 
-            if (AnyAdjacentFriendlies(unit)) {
-                results.Add(CombatAction.Cover);
-                results.Add(CombatAction.Trade);
-            }
 
             if (HasRemainingMoves(unit)) {
                 results.Add(CombatAction.Move);
@@ -50,7 +51,7 @@ namespace Models.Combat {
                 return false;
             }
 
-            var adjacentUnits = GetAdjacentUnits(unit);
+            List<Unit> adjacentUnits = GetAdjacentUnits(unit).ToList();
             var attackable = from enemy in adjacentUnits
                              where !enemy.IsFriendly && WithinRange(unit, enemy)
                              select enemy;
@@ -70,6 +71,7 @@ namespace Models.Combat {
 
         private IEnumerable<Unit> GetAdjacentUnits(Unit unit) {
             return from point in GetAdjacentPoints(unit.GridPosition)
+                   where _map.IsOccupied(point)
                    select _map.GetUnitByPosition(point);
         } 
 
@@ -78,7 +80,7 @@ namespace Models.Combat {
                 new Vector2(point.x-1, point.y),
                 new Vector2(point.x+1, point.y),
                 new Vector2(point.x, point.y-1),
-                new Vector2(point.x-1, point.y)
+                new Vector2(point.x, point.y+1)
             };
         }
     }
