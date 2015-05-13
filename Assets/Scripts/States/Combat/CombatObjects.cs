@@ -6,6 +6,10 @@ public static class CombatObjects {
         return GameObject.FindGameObjectWithTag("Map").GetComponent<MapGrid>();
     }
 
+    public static InventoryPopupManager GetInventoryPopupManager() {
+        return GameObject.Find("InventoryPopupManager").GetComponent<InventoryPopupManager>();
+    }
+
     public static AIManager GetAIManager() {
         return GameObject.Find("AI Manager").GetComponent<AIManager>();
     }

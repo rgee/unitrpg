@@ -23,7 +23,6 @@ public class InventoryPopup : MonoBehaviour {
             itemObject.transform.SetParent(containerTransform);
 
             Text textComponent = itemObject.GetComponent<Text>();
-            Debug.Log(item.Name);
             textComponent.text = item.Name;
         }
     }

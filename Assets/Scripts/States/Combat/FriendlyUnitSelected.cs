@@ -24,6 +24,9 @@ public class FriendlyUnitSelected : CancelableCombatState {
             case BattleAction.MOVE:
                 Animator.SetTrigger("move_selected");
                 break;
+            case BattleAction.ITEM:
+                Animator.SetTrigger("item_selected");
+                break;
             case BattleAction.WAIT:
                 BattleState.Model.WaitUnit(BattleState.SelectedUnit.model);
                 Animator.SetTrigger("wait_selected");
