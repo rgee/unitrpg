@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using Models.Combat.Inventory;
 using UnityEngine;
 
 namespace Models.Combat {
@@ -8,6 +10,7 @@ namespace Models.Combat {
         public Vector2 GridPosition;
         public int Health;
         public bool IsFriendly;
+        public List<Item> Inventory; 
 
         public bool IsAlive {
             get { return Health > 0; }

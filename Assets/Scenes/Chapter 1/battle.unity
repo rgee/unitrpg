@@ -1104,6 +1104,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 61936473}
     m_Modifications:
+    - target: {fileID: 11425048, guid: f9c4e8655aad264438010e3fb4de1652, type: 2}
+      propertyPath: model.Inventory.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 425048, guid: f9c4e8655aad264438010e3fb4de1652, type: 2}
       propertyPath: m_LocalPosition.x
       value: 319
@@ -1182,6 +1186,16 @@ Prefab:
       propertyPath: model.IsFriendly
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11425048, guid: f9c4e8655aad264438010e3fb4de1652, type: 2}
+      propertyPath: model.Inventory.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 09bf90fcd0f16b14f978ec7a82d1bd42,
+        type: 2}
+    - target: {fileID: 11425048, guid: f9c4e8655aad264438010e3fb4de1652, type: 2}
+      propertyPath: model.Inventory.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 09bf90fcd0f16b14f978ec7a82d1bd42,
+        type: 2}
     m_RemovedComponents:
     - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: f9c4e8655aad264438010e3fb4de1652, type: 2}
