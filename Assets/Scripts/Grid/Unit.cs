@@ -36,13 +36,11 @@ namespace Grid {
         public Vector2 gridPosition;
         public GameObject HitConfirmPrefab;
         public bool Killing;
-        private ActionMenuManager menuManager;
         public Models.Combat.Unit model;
         private Seeker seeker;
         public float timePerMoveSquare = 0.3f;
 
         private void Start() {
-            menuManager = GameObject.FindGameObjectWithTag("ActionMenuManager").GetComponent<ActionMenuManager>();
             seeker = GetComponent<Seeker>();
             seeker.startEndModifier.exactEndPoint = StartEndModifier.Exactness.SnapToNode;
             animator = GetComponent<Animator>();
