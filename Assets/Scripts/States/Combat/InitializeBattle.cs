@@ -4,7 +4,9 @@ using UnityEngine;
 
 namespace States.Combat {
     public class InitializeBattle : StateMachineBehaviour {
+        private Animator _animator;
         public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
+            _animator = animator;
             var state = CombatObjects.GetBattleState();
             var unitManager = CombatObjects.GetUnitManager();
 
@@ -17,6 +19,19 @@ namespace States.Combat {
             var actionProber = new ActionProber(map, turnState);
 
             state.Model = new Battle(map, objective, turnState, actionProber);
+
+            var directorObj = GameObject.Find("BattleIntroDirector");
+            if (directorObj != null) {
+                var director = directorObj.GetComponent<BattleIntroDirector>();
+                director.OnIntroComplete += CompleteInitialization;
+                director.StartIntro();
+            } else {
+                CompleteInitialization();
+            }
+        }
+
+        void CompleteInitialization() {
+            _animator.SetTrigger("initialization_complete");
         }
     }
 }
