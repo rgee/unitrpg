@@ -1,13 +1,12 @@
 ﻿using UnityEngine;
 
 public class HealthBar : MonoBehaviour {
-    public GameObject clipMask;
     public float healthPct = 100;
     private float initialX;
     private RectTransform maskTransform;
 
     private void Start() {
-        maskTransform = clipMask.GetComponent<RectTransform>();
+        maskTransform = transform.FindChild("Mask").GetComponent<RectTransform>();
         initialX = maskTransform.sizeDelta.x;
     }
 
