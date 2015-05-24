@@ -7,15 +7,20 @@ public class HealthBarManager : MonoBehaviour {
     public Vector2 BarOffset;
 
     private Dictionary<GameObject, GameObject> _healthBars = new Dictionary<GameObject, GameObject>();
-    public void Update() {
-        if (Input.GetKeyDown(KeyCode.H)) {
-            if (_healthBars.Any()) {
-                HideHealthBars();
-            } else {
-                ShowHealthBars();
-            }
-        }
 
+    public void Start() {
+        CombatEventBus.HealthBarToggles.AddListener(this.ToggleHealthBars);       
+    }
+
+    private void ToggleHealthBars() {
+        if (_healthBars.Any()) {
+            HideHealthBars();
+        } else {
+            ShowHealthBars();
+        }
+    }
+
+    public void Update() {
         foreach (var entry in _healthBars) {
             var unit = entry.Key.GetComponent<Grid.Unit>().model;
             var healthPct = (float)unit.Health/unit.Character.MaxHealth;
