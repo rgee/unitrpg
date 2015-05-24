@@ -24,6 +24,7 @@ public class SingleMindedFury : MonoBehaviour, AIStrategy {
     public GameObject Target;
     private Grid.Unit Unit;
     public UnitManager UnitManager;
+    private FightExecutor _executorInstance;
 
     public IEnumerator act() {
         CameraController.Lock();
@@ -167,12 +168,26 @@ public class SingleMindedFury : MonoBehaviour, AIStrategy {
         targetUnit.PrepareForCombat(defenderDirection);
 
         var executorObj = Instantiate(ExecutorPrefab);
-        var executor = executorObj.GetComponent<FightExecutor>();
-        yield return StartCoroutine(executor.RunFight(
+        _executorInstance = executorObj.GetComponent<FightExecutor>();
+        yield return _executorInstance.StartCoroutine(_executorInstance.RunFight(
             gameObject,
             Target,
             result
             ));
-        Destroy(executorObj);
+        DestroyExecutor();
+    }
+
+    private void OnDestroy() {
+        if (_executorInstance != null) {
+            _executorInstance.GetComponent<FightExcecutionState>().Complete = true;
+            DestroyExecutor();
+            StopAllCoroutines();
+            Debug.Log("Being destroyed while executor is running");
+        }
+    }
+
+    private void DestroyExecutor() {
+        Destroy(_executorInstance);
+        _executorInstance = null;
     }
 }

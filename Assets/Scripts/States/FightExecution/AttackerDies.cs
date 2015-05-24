@@ -5,13 +5,13 @@ public class AttackerDies : StateMachineBehaviour {
 
     public override void OnStateEnter(Animator stateMachine, AnimatorStateInfo stateInfo, int layerIndex) {
         AttackerObject = FightExecutionObjects.GetState().Attacker.gameObject;
+        stateMachine.SetTrigger("death_complete");
     }
 
     public override void OnStateUpdate(Animator stateMachine, AnimatorStateInfo stateInfo, int layerIndex) {
         // Weirdly, GameObject overrides the '==' operator to return 'true' when compared to 'null'
         // after it has been destroyed.
         if (AttackerObject == null) {
-            stateMachine.SetTrigger("death_complete");
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Xml.Xsl;
 using UnityEngine;
 
 namespace Grid {
@@ -55,7 +56,16 @@ namespace Grid {
 
             var gameObject = unit.gameObject;
             unitGameObjects.Remove(gameObject);
-            Destroy(gameObject);
+            gameObject.GetComponent<Renderer>().enabled = false;
+            gameObject.GetComponent<Animator>().enabled = false;
+      
+            gameObject.GetComponent<BoxCollider2D>().enabled = false;
+
+            var executor = GameObject.FindGameObjectWithTag("Fight Executor");
+            if (executor != null) {
+                Destroy(executor);
+            }
+            Destroy(gameObject, 5);
 
             Grid.RescanGraph();
             CombatEventBus.ModelDeaths.Dispatch(unit.model);

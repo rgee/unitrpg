@@ -3,6 +3,11 @@ using UnityEngine;
 
 public class FightComplete : StateMachineBehaviour {
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
+        var executor = FightExecutionObjects.GetExecutor();
+        if (executor == null) {
+            return;
+        }
+
         var state = FightExecutionObjects.GetState();
         if (state.Attacker != null) {
             CommitFightToModels();

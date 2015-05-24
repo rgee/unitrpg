@@ -40,7 +40,7 @@ namespace Models.Combat {
                 throw new ArgumentException("Cannot move to square already occupied: " + location);
             }
 
-            _unitsByPosition.Remove(location);
+            _unitsByPosition.Remove(unit.GridPosition);
             unit.GridPosition = location;
             _unitsByPosition[location] = unit;
 
