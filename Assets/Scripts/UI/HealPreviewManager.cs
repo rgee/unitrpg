@@ -18,12 +18,15 @@ public class HealPreviewManager : MonoBehaviour {
         }
 
         var preview = Instantiate(PreviewPrefab);
+        var component = preview.GetComponent<HealPreview>();
+
+        component.SetPreview(_state.SelectedItem, _state.SelectedUnit);
         var unitObject = _state.SelectedUnit.gameObject;
         AlignToUnit(unitObject, preview);
 
         _openPreview = preview;
 
-        return preview.GetComponent<HealPreview>();
+        return component;
     }
 
     public void HideHealPreview() {

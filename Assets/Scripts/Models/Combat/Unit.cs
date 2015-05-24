@@ -23,10 +23,11 @@ namespace Models.Combat {
         }
 
         public void UseItem(Item item) {
-            if (Inventory.Contains(item)) {
-                TakeHeal(item.HealAmount);
-                Inventory.Remove(item);
+            if (!Inventory.Contains(item)) {
+                throw new ArgumentException("Cannot use item not in inventory.");
             }
+            TakeHeal(item.HealAmount);
+            Inventory.Remove(item);
         }
 
         private void TakeHeal(int heal) {
