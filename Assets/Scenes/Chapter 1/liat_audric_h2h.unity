@@ -252,13 +252,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75a395a4252564a65af3e704c8e26119, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deck:
-    cards: []
-    speaker: 
-    emotionType: 0
-  textObject: {fileID: 0}
   animator: {fileID: 0}
   complete: 0
+  deck:
+    cards: []
+    emotionType: 0
+    speaker: 
+  textObject: {fileID: 0}
 --- !u!114 &242149642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -273,8 +273,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   card:
     lines: []
-  textObject: {fileID: 0}
   complete: 0
+  textObject: {fileID: 0}
 --- !u!114 &242149643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -288,7 +288,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Cutscene: {fileID: 11400000, guid: 9278c5e5436dd4265939619d30d31cf5, type: 2}
---- !u!224 &298031897
+--- !u!224 &298031897 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 22410388, guid: 02c93bf6fff768c40a72961c09c12fd9,
     type: 2}
@@ -363,7 +363,7 @@ RectTransform:
   m_GameObject: {fileID: 533926732}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: .00925790332, y: .00925790332, z: .00925790332}
+  m_LocalScale: {x: .00925153121, y: .00925153121, z: .00925153121}
   m_Children:
   - {fileID: 781820139}
   - {fileID: 1024818877}
@@ -479,7 +479,7 @@ RectTransform:
   m_AnchoredPosition: {x: -1.52587891e-05, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: .5, y: .5}
---- !u!20 &790877060
+--- !u!20 &790877060 stripped
 Camera:
   m_PrefabParentObject: {fileID: 2091918, guid: 5b2d6b95a03e4f644b413af693f32b46,
     type: 2}
@@ -737,12 +737,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
---- !u!224 &1459367564
+--- !u!224 &1459367564 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 22486170, guid: 5f32eb864cb6b894792bd5a294620cfd,
     type: 2}
   m_PrefabInternal: {fileID: 49348916}
---- !u!1 &1592264452
+--- !u!1 &1592264452 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 141570, guid: 60d7105787cfc4bf59e2b593c8815384, type: 2}
   m_PrefabInternal: {fileID: 1767158524}

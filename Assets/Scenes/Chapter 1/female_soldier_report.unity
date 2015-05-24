@@ -133,12 +133,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e12bc545fe1904253a08e13ba16ad816, type: 2}
   m_IsPrefabParent: 0
---- !u!224 &162093997
+--- !u!224 &162093997 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 22410388, guid: 02c93bf6fff768c40a72961c09c12fd9,
     type: 2}
   m_PrefabInternal: {fileID: 845822535}
---- !u!224 &297650128
+--- !u!224 &297650128 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 22487040, guid: be053509876e93447baa1dba46de4f7a,
     type: 2}
@@ -346,13 +346,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75a395a4252564a65af3e704c8e26119, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deck:
-    cards: []
-    speaker: 
-    emotionType: 0
-  textObject: {fileID: 0}
   animator: {fileID: 0}
   complete: 0
+  deck:
+    cards: []
+    emotionType: 0
+    speaker: 
+  textObject: {fileID: 0}
 --- !u!114 &817354977
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -367,8 +367,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   card:
     lines: []
-  textObject: {fileID: 0}
   complete: 0
+  textObject: {fileID: 0}
 --- !u!114 &817354978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -468,7 +468,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 02c93bf6fff768c40a72961c09c12fd9, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1080904506
+--- !u!1 &1080904506 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 141570, guid: 60d7105787cfc4bf59e2b593c8815384, type: 2}
   m_PrefabInternal: {fileID: 1508852296}
@@ -686,7 +686,7 @@ RectTransform:
   m_GameObject: {fileID: 1736954072}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: .00925695337, y: .00925695337, z: .00925695337}
+  m_LocalScale: {x: .00925539527, y: .00925539527, z: .00925539527}
   m_Children:
   - {fileID: 609062278}
   - {fileID: 614642826}
@@ -695,7 +695,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1919.52185, y: 0}
+  m_SizeDelta: {x: 1919.19849, y: 0}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1736954074
 MonoBehaviour:
@@ -863,7 +863,7 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1768935168}
---- !u!20 &1976318382
+--- !u!20 &1976318382 stripped
 Camera:
   m_PrefabParentObject: {fileID: 2091918, guid: 5b2d6b95a03e4f644b413af693f32b46,
     type: 2}

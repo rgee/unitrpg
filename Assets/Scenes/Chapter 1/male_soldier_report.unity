@@ -87,7 +87,7 @@ NavMeshSettings:
     cellSize: .166666657
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
---- !u!20 &408532794
+--- !u!20 &408532794 stripped
 Camera:
   m_PrefabParentObject: {fileID: 2091918, guid: 5b2d6b95a03e4f644b413af693f32b46,
     type: 2}
@@ -179,7 +179,7 @@ RectTransform:
   m_GameObject: {fileID: 414267884}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: .0185158066, y: .0185158066, z: .0185158066}
+  m_LocalScale: {x: .0185030624, y: .0185030624, z: .0185030624}
   m_Children:
   - {fileID: 814642280}
   - {fileID: 1134021047}
@@ -539,7 +539,7 @@ RectTransform:
   m_AnchoredPosition: {x: .250062943, y: 0}
   m_SizeDelta: {x: -.499879986, y: 0}
   m_Pivot: {x: .5, y: .5}
---- !u!224 &823874433
+--- !u!224 &823874433 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 22410388, guid: 02c93bf6fff768c40a72961c09c12fd9,
     type: 2}
@@ -691,7 +691,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 02c93bf6fff768c40a72961c09c12fd9, type: 2}
   m_IsPrefabParent: 0
---- !u!224 &1470992688
+--- !u!224 &1470992688 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 22455006, guid: 123940dd054d74779a6d5a932ce2b5d1,
     type: 2}
@@ -812,13 +812,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75a395a4252564a65af3e704c8e26119, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deck:
-    cards: []
-    speaker: 
-    emotionType: 0
-  textObject: {fileID: 0}
   animator: {fileID: 0}
   complete: 0
+  deck:
+    cards: []
+    emotionType: 0
+    speaker: 
+  textObject: {fileID: 0}
 --- !u!114 &1531716109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -833,8 +833,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   card:
     lines: []
-  textObject: {fileID: 0}
   complete: 0
+  textObject: {fileID: 0}
 --- !u!114 &1531716110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -907,7 +907,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e12bc545fe1904253a08e13ba16ad816, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &2142253067
+--- !u!1 &2142253067 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 141570, guid: 60d7105787cfc4bf59e2b593c8815384, type: 2}
   m_PrefabInternal: {fileID: 1511793336}
