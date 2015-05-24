@@ -58,6 +58,7 @@ namespace Grid {
             Destroy(gameObject);
 
             Grid.RescanGraph();
+            CombatEventBus.ModelDeaths.Dispatch(unit.model);
         }
 
         public List<Unit> GetAllUnits() {

@@ -28,6 +28,7 @@ public class FightPhaseExecutor {
 
         if (!Defender.IsAlive() && OnTargetDied != null) {
             OnTargetDied(this, EventArgs.Empty);
+            Attacker.OnAttackComplete -= OnHit;
         } else if (HitIndex >= Hits.Count) {
             if (OnComplete != null) {
                 OnComplete(this, EventArgs.Empty);

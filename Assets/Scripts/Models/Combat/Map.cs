@@ -8,6 +8,7 @@ namespace Models.Combat {
         private readonly Dictionary<Vector2, Unit> _unitsByPosition = new Dictionary<Vector2, Unit>();
 
         public Map(IEnumerable<Unit> units) {
+            CombatEventBus.ModelDeaths.AddListener(RemoveUnit);
             foreach (var unit in units) {
                 if (_unitsByPosition.ContainsKey(unit.GridPosition)) {
                     throw new ArgumentException("Cannot place two units at the same position.");
@@ -16,6 +17,11 @@ namespace Models.Combat {
                 _unitsByPosition[unit.GridPosition] = unit;
             }
         }
+
+        private void RemoveUnit(Unit unit) {
+            _unitsByPosition.Remove(unit.GridPosition);
+        }
+
 
         public IEnumerable<Unit> GetFriendlyUnits() {
             return from unit in GetAllUnits()
