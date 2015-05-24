@@ -43,9 +43,14 @@ public class FightPhaseExecutor {
         var hit = Hits[HitIndex];
         var killingBlow = !hit.Missed && hit.Damage > Defender.model.Health;
         if (hit.Missed) {
-            Defender.Dodge();
+            Attacker.OnAttackStart += DefenderDodge;
         }
 
         Attacker.Attack(Defender, hit, killingBlow);
+    }
+
+    private void DefenderDodge() {
+        Defender.Dodge();
+        Attacker.OnAttackStart -= DefenderDodge;
     }
 }

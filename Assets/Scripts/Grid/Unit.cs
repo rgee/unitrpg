@@ -61,6 +61,7 @@ namespace Grid {
 
         public event AttackCompletionHandler OnAttackComplete;
         public event CombatPreparationHandler OnPreparedForCombat;
+        public event Action OnAttackStart;
 
         public Character GetCharacter() {
             return model.Character;
@@ -72,6 +73,12 @@ namespace Grid {
 
             if (OnAttackComplete != null) {
                 OnAttackComplete();
+            }
+        }
+
+        private void AttackBegin() {
+            if (OnAttackStart != null) {
+                OnAttackStart();
             }
         }
 
