@@ -18,8 +18,7 @@ namespace Models.Combat {
         }
 
         public void TakeDamage(int damage) {
-            var resultingHealth = Mathf.Max(0, Health - Mathf.Max(0, damage - Character.Defense));
-            Health = resultingHealth;
+            Health = Mathf.Max(0, Health - Mathf.Max(0, damage));
         }
 
         public void UseItem(Item item) {
