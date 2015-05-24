@@ -32,7 +32,7 @@ public class ScreenShaker : MonoBehaviour {
     private void Update() {
         if (ShakeIntensity > 0) {
             Vector3 offset = (Random.insideUnitCircle*ShakeIntensity);
-            transform.position = OriginalPos + new Vector3(offset.x, offset.y, OriginalPos.z);
+            transform.position = OriginalPos + new Vector3(offset.x, offset.y, 0);
             ShakeIntensity -= ShakeDecay;
         } else if (Shaking) {
             Shaking = false;
