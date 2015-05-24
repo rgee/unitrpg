@@ -9,4 +9,5 @@ public static class CombatEventBus {
     public static Signal<Models.Combat.Unit> DeathSignal = new Signal<Models.Combat.Unit>();
 
     public static Signal HealthBarToggles = new Signal();
+    public static Signal Pauses = new Signal();
 }

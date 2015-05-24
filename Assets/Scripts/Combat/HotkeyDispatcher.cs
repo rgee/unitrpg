@@ -9,6 +9,7 @@ public class HotkeyDispatcher : MonoBehaviour {
 
     public void Start() {
         dispatchTable[KeyCode.H] = CombatEventBus.HealthBarToggles;
+        dispatchTable[KeyCode.Escape] = CombatEventBus.Pauses;
     }
 
     public void Update() {
