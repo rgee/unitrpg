@@ -21,6 +21,9 @@ public class ActionMenuManager : MonoBehaviour {
     [Tooltip("For when you've used an action in place, but can still move.")]
     public GameObject MoveWait;
 
+    [Tooltip("For when you've moved as far as you can, but can still act")] 
+    public GameObject FightBraceItem;
+
     private GameObject _openMenu;
     private readonly Dictionary<CombatAction, GameObject> _prefabsByActions = new Dictionary<CombatAction, GameObject>();
 
@@ -36,9 +39,15 @@ public class ActionMenuManager : MonoBehaviour {
         );
 
         _prefabsByActions.Add(
+            CombatAction.Fight | CombatAction.Wait | CombatAction.Brace | CombatAction.Item,
+            FightBraceItem 
+        );
+
+        _prefabsByActions.Add(
             CombatAction.Wait | CombatAction.Brace | CombatAction.Item,
             BraceItem
         );
+
 
         _prefabsByActions.Add(
             CombatAction.Wait | CombatAction.Move,

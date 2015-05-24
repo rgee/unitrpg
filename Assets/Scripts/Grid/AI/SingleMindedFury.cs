@@ -187,7 +187,7 @@ public class SingleMindedFury : MonoBehaviour, AIStrategy {
     }
 
     private void DestroyExecutor() {
-        Destroy(_executorInstance);
+        Destroy(_executorInstance.gameObject);
         _executorInstance = null;
     }
 }
