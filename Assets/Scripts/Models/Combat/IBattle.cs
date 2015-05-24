@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Models.Combat.Inventory;
 using UnityEngine;
 
 namespace Models.Combat {
@@ -44,5 +45,7 @@ namespace Models.Combat {
         void ExecuteFight(Fight fight);
 
         #endregion
+
+        void UseItem(Item item, Unit unit);
     }
 }

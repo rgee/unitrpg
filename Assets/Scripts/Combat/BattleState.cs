@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Models.Combat;
+using Models.Combat.Inventory;
 using UnityEngine;
 
 [RequireComponent(typeof (Objective))]
@@ -13,6 +14,8 @@ public class BattleState : MonoBehaviour {
     public Vector2 MovementDestination;
     public Vector2 SelectedGridPosition;
     public Grid.Unit SelectedUnit;
+    // Items
+    public Item SelectedItem;
 
     public bool isWon() {
         return GetComponent<Objective>().IsComplete();

@@ -5,7 +5,7 @@ public class InventoryPopupManager : MonoBehaviour {
     public GameObject InventoryPopupPrefab;
     private GameObject _currentPopup;
 
-    public void ShowInventory(Grid.Unit unit) {
+    public InventoryPopup ShowInventory(Grid.Unit unit) {
         var unitObject = unit.gameObject;
         _currentPopup = Instantiate(InventoryPopupPrefab);
 
@@ -14,6 +14,8 @@ public class InventoryPopupManager : MonoBehaviour {
 
         _currentPopup.transform.SetParent(unitObject.transform, true);
         _currentPopup.transform.localPosition = new Vector3(-120, 35, 0);
+
+        return popupComponent;
     }
 
     public void HideInventory() {

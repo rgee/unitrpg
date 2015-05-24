@@ -5,7 +5,8 @@ public class PauseManager : MonoBehaviour {
     public Animator BattleStateMachine;
     private bool _isPaused;
     public void Start() {
-      CombatEventBus.Pauses.AddListener(TogglePause);  
+      // Disable until I figure out TimeScale
+      //CombatEventBus.Pauses.AddListener(TogglePause);  
     }
 
     private void TogglePause() {

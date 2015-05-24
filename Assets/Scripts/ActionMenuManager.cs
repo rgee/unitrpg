@@ -18,6 +18,9 @@ public class ActionMenuManager : MonoBehaviour {
     [Tooltip("For when there are no enemies nearby, nor friendlies and the unit cannot move")]
     public GameObject BraceItem;
 
+    [Tooltip("For when you've used an action in place, but can still move.")]
+    public GameObject MoveWait;
+
     private GameObject _openMenu;
     private readonly Dictionary<CombatAction, GameObject> _prefabsByActions = new Dictionary<CombatAction, GameObject>();
 
@@ -35,6 +38,11 @@ public class ActionMenuManager : MonoBehaviour {
         _prefabsByActions.Add(
             CombatAction.Wait | CombatAction.Brace | CombatAction.Item,
             BraceItem
+        );
+
+        _prefabsByActions.Add(
+            CombatAction.Wait | CombatAction.Move,
+            MoveWait
         );
     }
 

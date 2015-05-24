@@ -2,6 +2,10 @@
 using UnityEngine;
 
 public static class CombatObjects {
+    public static HealPreviewManager GetHealPreviewManager() {
+        return GameObject.Find("BattleManager/HealPreviewManager").GetComponent<HealPreviewManager>();
+    }
+
     public static MapGrid GetMap() {
         return GameObject.FindGameObjectWithTag("Map").GetComponent<MapGrid>();
     }

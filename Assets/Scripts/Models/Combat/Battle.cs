@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Models.Combat.Inventory;
 using Models.Combat.Objectives;
 using UnityEngine;
 
@@ -90,6 +91,11 @@ namespace Models.Combat {
 
         public void ExecuteFight(Fight fight) {
             _turnState.RecordAction(fight.Participants.Attacker);
+        }
+
+        public void UseItem(Item item, Unit unit) {
+           Debug.Log(unit.Character.Name + " used " + item.Name); 
+           _turnState.RecordAction(unit);
         }
     }
 }

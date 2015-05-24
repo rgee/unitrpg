@@ -1,4 +1,5 @@
-﻿using strange.extensions.signal.impl;
+﻿using Models.Combat.Inventory;
+using strange.extensions.signal.impl;
 using UnityEngine;
 
 public static class CombatEventBus {
