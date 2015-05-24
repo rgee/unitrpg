@@ -37,6 +37,7 @@ namespace Grid {
         public GameObject HitConfirmPrefab;
         public bool Killing;
         public Models.Combat.Unit model;
+        public bool IsDodging = false;
         private Seeker seeker;
         public float timePerMoveSquare = 0.3f;
 
@@ -62,6 +63,7 @@ namespace Grid {
         public event AttackCompletionHandler OnAttackComplete;
         public event CombatPreparationHandler OnPreparedForCombat;
         public event Action OnAttackStart;
+        public event Action OnDodgeComplete;
 
         public Character GetCharacter() {
             return model.Character;
@@ -79,6 +81,12 @@ namespace Grid {
         private void AttackBegin() {
             if (OnAttackStart != null) {
                 OnAttackStart();
+            }
+        }
+
+        private void DodgeComplete() {
+            if (OnDodgeComplete != null) {
+                OnDodgeComplete();
             }
         }
 

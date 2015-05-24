@@ -35,7 +35,11 @@ public class FightPhaseExecutor {
             }
             Attacker.OnAttackComplete -= OnHit;
         } else {
-            Attack();
+            if (Defender.IsDodging) {
+                Defender.OnDodgeComplete += Attack;
+            } else {
+                Attack();
+            }
         }
     }
 
