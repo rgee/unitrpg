@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using Grid;
 using UnityEngine;
 
 public class HealthBarManager : MonoBehaviour {
     public GameObject HealthBarPrefab;
+    public Vector2 BarOffset;
+
     private Dictionary<GameObject, GameObject> _healthBars = new Dictionary<GameObject, GameObject>();
     public void Update() {
         if (Input.GetKeyDown(KeyCode.H)) {
@@ -44,7 +43,7 @@ public class HealthBarManager : MonoBehaviour {
 
     private void AlignToUnit(GameObject unit, GameObject bar) {
         var unitPosition = unit.transform.position;
-        bar.GetComponent<RectTransform>().anchoredPosition = unitPosition + new Vector3(-9.8f, -17.6f, 0);
+        bar.GetComponent<RectTransform>().anchoredPosition = unitPosition + new Vector3(BarOffset.x, BarOffset.y); 
     }
 
     private void AddHealthBar(GameObject unit) {
