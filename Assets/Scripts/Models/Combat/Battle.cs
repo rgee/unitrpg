@@ -94,7 +94,7 @@ namespace Models.Combat {
         }
 
         public void UseItem(Item item, Unit unit) {
-           Debug.Log(unit.Character.Name + " used " + item.Name); 
+            unit.UseItem(item);
            _turnState.RecordAction(unit);
         }
     }
