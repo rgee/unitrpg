@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
@@ -12,24 +13,30 @@ namespace SaveGames {
         public State Load(string path) {
             var state = new State();
             var stream = File.Open(path, FileMode.Open);
-            var binaryFormatter  = new BinaryFormatter();
-            binaryFormatter.Binder = new VersionDeserializationBinder();
-
-            var result = (State)binaryFormatter.Deserialize(stream);
+            var binaryFormatter = new BinaryFormatter {Binder = new VersionDeserializationBinder()};
+            state = (State)binaryFormatter.Deserialize(stream);
             stream.Close();
 
-            return result;
+            return state;
 
         }
 
         public void Save(State state, string path) {
-            throw new NotImplementedException();
+            var stream = File.Open(path, FileMode.Create);
+            var binaryFormatter = new BinaryFormatter {Binder = new VersionDeserializationBinder()};
+            binaryFormatter.Serialize(stream, state);
+            stream.Close();
         }
     }
 
     class VersionDeserializationBinder : SerializationBinder {
         public override Type BindToType(string assemblyName, string typeName) {
-            throw new NotImplementedException();
+            if (string.IsNullOrEmpty(assemblyName) || string.IsNullOrEmpty(typeName)) {
+                return null;
+            }
+
+            assemblyName = Assembly.GetExecutingAssembly().FullName;
+            return Type.GetType(String.Format("{0}, {1}", typeName, assemblyName));
         }
     }
 }
