@@ -15,4 +15,8 @@ public class SaveGameBubble : MonoBehaviour {
         var dateString = string.Format("{0:dddd, MMMM d, yyyy}", State.SavedOn);
         transform.FindChild("Saved On").GetComponent<Text>().text = dateString;
     }
+
+    public void SelectState() {
+        Application.LoadLevel(string.Format("chapter_{0}_intro", State.Chapter));
+    }
 }

@@ -9,7 +9,6 @@ namespace States.Combat {
             _animator = animator;
             var state = CombatObjects.GetBattleState();
             var unitManager = CombatObjects.GetUnitManager();
-
             var unitModels = from unit in unitManager.GetAllUnits()
                              select unit.model;
 
