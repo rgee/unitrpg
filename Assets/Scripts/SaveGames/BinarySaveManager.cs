@@ -10,6 +10,17 @@ using SaveGames;
 
 namespace SaveGames {
     public class BinarySaveManager : ISaver, ILoader {
+        public List<State> GetAll(string path) {
+            var files = from fileName in Directory.GetFiles(path)
+                        where fileName.EndsWith(".sav")
+                        select fileName;
+
+            var states = from fileName in files
+                         select Load(fileName);
+
+            return new List<State>(states);
+        } 
+
         public State Load(string path) {
             var state = new State();
             var stream = File.Open(path, FileMode.Open);
