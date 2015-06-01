@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class SaveGameList : MonoBehaviour {
     public GameObject SavePrefab;
+    public GameObject EmptySlotPrefab;
 
     private List<State> _saves;
     private BinarySaveManager _saveManager;
@@ -33,6 +34,13 @@ public class SaveGameList : MonoBehaviour {
             var bubble = instance.GetComponent<SaveGameBubble>();
             bubble.State = state;
             _saveBubbles.Add(instance);
+        }
+
+        if (_saveBubbles.Count < 6) {
+            for (var i = _saveBubbles.Count; i < 6; i++) {
+                var instance = Instantiate(EmptySlotPrefab);
+                _saveBubbles.Add(instance);
+            }
         }
 
         for (var i = 0; i < Math.Min(3, _saveBubbles.Count); i++) {
