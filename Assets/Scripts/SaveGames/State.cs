@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
+using Models;
 
 namespace SaveGames {
     [Serializable]
@@ -13,6 +14,7 @@ namespace SaveGames {
         public List<Character> Characters;
 
         public State() {
+            Characters = new List<Character>();
         }
 
         protected State(SerializationInfo info, StreamingContext ctx) {

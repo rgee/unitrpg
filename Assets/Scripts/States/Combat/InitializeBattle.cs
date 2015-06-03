@@ -1,5 +1,7 @@
 ﻿using System.Linq;
+using Models;
 using Models.Combat;
+using SaveGames;
 using UnityEngine;
 
 namespace States.Combat {
@@ -11,6 +13,20 @@ namespace States.Combat {
             var unitManager = CombatObjects.GetUnitManager();
             var unitModels = from unit in unitManager.GetAllUnits()
                              select unit.model;
+
+            var saveGame = BinarySaveManager.CurrentState;
+            if (saveGame != null) {
+                foreach (var character in saveGame.Characters) {
+                    var unitsForCharacter = from unit in unitModels
+                                            where unit.Character.Name == character.Name
+                                            select unit;
+
+                    foreach (var unit in unitsForCharacter) {
+                        var copy = new Character(character);
+                        unit.Character = copy;
+                    }
+                }
+            }
 
             var map = new Map(unitModels);
             var turnState = new Turn(map);
