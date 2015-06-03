@@ -9,6 +9,10 @@ using UnityEngine.UI;
 public class SaveGameBubble : MonoBehaviour {
     public State State;
 
+    public delegate void SaveSelectHandler(State state);
+
+    public event SaveSelectHandler OnSaveSelected;
+
     void Start() {
         transform.FindChild("Chapter Name").GetComponent<Text>().text = "The Battle of Halhithe Square";
 
@@ -17,6 +21,8 @@ public class SaveGameBubble : MonoBehaviour {
     }
 
     public void SelectState() {
-        Application.LoadLevel(string.Format("chapter_{0}_intro", State.Chapter));
+        if (OnSaveSelected != null) {
+            OnSaveSelected(State);
+        }
     }
 }

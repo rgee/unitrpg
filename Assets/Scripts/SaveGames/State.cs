@@ -12,6 +12,7 @@ namespace SaveGames {
         public ulong SecondsPlayed;
         public int Chapter;
         public List<Character> Characters;
+        public string Path;
 
         public State() {
             Characters = new List<Character>();

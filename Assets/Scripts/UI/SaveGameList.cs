@@ -4,16 +4,23 @@ using System.IO;
 using System.Linq;
 using SaveGames;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SaveGameList : MonoBehaviour {
     public GameObject SavePrefab;
     public GameObject EmptySlotPrefab;
+    public StateEvent OnSaveSelect;
+
+    [Serializable]
+    public class StateEvent : UnityEvent<State> {
+    }
 
     private List<State> _saves;
     private BinarySaveManager _saveManager;
     private List<GameObject> _saveBubbles = new List<GameObject>();
     private GameObject _topRow;
     private GameObject _bottomRow;
+
 
     void Start() {
         var test = new State {
@@ -33,6 +40,7 @@ public class SaveGameList : MonoBehaviour {
             var instance = Instantiate(SavePrefab);
             var bubble = instance.GetComponent<SaveGameBubble>();
             bubble.State = state;
+            bubble.OnSaveSelected += OnStateSelect;
             _saveBubbles.Add(instance);
         }
 
@@ -50,5 +58,9 @@ public class SaveGameList : MonoBehaviour {
         for (var i = 3; i < Math.Min(6, _saveBubbles.Count); i++) {
            _saveBubbles[i].transform.SetParent(_bottomRow.transform);
         }
+    }
+
+    void OnStateSelect(State state) {
+        OnSaveSelect.Invoke(state);
     }
 }

@@ -19,7 +19,7 @@ public class MainMenuManager : MonoBehaviour {
     }
 
     public void LoadGame() {
-
+        Application.LoadLevel("LoadGame");
     }
 
     public void Quit() {
