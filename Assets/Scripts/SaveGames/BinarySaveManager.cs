@@ -30,6 +30,7 @@ namespace SaveGames {
             state = (State)binaryFormatter.Deserialize(stream);
             stream.Close();
 
+            state.Path = path;
             return state;
 
         }
