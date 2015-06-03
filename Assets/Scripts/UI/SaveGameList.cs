@@ -10,10 +10,12 @@ public class SaveGameList : MonoBehaviour {
     public GameObject SavePrefab;
     public GameObject EmptySlotPrefab;
     public StateEvent OnSaveSelect;
-
+    public UnityEvent OnEmptySlotSelect;
+    
     [Serializable]
     public class StateEvent : UnityEvent<State> {
     }
+
 
     private List<State> _saves;
     private BinarySaveManager _saveManager;
@@ -47,6 +49,8 @@ public class SaveGameList : MonoBehaviour {
         if (_saveBubbles.Count < 6) {
             for (var i = _saveBubbles.Count; i < 6; i++) {
                 var instance = Instantiate(EmptySlotPrefab);
+                var emptySlot = instance.GetComponent<EmptySaveSlot>();
+                emptySlot.OnSelect += SelectEmptySlot;
                 _saveBubbles.Add(instance);
             }
         }
@@ -62,5 +66,9 @@ public class SaveGameList : MonoBehaviour {
 
     void OnStateSelect(State state) {
         OnSaveSelect.Invoke(state);
+    }
+
+    void SelectEmptySlot() {
+        OnEmptySlotSelect.Invoke();
     }
 }

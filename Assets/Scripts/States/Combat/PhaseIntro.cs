@@ -44,7 +44,7 @@ public class PhaseIntro : StateMachineBehaviour {
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         // Uncomment to make the battle end immediately.
-        //animator.SetTrigger("battle_won");
+        animator.SetTrigger("battle_won");
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

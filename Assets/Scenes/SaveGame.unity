@@ -265,6 +265,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11427504, guid: b4ccbb596a32ad74593973d86ac85815, type: 2}
+      propertyPath: OnEmptySlotSelect.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 22415004, guid: b4ccbb596a32ad74593973d86ac85815, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -344,6 +348,74 @@ Prefab:
     - target: {fileID: 11427504, guid: b4ccbb596a32ad74593973d86ac85815, type: 2}
       propertyPath: OnSaveSelect.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OverwriteSave
+      objectReference: {fileID: 0}
+    - target: {fileID: 22471304, guid: b4ccbb596a32ad74593973d86ac85815, type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22471304, guid: b4ccbb596a32ad74593973d86ac85815, type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22471304, guid: b4ccbb596a32ad74593973d86ac85815, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 960
+      objectReference: {fileID: 0}
+    - target: {fileID: 22471304, guid: b4ccbb596a32ad74593973d86ac85815, type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -270.031036
+      objectReference: {fileID: 0}
+    - target: {fileID: 22471304, guid: b4ccbb596a32ad74593973d86ac85815, type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 22471304, guid: b4ccbb596a32ad74593973d86ac85815, type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 540.062073
+      objectReference: {fileID: 0}
+    - target: {fileID: 22445800, guid: b4ccbb596a32ad74593973d86ac85815, type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22445800, guid: b4ccbb596a32ad74593973d86ac85815, type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22445800, guid: b4ccbb596a32ad74593973d86ac85815, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 960
+      objectReference: {fileID: 0}
+    - target: {fileID: 22445800, guid: b4ccbb596a32ad74593973d86ac85815, type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -810.09314
+      objectReference: {fileID: 0}
+    - target: {fileID: 22445800, guid: b4ccbb596a32ad74593973d86ac85815, type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 22445800, guid: b4ccbb596a32ad74593973d86ac85815, type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 540.062073
+      objectReference: {fileID: 0}
+    - target: {fileID: 11427504, guid: b4ccbb596a32ad74593973d86ac85815, type: 2}
+      propertyPath: OnEmptySlotSelect.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11427504, guid: b4ccbb596a32ad74593973d86ac85815, type: 2}
+      propertyPath: OnEmptySlotSelect.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11427504, guid: b4ccbb596a32ad74593973d86ac85815, type: 2}
+      propertyPath: OnEmptySlotSelect.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1092749767}
+    - target: {fileID: 11427504, guid: b4ccbb596a32ad74593973d86ac85815, type: 2}
+      propertyPath: OnEmptySlotSelect.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: WriteNewSave
+      objectReference: {fileID: 0}
+    - target: {fileID: 11427504, guid: b4ccbb596a32ad74593973d86ac85815, type: 2}
+      propertyPath: OnEmptySlotSelect.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b4ccbb596a32ad74593973d86ac85815, type: 2}
