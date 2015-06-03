@@ -15,7 +15,7 @@ public class MainMenuManager : MonoBehaviour {
     }
 
     public void ShowOptions() {
-        
+        Application.LoadLevel("Options");
     }
 
     public void LoadGame() {
