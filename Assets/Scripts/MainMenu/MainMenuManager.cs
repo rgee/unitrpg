@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Models;
-using SaveGames;
+﻿using SaveGames;
 using UnityEngine;
 
 public class MainMenuManager : MonoBehaviour {
