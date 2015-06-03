@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using SaveGames;
 using UnityEngine;
 
 public class PostChapterSaveDialog : MonoBehaviour {
@@ -10,7 +11,7 @@ public class PostChapterSaveDialog : MonoBehaviour {
     }
 
     public void SkipSaving() {
-        var chapterNumber = SaveGame.current.chapter;
+        var chapterNumber = BinarySaveManager.CurrentState.Chapter;
         var sceneName = string.Format("chapter_{0}_intro", chapterNumber);
 
         Application.LoadLevel(sceneName);

@@ -470,6 +470,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc0c0986b1784444c902b57848126afd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11469892
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90b3f93cdedf37141b504ee8efcab216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11470706
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -529,19 +540,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49ba3001562024f4990bdbb1cbd273da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &11479972
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f789280219f04cf29e5d806b2a2d73d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GameOverOverlayPrefab: {fileID: 154278, guid: 35adb005ac2b144248ae9b58e9a82219,
-    type: 2}
 --- !u!114 &11480764
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1985,7 +1983,7 @@ AnimatorState:
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours:
-  - {fileID: 11479972}
+  - {fileID: 11469892}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -2174,7 +2172,7 @@ AnimatorStateMachine:
     m_Position: {x: 848, y: 137, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 110254228}
-    m_Position: {x: 252, y: -204, z: 0}
+    m_Position: {x: 240, y: -216, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 110280878}
     m_Position: {x: 36, y: -264, z: 0}

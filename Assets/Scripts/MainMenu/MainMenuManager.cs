@@ -2,12 +2,19 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using SaveGames;
 using UnityEngine;
 
 public class MainMenuManager : MonoBehaviour {
 
     public void StartNewGame() {
-        Application.LoadLevel(1);
+        var saveGameSate = new State {
+            Chapter = 1,
+            SecondsPlayed = 0
+        };
+
+        BinarySaveManager.CurrentState = saveGameSate;
+        Application.LoadLevel("chapter_1_intro");
     }
 
     public void ShowOptions() {
