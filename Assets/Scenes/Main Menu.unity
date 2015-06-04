@@ -510,6 +510,7 @@ GameObject:
   - 114: {fileID: 1298872285}
   - 222: {fileID: 1298872289}
   - 114: {fileID: 1298872288}
+  - 114: {fileID: 1298872290}
   m_Layer: 5
   m_Name: Menu
   m_TagString: Untagged
@@ -616,6 +617,21 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1298872283}
+--- !u!114 &1298872290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1298872283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5932704f821a03340954fdd5f1d133a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Morning: {fileID: 21300000, guid: 1ccd0724265bf6346bc681d08dac78f7, type: 3}
+  Day: {fileID: 21300000, guid: 3a998d6a24a054548b4fc5c4d040752f, type: 3}
+  Evening: {fileID: 21300000, guid: 836fca91bd8352b4ea9653646804d63b, type: 3}
+  Night: {fileID: 21300000, guid: dbd99a11aaa610e46878d9cca65ce233, type: 3}
 --- !u!1 &1459398739
 GameObject:
   m_ObjectHideFlags: 0
@@ -774,6 +790,48 @@ MonoBehaviour:
           m_CallState: 2
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+--- !u!1001 &1545600588
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 444994, guid: 6430ca78f28bd8d448aea3b3d5250e4f, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 444994, guid: 6430ca78f28bd8d448aea3b3d5250e4f, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 444994, guid: 6430ca78f28bd8d448aea3b3d5250e4f, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 444994, guid: 6430ca78f28bd8d448aea3b3d5250e4f, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 444994, guid: 6430ca78f28bd8d448aea3b3d5250e4f, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 444994, guid: 6430ca78f28bd8d448aea3b3d5250e4f, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 444994, guid: 6430ca78f28bd8d448aea3b3d5250e4f, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 444994, guid: 6430ca78f28bd8d448aea3b3d5250e4f, type: 2}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 6430ca78f28bd8d448aea3b3d5250e4f, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1842901308
 GameObject:
   m_ObjectHideFlags: 0

@@ -64,7 +64,6 @@ public class DeckAnimator : MonoBehaviour {
     }
 
     private IEnumerator AnimateCurrentCard() {
-        Debug.Log("current");
         var currentCard = deck.cards[cardIdx];
         animator.textObject = textObject;
         animator.card = currentCard;

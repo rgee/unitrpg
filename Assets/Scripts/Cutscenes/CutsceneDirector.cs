@@ -4,23 +4,21 @@ using Models;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CutsceneDirector : MonoBehaviour {
+public class CutsceneDirector : SceneEntryPoint {
     private readonly Dictionary<string, GameObject> portraits = new Dictionary<string, GameObject>();
     private CardAnimator cardAnimator;
     private bool complete;
     public Cutscene Cutscene;
     private DeckAnimator deckAnimator;
     private int deckIndex;
-    private SceneFader sceneTransitioner;
     private Text text;
 
-    private void Start() {
+    public override void StartScene() {
         cardAnimator = GetComponent<CardAnimator>();
         deckAnimator = GetComponent<DeckAnimator>();
         text = gameObject.GetComponentInChildren<Text>();
         deckAnimator.animator = cardAnimator;
 
-        sceneTransitioner = GameObject.FindGameObjectWithTag("SceneTransitioner").GetComponent<SceneFader>();
 
         // Grab handles to all the portraits of the actors in the scene.
         foreach (var actor in Cutscene.actors) {
@@ -39,7 +37,6 @@ public class CutsceneDirector : MonoBehaviour {
     }
 
     private IEnumerator Begin() {
-        yield return StartCoroutine(sceneTransitioner.FadeIn());
         yield return new WaitForSeconds(0.3f);
         Advance();
     }
@@ -55,17 +52,16 @@ public class CutsceneDirector : MonoBehaviour {
             deckIndex++;
 
             if (deckIndex >= Cutscene.decks.Length) {
-                StartCoroutine(TransitionToNextScene());
+                TransitionToNextScene();
             } else {
                 Advance();
             }
         }
     }
 
-    private IEnumerator TransitionToNextScene() {
+    private void TransitionToNextScene() {
         complete = true;
-        yield return StartCoroutine(sceneTransitioner.FadeOut());
-        Application.LoadLevel(Cutscene.nextScene);
+        SceneFader.Instance.TransitionToScene(Cutscene.nextScene);
     }
 
     private void Advance() {

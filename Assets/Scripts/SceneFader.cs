@@ -2,14 +2,38 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SceneFader : MonoBehaviour {
+public class SceneFader : Singleton<SceneFader> {
     private const float fadeTimeSeconds = 0.7f;
     private Image image;
     public GameObject overlay;
 
     private void Awake() {
+        DontDestroyOnLoad(this);
         overlay.SetActive(false);
         image = overlay.GetComponent<Image>();
+    }
+
+    public void TransitionToScene(int sceneIndex) {
+        StartCoroutine(RunScenetransitionSequence(sceneIndex));
+    }
+
+    private IEnumerator RunScenetransitionSequence(int sceneIndex) {
+        yield return StartCoroutine(FadeOut());
+        Application.LoadLevel(sceneIndex);
+        yield return StartCoroutine(FadeIn());
+        ApplicationEventBus.SceneStart.Dispatch();
+    }
+
+
+    public void TransitionToScene(string sceneName) {
+        StartCoroutine(RunScenetransitionSequence(sceneName));
+    }
+
+    private IEnumerator RunScenetransitionSequence(string sceneName) {
+        yield return StartCoroutine(FadeOut());
+        Application.LoadLevel(sceneName);
+        yield return StartCoroutine(FadeIn());
+        ApplicationEventBus.SceneStart.Dispatch();
     }
 
     public IEnumerator FadeOut() {
