@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Runtime.Serialization;
+using Models.Combat;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -21,6 +23,7 @@ namespace Models {
         public int SpeedGrowth;
         public int Strength;
         public int StrengthGrowth;
+        public List<CombatAction> Actions; 
 
         public Character(Character character) {
             Defense = character.Defense;

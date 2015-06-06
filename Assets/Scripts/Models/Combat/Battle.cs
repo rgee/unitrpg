@@ -23,6 +23,10 @@ namespace Models.Combat {
             return _actionProber.GetAvailableActions(unit);
         }
 
+        public IEnumerable<CombatAction> GetAvailableFightActions(Unit unit) {
+            return _actionProber.GetAvailableFightActions(unit);
+        } 
+
         public int TurnCount {
             get { return _turnState.TurnCount; }
         }

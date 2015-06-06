@@ -1,16 +1,17 @@
 fileFormatVersion: 2
-guid: 85032ca7656214800ab40fcb4e1c76c4
-timeCreated: 1431397841
+guid: 7ee8a73f9fc7781468746f1947fcb709
+timeCreated: 1433603865
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: wedge_quarter
-    21300002: wedge_half
-    21300004: wedge_eighth
+    21300000: quarter
+    21300002: half
+    21300004: eighth
+    21300006: sixth
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     linearTexture: 0
     correctGamma: 0
     fadeOut: 0
@@ -29,7 +30,7 @@ TextureImporter:
   cubemapConvolutionSteps: 8
   cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
-  textureFormat: -1
+  textureFormat: -3
   maxTextureSize: 1024
   textureSettings:
     filterMode: 2
@@ -46,13 +47,13 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: .5, y: .5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 7
+  spritePixelsToUnits: 200
   alphaIsTransparency: 1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: wedge_quarter
+    - name: quarter
       rect:
         serializedVersion: 2
         x: 0
@@ -62,23 +63,33 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: wedge_half
+    - name: half
       rect:
         serializedVersion: 2
-        x: 451
+        x: 452
         y: 9
-        width: 881
-        height: 429
+        width: 880
+        height: 430
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: wedge_eighth
+    - name: eighth
       rect:
         serializedVersion: 2
-        x: 1351
+        x: 1350
         y: 106
-        width: 300
+        width: 302
         height: 334
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sixth
+      rect:
+        serializedVersion: 2
+        x: 1664
+        y: 78
+        width: 352
+        height: 361
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}

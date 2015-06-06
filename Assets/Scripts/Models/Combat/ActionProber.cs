@@ -12,6 +12,15 @@ namespace Models.Combat {
             _turn = turn;
         }
 
+        public IEnumerable<CombatAction> GetAvailableFightActions(Unit unit) {
+            var results = new List<CombatAction>();
+            if (!CanFight(unit)) {
+                return results;
+            }
+
+            return unit.Character.Actions;
+        } 
+
         public IEnumerable<CombatAction> GetAvailableActions(Unit unit) {
             var results = new List<CombatAction>();
             if (CanFight(unit)) {
@@ -20,10 +29,8 @@ namespace Models.Combat {
 
             if (CanAct(unit)) {
                 results.Add(CombatAction.Item);
-                results.Add(CombatAction.Brace);
 
                 if (AnyAdjacentFriendlies(unit)) {
-                    results.Add(CombatAction.Cover);
                     results.Add(CombatAction.Trade);
                 }
             }
@@ -51,7 +58,7 @@ namespace Models.Combat {
                 return false;
             }
 
-            List<Unit> adjacentUnits = GetAdjacentUnits(unit).ToList();
+            var adjacentUnits = GetAdjacentUnits(unit).ToList();
             var attackable = from enemy in adjacentUnits
                              where !enemy.IsFriendly && WithinRange(unit, enemy)
                              select enemy;
