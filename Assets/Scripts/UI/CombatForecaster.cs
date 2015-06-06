@@ -17,7 +17,7 @@ public class CombatForecaster : MonoBehaviour {
 
         _attackerForecast = Instantiate(AttackerForecast);
         _attackerForecast.transform.SetParent(attacker.transform);
-        _attackerForecast.transform.localPosition = new Vector3(-57, 0, 0);
+        _attackerForecast.transform.localPosition = new Vector3(-47, 0, 0);
         var forecast = _attackerForecast.GetComponent<CombatForecastWindow>();
         forecast.OnForecastResponse += HandleForecastResponse;
         forecast.SetForecastData(new CombatForecastWindow.FightForecast {
