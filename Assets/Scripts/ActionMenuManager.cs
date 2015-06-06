@@ -29,6 +29,7 @@ public class ActionMenuManager : MonoBehaviour {
     
 
     private GameObject _openMenu;
+    private Grid.Unit _targetUnit;
     private readonly Dictionary<CombatAction, GameObject> _prefabsByActions = new Dictionary<CombatAction, GameObject>();
 
     public void Start() {
@@ -57,6 +58,11 @@ public class ActionMenuManager : MonoBehaviour {
             CombatAction.Wait | CombatAction.Move,
             MoveWait
         );
+
+        _prefabsByActions.Add(
+            CombatAction.Attack | CombatAction.Brace,
+            AttackBrace
+        );
     }
 
     public void ShowActionMenu(Grid.Unit unit) {
@@ -79,12 +85,14 @@ public class ActionMenuManager : MonoBehaviour {
         menu.transform.localPosition = new Vector3(-16, 35, 0);
 
         _openMenu = menu;
+        _targetUnit = unit;
     }
 
     public void HideCurrentMenu() {
         if (_openMenu != null) {
             Destroy(_openMenu);
             _openMenu = null;
+            _targetUnit = null;
         }
     }
 
@@ -100,6 +108,23 @@ public class ActionMenuManager : MonoBehaviour {
     }
 
     public void ShowFightSubMenu() {
-       HideCurrentMenu(); 
+        var previouslyTargetedUnit = _targetUnit;
+        HideCurrentMenu();
+
+        var battle = CombatObjects.GetBattleState().Model;
+        var availableCombatActions = battle.GetAvailableFightActions(previouslyTargetedUnit.model)
+                                           .Aggregate((value, next) => value | next);
+
+        if (_prefabsByActions.ContainsKey(availableCombatActions)) {
+            var menuPrefab = _prefabsByActions[availableCombatActions];
+            var menu = Instantiate(menuPrefab);
+            menu.transform.SetParent(previouslyTargetedUnit.transform, true);
+            menu.transform.localPosition = new Vector3(-16, 35, 0);
+
+            _openMenu = menu;
+            _targetUnit = previouslyTargetedUnit;
+        } else {
+            throw new ArgumentException("Could not find fight menu for actions.");
+        }
     }
 }

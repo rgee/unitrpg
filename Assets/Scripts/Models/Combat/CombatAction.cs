@@ -10,6 +10,7 @@ namespace Models.Combat {
         Talk = 1 << 4,
         Wait = 1 << 5,
         Brace = 1 << 6,
-        Cover = 1 << 7
+        Cover = 1 << 7,
+        Attack = 1 << 8
     }
 }
