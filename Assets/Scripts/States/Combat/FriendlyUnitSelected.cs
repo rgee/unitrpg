@@ -18,7 +18,7 @@ public class FriendlyUnitSelected : CancelableCombatState {
 
     private void HandleAction(BattleAction action) {
         switch (action) {
-            case BattleAction.FIGHT:
+            case BattleAction.ATTACK:
                 Animator.SetTrigger("fight_selected");
                 break;
             case BattleAction.MOVE:
