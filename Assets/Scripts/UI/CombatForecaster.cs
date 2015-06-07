@@ -33,6 +33,7 @@ public class CombatForecaster : MonoBehaviour {
         _defenderForecast.transform.SetParent(defender.transform);
         _defenderForecast.transform.localPosition = new Vector3(57, 0, 0);
         forecast = _defenderForecast.GetComponent<CombatForecastWindow>();
+        forecast.OnForecastResponse += HandleForecastResponse;
         forecast.SetForecastData(new CombatForecastWindow.FightForecast {
             Health = result.Participants.Defender.Health,
             Damage = result.CounterAttack.AttackerDamage,
