@@ -10,7 +10,7 @@ public class CombatCursor : Singleton<CombatCursor> {
 
     public GameObject DefaultStatePrefab;
     public GameObject ConfirmStatePrefab;
-    public bool Confirming;
+    public bool Confirming { get; set; }
 
     public bool Interactive {
         get { return _animator.GetBool("Interactive"); }
