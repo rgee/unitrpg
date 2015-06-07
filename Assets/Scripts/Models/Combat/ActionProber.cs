@@ -28,6 +28,10 @@ namespace Models.Combat {
             }
 
             if (CanAct(unit)) {
+                if (!results.Contains(CombatAction.Fight)) {
+                    results.Add(CombatAction.Brace);
+                }
+
                 results.Add(CombatAction.Item);
 
                 if (AnyAdjacentFriendlies(unit)) {
