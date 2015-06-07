@@ -1,25 +1,49 @@
 ﻿using UnityEngine;
 
 public class CombatCursor : Singleton<CombatCursor> {
-    private Animator Animator;
-    private bool interactive;
-    private RectTransform Transform;
+    private Animator _animator;
+    private GameObject _confirmObject;
+    private GameObject _defaultObject;
+
+    private RectTransform _confirmTransform;
+    private RectTransform _defaultTransform;
+
+    public GameObject DefaultStatePrefab;
+    public GameObject ConfirmStatePrefab;
+    public bool Confirming;
 
     public bool Interactive {
-        get { return interactive; }
-        set { Animator.SetBool("Interactive", value); }
+        get { return _animator.GetBool("Interactive"); }
+        set { _animator.SetBool("Interactive", value); }
     }
 
     public void Start() {
-        Transform = GetComponent<RectTransform>();
-        Animator = GetComponent<Animator>();
+        _animator = GetComponent<Animator>();
+        _confirmObject = Instantiate(ConfirmStatePrefab);
+        _defaultObject = Instantiate(DefaultStatePrefab);
+
+        _confirmObject.transform.SetParent(transform);
+        _defaultObject.transform.SetParent(transform);
+
+        _confirmObject.SetActive(false);
+
+        _confirmTransform = _confirmObject.GetComponent<RectTransform>();
+        _defaultTransform = _defaultObject.GetComponent<RectTransform>();
     }
 
     public void Update() {
-        var size = Transform.sizeDelta;
-        size.Scale(new Vector2(.5f*Transform.localScale.x, .5f*transform.localScale.y));
+        _confirmObject.SetActive(Confirming);
+        _defaultObject.SetActive(!Confirming);
 
-        Transform.anchoredPosition3D = Input.mousePosition - new Vector3(size.x, size.y);
+        var currentTransform = GetCurrentTransform();
+        var size = GetCurrentTransform().sizeDelta;
+        size.Scale(new Vector2(.5f * currentTransform.localScale.x, .5f * currentTransform.localScale.y));
+
+        currentTransform.anchoredPosition3D = Input.mousePosition - new Vector3(size.x, size.y);
+    }
+
+    private RectTransform GetCurrentTransform() {
+        return _confirmObject.activeSelf ? _confirmTransform : _defaultTransform;
     }
 
     public void OnDisable() {
