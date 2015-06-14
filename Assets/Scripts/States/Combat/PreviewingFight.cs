@@ -12,7 +12,7 @@ public class PreviewingFight : CancelableCombatState {
         base.OnStateEnter(animator, stateInfo, layerIndex);
 
         Camera = CombatObjects.GetCameraController();
-        Forecaster = GameObject.Find("Combat Forecast Manager").GetComponent<CombatForecaster>();
+        Forecaster = CombatObjects.GetCombatForecaster();
         State = CombatObjects.GetBattleState();
         Animator = animator;
 

@@ -1,13 +1,14 @@
 ﻿using UnityEngine;
 
-public class SoundFX : Singleton<SoundFX> {
+public class SoundFX : MonoBehaviour {
     private AudioSource AudioSource;
+
     public AudioClip Crit;
     public AudioClip Glance;
     public AudioClip Hit;
     public AudioClip Miss;
 
-    private void Start() {
+    public void Awake() {
         AudioSource = GetComponent<AudioSource>();
     }
 

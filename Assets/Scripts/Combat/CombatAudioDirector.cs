@@ -1,5 +1,12 @@
-﻿public class CombatAudioDirector : Singleton<CombatAudioDirector> {
-    private void Start() {
+﻿using UnityEngine;
+
+public class CombatAudioDirector : Singleton<CombatAudioDirector> {
+    public GameObject SoundbankPrefab;
+    private SoundFX _fx;
+
+    private void Awake() {
+        var soundbank = Instantiate(SoundbankPrefab);
+        _fx = soundbank.GetComponent<SoundFX>();
         CombatEventBus.Hits.AddListener(PlayHit);
     }
 
@@ -8,15 +15,14 @@
     }
 
     private void PlayHit(Hit hit) {
-        var fx = SoundFX.Instance;
         if (hit.Crit) {
-            fx.PlayCrit();
+            _fx.PlayCrit();
         } else if (hit.Glanced) {
-            fx.PlayGlance();
+            _fx.PlayGlance();
         } else if (hit.Missed) {
-            fx.PlayMiss();
+            _fx.PlayMiss();
         } else {
-            fx.PlayHit();
+            _fx.PlayHit();
         }
     }
 }

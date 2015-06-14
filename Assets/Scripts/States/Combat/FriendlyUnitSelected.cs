@@ -10,7 +10,7 @@ public class FriendlyUnitSelected : CancelableCombatState {
 
         Animator = animator;
         BattleState = GameObject.Find("BattleManager").GetComponent<BattleState>();
-        MenuManager = GameObject.Find("ActionMenuManager").GetComponent<ActionMenuManager>();
+        MenuManager = CombatObjects.GetActionMenuManager();
 
         MenuManager.OnActionSelected += HandleAction;
         MenuManager.ShowActionMenu(BattleState.SelectedUnit);

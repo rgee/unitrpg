@@ -115,7 +115,6 @@ namespace Grid {
         }
 
         private void ShowGlance() {
-            SoundFX.Instance.PlayGlance();
             var hitConfirmation = Instantiate(GlanceConfirmPrefab);
             hitConfirmation.transform.parent = CurrentAttackTarget.gameObject.transform;
             hitConfirmation.transform.localPosition = new Vector3();

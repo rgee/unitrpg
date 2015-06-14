@@ -11,11 +11,7 @@ public static class CombatObjects {
     }
 
     public static InventoryPopupManager GetInventoryPopupManager() {
-        return GameObject.Find("InventoryPopupManager").GetComponent<InventoryPopupManager>();
-    }
-
-    public static AIManager GetAIManager() {
-        return GameObject.Find("AI Manager").GetComponent<AIManager>();
+        return GameObject.FindGameObjectWithTag("Inventory Popup Manager").GetComponent<InventoryPopupManager>();
     }
 
     public static BattleState GetBattleState() {
@@ -31,6 +27,10 @@ public static class CombatObjects {
     }
 
     public static ActionMenuManager GetActionMenuManager() {
-        return GameObject.Find("ActionMenuManager").GetComponent<ActionMenuManager>();
+        return GameObject.FindGameObjectWithTag("ActionMenuManager").GetComponent<ActionMenuManager>();
+    }
+
+    public static CombatForecaster GetCombatForecaster() {
+        return GameObject.FindGameObjectWithTag("Forecaster").GetComponent<CombatForecaster>();
     }
 }

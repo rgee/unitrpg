@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Models;
 using Models.Combat;
 using SaveGames;
@@ -6,6 +7,8 @@ using UnityEngine;
 
 namespace States.Combat {
     public class InitializeBattle : StateMachineBehaviour {
+        public List<GameObject> ManagerPrefabs; 
+
         private Animator _animator;
         public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
             _animator = animator;
@@ -42,6 +45,10 @@ namespace States.Combat {
                 director.StartIntro();
             } else {
                 CompleteInitialization();
+            }
+
+            foreach (var prefab in ManagerPrefabs) {
+                Instantiate(prefab);
             }
         }
 
