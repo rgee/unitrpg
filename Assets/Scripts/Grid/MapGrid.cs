@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Grid;
 using Pathfinding;
+using Tiled2Unity;
 using UnityEngine;
 
 public class MapGrid : Singleton<MapGrid> {
@@ -37,6 +38,12 @@ public class MapGrid : Singleton<MapGrid> {
     public void Awake() {
         Pathfinder = GetComponent<AstarPath>();
         Seeker = GetComponent<Seeker>();
+
+        var tiledMap = GetComponent<TiledMap>();
+        tiledMap.NumTilesHigh = height;
+        tiledMap.NumTilesWide = width;
+        tiledMap.TileHeight = (int) tileSizeInPixels;
+        tiledMap.TileWidth = (int) tileSizeInPixels;
     }
 
     private HashSet<Vector2> generateSurroundingPoints(Vector2 origin, int range) {

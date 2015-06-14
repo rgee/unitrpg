@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &153616
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 469486}
+  - 114: {fileID: 11447108}
+  m_Layer: 0
+  m_Name: Map Highlight Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &469486
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 153616}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -560, y: 319.940002, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11447108
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 153616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8636db776d7959a4ab5c7fb7edcb640e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AttackSelectionMaterial: {fileID: 2100000, guid: 90594c636de501e428f525f0c11f0d0b,
+    type: 2}
+  BaseSortOrder: 6
+  GlobalEnemyMaterial: {fileID: 2100000, guid: 8481194d3a0650243ac2f1ff9519d8ef, type: 2}
+  HoverSelectionMaterial: {fileID: 2100000, guid: c84bef2265f8d3f4d8ac900e2f4c2d31,
+    type: 2}
+  MapHighlightPrefab: {fileID: 133506, guid: 93f3a9d030a037b428cae048d1f6bf91, type: 2}
+  MovementSelectionMaterial: {fileID: 2100000, guid: ab88c5ac613a069478342536ecd4c80d,
+    type: 2}
+  SpecificEnemyMaterial: {fileID: 2100000, guid: dbe564274e8c99040bce9d5fd242642e,
+    type: 2}
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 153616}
+  m_IsPrefabParent: 1
