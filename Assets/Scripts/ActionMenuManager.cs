@@ -82,7 +82,7 @@ public class ActionMenuManager : MonoBehaviour {
 
         var menu = Instantiate(menuPrefab);
         menu.transform.SetParent(unit.transform, true);
-        menu.transform.localPosition = new Vector3(0, 83, 0);
+        menu.transform.localPosition = new Vector3(0, 0, 0);
 
         _openMenu = menu;
         _targetUnit = unit;
@@ -119,7 +119,7 @@ public class ActionMenuManager : MonoBehaviour {
             var menuPrefab = _prefabsByActions[availableCombatActions];
             var menu = Instantiate(menuPrefab);
             menu.transform.SetParent(previouslyTargetedUnit.transform, true);
-            menu.transform.localPosition = new Vector3(0, 83, 0);
+            menu.transform.localPosition = new Vector3(0, 0, 0);
 
             _openMenu = menu;
             _targetUnit = previouslyTargetedUnit;
