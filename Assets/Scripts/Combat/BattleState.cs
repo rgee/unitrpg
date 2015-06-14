@@ -3,7 +3,6 @@ using Models.Combat;
 using Models.Combat.Inventory;
 using UnityEngine;
 
-[RequireComponent(typeof (Objective))]
 public class BattleState : MonoBehaviour {
     public IBattle Model;
 
@@ -18,11 +17,11 @@ public class BattleState : MonoBehaviour {
     public Item SelectedItem;
 
     public bool isWon() {
-        return GetComponent<Objective>().IsComplete();
+        return CombatObjects.GetObjective().IsComplete();
     }
 
     public bool isLost() {
-        return GetComponent<Objective>().IsFailed();
+        return CombatObjects.GetObjective().IsFailed();
     }
 
     public void ResetMovementState() {

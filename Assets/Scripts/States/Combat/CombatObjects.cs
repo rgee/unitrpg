@@ -10,6 +10,10 @@ public static class CombatObjects {
         return GameObject.FindGameObjectWithTag("Map").GetComponent<MapGrid>();
     }
 
+    public static Objective GetObjective() {
+        return GameObject.FindGameObjectWithTag("Map").GetComponent<Objective>();
+    }
+
     public static InventoryPopupManager GetInventoryPopupManager() {
         return GameObject.FindGameObjectWithTag("Inventory Popup Manager").GetComponent<InventoryPopupManager>();
     }
