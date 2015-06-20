@@ -6,7 +6,7 @@ using UnityEngine;
 
 [ExecuteInEditMode]
 public class DynamicSortedObject : MonoBehaviour {
-    public float GridSize;
+    public float GridSize = 32;
     public Vector2 Offset = Vector2.zero;
 
     private Renderer _renderer;

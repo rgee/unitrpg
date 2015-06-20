@@ -41,7 +41,7 @@
  </layer>
  <layer name="Inner Wall" width="45" height="26">
   <properties>
-   <property name="unity:sortingOrder" value="20"/>
+   <property name="unity:sortingOrder" value="-13"/>
   </properties>
   <data encoding="base64" compression="zlib">
    eJztzrEJACAMBdEEs4LgEO4/nzaChaQKSvAeHFgE+SIAgB/YrDiZ89473ayi1QuxOd/mpvk2dw3+EAAA4JEB0dsIzg==
@@ -57,10 +57,18 @@
  </layer>
  <layer name="Tower" width="45" height="26">
   <properties>
-   <property name="unity:sortingOrder" value="0"/>
+   <property name="unity:sortingOrder" value="1"/>
   </properties>
   <data encoding="base64" compression="zlib">
    eJztzkk612EAwPG/BYUcQMYOUKYcwJDhAFTSNuMFTOEAxjiAmQOoiAMoTQcwcwBlyM5n3/OzsHn/i/f7PJ/9N5WKxWKxWCwWi92nd3TQSRfd9NAbcuqO+uhngEGGeM8wI4wGO0tujHEmmGSKaT4ww2y4tcTmmGeBRZZYZoVV1sKtJbbORz7xmQ02+cIW2+HWEtvhK9/Y5Ts/+MkvfodbS2yPfQ445IhjTjjlLNhZcuf84S8XXHLFNf+4CbeWWGZGKpXFAx6STQ65PCIvI/Th/+V7ekwBhRRRTAmlPEnD56eenlFGORVUUsVzqtPwucZTLXXU84IGGmmiOQ2fWzy18pJXvKaNN7TzNsDzLXiMOTE=
+  </data>
+ </layer>
+ <layer name="Exit Door Wall" width="45" height="26">
+  <properties>
+   <property name="unity:sortingOrder" value="-23"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJztzqENAAAIBLFfgv1XZQIEwSDa5PwlezX0mWcAAACAmwasuwF7
   </data>
  </layer>
  <layer name="Upper Wall Inner" width="45" height="26">
@@ -72,6 +80,9 @@
   </data>
  </layer>
  <objectgroup name="Colliders">
+  <properties>
+   <property name="unity:sortingLayerName" value="Obstacles"/>
+  </properties>
   <object id="4" x="1312" y="0" width="120" height="824"/>
   <object id="7" x="0" y="544" width="1440" height="288"/>
   <object id="9" x="0" y="-16" width="416" height="560"/>
