@@ -13,6 +13,10 @@ public class DynamicSortedObject : MonoBehaviour {
 
     void Start() {
         _renderer = GetComponent<Renderer>();
+        var map = CombatObjects.GetMap();
+        if (map != null) {
+            Offset = new Vector2(0, map.transform.position.y);
+        }
     }
 
     void Update() {
