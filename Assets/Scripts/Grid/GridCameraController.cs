@@ -1,9 +1,13 @@
 ﻿using UnityEngine;
 
 public class GridCameraController : CameraController {
-    public MapGrid grid;
     private GameObject GridHighlight;
     private bool gridSelectorLocked;
+    private MapGrid grid;
+
+    void Start() {
+        grid = CombatObjects.GetMap();
+    }
 
     public override void Lock() {
         locked = true;

@@ -10,7 +10,7 @@ namespace Grid {
         private readonly List<GameObject> unitGameObjects = new List<GameObject>();
         private readonly List<Models.Combat.Unit> unitModels = new List<Models.Combat.Unit>();
         private readonly Dictionary<Vector2, GameObject> unitsByPosition = new Dictionary<Vector2, GameObject>();
-        public MapGrid Grid;
+        private MapGrid Grid;
         private bool locked;
         private Vector2? selectedGridPosition;
         private HashSet<Unit> unmovedUnits = new HashSet<Unit>();
@@ -26,6 +26,7 @@ namespace Grid {
 
         // Use this for initialization
         private void Start() {
+            Grid = CombatObjects.GetMap();
             foreach (Transform t in transform) {
                 unitGameObjects.Add(t.gameObject);
 

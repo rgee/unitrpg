@@ -15,8 +15,7 @@ public class DynamicSortedObject : MonoBehaviour {
         _renderer = GetComponent<Renderer>();
     }
 
-    void Update()
-    {
+    void Update() {
         Vector3 position = transform.position + new Vector3(Offset.x, Offset.y);
         _renderer.sortingOrder = -Mathf.RoundToInt(position.y/GridSize);
     }
