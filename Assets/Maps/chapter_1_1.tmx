@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="45" height="26" tilewidth="32" tileheight="32" nextobjectid="19">
+ <tileset firstgid="1" name="CH1_tiles" tilewidth="32" tileheight="32">
+  <image source="../Sprites/Tilesets/CH1_tiles.png" width="640" height="640"/>
+  <tile id="0">
+   <properties>
+    <property name="unity:sortingOrder" value="0"/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="unity:sortingOrder" value="0"/>
+   </properties>
+  </tile>
+  <tile id="5">
+   <properties>
+    <property name="unity:sortingOrder" value="-1000"/>
+   </properties>
+  </tile>
+  <tile id="27">
+   <properties>
+    <property name="unity:sortingOrder" value="-20"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="Floor" width="45" height="26">
+  <properties>
+   <property name="unity:sortingOrder" value="-1000"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJzt06ENACAQBEEU/ZdMBS8wG0hmkvNrbq17e9jLNDc0NzQ3NDc0NzQ3puZqmjX/+BsA/nIARQAE1Q==
+  </data>
+ </layer>
+ <layer name="South Wall" width="45" height="26">
+  <properties>
+   <property name="unity:sortingOrder" value="0"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJztjsENgkAUBXdZShAT+kRrUGpAakBrQGpQa1BrYA4cNiZy4f/bm+xcJpufF4IQQgghhBBC/CdhudjgAY9ZTz+9XOlp5X9+fyt15gnP2Dp3y80dXrB37pabB7zizblbbh7xjpNzt9z8wCe+nLvl5jd+8OvcLTeHyMMi+nbLzTvuVbiPvn0G0jxQ+A==
+  </data>
+ </layer>
+ <layer name="Inner Wall" width="45" height="26">
+  <properties>
+   <property name="unity:sortingOrder" value="20"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJztzrEJACAMBdEEs4LgEO4/nzaChaQKSvAeHFgE+SIAgB/YrDiZ89473ayi1QuxOd/mpvk2dw3+EAAA4JEB0dsIzg==
+  </data>
+ </layer>
+ <layer name="West Wall" width="45" height="26">
+  <properties>
+   <property name="unity:sortingOrder" value="0"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJzt1bENACAMA0FgZYZgCJZlhriIsfRXp3ghooxRM4vzP0hsXu4AwXYHCI47QHDdAYLE/5zYzA72SNxB7mCPxHcGAACoekgdAzc=
+  </data>
+ </layer>
+ <layer name="Tower" width="45" height="26">
+  <properties>
+   <property name="unity:sortingOrder" value="0"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJztzkk612EAwPG/BYUcQMYOUKYcwJDhAFTSNuMFTOEAxjiAmQOoiAMoTQcwcwBlyM5n3/OzsHn/i/f7PJ/9N5WKxWKxWCwWi92nd3TQSRfd9NAbcuqO+uhngEGGeM8wI4wGO0tujHEmmGSKaT4ww2y4tcTmmGeBRZZYZoVV1sKtJbbORz7xmQ02+cIW2+HWEtvhK9/Y5Ts/+MkvfodbS2yPfQ445IhjTjjlLNhZcuf84S8XXHLFNf+4CbeWWGZGKpXFAx6STQ65PCIvI/Th/+V7ekwBhRRRTAmlPEnD56eenlFGORVUUsVzqtPwucZTLXXU84IGGmmiOQ2fWzy18pJXvKaNN7TzNsDzLXiMOTE=
+  </data>
+ </layer>
+ <layer name="Upper Wall Inner" width="45" height="26">
+  <properties>
+   <property name="unity:sortingOrder" value="0"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJzt1FEJADAMA9FuzL+uiZiISaiHUBoK9wSUIx+NqLMLb3WhuQfNPZY7QDBx54nN1x0geO4AwXcHCM7ExwEAAACbBCJAAqk=
+  </data>
+ </layer>
+ <objectgroup name="Colliders">
+  <object id="4" x="1312" y="0" width="120" height="824"/>
+  <object id="7" x="0" y="544" width="1440" height="288"/>
+  <object id="9" x="0" y="-16" width="416" height="560"/>
+  <object id="14" x="608" y="-32" width="704" height="448"/>
+  <object id="17" x="264" y="424" width="272" height="272">
+   <ellipse/>
+  </object>
+  <object id="18" x="416" y="-16" width="192" height="112"/>
+ </objectgroup>
+</map>
