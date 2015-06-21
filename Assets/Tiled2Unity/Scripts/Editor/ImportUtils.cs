@@ -14,36 +14,6 @@ namespace Tiled2Unity
 {
     class ImportUtils
     {
-        public static string GetMaterialPath(string texName)
-        {
-            return String.Format("Assets/Tiled2Unity/Materials/{0}.mat", Path.GetFileNameWithoutExtension(texName));
-        }
-
-        public static string GetTexturePath(string filename)
-        {
-            return Path.Combine("Assets/Tiled2Unity/Textures", filename);
-        }
-
-        public static string GetMeshPath(string filename)
-        {
-            return String.Format("Assets/Tiled2Unity/Meshes/{0}.obj", Path.GetFileNameWithoutExtension(filename));
-        }
-
-        public static string GetXmlPathFromFile(string objFile)
-        {
-            return String.Format("Assets/Tiled2Unity/Imported/{0}.tiled2unity.xml", Path.GetFileNameWithoutExtension(objFile));
-        }
-
-        public static string GetXmlPathFromName(string objName)
-        {
-            return String.Format("Assets/Tiled2Unity/Imported/{0}.tiled2unity.xml", objName);
-        }
-
-        public static string GetPrefabPathFromName(string objName)
-        {
-            return String.Format("Assets/Tiled2Unity/Prefabs/{0}.prefab", objName);
-        }
-
         public static string GetAttributeAsString(XElement elem, string attrName)
         {
             return elem.Attribute(attrName).Value;
@@ -131,6 +101,36 @@ namespace Tiled2Unity
         {
             byte[] bytes = Convert.FromBase64String(base64);
             return Encoding.ASCII.GetString(bytes);
+        }
+
+        public static void SetCastShadows(MeshRenderer mr, bool set)
+        {
+            // Unfortunate to have to support versions like this
+#if UNITY_4_0 || UNITY_4_0_1 || UNITY_4_1 || UNITY_4_2 || UNITY_4_3 || UNITY_4_4 || UNITY_4_5 || UNITY_4_6
+            mr.castShadows = set;
+#else
+            mr.shadowCastingMode = set ? UnityEngine.Rendering.ShadowCastingMode.On : UnityEngine.Rendering.ShadowCastingMode.Off;
+#endif
+        }
+
+        public static void SetBoxCollider2DOffset(BoxCollider2D bc2d, Vector2 offset)
+        {
+            // Unfortunate to have to support versions like this
+#if UNITY_4_0 || UNITY_4_0_1 || UNITY_4_1 || UNITY_4_2 || UNITY_4_3 || UNITY_4_4 || UNITY_4_5 || UNITY_4_6
+            bc2d.center = offset;
+#else
+            bc2d.offset = offset;
+#endif
+        }
+
+        public static void SetCircleCollider2DOffset(CircleCollider2D bc2d, Vector2 offset)
+        {
+            // Unfortunate to have to support versions like this
+#if UNITY_4_0 || UNITY_4_0_1 || UNITY_4_1 || UNITY_4_2 || UNITY_4_3 || UNITY_4_4 || UNITY_4_5 || UNITY_4_6
+            bc2d.center = offset;
+#else
+            bc2d.offset = offset;
+#endif
         }
 
         // Bah! This won't work (at least yet) due to Mono being a bit behind the .Net libraries
