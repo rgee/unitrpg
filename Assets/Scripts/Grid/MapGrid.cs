@@ -40,10 +40,12 @@ public class MapGrid : Singleton<MapGrid> {
         Seeker = GetComponent<Seeker>();
 
         var tiledMap = GetComponent<TiledMap>();
-        tiledMap.NumTilesHigh = height;
-        tiledMap.NumTilesWide = width;
-        tiledMap.TileHeight = (int) tileSizeInPixels;
-        tiledMap.TileWidth = (int) tileSizeInPixels;
+        if (tiledMap != null) {
+            tiledMap.NumTilesHigh = height;
+            tiledMap.NumTilesWide = width;
+            tiledMap.TileHeight = (int) tileSizeInPixels;
+            tiledMap.TileWidth = (int) tileSizeInPixels;
+        }
     }
 
     private HashSet<Vector2> generateSurroundingPoints(Vector2 origin, int range) {
