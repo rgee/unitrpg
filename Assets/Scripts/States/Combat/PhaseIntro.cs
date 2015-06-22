@@ -17,7 +17,7 @@ public class PhaseIntro : StateMachineBehaviour {
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         UnitManager = GameObject.Find("Unit Manager").GetComponent<UnitManager>();
-        CameraController = GameObject.Find("Grid Camera/Main Camera").GetComponent<GridCameraController>();
+        CameraController = CombatObjects.GetCameraController();
 
         LockControls();
         phaseTextCanvas = Instantiate(PhaseTextPrefab);

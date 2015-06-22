@@ -27,7 +27,7 @@ public static class CombatObjects {
     }
 
     public static GridCameraController GetCameraController() {
-        return GameObject.Find("Grid Camera/Main Camera").GetComponent<GridCameraController>();
+        return GameObject.FindGameObjectWithTag("MainCamera").GetComponent<GridCameraController>();
     }
 
     public static ActionMenuManager GetActionMenuManager() {

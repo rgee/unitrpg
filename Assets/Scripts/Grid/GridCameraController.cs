@@ -32,7 +32,7 @@ public class GridCameraController : CameraController {
 
         var gridWidth = grid.tileSizeInPixels*grid.width;
         var gridHeight = grid.tileSizeInPixels*grid.height;
-        Vector2 gridCenter = grid.transform.position + new Vector3(gridWidth/2, -(gridHeight/2), 0);
+        Vector2 gridCenter = grid.transform.position + new Vector3(gridWidth/2, (gridHeight/2), 0);
 
         var vSize = Camera.main.orthographicSize*2.0f;
         var hSize = vSize*((float) Screen.width/Screen.height);
