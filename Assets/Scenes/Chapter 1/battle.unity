@@ -10965,6 +10965,8 @@ GameObject:
   - 114: {fileID: 1256147621}
   - 114: {fileID: 1256147620}
   - 65: {fileID: 1256147619}
+  - 114: {fileID: 1256147627}
+  - 114: {fileID: 1256147626}
   m_Layer: 0
   m_Name: Liat
   m_TagString: Untagged
@@ -11008,7 +11010,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   library: {fileID: 11489536, guid: 7ff064066a6d7b541a5d7e7aadf1baf7, type: 2}
   defaultClipId: 8
-  playAutomatically: 1
+  playAutomatically: 0
 --- !u!114 &1256147622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11023,7 +11025,7 @@ MonoBehaviour:
   collection: {fileID: 11400882, guid: c5b8422c97ea4904fbe130fd35e954d2, type: 2}
   _color: {r: 1, g: 1, b: 1, a: 1}
   _scale: {x: 1, y: 1, z: 1}
-  _spriteId: 60
+  _spriteId: 0
   boxCollider2D: {fileID: 0}
   polygonCollider2D: []
   edgeCollider2D: []
@@ -11075,6 +11077,43 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
+--- !u!114 &1256147626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1256147618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be94e8fb3aa2a5044976e8ea3844d6b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1256147627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1256147618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0c3b59a9ae3d354a8c3c62245c997b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attacking: 0
+  friendly: 0
+  gridPosition: {x: 0, y: 0}
+  Killing: 0
+  model:
+    Character: {fileID: 0}
+    GridPosition: {x: 0, y: 0}
+    Health: 0
+    IsFriendly: 0
+    Inventory: []
+  IsDodging: 0
+  timePerMoveSquare: .300000012
+  InCombat: 0
+  Facing: 0
+  Running: 0
 --- !u!1001 &1281617888
 Prefab:
   m_ObjectHideFlags: 0

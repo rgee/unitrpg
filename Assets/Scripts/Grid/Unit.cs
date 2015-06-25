@@ -39,7 +39,6 @@ namespace Grid {
         public event Action OnAttackStart;
         public event Action OnDodgeComplete;
 
-        private tk2dSpriteAnimator _tkAnimator;
         private Animator animator;
         private UnitController Controller;
         private Unit CurrentAttackTarget;
@@ -50,47 +49,10 @@ namespace Grid {
         public MathUtils.CardinalDirection Facing;
         public bool Running;
 
-        void Update() {
-            if (_tkAnimator == null) {
-                return;
-            }
-
-            if (Running) {
-                
-            }
-        }
-
-        void SetRunningAnimation() {
-            switch (Facing) {
-                case MathUtils.CardinalDirection.E:
-                    break;
-                case MathUtils.CardinalDirection.N:
-                    break;
-                case MathUtils.CardinalDirection.S:
-                    break;
-                case MathUtils.CardinalDirection.W:
-                    break;
-            }
-        }
-
-        void SetCombatAnimation() {
-            switch (Facing) {
-                case MathUtils.CardinalDirection.E:
-                    break;
-                case MathUtils.CardinalDirection.N:
-                    break;
-                case MathUtils.CardinalDirection.S:
-                    break;
-                case MathUtils.CardinalDirection.W:
-                    break;
-            }
-        }
-
         void Start() {
             seeker = GetComponent<Seeker>();
             seeker.startEndModifier.exactEndPoint = StartEndModifier.Exactness.SnapToNode;
             animator = GetComponent<Animator>();
-            _tkAnimator = GetComponent<tk2dSpriteAnimator>();
             Controller = GetComponent<UnitController>();
             model.Health = model.Character.MaxHealth;
         }
