@@ -15,7 +15,10 @@ namespace Grid {
         private Dictionary<MathUtils.CardinalDirection, tk2dSpriteAnimationClip> _runningAnimationClips =
             new Dictionary<MathUtils.CardinalDirection, tk2dSpriteAnimationClip>();
 
-        private Dictionary<MathUtils.CardinalDirection, tk2dSpriteAnimationClip> _CombatAnimationIds =
+        private Dictionary<MathUtils.CardinalDirection, tk2dSpriteAnimationClip> _combatAnimationClips =
+            new Dictionary<MathUtils.CardinalDirection, tk2dSpriteAnimationClip>();
+        
+        private Dictionary<MathUtils.CardinalDirection, tk2dSpriteAnimationClip> _attackAnimationClips =
             new Dictionary<MathUtils.CardinalDirection, tk2dSpriteAnimationClip>();
 
         void Start() {
@@ -26,6 +29,10 @@ namespace Grid {
             _runningAnimationClips[MathUtils.CardinalDirection.W] = FindClip("run west");
             _runningAnimationClips[MathUtils.CardinalDirection.N] = FindClip("run north");
             _runningAnimationClips[MathUtils.CardinalDirection.S] = FindClip("run south");
+
+            _combatAnimationClips[MathUtils.CardinalDirection.N] = FindClip("combat north");
+
+            _attackAnimationClips[MathUtils.CardinalDirection.N] = FindClip("attack north");
 
             _idleClip = FindClip("idle");
         }
@@ -43,7 +50,11 @@ namespace Grid {
             if (_unit.Running) {
                 SetRunningAnimation();
             } else if (_unit.InCombat) {
-                SetCombatAnimation();
+                if (_unit.Attacking) {
+                    SetAttackAnimation(); 
+                } else {
+                    SetCombatAnimation();
+                }
             } else {
                 _animator.Play(_idleClip);
             }
@@ -53,18 +64,23 @@ namespace Grid {
             _animator.Play(_runningAnimationClips[_unit.Facing]);
         }
 
-        void SetCombatAnimation() {
-            switch (_unit.Facing) {
-                case MathUtils.CardinalDirection.E:
-                    break;
-                case MathUtils.CardinalDirection.N:
-                    break;
-                case MathUtils.CardinalDirection.S:
-                    break;
-                case MathUtils.CardinalDirection.W:
-                    break;
-            }
+        void SetAttackAnimation() {
+            _animator.Play(_attackAnimationClips[_unit.Facing]);
+            _animator.AnimationCompleted = SetNotAttacking;
         }
 
+        void ResetCombatAnimation() {
+            _animator.PlayFromFrame(_combatAnimationClips[_unit.Facing], 1);
+        }
+
+        void SetCombatAnimation() {
+            _animator.Play(_combatAnimationClips[_unit.Facing]);
+        }
+
+        void SetNotAttacking(tk2dSpriteAnimator animator, tk2dSpriteAnimationClip clip) {
+            _unit.Attacking = false;
+            _animator.AnimationCompleted = null;
+            ResetCombatAnimation();
+        }
     }
 }

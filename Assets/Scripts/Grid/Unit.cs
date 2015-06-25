@@ -26,7 +26,6 @@ namespace Grid {
                 {MathUtils.CardinalDirection.S, 0}
             };
 
-        public bool Attacking;
         public bool friendly;
         public Vector2 gridPosition;
         public bool Killing;
@@ -45,6 +44,7 @@ namespace Grid {
         private Hit CurrentHit;
         private Seeker seeker;
 
+        public bool Attacking;
         public bool InCombat;
         public MathUtils.CardinalDirection Facing;
         public bool Running;
