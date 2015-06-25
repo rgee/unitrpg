@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Combat;
+using UnityEngine;
 
 public class CombatAudioDirector : Singleton<CombatAudioDirector> {
     public GameObject SoundbankPrefab;
@@ -7,14 +8,15 @@ public class CombatAudioDirector : Singleton<CombatAudioDirector> {
     private void Awake() {
         var soundbank = Instantiate(SoundbankPrefab);
         _fx = soundbank.GetComponent<SoundFX>();
-        CombatEventBus.Hits.AddListener(PlayHit);
+        CombatEventBus.HitEvents.AddListener(PlayHit);
     }
 
     private void OnDestroy() {
-        CombatEventBus.Hits.RemoveListener(PlayHit);
+        CombatEventBus.HitEvents.RemoveListener(PlayHit);
     }
 
-    private void PlayHit(Hit hit) {
+    private void PlayHit(HitEvent hitEvent) {
+        var hit = hitEvent.Data;
         if (hit.Crit) {
             _fx.PlayCrit();
         } else if (hit.Glanced) {

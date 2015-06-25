@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Combat;
 using Models;
 using Pathfinding;
 using UnityEngine;
@@ -99,7 +100,11 @@ namespace Grid {
                 ShowHit();
             }
 
-            CombatEventBus.Hits.Dispatch(CurrentHit);
+            CombatEventBus.HitEvents.Dispatch(new HitEvent {
+                Target = CurrentAttackTarget.gameObject,
+                Data = CurrentHit,
+                Attacker = gameObject
+            });
         }
 
         private void ShowCrit() {

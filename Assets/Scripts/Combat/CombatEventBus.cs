@@ -1,9 +1,9 @@
-﻿using Models.Combat.Inventory;
+﻿using Combat;
 using strange.extensions.signal.impl;
 using UnityEngine;
 
 public static class CombatEventBus {
-    public static Signal<Hit> Hits = new Signal<Hit>();
+    public static Signal<HitEvent> HitEvents = new Signal<HitEvent>();
     public static Signal<Grid.Unit> Deaths = new Signal<Grid.Unit>();
     public static Signal<Models.Combat.Unit> ModelDeaths = new Signal<Models.Combat.Unit>();
     public static Signal<Grid.Unit, Vector2> Moves = new Signal<Grid.Unit, Vector2>();
