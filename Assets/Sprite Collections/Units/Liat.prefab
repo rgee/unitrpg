@@ -240,6 +240,24 @@ MonoBehaviour:
     splitMethod: 0
     version: 1
     colliderType: 0
+  - texture: {fileID: 2800000, guid: 9d2f16b13d18b824e9b003994fd0fe8e, type: 3}
+    tilesX: 0
+    tilesY: 0
+    numTiles: 0
+    anchor: 4
+    pad: 1
+    scale: {x: 1, y: 1, z: 1}
+    additive: 0
+    active: 1
+    tileWidth: 50
+    tileHeight: 50
+    tileMarginX: 0
+    tileMarginY: 0
+    tileSpacingX: 0
+    tileSpacingY: 0
+    splitMethod: 0
+    version: 1
+    colliderType: 0
   fonts: []
   defaults:
     additive: 0
@@ -2732,10 +2750,10 @@ MonoBehaviour:
     colliderSmoothSphereCollisions: 0
     colliderColor: 0
     attachPoints: []
-  - name: run_side/0
+  - name: run_west/0
     disableTrimming: 0
     additive: 0
-    scale: {x: 1, y: 1, z: 1}
+    scale: {x: -1, y: 1, z: 1}
     texture: {fileID: 2800000, guid: 9d2f16b13d18b824e9b003994fd0fe8e, type: 3}
     materialId: 0
     anchor: 9
@@ -2773,10 +2791,10 @@ MonoBehaviour:
     colliderSmoothSphereCollisions: 0
     colliderColor: 0
     attachPoints: []
-  - name: run_side/1
+  - name: run_west/1
     disableTrimming: 0
     additive: 0
-    scale: {x: 1, y: 1, z: 1}
+    scale: {x: -1, y: 1, z: 1}
     texture: {fileID: 2800000, guid: 9d2f16b13d18b824e9b003994fd0fe8e, type: 3}
     materialId: 0
     anchor: 9
@@ -2814,10 +2832,10 @@ MonoBehaviour:
     colliderSmoothSphereCollisions: 0
     colliderColor: 0
     attachPoints: []
-  - name: run_side/2
+  - name: run_west/2
     disableTrimming: 0
     additive: 0
-    scale: {x: 1, y: 1, z: 1}
+    scale: {x: -1, y: 1, z: 1}
     texture: {fileID: 2800000, guid: 9d2f16b13d18b824e9b003994fd0fe8e, type: 3}
     materialId: 0
     anchor: 9
@@ -2855,10 +2873,10 @@ MonoBehaviour:
     colliderSmoothSphereCollisions: 0
     colliderColor: 0
     attachPoints: []
-  - name: run_side/3
+  - name: run_west/3
     disableTrimming: 0
     additive: 0
-    scale: {x: 1, y: 1, z: 1}
+    scale: {x: -1, y: 1, z: 1}
     texture: {fileID: 2800000, guid: 9d2f16b13d18b824e9b003994fd0fe8e, type: 3}
     materialId: 0
     anchor: 9
@@ -2896,7 +2914,48 @@ MonoBehaviour:
     colliderSmoothSphereCollisions: 0
     colliderColor: 0
     attachPoints: []
-  - name: run_side/4
+  - name: run_west/4
+    disableTrimming: 0
+    additive: 0
+    scale: {x: -1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 9d2f16b13d18b824e9b003994fd0fe8e, type: 3}
+    materialId: 0
+    anchor: 9
+    anchorX: 7
+    anchorY: 43
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 1
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 10
+    spriteSheetX: 0
+    spriteSheetY: 4
+    extractRegion: 1
+    regionX: 0
+    regionY: 0
+    regionW: 50
+    regionH: 50
+    regionId: 4
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: run_east/0
     disableTrimming: 0
     additive: 0
     scale: {x: 1, y: 1, z: 1}
@@ -2918,7 +2977,171 @@ MonoBehaviour:
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
-    spriteSheetId: 10
+    spriteSheetId: 11
+    spriteSheetX: 0
+    spriteSheetY: 0
+    extractRegion: 1
+    regionX: 0
+    regionY: 200
+    regionW: 50
+    regionH: 50
+    regionId: 0
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: run_east/1
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 9d2f16b13d18b824e9b003994fd0fe8e, type: 3}
+    materialId: 0
+    anchor: 9
+    anchorX: 7
+    anchorY: 43
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 1
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 11
+    spriteSheetX: 0
+    spriteSheetY: 1
+    extractRegion: 1
+    regionX: 0
+    regionY: 150
+    regionW: 50
+    regionH: 50
+    regionId: 1
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: run_east/2
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 9d2f16b13d18b824e9b003994fd0fe8e, type: 3}
+    materialId: 0
+    anchor: 9
+    anchorX: 7
+    anchorY: 43
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 1
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 11
+    spriteSheetX: 0
+    spriteSheetY: 2
+    extractRegion: 1
+    regionX: 0
+    regionY: 100
+    regionW: 50
+    regionH: 50
+    regionId: 2
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: run_east/3
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 9d2f16b13d18b824e9b003994fd0fe8e, type: 3}
+    materialId: 0
+    anchor: 9
+    anchorX: 7
+    anchorY: 43
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 1
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 11
+    spriteSheetX: 0
+    spriteSheetY: 3
+    extractRegion: 1
+    regionX: 0
+    regionY: 50
+    regionW: 50
+    regionH: 50
+    regionId: 3
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: run_east/4
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 9d2f16b13d18b824e9b003994fd0fe8e, type: 3}
+    materialId: 0
+    anchor: 9
+    anchorX: 7
+    anchorY: 43
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 1
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 11
     spriteSheetX: 0
     spriteSheetY: 4
     extractRegion: 1

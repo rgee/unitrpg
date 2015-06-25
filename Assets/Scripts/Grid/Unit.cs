@@ -26,24 +26,71 @@ namespace Grid {
                 {MathUtils.CardinalDirection.S, 0}
             };
 
-        private Animator animator;
         public bool Attacking;
-        private UnitController Controller;
-        private Unit CurrentAttackTarget;
-        private Hit CurrentHit;
         public bool friendly;
         public Vector2 gridPosition;
-
         public bool Killing;
         public Models.Combat.Unit model;
         public bool IsDodging = false;
-        private Seeker seeker;
         public float timePerMoveSquare = 0.3f;
 
-        private void Start() {
+        public event AttackCompletionHandler OnAttackComplete;
+        public event CombatPreparationHandler OnPreparedForCombat;
+        public event Action OnAttackStart;
+        public event Action OnDodgeComplete;
+
+        private tk2dSpriteAnimator _tkAnimator;
+        private Animator animator;
+        private UnitController Controller;
+        private Unit CurrentAttackTarget;
+        private Hit CurrentHit;
+        private Seeker seeker;
+
+        public bool InCombat;
+        public MathUtils.CardinalDirection Facing;
+        public bool Running;
+
+        void Update() {
+            if (_tkAnimator == null) {
+                return;
+            }
+
+            if (Running) {
+                
+            }
+        }
+
+        void SetRunningAnimation() {
+            switch (Facing) {
+                case MathUtils.CardinalDirection.E:
+                    break;
+                case MathUtils.CardinalDirection.N:
+                    break;
+                case MathUtils.CardinalDirection.S:
+                    break;
+                case MathUtils.CardinalDirection.W:
+                    break;
+            }
+        }
+
+        void SetCombatAnimation() {
+            switch (Facing) {
+                case MathUtils.CardinalDirection.E:
+                    break;
+                case MathUtils.CardinalDirection.N:
+                    break;
+                case MathUtils.CardinalDirection.S:
+                    break;
+                case MathUtils.CardinalDirection.W:
+                    break;
+            }
+        }
+
+        void Start() {
             seeker = GetComponent<Seeker>();
             seeker.startEndModifier.exactEndPoint = StartEndModifier.Exactness.SnapToNode;
             animator = GetComponent<Animator>();
+            _tkAnimator = GetComponent<tk2dSpriteAnimator>();
             Controller = GetComponent<UnitController>();
             model.Health = model.Character.MaxHealth;
         }
@@ -58,11 +105,6 @@ namespace Grid {
                 animator.SetTrigger("Dead");
             }
         }
-
-        public event AttackCompletionHandler OnAttackComplete;
-        public event CombatPreparationHandler OnPreparedForCombat;
-        public event Action OnAttackStart;
-        public event Action OnDodgeComplete;
 
         public Character GetCharacter() {
             return model.Character;
