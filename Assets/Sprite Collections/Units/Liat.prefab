@@ -276,6 +276,42 @@ MonoBehaviour:
     splitMethod: 0
     version: 1
     colliderType: 0
+  - texture: {fileID: 2800000, guid: 12db2d26c7e284d2290c87d148340d26, type: 3}
+    tilesX: 0
+    tilesY: 0
+    numTiles: 0
+    anchor: 4
+    pad: 1
+    scale: {x: 1, y: 1, z: 1}
+    additive: 0
+    active: 1
+    tileWidth: 50
+    tileHeight: 50
+    tileMarginX: 0
+    tileMarginY: 0
+    tileSpacingX: 0
+    tileSpacingY: 0
+    splitMethod: 0
+    version: 1
+    colliderType: 0
+  - texture: {fileID: 2800000, guid: c9c0e4ef9a7314384ae3410146f00dec, type: 3}
+    tilesX: 0
+    tilesY: 0
+    numTiles: 0
+    anchor: 4
+    pad: 1
+    scale: {x: 1, y: 1, z: 1}
+    additive: 0
+    active: 1
+    tileWidth: 70
+    tileHeight: 70
+    tileMarginX: 0
+    tileMarginY: 0
+    tileSpacingX: 0
+    tileSpacingY: 0
+    splitMethod: 0
+    version: 1
+    colliderType: 0
   fonts: []
   defaults:
     additive: 0
@@ -298,7 +334,7 @@ MonoBehaviour:
   atlasWidth: 256
   atlasHeight: 512
   forceSquareAtlas: 0
-  atlasWastage: 46.1502075
+  atlasWastage: 44.9142456
   allowMultipleAtlases: 0
   removeDuplicates: 1
   textureParams:
@@ -3629,11 +3665,11 @@ MonoBehaviour:
     colliderSmoothSphereCollisions: 0
     colliderColor: 0
     attachPoints: []
-  - name: west_tween
+  - name: 
     disableTrimming: 0
     additive: 0
     scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 2800000, guid: 0e61e9afc618e4b78a59cb39953ac1a0, type: 3}
+    texture: {fileID: 0}
     materialId: 0
     anchor: 4
     anchorX: 0
@@ -3759,7 +3795,7 @@ MonoBehaviour:
     texture: {fileID: 2800000, guid: 0e61e9afc618e4b78a59cb39953ac1a0, type: 3}
     materialId: 0
     anchor: 9
-    anchorX: 18
+    anchorX: 30
     anchorY: 39
     overrideMesh: {fileID: 0}
     doubleSidedSprite: 0
@@ -3875,15 +3911,15 @@ MonoBehaviour:
     colliderSmoothSphereCollisions: 0
     colliderColor: 0
     attachPoints: []
-  - name: 
+  - name: windup_west/0
     disableTrimming: 0
     additive: 0
-    scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 0}
+    scale: {x: -1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 12db2d26c7e284d2290c87d148340d26, type: 3}
     materialId: 0
-    anchor: 4
-    anchorX: 0
-    anchorY: 0
+    anchor: 9
+    anchorX: 35
+    anchorY: 49
     overrideMesh: {fileID: 0}
     doubleSidedSprite: 0
     customSpriteGeometry: 0
@@ -3892,19 +3928,19 @@ MonoBehaviour:
     diceUnitX: 64
     diceUnitY: 64
     diceFilter: 0
-    pad: 0
+    pad: 1
     extraPadding: 0
     source: 0
     fromSpriteSheet: 0
-    hasSpriteSheetId: 0
-    spriteSheetId: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 13
     spriteSheetX: 0
     spriteSheetY: 0
-    extractRegion: 0
+    extractRegion: 1
     regionX: 0
-    regionY: 0
-    regionW: 0
-    regionH: 0
+    regionY: 250
+    regionW: 50
+    regionH: 50
     regionId: 0
     colliderType: 0
     colliderData: []
@@ -3988,6 +4024,580 @@ MonoBehaviour:
     regionW: 40
     regionH: 40
     regionId: 19
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: windup_west/1
+    disableTrimming: 0
+    additive: 0
+    scale: {x: -1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 12db2d26c7e284d2290c87d148340d26, type: 3}
+    materialId: 0
+    anchor: 9
+    anchorX: 36
+    anchorY: 49
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 1
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 13
+    spriteSheetX: 0
+    spriteSheetY: 1
+    extractRegion: 1
+    regionX: 0
+    regionY: 200
+    regionW: 50
+    regionH: 50
+    regionId: 1
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: windup_west/2
+    disableTrimming: 0
+    additive: 0
+    scale: {x: -1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 12db2d26c7e284d2290c87d148340d26, type: 3}
+    materialId: 0
+    anchor: 9
+    anchorX: 38
+    anchorY: 49
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 1
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 13
+    spriteSheetX: 0
+    spriteSheetY: 2
+    extractRegion: 1
+    regionX: 0
+    regionY: 150
+    regionW: 50
+    regionH: 50
+    regionId: 2
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: windup_west/3
+    disableTrimming: 0
+    additive: 0
+    scale: {x: -1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 12db2d26c7e284d2290c87d148340d26, type: 3}
+    materialId: 0
+    anchor: 9
+    anchorX: 39
+    anchorY: 49
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 1
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 13
+    spriteSheetX: 0
+    spriteSheetY: 3
+    extractRegion: 1
+    regionX: 0
+    regionY: 100
+    regionW: 50
+    regionH: 50
+    regionId: 3
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: windup_west/4
+    disableTrimming: 0
+    additive: 0
+    scale: {x: -1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 12db2d26c7e284d2290c87d148340d26, type: 3}
+    materialId: 0
+    anchor: 9
+    anchorX: 39
+    anchorY: 49
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 1
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 13
+    spriteSheetX: 0
+    spriteSheetY: 4
+    extractRegion: 1
+    regionX: 0
+    regionY: 50
+    regionW: 50
+    regionH: 50
+    regionId: 4
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: windup_west/5
+    disableTrimming: 0
+    additive: 0
+    scale: {x: -1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 12db2d26c7e284d2290c87d148340d26, type: 3}
+    materialId: 0
+    anchor: 9
+    anchorX: 39
+    anchorY: 49
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 1
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 13
+    spriteSheetX: 0
+    spriteSheetY: 5
+    extractRegion: 1
+    regionX: 0
+    regionY: 0
+    regionW: 50
+    regionH: 50
+    regionId: 5
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: attack_west/0
+    disableTrimming: 0
+    additive: 0
+    scale: {x: -1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: c9c0e4ef9a7314384ae3410146f00dec, type: 3}
+    materialId: 0
+    anchor: 9
+    anchorX: 39
+    anchorY: 50
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 1
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 14
+    spriteSheetX: 0
+    spriteSheetY: 0
+    extractRegion: 1
+    regionX: 0
+    regionY: 560
+    regionW: 70
+    regionH: 70
+    regionId: 0
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: attack_west/1
+    disableTrimming: 0
+    additive: 0
+    scale: {x: -1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: c9c0e4ef9a7314384ae3410146f00dec, type: 3}
+    materialId: 0
+    anchor: 9
+    anchorX: 39
+    anchorY: 50
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 1
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 14
+    spriteSheetX: 0
+    spriteSheetY: 1
+    extractRegion: 1
+    regionX: 0
+    regionY: 490
+    regionW: 70
+    regionH: 70
+    regionId: 1
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: attack_west/2
+    disableTrimming: 0
+    additive: 0
+    scale: {x: -1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: c9c0e4ef9a7314384ae3410146f00dec, type: 3}
+    materialId: 0
+    anchor: 9
+    anchorX: 38
+    anchorY: 51
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 1
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 14
+    spriteSheetX: 0
+    spriteSheetY: 2
+    extractRegion: 1
+    regionX: 0
+    regionY: 420
+    regionW: 70
+    regionH: 70
+    regionId: 2
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: attack_west/3
+    disableTrimming: 0
+    additive: 0
+    scale: {x: -1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: c9c0e4ef9a7314384ae3410146f00dec, type: 3}
+    materialId: 0
+    anchor: 9
+    anchorX: 38
+    anchorY: 50
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 1
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 14
+    spriteSheetX: 0
+    spriteSheetY: 3
+    extractRegion: 1
+    regionX: 0
+    regionY: 350
+    regionW: 70
+    regionH: 70
+    regionId: 3
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: attack_west/4
+    disableTrimming: 0
+    additive: 0
+    scale: {x: -1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: c9c0e4ef9a7314384ae3410146f00dec, type: 3}
+    materialId: 0
+    anchor: 9
+    anchorX: 38
+    anchorY: 50
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 1
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 14
+    spriteSheetX: 0
+    spriteSheetY: 4
+    extractRegion: 1
+    regionX: 0
+    regionY: 280
+    regionW: 70
+    regionH: 70
+    regionId: 4
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: attack_west/5
+    disableTrimming: 0
+    additive: 0
+    scale: {x: -1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: c9c0e4ef9a7314384ae3410146f00dec, type: 3}
+    materialId: 0
+    anchor: 9
+    anchorX: 38
+    anchorY: 50
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 1
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 14
+    spriteSheetX: 0
+    spriteSheetY: 5
+    extractRegion: 1
+    regionX: 0
+    regionY: 210
+    regionW: 70
+    regionH: 70
+    regionId: 5
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: attack_west/6
+    disableTrimming: 0
+    additive: 0
+    scale: {x: -1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: c9c0e4ef9a7314384ae3410146f00dec, type: 3}
+    materialId: 0
+    anchor: 9
+    anchorX: 38
+    anchorY: 50
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 1
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 14
+    spriteSheetX: 0
+    spriteSheetY: 6
+    extractRegion: 1
+    regionX: 0
+    regionY: 140
+    regionW: 70
+    regionH: 70
+    regionId: 6
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: attack_west/7
+    disableTrimming: 0
+    additive: 0
+    scale: {x: -1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: c9c0e4ef9a7314384ae3410146f00dec, type: 3}
+    materialId: 0
+    anchor: 9
+    anchorX: 38
+    anchorY: 50
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 1
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 14
+    spriteSheetX: 0
+    spriteSheetY: 7
+    extractRegion: 1
+    regionX: 0
+    regionY: 70
+    regionW: 70
+    regionH: 70
+    regionId: 7
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: attack_west/8
+    disableTrimming: 0
+    additive: 0
+    scale: {x: -1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: c9c0e4ef9a7314384ae3410146f00dec, type: 3}
+    materialId: 0
+    anchor: 9
+    anchorX: 38
+    anchorY: 50
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 1
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 14
+    spriteSheetX: 0
+    spriteSheetY: 8
+    extractRegion: 1
+    regionX: 0
+    regionY: 0
+    regionW: 70
+    regionH: 70
+    regionId: 8
     colliderType: 0
     colliderData: []
     boxColliderMin: {x: 0, y: 0}
