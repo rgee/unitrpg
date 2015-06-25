@@ -33,6 +33,22 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!1 &175484
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 411468}
+  - 114: {fileID: 11475296}
+  m_Layer: 0
+  m_Name: Combat Effects Director
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &184106
 GameObject:
@@ -110,6 +126,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 437690}
   m_RootOrder: 0
+--- !u!4 &411468
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 175484}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 565.985229, y: 235.428894, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 437690}
+  m_RootOrder: 5
 --- !u!4 &414764
 Transform:
   m_ObjectHideFlags: 1
@@ -137,6 +165,7 @@ Transform:
   - {fileID: 414764}
   - {fileID: 469320}
   - {fileID: 498756}
+  - {fileID: 411468}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &469320
@@ -266,6 +295,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PreviewPrefab: {fileID: 146398, guid: b539f6394c2d1b8449da429edf33392d, type: 2}
+--- !u!114 &11475296
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 175484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ef19c292b1daac4f8b84adab287abbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CritConfirmPrefab: {fileID: 157400, guid: 10f28569e2938456dae075b2015293a7, type: 2}
+  GlanceConfirmPrefab: {fileID: 181190, guid: e42d4dd13253d459f8d6e617ae2b1d3f, type: 2}
+  HitConfirmPrefab: {fileID: 153190, guid: 1147cb1b342404dc1aacf5625157d28b, type: 2}
 --- !u!114 &11496126
 MonoBehaviour:
   m_ObjectHideFlags: 1
