@@ -7,21 +7,21 @@ using UnityEngine;
 namespace Grid {
     [RequireComponent(typeof(tk2dSpriteAnimator), typeof(Unit))]
     public class UnitAnimator : MonoBehaviour {
-        private Unit _unit;
-        private tk2dSpriteAnimator _animator;
+        protected Unit _unit;
+        protected tk2dSpriteAnimator _animator;
 
         private tk2dSpriteAnimationClip _idleClip;
 
-        private Dictionary<MathUtils.CardinalDirection, tk2dSpriteAnimationClip> _runningAnimationClips =
+        protected Dictionary<MathUtils.CardinalDirection, tk2dSpriteAnimationClip> _runningAnimationClips =
             new Dictionary<MathUtils.CardinalDirection, tk2dSpriteAnimationClip>();
 
-        private Dictionary<MathUtils.CardinalDirection, tk2dSpriteAnimationClip> _combatAnimationClips =
+        protected Dictionary<MathUtils.CardinalDirection, tk2dSpriteAnimationClip> _combatAnimationClips =
             new Dictionary<MathUtils.CardinalDirection, tk2dSpriteAnimationClip>();
         
-        private Dictionary<MathUtils.CardinalDirection, tk2dSpriteAnimationClip> _attackAnimationClips =
+        protected Dictionary<MathUtils.CardinalDirection, tk2dSpriteAnimationClip> _attackAnimationClips =
             new Dictionary<MathUtils.CardinalDirection, tk2dSpriteAnimationClip>();
 
-        void Start() {
+        protected void Start() {
             _unit = GetComponent<Unit>();
             _animator = GetComponent<tk2dSpriteAnimator>();
 
@@ -32,14 +32,16 @@ namespace Grid {
 
             _combatAnimationClips[MathUtils.CardinalDirection.N] = FindClip("combat north");
             _combatAnimationClips[MathUtils.CardinalDirection.S] = FindClip("combat south");
+            _combatAnimationClips[MathUtils.CardinalDirection.E] = FindClip("combat east");
 
             _attackAnimationClips[MathUtils.CardinalDirection.N] = FindClip("attack north");
             _attackAnimationClips[MathUtils.CardinalDirection.S] = FindClip("attack south");
+            _attackAnimationClips[MathUtils.CardinalDirection.E] = FindClip("attack east");
 
             _idleClip = FindClip("idle");
         }
 
-        private tk2dSpriteAnimationClip FindClip(string name) {
+        protected tk2dSpriteAnimationClip FindClip(string name) {
             var clip = _animator.GetClipByName(name);
             if (clip == null) {
                 throw new ArgumentException("Required clip \"" + name + "\" not found.");
@@ -62,24 +64,24 @@ namespace Grid {
             }
         }
 
-        void SetRunningAnimation() {
+        protected void SetRunningAnimation() {
             _animator.Play(_runningAnimationClips[_unit.Facing]);
         }
 
-        void SetAttackAnimation() {
+        protected virtual void SetAttackAnimation() {
             _animator.Play(_attackAnimationClips[_unit.Facing]);
             _animator.AnimationCompleted = SetNotAttacking;
         }
 
-        void ResetCombatAnimation() {
+        protected void ResetCombatAnimation() {
             _animator.PlayFromFrame(_combatAnimationClips[_unit.Facing], 1);
         }
 
-        void SetCombatAnimation() {
+        protected void SetCombatAnimation() {
             _animator.Play(_combatAnimationClips[_unit.Facing]);
         }
 
-        void SetNotAttacking(tk2dSpriteAnimator animator, tk2dSpriteAnimationClip clip) {
+        protected virtual void SetNotAttacking(tk2dSpriteAnimator animator, tk2dSpriteAnimationClip clip) {
             _unit.Attacking = false;
             _animator.AnimationCompleted = null;
             ResetCombatAnimation();

@@ -66,7 +66,7 @@ MonoBehaviour:
     fps: 3
     loopStart: 0
     wrapMode: 3
-  - name: windup side
+  - name: windup east
     frames:
     - spriteCollection: {fileID: 11400882, guid: c5b8422c97ea4904fbe130fd35e954d2,
         type: 2}
@@ -112,75 +112,26 @@ MonoBehaviour:
       eventFloat: 0
     fps: 8.5714283
     loopStart: 0
-    wrapMode: 0
-  - name: attack side
+    wrapMode: 2
+  - name: combat east
     frames:
     - spriteCollection: {fileID: 11400882, guid: c5b8422c97ea4904fbe130fd35e954d2,
         type: 2}
-      spriteId: 9
+      spriteId: 75
       triggerEvent: 0
       eventInfo: 
       eventInt: 0
       eventFloat: 0
     - spriteCollection: {fileID: 11400882, guid: c5b8422c97ea4904fbe130fd35e954d2,
         type: 2}
-      spriteId: 10
+      spriteId: 3
       triggerEvent: 0
       eventInfo: 
       eventInt: 0
       eventFloat: 0
-    - spriteCollection: {fileID: 11400882, guid: c5b8422c97ea4904fbe130fd35e954d2,
-        type: 2}
-      spriteId: 11
-      triggerEvent: 0
-      eventInfo: 
-      eventInt: 0
-      eventFloat: 0
-    - spriteCollection: {fileID: 11400882, guid: c5b8422c97ea4904fbe130fd35e954d2,
-        type: 2}
-      spriteId: 12
-      triggerEvent: 0
-      eventInfo: 
-      eventInt: 0
-      eventFloat: 0
-    - spriteCollection: {fileID: 11400882, guid: c5b8422c97ea4904fbe130fd35e954d2,
-        type: 2}
-      spriteId: 13
-      triggerEvent: 0
-      eventInfo: 
-      eventInt: 0
-      eventFloat: 0
-    - spriteCollection: {fileID: 11400882, guid: c5b8422c97ea4904fbe130fd35e954d2,
-        type: 2}
-      spriteId: 14
-      triggerEvent: 0
-      eventInfo: 
-      eventInt: 0
-      eventFloat: 0
-    - spriteCollection: {fileID: 11400882, guid: c5b8422c97ea4904fbe130fd35e954d2,
-        type: 2}
-      spriteId: 15
-      triggerEvent: 0
-      eventInfo: 
-      eventInt: 0
-      eventFloat: 0
-    - spriteCollection: {fileID: 11400882, guid: c5b8422c97ea4904fbe130fd35e954d2,
-        type: 2}
-      spriteId: 16
-      triggerEvent: 0
-      eventInfo: 
-      eventInt: 0
-      eventFloat: 0
-    - spriteCollection: {fileID: 11400882, guid: c5b8422c97ea4904fbe130fd35e954d2,
-        type: 2}
-      spriteId: 17
-      triggerEvent: 0
-      eventInfo: 
-      eventInt: 0
-      eventFloat: 0
-    fps: 12.8571434
-    loopStart: 0
-    wrapMode: 2
+    fps: 15
+    loopStart: 1
+    wrapMode: 1
   - name: windup south
     frames:
     - spriteCollection: {fileID: 11400882, guid: c5b8422c97ea4904fbe130fd35e954d2,
@@ -227,7 +178,7 @@ MonoBehaviour:
       eventFloat: 0
     fps: 8.5714283
     loopStart: 0
-    wrapMode: 0
+    wrapMode: 2
   - name: attack south
     frames:
     - spriteCollection: {fileID: 11400882, guid: c5b8422c97ea4904fbe130fd35e954d2,
@@ -342,7 +293,7 @@ MonoBehaviour:
       eventFloat: 0
     fps: 8.5714283
     loopStart: 0
-    wrapMode: 0
+    wrapMode: 2
   - name: attack north
     frames:
     - spriteCollection: {fileID: 11400882, guid: c5b8422c97ea4904fbe130fd35e954d2,
@@ -651,11 +602,74 @@ MonoBehaviour:
     fps: 15
     loopStart: 1
     wrapMode: 1
-  - name: 
-    frames: []
-    fps: 30
+  - name: attack east
+    frames:
+    - spriteCollection: {fileID: 11400882, guid: c5b8422c97ea4904fbe130fd35e954d2,
+        type: 2}
+      spriteId: 9
+      triggerEvent: 0
+      eventInfo: 
+      eventInt: 0
+      eventFloat: 0
+    - spriteCollection: {fileID: 11400882, guid: c5b8422c97ea4904fbe130fd35e954d2,
+        type: 2}
+      spriteId: 10
+      triggerEvent: 0
+      eventInfo: 
+      eventInt: 0
+      eventFloat: 0
+    - spriteCollection: {fileID: 11400882, guid: c5b8422c97ea4904fbe130fd35e954d2,
+        type: 2}
+      spriteId: 11
+      triggerEvent: 0
+      eventInfo: 
+      eventInt: 0
+      eventFloat: 0
+    - spriteCollection: {fileID: 11400882, guid: c5b8422c97ea4904fbe130fd35e954d2,
+        type: 2}
+      spriteId: 12
+      triggerEvent: 0
+      eventInfo: 
+      eventInt: 0
+      eventFloat: 0
+    - spriteCollection: {fileID: 11400882, guid: c5b8422c97ea4904fbe130fd35e954d2,
+        type: 2}
+      spriteId: 13
+      triggerEvent: 0
+      eventInfo: 
+      eventInt: 0
+      eventFloat: 0
+    - spriteCollection: {fileID: 11400882, guid: c5b8422c97ea4904fbe130fd35e954d2,
+        type: 2}
+      spriteId: 14
+      triggerEvent: 0
+      eventInfo: 
+      eventInt: 0
+      eventFloat: 0
+    - spriteCollection: {fileID: 11400882, guid: c5b8422c97ea4904fbe130fd35e954d2,
+        type: 2}
+      spriteId: 15
+      triggerEvent: 0
+      eventInfo: 
+      eventInt: 0
+      eventFloat: 0
+    - spriteCollection: {fileID: 11400882, guid: c5b8422c97ea4904fbe130fd35e954d2,
+        type: 2}
+      spriteId: 16
+      triggerEvent: 0
+      eventInfo: 
+      eventInt: 0
+      eventFloat: 0
+    - spriteCollection: {fileID: 11400882, guid: c5b8422c97ea4904fbe130fd35e954d2,
+        type: 2}
+      spriteId: 17
+      triggerEvent: 0
+      eventInfo: 
+      eventInt: 0
+      eventFloat: 0
+    fps: 12.8571434
     loopStart: 0
-    wrapMode: 0
+    wrapMode: 2
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
