@@ -29,13 +29,11 @@ namespace Grid {
         private Animator animator;
         public bool Attacking;
         private UnitController Controller;
-        public GameObject CritConfirmPrefab;
         private Unit CurrentAttackTarget;
         private Hit CurrentHit;
         public bool friendly;
-        public GameObject GlanceConfirmPrefab;
         public Vector2 gridPosition;
-        public GameObject HitConfirmPrefab;
+
         public bool Killing;
         public Models.Combat.Unit model;
         public bool IsDodging = false;
@@ -92,37 +90,11 @@ namespace Grid {
         }
 
         private void AttackConnected() {
-            if (CurrentHit.Crit) {
-                ShowCrit();
-            } else if (CurrentHit.Glanced) {
-                ShowGlance();
-            } else if (!CurrentHit.Missed) {
-                ShowHit();
-            }
-
             CombatEventBus.HitEvents.Dispatch(new HitEvent {
                 Target = CurrentAttackTarget.gameObject,
                 Data = CurrentHit,
                 Attacker = gameObject
             });
-        }
-
-        private void ShowCrit() {
-            var hitConfirmation = Instantiate(CritConfirmPrefab);
-            hitConfirmation.transform.parent = CurrentAttackTarget.gameObject.transform;
-            hitConfirmation.transform.localPosition = new Vector3();
-        }
-
-        private void ShowHit() {
-            var hitConfirmation = Instantiate(HitConfirmPrefab);
-            hitConfirmation.transform.parent = CurrentAttackTarget.gameObject.transform;
-            hitConfirmation.transform.localPosition = new Vector3();
-        }
-
-        private void ShowGlance() {
-            var hitConfirmation = Instantiate(GlanceConfirmPrefab);
-            hitConfirmation.transform.parent = CurrentAttackTarget.gameObject.transform;
-            hitConfirmation.transform.localPosition = new Vector3();
         }
 
         private void Prepared() {
