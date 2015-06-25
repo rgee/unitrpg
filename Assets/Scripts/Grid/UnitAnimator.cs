@@ -31,8 +31,10 @@ namespace Grid {
             _runningAnimationClips[MathUtils.CardinalDirection.S] = FindClip("run south");
 
             _combatAnimationClips[MathUtils.CardinalDirection.N] = FindClip("combat north");
+            _combatAnimationClips[MathUtils.CardinalDirection.S] = FindClip("combat south");
 
             _attackAnimationClips[MathUtils.CardinalDirection.N] = FindClip("attack north");
+            _attackAnimationClips[MathUtils.CardinalDirection.S] = FindClip("attack south");
 
             _idleClip = FindClip("idle");
         }
