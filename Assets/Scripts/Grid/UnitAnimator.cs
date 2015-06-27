@@ -21,6 +21,9 @@ namespace Grid {
         protected Dictionary<MathUtils.CardinalDirection, tk2dSpriteAnimationClip> _attackAnimationClips =
             new Dictionary<MathUtils.CardinalDirection, tk2dSpriteAnimationClip>();
 
+        protected Dictionary<MathUtils.CardinalDirection, tk2dSpriteAnimationClip> _dodgeAnimationClips = 
+            new Dictionary<MathUtils.CardinalDirection, tk2dSpriteAnimationClip>();
+
         protected void Start() {
             _unit = GetComponent<Unit>();
             _animator = GetComponent<tk2dSpriteAnimator>();
@@ -40,6 +43,10 @@ namespace Grid {
             _attackAnimationClips[MathUtils.CardinalDirection.E] = FindClip("attack east");
             _attackAnimationClips[MathUtils.CardinalDirection.W] = FindClip("attack west");
 
+            _dodgeAnimationClips[MathUtils.CardinalDirection.N] = FindClip("dodge north");
+            _dodgeAnimationClips[MathUtils.CardinalDirection.W] = FindClip("dodge west");
+            _dodgeAnimationClips[MathUtils.CardinalDirection.S] = FindClip("dodge south");
+
             _idleClip = FindClip("idle");
         }
 
@@ -57,13 +64,19 @@ namespace Grid {
                 SetRunningAnimation();
             } else if (_unit.InCombat) {
                 if (_unit.Attacking) {
-                    SetAttackAnimation(); 
+                    SetAttackAnimation();
+                } else if (_unit.IsDodging) {
+                    SetDodgeAnimation();
                 } else {
                     SetCombatAnimation();
                 }
             } else {
                 _animator.Play(_idleClip);
             }
+        }
+
+        protected void SetDodgeAnimation() {
+            _animator.Play(_dodgeAnimationClips[_unit.Facing]);
         }
 
         protected void SetRunningAnimation() {
