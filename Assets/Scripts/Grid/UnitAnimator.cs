@@ -30,23 +30,23 @@ namespace Grid {
             _animator = GetComponent<tk2dSpriteAnimator>();
             _sprite = GetComponent<tk2dSprite>();
 
-            _runningAnimationClips[MathUtils.CardinalDirection.E] = FindClip("run west");
-            _runningAnimationClips[MathUtils.CardinalDirection.W] = FindClip("run west");
+            _runningAnimationClips[MathUtils.CardinalDirection.E] = FindClip("run east");
+            _runningAnimationClips[MathUtils.CardinalDirection.W] = FindClip("run east");
             _runningAnimationClips[MathUtils.CardinalDirection.N] = FindClip("run north");
             _runningAnimationClips[MathUtils.CardinalDirection.S] = FindClip("run south");
 
             _combatAnimationClips[MathUtils.CardinalDirection.N] = FindClip("combat north");
             _combatAnimationClips[MathUtils.CardinalDirection.S] = FindClip("combat south");
-            _combatAnimationClips[MathUtils.CardinalDirection.E] = FindClip("combat west");
-            _combatAnimationClips[MathUtils.CardinalDirection.W] = FindClip("combat west");
+            _combatAnimationClips[MathUtils.CardinalDirection.E] = FindClip("combat east");
+            _combatAnimationClips[MathUtils.CardinalDirection.W] = FindClip("combat east");
 
             _attackAnimationClips[MathUtils.CardinalDirection.N] = FindClip("attack north");
             _attackAnimationClips[MathUtils.CardinalDirection.S] = FindClip("attack south");
-            _attackAnimationClips[MathUtils.CardinalDirection.E] = FindClip("attack west");
-            _attackAnimationClips[MathUtils.CardinalDirection.W] = FindClip("attack west");
+            _attackAnimationClips[MathUtils.CardinalDirection.E] = FindClip("attack east");
+            _attackAnimationClips[MathUtils.CardinalDirection.W] = FindClip("attack east");
 
             _dodgeAnimationClips[MathUtils.CardinalDirection.N] = FindClip("dodge north");
-            _dodgeAnimationClips[MathUtils.CardinalDirection.W] = FindClip("dodge west");
+            //_dodgeAnimationClips[MathUtils.CardinalDirection.W] = FindClip("dodge east");
             _dodgeAnimationClips[MathUtils.CardinalDirection.S] = FindClip("dodge south");
 
             _idleClip = FindClip("idle");
@@ -79,7 +79,7 @@ namespace Grid {
         }
 
         protected void UpdateFacingFlip() {
-            _sprite.FlipX = (_unit.InCombat || _unit.Running) && _unit.Facing == MathUtils.CardinalDirection.E;
+            _sprite.FlipX = (_unit.InCombat || _unit.Running) && _unit.Facing == MathUtils.CardinalDirection.W;
         }
 
         protected void SetDodgeAnimation() {
