@@ -5,12 +5,13 @@ using System.Text;
 using UnityEngine;
 
 namespace Grid {
-    [RequireComponent(typeof(tk2dSpriteAnimator), typeof(Unit))]
+    [RequireComponent(typeof(tk2dSpriteAnimator), typeof(tk2dSprite), typeof(Unit))]
     public class UnitAnimator : MonoBehaviour {
         protected Unit _unit;
         protected tk2dSpriteAnimator _animator;
 
         private tk2dSpriteAnimationClip _idleClip;
+        private tk2dSprite _sprite;
 
         protected Dictionary<MathUtils.CardinalDirection, tk2dSpriteAnimationClip> _runningAnimationClips =
             new Dictionary<MathUtils.CardinalDirection, tk2dSpriteAnimationClip>();
@@ -27,20 +28,21 @@ namespace Grid {
         protected void Start() {
             _unit = GetComponent<Unit>();
             _animator = GetComponent<tk2dSpriteAnimator>();
+            _sprite = GetComponent<tk2dSprite>();
 
-            _runningAnimationClips[MathUtils.CardinalDirection.E] = FindClip("run east");
+            _runningAnimationClips[MathUtils.CardinalDirection.E] = FindClip("run west");
             _runningAnimationClips[MathUtils.CardinalDirection.W] = FindClip("run west");
             _runningAnimationClips[MathUtils.CardinalDirection.N] = FindClip("run north");
             _runningAnimationClips[MathUtils.CardinalDirection.S] = FindClip("run south");
 
             _combatAnimationClips[MathUtils.CardinalDirection.N] = FindClip("combat north");
             _combatAnimationClips[MathUtils.CardinalDirection.S] = FindClip("combat south");
-            _combatAnimationClips[MathUtils.CardinalDirection.E] = FindClip("combat east");
+            _combatAnimationClips[MathUtils.CardinalDirection.E] = FindClip("combat west");
             _combatAnimationClips[MathUtils.CardinalDirection.W] = FindClip("combat west");
 
             _attackAnimationClips[MathUtils.CardinalDirection.N] = FindClip("attack north");
             _attackAnimationClips[MathUtils.CardinalDirection.S] = FindClip("attack south");
-            _attackAnimationClips[MathUtils.CardinalDirection.E] = FindClip("attack east");
+            _attackAnimationClips[MathUtils.CardinalDirection.E] = FindClip("attack west");
             _attackAnimationClips[MathUtils.CardinalDirection.W] = FindClip("attack west");
 
             _dodgeAnimationClips[MathUtils.CardinalDirection.N] = FindClip("dodge north");
@@ -60,6 +62,7 @@ namespace Grid {
         }
 
         void Update() {
+            UpdateFacingFlip();
             if (_unit.Running) {
                 SetRunningAnimation();
             } else if (_unit.InCombat) {
@@ -73,6 +76,10 @@ namespace Grid {
             } else {
                 _animator.Play(_idleClip);
             }
+        }
+
+        protected void UpdateFacingFlip() {
+            _sprite.FlipX = (_unit.InCombat || _unit.Running) && _unit.Facing == MathUtils.CardinalDirection.E;
         }
 
         protected void SetDodgeAnimation() {

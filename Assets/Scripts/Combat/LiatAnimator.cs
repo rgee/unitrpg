@@ -12,7 +12,7 @@ namespace Combat {
 
         void Start() {
             base.Start();
-            _windupAnimationClips[MathUtils.CardinalDirection.E] = FindClip("windup east");
+            _windupAnimationClips[MathUtils.CardinalDirection.E] = FindClip("windup west");
             _windupAnimationClips[MathUtils.CardinalDirection.N] = FindClip("windup north");
             _windupAnimationClips[MathUtils.CardinalDirection.S] = FindClip("windup south");
             _windupAnimationClips[MathUtils.CardinalDirection.W] = FindClip("windup west");
