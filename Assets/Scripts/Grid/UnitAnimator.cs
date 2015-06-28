@@ -46,7 +46,8 @@ namespace Grid {
             _attackAnimationClips[MathUtils.CardinalDirection.W] = FindClip("attack east");
 
             _dodgeAnimationClips[MathUtils.CardinalDirection.N] = FindClip("dodge north");
-            //_dodgeAnimationClips[MathUtils.CardinalDirection.W] = FindClip("dodge east");
+            _dodgeAnimationClips[MathUtils.CardinalDirection.E] = FindClip("dodge east");
+            _dodgeAnimationClips[MathUtils.CardinalDirection.W] = FindClip("dodge east");
             _dodgeAnimationClips[MathUtils.CardinalDirection.S] = FindClip("dodge south");
 
             _idleClip = FindClip("idle");
@@ -84,6 +85,7 @@ namespace Grid {
 
         protected void SetDodgeAnimation() {
             _animator.Play(_dodgeAnimationClips[_unit.Facing]);
+            _animator.AnimationCompleted = SetNotDodging;
         }
 
         protected void SetRunningAnimation() {
@@ -101,6 +103,12 @@ namespace Grid {
 
         protected void SetCombatAnimation() {
             _animator.Play(_combatAnimationClips[_unit.Facing]);
+        }
+
+        protected virtual void SetNotDodging(tk2dSpriteAnimator animator, tk2dSpriteAnimationClip clip) {
+            _unit.IsDodging = false;
+            _animator.AnimationCompleted = null;
+            ResetCombatAnimation();
         }
 
         protected virtual void SetNotAttacking(tk2dSpriteAnimator animator, tk2dSpriteAnimationClip clip) {
