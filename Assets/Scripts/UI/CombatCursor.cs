@@ -39,7 +39,8 @@ public class CombatCursor : Singleton<CombatCursor> {
         var size = GetCurrentTransform().sizeDelta;
         size.Scale(new Vector2(.5f * currentTransform.localScale.x, .5f * currentTransform.localScale.y));
 
-        currentTransform.anchoredPosition3D = Input.mousePosition - new Vector3(size.x, size.y);
+        Debug.Log(Input.mousePosition);
+        currentTransform.position = Input.mousePosition + new Vector3(size.x/2, -size.y/2, 0);
     }
 
     private RectTransform GetCurrentTransform() {
