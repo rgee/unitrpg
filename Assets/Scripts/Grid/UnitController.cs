@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+[RequireComponent(typeof(Grid.Unit))]
 public class UnitController : MonoBehaviour {
     private static readonly Dictionary<MathUtils.CardinalDirection, int> animatorDirections =
         new Dictionary<MathUtils.CardinalDirection, int> {
@@ -12,15 +13,15 @@ public class UnitController : MonoBehaviour {
             {MathUtils.CardinalDirection.S, 0}
         };
 
-    private Animator Animator;
     private Action CurrentCallback;
     private List<Vector3> CurrentPath;
     private int CurrentPathIdx = -1;
     private Vector3 PreviousPoint;
     private BattleState _battleState;
+    private Grid.Unit _unit;
 
     public void Start() {
-        Animator = GetComponent<Animator>();
+        _unit = GetComponent<Grid.Unit>();
         _battleState = CombatObjects.GetBattleState();
     }
 
@@ -29,7 +30,7 @@ public class UnitController : MonoBehaviour {
         CurrentPathIdx = -1;
         CurrentCallback = callback;
 
-        Animator.SetBool("Running", true);
+        _unit.Running = true;
         PreviousPoint = transform.position;
 
         StartNextSegment();
@@ -42,8 +43,7 @@ public class UnitController : MonoBehaviour {
         }
         if (CurrentPathIdx < CurrentPath.Count) {
             var currentDestination = CurrentPath[CurrentPathIdx];
-            var dir = MathUtils.DirectionTo(PreviousPoint, currentDestination);
-            Animator.SetInteger("Direction", animatorDirections[dir]);
+            _unit.Facing = MathUtils.DirectionTo(PreviousPoint, currentDestination);
 
             iTween.MoveTo(gameObject, iTween.Hash(
                 "position", currentDestination,
@@ -52,7 +52,7 @@ public class UnitController : MonoBehaviour {
                 "easetype", iTween.EaseType.linear
                 ));
         } else {
-            Animator.SetBool("Running", false);
+            _unit.Running = false;
             CommitMoveToModel();
             CurrentCallback();
         }

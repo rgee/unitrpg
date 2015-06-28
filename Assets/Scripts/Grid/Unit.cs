@@ -43,6 +43,7 @@ namespace Grid {
         private Unit CurrentAttackTarget;
         private Hit CurrentHit;
         private Seeker seeker;
+        private Collider _collider;
 
         public bool Attacking;
         public bool InCombat;
@@ -55,6 +56,7 @@ namespace Grid {
             animator = GetComponent<Animator>();
             Controller = GetComponent<UnitController>();
             model.Health = model.Character.MaxHealth;
+            _collider = transform.Find("Collider").GetComponent<Collider>();
         }
 
         public bool IsAlive() {
@@ -79,6 +81,14 @@ namespace Grid {
             if (OnAttackComplete != null) {
                 OnAttackComplete();
             }
+        }
+
+        public void DisableCollision() {
+            _collider.enabled = false;
+        }
+
+        public void EnableCollision() {
+            _collider.enabled = true;
         }
 
         private void AttackBegin() {
@@ -158,12 +168,11 @@ namespace Grid {
 
             // Remove this unit's collider so the pathfinder wont see the currently-occupied Grid square
             // as a blockage.
-            var collider = GetComponent<BoxCollider2D>();
-            collider.enabled = false;
+            DisableCollision();
             grid.RescanGraph();
             seeker.StartPath(transform.position, destination, p => {
                 // Re-enable the collider and scan the graph so other units see us.
-                collider.enabled = true;
+                EnableCollision();
                 grid.RescanGraph();
                 searchCb(!p.error);
                 if (!p.error) {

@@ -30,8 +30,7 @@ public class SelectingMoveLocation : CancelableCombatState {
 
         // So we do not confuse the pathfinder, disable the unit who is moving so they
         // are no longer on the grid.
-        var movingUnit = State.SelectedUnit.gameObject;
-        movingUnit.SetActive(false);
+        State.SelectedUnit.DisableCollision();
         Grid.RescanGraph();
 
         // We show walkable locations in blue, as the range over which the unit can traverse this turn
@@ -61,7 +60,7 @@ public class SelectingMoveLocation : CancelableCombatState {
         WalkableLocations.Remove(State.SelectedGridPosition);
         AttackableLocations.Remove(State.SelectedGridPosition);
 
-        movingUnit.SetActive(true);
+        State.SelectedUnit.EnableCollision();
         Grid.RescanGraph();
 
         var highlights = MapHighlightManager.Instance;
@@ -99,7 +98,7 @@ public class SelectingMoveLocation : CancelableCombatState {
                 var src = unit.transform.position;
                 var dest = Grid.GetWorldPosForGridPos(mouseGridPos);
 
-                var collider = State.SelectedUnit.gameObject.GetComponent<BoxCollider2D>();
+                var collider = State.SelectedUnit.gameObject.GetComponent<Collider>();
                 collider.enabled = false;
                 Grid.RescanGraph();
                 SelectedSeeker.StartPath(src, dest, p => {
