@@ -81,14 +81,14 @@ namespace Grid {
         public List<Unit> GetEnemies() {
             return unitGameObjects
                 .Select(unit => unit.GetComponent<Unit>())
-                .Where(unit => !unit.friendly)
+                .Where(unit => !unit.model.IsFriendly)
                 .ToList();
         }
 
         public List<Unit> GetFriendlies() {
             return unitGameObjects
                 .Select(unit => unit.GetComponent<Unit>())
-                .Where(unit => unit.friendly)
+                .Where(unit => unit.model.IsFriendly)
                 .ToList();
         }
 
@@ -99,7 +99,7 @@ namespace Grid {
         public void ResetMovedUnits(bool friendlyTurn) {
             var unmovedUnitQuery = unitGameObjects
                 .Select(unit => unit.GetComponent<Unit>())
-                .Where(unit => unit.friendly == friendlyTurn);
+                .Where(unit => unit.model.IsFriendly == friendlyTurn);
 
             unmovedUnits = new HashSet<Unit>(unmovedUnitQuery);
         }

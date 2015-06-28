@@ -101,7 +101,9 @@ public class MapHighlightManager : Singleton<MapHighlightManager> {
                 // If not, we have to ensure that it's walkable by checking the graph.
             } else {
                 var nearestNode = AstarPath.active.GetNearest(worldPosition).node;
+                Debug.Log("Nearest node to mouse" + "(" + worldPosition + "): " + nearestNode.position);
                 shouldHighlight = nearestNode != null && nearestNode.Walkable;
+                Debug.Log("Walkable: " + shouldHighlight);
             }
 
             HoverHighlight.SetActive(shouldHighlight);
