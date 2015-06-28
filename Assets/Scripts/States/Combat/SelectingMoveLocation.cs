@@ -46,25 +46,25 @@ public class SelectingMoveLocation : CancelableCombatState {
         // This is because the unit-ignoring grid search for squares is unhindered by other units, so it's a 
         // superset of the attackable squares a unit can reach just by walking, but we also need to include
         // squares occupied by the enemy in the results.
-        var AttackableLocations = Grid.GetWalkableTilesInRange(State.SelectedGridPosition, mov + attackRange, true);
-        AttackableLocations = AttackableLocations
+        var attackableLocations = Grid.GetWalkableTilesInRange(State.SelectedGridPosition, mov + attackRange, true);
+        attackableLocations = attackableLocations
             .Except(WalkableLocations)
             .Where(loc => {
                 // Where this location is within attack range of any Walkable point.
                 return
                     WalkableLocations.Any(
-                        walkable => { return MathUtils.ManhattanDistance(walkable, loc) == attackRange; });
+                        walkable => MathUtils.ManhattanDistance(walkable, loc) == attackRange);
             })
             .ToHashSet();
 
         WalkableLocations.Remove(State.SelectedGridPosition);
-        AttackableLocations.Remove(State.SelectedGridPosition);
+        attackableLocations.Remove(State.SelectedGridPosition);
 
         State.SelectedUnit.EnableCollision();
         Grid.RescanGraph();
 
         var highlights = MapHighlightManager.Instance;
-        highlights.HighlightTiles(AttackableLocations, MapHighlightManager.HighlightLevel.PLAYER_ATTACK,
+        highlights.HighlightTiles(attackableLocations, MapHighlightManager.HighlightLevel.PLAYER_ATTACK,
             PLAYER_ATTACK_PREVIEW_RANGE);
         highlights.HighlightTiles(WalkableLocations, MapHighlightManager.HighlightLevel.PLAYER_MOVE, PLAYER_MOVE_RANGE);
 
@@ -98,11 +98,11 @@ public class SelectingMoveLocation : CancelableCombatState {
                 var src = unit.transform.position;
                 var dest = Grid.GetWorldPosForGridPos(mouseGridPos);
 
-                var collider = State.SelectedUnit.gameObject.GetComponent<Collider>();
-                collider.enabled = false;
+                unit.DisableCollision();
+                
                 Grid.RescanGraph();
                 SelectedSeeker.StartPath(src, dest, p => {
-                    collider.enabled = true;
+                    unit.EnableCollision();
                     Grid.RescanGraph();
 
                     if (!p.error && p.path.First() != p.path.Last()) {
