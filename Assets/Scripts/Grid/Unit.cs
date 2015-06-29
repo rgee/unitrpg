@@ -30,7 +30,7 @@ namespace Grid {
         public Vector2 gridPosition;
         public bool Killing;
         public Models.Combat.Unit model;
-        public bool IsDodging = false;
+        public bool IsDodging;
         public float timePerMoveSquare = 0.3f;
 
         public event AttackCompletionHandler OnAttackComplete;
@@ -38,7 +38,6 @@ namespace Grid {
         public event Action OnAttackStart;
         public event Action OnDodgeComplete;
 
-        private Animator animator;
         private UnitController Controller;
         private Unit CurrentAttackTarget;
         private Hit CurrentHit;
@@ -53,7 +52,6 @@ namespace Grid {
         void Start() {
             seeker = GetComponent<Seeker>();
             seeker.startEndModifier.exactEndPoint = StartEndModifier.Exactness.SnapToNode;
-            animator = GetComponent<Animator>();
             Controller = GetComponent<UnitController>();
             model.Health = model.Character.MaxHealth;
             _collider = transform.Find("Collider").GetComponent<Collider>();
@@ -66,7 +64,7 @@ namespace Grid {
         public void TakeDamage(int damage) {
             model.TakeDamage(damage);
             if (!model.IsAlive) {
-                animator.SetTrigger("Dead");
+                //animator.SetTrigger("Dead");
             }
         }
 
@@ -122,25 +120,23 @@ namespace Grid {
         }
 
         public void PrepareForCombat(MathUtils.CardinalDirection facing) {
-            // TODO: Infer direction from target.
-            animator.SetInteger("Direction", animatorDirections[facing]);
-            animator.SetBool("In Combat", true);
+            Facing = facing;
+            InCombat = true;
         }
 
         public void Dodge() {
-            animator.SetTrigger("Dodge");
+            IsDodging = true;
         }
 
         public void Attack(Unit target, Hit hit, bool killingBlow) {
             CurrentAttackTarget = target;
             CurrentHit = hit;
-            animator.SetTrigger("Attack");
             Attacking = true;
             Killing = killingBlow;
         }
 
         public void ReturnToRest() {
-            animator.SetBool("In Combat", false);
+            InCombat = false;
         }
 
         public bool CanLevel() {
