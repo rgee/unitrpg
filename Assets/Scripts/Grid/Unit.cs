@@ -34,7 +34,6 @@ namespace Grid {
         public float timePerMoveSquare = 0.3f;
 
         public event AttackCompletionHandler OnAttackComplete;
-        public event CombatPreparationHandler OnPreparedForCombat;
         public event Action OnAttackStart;
         public event Action OnDodgeComplete;
 
@@ -107,12 +106,6 @@ namespace Grid {
                 Data = CurrentHit,
                 Attacker = gameObject
             });
-        }
-
-        private void Prepared() {
-            if (OnPreparedForCombat != null) {
-                OnPreparedForCombat();
-            }
         }
 
         private void Dead() {
