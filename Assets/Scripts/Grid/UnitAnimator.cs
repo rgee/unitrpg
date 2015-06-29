@@ -13,6 +13,8 @@ namespace Grid {
         private tk2dSpriteAnimationClip _idleClip;
         private tk2dSprite _sprite;
 
+        private static readonly string HIT_EVENT_INFO = "hit";
+
         protected Dictionary<MathUtils.CardinalDirection, tk2dSpriteAnimationClip> _runningAnimationClips =
             new Dictionary<MathUtils.CardinalDirection, tk2dSpriteAnimationClip>();
 
@@ -51,6 +53,18 @@ namespace Grid {
             _dodgeAnimationClips[MathUtils.CardinalDirection.S] = FindClip("dodge south");
 
             _idleClip = FindClip("idle");
+
+            _animator.AnimationEventTriggered = HandleHit;
+        }
+
+        void OnDestroy() {
+            _animator.AnimationEventTriggered = null;
+        }
+
+        private void HandleHit(tk2dSpriteAnimator animator, tk2dSpriteAnimationClip clip, int frame) {
+            if (clip.frames[frame].eventInfo == HIT_EVENT_INFO) {
+                _unit.AttackConnected();
+            }
         }
 
         protected tk2dSpriteAnimationClip FindClip(string name) {
@@ -95,6 +109,7 @@ namespace Grid {
         protected virtual void SetAttackAnimation() {
             _animator.Play(_attackAnimationClips[_unit.Facing]);
             _animator.AnimationCompleted = SetNotAttacking;
+            _unit.AttackBegin();
         }
 
         protected void ResetCombatAnimation() {
@@ -106,6 +121,7 @@ namespace Grid {
         }
 
         protected virtual void SetNotDodging(tk2dSpriteAnimator animator, tk2dSpriteAnimationClip clip) {
+            _unit.DodgeComplete();
             _unit.IsDodging = false;
             _animator.AnimationCompleted = null;
             ResetCombatAnimation();

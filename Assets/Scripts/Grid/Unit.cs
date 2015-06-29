@@ -88,19 +88,19 @@ namespace Grid {
             _collider.enabled = true;
         }
 
-        private void AttackBegin() {
+        public void AttackBegin() {
             if (OnAttackStart != null) {
                 OnAttackStart();
             }
         }
 
-        private void DodgeComplete() {
+        public void DodgeComplete() {
             if (OnDodgeComplete != null) {
                 OnDodgeComplete();
             }
         }
 
-        private void AttackConnected() {
+        public void AttackConnected() {
             CombatEventBus.HitEvents.Dispatch(new HitEvent {
                 Target = CurrentAttackTarget.gameObject,
                 Data = CurrentHit,
