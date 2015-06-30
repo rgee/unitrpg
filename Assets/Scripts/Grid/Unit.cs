@@ -71,7 +71,7 @@ namespace Grid {
             return model.Character;
         }
 
-        private void AttackComplete() {
+        public void AttackComplete() {
             Attacking = false;
             Killing = false;
 
@@ -95,6 +95,7 @@ namespace Grid {
         }
 
         public void DodgeComplete() {
+            IsDodging = false;
             if (OnDodgeComplete != null) {
                 OnDodgeComplete();
             }

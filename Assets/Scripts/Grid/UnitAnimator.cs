@@ -122,13 +122,12 @@ namespace Grid {
 
         protected virtual void SetNotDodging(tk2dSpriteAnimator animator, tk2dSpriteAnimationClip clip) {
             _unit.DodgeComplete();
-            _unit.IsDodging = false;
             _animator.AnimationCompleted = null;
             ResetCombatAnimation();
         }
 
         protected virtual void SetNotAttacking(tk2dSpriteAnimator animator, tk2dSpriteAnimationClip clip) {
-            _unit.Attacking = false;
+            _unit.AttackComplete();
             _animator.AnimationCompleted = null;
             ResetCombatAnimation();
         }
