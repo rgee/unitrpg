@@ -28,8 +28,16 @@ namespace Combat {
             _animator.AnimationCompleted = (animator, clip) => {
                 _woundUp = true;
                 _animator.AnimationCompleted = null;
-                base.SetAttackAnimation();
+                if (_unit.model.Character.AttackRange > 1) {
+                    // TODO: Also check if the target is sufficiently far
+                } else {
+                    base.SetAttackAnimation();
+                }
             };
+        }
+
+        private void SetBowAttackAnimation() {
+            
         }
 
         protected override void SetNotAttacking(tk2dSpriteAnimator animator, tk2dSpriteAnimationClip clip) {
