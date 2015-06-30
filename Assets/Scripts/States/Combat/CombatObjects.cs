@@ -2,6 +2,10 @@
 using UnityEngine;
 
 public static class CombatObjects {
+    public static BattleManager GetBattleManager() {
+        return GameObject.FindGameObjectWithTag("BattleManager").GetComponent<BattleManager>();
+    }
+
     public static HealPreviewManager GetHealPreviewManager() {
         return GameObject.Find("BattleManager/HealPreviewManager").GetComponent<HealPreviewManager>();
     }

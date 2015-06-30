@@ -47,7 +47,7 @@ GameObject:
   - 114: {fileID: 11449674}
   m_Layer: 0
   m_Name: BattleManager
-  m_TagString: Untagged
+  m_TagString: BattleManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -291,6 +291,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartImmediately: 1
+  TriggerObjects:
+  - {fileID: 174852, guid: f2a306571810e2d47aa236862d34a287, type: 2}
 --- !u!114 &11456784
 MonoBehaviour:
   m_ObjectHideFlags: 1

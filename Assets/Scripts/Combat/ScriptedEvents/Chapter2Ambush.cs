@@ -8,9 +8,9 @@ using Grid;
 using UnityEngine;
 
 namespace ScriptedEvents {
-    public class Chapter2Ambush : CombatEvent, ITrigger {
-        public Vector2 Location {
-            get {  return new Vector2(); }
+    public class Chapter2Ambush : CombatEvent {
+        public override Vector2 Location {
+            get {  return new Vector2(26, 9); }
         }
 
         public IScriptedEvent Event {
