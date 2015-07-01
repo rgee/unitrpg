@@ -42,7 +42,7 @@ public class UnitController : MonoBehaviour {
             PreviousPoint = CurrentPath[CurrentPathIdx - 1];
         }
         if (CurrentPathIdx < CurrentPath.Count) {
-            var currentDestination = CurrentPath[CurrentPathIdx];
+            var currentDestination = MathUtils.Round(CurrentPath[CurrentPathIdx]);
             _unit.Facing = MathUtils.DirectionTo(PreviousPoint, currentDestination);
 
             iTween.MoveTo(gameObject, iTween.Hash(

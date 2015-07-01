@@ -23,7 +23,6 @@ public class SingleMindedFury : MonoBehaviour, AIStrategy {
     private Seeker Seeker;
     public GameObject Target;
     private Grid.Unit Unit;
-    public UnitManager UnitManager;
     private FightExecutor _executorInstance;
 
     public IEnumerator act() {
