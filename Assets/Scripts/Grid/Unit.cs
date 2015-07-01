@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Remoting.Messaging;
 using Combat;
 using Models;
 using Pathfinding;
@@ -102,6 +103,12 @@ namespace Grid {
         }
 
         public void AttackConnected() {
+            // This can happen if you're just tweaking around with animations in the editor.
+            if (CurrentAttackTarget == null) {
+                Debug.LogWarning("Unit " + model.Character.Name + " attacked nothing.");
+                return;
+            }
+
             CombatEventBus.HitEvents.Dispatch(new HitEvent {
                 Target = CurrentAttackTarget.gameObject,
                 Data = CurrentHit,
