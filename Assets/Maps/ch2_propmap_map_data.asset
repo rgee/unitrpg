@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fb356b9a6a1da084695128b00c8721be, type: 3}
-  m_Name: tileMapData
+  m_Name: ch2_propmap_map_data
   m_EditorClassIdentifier: 
   tileSize: {x: 32, y: 32, z: 0}
   tileOrigin: {x: -16, y: -16, z: 0}
@@ -205,55 +205,11 @@ MonoBehaviour:
   - name: Ground
     hash: 1892887448
     useColor: 1
-    generateCollider: 0
-    z: 0
-    unityLayer: 0
-    sortingLayerName: Default
-    sortingOrder: -100
-    skipMeshGeneration: 0
-    physicMaterial: {fileID: 0}
-    physicsMaterial2D: {fileID: 0}
-  - name: Bottom Left Building
-    hash: 1010321085
-    useColor: 1
     generateCollider: 1
     z: 0
     unityLayer: 0
     sortingLayerName: Default
-    sortingOrder: 0
-    skipMeshGeneration: 0
-    physicMaterial: {fileID: 0}
-    physicsMaterial2D: {fileID: 0}
-  - name: Bottom Left Courtyard Building
-    hash: 147219804
-    useColor: 1
-    generateCollider: 1
-    z: .100000001
-    unityLayer: 0
-    sortingLayerName: Default
-    sortingOrder: 0
-    skipMeshGeneration: 0
-    physicMaterial: {fileID: 0}
-    physicsMaterial2D: {fileID: 0}
-  - name: Top Left Building Roof
-    hash: 1384777881
-    useColor: 1
-    generateCollider: 1
-    z: .100000001
-    unityLayer: 0
-    sortingLayerName: Default
-    sortingOrder: -19
-    skipMeshGeneration: 0
-    physicMaterial: {fileID: 0}
-    physicsMaterial2D: {fileID: 0}
-  - name: Top Left Building Upper
-    hash: 1191278135
-    useColor: 1
-    generateCollider: 1
-    z: .100000001
-    unityLayer: 0
-    sortingLayerName: Default
-    sortingOrder: -24
+    sortingOrder: 1
     skipMeshGeneration: 0
     physicMaterial: {fileID: 0}
     physicsMaterial2D: {fileID: 0}
