@@ -13,7 +13,7 @@ namespace ScriptedEvents {
             get {  return new Vector2(26, 9); }
         }
 
-        public IScriptedEvent Event {
+        public new IScriptedEvent Event {
             get { return this; }
         }
 

@@ -27,7 +27,7 @@ public class GridCameraController : CameraController {
         gridSelectorLocked = false;
     }
 
-    public void Update() {
+    public new void Update() {
         base.Update();
 
         var gridWidth = grid.tileSizeInPixels*grid.width;

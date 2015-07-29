@@ -23,7 +23,8 @@ public class MapGrid : Singleton<MapGrid> {
         UnitManager = CombatObjects.GetUnitManager();
     }
 
-    private void OnDestroy() {
+    private new void OnDestroy() {
+        base.OnDestroy();
         CombatEventBus.Moves.RemoveListener(HandleMovement);
     }
 

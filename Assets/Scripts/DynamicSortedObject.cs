@@ -22,7 +22,7 @@ public class DynamicSortedObject : MonoBehaviour {
         _renderer.sortingOrder = -Mathf.RoundToInt(position.y/GridSize);
     }
 
-    void AlignToMap() {
+    protected void AlignToMap() {
         if (_map == null) {
             var mapComponent = CombatObjects.GetMap();
             GridSize = mapComponent.tileSizeInPixels;

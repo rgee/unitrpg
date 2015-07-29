@@ -11,7 +11,7 @@ public class CombatAudioDirector : Singleton<CombatAudioDirector> {
         CombatEventBus.HitEvents.AddListener(PlayHit);
     }
 
-    private void OnDestroy() {
+    public new void OnDestroy() {
         CombatEventBus.HitEvents.RemoveListener(PlayHit);
     }
 
