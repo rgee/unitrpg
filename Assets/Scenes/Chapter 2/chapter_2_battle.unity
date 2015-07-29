@@ -3271,6 +3271,7 @@ GameObject:
   - 23: {fileID: 626803018}
   - 33: {fileID: 626803017}
   - 114: {fileID: 626803016}
+  - 114: {fileID: 626803015}
   m_Layer: 0
   m_Name: Far East House Small Vine
   m_TagString: Untagged
@@ -3290,6 +3291,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1110688757}
   m_RootOrder: 1
+--- !u!114 &626803015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 626803013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6cc3178754687a449fca51c55dc16c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &626803016
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3343,7 +3355,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -14
 --- !u!1 &646458976
 GameObject:
   m_ObjectHideFlags: 0
@@ -4612,7 +4624,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 908233959}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88848e58e022b4940a9b5179fb3ec097, type: 3}
+  m_Script: {fileID: 11500000, guid: d6cc3178754687a449fca51c55dc16c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &926740619
@@ -8147,7 +8159,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1823697944}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88848e58e022b4940a9b5179fb3ec097, type: 3}
+  m_Script: {fileID: 11500000, guid: d6cc3178754687a449fca51c55dc16c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1846993907
@@ -9569,6 +9581,7 @@ GameObject:
   - 23: {fileID: 2134362314}
   - 33: {fileID: 2134362313}
   - 114: {fileID: 2134362312}
+  - 114: {fileID: 2134362311}
   m_Layer: 0
   m_Name: Far East House Large Vine
   m_TagString: Untagged
@@ -9588,6 +9601,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1110688757}
   m_RootOrder: 0
+--- !u!114 &2134362311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2134362309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6cc3178754687a449fca51c55dc16c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2134362312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9641,7 +9665,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -12
 --- !u!1 &2137770922
 GameObject:
   m_ObjectHideFlags: 0
