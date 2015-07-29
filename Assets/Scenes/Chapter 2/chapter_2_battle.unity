@@ -159,6 +159,7 @@ GameObject:
   - 33: {fileID: 33240229}
   - 114: {fileID: 33240228}
   - 114: {fileID: 33240227}
+  - 114: {fileID: 33240231}
   m_Layer: 0
   m_Name: Fountain
   m_TagString: Untagged
@@ -243,6 +244,17 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: -12
+--- !u!114 &33240231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 33240225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6cc3178754687a449fca51c55dc16c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &40248056
 GameObject:
   m_ObjectHideFlags: 0
@@ -319,6 +331,7 @@ GameObject:
   - 33: {fileID: 63281042}
   - 114: {fileID: 63281041}
   - 114: {fileID: 63281040}
+  - 114: {fileID: 63281044}
   m_Layer: 0
   m_Name: Clinic Crate
   m_TagString: Untagged
@@ -403,6 +416,17 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: -18
+--- !u!114 &63281044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 63281038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6cc3178754687a449fca51c55dc16c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!43 &72979457
 Mesh:
   m_ObjectHideFlags: 0
@@ -798,6 +822,7 @@ GameObject:
   - 23: {fileID: 104615563}
   - 33: {fileID: 104615562}
   - 114: {fileID: 104615561}
+  - 114: {fileID: 104615565}
   m_Layer: 0
   m_Name: Wood Panel Top (3)
   m_TagString: Untagged
@@ -858,7 +883,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: -2
 --- !u!4 &104615564
 Transform:
   m_ObjectHideFlags: 0
@@ -871,6 +896,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 40248057}
   m_RootOrder: 15
+--- !u!114 &104615565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 104615560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6cc3178754687a449fca51c55dc16c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &107851661
 GameObject:
   m_ObjectHideFlags: 0
@@ -1100,6 +1136,7 @@ GameObject:
   - 33: {fileID: 162231974}
   - 114: {fileID: 162231973}
   - 114: {fileID: 162231972}
+  - 114: {fileID: 162231976}
   m_Layer: 0
   m_Name: Barrel Brigade (2)
   m_TagString: Untagged
@@ -1184,6 +1221,17 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: -17
+--- !u!114 &162231976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 162231970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6cc3178754687a449fca51c55dc16c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &210089550
 GameObject:
   m_ObjectHideFlags: 0
@@ -1196,6 +1244,7 @@ GameObject:
   - 33: {fileID: 210089554}
   - 114: {fileID: 210089553}
   - 114: {fileID: 210089552}
+  - 114: {fileID: 210089556}
   m_Layer: 0
   m_Name: West Facing Stall
   m_TagString: Untagged
@@ -1280,6 +1329,17 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: -12
+--- !u!114 &210089556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 210089550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6cc3178754687a449fca51c55dc16c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &213084698
 GameObject:
   m_ObjectHideFlags: 0
@@ -1441,6 +1501,7 @@ GameObject:
   - 33: {fileID: 246827492}
   - 114: {fileID: 246827491}
   - 114: {fileID: 246827490}
+  - 114: {fileID: 246827494}
   m_Layer: 0
   m_Name: Empty Cart
   m_TagString: Untagged
@@ -1525,6 +1586,17 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: -10
+--- !u!114 &246827494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 246827488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6cc3178754687a449fca51c55dc16c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &252498928
 GameObject:
   m_ObjectHideFlags: 0
@@ -2246,6 +2318,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 338337235}
+  - 114: {fileID: 338337236}
   m_Layer: 0
   m_Name: Barrels
   m_TagString: Untagged
@@ -2265,6 +2338,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 40248057}
   m_RootOrder: 30
+--- !u!114 &338337236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 338337234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6cc3178754687a449fca51c55dc16c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &382020248
 GameObject:
   m_ObjectHideFlags: 0
@@ -2479,6 +2563,7 @@ GameObject:
   - 33: {fileID: 432234903}
   - 114: {fileID: 432234902}
   - 114: {fileID: 432234901}
+  - 114: {fileID: 432234905}
   m_Layer: 0
   m_Name: Clinic (1)
   m_TagString: Untagged
@@ -2563,6 +2648,17 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 4
+--- !u!114 &432234905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 432234899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6cc3178754687a449fca51c55dc16c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &450852706
 GameObject:
   m_ObjectHideFlags: 0
@@ -2575,6 +2671,7 @@ GameObject:
   - 33: {fileID: 450852710}
   - 114: {fileID: 450852709}
   - 114: {fileID: 450852708}
+  - 114: {fileID: 450852712}
   m_Layer: 0
   m_Name: Right Gate
   m_TagString: Untagged
@@ -2659,6 +2756,17 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: -10
+--- !u!114 &450852712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 450852706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6cc3178754687a449fca51c55dc16c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!43 &493752626
 Mesh:
   m_ObjectHideFlags: 0
@@ -2799,6 +2907,7 @@ GameObject:
   - 33: {fileID: 528679914}
   - 114: {fileID: 528679913}
   - 114: {fileID: 528679916}
+  - 114: {fileID: 528679917}
   m_Layer: 0
   m_Name: Clinic
   m_TagString: Untagged
@@ -2881,6 +2990,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 88848e58e022b4940a9b5179fb3ec097, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &528679917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 528679911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6cc3178754687a449fca51c55dc16c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &532406333
@@ -3236,6 +3356,7 @@ GameObject:
   - 33: {fileID: 646458980}
   - 114: {fileID: 646458979}
   - 114: {fileID: 646458978}
+  - 114: {fileID: 646458982}
   m_Layer: 0
   m_Name: Gate
   m_TagString: Untagged
@@ -3320,6 +3441,17 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: -18
+--- !u!114 &646458982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 646458976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6cc3178754687a449fca51c55dc16c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &677510094
 GameObject:
   m_ObjectHideFlags: 0
@@ -3331,6 +3463,7 @@ GameObject:
   - 23: {fileID: 677510098}
   - 33: {fileID: 677510097}
   - 114: {fileID: 677510096}
+  - 114: {fileID: 677510099}
   m_Layer: 0
   m_Name: Wood Panel Top
   m_TagString: Untagged
@@ -3403,7 +3536,18 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: -1
+--- !u!114 &677510099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 677510094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6cc3178754687a449fca51c55dc16c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &691798551
 GameObject:
   m_ObjectHideFlags: 0
@@ -3852,6 +3996,7 @@ GameObject:
   - 33: {fileID: 830546999}
   - 114: {fileID: 830546998}
   - 114: {fileID: 830546997}
+  - 114: {fileID: 830547001}
   m_Layer: 0
   m_Name: North Facing Stall
   m_TagString: Untagged
@@ -3936,6 +4081,17 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: -8
+--- !u!114 &830547001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 830546995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6cc3178754687a449fca51c55dc16c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &885469407
 GameObject:
   m_ObjectHideFlags: 0
@@ -3948,6 +4104,7 @@ GameObject:
   - 33: {fileID: 885469411}
   - 114: {fileID: 885469410}
   - 114: {fileID: 885469409}
+  - 114: {fileID: 885469413}
   m_Layer: 0
   m_Name: South Facing Stall
   m_TagString: Untagged
@@ -4032,6 +4189,17 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: -16
+--- !u!114 &885469413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 885469407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6cc3178754687a449fca51c55dc16c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!43 &891044250
 Mesh:
   m_ObjectHideFlags: 0
@@ -4459,6 +4627,7 @@ GameObject:
   - 33: {fileID: 926740623}
   - 114: {fileID: 926740622}
   - 114: {fileID: 926740621}
+  - 114: {fileID: 926740625}
   m_Layer: 0
   m_Name: Left Gate
   m_TagString: Untagged
@@ -4543,6 +4712,17 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: -8
+--- !u!114 &926740625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 926740619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6cc3178754687a449fca51c55dc16c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &947899339
 GameObject:
   m_ObjectHideFlags: 0
@@ -4906,6 +5086,7 @@ GameObject:
   - 23: {fileID: 1086953420}
   - 33: {fileID: 1086953419}
   - 114: {fileID: 1086953418}
+  - 114: {fileID: 1086953417}
   m_Layer: 0
   m_Name: Southwest Facing Stall
   m_TagString: Untagged
@@ -4925,6 +5106,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 40248057}
   m_RootOrder: 31
+--- !u!114 &1086953417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1086953415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6cc3178754687a449fca51c55dc16c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1086953418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4978,7 +5170,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -16
 --- !u!1 &1110688756
 GameObject:
   m_ObjectHideFlags: 0
@@ -5020,6 +5212,7 @@ GameObject:
   - 33: {fileID: 1112237835}
   - 114: {fileID: 1112237834}
   - 114: {fileID: 1112237837}
+  - 114: {fileID: 1112237838}
   m_Layer: 0
   m_Name: House Facade 1
   m_TagString: Untagged
@@ -5094,6 +5287,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: -15
 --- !u!114 &1112237837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1112237832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6cc3178754687a449fca51c55dc16c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1112237838
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -5244,6 +5448,7 @@ GameObject:
   - 33: {fileID: 1118192047}
   - 114: {fileID: 1118192046}
   - 114: {fileID: 1118192045}
+  - 114: {fileID: 1118192050}
   m_Layer: 0
   m_Name: Barrel Brigade (1)
   m_TagString: Untagged
@@ -5328,6 +5533,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 40248057}
   m_RootOrder: 23
+--- !u!114 &1118192050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1118192044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6cc3178754687a449fca51c55dc16c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1172416928
 GameObject:
   m_ObjectHideFlags: 0
@@ -5340,6 +5556,7 @@ GameObject:
   - 33: {fileID: 1172416932}
   - 114: {fileID: 1172416931}
   - 114: {fileID: 1172416930}
+  - 114: {fileID: 1172416934}
   m_Layer: 0
   m_Name: Right Stairway
   m_TagString: Untagged
@@ -5424,6 +5641,17 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: -3
+--- !u!114 &1172416934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1172416928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6cc3178754687a449fca51c55dc16c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1212864304
 GameObject:
   m_ObjectHideFlags: 0
@@ -5495,6 +5723,7 @@ GameObject:
   - 23: {fileID: 1222268017}
   - 33: {fileID: 1222268016}
   - 114: {fileID: 1222268015}
+  - 114: {fileID: 1222268018}
   m_Layer: 0
   m_Name: Left Stairway
   m_TagString: Untagged
@@ -5567,7 +5796,18 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -3
+--- !u!114 &1222268018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1222268013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6cc3178754687a449fca51c55dc16c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1235227871
 GameObject:
   m_ObjectHideFlags: 0
@@ -6112,6 +6352,7 @@ GameObject:
   - 33: {fileID: 1396187629}
   - 114: {fileID: 1396187628}
   - 114: {fileID: 1396187627}
+  - 114: {fileID: 1396187631}
   m_Layer: 0
   m_Name: Gate 1
   m_TagString: Untagged
@@ -6196,6 +6437,17 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: -18
+--- !u!114 &1396187631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1396187625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6cc3178754687a449fca51c55dc16c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1445507842
 GameObject:
   m_ObjectHideFlags: 0
@@ -6666,6 +6918,7 @@ GameObject:
   - 23: {fileID: 1579461194}
   - 33: {fileID: 1579461193}
   - 114: {fileID: 1579461192}
+  - 114: {fileID: 1579461196}
   m_Layer: 0
   m_Name: Inn
   m_TagString: Untagged
@@ -6726,7 +6979,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -18
 --- !u!4 &1579461195
 Transform:
   m_ObjectHideFlags: 0
@@ -6739,6 +6992,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 40248057}
   m_RootOrder: 2
+--- !u!114 &1579461196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1579461191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6cc3178754687a449fca51c55dc16c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1598883246
 GameObject:
   m_ObjectHideFlags: 0
@@ -6751,6 +7015,7 @@ GameObject:
   - 33: {fileID: 1598883249}
   - 114: {fileID: 1598883248}
   - 114: {fileID: 1598883247}
+  - 114: {fileID: 1598883252}
   m_Layer: 0
   m_Name: Gate 2
   m_TagString: Untagged
@@ -6835,6 +7100,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 40248057}
   m_RootOrder: 5
+--- !u!114 &1598883252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1598883246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6cc3178754687a449fca51c55dc16c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1617568813
 GameObject:
   m_ObjectHideFlags: 0
@@ -6876,6 +7152,7 @@ GameObject:
   - 33: {fileID: 1636280197}
   - 114: {fileID: 1636280196}
   - 114: {fileID: 1636280195}
+  - 114: {fileID: 1636280199}
   m_Layer: 0
   m_Name: Southeast Facing Stall
   m_TagString: Untagged
@@ -6960,6 +7237,17 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: -16
+--- !u!114 &1636280199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1636280193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6cc3178754687a449fca51c55dc16c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1661417255
 GameObject:
   m_ObjectHideFlags: 0
@@ -7585,6 +7873,7 @@ GameObject:
   - 23: {fileID: 1785981121}
   - 33: {fileID: 1785981120}
   - 114: {fileID: 1785981119}
+  - 114: {fileID: 1785981122}
   m_Layer: 0
   m_Name: Wood Panel Top (1)
   m_TagString: Untagged
@@ -7657,7 +7946,18 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: -2
+--- !u!114 &1785981122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1785981117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6cc3178754687a449fca51c55dc16c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1791810517
 GameObject:
   m_ObjectHideFlags: 0
@@ -7669,6 +7969,7 @@ GameObject:
   - 23: {fileID: 1791810521}
   - 33: {fileID: 1791810520}
   - 114: {fileID: 1791810519}
+  - 114: {fileID: 1791810522}
   m_Layer: 0
   m_Name: Wood Panel Top (2)
   m_TagString: Untagged
@@ -7741,7 +8042,18 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: -2
+--- !u!114 &1791810522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1791810517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6cc3178754687a449fca51c55dc16c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1823697944
 GameObject:
   m_ObjectHideFlags: 0
@@ -7909,6 +8221,7 @@ GameObject:
   - 23: {fileID: 1878668564}
   - 33: {fileID: 1878668563}
   - 114: {fileID: 1878668562}
+  - 114: {fileID: 1878668565}
   m_Layer: 0
   m_Name: SouthEast Narrow Door (1)
   m_TagString: Untagged
@@ -7982,6 +8295,17 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 1
+--- !u!114 &1878668565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1878668560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6cc3178754687a449fca51c55dc16c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1881276796
 Prefab:
   m_ObjectHideFlags: 0
@@ -8059,6 +8383,7 @@ GameObject:
   - 23: {fileID: 1890861311}
   - 33: {fileID: 1890861310}
   - 114: {fileID: 1890861309}
+  - 114: {fileID: 1890861312}
   m_Layer: 0
   m_Name: House Facade
   m_TagString: Untagged
@@ -8131,7 +8456,18 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -16
+--- !u!114 &1890861312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1890861307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6cc3178754687a449fca51c55dc16c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1891497001
 GameObject:
   m_ObjectHideFlags: 0
@@ -8144,6 +8480,7 @@ GameObject:
   - 33: {fileID: 1891497005}
   - 114: {fileID: 1891497004}
   - 114: {fileID: 1891497003}
+  - 114: {fileID: 1891497007}
   m_Layer: 0
   m_Name: Right Alley Lamp
   m_TagString: Untagged
@@ -8228,6 +8565,17 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: -7
+--- !u!114 &1891497007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1891497001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6cc3178754687a449fca51c55dc16c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!43 &1909097140
 Mesh:
   m_ObjectHideFlags: 0
@@ -8367,6 +8715,7 @@ GameObject:
   - 23: {fileID: 1915542481}
   - 33: {fileID: 1915542480}
   - 114: {fileID: 1915542479}
+  - 114: {fileID: 1915542482}
   m_Layer: 0
   m_Name: Narrow House
   m_TagString: Untagged
@@ -8440,6 +8789,17 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: -18
+--- !u!114 &1915542482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1915542477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6cc3178754687a449fca51c55dc16c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1932716871
 GameObject:
   m_ObjectHideFlags: 0
@@ -8760,6 +9120,7 @@ GameObject:
   - 23: {fileID: 1968590896}
   - 33: {fileID: 1968590895}
   - 114: {fileID: 1968590894}
+  - 114: {fileID: 1968590897}
   m_Layer: 0
   m_Name: Left Alley Lamp
   m_TagString: Untagged
@@ -8832,7 +9193,18 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -6
+--- !u!114 &1968590897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1968590892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6cc3178754687a449fca51c55dc16c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1977278609
 GameObject:
   m_ObjectHideFlags: 0
@@ -8934,6 +9306,7 @@ GameObject:
   - 33: {fileID: 2038243562}
   - 114: {fileID: 2038243561}
   - 114: {fileID: 2038243560}
+  - 114: {fileID: 2038243564}
   m_Layer: 0
   m_Name: Barrel Brigade
   m_TagString: Untagged
@@ -9018,6 +9391,17 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: -9
+--- !u!114 &2038243564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2038243558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6cc3178754687a449fca51c55dc16c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2057639149
 GameObject:
   m_ObjectHideFlags: 0
@@ -9029,6 +9413,7 @@ GameObject:
   - 23: {fileID: 2057639153}
   - 33: {fileID: 2057639152}
   - 114: {fileID: 2057639151}
+  - 114: {fileID: 2057639154}
   m_Layer: 0
   m_Name: SouthEast Narrow Door
   m_TagString: Untagged
@@ -9101,7 +9486,18 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
+--- !u!114 &2057639154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2057639149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6cc3178754687a449fca51c55dc16c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2110346832
 GameObject:
   m_ObjectHideFlags: 0
@@ -9317,6 +9713,7 @@ GameObject:
   - 23: {fileID: 2140864382}
   - 33: {fileID: 2140864381}
   - 114: {fileID: 2140864380}
+  - 114: {fileID: 2140864383}
   m_Layer: 0
   m_Name: Narrow House 1
   m_TagString: Untagged
@@ -9390,3 +9787,14 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: -18
+--- !u!114 &2140864383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2140864378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6cc3178754687a449fca51c55dc16c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
