@@ -5019,6 +5019,7 @@ GameObject:
   - 23: {fileID: 1112237836}
   - 33: {fileID: 1112237835}
   - 114: {fileID: 1112237834}
+  - 114: {fileID: 1112237837}
   m_Layer: 0
   m_Name: House Facade 1
   m_TagString: Untagged
@@ -5091,7 +5092,18 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -15
+--- !u!114 &1112237837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1112237832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6cc3178754687a449fca51c55dc16c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!43 &1117144389
 Mesh:
   m_ObjectHideFlags: 0
