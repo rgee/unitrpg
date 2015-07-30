@@ -17,7 +17,7 @@ public class DynamicSortedObject : MonoBehaviour {
     }
 
     void Update() {
-        AlignToMap();
+        
         var position = transform.position + new Vector3(Offset.x, Offset.y);
         _renderer.sortingOrder = -Mathf.RoundToInt(position.y/GridSize);
     }
