@@ -6519,7 +6519,6 @@ GameObject:
   - 23: {fileID: 1041226167}
   - 33: {fileID: 1041226166}
   - 114: {fileID: 1041226165}
-  - 114: {fileID: 1041226164}
   m_Layer: 0
   m_Name: Well Stall (2)
   m_TagString: Untagged
@@ -6539,17 +6538,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 501852389}
   m_RootOrder: 5
---- !u!114 &1041226164
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1041226162}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6cc3178754687a449fca51c55dc16c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1041226165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6572,7 +6560,7 @@ MonoBehaviour:
   meshCollider: {fileID: 0}
   meshColliderPositions: []
   meshColliderMesh: {fileID: 0}
-  renderLayer: 0
+  renderLayer: -12
 --- !u!33 &1041226166
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -6603,7 +6591,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: -10
+  m_SortingOrder: -12
 --- !u!1 &1054914197
 GameObject:
   m_ObjectHideFlags: 0
@@ -10099,7 +10087,6 @@ GameObject:
   - 23: {fileID: 1680846100}
   - 33: {fileID: 1680846099}
   - 114: {fileID: 1680846098}
-  - 114: {fileID: 1680846097}
   m_Layer: 0
   m_Name: Well Stall (3)
   m_TagString: Untagged
@@ -10119,17 +10106,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 501852389}
   m_RootOrder: 6
---- !u!114 &1680846097
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1680846095}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6cc3178754687a449fca51c55dc16c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1680846098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10152,7 +10128,7 @@ MonoBehaviour:
   meshCollider: {fileID: 0}
   meshColliderPositions: []
   meshColliderMesh: {fileID: 0}
-  renderLayer: 0
+  renderLayer: -12
 --- !u!33 &1680846099
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -10183,7 +10159,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: -10
+  m_SortingOrder: -12
 --- !u!1 &1684346227
 GameObject:
   m_ObjectHideFlags: 0
