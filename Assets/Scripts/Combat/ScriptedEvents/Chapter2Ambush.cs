@@ -17,6 +17,8 @@ namespace ScriptedEvents {
             get { return this; }
         }
 
+        public List<Models.Combat.Unit> units = new List<Models.Combat.Unit>();
+
         public override IEnumerator Play() {
             Debug.Log("Starting Chapter 2 Ambush");
             yield return new WaitForSeconds(2);

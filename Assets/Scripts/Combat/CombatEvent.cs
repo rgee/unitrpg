@@ -21,7 +21,7 @@ namespace Combat {
             yield return null;
         }
 
-        protected IEnumerator SpawnUnits(IEnumerable<Unit> units) {
+        protected IEnumerator SpawnUnits(IEnumerable<Models.Combat.Unit> units) {
             var unitManager = CombatObjects.GetUnitManager();
             foreach (var unit in units) {
                 var obj = unitManager.AddUnit(unit);
