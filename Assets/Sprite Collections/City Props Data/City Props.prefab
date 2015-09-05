@@ -1824,9 +1824,11 @@ MonoBehaviour:
     flipped: 1
     complexGeometry: 0
     physicsEngine: 0
-    colliderType: 0
+    colliderType: 2
     customColliders: []
-    colliderVertices: []
+    colliderVertices:
+    - {x: 0, y: 32, z: 0}
+    - {x: 64, y: 32, z: .100000001}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -1871,9 +1873,11 @@ MonoBehaviour:
     flipped: 0
     complexGeometry: 0
     physicsEngine: 0
-    colliderType: 0
+    colliderType: 2
     customColliders: []
-    colliderVertices: []
+    colliderVertices:
+    - {x: 0, y: 80, z: 0}
+    - {x: 56, y: 80, z: .100000001}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -2108,9 +2112,11 @@ MonoBehaviour:
     flipped: 0
     complexGeometry: 0
     physicsEngine: 0
-    colliderType: 0
+    colliderType: 2
     customColliders: []
-    colliderVertices: []
+    colliderVertices:
+    - {x: 0, y: 143, z: 0}
+    - {x: 48, y: 138, z: .100000001}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -2155,9 +2161,11 @@ MonoBehaviour:
     flipped: 1
     complexGeometry: 0
     physicsEngine: 0
-    colliderType: 0
+    colliderType: 2
     customColliders: []
-    colliderVertices: []
+    colliderVertices:
+    - {x: 12, y: 40, z: 0}
+    - {x: 46, y: 32, z: .100000001}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -2202,14 +2210,42 @@ MonoBehaviour:
     flipped: 1
     complexGeometry: 0
     physicsEngine: 0
-    colliderType: 0
+    colliderType: 3
     customColliders: []
-    colliderVertices: []
-    colliderIndicesFwd: 
-    colliderIndicesBack: 
+    colliderVertices:
+    - {x: 23.5, y: 98, z: -.100000001}
+    - {x: 23.5, y: 98, z: .100000001}
+    - {x: 9, y: 90.5, z: -.100000001}
+    - {x: 9, y: 90.5, z: .100000001}
+    - {x: -27, y: 54.5, z: -.100000001}
+    - {x: -27, y: 54.5, z: .100000001}
+    - {x: -45, y: 35, z: -.100000001}
+    - {x: -45, y: 35, z: .100000001}
+    - {x: -45, y: 22.5, z: -.100000001}
+    - {x: -45, y: 22.5, z: .100000001}
+    - {x: -17.5, y: 0, z: -.100000001}
+    - {x: -17.5, y: 0, z: .100000001}
+    - {x: 12.5, y: 28.5, z: -.100000001}
+    - {x: 12.5, y: 28.5, z: .100000001}
+    - {x: 37.5, y: 55, z: -.100000001}
+    - {x: 37.5, y: 55, z: .100000001}
+    - {x: 46, y: 81.5, z: -.100000001}
+    - {x: 46, y: 81.5, z: .100000001}
+    colliderIndicesFwd: 0200000003000000000000000000000003000000010000000400000005000000020000000200000005000000030000000600000007000000040000000400000007000000050000000800000009000000060000000600000009000000070000000a00000009000000080000000a0000000b000000090000000c0000000b0000000a0000000c0000000d0000000b0000000e0000000d0000000c0000000e0000000f0000000d000000100000000f0000000e00000010000000110000000f000000000000000100000010000000100000000100000011000000020000000e0000000a0000000a000000060000000200000002000000100000000e0000000e0000000c0000000a0000000a00000008000000060000000600000004000000020000000200000000000000100000000b0000000f0000000300000003000000070000000b0000000f00000011000000030000000b0000000d0000000f00000007000000090000000b000000030000000500000007000000110000000100000003000000
+    colliderIndicesBack: 00000000030000000200000001000000030000000000000002000000050000000400000003000000050000000200000004000000070000000600000005000000070000000400000006000000090000000800000007000000090000000600000008000000090000000a000000090000000b0000000a0000000a0000000b0000000c0000000b0000000d0000000c0000000c0000000d0000000e0000000d0000000f0000000e0000000e0000000f000000100000000f00000011000000100000001000000001000000000000001100000001000000100000000a0000000e0000000200000002000000060000000a0000000e00000010000000020000000a0000000c0000000e00000006000000080000000a000000020000000400000006000000100000000000000002000000030000000f0000000b0000000b000000070000000300000003000000110000000f0000000f0000000d0000000b0000000b0000000900000007000000070000000500000003000000030000000100000011000000
     colliderConvex: 0
     colliderSmoothSphereCollisions: 0
-    polygonCollider2D: []
+    polygonCollider2D:
+    - points:
+      - {x: 23.5, y: 98}
+      - {x: 9, y: 90.5}
+      - {x: -27, y: 54.5}
+      - {x: -45, y: 35}
+      - {x: -45, y: 22.5}
+      - {x: -17.5, y: 0}
+      - {x: 12.5, y: 28.5}
+      - {x: 37.5, y: 55}
+      - {x: 46, y: 81.5}
     edgeCollider2D: []
     attachPoints: []
   - name: tower_stairs
@@ -2484,9 +2520,11 @@ MonoBehaviour:
     flipped: 0
     complexGeometry: 0
     physicsEngine: 0
-    colliderType: 0
+    colliderType: 2
     customColliders: []
-    colliderVertices: []
+    colliderVertices:
+    - {x: .5, y: 64, z: 0}
+    - {x: 56.5, y: 64, z: .100000001}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -2766,9 +2804,11 @@ MonoBehaviour:
     flipped: 1
     complexGeometry: 0
     physicsEngine: 0
-    colliderType: 0
+    colliderType: 2
     customColliders: []
-    colliderVertices: []
+    colliderVertices:
+    - {x: 0, y: 15, z: 0}
+    - {x: 16, y: 15, z: .100000001}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -2813,9 +2853,11 @@ MonoBehaviour:
     flipped: 1
     complexGeometry: 0
     physicsEngine: 0
-    colliderType: 0
+    colliderType: 2
     customColliders: []
-    colliderVertices: []
+    colliderVertices:
+    - {x: 0, y: 15, z: 0}
+    - {x: 16, y: 15, z: .100000001}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -2981,7 +3023,7 @@ MonoBehaviour:
   loadable: 0
   invOrthoSize: 2
   halfTargetHeight: .5
-  buildKey: 1731734656
+  buildKey: 227458432
   dataGuid: b290bb6ae05947849850dd604900edea
   managedSpriteCollection: 0
   hasPlatformData: 0
