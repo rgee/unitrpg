@@ -13,10 +13,10 @@ public class GridOverlay : MonoBehaviour {
      public int gridSizeZ;
      
      public float smallStep;
-     public float largeStep;
+     public float largeStep = 32;
      
-     public float startX;
-     public float startY;
+     public float startX = -16;
+     public float startY = -16;
      public float startZ;
      
      private float scrollRate = 0.1f;
