@@ -21,7 +21,7 @@ namespace Combat {
             yield return null;
         }
 
-        protected IEnumerator SpawnUnit() {
+        protected IEnumerator SpawnUnits(IEnumerable<Unit> units) {
             yield return null;
         }
 

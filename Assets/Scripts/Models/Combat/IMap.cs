@@ -9,5 +9,6 @@ namespace Models.Combat {
         IEnumerable<Unit> GetFriendlyUnits();
         IEnumerable<Unit> GetEnemyUnits();
         void MoveUnit(Unit unit, Vector2 location);
+        void AddUnit(Unit unit);
     }
 }

@@ -26,10 +26,11 @@ namespace Models.Combat {
         void MoveUnit(Unit unit, List<Vector2> path, Vector2 location);
         IEnumerable<CombatAction> GetAvailableActions(Unit unit);
         IEnumerable<CombatAction> GetAvailableFightActions(Unit unit); 
+        void UseItem(Item item, Unit unit);
 
         #endregion
 
-        #region Unit Query Operations
+        #region Unit Roster Operations
 
         int GetMovesUsed(Unit unit);
         int GetRemainingMoves(Unit unit);
@@ -37,6 +38,7 @@ namespace Models.Combat {
         Unit GetUnitByLocation(Vector2 position);
         IEnumerable<Unit> GetFriendlyUnits();
         IEnumerable<Unit> GetEnemyUnits();
+        void AddUnit(Unit unit);
 
         #endregion
 
@@ -47,6 +49,5 @@ namespace Models.Combat {
 
         #endregion
 
-        void UseItem(Item item, Unit unit);
     }
 }

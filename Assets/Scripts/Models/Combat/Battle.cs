@@ -77,6 +77,10 @@ namespace Models.Combat {
             _turnState.RecordMove(unit, path.Count);
         }
 
+        public void AddUnit(Unit unit) {
+            _map.AddUnit(unit);
+        }
+
         public IEnumerable<Unit> GetFriendlyUnits() {
             return from unit in _map.GetAllUnits()
                    where unit.IsFriendly

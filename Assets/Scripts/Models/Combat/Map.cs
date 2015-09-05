@@ -18,6 +18,13 @@ namespace Models.Combat {
             }
         }
 
+        public void AddUnit(Unit unit) {
+            if (_unitsByPosition.ContainsKey(unit.GridPosition)) {
+                throw new ArgumentException("Cannot place two units at the same position.");
+            }
+            _unitsByPosition[unit.GridPosition] = unit;
+        }
+
         private void RemoveUnit(Unit unit) {
             _unitsByPosition.Remove(unit.GridPosition);
         }
