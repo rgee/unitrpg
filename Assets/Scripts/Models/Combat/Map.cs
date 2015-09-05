@@ -19,6 +19,10 @@ namespace Models.Combat {
         }
 
         public void AddUnit(Unit unit) {
+            if (unit == null) {
+                throw new ArgumentNullException("unit");
+            }
+
             if (_unitsByPosition.ContainsKey(unit.GridPosition)) {
                 throw new ArgumentException("Cannot place two units at the same position.");
             }
