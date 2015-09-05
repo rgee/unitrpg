@@ -46,6 +46,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 438010}
+  - 65: {fileID: 6568242}
   m_Layer: 0
   m_Name: Garden
   m_TagString: Untagged
@@ -290,7 +291,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: -14
+  m_SortingOrder: -16
 --- !u!23 &2378968
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -314,7 +315,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: -13
+  m_SortingOrder: -14
 --- !u!23 &2383666
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -362,7 +363,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: -14
+  m_SortingOrder: -16
 --- !u!33 &3301082
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -405,6 +406,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 119822}
   m_Mesh: {fileID: 0}
+--- !u!65 &6568242
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102968}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 149, y: 115, z: 1}
+  m_Center: {x: 861.700012, y: 498.399994, z: 0}
 --- !u!114 &11408114
 MonoBehaviour:
   m_ObjectHideFlags: 1
