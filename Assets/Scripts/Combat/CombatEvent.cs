@@ -22,6 +22,11 @@ namespace Combat {
         }
 
         protected IEnumerator SpawnUnits(IEnumerable<Unit> units) {
+            var unitManager = CombatObjects.GetUnitManager();
+            foreach (var unit in units) {
+                var obj = unitManager.AddUnit(unit);
+            }
+
             yield return null;
         }
 

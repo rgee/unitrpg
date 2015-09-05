@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Xsl;
 using UnityEngine;
@@ -28,22 +29,34 @@ namespace Grid {
         private void Start() {
             Grid = CombatObjects.GetMap();
             foreach (Transform t in transform) {
-                unitGameObjects.Add(t.gameObject);
-
-                var unit = t.gameObject.GetComponent<Unit>();
-
-                var gridPos = unit.gridPosition;
-                unitsByPosition.Add(gridPos, t.gameObject);
-
-                unitModels.Add(unit.model);
-
-                t.transform.position = Grid.GetWorldPosForGridPos(gridPos);
+                AddUnit(t.gameObject);
             }
 
             ResetMovedUnits(true);
 
             CombatEventBus.Deaths.AddListener(OnUnitDeath);
             CombatEventBus.Moves.AddListener(ChangeUnitPosition);
+        }
+
+        public GameObject AddUnit(Models.Combat.Unit model) {
+            var gameObject = new GameObject();
+            var unitComponent = gameObject.AddComponent<Unit>();
+            unitComponent.model = model;
+            AddUnit(gameObject);
+
+            return gameObject;
+        }
+
+        public void AddUnit(GameObject obj) {
+            var component = obj.GetComponent<Unit>();
+            if (component == null) {
+                throw new ArgumentException("Provided gameobject does not have a Unit component.");
+            }
+
+            unitGameObjects.Add(obj);
+            unitsByPosition.Add(component.gridPosition, obj);
+            unitModels.Add(component.model);
+            obj.transform.position = Grid.GetWorldPosForGridPos(component.gridPosition);
         }
 
         private void OnDestroy() {
