@@ -9,8 +9,8 @@ using UnityEngine;
 
 namespace ScriptedEvents {
     public class Chapter2Ambush : CombatEvent {
-        public override Vector2 Location {
-            get {  return new Vector2(26, 9); }
+        public override HashSet<Vector2> Locations {
+            get {  return new HashSet<Vector2> { new Vector2(26, 9) }; }
         }
 
         public new IScriptedEvent Event {

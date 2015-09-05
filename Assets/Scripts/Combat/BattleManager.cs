@@ -38,7 +38,7 @@ public class BattleManager : SceneEntryPoint {
     }
 
     private void CheckTriggers(Grid.Unit unit, Vector2 destination) {
-        var matchingTriggers = _triggers.Where(trigger => trigger.Location == destination).ToList();
+        var matchingTriggers = _triggers.Where(trigger => trigger.Locations.Contains(destination)).ToList();
         if (matchingTriggers.Any()) {
             _activeTriggers.AddRange(matchingTriggers);
         }

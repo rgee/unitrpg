@@ -8,6 +8,6 @@ using UnityEngine;
 namespace Grid {
     public abstract class Trigger : MonoBehaviour, ITrigger {
         public abstract IScriptedEvent Event { get; }
-        public Vector2 Location { get; set; }
+        public HashSet<Vector2> Locations { get; set; }
     }
 }

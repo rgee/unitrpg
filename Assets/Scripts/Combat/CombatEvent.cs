@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using Grid;
 using UnityEngine;
+using System.Collections.Generic;
 
 namespace Combat {
     /**
@@ -8,7 +9,7 @@ namespace Combat {
      * set of high-level actions that can be performed on the game world.
      */
     public abstract class CombatEvent : MonoBehaviour, ITrigger, IScriptedEvent {
-        public abstract Vector2 Location { get; }
+        public abstract HashSet<Vector2> Locations { get; }
 
         public IScriptedEvent Event {
             get { return this; }
