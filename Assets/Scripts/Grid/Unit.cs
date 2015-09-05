@@ -54,7 +54,7 @@ namespace Grid {
             seeker.startEndModifier.exactEndPoint = StartEndModifier.Exactness.SnapToNode;
             Controller = GetComponent<UnitController>();
             model.Health = model.Character.MaxHealth;
-            _collider = transform.Find("Collider").GetComponent<Collider>();
+            _collider = GetComponent<Collider>();
         }
 
         public bool IsAlive() {

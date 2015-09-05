@@ -5362,46 +5362,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 31, y: 31, z: .200000003}
   m_Center: {x: -.5, y: .5, z: 0}
---- !u!1 &607402745
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 607402747}
-  - 65: {fileID: 607402746}
-  m_Layer: 10
-  m_Name: Collider
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!65 &607402746
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 607402745}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 10, y: 10, z: .200000003}
-  m_Center: {x: 0, y: 16, z: 0}
---- !u!4 &607402747
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 607402745}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -27, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1256147625}
-  m_RootOrder: 0
 --- !u!1001 &607580815
 Prefab:
   m_ObjectHideFlags: 0
@@ -11354,6 +11314,7 @@ GameObject:
   - 114: {fileID: 1159741562}
   - 114: {fileID: 1159741563}
   - 114: {fileID: 1159741564}
+  - 65: {fileID: 1159741565}
   m_Layer: 0
   m_Name: Gatsu
   m_TagString: Untagged
@@ -11486,8 +11447,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 800, y: 321, z: -.400000006}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 2091969462}
+  m_Children: []
   m_Father: {fileID: 1744059297}
   m_RootOrder: 1
 --- !u!114 &1159741562
@@ -11543,6 +11503,18 @@ MonoBehaviour:
   AggroRange: 2147483647
   ExecutorPrefab: {fileID: 193992, guid: 5a3b99e90e1b2024cb3d3bfc144323ef, type: 2}
   Target: {fileID: 1256147618}
+--- !u!65 &1159741565
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1159741553}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 10, z: .200000003}
+  m_Center: {x: 0, y: -11, z: 0}
 --- !u!1001 &1168782188
 Prefab:
   m_ObjectHideFlags: 0
@@ -12220,6 +12192,7 @@ GameObject:
   - 114: {fileID: 1256147626}
   - 114: {fileID: 1256147628}
   - 114: {fileID: 1256147629}
+  - 65: {fileID: 1256147619}
   m_Layer: 0
   m_Name: Liat
   m_TagString: Untagged
@@ -12227,6 +12200,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!65 &1256147619
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1256147618}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 10, z: .200000003}
+  m_Center: {x: 0, y: -11, z: 0}
 --- !u!114 &1256147620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12315,8 +12300,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 832, y: 320, z: 1.60000002}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 607402747}
+  m_Children: []
   m_Father: {fileID: 1744059297}
   m_RootOrder: 0
 --- !u!114 &1256147626
@@ -20296,46 +20280,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b8bfab5258323cd48abf98df83b9a450, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &2091969460
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 2091969462}
-  - 65: {fileID: 2091969461}
-  m_Layer: 0
-  m_Name: Collider
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!65 &2091969461
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2091969460}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 10, y: 10, z: .200000003}
-  m_Center: {x: 0, y: 16, z: 0}
---- !u!4 &2091969462
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2091969460}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -27, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1159741561}
-  m_RootOrder: 0
 --- !u!1001 &2102601283
 Prefab:
   m_ObjectHideFlags: 0
