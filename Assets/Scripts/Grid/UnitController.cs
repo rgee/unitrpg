@@ -32,7 +32,6 @@ public class UnitController : MonoBehaviour {
 
         _unit.Running = true;
         PreviousPoint = transform.position;
-
         StartNextSegment();
     }
 
@@ -43,7 +42,7 @@ public class UnitController : MonoBehaviour {
         }
         if (CurrentPathIdx < CurrentPath.Count) {
             var currentDestination = MathUtils.Round(CurrentPath[CurrentPathIdx]);
-            _unit.Facing = MathUtils.DirectionTo(PreviousPoint, currentDestination);
+            _unit.Facing = MathUtils.DirectionTo(MathUtils.Round(PreviousPoint), currentDestination);
 
             iTween.MoveTo(gameObject, iTween.Hash(
                 "position", currentDestination,

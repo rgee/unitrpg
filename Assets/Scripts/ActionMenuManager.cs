@@ -53,7 +53,6 @@ public class ActionMenuManager : MonoBehaviour {
             BraceItem
         );
 
-
         _prefabsByActions.Add(
             CombatAction.Wait | CombatAction.Move,
             MoveWait
