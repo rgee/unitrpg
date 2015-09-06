@@ -38,15 +38,6 @@ namespace Grid {
             CombatEventBus.Moves.AddListener(ChangeUnitPosition);
         }
 
-        public GameObject AddUnit(Models.Combat.Unit model) {
-            var gameObject = new GameObject();
-            var unitComponent = gameObject.AddComponent<Unit>();
-            unitComponent.model = model;
-            AddUnit(gameObject);
-
-            return gameObject;
-        }
-
         public void AddUnit(GameObject obj) {
             var component = obj.GetComponent<Unit>();
             if (component == null) {
@@ -56,6 +47,7 @@ namespace Grid {
             unitGameObjects.Add(obj);
             unitsByPosition.Add(component.gridPosition, obj);
             unitModels.Add(component.model);
+            obj.transform.SetParent(transform);
             obj.transform.position = Grid.GetWorldPosForGridPos(component.gridPosition);
         }
 

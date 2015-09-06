@@ -17,11 +17,12 @@ namespace ScriptedEvents {
             get { return this; }
         }
 
-        public List<Models.Combat.Unit> units = new List<Models.Combat.Unit>();
+        public List<SpawnableUnit> Units = new List<SpawnableUnit>();
 
         public override IEnumerator Play() {
             Debug.Log("Starting Chapter 2 Ambush");
             yield return new WaitForSeconds(2);
+            yield return StartCoroutine(SpawnUnits(Units));
 
             Debug.Log("Chapter 2 Ambush complete");
         }

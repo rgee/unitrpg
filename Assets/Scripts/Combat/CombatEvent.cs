@@ -21,10 +21,15 @@ namespace Combat {
             yield return null;
         }
 
-        protected IEnumerator SpawnUnits(IEnumerable<Models.Combat.Unit> units) {
+        protected IEnumerator SpawnUnits(IEnumerable<ScriptedEvents.SpawnableUnit> units) {
             var unitManager = CombatObjects.GetUnitManager();
             foreach (var unit in units) {
-                var obj = unitManager.AddUnit(unit);
+                var gameObject = Instantiate(unit.Prefab);
+                var component = gameObject.GetComponent<Grid.Unit>();
+                component.gridPosition = unit.SpawnPoint;
+                component.model.GridPosition = unit.SpawnPoint;
+
+                unitManager.AddUnit(gameObject);
             }
 
             yield return null;
