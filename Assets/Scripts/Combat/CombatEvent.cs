@@ -15,13 +15,30 @@ namespace Combat {
             get { return this; }
         }
 
+        private GameObject _camera;
+
+        void Start() {
+            _camera = CombatObjects.GetCamera();
+        }
+
         public abstract IEnumerator Play();
 
         protected IEnumerator PanCamera(Vector2 destination) {
-            yield return null;
+            var time =  .7f;
+            iTween.MoveTo(_camera, iTween.Hash(
+                "x", destination.x,
+                "y", destination.y,
+                "time", time
+            ));
+
+            yield return new WaitForSeconds(time);
         }
 
-        protected IEnumerator SpawnUnits(IEnumerable<ScriptedEvents.SpawnableUnit> units) {
+        protected IEnumerator SpawnUnits(List<ScriptedEvents.SpawnableUnit> units) {
+            var map = CombatObjects.GetMap();
+            var spawnPointWorldSpace = map.GetWorldPosForGridPos(units[0].SpawnPoint);
+            yield return StartCoroutine(PanCamera(spawnPointWorldSpace));
+
             var unitManager = CombatObjects.GetUnitManager();
             foreach (var unit in units) {
                 var gameObject = Instantiate(unit.Prefab);

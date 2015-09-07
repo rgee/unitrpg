@@ -30,8 +30,12 @@ public static class CombatObjects {
         return GameObject.Find("Unit Manager").GetComponent<UnitManager>();
     }
 
+
+    public static GameObject GetCamera() {
+        return GameObject.FindGameObjectWithTag("MainCamera");
+    }
     public static GridCameraController GetCameraController() {
-        return GameObject.FindGameObjectWithTag("MainCamera").GetComponent<GridCameraController>();
+        return GetCamera().GetComponent<GridCameraController>();
     }
 
     public static ActionMenuManager GetActionMenuManager() {
