@@ -61,6 +61,7 @@ public class PathArrowManager : Singleton<PathArrowManager> {
     private void AddPathSegment(Vector3 position, Sprite sprite) {
         var obj = new GameObject("path_segment");
         obj.transform.position = position;
+        obj.AddComponent<DynamicSortedObject>();
         var renderer = obj.AddComponent<SpriteRenderer>();
         renderer.sprite = sprite;
         renderer.sortingOrder = 16;
