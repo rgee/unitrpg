@@ -29,7 +29,7 @@ namespace Combat {
                 component.gridPosition = unit.SpawnPoint;
                 component.model.GridPosition = unit.SpawnPoint;
 
-                unitManager.AddUnit(gameObject);
+                unitManager.SpawnUnit(gameObject);
             }
 
             yield return null;

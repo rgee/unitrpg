@@ -21,7 +21,6 @@ namespace ScriptedEvents {
 
         public override IEnumerator Play() {
             Debug.Log("Starting Chapter 2 Ambush");
-            yield return new WaitForSeconds(2);
             yield return StartCoroutine(SpawnUnits(Units));
 
             Debug.Log("Chapter 2 Ambush complete");

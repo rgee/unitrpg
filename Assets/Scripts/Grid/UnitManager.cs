@@ -38,6 +38,14 @@ namespace Grid {
             CombatEventBus.Moves.AddListener(ChangeUnitPosition);
         }
 
+        public void SpawnUnit(GameObject obj) {
+            AddUnit(obj);
+            var animator = obj.GetComponent<UnitAnimator>();
+            if (animator != null) {
+                animator.FadeIn();
+            }
+        }
+
         public void AddUnit(GameObject obj) {
             var component = obj.GetComponent<Unit>();
             if (component == null) {

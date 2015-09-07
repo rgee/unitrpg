@@ -61,6 +61,18 @@ namespace Grid {
             _animator.AnimationEventTriggered = null;
         }
 
+        public void FadeIn() {
+            iTween.ValueTo(gameObject, iTween.Hash(
+                "from", 0f, "to", 1f,
+                "time", 0.4f, "easetype", "linear",
+                "onupdate", "SetAlpha"
+            ));
+        }
+
+        public void SetAlpha(float newAlpha) {
+            _sprite.color = new Color(_sprite.color.r, _sprite.color.g, _sprite.color.b, newAlpha);
+        }
+
         private void HandleHit(tk2dSpriteAnimator animator, tk2dSpriteAnimationClip clip, int frame) {
             if (clip.frames[frame].eventInfo == HIT_EVENT_INFO) {
                 _unit.AttackConnected();

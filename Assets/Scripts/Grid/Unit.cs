@@ -46,7 +46,7 @@ namespace Grid {
 
         public bool Attacking;
         public bool InCombat;
-        public MathUtils.CardinalDirection Facing;
+        public MathUtils.CardinalDirection Facing = MathUtils.CardinalDirection.S;
         public bool Running;
 
         void Start() {
