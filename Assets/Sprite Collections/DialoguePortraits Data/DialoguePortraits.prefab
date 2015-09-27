@@ -1,0 +1,267 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &107520
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 499158}
+  - 114: {fileID: 11448400}
+  m_Layer: 0
+  m_Name: DialoguePortraits
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &499158
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 107520}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11448400
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 107520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d546f34a90531a14eaba82a43b05b86b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 3
+  materialIdsValid: 1
+  needMaterialInstance: 0
+  spriteDefinitions:
+  - name: liat_body
+    boundsData:
+    - {x: 0, y: -1, z: 0}
+    - {x: 1256, y: 1550, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: -1, z: 0}
+    - {x: 1256, y: 1550, z: 0}
+    texelSize: {x: 2, y: 2}
+    positions:
+    - {x: -628, y: -776, z: 0}
+    - {x: 628, y: -776, z: 0}
+    - {x: -628, y: 774, z: 0}
+    - {x: 628, y: 774, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: .00195410149, y: .00195410149}
+    - {x: .615233421, y: .00195410149}
+    - {x: .00195410149, y: .758788109}
+    - {x: .615233421, y: .758788109}
+    normalizedUvs:
+    - {x: 0, y: 0}
+    - {x: .99999994, y: 0}
+    - {x: 0, y: .99999994}
+    - {x: .99999994, y: .99999994}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: ab8cb741a97276a4aa180e67df2cadac, type: 2}
+    materialId: 0
+    sourceTextureGUID: 43b91460f27a6014da05fdaea3e3c1b2
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 1
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd: 
+    colliderIndicesBack: 
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: liat_happy
+    boundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: 548, y: 548, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: 548, y: 548, z: 0}
+    texelSize: {x: 2, y: 2}
+    positions:
+    - {x: -274, y: -274, z: 0}
+    - {x: 274, y: -274, z: 0}
+    - {x: -274, y: 274, z: 0}
+    - {x: 274, y: 274, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: .619141579, y: .00195410149}
+    - {x: .886717796, y: .00195410149}
+    - {x: .619141579, y: .269530267}
+    - {x: .886717796, y: .269530267}
+    normalizedUvs:
+    - {x: 0, y: 0}
+    - {x: 1, y: 0}
+    - {x: 0, y: 1}
+    - {x: 1, y: 1}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: ab8cb741a97276a4aa180e67df2cadac, type: 2}
+    materialId: 0
+    sourceTextureGUID: b16ff65145c835b4d8f2c693b9b2a3d9
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 1
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd: 
+    colliderIndicesBack: 
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: liat_sad
+    boundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: 548, y: 548, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: 548, y: 548, z: 0}
+    texelSize: {x: 2, y: 2}
+    positions:
+    - {x: -274, y: -274, z: 0}
+    - {x: 274, y: -274, z: 0}
+    - {x: -274, y: 274, z: 0}
+    - {x: 274, y: 274, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: .619141579, y: .273438483}
+    - {x: .886717796, y: .273438483}
+    - {x: .619141579, y: .541014671}
+    - {x: .886717796, y: .541014671}
+    normalizedUvs:
+    - {x: 0, y: 0}
+    - {x: 1, y: 0}
+    - {x: 0, y: 1}
+    - {x: 1, y: 1}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: ab8cb741a97276a4aa180e67df2cadac, type: 2}
+    materialId: 0
+    sourceTextureGUID: 156d437ad530b7a46a8f4ae74d8de3a6
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 1
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd: 
+    colliderIndicesBack: 
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: liat_default
+    boundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: 548, y: 548, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: 548, y: 548, z: 0}
+    texelSize: {x: 2, y: 2}
+    positions:
+    - {x: -274, y: -274, z: 0}
+    - {x: 274, y: -274, z: 0}
+    - {x: -274, y: 274, z: 0}
+    - {x: 274, y: 274, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: .619141579, y: .544922829}
+    - {x: .886717796, y: .544922829}
+    - {x: .619141579, y: .812499046}
+    - {x: .886717796, y: .812499046}
+    normalizedUvs:
+    - {x: 0, y: 0}
+    - {x: 1, y: 0}
+    - {x: 0, y: 1}
+    - {x: 1, y: 1}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: ab8cb741a97276a4aa180e67df2cadac, type: 2}
+    materialId: 0
+    sourceTextureGUID: f4ad3fac523a1dd44ad57b0f1ec2860e
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 1
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd: 
+    colliderIndicesBack: 
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  premultipliedAlpha: 0
+  material: {fileID: 0}
+  materials:
+  - {fileID: 2100000, guid: ab8cb741a97276a4aa180e67df2cadac, type: 2}
+  textures:
+  - {fileID: 2800000, guid: a911e7687f40fb54e9e8c072b58eb596, type: 3}
+  pngTextures: []
+  materialPngTextureId: 00000000
+  textureFilterMode: 1
+  textureMipMaps: 1
+  allowMultipleAtlases: 0
+  spriteCollectionGUID: 12c24725475749442b148e20da00a358
+  spriteCollectionName: DialoguePortraits
+  assetName: 
+  loadable: 0
+  invOrthoSize: 2
+  halfTargetHeight: .5
+  buildKey: 1078555526
+  dataGuid: bb7b1d2ad00a3be4ba2bf5f2a47541f6
+  managedSpriteCollection: 0
+  hasPlatformData: 0
+  spriteCollectionPlatforms: []
+  spriteCollectionPlatformGUIDs: []
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 107520}
+  m_IsPrefabParent: 1
