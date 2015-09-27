@@ -4,7 +4,8 @@ using System.Linq;
 using System.Text;
 
 namespace Models.Dialogue {
-    public class DialogueUtils {
+    public class DialogueUtils
+    {
         public static Cutscene ParseFromJson(string rawCutsceneJson) {
             var json = new JSONObject(rawCutsceneJson);
             var result = new Cutscene();
@@ -18,6 +19,7 @@ namespace Models.Dialogue {
                     foreach (var line in card["lines"].list) {
                         parsedCard.Lines.Add(line.str);
                     }
+                    parsedCard.Emotion = GetEmotionForString(card["emotion"].str);
                     parsedDeck.Cards.Add(parsedCard);
                 }
 
@@ -25,6 +27,22 @@ namespace Models.Dialogue {
             }
 
             return result;
+        }
+        
+        private static EmotionType GetEmotionForString(string emotion) {
+            if (emotion == "default") {
+                return EmotionType.DEFAULT;
+            }
+
+            if (emotion == "worried") {
+                return EmotionType.WORRIED;
+            }
+
+            if (emotion == "happy") {
+                return EmotionType.HAPPY;
+            }
+
+            throw new ArgumentException("Invalid emotion type " + emotion);
         }
     }
 }

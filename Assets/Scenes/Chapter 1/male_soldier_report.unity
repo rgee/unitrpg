@@ -95,7 +95,7 @@ GameObject:
   - 4: {fileID: 1117941054}
   - 114: {fileID: 1117941053}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Dialogue Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -112,7 +112,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f9eaa28750bcc04bbec31aca819b9a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 4900000, guid: f40676d5cca3d8f4e9265a135df67e22, type: 3}
+  DialogueJson: {fileID: 4900000, guid: f40676d5cca3d8f4e9265a135df67e22, type: 3}
+  Actors: {fileID: 11400000, guid: 4e232bb4b8d95e1438bb8c9512da8dd5, type: 2}
 --- !u!4 &1117941054
 Transform:
   m_ObjectHideFlags: 0
