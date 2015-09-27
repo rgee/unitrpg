@@ -1,0 +1,220 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &156714
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 410648}
+  - 114: {fileID: 11417244}
+  m_Layer: 0
+  m_Name: EnemyDialoguePortraits
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &410648
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 156714}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11417244
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 156714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d546f34a90531a14eaba82a43b05b86b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 3
+  materialIdsValid: 1
+  needMaterialInstance: 0
+  spriteDefinitions:
+  - name: drace_body
+    boundsData:
+    - {x: 0, y: -.5, z: 0}
+    - {x: 1304, y: 1673, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: -.5, z: 0}
+    - {x: 1304, y: 1673, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -652, y: -837, z: 0}
+    - {x: 652, y: -837, z: 0}
+    - {x: -652, y: 836, z: 0}
+    - {x: 652, y: 836, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 4.88281273e-07, y: 4.88281273e-07}
+    - {x: .636718273, y: 4.88281273e-07}
+    - {x: 4.88281273e-07, y: .816894054}
+    - {x: .636718273, y: .816894054}
+    normalizedUvs:
+    - {x: 0, y: 0}
+    - {x: 1, y: 0}
+    - {x: 0, y: 1}
+    - {x: 1, y: 1}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: 07f50c05533b42047beb12f38a0d8b32, type: 2}
+    materialId: 0
+    sourceTextureGUID: a9a66744f103d47408e4238a9c337805
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 1
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd: 
+    colliderIndicesBack: 
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: male_head
+    boundsData:
+    - {x: .5, y: -.5, z: 0}
+    - {x: 499, y: 629, z: 0}
+    untrimmedBoundsData:
+    - {x: .5, y: -.5, z: 0}
+    - {x: 499, y: 629, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -249, y: -315, z: 0}
+    - {x: 250, y: -315, z: 0}
+    - {x: -249, y: 314, z: 0}
+    - {x: 250, y: 314, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: .636719227, y: 4.88281273e-07}
+    - {x: .636719227, y: .243651852}
+    - {x: .943847179, y: 4.88281273e-07}
+    - {x: .943847179, y: .243651852}
+    normalizedUvs:
+    - {x: 0, y: 0}
+    - {x: 0, y: 1}
+    - {x: 1, y: 0}
+    - {x: 1, y: 1}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: 07f50c05533b42047beb12f38a0d8b32, type: 2}
+    materialId: 0
+    sourceTextureGUID: 78efee74bfbbe394990e85c6d9c2b1b0
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 1
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 1
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd: 
+    colliderIndicesBack: 
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: female_head
+    boundsData:
+    - {x: .5, y: -.5, z: 0}
+    - {x: 499, y: 629, z: 0}
+    untrimmedBoundsData:
+    - {x: .5, y: -.5, z: 0}
+    - {x: 499, y: 629, z: 0}
+    texelSize: {x: 1, y: 1}
+    positions:
+    - {x: -249, y: -315, z: 0}
+    - {x: 250, y: -315, z: 0}
+    - {x: -249, y: 314, z: 0}
+    - {x: 250, y: 314, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: .636719227, y: .243652835}
+    - {x: .636719227, y: .487304211}
+    - {x: .943847179, y: .243652835}
+    - {x: .943847179, y: .487304211}
+    normalizedUvs:
+    - {x: 0, y: 0}
+    - {x: 0, y: 1}
+    - {x: 1, y: 0}
+    - {x: 1, y: 1}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: 07f50c05533b42047beb12f38a0d8b32, type: 2}
+    materialId: 0
+    sourceTextureGUID: 542bb9e414c307d4e8e42079a1564bc5
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 1
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 1
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd: 
+    colliderIndicesBack: 
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  premultipliedAlpha: 0
+  material: {fileID: 0}
+  materials:
+  - {fileID: 2100000, guid: 07f50c05533b42047beb12f38a0d8b32, type: 2}
+  textures:
+  - {fileID: 2800000, guid: 44545f396201c5c4a9dc4a31d85c3165, type: 3}
+  pngTextures: []
+  materialPngTextureId: 00000000
+  textureFilterMode: 0
+  textureMipMaps: 0
+  allowMultipleAtlases: 0
+  spriteCollectionGUID: 3e404a8694516ba4ab51140a60485cb5
+  spriteCollectionName: EnemyDialoguePortraits
+  assetName: 
+  loadable: 0
+  invOrthoSize: 2
+  halfTargetHeight: .5
+  buildKey: 2065007099
+  dataGuid: 37c658112de388f4192b5e2251e6f2da
+  managedSpriteCollection: 0
+  hasPlatformData: 0
+  spriteCollectionPlatforms: []
+  spriteCollectionPlatformGUIDs: []
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 156714}
+  m_IsPrefabParent: 1
