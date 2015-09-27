@@ -23,7 +23,6 @@ public class SingleMindedFury : MonoBehaviour, AIStrategy {
     private Seeker Seeker;
     public GameObject Target;
     private Grid.Unit Unit;
-    public UnitManager UnitManager;
     private FightExecutor _executorInstance;
 
     public IEnumerator act() {
@@ -122,7 +121,7 @@ public class SingleMindedFury : MonoBehaviour, AIStrategy {
     private IEnumerator ApproachPosition(Vector3 position) {
         // Remove this unit's collider so the pathfinder wont see the currently-occupied Grid square
         // as a blockage.
-        var collider = GetComponent<BoxCollider2D>();
+        var collider = GetComponent<Collider>();
         collider.enabled = false;
         Grid.RescanGraph();
         Path path = null;

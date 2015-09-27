@@ -13,7 +13,7 @@ public class InventoryPopupManager : MonoBehaviour {
         popupComponent.SetItems(unit.model.Inventory);
 
         _currentPopup.transform.SetParent(unitObject.transform, true);
-        _currentPopup.transform.localPosition = new Vector3(-120, 35, 0);
+        _currentPopup.transform.localPosition = new Vector3(-60, 17, 0);
 
         return popupComponent;
     }

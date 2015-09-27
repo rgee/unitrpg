@@ -2,6 +2,10 @@
 using UnityEngine;
 
 public static class CombatObjects {
+    public static BattleManager GetBattleManager() {
+        return GameObject.FindGameObjectWithTag("BattleManager").GetComponent<BattleManager>();
+    }
+
     public static HealPreviewManager GetHealPreviewManager() {
         return GameObject.Find("BattleManager/HealPreviewManager").GetComponent<HealPreviewManager>();
     }
@@ -26,8 +30,12 @@ public static class CombatObjects {
         return GameObject.Find("Unit Manager").GetComponent<UnitManager>();
     }
 
+
+    public static GameObject GetCamera() {
+        return GameObject.FindGameObjectWithTag("MainCamera");
+    }
     public static GridCameraController GetCameraController() {
-        return GameObject.Find("Grid Camera/Main Camera").GetComponent<GridCameraController>();
+        return GetCamera().GetComponent<GridCameraController>();
     }
 
     public static ActionMenuManager GetActionMenuManager() {

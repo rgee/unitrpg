@@ -11,7 +11,7 @@ public class MainMenuManager : MonoBehaviour {
         };
 
         BinarySaveManager.CurrentState = saveGameSate;
-        SceneFader.Instance.TransitionToScene("chapter_1_intro");
+        SceneFader.Instance.TransitionToScene("chapter_2_battle");
     }
 
     public void ShowOptions() {

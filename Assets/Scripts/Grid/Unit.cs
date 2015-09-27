@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Remoting.Messaging;
+using Combat;
 using Models;
 using Pathfinding;
 using UnityEngine;
@@ -25,28 +27,34 @@ namespace Grid {
                 {MathUtils.CardinalDirection.S, 0}
             };
 
-        private Animator animator;
-        public bool Attacking;
-        private UnitController Controller;
-        public GameObject CritConfirmPrefab;
-        private Unit CurrentAttackTarget;
-        private Hit CurrentHit;
         public bool friendly;
-        public GameObject GlanceConfirmPrefab;
         public Vector2 gridPosition;
-        public GameObject HitConfirmPrefab;
         public bool Killing;
         public Models.Combat.Unit model;
-        public bool IsDodging = false;
-        private Seeker seeker;
+        public bool IsDodging;
         public float timePerMoveSquare = 0.3f;
 
-        private void Start() {
+        public event AttackCompletionHandler OnAttackComplete;
+        public event Action OnAttackStart;
+        public event Action OnDodgeComplete;
+
+        private UnitController Controller;
+        private Unit CurrentAttackTarget;
+        private Hit CurrentHit;
+        private Seeker seeker;
+        private Collider _collider;
+
+        public bool Attacking;
+        public bool InCombat;
+        public MathUtils.CardinalDirection Facing = MathUtils.CardinalDirection.S;
+        public bool Running;
+
+        void Start() {
             seeker = GetComponent<Seeker>();
             seeker.startEndModifier.exactEndPoint = StartEndModifier.Exactness.SnapToNode;
-            animator = GetComponent<Animator>();
             Controller = GetComponent<UnitController>();
             model.Health = model.Character.MaxHealth;
+            _collider = GetComponent<Collider>();
         }
 
         public bool IsAlive() {
@@ -56,20 +64,15 @@ namespace Grid {
         public void TakeDamage(int damage) {
             model.TakeDamage(damage);
             if (!model.IsAlive) {
-                animator.SetTrigger("Dead");
+                //animator.SetTrigger("Dead");
             }
         }
-
-        public event AttackCompletionHandler OnAttackComplete;
-        public event CombatPreparationHandler OnPreparedForCombat;
-        public event Action OnAttackStart;
-        public event Action OnDodgeComplete;
 
         public Character GetCharacter() {
             return model.Character;
         }
 
-        private void AttackComplete() {
+        public void AttackComplete() {
             Attacking = false;
             Killing = false;
 
@@ -78,52 +81,39 @@ namespace Grid {
             }
         }
 
-        private void AttackBegin() {
+        public void DisableCollision() {
+            _collider.enabled = false;
+        }
+
+        public void EnableCollision() {
+            _collider.enabled = true;
+        }
+
+        public void AttackBegin() {
             if (OnAttackStart != null) {
                 OnAttackStart();
             }
         }
 
-        private void DodgeComplete() {
+        public void DodgeComplete() {
+            IsDodging = false;
             if (OnDodgeComplete != null) {
                 OnDodgeComplete();
             }
         }
 
-        private void AttackConnected() {
-            if (CurrentHit.Crit) {
-                ShowCrit();
-            } else if (CurrentHit.Glanced) {
-                ShowGlance();
-            } else if (!CurrentHit.Missed) {
-                ShowHit();
+        public void AttackConnected() {
+            // This can happen if you're just tweaking around with animations in the editor.
+            if (CurrentAttackTarget == null) {
+                Debug.LogWarning("Unit " + model.Character.Name + " attacked nothing.");
+                return;
             }
 
-            CombatEventBus.Hits.Dispatch(CurrentHit);
-        }
-
-        private void ShowCrit() {
-            var hitConfirmation = Instantiate(CritConfirmPrefab);
-            hitConfirmation.transform.parent = CurrentAttackTarget.gameObject.transform;
-            hitConfirmation.transform.localPosition = new Vector3();
-        }
-
-        private void ShowHit() {
-            var hitConfirmation = Instantiate(HitConfirmPrefab);
-            hitConfirmation.transform.parent = CurrentAttackTarget.gameObject.transform;
-            hitConfirmation.transform.localPosition = new Vector3();
-        }
-
-        private void ShowGlance() {
-            var hitConfirmation = Instantiate(GlanceConfirmPrefab);
-            hitConfirmation.transform.parent = CurrentAttackTarget.gameObject.transform;
-            hitConfirmation.transform.localPosition = new Vector3();
-        }
-
-        private void Prepared() {
-            if (OnPreparedForCombat != null) {
-                OnPreparedForCombat();
-            }
+            CombatEventBus.HitEvents.Dispatch(new HitEvent {
+                Target = CurrentAttackTarget.gameObject,
+                Data = CurrentHit,
+                Attacker = gameObject
+            });
         }
 
         private void Dead() {
@@ -131,25 +121,23 @@ namespace Grid {
         }
 
         public void PrepareForCombat(MathUtils.CardinalDirection facing) {
-            // TODO: Infer direction from target.
-            animator.SetInteger("Direction", animatorDirections[facing]);
-            animator.SetBool("In Combat", true);
+            Facing = facing;
+            InCombat = true;
         }
 
         public void Dodge() {
-            animator.SetTrigger("Dodge");
+            IsDodging = true;
         }
 
         public void Attack(Unit target, Hit hit, bool killingBlow) {
             CurrentAttackTarget = target;
             CurrentHit = hit;
-            animator.SetTrigger("Attack");
             Attacking = true;
             Killing = killingBlow;
         }
 
         public void ReturnToRest() {
-            animator.SetBool("In Combat", false);
+            InCombat = false;
         }
 
         public bool CanLevel() {
@@ -177,12 +165,11 @@ namespace Grid {
 
             // Remove this unit's collider so the pathfinder wont see the currently-occupied Grid square
             // as a blockage.
-            var collider = GetComponent<BoxCollider2D>();
-            collider.enabled = false;
+            DisableCollision();
             grid.RescanGraph();
             seeker.StartPath(transform.position, destination, p => {
                 // Re-enable the collider and scan the graph so other units see us.
-                collider.enabled = true;
+                EnableCollision();
                 grid.RescanGraph();
                 searchCb(!p.error);
                 if (!p.error) {

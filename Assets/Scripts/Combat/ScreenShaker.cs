@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Combat;
+using UnityEngine;
 
 public class ScreenShaker : MonoBehaviour {
     public float CritIntensity = 6;
@@ -11,20 +12,23 @@ public class ScreenShaker : MonoBehaviour {
 
     private void Start() {
         ShakeIntensity = 0;
-        CombatEventBus.Hits.AddListener(HandleHit);
+        CombatEventBus.HitEvents.AddListener(HandleHit);
     }
 
     private void OnDestroy() {
-        CombatEventBus.Hits.RemoveListener(HandleHit);
+        CombatEventBus.HitEvents.RemoveListener(HandleHit);
     }
 
-    private void HandleHit(Hit hit) {
-        if (!hit.Missed) {
-            if (hit.Crit) {
-                CritShake();
-            } else {
-                Shake();
-            }
+    private void HandleHit(HitEvent hitEvent) {
+        var hit = hitEvent.Data;
+        if (hit.Missed) {
+            return;
+        }
+
+        if (hit.Crit) {
+            CritShake();
+        } else {
+            Shake();
         }
     }
 

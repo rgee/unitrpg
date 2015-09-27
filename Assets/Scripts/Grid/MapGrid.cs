@@ -23,7 +23,8 @@ public class MapGrid : Singleton<MapGrid> {
         UnitManager = CombatObjects.GetUnitManager();
     }
 
-    private void OnDestroy() {
+    private new void OnDestroy() {
+        base.OnDestroy();
         CombatEventBus.Moves.RemoveListener(HandleMovement);
     }
 
@@ -40,10 +41,12 @@ public class MapGrid : Singleton<MapGrid> {
         Seeker = GetComponent<Seeker>();
 
         var tiledMap = GetComponent<TiledMap>();
-        tiledMap.NumTilesHigh = height;
-        tiledMap.NumTilesWide = width;
-        tiledMap.TileHeight = (int) tileSizeInPixels;
-        tiledMap.TileWidth = (int) tileSizeInPixels;
+        if (tiledMap != null) {
+            tiledMap.NumTilesHigh = height;
+            tiledMap.NumTilesWide = width;
+            tiledMap.TileHeight = (int) tileSizeInPixels;
+            tiledMap.TileWidth = (int) tileSizeInPixels;
+        }
     }
 
     private HashSet<Vector2> generateSurroundingPoints(Vector2 origin, int range) {
@@ -88,11 +91,11 @@ public class MapGrid : Singleton<MapGrid> {
 
     public Vector2 GridPositionForWorldPosition(Vector3 worldPos) {
         var tileSize = (int) tileSizeInPixels;
-        var widthExtent = (width/2f)*tileSize;
-        var heightExtent = (height/2f)*tileSize;
+        var widthExtent = width*tileSize;
+        var heightExtent = height*tileSize;
         Vector2 result = new Vector3(
-            (float) Math.Floor(mapRange(-widthExtent, widthExtent, 0, width, worldPos.x)),
-            (float) Math.Floor(mapRange(-heightExtent, heightExtent, 0, height, worldPos.y))
+            (float) Math.Floor(mapRange(0, widthExtent, 0, width, worldPos.x + Mathf.FloorToInt(tileSize/2f))),
+            (float) Math.Floor(mapRange(0, heightExtent, 0, height, worldPos.y + Mathf.FloorToInt(tileSize/2f)))
             );
 
         return result;
@@ -117,17 +120,15 @@ public class MapGrid : Singleton<MapGrid> {
         }
 
         var tileSize = (int) tileSizeInPixels;
-        var widthExtent = (width/2f)*tileSize;
-        var heightExtent = (height/2f)*tileSize;
-
-        var halfTileSize = tileSizeInPixels/2;
+        var widthExtent = width*tileSize;
+        var heightExtent = height*tileSize;
 
         // Map the input values for the x and y axis in grid space to world space.
         // Be sure to output the center of the tile in world space by adding
         // 1/2 the tile height and width!
         var result = new Vector3(
-            mapRange(0, width, -widthExtent, widthExtent, gridPos.x) + halfTileSize,
-            mapRange(0, height, -heightExtent, heightExtent, gridPos.y) + halfTileSize,
+            mapRange(0, width, 0, widthExtent, gridPos.x), 
+            mapRange(0, height, 0, heightExtent, gridPos.y),
             0
             );
 

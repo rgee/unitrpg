@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Xsl;
 using UnityEngine;
@@ -10,7 +11,7 @@ namespace Grid {
         private readonly List<GameObject> unitGameObjects = new List<GameObject>();
         private readonly List<Models.Combat.Unit> unitModels = new List<Models.Combat.Unit>();
         private readonly Dictionary<Vector2, GameObject> unitsByPosition = new Dictionary<Vector2, GameObject>();
-        public MapGrid Grid;
+        private MapGrid Grid;
         private bool locked;
         private Vector2? selectedGridPosition;
         private HashSet<Unit> unmovedUnits = new HashSet<Unit>();
@@ -26,23 +27,36 @@ namespace Grid {
 
         // Use this for initialization
         private void Start() {
+            Grid = CombatObjects.GetMap();
             foreach (Transform t in transform) {
-                unitGameObjects.Add(t.gameObject);
-
-                var unit = t.gameObject.GetComponent<Unit>();
-
-                var gridPos = unit.gridPosition;
-                unitsByPosition.Add(gridPos, t.gameObject);
-
-                unitModels.Add(unit.model);
-
-                t.transform.position = Grid.GetWorldPosForGridPos(gridPos);
+                AddUnit(t.gameObject);
             }
 
             ResetMovedUnits(true);
 
             CombatEventBus.Deaths.AddListener(OnUnitDeath);
             CombatEventBus.Moves.AddListener(ChangeUnitPosition);
+        }
+
+        public void SpawnUnit(GameObject obj) {
+            AddUnit(obj);
+            var animator = obj.GetComponent<UnitAnimator>();
+            if (animator != null) {
+                animator.FadeIn();
+            }
+        }
+
+        public void AddUnit(GameObject obj) {
+            var component = obj.GetComponent<Unit>();
+            if (component == null) {
+                throw new ArgumentException("Provided gameobject does not have a Unit component.");
+            }
+
+            unitGameObjects.Add(obj);
+            unitsByPosition.Add(component.gridPosition, obj);
+            unitModels.Add(component.model);
+            obj.transform.SetParent(transform);
+            obj.transform.position = Grid.GetWorldPosForGridPos(component.gridPosition);
         }
 
         private void OnDestroy() {
@@ -80,14 +94,14 @@ namespace Grid {
         public List<Unit> GetEnemies() {
             return unitGameObjects
                 .Select(unit => unit.GetComponent<Unit>())
-                .Where(unit => !unit.friendly)
+                .Where(unit => !unit.model.IsFriendly)
                 .ToList();
         }
 
         public List<Unit> GetFriendlies() {
             return unitGameObjects
                 .Select(unit => unit.GetComponent<Unit>())
-                .Where(unit => unit.friendly)
+                .Where(unit => unit.model.IsFriendly)
                 .ToList();
         }
 
@@ -98,7 +112,7 @@ namespace Grid {
         public void ResetMovedUnits(bool friendlyTurn) {
             var unmovedUnitQuery = unitGameObjects
                 .Select(unit => unit.GetComponent<Unit>())
-                .Where(unit => unit.friendly == friendlyTurn);
+                .Where(unit => unit.model.IsFriendly == friendlyTurn);
 
             unmovedUnits = new HashSet<Unit>(unmovedUnitQuery);
         }

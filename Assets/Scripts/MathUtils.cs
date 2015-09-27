@@ -54,6 +54,14 @@ public static class MathUtils {
         return DirectionTo(new Vector2(start.x, start.y), new Vector2(end.x, end.y));
     }
 
+    public static Vector3 Round(Vector3 vec) {
+        return new Vector3(
+            (int)Math.Round(vec.x),
+            (int)Math.Round(vec.y),
+            (int)Math.Round(vec.z)
+        );
+    }
+
     public static CardinalDirection DirectionTo(Vector2 start, Vector2 end) {
         if (start == end) {
             throw new ArgumentException("Points " + start + " and " + end + " are equal!");

@@ -3,14 +3,14 @@
 public class MapTile : MonoBehaviour {
     public bool blocked;
     public Vector2 gridPosition;
-    private SpriteRenderer renderer;
+    private SpriteRenderer Renderer;
 
     public void Start() {
-        renderer = GetComponent<SpriteRenderer>();
+        Renderer = GetComponent<SpriteRenderer>();
     }
 
     public void Select(Color tintColor) {
-        renderer.color = tintColor;
+        Renderer.color = tintColor;
     }
 
     public void Deselect() {

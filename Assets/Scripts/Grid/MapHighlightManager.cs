@@ -18,7 +18,7 @@ public class MapHighlightManager : Singleton<MapHighlightManager> {
 
     private readonly Dictionary<string, MapSelection> SelectionsByName = new Dictionary<string, MapSelection>();
     public Material AttackSelectionMaterial;
-    public int BaseSortOrder = 4;
+    public int BaseSortOrder = -1000;
     public Material GlobalEnemyMaterial;
     private GameObject HoverHighlight;
     public Material HoverSelectionMaterial;
