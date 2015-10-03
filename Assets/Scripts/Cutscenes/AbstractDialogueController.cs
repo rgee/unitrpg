@@ -21,7 +21,7 @@ public abstract class AbstractDialogueController : DialogueController {
     private int _deckIndex = -1;
     private int _cardIndex = -1;
 
-    void Start() {
+    protected void Start() {
         _animator = GetComponent<DialogueAnimator>();
     }
 
