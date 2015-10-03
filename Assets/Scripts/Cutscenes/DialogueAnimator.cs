@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,28 @@ using UnityEngine.UI;
 public class DialogueAnimator : MonoBehaviour {
     private Text _speakerNameText;
     private Text _bodyText;
+    private bool _animating;
+
+    private static Dictionary<char, float> DELAY_BY_CHARACTER = new Dictionary<char, float>() {
+        { ',', 0.1f },
+        { ';', 0.1f },
+        { '.', 0.2f }
+    };
+
+    private struct DelayedText {
+        public readonly char Letter;
+        public readonly float Delay;
+
+        public DelayedText(char letter) {
+            Letter = letter;
+
+            if (DELAY_BY_CHARACTER.ContainsKey(letter)) { 
+                Delay = DELAY_BY_CHARACTER[Letter];
+            } else {
+                Delay = 0f;
+            }
+        }
+    }
 
     void Start() {
         _speakerNameText = transform.FindChild("Panel/Text/Speaker Name").GetComponent<Text>();
@@ -19,11 +42,17 @@ public class DialogueAnimator : MonoBehaviour {
     }
 
     public void AnimateCard(Models.Dialogue.Card card) {
-        var lines = string.Join(" ", card.Lines.ToArray());
-        _bodyText.text = lines;
+        StopAllCoroutines();
+        var bodyCharacters = string.Join(" ", card.Lines.ToArray()).ToCharArray();
+        var delayedCharcters = bodyCharacters.Select(c => new DelayedText(c));
+        _bodyText.text = "";
+        StartCoroutine(RenderDelayedCharacters(delayedCharcters));
     }
 
-    bool IsCardComplete() {
-        return true;
+    private IEnumerator RenderDelayedCharacters(IEnumerable<DelayedText> characters) {
+        foreach (var character in characters) {
+            _bodyText.text += character.Letter;
+            yield return new WaitForSeconds(character.Delay);
+        }
     }
 }
