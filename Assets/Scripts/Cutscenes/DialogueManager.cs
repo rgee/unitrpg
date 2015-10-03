@@ -6,16 +6,17 @@ using UnityEngine;
 
 public class DialogueManager : MonoBehaviour {
     public TextAsset DialogueJson;
-    public DialogueActors Actors;
+    public DialogueController DialogueController; 
 
-    public void Start() {
+    void Start() {
         var cutscene = Models.Dialogue.DialogueUtils.ParseFromJson(DialogueJson.text);
-        Debug.Log(cutscene);
+        DialogueController.Dialogue = cutscene;
+        DialogueController.ShowNextCard();
+    }
 
-        var firstDeck = cutscene.Decks[0];
-        var firstActor = Actors.FindByName(firstDeck.Speaker);
-
-        var portrait = firstActor.FindPortraitByEmotion(Models.EmotionType.DEFAULT);
-        Instantiate(portrait.Prefab);
+    void Update() {
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            DialogueController.ShowNextCard();
+        }
     }
 }

@@ -254,6 +254,8 @@ GameObject:
   - 223: {fileID: 741911990}
   - 114: {fileID: 741911989}
   - 114: {fileID: 741911988}
+  - 114: {fileID: 741911992}
+  - 114: {fileID: 741911991}
   m_Layer: 5
   m_Name: Dialogue Text
   m_TagString: Untagged
@@ -333,6 +335,28 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
+--- !u!114 &741911991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 741911986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea90724dc02705a4d8a3fd923d30b328, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &741911992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 741911986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 602e174148623054090c7539b3538bc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1117941052
 GameObject:
   m_ObjectHideFlags: 0
@@ -361,7 +385,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DialogueJson: {fileID: 4900000, guid: f40676d5cca3d8f4e9265a135df67e22, type: 3}
-  Actors: {fileID: 11400000, guid: 4e232bb4b8d95e1438bb8c9512da8dd5, type: 2}
+  DialogueController: {fileID: 741911991}
 --- !u!4 &1117941054
 Transform:
   m_ObjectHideFlags: 0
