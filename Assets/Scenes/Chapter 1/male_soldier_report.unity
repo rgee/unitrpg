@@ -183,7 +183,7 @@ Camera:
   m_GameObject: {fileID: 225816968}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 4
   m_BackGroundColor: {r: .192156866, g: .301960796, b: .474509805, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
@@ -196,10 +196,10 @@ Camera:
   field of view: 60
   orthographic: 1
   orthographic size: 100
-  m_Depth: 0
+  m_Depth: 1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 32
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -235,6 +235,38 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
+--- !u!1 &226882660
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 226882661}
+  m_Layer: 5
+  m_Name: Portrait
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &226882661
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 226882660}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1707422923}
+  m_RootOrder: 1
+  m_AnchorMin: {x: .5, y: .5}
+  m_AnchorMax: {x: .5, y: .5}
+  m_AnchoredPosition: {x: 482, y: -1.00010002}
+  m_SizeDelta: {x: 203, y: 158}
+  m_Pivot: {x: .5, y: .5}
 --- !u!1 &741911986
 GameObject:
   m_ObjectHideFlags: 0
@@ -250,7 +282,7 @@ GameObject:
   - 114: {fileID: 741911991}
   - 225: {fileID: 741911993}
   m_Layer: 5
-  m_Name: Dialogue Text
+  m_Name: 'Overlay Dialogue '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -339,6 +371,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea90724dc02705a4d8a3fd923d30b328, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Actors: {fileID: 11400000, guid: 4e232bb4b8d95e1438bb8c9512da8dd5, type: 2}
   FadeTime: 1
 --- !u!114 &741911992
 MonoBehaviour:
@@ -372,7 +405,7 @@ GameObject:
   - 4: {fileID: 1117941054}
   - 114: {fileID: 1117941053}
   m_Layer: 0
-  m_Name: Dialogue Manager
+  m_Name: Dialogue Initiator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -389,8 +422,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f9eaa28750bcc04bbec31aca819b9a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DialogueJson: {fileID: 4900000, guid: f40676d5cca3d8f4e9265a135df67e22, type: 3}
-  DialogueController: {fileID: 741911991}
+  SourceFile: {fileID: 4900000, guid: f40676d5cca3d8f4e9265a135df67e22, type: 3}
+  Dialogue: {fileID: 741911991}
 --- !u!4 &1117941054
 Transform:
   m_ObjectHideFlags: 0
@@ -559,6 +592,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1682561194}
+  - {fileID: 226882661}
   m_Father: {fileID: 741911987}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
@@ -682,11 +716,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 499590, guid: 57ed076985e425f43a30d3070f592c92, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 713.200012
+      value: 1047
       objectReference: {fileID: 0}
     - target: {fileID: 499590, guid: 57ed076985e425f43a30d3070f592c92, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 328.899994
+      value: 312
       objectReference: {fileID: 0}
     - target: {fileID: 499590, guid: 57ed076985e425f43a30d3070f592c92, type: 2}
       propertyPath: m_LocalPosition.z

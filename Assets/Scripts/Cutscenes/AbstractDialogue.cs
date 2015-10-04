@@ -26,9 +26,10 @@ public abstract class AbstractDialogue : MonoBehaviour {
     private int _deckIndex = -1;
     private int _cardIndex = -1;
 
+    protected abstract void ChangeEmotion(Models.EmotionType emotion);
     public abstract void SkipDialogue();
 
-    protected void Start() {
+    protected virtual void Start() {
         _animator = GetComponent<DialogueAnimator>();
     }
 
@@ -49,7 +50,7 @@ public abstract class AbstractDialogue : MonoBehaviour {
         }
 
         var currentDeck = Dialogue.Decks[_deckIndex];
-        _animator.ChangeSpeaker(currentDeck.Speaker);
+        ChangeSpeaker(currentDeck.Speaker);
 
         if (currentDeck.Cards.Count <= _cardIndex) {
             _deckIndex++;
@@ -59,8 +60,14 @@ public abstract class AbstractDialogue : MonoBehaviour {
             var nextCard = currentDeck.Cards[_cardIndex];
             _cardIndex++;
 
+            ChangeEmotion(nextCard.Emotion);
             _animator.AnimateCard(nextCard);
         }
+    }
+
+
+    protected virtual void ChangeSpeaker(string speakerName) {
+        _animator.ChangeSpeaker(speakerName);
     }
 
     public void SkipToEndOfCard() {
