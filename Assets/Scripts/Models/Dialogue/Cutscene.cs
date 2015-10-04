@@ -6,5 +6,6 @@ using System.Text;
 namespace Models.Dialogue {
     public class Cutscene {
         public List<Deck> Decks = new List<Deck>();
+        public List<string> Speakers;
     }
 }

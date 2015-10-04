@@ -26,6 +26,9 @@ namespace Models.Dialogue {
                 result.Decks.Add(parsedDeck);
             }
 
+            var speakers = json["actors"].list;
+            result.Speakers = speakers.Select(obj => obj.str).ToList();
+
             return result;
         }
         

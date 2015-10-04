@@ -8,10 +8,10 @@ using UnityEngine;
 [RequireComponent(typeof(DialogueTextAnimator))]
 public abstract class AbstractDialogue : MonoBehaviour {
     private DialogueTextAnimator _animator;
-    private Models.Dialogue.Cutscene _dialogue;
+    private Cutscene _dialogue;
 
 
-    public Models.Dialogue.Cutscene Dialogue {
+    public virtual Cutscene Dialogue {
         get {
             return _dialogue;
         }
@@ -30,7 +30,7 @@ public abstract class AbstractDialogue : MonoBehaviour {
     public abstract void SkipDialogue();
 
     protected virtual void Start() {
-        _animator = GetComponent<DialogueAnimator>();
+        _animator = GetComponent<DialogueTextAnimator>();
     }
 
     void Update() {
