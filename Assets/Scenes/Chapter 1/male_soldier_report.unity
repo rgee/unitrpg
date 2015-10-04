@@ -168,7 +168,6 @@ GameObject:
   - 20: {fileID: 225816969}
   - 124: {fileID: 225816972}
   - 92: {fileID: 225816971}
-  - 81: {fileID: 225816970}
   m_Layer: 0
   m_Name: UI Camera
   m_TagString: Untagged
@@ -210,13 +209,6 @@ Camera:
   m_StereoConvergence: 10
   m_StereoSeparation: .0219999999
   m_StereoMirrorMode: 0
---- !u!81 &225816970
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 225816968}
-  m_Enabled: 1
 --- !u!92 &225816971
 Behaviour:
   m_ObjectHideFlags: 0
@@ -256,6 +248,7 @@ GameObject:
   - 114: {fileID: 741911988}
   - 114: {fileID: 741911992}
   - 114: {fileID: 741911991}
+  - 225: {fileID: 741911993}
   m_Layer: 5
   m_Name: Dialogue Text
   m_TagString: Untagged
@@ -346,6 +339,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea90724dc02705a4d8a3fd923d30b328, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FadeTime: 1
 --- !u!114 &741911992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -357,6 +351,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 602e174148623054090c7539b3538bc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!225 &741911993
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 741911986}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1117941052
 GameObject:
   m_ObjectHideFlags: 0

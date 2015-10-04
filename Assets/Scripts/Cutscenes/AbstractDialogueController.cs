@@ -6,13 +6,18 @@ using Models.Dialogue;
 using UnityEngine;
 
 [RequireComponent(typeof(DialogueAnimator))]
-public abstract class AbstractDialogueController : DialogueController {
+public abstract class AbstractDialogueController : MonoBehaviour {
     private DialogueAnimator _animator;
-    public override Models.Dialogue.Cutscene Dialogue {
-        get { return base.Dialogue; }
-        set
-        {
-            base.Dialogue = value;
+    private Models.Dialogue.Cutscene _dialogue;
+
+
+    public Models.Dialogue.Cutscene Dialogue {
+        get {
+            return _dialogue;
+        }
+
+        set {
+            _dialogue = value;
             _deckIndex = 0;
             _cardIndex = 0;
         }
@@ -21,11 +26,19 @@ public abstract class AbstractDialogueController : DialogueController {
     private int _deckIndex = -1;
     private int _cardIndex = -1;
 
+    public abstract void SkipDialogue();
+
     protected void Start() {
         _animator = GetComponent<DialogueAnimator>();
     }
 
-    public override void ShowNextCard() {
+    void Update() {
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            ShowNextCard();
+        }
+    }
+
+    public void ShowNextCard() {
         if (Dialogue == null) {
             return;
         }
@@ -50,7 +63,7 @@ public abstract class AbstractDialogueController : DialogueController {
         }
     }
 
-    public override void SkipToEndOfCard() {
+    public void SkipToEndOfCard() {
         throw new NotImplementedException();
     }
 }

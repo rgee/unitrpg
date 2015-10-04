@@ -4,19 +4,13 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 
-public class DialogueManager : MonoBehaviour {
+public class StaticDialogueInitiator : MonoBehaviour {
     public TextAsset DialogueJson;
-    public DialogueController DialogueController; 
+    public AbstractDialogueController DialogueController;
 
     void Start() {
         var cutscene = Models.Dialogue.DialogueUtils.ParseFromJson(DialogueJson.text);
         DialogueController.Dialogue = cutscene;
         DialogueController.ShowNextCard();
-    }
-
-    void Update() {
-        if (Input.GetKeyDown(KeyCode.Space)) {
-            DialogueController.ShowNextCard();
-        }
     }
 }
