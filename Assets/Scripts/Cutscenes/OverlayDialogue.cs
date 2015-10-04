@@ -6,7 +6,7 @@ using System.Text;
 using UnityEngine;
 
 [RequireComponent(typeof(CanvasGroup))]
-public class OverlayDialogueController : AbstractDialogueController {
+public class OverlayDialogue : AbstractDialogue {
     private CanvasGroup _canvasGroup;
     public float FadeTime = .5f;
 

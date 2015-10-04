@@ -5,12 +5,12 @@ using System.Text;
 using UnityEngine;
 
 public class StaticDialogueInitiator : MonoBehaviour {
-    public TextAsset DialogueJson;
-    public AbstractDialogueController DialogueController;
+    public TextAsset SourceFile;
+    public AbstractDialogue Dialogue;
 
     void Start() {
-        var cutscene = Models.Dialogue.DialogueUtils.ParseFromJson(DialogueJson.text);
-        DialogueController.Dialogue = cutscene;
-        DialogueController.ShowNextCard();
+        var cutscene = Models.Dialogue.DialogueUtils.ParseFromJson(SourceFile.text);
+        Dialogue.Dialogue = cutscene;
+        Dialogue.ShowNextCard();
     }
 }

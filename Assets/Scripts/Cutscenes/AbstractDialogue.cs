@@ -6,7 +6,7 @@ using Models.Dialogue;
 using UnityEngine;
 
 [RequireComponent(typeof(DialogueAnimator))]
-public abstract class AbstractDialogueController : MonoBehaviour {
+public abstract class AbstractDialogue : MonoBehaviour {
     private DialogueAnimator _animator;
     private Models.Dialogue.Cutscene _dialogue;
 
