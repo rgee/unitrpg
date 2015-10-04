@@ -5,9 +5,9 @@ using System.Text;
 using Models.Dialogue;
 using UnityEngine;
 
-[RequireComponent(typeof(DialogueAnimator))]
+[RequireComponent(typeof(DialogueTextAnimator))]
 public abstract class AbstractDialogue : MonoBehaviour {
-    private DialogueAnimator _animator;
+    private DialogueTextAnimator _animator;
     private Models.Dialogue.Cutscene _dialogue;
 
 

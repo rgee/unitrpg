@@ -6,7 +6,7 @@ using System.Text;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DialogueAnimator : MonoBehaviour {
+public class DialogueTextAnimator : MonoBehaviour {
     private Text _speakerNameText;
     private Text _bodyText;
     private bool _animating;
