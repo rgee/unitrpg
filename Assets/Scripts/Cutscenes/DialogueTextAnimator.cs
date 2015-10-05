@@ -32,7 +32,7 @@ public class DialogueTextAnimator : MonoBehaviour {
         }
     }
 
-    void Start() {
+    void Awake() {
         _speakerNameText = transform.FindChild("Panel/Text/Speaker Name").GetComponent<Text>();
         _bodyText = transform.FindChild("Panel/Text/Body").GetComponent<Text>();
     }

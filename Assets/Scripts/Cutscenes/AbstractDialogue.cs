@@ -29,7 +29,7 @@ public abstract class AbstractDialogue : MonoBehaviour {
     protected abstract void ChangeEmotion(Models.EmotionType emotion);
     public abstract void SkipDialogue();
 
-    protected virtual void Start() {
+    protected virtual void Awake() {
         _animator = GetComponent<DialogueTextAnimator>();
     }
 

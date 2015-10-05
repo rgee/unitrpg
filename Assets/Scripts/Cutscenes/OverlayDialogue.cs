@@ -16,8 +16,8 @@ public class OverlayDialogue : AbstractDialogue {
     private GameObject _portraitContainer;
     private GameObject _currentPortrait;
 
-    protected override void Start() {
-        base.Start();
+    protected override void Awake() {
+        base.Awake(); 
         _canvasGroup = GetComponent<CanvasGroup>();
         _portraitContainer = transform.FindChild("Panel/Portrait").gameObject;
     }
