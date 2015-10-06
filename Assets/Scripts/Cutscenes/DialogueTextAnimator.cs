@@ -14,7 +14,8 @@ public class DialogueTextAnimator : MonoBehaviour {
     private static Dictionary<char, float> DELAY_BY_CHARACTER = new Dictionary<char, float>() {
         { ',', 0.1f },
         { ';', 0.1f },
-        { '.', 0.2f }
+        { '.', 0.2f },
+        { ':', 0.1f }
     };
 
     private struct DelayedText {
