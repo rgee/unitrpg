@@ -85,6 +85,111 @@ NavMeshSettings:
     cellSize: .166666672
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &8168692
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 8168693}
+  - 33: {fileID: 8168696}
+  - 23: {fileID: 8168695}
+  - 114: {fileID: 8168694}
+  m_Layer: 0
+  m_Name: Speaker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8168693
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 8168692}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .0988514423, y: -.154455423, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 278847983}
+  m_RootOrder: 1
+--- !u!114 &8168694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 8168692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 994457055a9434b4aa7b65ad37262d67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _font: {fileID: 0}
+  _text: 
+  _color: {r: 1, g: 1, b: 1, a: 1}
+  _color2: {r: 1, g: 1, b: 1, a: 1}
+  _useGradient: 0
+  _textureGradient: 0
+  _anchor: 6
+  _scale: {x: 1, y: 1, z: 1}
+  _kerning: 0
+  _maxChars: 16
+  _inlineStyling: 0
+  _formatting: 0
+  _wordWrapWidth: 0
+  spacing: 0
+  lineSpacing: 0
+  data:
+    version: 1
+    font: {fileID: 11400000, guid: cb3bf0ad5e92744d6856da9a7d5a3125, type: 2}
+    text: SPEAKER
+    color: {r: 1, g: 1, b: 1, a: 1}
+    color2: {r: 1, g: 1, b: 1, a: 1}
+    useGradient: 0
+    textureGradient: 0
+    anchor: 6
+    renderLayer: 0
+    scale: {x: 1, y: 1, z: 1}
+    kerning: 0
+    maxChars: 20
+    inlineStyling: 0
+    formatting: 1
+    wordWrapWidth: 265
+    spacing: 0
+    lineSpacing: 0
+--- !u!23 &8168695
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 8168692}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_Materials:
+  - {fileID: 2100000, guid: d572e11b9f81d4a99a0a2811137dbfb3, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 1
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_ImportantGI: 0
+  m_AutoUVMaxDistance: .5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!33 &8168696
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 8168692}
+  m_Mesh: {fileID: 0}
 --- !u!1 &173074767 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 127464, guid: 85b40698e67232140993a2dd3ec486c6, type: 2}
@@ -283,6 +388,10 @@ RectTransform:
   m_AnchoredPosition: {x: 482, y: -1.00010002}
   m_SizeDelta: {x: 203, y: 158}
   m_Pivot: {x: .5, y: .5}
+--- !u!4 &278847983 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 400004, guid: 8e4cc190d5dda4b728b73cfbbd797bd8, type: 2}
+  m_PrefabInternal: {fileID: 676699105}
 --- !u!1 &280360029 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 144838, guid: 57ed076985e425f43a30d3070f592c92, type: 2}
@@ -596,7 +705,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400002, guid: 8e4cc190d5dda4b728b73cfbbd797bd8, type: 2}
       propertyPath: data.maxChars
-      value: 189
+      value: 125
       objectReference: {fileID: 0}
     - target: {fileID: 11400002, guid: 8e4cc190d5dda4b728b73cfbbd797bd8, type: 2}
       propertyPath: data.anchor
@@ -604,7 +713,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 8e4cc190d5dda4b728b73cfbbd797bd8, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -.0500000007
+      value: -.166999996
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 8e4cc190d5dda4b728b73cfbbd797bd8, type: 2}
       propertyPath: m_Name

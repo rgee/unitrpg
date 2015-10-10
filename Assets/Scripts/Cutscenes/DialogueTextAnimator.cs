@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class DialogueTextAnimator : MonoBehaviour {
-    private Text _speakerNameText;
+    private tk2dTextMesh _speakerNameText;
     private tk2dTextMesh _bodyText;
     private bool _animating;
 
@@ -34,12 +34,12 @@ public class DialogueTextAnimator : MonoBehaviour {
     }
 
     void Awake() {
-        //_speakerNameText = transform.FindChild("Panel/Text/Speaker Name").GetComponent<Text>();
+        _speakerNameText = transform.FindChild("Text Panel/Speaker").GetComponent<tk2dTextMesh>();
         _bodyText = transform.FindChild("Text Panel/Text").GetComponent<tk2dTextMesh>();
     }
 
     public void ChangeSpeaker(string speakerName) {
-        //_speakerNameText.text = speakerName;
+        _speakerNameText.text = speakerName.ToUpper();
     }
 
     public void AnimateCard(Models.Dialogue.Card card) {
