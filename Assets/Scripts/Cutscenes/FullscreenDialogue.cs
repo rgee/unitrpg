@@ -33,6 +33,7 @@ public class FullscreenDialogue : AbstractDialogue {
             var speakerObject = Instantiate(defaultPortrait.Prefab);
             _speakersByName[speaker] = speakerObject;
             speakerObject.transform.SetParent(_speakerContainer.transform);
+            speakerObject.transform.localScale = Vector3.one;
         }
     }
 
@@ -59,6 +60,7 @@ public class FullscreenDialogue : AbstractDialogue {
         // TODO: Child ordering
         var newPortraitObject = Instantiate(newPortrait.Prefab);
         newPortraitObject.transform.SetParent(_speakerContainer.transform);
+        newPortraitObject.transform.localScale = Vector3.one;
         _speakersByName[_activeSpeakerName] = newPortraitObject;
     }
 }
