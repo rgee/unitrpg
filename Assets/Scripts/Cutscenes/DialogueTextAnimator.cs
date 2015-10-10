@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class DialogueTextAnimator : MonoBehaviour {
     private Text _speakerNameText;
-    private Text _bodyText;
+    private tk2dTextMesh _bodyText;
     private bool _animating;
 
     private static Dictionary<char, float> DELAY_BY_CHARACTER = new Dictionary<char, float>() {
@@ -34,12 +34,12 @@ public class DialogueTextAnimator : MonoBehaviour {
     }
 
     void Awake() {
-        _speakerNameText = transform.FindChild("Panel/Text/Speaker Name").GetComponent<Text>();
-        _bodyText = transform.FindChild("Panel/Text/Body").GetComponent<Text>();
+        //_speakerNameText = transform.FindChild("Panel/Text/Speaker Name").GetComponent<Text>();
+        _bodyText = transform.FindChild("Text Panel/Text").GetComponent<tk2dTextMesh>();
     }
 
     public void ChangeSpeaker(string speakerName) {
-        _speakerNameText.text = speakerName;
+        //_speakerNameText.text = speakerName;
     }
 
     public void AnimateCard(Models.Dialogue.Card card) {

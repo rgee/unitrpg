@@ -6,39 +6,25 @@ using System.Text;
 using Models;
 using UnityEngine;
 
-[RequireComponent(typeof(CanvasGroup))]
 public class OverlayDialogue : AbstractDialogue {
     public DialogueActors Actors;
     public float FadeTime = .5f;
+    private DialoguePortraitView _portraitView;
 
-    private CanvasGroup _canvasGroup;
     private string _currentSpeakerName;
-    private GameObject _portraitContainer;
-    private GameObject _currentPortrait;
 
     protected override void Awake() {
-        base.Awake(); 
-        _canvasGroup = GetComponent<CanvasGroup>();
-        _portraitContainer = transform.FindChild("Panel/Portrait").gameObject;
+        base.Awake();
+        _portraitView = transform.FindChild("Portrait").GetComponent<DialoguePortraitView>();
     }
 
     private IEnumerator FadeOut() {
-        while (_canvasGroup.alpha > 0) {
-            _canvasGroup.alpha -= Time.deltaTime / FadeTime;
-            yield return null;
-        }
-
         Destroy(gameObject);
+        yield return null;
     }
 
     protected override void ChangeEmotion(EmotionType emotion) {
-        Destroy(_currentPortrait);
-
-        var actor = Actors.FindByName(_currentSpeakerName);
-        var portrait = actor.FindPortraitByEmotion(emotion);
-
-        _currentPortrait = Instantiate(portrait.Prefab);
-        _currentPortrait.transform.SetParent(_portraitContainer.transform);
+        _portraitView.SetActor(_currentSpeakerName, emotion);
     }
 
     protected override void ChangeSpeaker(string speakerName) {
