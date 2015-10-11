@@ -40,6 +40,20 @@ public class DialoguePortraitView : MonoBehaviour {
         _currentActorPortrait = instantiatedGameObject;
     }
 
+    public IEnumerator FadeToEmpty() {
+        if (_currentActorPortrait != null) {
+            Destroy(_currentActorPortrait);
+            ActorName = null;
+        }
+
+        yield return null;
+    }
+
+    public IEnumerator FadeInActor(string name, EmotionType emotion, Facing direction) {
+        SetActor(name, emotion, direction);
+        yield return null;
+    }
+
     public void Activate() {
         if (_currentActorPortrait == null) {
             return;

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using Models;
 using Models.Dialogue;
@@ -20,13 +21,17 @@ public class FullscreenDialogue : AbstractDialogue {
     private string _activeSpeakerName;
     private readonly List<GameObject> _slots = new List<GameObject>(4); 
 
+    private readonly Dictionary<string, int> _slotIndexBySpeaker = new Dictionary<string, int>(); 
+
     private void CreateSpeakers() {
-        var index = 0;
+
+        var firstCard = Dialogue.Decks[0].Cards[0];
         foreach (var speaker in Dialogue.Speakers) {
-            var slot = _slots[index];
+            var firstEmotion = firstCard.EmotionalResponses[speaker];
+            _slotIndexBySpeaker[speaker] = firstEmotion.Slot;
+            var slot = _slots[firstEmotion.Slot];
             var portraitView = slot.GetComponent<DialoguePortraitView>();
-            portraitView.SetActor(speaker, EmotionType.DEFAULT, Facing.Left);
-            index++;
+            portraitView.SetActor(speaker, firstEmotion.emotion, firstEmotion.facing);
         }
     }
 
@@ -39,8 +44,26 @@ public class FullscreenDialogue : AbstractDialogue {
     }
 
     protected override void ChangeEmotion(string speaker, EmotionalResponse response) {
-        var view = FindViewBySpeaker(speaker);
-        view.SetActor(speaker, response.emotion, response.facing);
+        var slotIndex = _slotIndexBySpeaker[speaker];
+        if (slotIndex != response.Slot) {
+            var currentSlot = _slots[slotIndex];
+            var nextSlot = _slots[response.Slot];
+
+            var currentView = currentSlot.GetComponent<DialoguePortraitView>();
+            var nextView = nextSlot.GetComponent<DialoguePortraitView>();
+            StartCoroutine(MoveActor(speaker, response, currentView, nextView));
+        } else {
+            var view = FindViewBySpeaker(speaker);
+            view.SetActor(speaker, response.emotion, response.facing);
+        }
+    }
+
+    private IEnumerator MoveActor(string speaker, EmotionalResponse response, DialoguePortraitView source,
+        DialoguePortraitView destination) {
+
+        yield return StartCoroutine(source.FadeToEmpty());
+        yield return StartCoroutine(destination.FadeInActor(speaker, response.emotion, response.facing));
+        _slotIndexBySpeaker[speaker] = response.Slot;
     }
 
     public override void SkipDialogue() {
