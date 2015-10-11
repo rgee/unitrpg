@@ -23,7 +23,6 @@ namespace Models.Dialogue {
                     var emotionStrings = card["emotions"].ToDictionary();
                     var emotions = emotionStrings.ToDictionary(entry => entry.Key, entry => GetEmotionForString(entry.Value));
                     parsedCard.Emotions = emotions;
-                    parsedCard.Emotion = GetEmotionForString(card["emotion"].str);
                     parsedDeck.Cards.Add(parsedCard);
                 }
 
