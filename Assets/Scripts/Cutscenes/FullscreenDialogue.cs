@@ -46,6 +46,16 @@ public class FullscreenDialogue : AbstractDialogue {
     protected override void ChangeSpeaker(string speakerName) {
         base.ChangeSpeaker(speakerName);
         _activeSpeakerName = speakerName;
+
+        var portraits = _slots.Select(s => s.GetComponent<DialoguePortraitView>());
+
+        portraits.ToList().ForEach(p => {
+            if (p.ActorName == speakerName) {
+                p.Activate();
+            } else {
+                p.Deactivate();
+            }
+        });
     }
 
     protected override void ChangeEmotion(EmotionType emotion) {
