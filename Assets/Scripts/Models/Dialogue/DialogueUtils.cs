@@ -20,9 +20,16 @@ namespace Models.Dialogue {
                         parsedCard.Lines.Add(line.str);
                     }
 
-                    var emotionStrings = card["emotions"].ToDictionary();
-                    var emotions = emotionStrings.ToDictionary(entry => entry.Key, entry => GetEmotionForString(entry.Value));
-                    parsedCard.Emotions = emotions;
+                    var responses = card["emotionalResponses"];
+                    var responseActors = responses.keys;
+                    foreach (var actor in responseActors) {
+                        var response = responses[actor];
+
+                        var emotion = GetEmotionForString(response["emotion"].str);
+                        var facing = response["facing"].str == "left" ? Facing.Left : Facing.Right;
+                        parsedCard.EmotionalResponses.Add(actor, new EmotionalResponse(emotion, facing));
+                    }
+
                     parsedDeck.Cards.Add(parsedCard);
                 }
 

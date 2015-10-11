@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,12 +22,11 @@ public class OverlayDialogue : AbstractDialogue {
         yield return null;
     }
 
-    protected override void ChangeEmotion(EmotionType emotion) {
-        _portraitView.SetActor(_currentSpeakerName, emotion);
-    }
-
-    protected override void ChangeEmotion(string speaker, EmotionType emotion) {
-        throw new NotImplementedException();
+    protected override void ChangeEmotion(string speaker, EmotionType emotion, Facing facing) {
+        // The overlay only updates the actor currently speaking, and they always face left.
+        if (speaker == _currentSpeakerName) {
+            _portraitView.SetActor(speaker, emotion, Facing.Left);
+        }
     }
 
     protected override void ChangeSpeaker(string speakerName) {

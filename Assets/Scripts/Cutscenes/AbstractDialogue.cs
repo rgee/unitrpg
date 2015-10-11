@@ -26,8 +26,7 @@ public abstract class AbstractDialogue : MonoBehaviour {
     private int _deckIndex = -1;
     private int _cardIndex = -1;
 
-    protected abstract void ChangeEmotion(Models.EmotionType emotion);
-    protected abstract void ChangeEmotion(string speaker, Models.EmotionType emotion);
+    protected abstract void ChangeEmotion(string speaker, Models.EmotionType emotion, Facing facing);
     public abstract void SkipDialogue();
 
     protected virtual void Awake() {
@@ -61,8 +60,9 @@ public abstract class AbstractDialogue : MonoBehaviour {
             var nextCard = currentDeck.Cards[_cardIndex];
             _cardIndex++;
 
-            foreach (var entry in nextCard.Emotions) {
-                ChangeEmotion(entry.Key, entry.Value);
+            foreach (var entry in nextCard.EmotionalResponses) {
+                var response = entry.Value;
+                ChangeEmotion(entry.Key, response.emotion, response.facing);
             }
 
             _animator.AnimateCard(nextCard);

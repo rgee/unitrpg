@@ -11,18 +11,19 @@ public class DialoguePortraitView : MonoBehaviour {
     private const float FadeTimeSeconds = 1f;
     private const float Scale = 0.0008f;
 
-    public void SetActor(string name, EmotionType emotion) {
+    public void SetActor(string name, EmotionType emotion, Facing direction) {
         var actor = ActorDatabase.FindByName(name);
         var portrait = actor.FindPortraitByEmotion(emotion);
-        AttachGameObject(Instantiate(portrait.Prefab));
+        AttachGameObject(Instantiate(portrait.Prefab), direction);
         ActorName = name;
     }
 
-    private void AttachGameObject(GameObject instantiatedGameObject) {
+    private void AttachGameObject(GameObject instantiatedGameObject, Facing direction) {
         if (_currentActorPortrait != null) {
             Destroy(_currentActorPortrait);
         }
-        instantiatedGameObject.transform.localScale = new Vector3(Scale, Scale, 1f);
+        var xScale = direction == Facing.Left ? Scale : -Scale;
+        instantiatedGameObject.transform.localScale = new Vector3(xScale, Scale, 1f);
 
         var layout = GetComponent<tk2dUILayout>();
         var height = (layout.GetMinBounds() - layout.GetMaxBounds()).y;
@@ -31,7 +32,7 @@ public class DialoguePortraitView : MonoBehaviour {
         var halfPortraitWidth = (bounds.max - bounds.min).x/2;
 
         var viewBottomCenter = -halfLayoutWidth;
-        var portraitBottomCenter = -halfPortraitWidth;
+        var portraitBottomCenter = direction == Facing.Left ? -halfPortraitWidth : halfPortraitWidth; 
 
 
         instantiatedGameObject.transform.SetParent(transform);

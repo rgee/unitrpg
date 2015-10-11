@@ -6,6 +6,6 @@ using System.Text;
 namespace Models.Dialogue {
     public class Card {
         public List<string> Lines = new List<string>();
-        public Dictionary<string, EmotionType> Emotions = new Dictionary<string, EmotionType>();
+        public Dictionary<string, EmotionalResponse> EmotionalResponses = new Dictionary<string, EmotionalResponse>();
     }
 }
