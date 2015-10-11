@@ -39,28 +39,35 @@ public class FullscreenDialogue : AbstractDialogue {
         _slots.Add(transform.FindChild("Slots/Slot 3").gameObject);
     }
 
+    protected override void ChangeEmotion(string speaker, EmotionType emotion) {
+        var view = FindViewBySpeaker(speaker);
+        view.SetActor(speaker, emotion);
+    }
+
     public override void SkipDialogue() {
         Application.LoadLevel(NextSceneName);
     }
 
     protected override void ChangeSpeaker(string speakerName) {
         base.ChangeSpeaker(speakerName);
+
+        var currentSpeakerView = FindViewBySpeaker(_activeSpeakerName);
+        if (currentSpeakerView) {
+            currentSpeakerView.Deactivate();
+        }
+
+        FindViewBySpeaker(speakerName).Activate();
+
         _activeSpeakerName = speakerName;
+    }
 
-        var portraits = _slots.Select(s => s.GetComponent<DialoguePortraitView>());
-
-        portraits.ToList().ForEach(p => {
-            if (p.ActorName == speakerName) {
-                p.Activate();
-            } else {
-                p.Deactivate();
-            }
-        });
+    private DialoguePortraitView FindViewBySpeaker(string name) {
+        return _slots.Select(s => s.GetComponent<DialoguePortraitView>())
+            .SingleOrDefault(s => s.ActorName == name);
     }
 
     protected override void ChangeEmotion(EmotionType emotion) {
-        var slot = _slots.Select(s => s.GetComponent<DialoguePortraitView>())
-            .Single(s => s.ActorName == _activeSpeakerName);
+        var slot = FindViewBySpeaker(_activeSpeakerName);
         slot.SetActor(_activeSpeakerName, emotion);
     }
 }

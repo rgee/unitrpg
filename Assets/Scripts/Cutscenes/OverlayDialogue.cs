@@ -27,6 +27,10 @@ public class OverlayDialogue : AbstractDialogue {
         _portraitView.SetActor(_currentSpeakerName, emotion);
     }
 
+    protected override void ChangeEmotion(string speaker, EmotionType emotion) {
+        throw new NotImplementedException();
+    }
+
     protected override void ChangeSpeaker(string speakerName) {
         base.ChangeSpeaker(speakerName);
         _currentSpeakerName = speakerName;

@@ -8,8 +8,8 @@ public class DialoguePortraitView : MonoBehaviour {
 
     private GameObject _currentActorPortrait;
     private static readonly Color FadedColor = new Color(92f/255f, 92f/255f, 92f/255f);
-    private static readonly float FadeTimeSeconds = 1f;
-    private static readonly float Scale = 0.0008f;
+    private const float FadeTimeSeconds = 1f;
+    private const float Scale = 0.0008f;
 
     public void SetActor(string name, EmotionType emotion) {
         var actor = ActorDatabase.FindByName(name);

@@ -7,7 +7,7 @@ namespace Models.Dialogue {
     public class DialogueUtils
     {
         public static Cutscene ParseFromJson(string rawCutsceneJson) {
-            var json = new JSONObject(rawCutsceneJson);
+            var json = new JSONObject(rawCutsceneJson, strict:true);
             var result = new Cutscene();
             foreach (var deck in json["decks"].list) {
                 var parsedDeck = new Deck();
@@ -19,6 +19,10 @@ namespace Models.Dialogue {
                     foreach (var line in card["lines"].list) {
                         parsedCard.Lines.Add(line.str);
                     }
+
+                    var emotionStrings = card["emotions"].ToDictionary();
+                    var emotions = emotionStrings.ToDictionary(entry => entry.Key, entry => GetEmotionForString(entry.Value));
+                    parsedCard.Emotions = emotions;
                     parsedCard.Emotion = GetEmotionForString(card["emotion"].str);
                     parsedDeck.Cards.Add(parsedCard);
                 }
