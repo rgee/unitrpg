@@ -1,0 +1,86 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &123710
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 455298}
+  - 114: {fileID: 11474446}
+  m_Layer: 0
+  m_Name: Futura-Medium
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &455298
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 123710}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11474446
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 123710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35be0f790243a0c46b505c114d7122ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bmFont: {fileID: 4900000, guid: f09bcb63e7e6066409387b0b872a3954, type: 3}
+  material: {fileID: 2100000, guid: 6189013ea7fea9e47b5518acd58df4cd, type: 2}
+  texture: {fileID: 2800000, guid: e5aac68a4d379e34dbbfdc85ed827dc3, type: 3}
+  gradientTexture: {fileID: 0}
+  dupeCaps: 0
+  flipTextureY: 0
+  proxyFont: 0
+  useTk2dCamera: 0
+  targetHeight: 640
+  targetOrthoSize: 1
+  sizeDef:
+    type: 0
+    orthoSize: 1
+    pixelsPerMeter: 100
+    width: 960
+    height: 720
+  gradientCount: 1
+  manageMaterial: 1
+  loadable: 0
+  charPadX: 0
+  data: {fileID: 11445362, guid: a7bdf7897841081459200f1c60b6d1a9, type: 2}
+  version: 1
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: bmFont
+      value: 
+      objectReference: {fileID: 4900000, guid: f09bcb63e7e6066409387b0b872a3954, type: 3}
+    - target: {fileID: 0}
+      propertyPath: texture
+      value: 
+      objectReference: {fileID: 2800000, guid: e5aac68a4d379e34dbbfdc85ed827dc3, type: 3}
+    - target: {fileID: 0}
+      propertyPath: sizeDef.orthoSize
+      value: 3.77999997
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 123710}
+  m_IsPrefabParent: 1
