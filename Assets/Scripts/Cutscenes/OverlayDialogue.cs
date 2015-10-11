@@ -1,9 +1,5 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Models;
-using UnityEngine;
+using Models.Dialogue;
 
 public class OverlayDialogue : AbstractDialogue {
     public DialogueActors Actors;
@@ -22,10 +18,10 @@ public class OverlayDialogue : AbstractDialogue {
         yield return null;
     }
 
-    protected override void ChangeEmotion(string speaker, EmotionType emotion, Facing facing) {
+    protected override void ChangeEmotion(string speaker, EmotionalResponse response) {
         // The overlay only updates the actor currently speaking, and they always face left.
         if (speaker == _currentSpeakerName) {
-            _portraitView.SetActor(speaker, emotion, Facing.Left);
+            _portraitView.SetActor(speaker, response.emotion, Facing.Left);
         }
     }
 

@@ -27,7 +27,8 @@ namespace Models.Dialogue {
 
                         var emotion = GetEmotionForString(response["emotion"].str);
                         var facing = response["facing"].str == "left" ? Facing.Left : Facing.Right;
-                        parsedCard.EmotionalResponses.Add(actor, new EmotionalResponse(emotion, facing));
+                        var slot = (int)response["position"].n;
+                        parsedCard.EmotionalResponses.Add(actor, new EmotionalResponse(emotion, facing, slot));
                     }
 
                     parsedDeck.Cards.Add(parsedCard);

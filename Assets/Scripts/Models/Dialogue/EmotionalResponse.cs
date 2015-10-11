@@ -5,12 +5,14 @@ using System.Text;
 
 namespace Models.Dialogue {
     public class EmotionalResponse {
-        public EmotionType emotion;
-        public Facing facing;
+        public readonly EmotionType emotion;
+        public readonly Facing facing;
+        public readonly int Slot;
 
-        public EmotionalResponse(EmotionType emotion, Facing facing) {
+        public EmotionalResponse(EmotionType emotion, Facing facing, int slot) {
             this.emotion = emotion;
             this.facing = facing;
+            Slot = slot;
         }
     }
 }

@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Models;
+using Models.Dialogue;
 using UnityEngine;
 
 public class FullscreenDialogue : AbstractDialogue {
@@ -39,9 +38,9 @@ public class FullscreenDialogue : AbstractDialogue {
         _slots.Add(transform.FindChild("Slots/Slot 3").gameObject);
     }
 
-    protected override void ChangeEmotion(string speaker, EmotionType emotion, Facing facing) {
+    protected override void ChangeEmotion(string speaker, EmotionalResponse response) {
         var view = FindViewBySpeaker(speaker);
-        view.SetActor(speaker, emotion, facing);
+        view.SetActor(speaker, response.emotion, response.facing);
     }
 
     public override void SkipDialogue() {
