@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(tk2dUILayout))]
 public class CenterPortraitAligner : MonoBehaviour, IPortraitAligner {
 
-    public void Align(GameObject portrait, Facing facing, Vector3 scale) {
+    public virtual void Align(GameObject portrait, Facing facing, Vector3 scale) {
 
         var xScale = facing == Facing.Left ? scale.x : -scale.x;
         portrait.transform.localScale = new Vector3(xScale, scale.y, scale.z);
-
+        
         var layout = GetComponent<tk2dUILayout>();
         var height = (layout.GetMinBounds() - layout.GetMaxBounds()).y;
         var halfLayoutWidth = (layout.GetMinBounds() - layout.GetMaxBounds()).x/2;
