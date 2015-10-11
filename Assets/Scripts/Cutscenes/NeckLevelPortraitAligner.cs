@@ -5,9 +5,7 @@ using System.Text;
 using UnityEngine;
 
 public class NeckLevelPortraitAligner : MonoBehaviour, IPortraitAligner {
-    public Facing Facing { get; set; }
-
-    void Update() {
-        
+    public void Align(GameObject portrait, Facing facing, Vector3 scale) {
+        throw new NotImplementedException();
     }
 }
