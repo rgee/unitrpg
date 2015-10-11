@@ -7,8 +7,9 @@ public class DialoguePortraitView : MonoBehaviour {
     public string ActorName;
 
     private GameObject _currentActorPortrait;
-    private static readonly Color FADED_COLOR = new Color(92f/255f, 92f/255f, 92f/255f);
-    private static readonly float FADE_TIME_SECONDS = 1f;
+    private static readonly Color FadedColor = new Color(92f/255f, 92f/255f, 92f/255f);
+    private static readonly float FadeTimeSeconds = 1f;
+    private static readonly float Scale = 0.0008f;
 
     public void SetActor(string name, EmotionType emotion) {
         var actor = ActorDatabase.FindByName(name);
@@ -21,10 +22,20 @@ public class DialoguePortraitView : MonoBehaviour {
         if (_currentActorPortrait != null) {
             Destroy(_currentActorPortrait);
         }
+        instantiatedGameObject.transform.localScale = new Vector3(Scale, Scale, 1f);
+
+        var layout = GetComponent<tk2dUILayout>();
+        var height = (layout.GetMinBounds() - layout.GetMaxBounds()).y;
+        var halfLayoutWidth = (layout.GetMinBounds() - layout.GetMaxBounds()).x/2;
+        var bounds = GameObjectUtils.CalculateBounds(instantiatedGameObject);
+        var halfPortraitWidth = (bounds.max - bounds.min).x/2;
+
+        var viewBottomCenter = -halfLayoutWidth;
+        var portraitBottomCenter = -halfPortraitWidth;
+
 
         instantiatedGameObject.transform.SetParent(transform);
-        instantiatedGameObject.transform.localScale = new Vector3(0.0005f, 0.0005f, 1f);
-        instantiatedGameObject.transform.localPosition = new Vector3(0.341f, -0.522f, -0.9f);
+        instantiatedGameObject.transform.localPosition = new Vector3(viewBottomCenter + portraitBottomCenter, height, 0);
         _currentActorPortrait = instantiatedGameObject;
     }
 
@@ -33,7 +44,7 @@ public class DialoguePortraitView : MonoBehaviour {
             return;
         }
 
-        StartCoroutine(FadeTo(Color.white, FADE_TIME_SECONDS));
+        StartCoroutine(FadeTo(Color.white, FadeTimeSeconds));
     }
 
     public void Deactivate() {
@@ -41,7 +52,7 @@ public class DialoguePortraitView : MonoBehaviour {
             return;
         }
 
-        StartCoroutine(FadeTo(FADED_COLOR, FADE_TIME_SECONDS));
+        StartCoroutine(FadeTo(FadedColor, FadeTimeSeconds));
     }
 
     private IEnumerator FadeTo(Color color, float time) {
