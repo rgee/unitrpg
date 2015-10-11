@@ -2,6 +2,7 @@
 using Models;
 using UnityEngine;
 
+[RequireComponent(typeof(IPortraitAligner))]
 public class DialoguePortraitView : MonoBehaviour {
     public DialogueActors ActorDatabase;
     public string ActorName;
@@ -11,10 +12,17 @@ public class DialoguePortraitView : MonoBehaviour {
     private const float FadeTimeSeconds = 1f;
     private const float Scale = 0.0008f;
 
+    private IPortraitAligner _portraitAligner;
+
+    void Awake() {
+        _portraitAligner = GetComponent<IPortraitAligner>();
+    }
+
     public void SetActor(string name, EmotionType emotion, Facing direction) {
         var actor = ActorDatabase.FindByName(name);
         var portrait = actor.FindPortraitByEmotion(emotion);
         AttachGameObject(Instantiate(portrait.Prefab), direction);
+        _portraitAligner.Facing = direction;
         ActorName = name;
     }
 
