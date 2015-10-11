@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class DialoguePortraitView : MonoBehaviour {
     public DialogueActors ActorDatabase;
+    public string ActorName;
 
     private GameObject _currentActorPortrait;
 
@@ -10,6 +11,7 @@ public class DialoguePortraitView : MonoBehaviour {
         var actor = ActorDatabase.FindByName(name);
         var portrait = actor.FindPortraitByEmotion(emotion);
         AttachGameObject(Instantiate(portrait.Prefab));
+        ActorName = name;
     }
 
     private void AttachGameObject(GameObject instantiatedGameObject) {

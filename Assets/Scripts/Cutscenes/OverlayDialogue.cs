@@ -15,7 +15,7 @@ public class OverlayDialogue : AbstractDialogue {
 
     protected override void Awake() {
         base.Awake();
-        _portraitView = transform.FindChild("Portrait").GetComponent<DialoguePortraitView>();
+        _portraitView = transform.FindChild("Portrait View").GetComponent<DialoguePortraitView>();
     }
 
     private IEnumerator FadeOut() {

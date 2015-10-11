@@ -18,28 +18,25 @@ public class FullscreenDialogue : AbstractDialogue {
         }
     }
 
-    private GameObject _speakerContainer;
-    private Dictionary<string, GameObject> _speakersByName = new Dictionary<string, GameObject>();
     private string _activeSpeakerName;
-    private GameObject _activeSpeaker {
-        get { return _speakersByName[_activeSpeakerName];  }
-    }
+    private readonly List<GameObject> _slots = new List<GameObject>(4); 
 
     private void CreateSpeakers() {
+        var index = 0;
         foreach (var speaker in Dialogue.Speakers) {
-            var defaultPortrait = Actors.FindByName(speaker).FindPortraitByEmotion(EmotionType.DEFAULT);
-
-            // TODO: Child ordering
-            var speakerObject = Instantiate(defaultPortrait.Prefab);
-            _speakersByName[speaker] = speakerObject;
-            speakerObject.transform.SetParent(_speakerContainer.transform);
-            speakerObject.transform.localScale = Vector3.one;
+            var slot = _slots[index];
+            var portraitView = slot.GetComponent<DialoguePortraitView>();
+            portraitView.SetActor(speaker, EmotionType.DEFAULT);
+            index++;
         }
     }
 
     protected override void Awake() {
         base.Awake();
-        _speakerContainer = transform.FindChild("Speakers").gameObject;
+        _slots.Add(transform.FindChild("Slots/Slot 0").gameObject);
+        _slots.Add(transform.FindChild("Slots/Slot 1").gameObject);
+        _slots.Add(transform.FindChild("Slots/Slot 2").gameObject);
+        _slots.Add(transform.FindChild("Slots/Slot 3").gameObject);
     }
 
     public override void SkipDialogue() {
@@ -52,15 +49,8 @@ public class FullscreenDialogue : AbstractDialogue {
     }
 
     protected override void ChangeEmotion(EmotionType emotion) {
-        var currentSpeakerPortrait = _activeSpeaker;
-        Destroy(currentSpeakerPortrait);
-
-        var newPortrait = Actors.FindByName(_activeSpeakerName).FindPortraitByEmotion(emotion);
-        
-        // TODO: Child ordering
-        var newPortraitObject = Instantiate(newPortrait.Prefab);
-        newPortraitObject.transform.SetParent(_speakerContainer.transform);
-        newPortraitObject.transform.localScale = Vector3.one;
-        _speakersByName[_activeSpeakerName] = newPortraitObject;
+        var slot = _slots.Select(s => s.GetComponent<DialoguePortraitView>())
+            .Single(s => s.ActorName == _activeSpeakerName);
+        slot.SetActor(_activeSpeakerName, emotion);
     }
 }
