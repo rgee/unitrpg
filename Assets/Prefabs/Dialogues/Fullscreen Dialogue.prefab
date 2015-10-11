@@ -9,8 +9,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 473076}
   - 114: {fileID: 11487810}
-  - 114: {fileID: 11463556}
-  - 114: {fileID: 11425220}
+  - 114: {fileID: 11499714}
+  - 114: {fileID: 11418668}
+  - 114: {fileID: 11485500}
   m_Layer: 0
   m_Name: Fullscreen Dialogue
   m_TagString: Untagged
@@ -547,7 +548,7 @@ MonoBehaviour:
   bMax: {x: .857289553, y: 0, z: 0}
   layoutItems: []
   autoResizeCollider: 0
---- !u!114 &11425220
+--- !u!114 &11418668
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -555,11 +556,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 104470}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adc07d84ae377a94a91ec2242826793a, type: 3}
+  m_Script: {fileID: 11500000, guid: a6108148c4b8539408fbf63d7d8373c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NextSceneName: 
-  Actors: {fileID: 11400000, guid: 4e232bb4b8d95e1438bb8c9512da8dd5, type: 2}
+  SourceFile: {fileID: 4900000, guid: f40676d5cca3d8f4e9265a135df67e22, type: 3}
 --- !u!114 &11431940
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -707,17 +707,6 @@ MonoBehaviour:
   expand: 1
   margin: {x: 0, y: 0}
   spacing: 0
---- !u!114 &11463556
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 104470}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 602e174148623054090c7539b3538bc8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &11466430
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -733,6 +722,17 @@ MonoBehaviour:
   bMax: {x: .857289553, y: 0, z: 0}
   layoutItems: []
   autoResizeCollider: 0
+--- !u!114 &11485500
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 104470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 602e174148623054090c7539b3538bc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11487810
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -877,6 +877,18 @@ MonoBehaviour:
   borderLeft: .28125
   borderRight: .28125
   _createBoxCollider: 0
+--- !u!114 &11499714
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 104470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a5b9ea0f8d84d3459b6846b436226c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NextSceneName: 
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

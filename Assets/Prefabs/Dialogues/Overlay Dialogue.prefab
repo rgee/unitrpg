@@ -9,8 +9,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 486444}
   - 114: {fileID: 11408678}
-  - 114: {fileID: 11464208}
   - 114: {fileID: 11495520}
+  - 114: {fileID: 11446728}
+  - 114: {fileID: 11464206}
   m_Layer: 0
   m_Name: Overlay Dialogue
   m_TagString: Untagged
@@ -509,6 +510,17 @@ MonoBehaviour:
   ActorDatabase: {fileID: 11400000, guid: 4e232bb4b8d95e1438bb8c9512da8dd5, type: 2}
   Scale: .000500000024
   ActorName: 
+--- !u!114 &11446728
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 117650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98344c28c310c6047b20f82d177f37af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11454772
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -539,7 +551,7 @@ MonoBehaviour:
   size: {x: .694955111, y: .497540593}
   depth: .400000006
   createBoxCollider: 1
---- !u!114 &11464208
+--- !u!114 &11464206
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -547,11 +559,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 117650}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea90724dc02705a4d8a3fd923d30b328, type: 3}
+  m_Script: {fileID: 11500000, guid: a6108148c4b8539408fbf63d7d8373c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Actors: {fileID: 11400000, guid: 4e232bb4b8d95e1438bb8c9512da8dd5, type: 2}
-  FadeTime: .5
+  SourceFile: {fileID: 4900000, guid: f40676d5cca3d8f4e9265a135df67e22, type: 3}
 --- !u!114 &11468198
 MonoBehaviour:
   m_ObjectHideFlags: 1
