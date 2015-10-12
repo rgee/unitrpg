@@ -8,12 +8,12 @@ using UnityEngine;
 public class FullscreenDialogueController : MonoBehaviour, IDialogueController {
 
     public string NextSceneName;
+    public GameObject ScreenOverlayPrefab;
     private Cutscene _model;
     private string _activeSpeakerName;
     private readonly List<GameObject> _slots = new List<GameObject>(4); 
 
     private readonly Dictionary<string, int> _slotIndexBySpeaker = new Dictionary<string, int>(); 
-
 
     private void CreateSpeakers() {
 
@@ -62,13 +62,20 @@ public class FullscreenDialogueController : MonoBehaviour, IDialogueController {
     public IEnumerator Initialize(Cutscene model) {
         _model = model;
         CreateSpeakers();
-        yield return null;
+        var screenOverlay = Instantiate(ScreenOverlayPrefab).GetComponent<ScreenOverlay>();
+        screenOverlay.transform.SetParent(transform);
+        screenOverlay.FadeOut(1f);
+        yield return new WaitForSeconds(1f);
     }
 
     public IEnumerator End() {
+        var screenOverlay = Instantiate(ScreenOverlayPrefab).GetComponent<ScreenOverlay>();
+        screenOverlay.transform.SetParent(transform);
+        screenOverlay.FadeIn(1f);
+        yield return new WaitForSeconds(1f);
+        
         Destroy(gameObject);
         Application.LoadLevel(NextSceneName);
-        yield return null;
     }
 
     private IEnumerator MoveActor(string speaker, EmotionalResponse response, DialoguePortraitView source,
