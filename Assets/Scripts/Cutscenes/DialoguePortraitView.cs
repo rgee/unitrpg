@@ -20,6 +20,37 @@ public class DialoguePortraitView : MonoBehaviour {
         _portraitAligner = GetComponent<IPortraitAligner>();
     }
 
+    public void FadeOut(float time) {
+       iTween.ValueTo(gameObject, iTween.Hash(
+            "time", time,
+            "from", new Color(1, 1, 1, 1),
+            "to", new Color(1, 1, 1, 0),
+            "easetype", iTween.EaseType.easeInOutCubic,
+            "onupdate", "SetColor",
+            "onupdatetarget", gameObject
+       ));
+    }
+
+    public void FadeIn(float time) {
+       iTween.ValueTo(gameObject, iTween.Hash(
+            "time", time,
+            "from", new Color(1, 1, 1, 0),
+            "to", new Color(1, 1, 1, 1),
+            "easetype", iTween.EaseType.easeInOutCubic,
+            "onupdate", "SetColor",
+            "onupdatetarget", gameObject
+       ));
+    }
+
+    private void SetColor(Color color) {
+        if (_currentActorPortrait == null) {
+            return;
+        }
+
+        _currentActorPortrait.transform.FindChild("Head").GetComponent<tk2dSprite>().color = color;
+        _currentActorPortrait.transform.FindChild("Body").GetComponent<tk2dSprite>().color = color;
+    }
+
     public void SetActor(string name, EmotionType emotion, Facing direction) {
         var actor = ActorDatabase.FindByName(name);
         var portrait = actor.FindPortraitByEmotion(emotion);
