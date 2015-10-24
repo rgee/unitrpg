@@ -64,12 +64,9 @@ public class ActionMenuManager : MonoBehaviour {
         );
     }
 
-    public void ShowActionMenu(Grid.Unit unit) {
-        var battle = CombatObjects.GetBattleState().Model;
+    public void ShowActionMenu(IEnumerable<CombatAction> actions, Grid.Unit unit) {
 
-        var availableActionEnums = battle.GetAvailableActions(unit.model);
-
-        var availableActions = availableActionEnums
+        var availableActions = actions 
             .Aggregate((value, next) => value | next);
 
         var menuPrefab = MoveBraceItemWait;
