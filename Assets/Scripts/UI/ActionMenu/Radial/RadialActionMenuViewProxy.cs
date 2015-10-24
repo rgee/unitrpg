@@ -5,7 +5,7 @@ using System.Linq;
 using Models.Combat;
 using UnityEngine;
 
-namespace UI.ActionMenu {
+namespace UI.ActionMenu.Radial {
     public class RadialActionMenuViewProxy : MonoBehaviour, IActionMenuView {
         public CombatAction? SelectedAction {
             get { return _selectedAction; }
