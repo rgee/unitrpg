@@ -16,9 +16,10 @@ public class DefaultFightResolution : ResolutionStrategy {
             );
     }
 
-    private static List<Hit> SimulateParams(FightParameters parameters) {
+    private List<Hit> SimulateParams(FightParameters parameters) {
         var firstHit = ComputeActualDamage(parameters);
-        var result = new List<Hit> {firstHit};
+        var result = new List<Hit>();
+        result.Add(firstHit);
 
         if (parameters.Hits == 2) {
             result.Add(ComputeActualDamage(parameters));
@@ -27,7 +28,7 @@ public class DefaultFightResolution : ResolutionStrategy {
         return result;
     }
 
-    private static Hit ComputeActualDamage(FightParameters parameters) {
+    private Hit ComputeActualDamage(FightParameters parameters) {
         var crit = false;
         var glance = false;
         var missed = false;
@@ -61,7 +62,7 @@ public class DefaultFightResolution : ResolutionStrategy {
         return ComputeParams(participants.Defender, participants.Attacker);
     }
 
-    private static FightParameters ComputeParams(Models.Combat.Unit attacker, Models.Combat.Unit defender) {
+    private FightParameters ComputeParams(Models.Combat.Unit attacker, Models.Combat.Unit defender) {
         var atkChar = attacker.Character;
         var defChar = defender.Character;
 
