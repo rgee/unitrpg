@@ -2,18 +2,22 @@
 using UnityEngine;
 
 public class AttackerAttacks : StateMachineBehaviour {
-    private FightExcecutionState State;
-    private Animator StateMachine;
+    private FightExcecutionState _state;
+    private Animator _stateMachine;
 
     public override void OnStateEnter(Animator stateMachine, AnimatorStateInfo stateInfo, int layerIndex) {
-        State = FightExecutionObjects.GetState();
-        StateMachine = stateMachine;
+        _state = FightExecutionObjects.GetState();
+        _stateMachine = stateMachine;
 
-        var phase = State.Result.InitialAttack;
-        var attacker = GetUnitComponent(State.Attacker);
-        var defender = GetUnitComponent(State.Defender);
+        var phase = _state.Result.InitialAttack;
+        var attacker = GetUnitComponent(_state.Attacker);
+        var defender = GetUnitComponent(_state.Defender);
 
-        var phaseExecutor = new FightPhaseExecutor(attacker, defender, phase.AttackerHits);
+        var hitIndex = stateMachine.GetInteger("attack count");
+
+        var currentHit = phase.AttackerHits[hitIndex];
+
+        var phaseExecutor = new FightPhaseExecutor(attacker, defender, currentHit);
         phaseExecutor.OnComplete += TransitionToComplete;
         phaseExecutor.OnTargetDied += TransitionToDead;
 
@@ -25,10 +29,16 @@ public class AttackerAttacks : StateMachineBehaviour {
     }
 
     private void TransitionToDead(object sender, EventArgs args) {
-        StateMachine.SetTrigger("defender_dead");
+        _stateMachine.SetTrigger("defender_dead");
     }
 
     private void TransitionToComplete(object sender, EventArgs args) {
-        StateMachine.SetTrigger("attacker_attack_complete");
+        var nextAttackIndex = _stateMachine.GetInteger("attack count") + 1;
+        _stateMachine.SetInteger("attack count", nextAttackIndex);
+
+        var phase = _state.Result.InitialAttack;
+        _stateMachine.SetBool("attacker_finished", nextAttackIndex >= phase.AttackerHits.Count);
+
+        _stateMachine.SetTrigger("attacker_attack_complete");
     }
 }

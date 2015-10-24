@@ -13,7 +13,7 @@ public class DefenderAttacks : StateMachineBehaviour {
         var attacker = GetUnitComponent(State.Defender);
         var defender = GetUnitComponent(State.Attacker);
 
-        var phaseExecutor = new FightPhaseExecutor(attacker, defender, phase.AttackerHits);
+        var phaseExecutor = new FightPhaseExecutor(attacker, defender, phase.AttackerHits[0]);
         phaseExecutor.OnComplete += TransitionToComplete;
         phaseExecutor.OnTargetDied += TransitionToDead;
 

@@ -4,13 +4,19 @@ using System.Collections.Generic;
 public class FightPhaseExecutor {
     private readonly Grid.Unit Attacker;
     private readonly Grid.Unit Defender;
-    private readonly List<Hit> Hits;
-    private int HitIndex;
+    private readonly Hit _hit;
 
-    public FightPhaseExecutor(Grid.Unit attacker, Grid.Unit defender, List<Hit> hits) {
+    public FightPhaseExecutor(Grid.Unit attacker, Grid.Unit defender, Hit hit) {
         Attacker = attacker;
         Defender = defender;
-        Hits = hits;
+        _hit = hit;
+    }
+
+    ~FightPhaseExecutor() {
+        Attacker.OnAttackComplete -= End;
+        Defender.OnDodgeComplete -= End;
+        Attacker.OnAttackStart -= DefenderDodge;
+        Attacker.OnAttackComplete -= OnHit;
     }
 
     public event EventHandler OnTargetDied;
@@ -22,35 +28,33 @@ public class FightPhaseExecutor {
     }
 
     private void OnHit() {
-        var hit = Hits[HitIndex];
-        Defender.TakeDamage(hit.Damage);
-        HitIndex++;
+        Defender.TakeDamage(_hit.Damage);
 
         if (!Defender.IsAlive() && OnTargetDied != null) {
             OnTargetDied(this, EventArgs.Empty);
-            Attacker.OnAttackComplete -= OnHit;
-        } else if (HitIndex >= Hits.Count) {
-            if (OnComplete != null) {
-                OnComplete(this, EventArgs.Empty);
-            }
-            Attacker.OnAttackComplete -= OnHit;
+            End();
+        } else if (Defender.IsDodging) {
+            Defender.OnDodgeComplete += End;
         } else {
-            if (Defender.IsDodging) {
-                Defender.OnDodgeComplete += Attack;
-            } else {
-                Attack();
-            }
+            End();
         }
     }
 
+    private void End() {
+        if (OnComplete != null) {
+            OnComplete(this, EventArgs.Empty);
+        }
+        Attacker.OnAttackComplete -= OnHit;
+        Defender.OnDodgeComplete -= End;
+    }
+
     private void Attack() {
-        var hit = Hits[HitIndex];
-        var killingBlow = !hit.Missed && hit.Damage > Defender.model.Health;
-        if (hit.Missed) {
+        var killingBlow = !_hit.Missed && _hit.Damage > Defender.model.Health;
+        if (_hit.Missed) {
             Attacker.OnAttackStart += DefenderDodge;
         }
 
-        Attacker.Attack(Defender, hit, killingBlow);
+        Attacker.Attack(Defender, _hit, killingBlow);
     }
 
     private void DefenderDodge() {

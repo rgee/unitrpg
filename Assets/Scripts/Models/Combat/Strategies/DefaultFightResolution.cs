@@ -59,14 +59,14 @@ public class DefaultFightResolution : ResolutionStrategy {
     }
 
     private FightParameters ComputeCounterParams(Participants participants) {
-        return ComputeParams(participants.Defender, participants.Attacker);
+        return ComputeParams(participants.Defender, participants.Attacker, false);
     }
 
-    private FightParameters ComputeParams(Models.Combat.Unit attacker, Models.Combat.Unit defender) {
+    private FightParameters ComputeParams(Models.Combat.Unit attacker, Models.Combat.Unit defender, bool canDouble = true) {
         var atkChar = attacker.Character;
         var defChar = defender.Character;
 
-        var numHits = atkChar.Speed - defChar.Speed > 10 ? 2 : 1;
+        var numHits = canDouble ? (atkChar.Speed - defChar.Speed > 10 ? 2 : 1) : 1;
         var hitChance = Percentage(((atkChar.Skill*3) + 50) - defChar.Speed);
         var critChance = Percentage(atkChar.Skill - defChar.Speed);
         var glanceChance = Percentage(atkChar.Skill - defChar.Skill);
