@@ -43,10 +43,6 @@ public static class CombatObjects {
         return GameObject.FindGameObjectWithTag("Action Menu").GetComponent<ActionMenu>();
     }
 
-    public static ActionMenuManager GetActionMenuManager() {
-        return GameObject.FindGameObjectWithTag("ActionMenuManager").GetComponent<ActionMenuManager>();
-    }
-
     public static CombatForecaster GetCombatForecaster() {
         return GameObject.FindGameObjectWithTag("Forecaster").GetComponent<CombatForecaster>();
     }
