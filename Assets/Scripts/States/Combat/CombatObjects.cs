@@ -1,4 +1,5 @@
 ﻿using Grid;
+using UI.ActionMenu;
 using UnityEngine;
 
 public static class CombatObjects {
@@ -36,6 +37,10 @@ public static class CombatObjects {
     }
     public static GridCameraController GetCameraController() {
         return GetCamera().GetComponent<GridCameraController>();
+    }
+
+    public static ActionMenu GetActionMenu() {
+        return GameObject.FindGameObjectWithTag("Action Menu").GetComponent<ActionMenu>();
     }
 
     public static ActionMenuManager GetActionMenuManager() {

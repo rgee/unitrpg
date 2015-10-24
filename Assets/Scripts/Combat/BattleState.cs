@@ -24,6 +24,12 @@ public class BattleState : MonoBehaviour {
         return CombatObjects.GetObjective().IsFailed();
     }
 
+    public void ResetToUnitSelectedState() {
+        AttackTarget = null;
+        FightResult = null;
+        MovementDestination = Vector2.zero;
+    }
+
     public void ResetMovementState() {
         SelectedUnit = null;
         AttackTarget = null;

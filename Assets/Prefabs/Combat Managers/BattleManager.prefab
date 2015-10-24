@@ -52,6 +52,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &157184
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400676}
+  - 114: {fileID: 11450078}
+  - 114: {fileID: 11488772}
+  m_Layer: 0
+  m_Name: ActionMenu
+  m_TagString: Action Menu
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &175484
 GameObject:
   m_ObjectHideFlags: 0
@@ -132,6 +149,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &400676
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 157184}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -483.593323, y: 711.058716, z: 4.125}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 437690}
+  m_RootOrder: 7
 --- !u!4 &406832
 Transform:
   m_ObjectHideFlags: 1
@@ -185,6 +214,7 @@ Transform:
   - {fileID: 498756}
   - {fileID: 411468}
   - {fileID: 22446300}
+  - {fileID: 400676}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &469320
@@ -293,6 +323,23 @@ MonoBehaviour:
   StartImmediately: 1
   TriggerObjects:
   - {fileID: 174852, guid: f2a306571810e2d47aa236862d34a287, type: 2}
+--- !u!114 &11450078
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 157184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a79fc4b394927746a5faf72fb105eec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MoveFightFull: {fileID: 130674, guid: 60f9dda95f9e6ad48be97a23ee90f407, type: 2}
+  MoveBraceItemWait: {fileID: 192742, guid: 1c1ba77d26439f542a6c7e77d9d14585, type: 2}
+  BraceItem: {fileID: 172048, guid: b24e094a26af1254fb93ad99a524cee2, type: 2}
+  MoveWait: {fileID: 184714, guid: 18da41b9d9835e744984d8ae812c4288, type: 2}
+  FightWaitItem: {fileID: 168282, guid: 638939c7126c18f45aed58a3aac7c461, type: 2}
+  AttackBrace: {fileID: 193558, guid: defdfdcd7aa4d094993a9d9425d7747d, type: 2}
 --- !u!114 &11456784
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -364,6 +411,17 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &11488772
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 157184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30cf8143e8026c742b708e373a8cd958, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11496126
 MonoBehaviour:
   m_ObjectHideFlags: 1

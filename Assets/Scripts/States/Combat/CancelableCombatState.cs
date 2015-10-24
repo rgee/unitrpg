@@ -9,7 +9,7 @@ public class CancelableCombatState : StateMachineBehaviour {
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         if (Input.GetKeyDown(KeyCode.Escape)) {
-            State.ResetMovementState();
+            State.ResetToUnitSelectedState();
             animator.SetTrigger("action_canceled");
         }
     }

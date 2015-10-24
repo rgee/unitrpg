@@ -1,44 +1,62 @@
-﻿using UnityEngine;
+﻿using System;
+using Models.Combat;
+using UI.ActionMenu;
+using UnityEngine;
 
 public class FriendlyUnitSelected : CancelableCombatState {
     private Animator _animator;
     private BattleState _battleState;
-    private ActionMenuManager _menuManager;
+    private ActionMenu _menu;
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         base.OnStateEnter(animator, stateInfo, layerIndex);
 
         _animator = animator;
         _battleState = GameObject.Find("BattleManager").GetComponent<BattleState>();
-        _menuManager = CombatObjects.GetActionMenuManager();
+        _menu = CombatObjects.GetActionMenu();
 
         var model = _battleState.Model;
-        var actions = model.GetAvailableActions(_battleState.SelectedUnit.model);
+        var unitModel = _battleState.SelectedUnit.model;
+        var actions = model.GetAvailableActions(unitModel);
 
-        _menuManager.OnActionSelected += HandleAction;
-        _menuManager.ShowActionMenu(actions, _battleState.SelectedUnit);
+        _menu.OnActionSelected += HandleAction;
+        _menu.transform.position = _battleState.SelectedUnit.transform.position;
+        _menu.Show(actions);
     }
 
-    private void HandleAction(BattleAction action) {
+    private void HandleAction(CombatAction action) {
         switch (action) {
-            case BattleAction.ATTACK:
-                _animator.SetTrigger("fight_selected");
-                break;
-            case BattleAction.MOVE:
+            case CombatAction.Move:
                 _animator.SetTrigger("move_selected");
                 break;
-            case BattleAction.ITEM:
+            case CombatAction.Fight:
+                break;
+            case CombatAction.Item:
                 _animator.SetTrigger("item_selected");
                 break;
-            case BattleAction.WAIT:
+            case CombatAction.Trade:
+                break;
+            case CombatAction.Talk:
+                break;
+            case CombatAction.Wait:
                 _battleState.Model.WaitUnit(_battleState.SelectedUnit.model);
                 _animator.SetTrigger("wait_selected");
                 break;
+            case CombatAction.Brace:
+                break;
+            case CombatAction.Cover:
+                break;
+            case CombatAction.Attack:
+                _animator.SetTrigger("fight_selected");
+                break;
+            default:
+                throw new ArgumentException("Could not handle action " + action);
         }
+
     }
 
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-        _menuManager.OnActionSelected -= HandleAction;
-        _menuManager.HideCurrentMenu();
+        _menu.OnActionSelected -= HandleAction;
+        _menu.Hide();
     }
 }

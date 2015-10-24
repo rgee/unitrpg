@@ -26,7 +26,6 @@ public class ActionMenuManager : MonoBehaviour {
 
     [Tooltip("For when you've chosen to fight and all you can do is attack or brace.")]
     public GameObject AttackBrace;
-    
 
     private GameObject _openMenu;
     private Grid.Unit _targetUnit;
@@ -103,7 +102,7 @@ public class ActionMenuManager : MonoBehaviour {
         }
     }
 
-    public void ShowFightSubMenu() {
+    private void ShowFightSubMenu() {
         var previouslyTargetedUnit = _targetUnit;
         HideCurrentMenu();
 
