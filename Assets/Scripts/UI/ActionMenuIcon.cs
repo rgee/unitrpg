@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,47 +22,12 @@ public class ActionMenuIcon : MonoBehaviour {
     }
 
     public void ShowText() {
-        iTween.ValueTo(_icon.gameObject, iTween.Hash(
-            "from", _icon.color.a,
-            "to", 0,
-            "time", FadeTimeSeconds,
-            "onupdatetarget", gameObject,
-            "onupdate", "OnIconUpdate"
-        ));
-
-        iTween.ValueTo(_text.gameObject, iTween.Hash(
-            "from", _text.color.a,
-            "to", 1,
-            "onupdatetarget", gameObject,
-            "time", FadeTimeSeconds,
-            "onupdate", "OnTextUpdate"
-        ));
+        _icon.DOFade(0f, FadeTimeSeconds);
+        _text.DOFade(1f, FadeTimeSeconds);
     }
 
     public void HideText() {
-        iTween.ValueTo(_icon.gameObject, iTween.Hash(
-            "from", _icon.color.a,
-            "to", 1,
-            "onupdatetarget", gameObject,
-            "time", FadeTimeSeconds,
-            "onupdate", "OnIconUpdate"
-        ));
-
-        iTween.ValueTo(_text.gameObject, iTween.Hash(
-            "from", _text.color.a,
-            "to", 0,
-            "onupdatetarget", gameObject,
-            "time", FadeTimeSeconds,
-            "onupdate", "OnTextUpdate"
-        ));
+        _icon.DOFade(1f, FadeTimeSeconds);
+        _text.DOFade(0f, FadeTimeSeconds);
     }
-
-    public void OnIconUpdate(float alpha) {
-        _icon.color = new Color(_icon.color.r, _icon.color.g, _icon.color.b, alpha);
-    }
-
-    public void OnTextUpdate(float alpha) {
-        _text.color = new Color(_icon.color.r, _icon.color.g, _icon.color.b, alpha);
-    }
-
 }
