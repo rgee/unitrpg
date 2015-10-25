@@ -5,7 +5,8 @@ using DG.Tweening;
 using Models.Combat;
 using UnityEngine;
 
-namespace UI.ActionMenu.Bubbles {
+namespace UI.ActionMenu.Bubbles
+{
     public class BubbleActionMenu : MonoBehaviour, IActionMenuView {
         [Tooltip("How far from the center the bubbles should be.")]
         public float Scale = 10f;
@@ -14,11 +15,12 @@ namespace UI.ActionMenu.Bubbles {
         public GameObject BubblePrefab;
 
         private Transform _containerTransform;
-        private List<Transform> _bubbles = new List<Transform>(); 
 
         private readonly Vector2 _basisVector = new Vector2(0, 1);
         private readonly float _showStaggerStepSeconds = 0.1f;
         private readonly float _transitionDurationSeconds =  0.3f;
+
+        private readonly Dictionary<string, GameObject> _bubblesByActionName = new Dictionary<string, GameObject>();
 
         private readonly Dictionary<int, List<float>> _layoutsBySize = new Dictionary<int, List<float>> {
             { 1, new List<float> { 0f } },
@@ -28,15 +30,64 @@ namespace UI.ActionMenu.Bubbles {
             { 5, new List<float> { 0f, -75f, 75f, -135f, 135f } }
         };
 
+        private struct MenuAction {
+            public readonly string Name;
+            public readonly int Priority;
+
+            public MenuAction(string name, int priority) {
+                Name = name;
+                Priority = priority;
+            }
+        }
+
+        private readonly List<MenuAction> _actions = new List<MenuAction> {
+            new MenuAction("Back", int.MinValue),
+            new MenuAction("Fight", 8),
+            new MenuAction("Move", 7),
+            new MenuAction("Item", 6),
+            new MenuAction("Trade", 5),
+            new MenuAction("Talk", 4),
+            new MenuAction("Attack", 3),
+            new MenuAction("Brace", 2),
+            new MenuAction("Cover", 1),
+            new MenuAction("Wait", 0)
+        }; 
+
         void Awake() {
             _containerTransform = GameObject.Find("Container").transform;
+            foreach (var action in _actions) {
+                var button =_containerTransform.Find(action.Name);
+                if (button != null) {
+                    _bubblesByActionName[action.Name] = button.gameObject;
+                }
+            }
         }
 
         public void Show(IEnumerable<CombatAction> actions) {
-            var numActions = actions.Count();
-            _bubbles = _getPoints(numActions).Select((position) => {
-                var bubble = Instantiate(BubblePrefab);
-                bubble.transform.SetParent(_containerTransform);
+            var combatActions = actions as IList<CombatAction> ?? actions.ToList();
+
+            // Convert the combat action enums to MenuAction names
+            var actionStrings = combatActions.Select(action => action.ToString()).ToHashSet();
+
+            // Get the MenuActions being requested and sort them by priroity in descending order
+            var relevantMenuActions = _actions
+                .Where(action => actionStrings.Contains(action.Name))
+                .Concat(new[] { _actions.Find(action => action.Name == "Back") })
+                .OrderByDescending(action => action.Priority);
+
+            // Deactivate all bubbles and only activate the ones we intend to show
+            foreach (var bubble in _bubblesByActionName.Values) {
+                bubble.SetActive(false);
+            }
+
+            // Get the needed bubble game objects in the same order
+            var sortedBubbles = relevantMenuActions.Select(action => _bubblesByActionName[action.Name]).ToList();
+
+            // Assign the points to each bubble iterating through the parallel arrays
+            var numActions = combatActions.Count();
+            var bubbles = _getPoints(numActions).Select((position, i) => {
+                var bubble = sortedBubbles[i];
+                bubble.SetActive(true);
                 bubble.transform.localScale = Vector3.zero;
                 bubble.transform.localPosition = position;
 
@@ -44,7 +95,7 @@ namespace UI.ActionMenu.Bubbles {
             }).ToList();
 
 
-            var bubbleGroups = _bubbles.GroupBy(bubble => bubble.transform.localPosition.y)
+            var bubbleGroups = bubbles.GroupBy(bubble => bubble.transform.localPosition.y)
                 .OrderBy(group => group.Key);
             StartCoroutine(ShowBubbleGroups(bubbleGroups));
         }
@@ -55,8 +106,8 @@ namespace UI.ActionMenu.Bubbles {
 
         IEnumerator HideBubbleGroups(IEnumerable<IGrouping<float, Transform>> groups) {
             yield return StartCoroutine(ScaleBubbleGroup(groups, Vector3.zero));
-            foreach (var bubbleTransform in _bubbles) {
-                Destroy(bubbleTransform.gameObject);
+            foreach (var bubble in _bubblesByActionName.Values) {
+                bubble.SetActive(false);
             }
         }
 
@@ -74,14 +125,18 @@ namespace UI.ActionMenu.Bubbles {
         }
         
         IEnumerable<Vector3> _getPoints(int numActions) {
-            var rotations = _layoutsBySize[numActions];
+            var rotations = _layoutsBySize[numActions]
+                .Concat(new[] {180f});
+
             return rotations.Select((f => Quaternion.Euler(0, 0, f)*(_basisVector*Scale)));
         } 
 
         public CombatAction? SelectedAction { get; set; }
 
         public void Hide() {
-            var bubbleGroups = _bubbles.GroupBy(bubble => bubble.transform.localPosition.y)
+            var bubbles =
+                _bubblesByActionName.Values.Where(bubble => bubble.activeSelf).Select(bubble => bubble.transform);
+            var bubbleGroups = bubbles.GroupBy(bubble => bubble.localPosition.y)
                 .OrderByDescending(group => group.Key);
             StartCoroutine(HideBubbleGroups(bubbleGroups));
         }
