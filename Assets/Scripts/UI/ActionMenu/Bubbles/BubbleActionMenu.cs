@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Models.Combat;
@@ -12,6 +13,7 @@ namespace UI.ActionMenu.Bubbles {
         [Tooltip("The prefab for each bubble.")]
         public GameObject BubblePrefab;
 
+        private float _showStaggerStepSeconds = 0.1f;
         private Transform _containerTransform;
         private List<Transform> _bubbles = new List<Transform>(); 
         private readonly Vector2 _basisVector = new Vector2(0, 1);
@@ -33,33 +35,49 @@ namespace UI.ActionMenu.Bubbles {
             _bubbles = _getPoints(numActions).Select((position) => {
                 var bubble = Instantiate(BubblePrefab);
                 bubble.transform.SetParent(_containerTransform);
-                bubble.transform.localScale = new Vector3(.5f, .5f, .5f);
+                bubble.transform.localScale = Vector3.zero;
                 bubble.transform.localPosition = position;
 
                 return bubble.transform;
             }).ToList();
+
+
+            var bubbleGroups = _bubbles.GroupBy(bubble => bubble.transform.localPosition.y)
+                .OrderBy(group => group.Key);
+            StartCoroutine(ShowBubbleGroups(bubbleGroups));
         }
 
+        IEnumerator ShowBubbleGroups(IEnumerable<IGrouping<float, Transform>> groups) {
+            yield return StartCoroutine(ScaleBubbleGroup(groups, new Vector3(.5f, .5f, .5f)));
+        }
+
+        IEnumerator HideBubbleGroups(IEnumerable<IGrouping<float, Transform>> groups) {
+            yield return StartCoroutine(ScaleBubbleGroup(groups, Vector3.zero));
+            foreach (var bubbleTransform in _bubbles) {
+                Destroy(bubbleTransform.gameObject);
+            }
+        }
+
+        IEnumerator ScaleBubbleGroup(IEnumerable<IGrouping<float, Transform>> groups, Vector3 scale) {
+            foreach (var group in groups) {
+                foreach (var bubble in group) {
+                    iTween.ScaleTo(bubble.gameObject, scale, 0.3f);
+                } 
+                yield return new WaitForSeconds(_showStaggerStepSeconds);
+            }
+        }
+        
         IEnumerable<Vector3> _getPoints(int numActions) {
             var rotations = _layoutsBySize[numActions];
             return rotations.Select((f => Quaternion.Euler(0, 0, f)*(_basisVector*Scale)));
         } 
 
-        void Update() {
-            if (_bubbles.Count <= 0) {
-                return;
-            }
-
-            var points = _getPoints(_bubbles.Count).ToList();
-            for (var i = 0; i < points.Count; i++) {
-                _bubbles[i].transform.localPosition = points[i];
-            }
-        }
-
         public CombatAction? SelectedAction { get; set; }
 
         public void Hide() {
-            _bubbles.ForEach(Destroy);
+            var bubbleGroups = _bubbles.GroupBy(bubble => bubble.transform.localPosition.y)
+                .OrderByDescending(group => group.Key);
+            StartCoroutine(HideBubbleGroups(bubbleGroups));
         }
     }
 }
