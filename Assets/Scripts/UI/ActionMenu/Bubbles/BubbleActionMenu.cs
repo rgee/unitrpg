@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using DG.Tweening;
 using Models.Combat;
 using UnityEngine;
 
@@ -13,10 +14,12 @@ namespace UI.ActionMenu.Bubbles {
         [Tooltip("The prefab for each bubble.")]
         public GameObject BubblePrefab;
 
-        private float _showStaggerStepSeconds = 0.1f;
         private Transform _containerTransform;
         private List<Transform> _bubbles = new List<Transform>(); 
+
         private readonly Vector2 _basisVector = new Vector2(0, 1);
+        private readonly float _showStaggerStepSeconds = 0.1f;
+        private readonly float _transitionDurationSeconds =  0.3f;
 
         private readonly Dictionary<int, List<float>> _layoutsBySize = new Dictionary<int, List<float>> {
             { 1, new List<float> { 0f } },
@@ -59,12 +62,16 @@ namespace UI.ActionMenu.Bubbles {
         }
 
         IEnumerator ScaleBubbleGroup(IEnumerable<IGrouping<float, Transform>> groups, Vector3 scale) {
+            var sequence = DOTween.Sequence();
+            var time = 0f;
             foreach (var group in groups) {
                 foreach (var bubble in group) {
-                    iTween.ScaleTo(bubble.gameObject, scale, 0.3f);
-                } 
-                yield return new WaitForSeconds(_showStaggerStepSeconds);
+                    sequence.Insert(time, bubble.DOScale(scale, _transitionDurationSeconds));
+                }
+                time += _showStaggerStepSeconds;
             }
+
+            yield return sequence.WaitForCompletion();
         }
         
         IEnumerable<Vector3> _getPoints(int numActions) {
