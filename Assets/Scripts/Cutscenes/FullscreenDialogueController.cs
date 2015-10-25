@@ -9,6 +9,7 @@ public class FullscreenDialogueController : MonoBehaviour, IDialogueController {
 
     public string NextSceneName;
     public GameObject ScreenOverlayPrefab;
+    private GameObject _overlayGameObject;
     private Cutscene _model;
     private string _activeSpeakerName;
     private readonly List<GameObject> _slots = new List<GameObject>(4); 
@@ -62,17 +63,16 @@ public class FullscreenDialogueController : MonoBehaviour, IDialogueController {
     public IEnumerator Initialize(Cutscene model) {
         _model = model;
         CreateSpeakers();
-        var screenOverlay = Instantiate(ScreenOverlayPrefab).GetComponent<ScreenOverlay>();
+        _overlayGameObject = Instantiate(ScreenOverlayPrefab);
+        var screenOverlay = _overlayGameObject.GetComponent<tk2dSpriteFader>();
         screenOverlay.transform.SetParent(transform);
-        screenOverlay.FadeOut(1f);
-        yield return new WaitForSeconds(1f);
+        yield return StartCoroutine(screenOverlay.FadeOut(1f));
     }
 
     public IEnumerator End() {
-        var screenOverlay = Instantiate(ScreenOverlayPrefab).GetComponent<ScreenOverlay>();
+        var screenOverlay = _overlayGameObject.GetComponent<tk2dSpriteFader>();
         screenOverlay.transform.SetParent(transform);
-        screenOverlay.FadeIn(1f);
-        yield return new WaitForSeconds(1f);
+        yield return StartCoroutine(screenOverlay.FadeIn(1f));
         
         Destroy(gameObject);
         Application.LoadLevel(NextSceneName);
