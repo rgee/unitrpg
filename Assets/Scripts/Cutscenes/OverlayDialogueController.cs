@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Net;
+using DG.Tweening;
 using Models.Dialogue;
 using UnityEngine;
 
@@ -33,77 +35,42 @@ public class OverlayDialogueController : MonoBehaviour, IDialogueController {
     public IEnumerator Initialize(Cutscene model) {
         var currentPosition = new Vector3(transform.position.x, transform.position.y*.5f, transform.position.z);
         var newPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+        transform.position = currentPosition;
 
         var currentColor = new Color(_panelSprite.color.r, _panelSprite.color.g, _panelSprite.color.b, 0);
         var endColor = new Color(_panelSprite.color.r, _panelSprite.color.g, _panelSprite.color.b, _panelSprite.color.a);
-        iTween.ValueTo(gameObject, iTween.Hash(
-            "time", IntroTime,
-            "from", currentColor,
-            "to", endColor,
-            "easetype", iTween.EaseType.easeInOutCubic,
-            "onupdate", "SetPanelColor",
-            "onupdatetarget", gameObject
-        ));
-        _portraitView.FadeIn(IntroTime);
-        iTween.ValueTo(gameObject, iTween.Hash(
-            "time", IntroTime,
-            "from", currentPosition,
-            "to", newPosition,
-            "easetype", iTween.EaseType.easeInOutCubic,
-            "onupdate", "SetPosition",
-            "onupdatetarget", gameObject
-        ));
-        yield return new WaitForSeconds(IntroTime);
-    }
+        _panelSprite.color = currentColor;
 
-    private void SetPanelColor(Color color) {
-        _panelSprite.color = color;
-    }
+        // The portrait view must be populated before the dialogue actually starts
+        // so we can tween it in. Grab the first speaker's portrait and add it hidden.
+        var firstDeck = model.Decks[0];
+        var firstSpeaker = firstDeck.Speaker;
+        var firstCard = firstDeck.Cards[0];
+        var firstEmotion = firstCard.EmotionalResponses[firstSpeaker];
+        ChangeSpeaker(firstSpeaker);
+        ChangeEmotion(firstSpeaker, firstEmotion);
+        _portraitView.FadeOut(0);
 
-    private void SetPosition(Vector3 newPos) {
-        transform.position = newPos;
-    }
-
-    private void SetTextColor(Color color) {
-        _bodyText.color = color;
-        _speakerText.color = color;
+        const Ease easing = Ease.OutCubic;
+        yield return DOTween.Sequence()
+            .Append(_panelSprite.DOColor(endColor, IntroTime).SetEase(easing))
+            .Join(transform.DOMove(newPosition, IntroTime).SetEase(easing))
+            .Insert(IntroTime/2f, _portraitView.GetFadeInTween(IntroTime).SetEase(easing))
+            .WaitForCompletion();
     }
 
     public IEnumerator End() {
-        var currentPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
         var newPosition = new Vector3(transform.position.x, transform.position.y*.5f, transform.position.z);
 
-        var endColor = new Color(_panelSprite.color.r, _panelSprite.color.g, _panelSprite.color.b, 0);
-        var currentColor = new Color(_panelSprite.color.r, _panelSprite.color.g, _panelSprite.color.b, _panelSprite.color.a);
-        iTween.ValueTo(gameObject, iTween.Hash(
-            "time", IntroTime,
-            "from", currentColor,
-            "to", endColor,
-            "easetype", iTween.EaseType.easeInOutCubic,
-            "onupdate", "SetPanelColor",
-            "onupdatetarget", gameObject
-        ));
+        const Ease easing = Ease.InCubic;
+        yield return DOTween.Sequence()
+            .Append(transform.DOMove(newPosition, IntroTime).SetEase(easing))
+            .Join(_panelSprite.DOFade(0, IntroTime).SetEase(easing))
+            .Join(_portraitView.GetFadeOutTween(IntroTime).SetEase(easing))
+            .Join(_bodyText.DOFade(0, IntroTime).SetEase(easing))
+            .Join(_speakerText.DOFade(0, IntroTime).SetEase(easing))
+            .WaitForCompletion();
 
-        _portraitView.FadeOut(IntroTime);
-
-        iTween.ValueTo(gameObject, iTween.Hash(
-            "time", IntroTime,
-            "to", new Color(1, 1, 1, 0),
-            "from", new Color(1, 1, 1, 1),
-            "easetype", iTween.EaseType.easeInOutCubic,
-            "onupdate", "SetTextColor",
-            "onupdatetarget", gameObject
-        ));
-
-        iTween.ValueTo(gameObject, iTween.Hash(
-            "time", IntroTime,
-            "from", currentPosition,
-            "to", newPosition,
-            "easetype", iTween.EaseType.easeInOutCubic,
-            "onupdate", "SetPosition",
-            "onupdatetarget", gameObject
-        ));
-        yield return new WaitForSeconds(IntroTime);
         Destroy(gameObject);
     }
 
