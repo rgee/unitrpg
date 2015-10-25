@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using DG.Tweening;
@@ -24,10 +25,10 @@ namespace UI.ActionMenu.Bubbles
 
         private readonly Dictionary<int, List<float>> _layoutsBySize = new Dictionary<int, List<float>> {
             { 1, new List<float> { 0f } },
-            { 2, new List<float> { -20f, 20f } },
-            { 3, new List<float> { 0f, -90f, 90f } },
-            { 4, new List<float> { -25f, 25f, -90f, 90f } },
-            { 5, new List<float> { 0f, -75f, 75f, -135f, 135f } }
+            { 2, new List<float> { 20f, -20f } },
+            { 3, new List<float> { 0f, 90f, -90f } },
+            { 4, new List<float> { 25f, -25f, 90f, -90f } },
+            { 5, new List<float> { 0f, 75f, -75f, 135f, -135f } }
         };
 
         private struct MenuAction {
@@ -98,6 +99,18 @@ namespace UI.ActionMenu.Bubbles
             var bubbleGroups = bubbles.GroupBy(bubble => bubble.transform.localPosition.y)
                 .OrderBy(group => group.Key);
             StartCoroutine(ShowBubbleGroups(bubbleGroups));
+        }
+
+        public void SelectAction(string action) {
+            if (action == "Back") {
+
+
+            } if (action == "Fight") {
+                
+            } else {
+                var actionEnum = (CombatAction) Enum.Parse(typeof(CombatAction), action);
+                SelectedAction = actionEnum;
+            }
         }
 
         IEnumerator ShowBubbleGroups(IEnumerable<IGrouping<float, Transform>> groups) {
