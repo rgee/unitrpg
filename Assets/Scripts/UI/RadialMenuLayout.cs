@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -32,13 +32,10 @@ public class RadialMenuLayout : MonoBehaviour, IPointerEnterHandler, IPointerExi
         destination.Normalize();
         destination.Scale(ActivationOffset);
 
-        iTween.ValueTo(target, iTween.Hash(
-            "from", targetCenter,
-            "to", targetCenter + destination,
-            "time", ActivationTimeSeconds,
-            "onupdate", "SetPosition",
-            "easeType", iTween.EaseType.easeOutQuad
-        ));
+        var targetRectTransform = (RectTransform)target.transform;
+        targetRectTransform
+            .DOAnchorPos(targetCenter + destination, ActivationTimeSeconds)
+            .SetEase(Ease.OutQuad);
     }
 
     public void OnPointerExit(PointerEventData eventData) {
@@ -48,13 +45,9 @@ public class RadialMenuLayout : MonoBehaviour, IPointerEnterHandler, IPointerExi
         }
 
         var targetCenter = _restingPositions[target];
-
-        iTween.ValueTo(target, iTween.Hash(
-            "from", ((RectTransform)target.transform).anchoredPosition,
-            "to", targetCenter,
-            "time", ActivationTimeSeconds,
-            "onupdate", "SetPosition",
-            "easeType", iTween.EaseType.easeOutQuad
-        ));
+        var targetRectTransform = (RectTransform)target.transform;
+        targetRectTransform
+            .DOAnchorPos(targetCenter, ActivationTimeSeconds)
+            .SetEase(Ease.OutQuad);
     }
 }
