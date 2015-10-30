@@ -102,14 +102,17 @@ namespace UI.ActionMenu.Bubbles
         }
 
         public void SelectAction(string action) {
-            if (action == "Back") {
+            switch (action) {
+                case "Back":
+                    CombatEventBus.Backs.Dispatch();
+                    break;
+                case "Fight":
 
-
-            } if (action == "Fight") {
-                
-            } else {
-                var actionEnum = (CombatAction) Enum.Parse(typeof(CombatAction), action);
-                SelectedAction = actionEnum;
+                    break;
+                default:
+                    var actionEnum = (CombatAction) Enum.Parse(typeof(CombatAction), action);
+                    SelectedAction = actionEnum;
+                    break;
             }
         }
 
