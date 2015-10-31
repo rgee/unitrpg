@@ -5,6 +5,7 @@ using System.Linq;
 using DG.Tweening;
 using Models.Combat;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 namespace UI.ActionMenu.Bubbles {
     public class BubbleActionMenu : MonoBehaviour, IActionMenuView {
@@ -160,7 +161,7 @@ namespace UI.ActionMenu.Bubbles {
             var time = 0f;
             var pointList = points.ToList();
 
-            for (var i = 0; i < pointList.Count; i++) {
+            for (var i = 0; i < bubbles.Count; i++) {
                 var point = pointList[i];
                 var bubble = bubbles[i];
                 bubble.SetActive(true);

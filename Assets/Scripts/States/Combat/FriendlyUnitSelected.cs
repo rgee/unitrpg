@@ -60,7 +60,7 @@ public class FriendlyUnitSelected : CancelableCombatState {
             default:
                 throw new ArgumentException("Could not handle action " + action);
         }
-
+        _menu.Hide();
     }
 
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
