@@ -8,7 +8,7 @@ using UnityEngine;
 namespace UI.ActionMenu.Radial {
     public class RadialActionMenuViewProxy : MonoBehaviour, IActionMenuView {
         public CombatAction? SelectedAction { get; set; }
-
+        public bool Canceled { get; set; }
 
         public bool FightSelected { get; set; }
 
@@ -66,7 +66,7 @@ namespace UI.ActionMenu.Radial {
             );
         }
 
-        public void Show(IEnumerable<CombatAction> actions) {
+        public void Show(IEnumerable<CombatAction> actions, IEnumerable<CombatAction> fightActions) {
             var availableActions = actions 
                 .Aggregate((value, next) => value | next);
             var menuPrefab = MoveBraceItemWait;

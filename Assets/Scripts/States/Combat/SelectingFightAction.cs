@@ -17,8 +17,6 @@ public class SelectingFightAction : CancelableCombatState {
         var actions = model.GetAvailableFightActions(_context.SelectedUnit.model);
         _menu.OnActionSelected += HandleAction;
 
-        _menu.transform.position = _context.SelectedUnit.transform.position;
-        _menu.Show(actions);
     }
 
     private void HandleAction(CombatAction action) {

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Models.Combat;
 using UnityEngine;
@@ -8,8 +9,7 @@ namespace UI.ActionMenu {
     public class ActionMenu : MonoBehaviour {
         private IActionMenuView _view;
 
-        public delegate void FightSelectedEventHandler();
-        public event FightSelectedEventHandler OnFightSelected;
+        public event Action OnCancel;
 
         public delegate void ActionSelectedEventHandler(CombatAction action);
         public event ActionSelectedEventHandler OnActionSelected;
@@ -19,35 +19,33 @@ namespace UI.ActionMenu {
             _view = GetComponent<IActionMenuView>();
         }
 
-        public void Show(IEnumerable<CombatAction> actions) {
-           StartCoroutine(AwaitActionSelect(actions));
+        public void Show(IEnumerable<CombatAction> actions, IEnumerable<CombatAction> fightActions) {
+           StartCoroutine(AwaitActionSelect(actions, fightActions));
         }
 
         public void Hide() {
             StopAllCoroutines();
+            _view.Canceled = false;
             _view.SelectedAction = null;
             StartCoroutine(_view.Hide());
         }
 
-        IEnumerator AwaitActionSelect(IEnumerable<CombatAction> actions) {
-           _view.Show(actions);
-            while (_view.SelectedAction == null && !_view.FightSelected) {
+        IEnumerator AwaitActionSelect(IEnumerable<CombatAction> actions, IEnumerable<CombatAction> fightActions) {
+           _view.Show(actions, fightActions);
+            while (_view.SelectedAction == null && !_view.Canceled) {
                 yield return null;
             }
 
-            yield return StartCoroutine(_view.Hide());
-
-            if (_view.FightSelected) {
-                if (OnFightSelected != null) {
-                    OnFightSelected();
-                }
-            } else if (_view.SelectedAction != null) {
+            if (_view.SelectedAction != null) {
                 if (OnActionSelected != null) {
                     OnActionSelected(_view.SelectedAction.Value);
                 }
+            } else if (_view.Canceled) {
+                if (OnCancel != null) {
+                    OnCancel();
+                }
             }
-            _view.SelectedAction = null;
-            _view.FightSelected = false;
+
         }
     }
 }

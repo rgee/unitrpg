@@ -19,14 +19,12 @@ public class FriendlyUnitSelected : CancelableCombatState {
         var model = _battleState.Model;
         var unitModel = _battleState.SelectedUnit.model;
         var actions = model.GetAvailableActions(unitModel);
-
-        _menu.OnFightSelected += () => {
-            _animator.SetTrigger("fight_selected");
-        };
+        var fightActions = model.GetAvailableFightActions(unitModel);
 
         _menu.OnActionSelected += HandleAction;
+        _menu.OnCancel += OnCancel;
         _menu.transform.position = _battleState.SelectedUnit.transform.position;
-        _menu.Show(actions);
+        _menu.Show(actions, fightActions);
     }
 
     protected override void OnCancel() {
