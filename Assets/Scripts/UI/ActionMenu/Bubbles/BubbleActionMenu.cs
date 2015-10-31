@@ -23,6 +23,7 @@ namespace UI.ActionMenu.Bubbles {
         public bool Canceled { get; set; }
 
         private Transform _containerTransform;
+        private readonly Vector3 _buttonScale = new Vector3(.25f, .25f, .25f);
         private readonly Vector2 _basisVector = new Vector2(0, 1);
         private readonly float _showStaggerStepSeconds = 0.1f;
         private readonly float _transitionDurationSeconds =  0.3f;
@@ -165,7 +166,7 @@ namespace UI.ActionMenu.Bubbles {
                 var point = pointList[i];
                 var bubble = bubbles[i];
                 bubble.SetActive(true);
-                bubble.transform.localScale = new Vector3(.5f, .5f, .5f);
+                bubble.transform.localScale = _buttonScale;
                 seq.Insert(time, bubble.transform.DOLocalMove(point, _transitionDurationSeconds));
                 time += _showStaggerStepSeconds;
             }
@@ -227,7 +228,7 @@ namespace UI.ActionMenu.Bubbles {
                     bubble.gameObject.SetActive(true);
                 }
             }
-            yield return StartCoroutine(ScaleBubbleGroup(groups, new Vector3(.5f, .5f, .5f)));
+            yield return StartCoroutine(ScaleBubbleGroup(groups, _buttonScale));
         }
 
         IEnumerator HideBubbleGroups(IEnumerable<IGrouping<float, Transform>> groups) {
