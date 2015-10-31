@@ -95,7 +95,7 @@ namespace UI.ActionMenu.Bubbles {
         }
 
         private List<GameObject> getSortedBubblesForActions(IList<CombatAction> combatActions) {
-// Convert the combat action enums to MenuAction names
+            // Convert the combat action enums to MenuAction names
             var actionStrings = combatActions.Select(action => action.ToString()).ToHashSet();
 
             // Get the MenuActions being requested and sort them by priroity in descending order
