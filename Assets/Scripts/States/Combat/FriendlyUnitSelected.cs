@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using Models.Combat;
 using UI.ActionMenu;
 using UnityEngine;
@@ -19,11 +20,20 @@ public class FriendlyUnitSelected : CancelableCombatState {
         var unitModel = _battleState.SelectedUnit.model;
         var actions = model.GetAvailableActions(unitModel);
 
+        _menu.OnFightSelected += () => {
+            _animator.SetTrigger("fight_selected");
+        };
+
         _menu.OnActionSelected += HandleAction;
         _menu.transform.position = _battleState.SelectedUnit.transform.position;
         _menu.Show(actions);
     }
 
+    protected override void OnCancel() {
+        _menu.Hide();
+        base.OnCancel(); 
+    }
+    
     private void HandleAction(CombatAction action) {
         switch (action) {
             case CombatAction.Move:
@@ -47,7 +57,7 @@ public class FriendlyUnitSelected : CancelableCombatState {
             case CombatAction.Cover:
                 break;
             case CombatAction.Attack:
-                _animator.SetTrigger("fight_selected");
+                _animator.SetTrigger("attack_selected");
                 break;
             default:
                 throw new ArgumentException("Could not handle action " + action);
@@ -57,6 +67,5 @@ public class FriendlyUnitSelected : CancelableCombatState {
 
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         _menu.OnActionSelected -= HandleAction;
-        _menu.Hide();
     }
 }

@@ -20,7 +20,7 @@ public class CancelableCombatState : StateMachineBehaviour {
         CombatEventBus.Backs.RemoveListener(OnCancel);
     }
 
-    void OnCancel() {
+    protected virtual void OnCancel() {
         _state.ResetToUnitSelectedState();
         _animator.SetTrigger("action_canceled");
     }

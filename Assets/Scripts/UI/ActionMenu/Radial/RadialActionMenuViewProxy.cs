@@ -7,10 +7,10 @@ using UnityEngine;
 
 namespace UI.ActionMenu.Radial {
     public class RadialActionMenuViewProxy : MonoBehaviour, IActionMenuView {
-        public CombatAction? SelectedAction {
-            get { return _selectedAction; }
-            set { _selectedAction = value; }
-        }
+        public CombatAction? SelectedAction { get; set; }
+
+
+        public bool FightSelected { get; set; }
 
         [Tooltip("For when there are enemies nearby, but no friendlies")]
         public GameObject MoveFightFull;
@@ -33,7 +33,6 @@ namespace UI.ActionMenu.Radial {
 
         private GameObject _openMenu;
         private readonly Dictionary<CombatAction, GameObject> _prefabsByActions = new Dictionary<CombatAction, GameObject>();
-        private CombatAction? _selectedAction;
 
         public void Awake() {
             _prefabsByActions.Add(
@@ -93,16 +92,16 @@ namespace UI.ActionMenu.Radial {
             }
 
             if (actionSelector.SelectedAction == CombatAction.Fight) {
-                var selector = ShowFightSubMenu();
-                yield return StartCoroutine(AwaitAction(selector));
+                FightSelected = true;
             } else {
-                _selectedAction = actionSelector.SelectedAction;
+                SelectedAction = actionSelector.SelectedAction;
             }
         } 
 
-        public void Hide() {
+        public IEnumerator Hide() {
             Destroy(_openMenu);
             _openMenu = null;
+            yield return null;
         }
 
         private NamedActionSelector ShowFightSubMenu() {

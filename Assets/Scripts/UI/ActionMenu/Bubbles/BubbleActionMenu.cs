@@ -15,6 +15,10 @@ namespace UI.ActionMenu.Bubbles
         [Tooltip("The prefab for each bubble.")]
         public GameObject BubblePrefab;
 
+        public CombatAction? SelectedAction { get; set; }
+
+        public bool FightSelected { get; set; }
+
         private Transform _containerTransform;
 
         private readonly Vector2 _basisVector = new Vector2(0, 1);
@@ -22,6 +26,7 @@ namespace UI.ActionMenu.Bubbles
         private readonly float _transitionDurationSeconds =  0.3f;
 
         private readonly Dictionary<string, GameObject> _bubblesByActionName = new Dictionary<string, GameObject>();
+
 
         private readonly Dictionary<int, List<float>> _layoutsBySize = new Dictionary<int, List<float>> {
             { 1, new List<float> { 0f } },
@@ -107,7 +112,7 @@ namespace UI.ActionMenu.Bubbles
                     CombatEventBus.Backs.Dispatch();
                     break;
                 case "Fight":
-
+                    FightSelected = true;
                     break;
                 default:
                     var actionEnum = (CombatAction) Enum.Parse(typeof(CombatAction), action);
@@ -147,14 +152,15 @@ namespace UI.ActionMenu.Bubbles
             return rotations.Select((f => Quaternion.Euler(0, 0, f)*(_basisVector*Scale)));
         } 
 
-        public CombatAction? SelectedAction { get; set; }
 
-        public void Hide() {
+        public IEnumerator Hide() {
             var bubbles =
                 _bubblesByActionName.Values.Where(bubble => bubble.activeSelf).Select(bubble => bubble.transform);
             var bubbleGroups = bubbles.GroupBy(bubble => bubble.localPosition.y)
                 .OrderByDescending(group => group.Key);
-            StartCoroutine(HideBubbleGroups(bubbleGroups));
+            Debug.Log("Scaling");
+            yield return StartCoroutine(HideBubbleGroups(bubbleGroups));
+            Debug.Log("Scaling done");
         }
     }
 }
