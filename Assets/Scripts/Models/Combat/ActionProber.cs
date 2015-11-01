@@ -13,9 +13,8 @@ namespace Models.Combat {
         }
 
         public IEnumerable<CombatAction> GetAvailableFightActions(Unit unit) {
-            var results = new List<CombatAction>();
             if (!CanFight(unit)) {
-                return results;
+                return new List<CombatAction>();
             }
 
             return unit.Character.Actions;

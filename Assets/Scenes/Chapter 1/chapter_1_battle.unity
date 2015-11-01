@@ -1381,64 +1381,6 @@ Mesh:
   m_BakedConvexCollisionMesh: 
   m_BakedTriangleCollisionMesh: 
   m_MeshOptimized: 0
---- !u!1001 &137600245
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 11449674, guid: 0e9866be5259328478b55b03e13b7b10, type: 2}
-      propertyPath: Triggers.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11449674, guid: 0e9866be5259328478b55b03e13b7b10, type: 2}
-      propertyPath: TriggerObjects.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 437690, guid: 0e9866be5259328478b55b03e13b7b10, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 103.946335
-      objectReference: {fileID: 0}
-    - target: {fileID: 437690, guid: 0e9866be5259328478b55b03e13b7b10, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 27.6357269
-      objectReference: {fileID: 0}
-    - target: {fileID: 437690, guid: 0e9866be5259328478b55b03e13b7b10, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -4.125
-      objectReference: {fileID: 0}
-    - target: {fileID: 437690, guid: 0e9866be5259328478b55b03e13b7b10, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 437690, guid: 0e9866be5259328478b55b03e13b7b10, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 437690, guid: 0e9866be5259328478b55b03e13b7b10, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 437690, guid: 0e9866be5259328478b55b03e13b7b10, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 437690, guid: 0e9866be5259328478b55b03e13b7b10, type: 2}
-      propertyPath: m_RootOrder
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 11449674, guid: 0e9866be5259328478b55b03e13b7b10, type: 2}
-      propertyPath: TriggerObjects.Array.data[0]
-      value: 
-      objectReference: {fileID: 174852, guid: f2a306571810e2d47aa236862d34a287, type: 2}
-    - target: {fileID: 152440, guid: 0e9866be5259328478b55b03e13b7b10, type: 2}
-      propertyPath: m_TagString
-      value: BattleManager
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 0e9866be5259328478b55b03e13b7b10, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &138334939
 GameObject:
   m_ObjectHideFlags: 0
@@ -3983,6 +3925,48 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 31, y: 31, z: .200000003}
   m_Center: {x: -.5, y: .5, z: 0}
+--- !u!1001 &457860760
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 437690, guid: 0e9866be5259328478b55b03e13b7b10, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 103.946335
+      objectReference: {fileID: 0}
+    - target: {fileID: 437690, guid: 0e9866be5259328478b55b03e13b7b10, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 27.6357269
+      objectReference: {fileID: 0}
+    - target: {fileID: 437690, guid: 0e9866be5259328478b55b03e13b7b10, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -4.125
+      objectReference: {fileID: 0}
+    - target: {fileID: 437690, guid: 0e9866be5259328478b55b03e13b7b10, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 437690, guid: 0e9866be5259328478b55b03e13b7b10, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 437690, guid: 0e9866be5259328478b55b03e13b7b10, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 437690, guid: 0e9866be5259328478b55b03e13b7b10, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 437690, guid: 0e9866be5259328478b55b03e13b7b10, type: 2}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 0e9866be5259328478b55b03e13b7b10, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &463237653 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 131646, guid: b8bfab5258323cd48abf98df83b9a450, type: 2}
@@ -5224,7 +5208,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 579556402}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1010c4cd9ae399949943c884a6366321, type: 3}
   m_Name: 

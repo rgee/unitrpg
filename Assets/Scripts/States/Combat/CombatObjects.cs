@@ -1,4 +1,5 @@
 ﻿using Grid;
+using UI.ActionMenu;
 using UnityEngine;
 
 public static class CombatObjects {
@@ -38,8 +39,8 @@ public static class CombatObjects {
         return GetCamera().GetComponent<GridCameraController>();
     }
 
-    public static ActionMenuManager GetActionMenuManager() {
-        return GameObject.FindGameObjectWithTag("ActionMenuManager").GetComponent<ActionMenuManager>();
+    public static ActionMenu GetActionMenu() {
+        return GameObject.FindGameObjectWithTag("Action Menu").GetComponent<ActionMenu>();
     }
 
     public static CombatForecaster GetCombatForecaster() {

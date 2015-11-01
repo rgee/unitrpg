@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using DG.Tweening;
 using UnityEngine;
 
 namespace Grid {
@@ -62,15 +63,7 @@ namespace Grid {
         }
 
         public void FadeIn() {
-            iTween.ValueTo(gameObject, iTween.Hash(
-                "from", 0f, "to", 1f,
-                "time", 0.4f, "easetype", "linear",
-                "onupdate", "SetAlpha"
-            ));
-        }
-
-        public void SetAlpha(float newAlpha) {
-            _sprite.color = new Color(_sprite.color.r, _sprite.color.g, _sprite.color.b, newAlpha);
+            _sprite.DOFade(1f, 0.4f);
         }
 
         private void HandleHit(tk2dSpriteAnimator animator, tk2dSpriteAnimationClip clip, int frame) {

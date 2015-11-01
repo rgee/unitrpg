@@ -1,48 +1,21 @@
 ﻿using System;
+using DG.Tweening;
 using UnityEngine;
 
 public class PhaseText : MonoBehaviour {
-    private float Delay;
-    private float MoveTime;
-    private Vector2 OffScreen;
-    private Action OnComplete;
-    private RectTransform RectTransform;
+    private RectTransform _rectTransform;
 
     public void Awake() {
-        RectTransform = GetComponent<RectTransform>();
+        _rectTransform = GetComponent<RectTransform>();
     }
 
     public void MoveThroughScreen(PhaseTextFlyByCommand command, Action onComplete) {
-        MoveTime = command.moveTime;
-        Delay = command.pause;
-        OnComplete = onComplete;
-        OffScreen = command.offscreen;
+        var tweenSeq = DOTween.Sequence()
+            .Append(_rectTransform.DOAnchorPos(command.center, command.moveTime).SetEase(Ease.OutCubic))
+            .AppendInterval(command.pause)
+            .Append(_rectTransform.DOAnchorPos(command.offscreen, command.moveTime).SetEase(Ease.InCubic))
+            .OnComplete(() => onComplete());
 
-        iTween.ValueTo(gameObject, iTween.Hash(
-            "time", MoveTime,
-            "from", RectTransform.anchoredPosition,
-            "to", command.center,
-            "onupdate", "SetNewPosition",
-            "oncomplete", "MoveOffScreen"
-            ));
-    }
-
-    private void SetNewPosition(Vector2 pos) {
-        RectTransform.anchoredPosition = pos;
-    }
-
-    private void MoveOffScreen() {
-        iTween.ValueTo(gameObject, iTween.Hash(
-            "time", MoveTime,
-            "delay", Delay,
-            "from", RectTransform.anchoredPosition,
-            "to", OffScreen,
-            "onupdate", "SetNewPosition",
-            "oncomplete", "OnMoveComplete"
-            ));
-    }
-
-    private void OnMoveComplete() {
-        OnComplete();
+        tweenSeq.Play();
     }
 }

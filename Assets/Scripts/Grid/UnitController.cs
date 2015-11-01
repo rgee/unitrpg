@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using DG.Tweening;
 using UnityEngine;
 
 [RequireComponent(typeof(Grid.Unit))]
@@ -44,12 +45,10 @@ public class UnitController : MonoBehaviour {
             var currentDestination = MathUtils.Round(CurrentPath[CurrentPathIdx]);
             _unit.Facing = MathUtils.DirectionTo(MathUtils.Round(PreviousPoint), currentDestination);
 
-            iTween.MoveTo(gameObject, iTween.Hash(
-                "position", currentDestination,
-                "time", 0.3f,
-                "oncomplete", "StartNextSegment",
-                "easetype", iTween.EaseType.linear
-                ));
+            transform
+                .DOMove(currentDestination, 0.4f)
+                .SetEase(Ease.Linear)
+                .OnComplete(StartNextSegment);
         } else {
             _unit.Running = false;
             CommitMoveToModel();

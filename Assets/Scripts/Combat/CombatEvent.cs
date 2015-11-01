@@ -2,6 +2,7 @@
 using Grid;
 using UnityEngine;
 using System.Collections.Generic;
+using DG.Tweening;
 
 namespace Combat {
     /**
@@ -24,14 +25,8 @@ namespace Combat {
         public abstract IEnumerator Play();
 
         protected IEnumerator PanCamera(Vector2 destination) {
-            var time =  .7f;
-            iTween.MoveTo(_camera, iTween.Hash(
-                "x", destination.x,
-                "y", destination.y,
-                "time", time
-            ));
-
-            yield return new WaitForSeconds(time);
+            const float time = .7f;
+            yield return _camera.transform.DOMove(destination, time).WaitForCompletion();
         }
 
         protected IEnumerator SpawnUnits(List<ScriptedEvents.SpawnableUnit> units) {
@@ -41,12 +36,12 @@ namespace Combat {
 
             var unitManager = CombatObjects.GetUnitManager();
             foreach (var unit in units) {
-                var gameObject = Instantiate(unit.Prefab);
-                var component = gameObject.GetComponent<Grid.Unit>();
+                var unitGameObject = Instantiate(unit.Prefab);
+                var component = unitGameObject.GetComponent<Grid.Unit>();
                 component.gridPosition = unit.SpawnPoint;
                 component.model.GridPosition = unit.SpawnPoint;
 
-                unitManager.SpawnUnit(gameObject);
+                unitManager.SpawnUnit(unitGameObject);
             }
 
             yield return null;

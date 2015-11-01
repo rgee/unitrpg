@@ -46,8 +46,19 @@ public class PreviewingFight : CancelableCombatState {
         Animator.SetTrigger("attack_confirmed");
     }
 
+    public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            ReturnUnitsToRest();
+        }
+        base.OnStateUpdate(animator, stateInfo, layerIndex);
+    }
+
     private void OnReject() {
+        ReturnUnitsToRest();
         Animator.SetTrigger("attack_rejected");
+    }
+
+    private void ReturnUnitsToRest() {
         State.SelectedUnit.ReturnToRest();
         State.AttackTarget.ReturnToRest();
     }

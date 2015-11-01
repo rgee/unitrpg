@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using DG.Tweening;
 using Models;
 using UnityEngine;
 
@@ -11,44 +12,38 @@ public class DialoguePortraitView : MonoBehaviour {
     public string ActorName;
 
     private GameObject _currentActorPortrait;
-    private static readonly Color FadedColor = new Color(92f/255f, 92f/255f, 92f/255f);
+    private static readonly Color FadedColor = new Color(.3f, .3f, .3f);
     private const float FadeTimeSeconds = 1f;
 
     private IPortraitAligner _portraitAligner;
+    private tk2dSprite _headSprite;
+    private tk2dSprite _bodySprite;
 
     void Awake() {
         _portraitAligner = GetComponent<IPortraitAligner>();
     }
 
+    public Tween GetFadeInTween(float time) {
+        return DOTween.Sequence()
+            .Append(_headSprite.DOFade(1, time))
+            .Insert(0, _bodySprite.DOFade(1, time));
+    }
+
+    public Tween GetFadeOutTween(float time) {
+        return DOTween.Sequence()
+            .Append(_headSprite.DOFade(0, time))
+            .Insert(0, _bodySprite.DOFade(0, time));
+    }
+
     public void FadeOut(float time) {
-       iTween.ValueTo(gameObject, iTween.Hash(
-            "time", time,
-            "from", new Color(1, 1, 1, 1),
-            "to", new Color(1, 1, 1, 0),
-            "easetype", iTween.EaseType.easeInOutCubic,
-            "onupdate", "SetColor",
-            "onupdatetarget", gameObject
-       ));
+        GetFadeOutTween(time).Play();
     }
 
     public void FadeIn(float time) {
-       iTween.ValueTo(gameObject, iTween.Hash(
-            "time", time,
-            "from", new Color(1, 1, 1, 0),
-            "to", new Color(1, 1, 1, 1),
-            "easetype", iTween.EaseType.easeInOutCubic,
-            "onupdate", "SetColor",
-            "onupdatetarget", gameObject
-       ));
-    }
-
-    private void SetColor(Color color) {
-        if (_currentActorPortrait == null) {
-            return;
-        }
-
-        _currentActorPortrait.transform.FindChild("Head").GetComponent<tk2dSprite>().color = color;
-        _currentActorPortrait.transform.FindChild("Body").GetComponent<tk2dSprite>().color = color;
+        DOTween.Sequence()
+            .Append(_headSprite.DOFade(1, time))
+            .Insert(0, _bodySprite.DOFade(1, time))
+            .Play();
     }
 
     public void SetActor(string name, EmotionType emotion, Facing direction) {
@@ -68,6 +63,8 @@ public class DialoguePortraitView : MonoBehaviour {
 
         instantiatedGameObject.transform.SetParent(transform);
         _currentActorPortrait = instantiatedGameObject;
+        _headSprite = _currentActorPortrait.transform.FindChild("Head").GetComponent<tk2dSprite>();
+        _bodySprite = _currentActorPortrait.transform.FindChild("Body").GetComponent<tk2dSprite>();
     }
 
     public IEnumerator FadeToEmpty() {
@@ -89,7 +86,7 @@ public class DialoguePortraitView : MonoBehaviour {
             return;
         }
 
-        StartCoroutine(FadeTo(Color.white, FadeTimeSeconds));
+        FadeTo(Color.white, FadeTimeSeconds);
     }
 
     public void Deactivate() {
@@ -97,24 +94,13 @@ public class DialoguePortraitView : MonoBehaviour {
             return;
         }
 
-        StartCoroutine(FadeTo(FadedColor, FadeTimeSeconds));
+        FadeTo(FadedColor, FadeTimeSeconds);
     }
 
-    private IEnumerator FadeTo(Color color, float time) {
-        var head = _currentActorPortrait.transform.FindChild("Head").GetComponent<tk2dSprite>();
-        var body = _currentActorPortrait.transform.FindChild("Body").GetComponent<tk2dSprite>();
-
-        var headFromColor = head.color;
-        var bodyFromColor = body.color;
-
-        for (float t = 0; t < time; t += tk2dUITime.deltaTime) {
-            var headColor = Color.Lerp(headFromColor, color, t);
-            head.color = headColor;
-
-            var bodyColor = Color.Lerp(bodyFromColor, color, t);
-            body.color = bodyColor;
-
-            yield return null;
-        }
+    private void FadeTo(Color color, float time) {
+        DOTween.Sequence()
+            .Append(_headSprite.DOColor(color, time))
+            .Join(_bodySprite.DOColor(color, time))
+            .Play();
     }
 }

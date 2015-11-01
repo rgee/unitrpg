@@ -1,6 +1,8 @@
-﻿using UnityEngine;
+﻿using DG.Tweening;
+using UnityEngine;
 
 public class LiatAdvance : MonoBehaviour {
+    public float AdvanceTimeSeconds = 0.1f;
     private Animator Animator;
     private Grid.Unit Unit;
 
@@ -11,11 +13,7 @@ public class LiatAdvance : MonoBehaviour {
 
     public void Advance() {
         var advancePos = CombatObjects.GetBattleState().AttackTarget.transform.position;
-        iTween.MoveTo(gameObject, iTween.Hash(
-            "position", advancePos,
-            "time", 0.1f,
-            "easetype", iTween.EaseType.easeOutExpo
-            ));
+        transform.DOMove(advancePos, AdvanceTimeSeconds).SetEase(Ease.OutExpo);
     }
 
     public void Update() {
