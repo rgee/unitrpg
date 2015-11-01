@@ -10,6 +10,8 @@ using UnityEngine;
 public class Dialogue : MonoBehaviour {
     public TextAsset SourceFile;
 
+    public event Action OnComplete;
+
     private IDialogueController _controller;
     private DialogueTextAnimator _textAnimator;
     private Models.Dialogue.Cutscene _model;
@@ -24,7 +26,7 @@ public class Dialogue : MonoBehaviour {
         _model = Models.Dialogue.DialogueUtils.ParseFromJson(SourceFile.text);
     }
 
-    private void Start() {
+    public void Begin() {
         StartCoroutine(Initialize());
     }
 
@@ -38,7 +40,14 @@ public class Dialogue : MonoBehaviour {
         }
 
         if (Input.GetKeyDown(KeyCode.Escape)) {
-            StartCoroutine(_controller.End());
+            StartCoroutine(End());
+        }
+    }
+
+    private IEnumerator End() {
+        yield return StartCoroutine(_controller.End());
+        if (OnComplete != null) {
+            OnComplete();
         }
     }
 
@@ -74,7 +83,7 @@ public class Dialogue : MonoBehaviour {
 
         // If we've reached the end of the decks, end the dialogue.
         if (_deckIndex >= _model.Decks.Count) {
-            StartCoroutine(_controller.End());
+            StartCoroutine(End());
             return;
         }
 

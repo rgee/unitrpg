@@ -38,7 +38,7 @@ public class OverlayDialogueController : MonoBehaviour, IDialogueController {
         transform.position = currentPosition;
 
         var currentColor = new Color(_panelSprite.color.r, _panelSprite.color.g, _panelSprite.color.b, 0);
-        var endColor = new Color(_panelSprite.color.r, _panelSprite.color.g, _panelSprite.color.b, _panelSprite.color.a);
+        var endColor = new Color(0, 0, 0, .67f);
         _panelSprite.color = currentColor;
 
         // The portrait view must be populated before the dialogue actually starts
