@@ -36,7 +36,7 @@ namespace Assets.Contexts.Base {
             if (this == Context.firstContext) {
                 startBinding.To<RootStartCommand>().To<StartCommand>().InSequence();
             } else {
-                startBinding.To<StartCommand>();
+                startBinding.To<KillAudioListenerCommand>().To<StartCommand>().InSequence();
             }
 
             injectionBinder.Bind<AddSceneSignal>().ToSingleton().CrossContext();
