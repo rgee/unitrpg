@@ -9,8 +9,8 @@ using UnityEngine;
 [RequireComponent(typeof(DialogueTextAnimator))]
 public class Dialogue : MonoBehaviour {
     public TextAsset SourceFile;
-
     public event Action OnComplete;
+    public bool AutoStart = false;
 
     private IDialogueController _controller;
     private DialogueTextAnimator _textAnimator;
@@ -24,6 +24,12 @@ public class Dialogue : MonoBehaviour {
         _controller = GetComponent<IDialogueController>();
         _textAnimator = GetComponent<DialogueTextAnimator>();
         _model = Models.Dialogue.DialogueUtils.ParseFromJson(SourceFile.text);
+    }
+
+    private void Start() {
+        if (AutoStart) {
+            Begin();
+        }
     }
 
     public void Begin() {

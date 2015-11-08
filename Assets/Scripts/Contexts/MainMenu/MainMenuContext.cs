@@ -21,8 +21,11 @@ namespace Contexts.MainMenu {
 
         protected override void mapBindings() {
             base.mapBindings();
+
             mediationBinder.Bind<MainMenuView>().To<MainMenuMediator>();
+
             commandBinder.Bind<OptionsSignal>().To<LoadOptionsCommand>();
+            commandBinder.Bind<NewGameSignal>().To<NewGameCommand>();
         }
     }
 }

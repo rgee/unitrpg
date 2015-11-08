@@ -2,7 +2,7 @@
 using strange.extensions.context.api;
 using UnityEngine;
 
-namespace Contexts.Common {
+namespace Contexts.Common.Utils {
     public class RoutineRunner : IRoutineRunner {
         [Inject(ContextKeys.CONTEXT_VIEW)]
         public GameObject ContextView { get; set; }

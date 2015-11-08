@@ -16,5 +16,9 @@ namespace Contexts.MainMenu.Views {
         public void Options() {
             OptionsClicked.Dispatch();
         }
+
+        public void NewGame() {
+            NewGameClicked.Dispatch();
+        }
     }
 }
