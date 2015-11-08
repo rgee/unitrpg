@@ -1,7 +1,7 @@
 ﻿using strange.extensions.command.impl;
 using UnityEditor;
 
-namespace Assets.Contexts.Application.Commands {
+namespace Contexts.Base.Commands {
     public class QuitGameCommand : Command {
         public override void Execute() {
             if (UnityEngine.Application.isEditor) {

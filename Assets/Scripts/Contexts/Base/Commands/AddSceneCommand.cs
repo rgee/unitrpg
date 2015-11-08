@@ -1,7 +1,7 @@
 ﻿using System;
 using strange.extensions.command.impl;
 
-namespace Assets.Contexts.Application.Commands {
+namespace Contexts.Base.Commands {
     public class AddSceneCommand : Command {
         [Inject]
         public string SceneName { get; set; }

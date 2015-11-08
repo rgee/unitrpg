@@ -1,4 +1,6 @@
 ﻿using Assets.Contexts.Base;
+using Contexts.MainMenu.Commands;
+using Contexts.MainMenu.Signals;
 using Contexts.MainMenu.Views;
 using strange.extensions.command.api;
 using strange.extensions.command.impl;
@@ -20,6 +22,7 @@ namespace Contexts.MainMenu {
         protected override void mapBindings() {
             base.mapBindings();
             mediationBinder.Bind<MainMenuView>().To<MainMenuMediator>();
+            commandBinder.Bind<OptionsSignal>().To<LoadOptionsCommand>();
         }
     }
 }

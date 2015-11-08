@@ -1,10 +1,9 @@
 ﻿
 
-using Assets.Contexts.Application.Commands;
 using Assets.Contexts.Application.Signals;
-using Contexts.Application.Commands;
 using Contexts.Base.Commands;
 using Contexts.Base.Signals;
+using Contexts.Common;
 using strange.extensions.command.api;
 using strange.extensions.command.impl;
 using strange.extensions.context.impl;
@@ -39,6 +38,7 @@ namespace Assets.Contexts.Base {
                 startBinding.To<KillAudioListenerCommand>().To<StartCommand>().InSequence();
             }
 
+            injectionBinder.Bind<IRoutineRunner>().To<RoutineRunner>().CrossContext();
             injectionBinder.Bind<AddSceneSignal>().ToSingleton().CrossContext();
             injectionBinder.Bind<QuitGameSignal>().ToSingleton().CrossContext();
             commandBinder.Bind<AddSceneSignal>().To<AddSceneCommand>();

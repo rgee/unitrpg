@@ -17,11 +17,11 @@ namespace UI {
             _image.rectTransform.localScale = new Vector2(Screen.width, Screen.height);
         }
 
-        IEnumerator FadeToBlack() {
+        public IEnumerator FadeToBlack() {
             yield return _image.DOFade(1f, 0.3f).WaitForCompletion();
         }
 
-        IEnumerator Reveal() {
+        public IEnumerator Reveal() {
             yield return _image.DOFade(0f, 0.3f).WaitForCompletion();
         }
     }

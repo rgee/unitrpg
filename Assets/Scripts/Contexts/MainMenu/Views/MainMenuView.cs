@@ -12,5 +12,9 @@ namespace Contexts.MainMenu.Views {
         public void Quit() {
             QuitClicked.Dispatch();
         }
+
+        public void Options() {
+            OptionsClicked.Dispatch();
+        }
     }
 }
