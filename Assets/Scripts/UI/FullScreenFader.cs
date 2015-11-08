@@ -4,25 +4,22 @@ using UnityEngine;
 using UnityEngine.UI;
 
 namespace UI {
-    [RequireComponent(typeof(Image))]
     public class FullScreenFader : MonoBehaviour {
+        public float FadeTime = .5f;
         private Image _image;
 
         void Awake() {
-            _image = GetComponent<Image>();
-        }
-
-
-        void Update() {
-            _image.rectTransform.localScale = new Vector2(Screen.width, Screen.height);
+            _image = transform.FindChild("Image").GetComponent<Image>();
         }
 
         public IEnumerator FadeToBlack() {
-            yield return _image.DOFade(1f, 0.3f).WaitForCompletion();
+            gameObject.SetActive(true);
+            yield return _image.DOFade(1f, FadeTime).WaitForCompletion();
         }
 
         public IEnumerator Reveal() {
-            yield return _image.DOFade(0f, 0.3f).WaitForCompletion();
+            yield return _image.DOFade(0f, FadeTime).WaitForCompletion();
+            gameObject.SetActive(false);
         }
     }
 }

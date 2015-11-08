@@ -22,6 +22,7 @@ namespace Contexts.Global {
             base.Start();
             var fader = Resources.Load("FullScreenFader") as GameObject;
             var faderObj = Instantiate(fader);
+            faderObj.SetActive(false);
 
             _fader = faderObj.GetComponent<FullScreenFader>();
 
