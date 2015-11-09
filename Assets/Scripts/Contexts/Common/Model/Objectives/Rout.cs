@@ -9,7 +9,7 @@
         public string Description {
             get {
                 return _turnLimit == null
-                    ? "Kill all enemies."
+                    ? "Kill all enemies"
                     : string.Format("Kill all enemies in {0} turns", _turnLimit);
             }
         }
