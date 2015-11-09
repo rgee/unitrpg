@@ -33,6 +33,9 @@ namespace Contexts.BattlePrep {
             injectionBinder.Bind<ActionSelectedSignal>().ToSingleton();
 
 
+            commandBinder.Bind<ActionSelectedSignal>()
+                .To<ActionSelectedCommand>();
+
             commandBinder.Bind<UpdateObjectiveSignal>()
                 .To<UpdateObjectiveCommand>();
 
@@ -40,9 +43,7 @@ namespace Contexts.BattlePrep {
                 .To<HidePrepCommand>();
 
             commandBinder.Bind<ClosePrepSignal>()
-                .To<HidePrepCommand>()
-                .To<RemoveContextCommand>()
-                .InSequence();
+                .To<HidePrepCommand>();
 
             mediationBinder.Bind<BattlePrepView>().To<BattlePrepViewMediator>();    
         }

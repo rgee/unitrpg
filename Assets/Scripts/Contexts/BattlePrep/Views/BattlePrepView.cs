@@ -37,7 +37,13 @@ namespace Contexts.BattlePrep.Views {
         }
 
         public IEnumerator TransitionOut() {
-            yield return null;
+            var objectiveContainer = transform.FindChild("Objective").GetComponent<RectTransform>();
+            var buttonContainer = transform.FindChild("Buttons").GetComponent<RectTransform>();
+
+            var seq = DOTween.Sequence()
+                .Insert(0, buttonContainer.DOAnchorPos(new Vector2(0, -100), 0.3f).SetEase(Ease.OutCubic))
+                .Insert(0, objectiveContainer.DOAnchorPos(new Vector2(0, 100), 0.3f).SetEase(Ease.OutCubic));
+            yield return seq.WaitForCompletion();
         }
     }
 }
