@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections;
 using Contexts.BattlePrep.Models;
+using DG.Tweening;
 using strange.extensions.mediation.impl;
 using strange.extensions.signal.impl;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace Contexts.BattlePrep.Views {
@@ -25,7 +27,13 @@ namespace Contexts.BattlePrep.Views {
         }
 
         public IEnumerator TransitionIn() {
-            yield return null;
+            var objectiveContainer = transform.FindChild("Objective").GetComponent<RectTransform>();
+            var buttonContainer = transform.FindChild("Buttons").GetComponent<RectTransform>();
+
+            var seq = DOTween.Sequence()
+                .Insert(0, buttonContainer.DOAnchorPos(Vector2.zero, 0.3f).SetEase(Ease.OutCubic))
+                .Insert(0, objectiveContainer.DOAnchorPos(Vector2.zero, 0.3f).SetEase(Ease.OutCubic));
+            yield return seq.WaitForCompletion();
         }
 
         public IEnumerator TransitionOut() {

@@ -13,12 +13,14 @@ namespace Contexts.BattlePrep.Commands {
         public IRoutineRunner CorRoutineRunner { get; set; }
 
         public override void Execute() {
+            Retain();
             CorRoutineRunner.StartCoroutine(DelayedDispatch());
         }
 
         private IEnumerator DelayedDispatch() {
             yield return new WaitForEndOfFrame();
             UpdateObjectiveSignal.Dispatch();
+            Release();
         }
     }
 }
