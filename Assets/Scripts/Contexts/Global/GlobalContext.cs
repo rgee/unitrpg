@@ -3,6 +3,7 @@
 using Assets.Contexts.Base;
 using Contexts.Common.Model;
 using Contexts.Global.Commands;
+using Contexts.Global.Services;
 using Contexts.Global.Signals;
 using strange.extensions.context.impl;
 using UnityEngine;
@@ -20,7 +21,7 @@ namespace Contexts.Global {
             injectionBinder.Bind<ScreenFadedSignal>().ToSingleton();
 
             injectionBinder.Bind<IBattleConfigRepository>().To<BattleConfigRepository>().ToSingleton().CrossContext();
-            injectionBinder.Bind<ISaveGameRepository>().To<SaveGameRepository>().ToSingleton().CrossContext();
+            injectionBinder.Bind<ISaveGameService>().To<SaveGameService>().ToSingleton().CrossContext();
             injectionBinder.Bind<LoadSceneSignal>().ToSingleton().CrossContext();
 
             commandBinder.Bind<LoadSceneSignal>()

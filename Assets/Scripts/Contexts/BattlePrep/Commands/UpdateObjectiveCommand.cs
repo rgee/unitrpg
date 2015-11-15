@@ -1,11 +1,12 @@
 ﻿using Contexts.BattlePrep.Signals;
 using Contexts.Common.Model;
+using Contexts.Global.Services;
 using strange.extensions.command.impl;
 
 namespace Contexts.BattlePrep.Commands {
     public class UpdateObjectiveCommand : Command {
         [Inject]
-        public ISaveGameRepository SaveGameRepository { get; set; }
+        public ISaveGameService SaveGameService { get; set; }
 
         [Inject]
         public IBattleConfigRepository BattleConfigRepository { get; set; }
@@ -14,8 +15,10 @@ namespace Contexts.BattlePrep.Commands {
         public NewBattleConfigSignal BattleConfigSignal { get; set; }
 
         public override void Execute() {
-            var saveGame = SaveGameRepository.CurrentGame;
-            var config = BattleConfigRepository.GetConfigByIndex(saveGame.Chapter);
+            var saveGame = SaveGameService.CurrentSave;
+            var lastCompleted = saveGame.LastChapterCompleted.GetValueOrDefault(0);
+            var currentBattle = lastCompleted + 1;
+            var config = BattleConfigRepository.GetConfigByIndex(currentBattle);
 
             BattleConfigSignal.Dispatch(config);
         }

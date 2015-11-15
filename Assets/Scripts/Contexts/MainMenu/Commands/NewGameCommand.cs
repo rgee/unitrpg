@@ -1,11 +1,12 @@
 ﻿using Contexts.Common.Model;
+using Contexts.Global.Services;
 using Contexts.Global.Signals;
 using strange.extensions.command.impl;
 
 namespace Contexts.MainMenu.Commands {
     public class NewGameCommand : Command {
         [Inject]
-        public ISaveGameRepository SaveGameRepository { get; set; }
+        public ISaveGameService SaveGameService { get; set; }
 
         [Inject]
         public IBattleConfigRepository BattleConfigRepository { get; set; }
@@ -14,7 +15,7 @@ namespace Contexts.MainMenu.Commands {
         public LoadSceneSignal LoadSceneSignal { get; set; }
 
         public override void Execute() {
-            SaveGameRepository.Reset();
+            SaveGameService.Reset();
 
             var battleConfig = BattleConfigRepository.GetConfigByIndex(0);
             LoadSceneSignal.Dispatch(battleConfig.InitialSceneName);
