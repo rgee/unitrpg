@@ -1,11 +1,8 @@
-﻿
-
-using System.Collections.Generic;
-using Assets.Contexts.Base;
-using Assets.Contexts.Common.Services;
+﻿using Assets.Contexts.Base;
 using Contexts.Base.Signals;
-using Contexts.Common.Model;
 using Contexts.Cutscene.Commands;
+using Contexts.Cutscene.Signals;
+using Contexts.Cutscene.Views;
 using Contexts.Global.Signals;
 using strange.extensions.command.api;
 using strange.extensions.context.impl;
@@ -32,6 +29,9 @@ namespace Contexts.Cutscene {
             }
 
             startBinding.To<StartDialogueCommand>().InSequence();
+            mediationBinder.Bind<CutsceneView>().To<CutsceneViewMediator>();
+
+            injectionBinder.Bind<StartCutsceneSignal>().ToSingleton();
         }
     }
 }

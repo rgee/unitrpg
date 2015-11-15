@@ -25,7 +25,6 @@ namespace Contexts.Global {
             injectionBinder.Bind<ICutsceneLoader>().To<CutsceneLoader>().ToSingleton().CrossContext();
             injectionBinder.Bind<ISaveGameService>().To<SaveGameService>().ToSingleton().CrossContext();
             injectionBinder.Bind<LoadSceneSignal>().ToSingleton().CrossContext();
-            injectionBinder.Bind<ApplicationState>().ToValue(new ApplicationState()).CrossContext();
 
             commandBinder.Bind<LoadSceneSignal>()
                 .To<FadeSceneBlackCommand>()

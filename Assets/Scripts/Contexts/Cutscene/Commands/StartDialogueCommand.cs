@@ -1,11 +1,15 @@
-﻿using Contexts.Global.Signals;
+﻿using Contexts.Cutscene.Signals;
+using Contexts.Global.Signals;
 using strange.extensions.command.impl;
 using UnityEngine;
 
 namespace Contexts.Cutscene.Commands {
     public class StartDialogueCommand : Command {
+        [Inject]
+        public StartCutsceneSignal StartCutsceneSignal { get; set; }
+
         public override void Execute() {
-            Debug.Log("Starting dialogue");
+            StartCutsceneSignal.Dispatch();
         }
     }
 }

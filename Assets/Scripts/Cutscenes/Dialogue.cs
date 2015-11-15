@@ -14,7 +14,7 @@ public class Dialogue : MonoBehaviour {
 
     private IDialogueController _controller;
     private DialogueTextAnimator _textAnimator;
-    private Models.Dialogue.Cutscene _model;
+    public Models.Dialogue.Cutscene Model;
 
     private int _deckIndex = -1;
     private int _cardIndex;
@@ -23,7 +23,9 @@ public class Dialogue : MonoBehaviour {
     private void Awake() {
         _controller = GetComponent<IDialogueController>();
         _textAnimator = GetComponent<DialogueTextAnimator>();
-        _model = Models.Dialogue.DialogueUtils.ParseFromJson(SourceFile.text);
+        if (SourceFile != null) {
+            Model = Models.Dialogue.DialogueUtils.ParseFromJson(SourceFile.text);
+        }
     }
 
     private void Start() {
@@ -58,15 +60,15 @@ public class Dialogue : MonoBehaviour {
     }
 
     private IEnumerator Initialize() {
-        yield return StartCoroutine(_controller.Initialize(_model));
+        yield return StartCoroutine(_controller.Initialize(Model));
         _initialized = true;
         NextDeck();
     } 
 
-    private void NextCard() {
+    public void NextCard() {
 
         // If we've passed the last card in the deck, look for the next deck.
-        var currentDeck = _model.Decks[_deckIndex];
+        var currentDeck = Model.Decks[_deckIndex];
         if (_cardIndex >= currentDeck.Cards.Count) {
             NextDeck();
         } else {
@@ -88,7 +90,7 @@ public class Dialogue : MonoBehaviour {
         _cardIndex = 0;
 
         // If we've reached the end of the decks, end the dialogue.
-        if (_deckIndex >= _model.Decks.Count) {
+        if (_deckIndex >= Model.Decks.Count) {
             StartCoroutine(End());
             return;
         }
@@ -99,7 +101,7 @@ public class Dialogue : MonoBehaviour {
     }
 
     private void SetSpeaker() {
-        var deck = _model.Decks[_deckIndex];
+        var deck = Model.Decks[_deckIndex];
         _controller.ChangeSpeaker(deck.Speaker);
         _textAnimator.ChangeSpeaker(deck.Speaker);
     }

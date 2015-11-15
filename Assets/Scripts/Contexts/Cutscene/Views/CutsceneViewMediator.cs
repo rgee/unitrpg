@@ -1,0 +1,26 @@
+﻿using Contexts.Common.Model;
+using Contexts.Cutscene.Signals;
+using strange.extensions.mediation.impl;
+
+namespace Contexts.Cutscene.Views {
+    public class CutsceneViewMediator : Mediator {
+        [Inject]
+        public ApplicationState State { get; set; }
+
+        [Inject]
+        public CutsceneView View { get; set; }
+
+        [Inject]
+        public StartCutsceneSignal CutsceneStartSignal { get; set; }
+
+        public override void OnRegister() {
+            base.OnRegister();
+
+            CutsceneStartSignal.AddOnce(() => {
+                var cutscene = State.CurrentCutsceneSequence[0];
+                View.Initialize(cutscene);
+                View.StartCutscene();
+            });
+        }
+    }
+}
