@@ -25,7 +25,8 @@ namespace Contexts.Cutscene {
                 startBinding = commandBinder.GetBinding<StartSignal>()
                     .To<LoadTestCutsceneCommand>();
             } else {
-                startBinding = commandBinder.GetBinding<ScreenRevealedSignal>();
+                startBinding = commandBinder.Bind<ScreenRevealedSignal>();
+                commandBinder.Bind<CutsceneCompleteSignal>().To<EndCutsceneCommand>();
             }
 
             startBinding.To<StartDialogueCommand>().InSequence();

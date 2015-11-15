@@ -5,6 +5,9 @@ using Contexts.Base.Signals;
 using Contexts.BattlePrep.Commands;
 using Contexts.BattlePrep.Signals;
 using Contexts.BattlePrep.Views;
+using Contexts.Global.Signals;
+using strange.extensions.command.api;
+using strange.extensions.context.impl;
 using UnityEngine;
 
 namespace Contexts.BattlePrep {
@@ -16,8 +19,13 @@ namespace Contexts.BattlePrep {
         protected override void mapBindings() {
             base.mapBindings();
 
+            ICommandBinding startBinding;
+            if (this == Context.firstContext) {
+                startBinding = commandBinder.GetBinding<StartSignal>();
+            } else {
+                startBinding = commandBinder.Bind<ScreenRevealedSignal>();
+            }
 
-            var startBinding = commandBinder.GetBinding<StartSignal>();
             startBinding
                 .To<BattlePrepStartCommand>()
                 .To<ShowPrepCommand>().InSequence();
@@ -27,7 +35,6 @@ namespace Contexts.BattlePrep {
             injectionBinder.Bind<TransitionInSignal>().ToSingleton();
             injectionBinder.Bind<TransitionCompleteSignal>().ToSingleton();
             injectionBinder.Bind<ActionSelectedSignal>().ToSingleton();
-
 
             commandBinder.Bind<ActionSelectedSignal>()
                 .To<ActionSelectedCommand>();
@@ -40,6 +47,11 @@ namespace Contexts.BattlePrep {
 
             commandBinder.Bind<ClosePrepSignal>()
                 .To<HidePrepCommand>();
+
+            commandBinder.Bind<StartBattleSignal>()
+                .To<HidePrepCommand>()
+                .To<StartBattleCommand>()
+                .InSequence();
 
             mediationBinder.Bind<BattlePrepView>().To<BattlePrepViewMediator>();    
         }

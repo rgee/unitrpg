@@ -4,6 +4,8 @@ using Contexts.Common.Model;
 using Contexts.Global.Services;
 using Contexts.Global.Signals;
 using strange.extensions.command.impl;
+using strange.extensions.context.api;
+using UnityEngine;
 
 namespace Contexts.MainMenu.Commands {
     public class NewGameCommand : Command {
@@ -16,13 +18,16 @@ namespace Contexts.MainMenu.Commands {
         public IBattleConfigRepository BattleConfigRepository { get; set; }
 
         [Inject]
-        public LoadSceneSignal LoadSceneSignal { get; set; }
+        public ChangeSceneSignal ChangeSceneSignal { get; set; }
 
         [Inject]
         public ApplicationState ApplicationState { get; set; }
 
         [Inject]
         public ICutsceneLoader CutsceneLoader { get; set; }
+
+        [Inject(ContextKeys.CONTEXT_VIEW)]
+        public GameObject Context { get; set; }
 
         public override void Execute() {
             SaveGameService.Reset();
@@ -32,9 +37,9 @@ namespace Contexts.MainMenu.Commands {
             if (preBattleCutscenes.Count > 0) {
                 var parsedCutscenes = preBattleCutscenes.Select(name => CutsceneLoader.Load(name)).ToList();
                 ApplicationState.CurrentCutsceneSequence = parsedCutscenes;
-                LoadSceneSignal.Dispatch(CutsceneSceneName);
+                ChangeSceneSignal.Dispatch(Context, CutsceneSceneName);
             } else {
-                LoadSceneSignal.Dispatch(battleConfig.InitialSceneName);
+                ChangeSceneSignal.Dispatch(Context, battleConfig.InitialSceneName);
             }
         }
     }

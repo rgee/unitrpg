@@ -21,7 +21,7 @@ namespace Contexts.Global.Services {
         }
 
         public void Reset() {
-            CurrentSave = new Models.SaveGame(0, null, null);
+            CurrentSave = new Models.SaveGame(-1, null, null);
         }
 
         public void Choose(LoadedSaveGame saveGame) {

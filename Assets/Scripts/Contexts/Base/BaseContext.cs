@@ -33,16 +33,16 @@ namespace Assets.Contexts.Base {
             var startBinding = commandBinder.Bind<StartSignal>();
             if (this == Context.firstContext) {
                 startBinding.To<RootStartCommand>().To<StartCommand>().InSequence();
+                injectionBinder.Bind<ApplicationState>().ToValue(new ApplicationState()).CrossContext();
+                injectionBinder.Bind<IRoutineRunner>().To<RoutineRunner>().CrossContext();
+                injectionBinder.Bind<AddSceneSignal>().ToSingleton().CrossContext();
+                injectionBinder.Bind<QuitGameSignal>().ToSingleton().CrossContext();
+                commandBinder.Bind<AddSceneSignal>().To<AddSceneCommand>();
+                commandBinder.Bind<QuitGameSignal>().To<QuitGameCommand>();
             } else {
                 startBinding.To<KillAudioListenerCommand>().To<StartCommand>().InSequence();
             }
 
-            injectionBinder.Bind<ApplicationState>().ToValue(new ApplicationState()).CrossContext();
-            injectionBinder.Bind<IRoutineRunner>().To<RoutineRunner>().CrossContext();
-            injectionBinder.Bind<AddSceneSignal>().ToSingleton().CrossContext();
-            injectionBinder.Bind<QuitGameSignal>().ToSingleton().CrossContext();
-            commandBinder.Bind<AddSceneSignal>().To<AddSceneCommand>();
-            commandBinder.Bind<QuitGameSignal>().To<QuitGameCommand>();
         }
     }
 }

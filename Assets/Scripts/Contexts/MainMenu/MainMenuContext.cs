@@ -4,7 +4,6 @@ using Contexts.MainMenu.Signals;
 using Contexts.MainMenu.Views;
 using strange.extensions.command.api;
 using strange.extensions.command.impl;
-using strange.extensions.context.impl;
 using UnityEngine;
 
 namespace Contexts.MainMenu {

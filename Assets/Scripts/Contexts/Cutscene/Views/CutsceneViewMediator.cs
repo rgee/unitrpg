@@ -13,6 +13,9 @@ namespace Contexts.Cutscene.Views {
         [Inject]
         public StartCutsceneSignal CutsceneStartSignal { get; set; }
 
+        [Inject]
+        public CutsceneCompleteSignal CutsceneCompleteSignal { get; set; }
+
         public override void OnRegister() {
             base.OnRegister();
 
@@ -20,6 +23,10 @@ namespace Contexts.Cutscene.Views {
                 var cutscene = State.CurrentCutsceneSequence[0];
                 View.Initialize(cutscene);
                 View.StartCutscene();
+            });
+
+            View.CutsceneComplete.AddOnce(() => {
+                CutsceneCompleteSignal.Dispatch(); 
             });
         }
     }
