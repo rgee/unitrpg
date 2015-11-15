@@ -65,7 +65,6 @@ public class FullscreenDialogueController : MonoBehaviour, IDialogueController {
     }
 
     public IEnumerator End() {
-        Application.LoadLevel(NextSceneName);
         yield return null;
     }
 

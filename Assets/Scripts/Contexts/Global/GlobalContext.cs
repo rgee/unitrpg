@@ -1,6 +1,7 @@
 ﻿
 
 using Assets.Contexts.Base;
+using Assets.Contexts.Common.Services;
 using Contexts.Common.Model;
 using Contexts.Global.Commands;
 using Contexts.Global.Services;
@@ -15,14 +16,16 @@ namespace Contexts.Global {
         }
 
         protected override void mapBindings() {
-            injectionBinder.Bind<RevealScreenSignal>().ToSingleton();
-            injectionBinder.Bind<FadeScreenSignal>().ToSingleton();
+            injectionBinder.Bind<RevealScreenSignal>().ToSingleton().CrossContext();
+            injectionBinder.Bind<FadeScreenSignal>().ToSingleton().CrossContext();
             injectionBinder.Bind<ScreenRevealedSignal>().ToSingleton();
             injectionBinder.Bind<ScreenFadedSignal>().ToSingleton();
 
             injectionBinder.Bind<IBattleConfigRepository>().To<BattleConfigRepository>().ToSingleton().CrossContext();
+            injectionBinder.Bind<ICutsceneLoader>().To<CutsceneLoader>().ToSingleton().CrossContext();
             injectionBinder.Bind<ISaveGameService>().To<SaveGameService>().ToSingleton().CrossContext();
             injectionBinder.Bind<LoadSceneSignal>().ToSingleton().CrossContext();
+            injectionBinder.Bind<ApplicationState>().ToValue(new ApplicationState()).CrossContext();
 
             commandBinder.Bind<LoadSceneSignal>()
                 .To<FadeSceneBlackCommand>()
