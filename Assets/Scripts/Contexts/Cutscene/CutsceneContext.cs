@@ -1,7 +1,10 @@
 ﻿
 
+using System.Collections.Generic;
 using Assets.Contexts.Base;
+using Assets.Contexts.Common.Services;
 using Contexts.Base.Signals;
+using Contexts.Common.Model;
 using Contexts.Cutscene.Commands;
 using Contexts.Global.Signals;
 using strange.extensions.command.api;
@@ -22,7 +25,8 @@ namespace Contexts.Cutscene {
             // wait for that to finish before triggering the first text.
             ICommandBinding startBinding;
             if (this == Context.firstContext) {
-                startBinding = commandBinder.GetBinding<StartSignal>();
+                startBinding = commandBinder.GetBinding<StartSignal>()
+                    .To<LoadTestCutsceneCommand>();
             } else {
                 startBinding = commandBinder.GetBinding<ScreenRevealedSignal>();
             }
