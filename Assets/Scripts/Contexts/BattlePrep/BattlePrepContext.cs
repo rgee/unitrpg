@@ -1,14 +1,10 @@
 ﻿
 
 using Assets.Contexts.Base;
-using Contexts.Base.Commands;
 using Contexts.Base.Signals;
 using Contexts.BattlePrep.Commands;
 using Contexts.BattlePrep.Signals;
 using Contexts.BattlePrep.Views;
-using Contexts.Common.Model;
-using strange.extensions.command.api;
-using strange.extensions.context.impl;
 using UnityEngine;
 
 namespace Contexts.BattlePrep {

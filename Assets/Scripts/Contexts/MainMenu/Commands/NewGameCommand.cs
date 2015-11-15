@@ -7,7 +7,7 @@ using strange.extensions.command.impl;
 
 namespace Contexts.MainMenu.Commands {
     public class NewGameCommand : Command {
-        private static readonly string CutsceneSceneName = "cutscene";
+        private static readonly string CutsceneSceneName = "Cutscene";
 
         [Inject]
         public ISaveGameService SaveGameService { get; set; }
