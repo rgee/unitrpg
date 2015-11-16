@@ -8,7 +8,8 @@ namespace Contexts.Common.Model {
                 new Objectives.Rout(),
                 "chapter_1_battle_new",
                 new List<string>() {
-                    "Chapter 1/Intro/male_soldier_report"
+                    "Chapter 1/Intro/male_soldier_report",
+                    "Chapter 1/Intro/female_soldier_report"
                 }
             ),
             new BattleConfig(

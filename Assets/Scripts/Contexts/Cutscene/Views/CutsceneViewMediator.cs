@@ -1,4 +1,5 @@
-﻿using Contexts.Common.Model;
+﻿using System.Resources;
+using Contexts.Common.Model;
 using Contexts.Cutscene.Signals;
 using strange.extensions.mediation.impl;
 
@@ -20,9 +21,11 @@ namespace Contexts.Cutscene.Views {
             base.OnRegister();
 
             CutsceneStartSignal.AddOnce(() => {
-                var cutscene = State.CurrentCutsceneSequence[0];
-                View.Initialize(cutscene);
-                View.StartCutscene();
+                var cutscene = State.GetCurrentCutscene();
+                if (cutscene != null) {
+                    View.Initialize(cutscene);
+                    View.StartCutscene();
+                }
             });
 
             View.CutsceneComplete.AddOnce(() => {

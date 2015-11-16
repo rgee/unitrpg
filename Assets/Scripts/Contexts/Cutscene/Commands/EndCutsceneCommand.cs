@@ -18,6 +18,9 @@ namespace Contexts.Cutscene.Commands {
         [Inject]
         public ChangeSceneMultiSignal ChangeSceneSignal { get; set; }
 
+        [Inject]
+        public ApplicationState ApplicationState { get; set; }
+
         [Inject(ContextKeys.CONTEXT_VIEW)]
         public GameObject View { get; set; }
 
@@ -27,8 +30,13 @@ namespace Contexts.Cutscene.Commands {
             var nextConfig = BattleConfigRepository.GetConfigByIndex(nextChapter);
             var nextSceneName = nextConfig.InitialSceneName;
 
-            ChangeSceneSignal.Dispatch(View, new List<string> {nextSceneName, "BattlePrep"});
-            // TODO: Figure out if there ase more scenes in the sequence
+            ApplicationState.EndCurrentCutscene();
+            var nextCutscene = ApplicationState.GetCurrentCutscene();
+            if (nextCutscene == null) {
+                ChangeSceneSignal.Dispatch(View, new List<string> { nextSceneName, "BattlePrep" });
+            } else {
+                ChangeSceneSignal.Dispatch(View, new List<string> { "Cutscene" });
+            }
         }
     }
 }
