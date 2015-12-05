@@ -46,7 +46,7 @@ public class UnitController : MonoBehaviour {
             _unit.Facing = MathUtils.DirectionTo(MathUtils.Round(PreviousPoint), currentDestination);
 
             transform
-                .DOMove(currentDestination, 0.4f)
+                .DOMove(currentDestination, 0.3f)
                 .SetEase(Ease.Linear)
                 .OnComplete(StartNextSegment);
         } else {
