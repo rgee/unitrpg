@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
-using System.Collections;
 
+[ExecuteInEditMode]
 public class GridOverlay : MonoBehaviour {
     
      public GameObject plane;
