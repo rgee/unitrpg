@@ -32,7 +32,7 @@ public static class CombatObjects {
     }
 
     public static GameObject GetIntroSequence() {
-        return GameObject.FindGameObjectWithTag("IntroSequence");
+        return GameObject.FindGameObjectWithTag("Intro Sequence");
     }
 
     public static GameObject GetCamera() {
