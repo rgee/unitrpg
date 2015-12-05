@@ -26,15 +26,16 @@ namespace Assets.Sequencing.Events.Unit {
 #endif
 
         public override void FireEvent() {
-
             var distance = MathUtils.ManhattanDistance(Start, Destination);
-            var worldDestinaion = CombatObjects.GetMap().GetWorldPosForGridPos(Destination);
+            var map = CombatObjects.GetMap();
+            var worldDestinaion = map.GetWorldPosForGridPos(Destination);
+            var worldStart = map.GetWorldPosForGridPos(Start);
+            AffectedObject.transform.localPosition = worldStart;
 
             StartCoroutine(RunTo(worldDestinaion, distance*SecondsPerSquare));
         }
 
         private IEnumerator RunTo(Vector3 worldDestination, float time) {
-            
             var direction = MathUtils.DirectionTo(AffectedObject.transform.localPosition, worldDestination);
             _unit.Facing = direction;
             _unit.Running = true;
@@ -43,10 +44,6 @@ namespace Assets.Sequencing.Events.Unit {
         }
 
         public override void ProcessEvent(float runningTime) {
-        }
-
-        public override void EndEvent() {
-            _unit.Running = false;
         }
     }
 }

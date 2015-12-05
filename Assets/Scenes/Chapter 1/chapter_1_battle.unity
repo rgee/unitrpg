@@ -3644,31 +3644,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 31, y: 31, z: .200000003}
   m_Center: {x: -.5, y: .5, z: 0}
---- !u!114 &340964562
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1282336031, guid: fb48e3a42295a4bf29460478c563720f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animationCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1.60000002
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  internalKeyframes:
-  - {fileID: 898459633}
-  useCurrentValue: 0
-  duration: 0
 --- !u!1 &347240626
 GameObject:
   m_ObjectHideFlags: 0
@@ -5337,23 +5312,6 @@ Transform:
   - {fileID: 1891805981}
   m_Father: {fileID: 1551705637}
   m_RootOrder: 3
---- !u!114 &484787175
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 908898580, guid: fb48e3a42295a4bf29460478c563720f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  value: 1152
-  time: 0
-  inTangent: 0
-  outTangent: 0
-  brokenTangents: 0
-  curve: {fileID: 1107887800}
 --- !u!1 &486195681 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 131646, guid: b8bfab5258323cd48abf98df83b9a450, type: 2}
@@ -7491,7 +7449,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 23257878}
-  - {fileID: 1543514953}
   m_Father: {fileID: 1610417487}
   m_RootOrder: 1
 --- !u!114 &659752959
@@ -9952,23 +9909,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PreviewPrefab: {fileID: 146398, guid: b539f6394c2d1b8449da429edf33392d, type: 2}
---- !u!114 &898459633
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 908898580, guid: fb48e3a42295a4bf29460478c563720f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  value: 1.60000002
-  time: 0
-  inTangent: 0
-  outTangent: 0
-  brokenTangents: 0
-  curve: {fileID: 340964562}
 --- !u!1 &899838321 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 131646, guid: b8bfab5258323cd48abf98df83b9a450, type: 2}
@@ -13430,82 +13370,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b8bfab5258323cd48abf98df83b9a450, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &1107887800
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1282336031, guid: fb48e3a42295a4bf29460478c563720f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animationCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1152
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  internalKeyframes:
-  - {fileID: 484787175}
-  useCurrentValue: 0
-  duration: 0
---- !u!114 &1114453517
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -647153372, guid: fb48e3a42295a4bf29460478c563720f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  propertyType: 6
-  component: {fileID: 1256147625}
-  componentType: Transform
-  propertyName: localPosition
-  fieldName: 
-  curves:
-  - {fileID: 1107887800}
-  - {fileID: 1745506403}
-  - {fileID: 340964562}
-  curves0:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  curves1:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  curves2:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  curves3:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  baseInt: 0
-  baseLong: 0
-  baseFloat: 0
-  baseDouble: 0
-  baseBool: 0
-  baseVector2: {x: 0, y: 0}
-  baseVector3: {x: 1152, y: 352, z: 1.60000002}
-  baseVector4: {x: 0, y: 0, z: 0, w: 0}
-  baseQuat: {x: 0, y: 0, z: 0, w: 1}
-  baseColour: {r: 0, g: 0, b: 0, a: 1}
-  internalName: m_LocalPosition
 --- !u!1 &1128112196 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 131646, guid: b8bfab5258323cd48abf98df83b9a450, type: 2}
@@ -13782,23 +13646,6 @@ MonoBehaviour:
   duration: -1
   serializedAdditionalObjectsPaths: []
   InCombat: 1
---- !u!114 &1140641329
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 908898580, guid: fb48e3a42295a4bf29460478c563720f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  value: 352
-  time: 0
-  inTangent: 0
-  outTangent: 0
-  brokenTangents: 0
-  curve: {fileID: 1745506403}
 --- !u!1001 &1143905757
 Prefab:
   m_ObjectHideFlags: 0
@@ -18595,47 +18442,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 31, y: 31, z: .200000003}
   m_Center: {x: -.5, y: .5, z: 0}
---- !u!1 &1543514952
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1543514953}
-  - 114: {fileID: 1543514954}
-  m_Layer: 0
-  m_Name: Property Timeline
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1543514953
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1543514952}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 659752958}
-  m_RootOrder: 1
---- !u!114 &1543514954
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1543514952}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -719039344, guid: fb48e3a42295a4bf29460478c563720f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  propertyList:
-  - {fileID: 1114453517}
 --- !u!1001 &1545675345
 Prefab:
   m_ObjectHideFlags: 0
@@ -18722,7 +18528,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireOnSkip: 0
-  firetime: .220063448
+  firetime: 0
   duration: 3
   serializedAdditionalObjectsPaths: []
   SecondsPerSquare: .300000012
@@ -21592,31 +21398,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b8bfab5258323cd48abf98df83b9a450, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &1745506403
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1282336031, guid: fb48e3a42295a4bf29460478c563720f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animationCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 352
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  internalKeyframes:
-  - {fileID: 1140641329}
-  useCurrentValue: 0
-  duration: 0
 --- !u!1 &1746522506 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 131646, guid: b8bfab5258323cd48abf98df83b9a450, type: 2}
