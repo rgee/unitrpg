@@ -37,10 +37,7 @@ namespace States.Combat {
             var actionProber = new ActionProber(map, turnState);
 
             state.Model = new Battle(map, objective, turnState, actionProber);
-
-            var introDialogue = GameObject.Find("Dialogues/Intro");
-            animator.SetBool("has_intro_dialogue", introDialogue != null);
-
+            
             var directorObj = GameObject.Find("BattleIntroDirector");
             if (directorObj != null) {
                 var director = directorObj.GetComponent<BattleIntroDirector>();

@@ -31,6 +31,9 @@ public static class CombatObjects {
         return GameObject.Find("Unit Manager").GetComponent<UnitManager>();
     }
 
+    public static GameObject GetIntroSequence() {
+        return GameObject.FindGameObjectWithTag("IntroSequence");
+    }
 
     public static GameObject GetCamera() {
         return GameObject.FindGameObjectWithTag("MainCamera");
