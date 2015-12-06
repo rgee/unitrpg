@@ -45,8 +45,9 @@ public class UnitController : MonoBehaviour {
             var currentDestination = MathUtils.Round(CurrentPath[CurrentPathIdx]);
             _unit.Facing = MathUtils.DirectionTo(MathUtils.Round(PreviousPoint), currentDestination);
 
+            var secondsPerSquare = _unit.model.Character.MoveTimePerSquare;
             transform
-                .DOMove(currentDestination, 0.3f)
+                .DOMove(currentDestination, secondsPerSquare)
                 .SetEase(Ease.Linear)
                 .OnComplete(StartNextSegment);
         } else {

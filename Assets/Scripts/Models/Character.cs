@@ -23,6 +23,7 @@ namespace Models {
         public int SpeedGrowth;
         public int Strength;
         public int StrengthGrowth;
+        public float MoveTimePerSquare = 0.3f;
         public List<CombatAction> Actions; 
 
         public Character(Character character) {

@@ -9,21 +9,21 @@ namespace Assets.Sequencing.Events.Unit {
     [USequencerEventHideDuration]
     [ExecuteInEditMode]
     public class MoveToGridPosition : USEventBase {
-        public float SecondsPerSquare = 0.3f;
         public Vector2 Destination;
         public Vector2 Start;
         private Grid.Unit _unit;
         private MapGrid _grid;
 
         void Awake() {
-            _unit = AffectedObject.GetComponent<Grid.Unit>();
             _grid = CombatObjects.GetMap();
         }
 
 #if UNITY_EDITOR
         void Update() {
+            _unit = AffectedObject.GetComponent<Grid.Unit>();
             var distance = MathUtils.ManhattanDistance(Start, Destination);
-            Duration = distance*SecondsPerSquare;
+            var secondsPerSquare = _unit.model.Character.MoveTimePerSquare;
+            Duration = distance*secondsPerSquare;
         }
 #endif
 
@@ -33,7 +33,7 @@ namespace Assets.Sequencing.Events.Unit {
             var worldStart = _grid.GetWorldPosForGridPos(Start);
             AffectedObject.transform.localPosition = worldStart;
 
-            StartCoroutine(RunTo(worldDestinaion, distance*SecondsPerSquare));
+            StartCoroutine(RunTo(worldDestinaion, Duration));
         }
 
         private IEnumerator RunTo(Vector3 worldDestination, float time) {
