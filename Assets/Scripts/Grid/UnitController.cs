@@ -6,18 +6,10 @@ using UnityEngine;
 
 [RequireComponent(typeof(Grid.Unit))]
 public class UnitController : MonoBehaviour {
-    private static readonly Dictionary<MathUtils.CardinalDirection, int> animatorDirections =
-        new Dictionary<MathUtils.CardinalDirection, int> {
-            {MathUtils.CardinalDirection.W, 1},
-            {MathUtils.CardinalDirection.N, 2},
-            {MathUtils.CardinalDirection.E, 3},
-            {MathUtils.CardinalDirection.S, 0}
-        };
-
-    private Action CurrentCallback;
-    private List<Vector3> CurrentPath;
-    private int CurrentPathIdx = -1;
-    private Vector3 PreviousPoint;
+    private Action _currentCallback;
+    private List<Vector3> _currentPath;
+    private int _currentPathIdx = -1;
+    private Vector3 _previousPoint;
     private BattleState _battleState;
     private Grid.Unit _unit;
 
@@ -27,23 +19,23 @@ public class UnitController : MonoBehaviour {
     }
 
     public void MoveAlongPath(List<Vector3> path, Action callback) {
-        CurrentPath = path.Distinct().ToList();
-        CurrentPathIdx = -1;
-        CurrentCallback = callback;
+        _currentPath = path.Distinct().ToList();
+        _currentPathIdx = -1;
+        _currentCallback = callback;
 
         _unit.Running = true;
-        PreviousPoint = transform.position;
+        _previousPoint = transform.position;
         StartNextSegment();
     }
 
     private void StartNextSegment() {
-        CurrentPathIdx++;
-        if (CurrentPathIdx > 0) {
-            PreviousPoint = CurrentPath[CurrentPathIdx - 1];
+        _currentPathIdx++;
+        if (_currentPathIdx > 0) {
+            _previousPoint = _currentPath[_currentPathIdx - 1];
         }
-        if (CurrentPathIdx < CurrentPath.Count) {
-            var currentDestination = MathUtils.Round(CurrentPath[CurrentPathIdx]);
-            _unit.Facing = MathUtils.DirectionTo(MathUtils.Round(PreviousPoint), currentDestination);
+        if (_currentPathIdx < _currentPath.Count) {
+            var currentDestination = MathUtils.Round(_currentPath[_currentPathIdx]);
+            _unit.Facing = MathUtils.DirectionTo(MathUtils.Round(_previousPoint), currentDestination);
 
             var secondsPerSquare = _unit.model.Character.MoveTimePerSquare;
             transform
@@ -53,7 +45,7 @@ public class UnitController : MonoBehaviour {
         } else {
             _unit.Running = false;
             CommitMoveToModel();
-            CurrentCallback();
+            _currentCallback();
         }
     }
 
@@ -62,7 +54,7 @@ public class UnitController : MonoBehaviour {
         var battleModel = _battleState.Model;
         var grid = CombatObjects.GetMap();
 
-        var gridPointPath = (from point in CurrentPath
+        var gridPointPath = (from point in _currentPath
                              select grid.GridPositionForWorldPosition(point))
                              .ToList();
 
