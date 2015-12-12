@@ -1,0 +1,314 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &191938
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 427020}
+  - 114: {fileID: 11404484}
+  m_Layer: 0
+  m_Name: Janek
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &427020
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 191938}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11404484
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 191938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d546f34a90531a14eaba82a43b05b86b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 3
+  materialIdsValid: 1
+  needMaterialInstance: 0
+  spriteDefinitions:
+  - name: janek_runside_50/0
+    boundsData:
+    - {x: -.00833333097, y: -.00277778134, z: 0}
+    - {x: .077777788, y: .100000001, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: .138888896, y: .138888896, z: 0}
+    texelSize: {x: .00277777785, y: .00277777785}
+    positions:
+    - {x: -.0472222231, y: -.0527777821, z: 0}
+    - {x: .0305555612, y: -.0527777821, z: 0}
+    - {x: -.0472222231, y: .0472222194, z: 0}
+    - {x: .0305555612, y: .0472222194, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: .296882808, y: .0156328119}
+    - {x: .296882808, y: .234367192}
+    - {x: .578117192, y: .0156328119}
+    - {x: .578117192, y: .234367192}
+    normalizedUvs:
+    - {x: 0, y: 0}
+    - {x: 0, y: 1}
+    - {x: 1, y: 0}
+    - {x: 1, y: 1}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: 61d5015b629df9f4a83418bdb41d0050, type: 2}
+    materialId: 0
+    sourceTextureGUID: 6723670f00620d047bc1d291fc877f59
+    extractRegion: 1
+    regionX: 0
+    regionY: 200
+    regionW: 50
+    regionH: 50
+    flipped: 1
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd: 
+    colliderIndicesBack: 
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: janek_runside_50/1
+    boundsData:
+    - {x: -.0083333347, y: .00277777947, z: 0}
+    - {x: .0888888985, y: .0944444537, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: .138888896, y: .138888896, z: 0}
+    texelSize: {x: .00277777785, y: .00277777785}
+    positions:
+    - {x: -.0527777821, y: -.0444444455, z: 0}
+    - {x: .0361111127, y: -.0444444455, z: 0}
+    - {x: -.0527777821, y: .0500000045, z: 0}
+    - {x: .0361111127, y: .0500000045, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: .0156328119, y: .328132808}
+    - {x: .265617192, y: .328132808}
+    - {x: .0156328119, y: .593742192}
+    - {x: .265617192, y: .593742192}
+    normalizedUvs:
+    - {x: 0, y: 0}
+    - {x: 1, y: 0}
+    - {x: 0, y: 1}
+    - {x: 1, y: 1}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: 61d5015b629df9f4a83418bdb41d0050, type: 2}
+    materialId: 0
+    sourceTextureGUID: 6723670f00620d047bc1d291fc877f59
+    extractRegion: 1
+    regionX: 0
+    regionY: 150
+    regionW: 50
+    regionH: 50
+    flipped: 0
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd: 
+    colliderIndicesBack: 
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: janek_runside_50/2
+    boundsData:
+    - {x: -.00555555522, y: .00277777575, z: 0}
+    - {x: .0944444537, y: .0888888836, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: .138888896, y: .138888896, z: 0}
+    texelSize: {x: .00277777785, y: .00277777785}
+    positions:
+    - {x: -.0527777821, y: -.0416666679, z: 0}
+    - {x: .0416666716, y: -.0416666679, z: 0}
+    - {x: -.0527777821, y: .0472222194, z: 0}
+    - {x: .0416666716, y: .0472222194, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: .0156328119, y: .625007808}
+    - {x: .0156328119, y: .890617192}
+    - {x: .265617192, y: .625007808}
+    - {x: .265617192, y: .890617192}
+    normalizedUvs:
+    - {x: 0, y: 0}
+    - {x: 0, y: 1}
+    - {x: 1, y: 0}
+    - {x: 1, y: 1}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: 61d5015b629df9f4a83418bdb41d0050, type: 2}
+    materialId: 0
+    sourceTextureGUID: 6723670f00620d047bc1d291fc877f59
+    extractRegion: 1
+    regionX: 0
+    regionY: 100
+    regionW: 50
+    regionH: 50
+    flipped: 1
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd: 
+    colliderIndicesBack: 
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: janek_runside_50/3
+    boundsData:
+    - {x: -.00555555709, y: -.00555555709, z: 0}
+    - {x: .0888888836, y: .100000009, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: .138888896, y: .138888896, z: 0}
+    texelSize: {x: .00277777785, y: .00277777785}
+    positions:
+    - {x: -.0500000007, y: -.0555555597, z: 0}
+    - {x: .0388888866, y: -.0555555597, z: 0}
+    - {x: -.0500000007, y: .0444444455, z: 0}
+    - {x: .0388888866, y: .0444444455, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: .0156328119, y: .0156328119}
+    - {x: .265617192, y: .0156328119}
+    - {x: .0156328119, y: .296867192}
+    - {x: .265617192, y: .296867192}
+    normalizedUvs:
+    - {x: 0, y: 0}
+    - {x: 1, y: 0}
+    - {x: 0, y: 1}
+    - {x: 1, y: 1}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: 61d5015b629df9f4a83418bdb41d0050, type: 2}
+    materialId: 0
+    sourceTextureGUID: 6723670f00620d047bc1d291fc877f59
+    extractRegion: 1
+    regionX: 0
+    regionY: 50
+    regionW: 50
+    regionH: 50
+    flipped: 0
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd: 
+    colliderIndicesBack: 
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: janek_runside_50/4
+    boundsData:
+    - {x: .00138888881, y: -.00694444403, z: 0}
+    - {x: .0694444478, y: .0972222313, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: .138888896, y: .138888896, z: 0}
+    texelSize: {x: .00277777785, y: .00277777785}
+    positions:
+    - {x: -.0333333351, y: -.0555555597, z: 0}
+    - {x: .0361111127, y: -.0555555597, z: 0}
+    - {x: -.0333333351, y: .0416666716, z: 0}
+    - {x: .0361111127, y: .0416666716, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: .609382808, y: .0156328119}
+    - {x: .609382808, y: .210929692}
+    - {x: .882804692, y: .0156328119}
+    - {x: .882804692, y: .210929692}
+    normalizedUvs:
+    - {x: 0, y: 0}
+    - {x: 0, y: 1}
+    - {x: 1, y: 0}
+    - {x: 1, y: 1}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: 61d5015b629df9f4a83418bdb41d0050, type: 2}
+    materialId: 0
+    sourceTextureGUID: 6723670f00620d047bc1d291fc877f59
+    extractRegion: 1
+    regionX: 0
+    regionY: 0
+    regionW: 50
+    regionH: 50
+    flipped: 1
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd: 
+    colliderIndicesBack: 
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  premultipliedAlpha: 0
+  material: {fileID: 0}
+  materials:
+  - {fileID: 2100000, guid: 61d5015b629df9f4a83418bdb41d0050, type: 2}
+  textures:
+  - {fileID: 2800000, guid: 43f4c7a5bf8ddb941acd0b2dd3666931, type: 3}
+  pngTextures: []
+  materialPngTextureId: 00000000
+  textureFilterMode: 1
+  textureMipMaps: 0
+  allowMultipleAtlases: 0
+  spriteCollectionGUID: 3554d587d8279934d9562685181040c3
+  spriteCollectionName: Janek
+  assetName: 
+  loadable: 0
+  invOrthoSize: 1
+  halfTargetHeight: 360
+  buildKey: 1001118953
+  dataGuid: ec5fac889b4abc841ae89c03208fbea1
+  managedSpriteCollection: 0
+  hasPlatformData: 0
+  spriteCollectionPlatforms: []
+  spriteCollectionPlatformGUIDs: []
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 191938}
+  m_IsPrefabParent: 1
