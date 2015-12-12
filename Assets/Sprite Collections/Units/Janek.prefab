@@ -96,7 +96,7 @@ MonoBehaviour:
     splitMethod: 0
     version: 1
     colliderType: 0
-  - texture: {fileID: 2800000, guid: 9a28096db371edd44b4996aaeb742612, type: 3}
+  - texture: {fileID: 2800000, guid: 76a94d415faaa5f4d9355f7653078f73, type: 3}
     tilesX: 0
     tilesY: 0
     numTiles: 0
@@ -132,6 +132,42 @@ MonoBehaviour:
     splitMethod: 0
     version: 1
     colliderType: 0
+  - texture: {fileID: 2800000, guid: 371a67667fb29054089dd9b2edf6c22b, type: 3}
+    tilesX: 0
+    tilesY: 0
+    numTiles: 0
+    anchor: 4
+    pad: 0
+    scale: {x: 1, y: 1, z: 1}
+    additive: 0
+    active: 1
+    tileWidth: 80
+    tileHeight: 80
+    tileMarginX: 0
+    tileMarginY: 0
+    tileSpacingX: 0
+    tileSpacingY: 0
+    splitMethod: 0
+    version: 1
+    colliderType: 0
+  - texture: {fileID: 2800000, guid: ef72de85ec3a30743a2798063114a401, type: 3}
+    tilesX: 0
+    tilesY: 0
+    numTiles: 0
+    anchor: 4
+    pad: 0
+    scale: {x: 1, y: 1, z: 1}
+    additive: 0
+    active: 1
+    tileWidth: 80
+    tileHeight: 80
+    tileMarginX: 0
+    tileMarginY: 0
+    tileSpacingX: 0
+    tileSpacingY: 0
+    splitMethod: 0
+    version: 1
+    colliderType: 0
   fonts: []
   defaults:
     additive: 0
@@ -154,7 +190,7 @@ MonoBehaviour:
   atlasWidth: 256
   atlasHeight: 256
   forceSquareAtlas: 0
-  atlasWastage: 18.6477661
+  atlasWastage: 17.6010132
   allowMultipleAtlases: 0
   removeDuplicates: 1
   textureParams:
@@ -855,11 +891,11 @@ MonoBehaviour:
     colliderSmoothSphereCollisions: 0
     colliderColor: 0
     attachPoints: []
-  - name: Janek_attack_80/0
+  - name: janek_attack_east_80/0
     disableTrimming: 0
     additive: 0
     scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 2800000, guid: 9a28096db371edd44b4996aaeb742612, type: 3}
+    texture: {fileID: 2800000, guid: 76a94d415faaa5f4d9355f7653078f73, type: 3}
     materialId: 0
     anchor: 4
     anchorX: 0
@@ -896,11 +932,11 @@ MonoBehaviour:
     colliderSmoothSphereCollisions: 0
     colliderColor: 0
     attachPoints: []
-  - name: Janek_attack_80/1
+  - name: janek_attack_east_80/1
     disableTrimming: 0
     additive: 0
     scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 2800000, guid: 9a28096db371edd44b4996aaeb742612, type: 3}
+    texture: {fileID: 2800000, guid: 76a94d415faaa5f4d9355f7653078f73, type: 3}
     materialId: 0
     anchor: 4
     anchorX: 0
@@ -919,11 +955,11 @@ MonoBehaviour:
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
     spriteSheetId: 3
-    spriteSheetX: 1
-    spriteSheetY: 0
+    spriteSheetX: 0
+    spriteSheetY: 1
     extractRegion: 1
-    regionX: 80
-    regionY: 880
+    regionX: 0
+    regionY: 800
     regionW: 80
     regionH: 80
     regionId: 1
@@ -937,11 +973,11 @@ MonoBehaviour:
     colliderSmoothSphereCollisions: 0
     colliderColor: 0
     attachPoints: []
-  - name: Janek_attack_80/2
+  - name: janek_attack_east_80/2
     disableTrimming: 0
     additive: 0
     scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 2800000, guid: 9a28096db371edd44b4996aaeb742612, type: 3}
+    texture: {fileID: 2800000, guid: 76a94d415faaa5f4d9355f7653078f73, type: 3}
     materialId: 0
     anchor: 4
     anchorX: 0
@@ -960,11 +996,11 @@ MonoBehaviour:
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
     spriteSheetId: 3
-    spriteSheetX: 2
-    spriteSheetY: 0
+    spriteSheetX: 0
+    spriteSheetY: 2
     extractRegion: 1
-    regionX: 160
-    regionY: 880
+    regionX: 0
+    regionY: 720
     regionW: 80
     regionH: 80
     regionId: 2
@@ -978,11 +1014,11 @@ MonoBehaviour:
     colliderSmoothSphereCollisions: 0
     colliderColor: 0
     attachPoints: []
-  - name: Janek_attack_80/3
+  - name: janek_attack_east_80/3
     disableTrimming: 0
     additive: 0
     scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 2800000, guid: 9a28096db371edd44b4996aaeb742612, type: 3}
+    texture: {fileID: 2800000, guid: 76a94d415faaa5f4d9355f7653078f73, type: 3}
     materialId: 0
     anchor: 4
     anchorX: 0
@@ -1002,10 +1038,10 @@ MonoBehaviour:
     hasSpriteSheetId: 1
     spriteSheetId: 3
     spriteSheetX: 0
-    spriteSheetY: 1
+    spriteSheetY: 3
     extractRegion: 1
     regionX: 0
-    regionY: 800
+    regionY: 640
     regionW: 80
     regionH: 80
     regionId: 3
@@ -1019,11 +1055,11 @@ MonoBehaviour:
     colliderSmoothSphereCollisions: 0
     colliderColor: 0
     attachPoints: []
-  - name: Janek_attack_80/4
+  - name: janek_attack_east_80/4
     disableTrimming: 0
     additive: 0
     scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 2800000, guid: 9a28096db371edd44b4996aaeb742612, type: 3}
+    texture: {fileID: 2800000, guid: 76a94d415faaa5f4d9355f7653078f73, type: 3}
     materialId: 0
     anchor: 4
     anchorX: 0
@@ -1042,11 +1078,11 @@ MonoBehaviour:
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
     spriteSheetId: 3
-    spriteSheetX: 1
-    spriteSheetY: 1
+    spriteSheetX: 0
+    spriteSheetY: 4
     extractRegion: 1
-    regionX: 80
-    regionY: 800
+    regionX: 0
+    regionY: 560
     regionW: 80
     regionH: 80
     regionId: 4
@@ -1060,11 +1096,11 @@ MonoBehaviour:
     colliderSmoothSphereCollisions: 0
     colliderColor: 0
     attachPoints: []
-  - name: Janek_attack_80/5
+  - name: janek_attack_east_80/5
     disableTrimming: 0
     additive: 0
     scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 2800000, guid: 9a28096db371edd44b4996aaeb742612, type: 3}
+    texture: {fileID: 2800000, guid: 76a94d415faaa5f4d9355f7653078f73, type: 3}
     materialId: 0
     anchor: 4
     anchorX: 0
@@ -1083,11 +1119,11 @@ MonoBehaviour:
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
     spriteSheetId: 3
-    spriteSheetX: 2
-    spriteSheetY: 1
+    spriteSheetX: 0
+    spriteSheetY: 5
     extractRegion: 1
-    regionX: 160
-    regionY: 800
+    regionX: 0
+    regionY: 480
     regionW: 80
     regionH: 80
     regionId: 5
@@ -1101,11 +1137,11 @@ MonoBehaviour:
     colliderSmoothSphereCollisions: 0
     colliderColor: 0
     attachPoints: []
-  - name: Janek_attack_80/6
+  - name: janek_attack_east_80/6
     disableTrimming: 0
     additive: 0
     scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 2800000, guid: 9a28096db371edd44b4996aaeb742612, type: 3}
+    texture: {fileID: 2800000, guid: 76a94d415faaa5f4d9355f7653078f73, type: 3}
     materialId: 0
     anchor: 4
     anchorX: 0
@@ -1125,10 +1161,10 @@ MonoBehaviour:
     hasSpriteSheetId: 1
     spriteSheetId: 3
     spriteSheetX: 0
-    spriteSheetY: 2
+    spriteSheetY: 6
     extractRegion: 1
     regionX: 0
-    regionY: 720
+    regionY: 400
     regionW: 80
     regionH: 80
     regionId: 6
@@ -1142,11 +1178,11 @@ MonoBehaviour:
     colliderSmoothSphereCollisions: 0
     colliderColor: 0
     attachPoints: []
-  - name: Janek_attack_80/7
+  - name: janek_attack_east_80/7
     disableTrimming: 0
     additive: 0
     scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 2800000, guid: 9a28096db371edd44b4996aaeb742612, type: 3}
+    texture: {fileID: 2800000, guid: 76a94d415faaa5f4d9355f7653078f73, type: 3}
     materialId: 0
     anchor: 4
     anchorX: 0
@@ -1165,11 +1201,11 @@ MonoBehaviour:
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
     spriteSheetId: 3
-    spriteSheetX: 1
-    spriteSheetY: 2
+    spriteSheetX: 0
+    spriteSheetY: 7
     extractRegion: 1
-    regionX: 80
-    regionY: 720
+    regionX: 0
+    regionY: 320
     regionW: 80
     regionH: 80
     regionId: 7
@@ -1183,11 +1219,11 @@ MonoBehaviour:
     colliderSmoothSphereCollisions: 0
     colliderColor: 0
     attachPoints: []
-  - name: Janek_attack_80/8
+  - name: janek_attack_east_80/8
     disableTrimming: 0
     additive: 0
     scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 2800000, guid: 9a28096db371edd44b4996aaeb742612, type: 3}
+    texture: {fileID: 2800000, guid: 76a94d415faaa5f4d9355f7653078f73, type: 3}
     materialId: 0
     anchor: 4
     anchorX: 0
@@ -1206,11 +1242,11 @@ MonoBehaviour:
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
     spriteSheetId: 3
-    spriteSheetX: 2
-    spriteSheetY: 2
+    spriteSheetX: 0
+    spriteSheetY: 8
     extractRegion: 1
-    regionX: 160
-    regionY: 720
+    regionX: 0
+    regionY: 240
     regionW: 80
     regionH: 80
     regionId: 8
@@ -1224,11 +1260,11 @@ MonoBehaviour:
     colliderSmoothSphereCollisions: 0
     colliderColor: 0
     attachPoints: []
-  - name: Janek_attack_80/9
+  - name: janek_attack_east_80/9
     disableTrimming: 0
     additive: 0
     scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 2800000, guid: 9a28096db371edd44b4996aaeb742612, type: 3}
+    texture: {fileID: 2800000, guid: 76a94d415faaa5f4d9355f7653078f73, type: 3}
     materialId: 0
     anchor: 4
     anchorX: 0
@@ -1248,10 +1284,10 @@ MonoBehaviour:
     hasSpriteSheetId: 1
     spriteSheetId: 3
     spriteSheetX: 0
-    spriteSheetY: 3
+    spriteSheetY: 9
     extractRegion: 1
     regionX: 0
-    regionY: 640
+    regionY: 160
     regionW: 80
     regionH: 80
     regionId: 9
@@ -1265,11 +1301,11 @@ MonoBehaviour:
     colliderSmoothSphereCollisions: 0
     colliderColor: 0
     attachPoints: []
-  - name: Janek_attack_80/10
+  - name: janek_attack_east_80/10
     disableTrimming: 0
     additive: 0
     scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 2800000, guid: 9a28096db371edd44b4996aaeb742612, type: 3}
+    texture: {fileID: 2800000, guid: 76a94d415faaa5f4d9355f7653078f73, type: 3}
     materialId: 0
     anchor: 4
     anchorX: 0
@@ -1288,11 +1324,11 @@ MonoBehaviour:
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
     spriteSheetId: 3
-    spriteSheetX: 1
-    spriteSheetY: 3
+    spriteSheetX: 0
+    spriteSheetY: 10
     extractRegion: 1
-    regionX: 80
-    regionY: 640
+    regionX: 0
+    regionY: 80
     regionW: 80
     regionH: 80
     regionId: 10
@@ -1306,11 +1342,11 @@ MonoBehaviour:
     colliderSmoothSphereCollisions: 0
     colliderColor: 0
     attachPoints: []
-  - name: Janek_attack_80/11
+  - name: janek_attack_east_80/11
     disableTrimming: 0
     additive: 0
     scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 2800000, guid: 9a28096db371edd44b4996aaeb742612, type: 3}
+    texture: {fileID: 2800000, guid: 76a94d415faaa5f4d9355f7653078f73, type: 3}
     materialId: 0
     anchor: 4
     anchorX: 0
@@ -1329,11 +1365,11 @@ MonoBehaviour:
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
     spriteSheetId: 3
-    spriteSheetX: 2
-    spriteSheetY: 3
+    spriteSheetX: 0
+    spriteSheetY: 11
     extractRegion: 1
-    regionX: 160
-    regionY: 640
+    regionX: 0
+    regionY: 0
     regionW: 80
     regionH: 80
     regionId: 11
@@ -1347,11 +1383,11 @@ MonoBehaviour:
     colliderSmoothSphereCollisions: 0
     colliderColor: 0
     attachPoints: []
-  - name: Janek_attack_80/12
+  - name: janek_attack_north_80/0
     disableTrimming: 0
     additive: 0
     scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 2800000, guid: 9a28096db371edd44b4996aaeb742612, type: 3}
+    texture: {fileID: 2800000, guid: 371a67667fb29054089dd9b2edf6c22b, type: 3}
     materialId: 0
     anchor: 4
     anchorX: 0
@@ -1369,15 +1405,138 @@ MonoBehaviour:
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
-    spriteSheetId: 3
+    spriteSheetId: 5
     spriteSheetX: 0
-    spriteSheetY: 4
+    spriteSheetY: 0
+    extractRegion: 1
+    regionX: 0
+    regionY: 800
+    regionW: 80
+    regionH: 80
+    regionId: 0
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: janek_attack_north_80/1
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 371a67667fb29054089dd9b2edf6c22b, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 0
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 5
+    spriteSheetX: 0
+    spriteSheetY: 1
+    extractRegion: 1
+    regionX: 0
+    regionY: 720
+    regionW: 80
+    regionH: 80
+    regionId: 1
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: janek_attack_north_80/2
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 371a67667fb29054089dd9b2edf6c22b, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 0
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 5
+    spriteSheetX: 0
+    spriteSheetY: 2
+    extractRegion: 1
+    regionX: 0
+    regionY: 640
+    regionW: 80
+    regionH: 80
+    regionId: 2
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: janek_attack_north_80/3
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 371a67667fb29054089dd9b2edf6c22b, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 0
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 5
+    spriteSheetX: 0
+    spriteSheetY: 3
     extractRegion: 1
     regionX: 0
     regionY: 560
     regionW: 80
     regionH: 80
-    regionId: 12
+    regionId: 3
     colliderType: 0
     colliderData: []
     boxColliderMin: {x: 0, y: 0}
@@ -1388,11 +1547,11 @@ MonoBehaviour:
     colliderSmoothSphereCollisions: 0
     colliderColor: 0
     attachPoints: []
-  - name: Janek_attack_80/13
+  - name: janek_attack_north_80/4
     disableTrimming: 0
     additive: 0
     scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 2800000, guid: 9a28096db371edd44b4996aaeb742612, type: 3}
+    texture: {fileID: 2800000, guid: 371a67667fb29054089dd9b2edf6c22b, type: 3}
     materialId: 0
     anchor: 4
     anchorX: 0
@@ -1410,15 +1569,425 @@ MonoBehaviour:
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
-    spriteSheetId: 3
-    spriteSheetX: 1
+    spriteSheetId: 5
+    spriteSheetX: 0
     spriteSheetY: 4
     extractRegion: 1
-    regionX: 80
+    regionX: 0
+    regionY: 480
+    regionW: 80
+    regionH: 80
+    regionId: 4
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: janek_attack_north_80/5
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 371a67667fb29054089dd9b2edf6c22b, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 0
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 5
+    spriteSheetX: 0
+    spriteSheetY: 5
+    extractRegion: 1
+    regionX: 0
+    regionY: 400
+    regionW: 80
+    regionH: 80
+    regionId: 5
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: janek_attack_north_80/6
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 371a67667fb29054089dd9b2edf6c22b, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 0
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 5
+    spriteSheetX: 0
+    spriteSheetY: 6
+    extractRegion: 1
+    regionX: 0
+    regionY: 320
+    regionW: 80
+    regionH: 80
+    regionId: 6
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: janek_attack_north_80/7
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 371a67667fb29054089dd9b2edf6c22b, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 0
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 5
+    spriteSheetX: 0
+    spriteSheetY: 7
+    extractRegion: 1
+    regionX: 0
+    regionY: 240
+    regionW: 80
+    regionH: 80
+    regionId: 7
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: janek_attack_north_80/8
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 371a67667fb29054089dd9b2edf6c22b, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 0
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 5
+    spriteSheetX: 0
+    spriteSheetY: 8
+    extractRegion: 1
+    regionX: 0
+    regionY: 160
+    regionW: 80
+    regionH: 80
+    regionId: 8
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: janek_attack_north_80/9
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 371a67667fb29054089dd9b2edf6c22b, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 0
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 5
+    spriteSheetX: 0
+    spriteSheetY: 9
+    extractRegion: 1
+    regionX: 0
+    regionY: 80
+    regionW: 80
+    regionH: 80
+    regionId: 9
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: janek_attack_north_80/10
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 371a67667fb29054089dd9b2edf6c22b, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 0
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 5
+    spriteSheetX: 0
+    spriteSheetY: 10
+    extractRegion: 1
+    regionX: 0
+    regionY: 0
+    regionW: 80
+    regionH: 80
+    regionId: 10
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: janek_attack_south_80/0
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: ef72de85ec3a30743a2798063114a401, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 0
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 6
+    spriteSheetX: 0
+    spriteSheetY: 0
+    extractRegion: 1
+    regionX: 0
+    regionY: 800
+    regionW: 80
+    regionH: 80
+    regionId: 0
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: janek_attack_south_80/1
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: ef72de85ec3a30743a2798063114a401, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 0
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 6
+    spriteSheetX: 0
+    spriteSheetY: 1
+    extractRegion: 1
+    regionX: 0
+    regionY: 720
+    regionW: 80
+    regionH: 80
+    regionId: 1
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: janek_attack_south_80/2
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: ef72de85ec3a30743a2798063114a401, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 0
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 6
+    spriteSheetX: 0
+    spriteSheetY: 2
+    extractRegion: 1
+    regionX: 0
+    regionY: 640
+    regionW: 80
+    regionH: 80
+    regionId: 2
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: janek_attack_south_80/3
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: ef72de85ec3a30743a2798063114a401, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 0
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 6
+    spriteSheetX: 0
+    spriteSheetY: 3
+    extractRegion: 1
+    regionX: 0
     regionY: 560
     regionW: 80
     regionH: 80
-    regionId: 13
+    regionId: 3
     colliderType: 0
     colliderData: []
     boxColliderMin: {x: 0, y: 0}
@@ -1429,11 +1998,11 @@ MonoBehaviour:
     colliderSmoothSphereCollisions: 0
     colliderColor: 0
     attachPoints: []
-  - name: Janek_attack_80/14
+  - name: janek_attack_south_80/4
     disableTrimming: 0
     additive: 0
     scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 2800000, guid: 9a28096db371edd44b4996aaeb742612, type: 3}
+    texture: {fileID: 2800000, guid: ef72de85ec3a30743a2798063114a401, type: 3}
     materialId: 0
     anchor: 4
     anchorX: 0
@@ -1451,56 +2020,15 @@ MonoBehaviour:
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
-    spriteSheetId: 3
-    spriteSheetX: 2
+    spriteSheetId: 6
+    spriteSheetX: 0
     spriteSheetY: 4
     extractRegion: 1
-    regionX: 160
-    regionY: 560
-    regionW: 80
-    regionH: 80
-    regionId: 14
-    colliderType: 0
-    colliderData: []
-    boxColliderMin: {x: 0, y: 0}
-    boxColliderMax: {x: 0, y: 0}
-    polyColliderIslands: []
-    polyColliderCap: 1
-    colliderConvex: 0
-    colliderSmoothSphereCollisions: 0
-    colliderColor: 0
-    attachPoints: []
-  - name: Janek_attack_80/15
-    disableTrimming: 0
-    additive: 0
-    scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 2800000, guid: 9a28096db371edd44b4996aaeb742612, type: 3}
-    materialId: 0
-    anchor: 4
-    anchorX: 0
-    anchorY: 0
-    overrideMesh: {fileID: 0}
-    doubleSidedSprite: 0
-    customSpriteGeometry: 0
-    geometryIslands: []
-    dice: 0
-    diceUnitX: 64
-    diceUnitY: 64
-    diceFilter: 0
-    pad: 0
-    extraPadding: 0
-    source: 0
-    fromSpriteSheet: 0
-    hasSpriteSheetId: 1
-    spriteSheetId: 3
-    spriteSheetX: 0
-    spriteSheetY: 5
-    extractRegion: 1
     regionX: 0
     regionY: 480
     regionW: 80
     regionH: 80
-    regionId: 15
+    regionId: 4
     colliderType: 0
     colliderData: []
     boxColliderMin: {x: 0, y: 0}
@@ -1511,11 +2039,11 @@ MonoBehaviour:
     colliderSmoothSphereCollisions: 0
     colliderColor: 0
     attachPoints: []
-  - name: Janek_attack_80/16
+  - name: janek_attack_south_80/5
     disableTrimming: 0
     additive: 0
     scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 2800000, guid: 9a28096db371edd44b4996aaeb742612, type: 3}
+    texture: {fileID: 2800000, guid: ef72de85ec3a30743a2798063114a401, type: 3}
     materialId: 0
     anchor: 4
     anchorX: 0
@@ -1533,97 +2061,15 @@ MonoBehaviour:
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
-    spriteSheetId: 3
-    spriteSheetX: 1
-    spriteSheetY: 5
-    extractRegion: 1
-    regionX: 80
-    regionY: 480
-    regionW: 80
-    regionH: 80
-    regionId: 16
-    colliderType: 0
-    colliderData: []
-    boxColliderMin: {x: 0, y: 0}
-    boxColliderMax: {x: 0, y: 0}
-    polyColliderIslands: []
-    polyColliderCap: 1
-    colliderConvex: 0
-    colliderSmoothSphereCollisions: 0
-    colliderColor: 0
-    attachPoints: []
-  - name: Janek_attack_80/17
-    disableTrimming: 0
-    additive: 0
-    scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 2800000, guid: 9a28096db371edd44b4996aaeb742612, type: 3}
-    materialId: 0
-    anchor: 4
-    anchorX: 0
-    anchorY: 0
-    overrideMesh: {fileID: 0}
-    doubleSidedSprite: 0
-    customSpriteGeometry: 0
-    geometryIslands: []
-    dice: 0
-    diceUnitX: 64
-    diceUnitY: 64
-    diceFilter: 0
-    pad: 0
-    extraPadding: 0
-    source: 0
-    fromSpriteSheet: 0
-    hasSpriteSheetId: 1
-    spriteSheetId: 3
-    spriteSheetX: 2
-    spriteSheetY: 5
-    extractRegion: 1
-    regionX: 160
-    regionY: 480
-    regionW: 80
-    regionH: 80
-    regionId: 17
-    colliderType: 0
-    colliderData: []
-    boxColliderMin: {x: 0, y: 0}
-    boxColliderMax: {x: 0, y: 0}
-    polyColliderIslands: []
-    polyColliderCap: 1
-    colliderConvex: 0
-    colliderSmoothSphereCollisions: 0
-    colliderColor: 0
-    attachPoints: []
-  - name: Janek_attack_80/18
-    disableTrimming: 0
-    additive: 0
-    scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 2800000, guid: 9a28096db371edd44b4996aaeb742612, type: 3}
-    materialId: 0
-    anchor: 4
-    anchorX: 0
-    anchorY: 0
-    overrideMesh: {fileID: 0}
-    doubleSidedSprite: 0
-    customSpriteGeometry: 0
-    geometryIslands: []
-    dice: 0
-    diceUnitX: 64
-    diceUnitY: 64
-    diceFilter: 0
-    pad: 0
-    extraPadding: 0
-    source: 0
-    fromSpriteSheet: 0
-    hasSpriteSheetId: 1
-    spriteSheetId: 3
+    spriteSheetId: 6
     spriteSheetX: 0
-    spriteSheetY: 6
+    spriteSheetY: 5
     extractRegion: 1
     regionX: 0
     regionY: 400
     regionW: 80
     regionH: 80
-    regionId: 18
+    regionId: 5
     colliderType: 0
     colliderData: []
     boxColliderMin: {x: 0, y: 0}
@@ -1634,11 +2080,11 @@ MonoBehaviour:
     colliderSmoothSphereCollisions: 0
     colliderColor: 0
     attachPoints: []
-  - name: Janek_attack_80/19
+  - name: janek_attack_south_80/6
     disableTrimming: 0
     additive: 0
     scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 2800000, guid: 9a28096db371edd44b4996aaeb742612, type: 3}
+    texture: {fileID: 2800000, guid: ef72de85ec3a30743a2798063114a401, type: 3}
     materialId: 0
     anchor: 4
     anchorX: 0
@@ -1656,97 +2102,15 @@ MonoBehaviour:
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
-    spriteSheetId: 3
-    spriteSheetX: 1
+    spriteSheetId: 6
+    spriteSheetX: 0
     spriteSheetY: 6
     extractRegion: 1
-    regionX: 80
-    regionY: 400
-    regionW: 80
-    regionH: 80
-    regionId: 19
-    colliderType: 0
-    colliderData: []
-    boxColliderMin: {x: 0, y: 0}
-    boxColliderMax: {x: 0, y: 0}
-    polyColliderIslands: []
-    polyColliderCap: 1
-    colliderConvex: 0
-    colliderSmoothSphereCollisions: 0
-    colliderColor: 0
-    attachPoints: []
-  - name: Janek_attack_80/20
-    disableTrimming: 0
-    additive: 0
-    scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 2800000, guid: 9a28096db371edd44b4996aaeb742612, type: 3}
-    materialId: 0
-    anchor: 4
-    anchorX: 0
-    anchorY: 0
-    overrideMesh: {fileID: 0}
-    doubleSidedSprite: 0
-    customSpriteGeometry: 0
-    geometryIslands: []
-    dice: 0
-    diceUnitX: 64
-    diceUnitY: 64
-    diceFilter: 0
-    pad: 0
-    extraPadding: 0
-    source: 0
-    fromSpriteSheet: 0
-    hasSpriteSheetId: 1
-    spriteSheetId: 3
-    spriteSheetX: 2
-    spriteSheetY: 6
-    extractRegion: 1
-    regionX: 160
-    regionY: 400
-    regionW: 80
-    regionH: 80
-    regionId: 20
-    colliderType: 0
-    colliderData: []
-    boxColliderMin: {x: 0, y: 0}
-    boxColliderMax: {x: 0, y: 0}
-    polyColliderIslands: []
-    polyColliderCap: 1
-    colliderConvex: 0
-    colliderSmoothSphereCollisions: 0
-    colliderColor: 0
-    attachPoints: []
-  - name: Janek_attack_80/21
-    disableTrimming: 0
-    additive: 0
-    scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 2800000, guid: 9a28096db371edd44b4996aaeb742612, type: 3}
-    materialId: 0
-    anchor: 4
-    anchorX: 0
-    anchorY: 0
-    overrideMesh: {fileID: 0}
-    doubleSidedSprite: 0
-    customSpriteGeometry: 0
-    geometryIslands: []
-    dice: 0
-    diceUnitX: 64
-    diceUnitY: 64
-    diceFilter: 0
-    pad: 0
-    extraPadding: 0
-    source: 0
-    fromSpriteSheet: 0
-    hasSpriteSheetId: 1
-    spriteSheetId: 3
-    spriteSheetX: 0
-    spriteSheetY: 7
-    extractRegion: 1
     regionX: 0
     regionY: 320
     regionW: 80
     regionH: 80
-    regionId: 21
+    regionId: 6
     colliderType: 0
     colliderData: []
     boxColliderMin: {x: 0, y: 0}
@@ -1757,11 +2121,11 @@ MonoBehaviour:
     colliderSmoothSphereCollisions: 0
     colliderColor: 0
     attachPoints: []
-  - name: Janek_attack_80/22
+  - name: janek_attack_south_80/7
     disableTrimming: 0
     additive: 0
     scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 2800000, guid: 9a28096db371edd44b4996aaeb742612, type: 3}
+    texture: {fileID: 2800000, guid: ef72de85ec3a30743a2798063114a401, type: 3}
     materialId: 0
     anchor: 4
     anchorX: 0
@@ -1779,97 +2143,15 @@ MonoBehaviour:
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
-    spriteSheetId: 3
-    spriteSheetX: 1
-    spriteSheetY: 7
-    extractRegion: 1
-    regionX: 80
-    regionY: 320
-    regionW: 80
-    regionH: 80
-    regionId: 22
-    colliderType: 0
-    colliderData: []
-    boxColliderMin: {x: 0, y: 0}
-    boxColliderMax: {x: 0, y: 0}
-    polyColliderIslands: []
-    polyColliderCap: 1
-    colliderConvex: 0
-    colliderSmoothSphereCollisions: 0
-    colliderColor: 0
-    attachPoints: []
-  - name: Janek_attack_80/23
-    disableTrimming: 0
-    additive: 0
-    scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 2800000, guid: 9a28096db371edd44b4996aaeb742612, type: 3}
-    materialId: 0
-    anchor: 4
-    anchorX: 0
-    anchorY: 0
-    overrideMesh: {fileID: 0}
-    doubleSidedSprite: 0
-    customSpriteGeometry: 0
-    geometryIslands: []
-    dice: 0
-    diceUnitX: 64
-    diceUnitY: 64
-    diceFilter: 0
-    pad: 0
-    extraPadding: 0
-    source: 0
-    fromSpriteSheet: 0
-    hasSpriteSheetId: 1
-    spriteSheetId: 3
-    spriteSheetX: 2
-    spriteSheetY: 7
-    extractRegion: 1
-    regionX: 160
-    regionY: 320
-    regionW: 80
-    regionH: 80
-    regionId: 23
-    colliderType: 0
-    colliderData: []
-    boxColliderMin: {x: 0, y: 0}
-    boxColliderMax: {x: 0, y: 0}
-    polyColliderIslands: []
-    polyColliderCap: 1
-    colliderConvex: 0
-    colliderSmoothSphereCollisions: 0
-    colliderColor: 0
-    attachPoints: []
-  - name: Janek_attack_80/24
-    disableTrimming: 0
-    additive: 0
-    scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 2800000, guid: 9a28096db371edd44b4996aaeb742612, type: 3}
-    materialId: 0
-    anchor: 4
-    anchorX: 0
-    anchorY: 0
-    overrideMesh: {fileID: 0}
-    doubleSidedSprite: 0
-    customSpriteGeometry: 0
-    geometryIslands: []
-    dice: 0
-    diceUnitX: 64
-    diceUnitY: 64
-    diceFilter: 0
-    pad: 0
-    extraPadding: 0
-    source: 0
-    fromSpriteSheet: 0
-    hasSpriteSheetId: 1
-    spriteSheetId: 3
+    spriteSheetId: 6
     spriteSheetX: 0
-    spriteSheetY: 8
+    spriteSheetY: 7
     extractRegion: 1
     regionX: 0
     regionY: 240
     regionW: 80
     regionH: 80
-    regionId: 24
+    regionId: 7
     colliderType: 0
     colliderData: []
     boxColliderMin: {x: 0, y: 0}
@@ -1880,11 +2162,11 @@ MonoBehaviour:
     colliderSmoothSphereCollisions: 0
     colliderColor: 0
     attachPoints: []
-  - name: Janek_attack_80/25
+  - name: janek_attack_south_80/8
     disableTrimming: 0
     additive: 0
     scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 2800000, guid: 9a28096db371edd44b4996aaeb742612, type: 3}
+    texture: {fileID: 2800000, guid: ef72de85ec3a30743a2798063114a401, type: 3}
     materialId: 0
     anchor: 4
     anchorX: 0
@@ -1902,97 +2184,15 @@ MonoBehaviour:
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
-    spriteSheetId: 3
-    spriteSheetX: 1
+    spriteSheetId: 6
+    spriteSheetX: 0
     spriteSheetY: 8
     extractRegion: 1
-    regionX: 80
-    regionY: 240
-    regionW: 80
-    regionH: 80
-    regionId: 25
-    colliderType: 0
-    colliderData: []
-    boxColliderMin: {x: 0, y: 0}
-    boxColliderMax: {x: 0, y: 0}
-    polyColliderIslands: []
-    polyColliderCap: 1
-    colliderConvex: 0
-    colliderSmoothSphereCollisions: 0
-    colliderColor: 0
-    attachPoints: []
-  - name: Janek_attack_80/26
-    disableTrimming: 0
-    additive: 0
-    scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 2800000, guid: 9a28096db371edd44b4996aaeb742612, type: 3}
-    materialId: 0
-    anchor: 4
-    anchorX: 0
-    anchorY: 0
-    overrideMesh: {fileID: 0}
-    doubleSidedSprite: 0
-    customSpriteGeometry: 0
-    geometryIslands: []
-    dice: 0
-    diceUnitX: 64
-    diceUnitY: 64
-    diceFilter: 0
-    pad: 0
-    extraPadding: 0
-    source: 0
-    fromSpriteSheet: 0
-    hasSpriteSheetId: 1
-    spriteSheetId: 3
-    spriteSheetX: 2
-    spriteSheetY: 8
-    extractRegion: 1
-    regionX: 160
-    regionY: 240
-    regionW: 80
-    regionH: 80
-    regionId: 26
-    colliderType: 0
-    colliderData: []
-    boxColliderMin: {x: 0, y: 0}
-    boxColliderMax: {x: 0, y: 0}
-    polyColliderIslands: []
-    polyColliderCap: 1
-    colliderConvex: 0
-    colliderSmoothSphereCollisions: 0
-    colliderColor: 0
-    attachPoints: []
-  - name: Janek_attack_80/27
-    disableTrimming: 0
-    additive: 0
-    scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 2800000, guid: 9a28096db371edd44b4996aaeb742612, type: 3}
-    materialId: 0
-    anchor: 4
-    anchorX: 0
-    anchorY: 0
-    overrideMesh: {fileID: 0}
-    doubleSidedSprite: 0
-    customSpriteGeometry: 0
-    geometryIslands: []
-    dice: 0
-    diceUnitX: 64
-    diceUnitY: 64
-    diceFilter: 0
-    pad: 0
-    extraPadding: 0
-    source: 0
-    fromSpriteSheet: 0
-    hasSpriteSheetId: 1
-    spriteSheetId: 3
-    spriteSheetX: 0
-    spriteSheetY: 9
-    extractRegion: 1
     regionX: 0
     regionY: 160
     regionW: 80
     regionH: 80
-    regionId: 27
+    regionId: 8
     colliderType: 0
     colliderData: []
     boxColliderMin: {x: 0, y: 0}
@@ -2003,11 +2203,11 @@ MonoBehaviour:
     colliderSmoothSphereCollisions: 0
     colliderColor: 0
     attachPoints: []
-  - name: Janek_attack_80/28
+  - name: janek_attack_south_80/9
     disableTrimming: 0
     additive: 0
     scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 2800000, guid: 9a28096db371edd44b4996aaeb742612, type: 3}
+    texture: {fileID: 2800000, guid: ef72de85ec3a30743a2798063114a401, type: 3}
     materialId: 0
     anchor: 4
     anchorX: 0
@@ -2025,97 +2225,15 @@ MonoBehaviour:
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
-    spriteSheetId: 3
-    spriteSheetX: 1
-    spriteSheetY: 9
-    extractRegion: 1
-    regionX: 80
-    regionY: 160
-    regionW: 80
-    regionH: 80
-    regionId: 28
-    colliderType: 0
-    colliderData: []
-    boxColliderMin: {x: 0, y: 0}
-    boxColliderMax: {x: 0, y: 0}
-    polyColliderIslands: []
-    polyColliderCap: 1
-    colliderConvex: 0
-    colliderSmoothSphereCollisions: 0
-    colliderColor: 0
-    attachPoints: []
-  - name: Janek_attack_80/29
-    disableTrimming: 0
-    additive: 0
-    scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 2800000, guid: 9a28096db371edd44b4996aaeb742612, type: 3}
-    materialId: 0
-    anchor: 4
-    anchorX: 0
-    anchorY: 0
-    overrideMesh: {fileID: 0}
-    doubleSidedSprite: 0
-    customSpriteGeometry: 0
-    geometryIslands: []
-    dice: 0
-    diceUnitX: 64
-    diceUnitY: 64
-    diceFilter: 0
-    pad: 0
-    extraPadding: 0
-    source: 0
-    fromSpriteSheet: 0
-    hasSpriteSheetId: 1
-    spriteSheetId: 3
-    spriteSheetX: 2
-    spriteSheetY: 9
-    extractRegion: 1
-    regionX: 160
-    regionY: 160
-    regionW: 80
-    regionH: 80
-    regionId: 29
-    colliderType: 0
-    colliderData: []
-    boxColliderMin: {x: 0, y: 0}
-    boxColliderMax: {x: 0, y: 0}
-    polyColliderIslands: []
-    polyColliderCap: 1
-    colliderConvex: 0
-    colliderSmoothSphereCollisions: 0
-    colliderColor: 0
-    attachPoints: []
-  - name: Janek_attack_80/30
-    disableTrimming: 0
-    additive: 0
-    scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 2800000, guid: 9a28096db371edd44b4996aaeb742612, type: 3}
-    materialId: 0
-    anchor: 4
-    anchorX: 0
-    anchorY: 0
-    overrideMesh: {fileID: 0}
-    doubleSidedSprite: 0
-    customSpriteGeometry: 0
-    geometryIslands: []
-    dice: 0
-    diceUnitX: 64
-    diceUnitY: 64
-    diceFilter: 0
-    pad: 0
-    extraPadding: 0
-    source: 0
-    fromSpriteSheet: 0
-    hasSpriteSheetId: 1
-    spriteSheetId: 3
+    spriteSheetId: 6
     spriteSheetX: 0
-    spriteSheetY: 10
+    spriteSheetY: 9
     extractRegion: 1
     regionX: 0
     regionY: 80
     regionW: 80
     regionH: 80
-    regionId: 30
+    regionId: 9
     colliderType: 0
     colliderData: []
     boxColliderMin: {x: 0, y: 0}
@@ -2126,11 +2244,11 @@ MonoBehaviour:
     colliderSmoothSphereCollisions: 0
     colliderColor: 0
     attachPoints: []
-  - name: Janek_attack_80/31
+  - name: janek_attack_south_80/10
     disableTrimming: 0
     additive: 0
     scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 2800000, guid: 9a28096db371edd44b4996aaeb742612, type: 3}
+    texture: {fileID: 2800000, guid: ef72de85ec3a30743a2798063114a401, type: 3}
     materialId: 0
     anchor: 4
     anchorX: 0
@@ -2148,97 +2266,15 @@ MonoBehaviour:
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 1
-    spriteSheetId: 3
-    spriteSheetX: 1
-    spriteSheetY: 10
-    extractRegion: 1
-    regionX: 80
-    regionY: 80
-    regionW: 80
-    regionH: 80
-    regionId: 31
-    colliderType: 0
-    colliderData: []
-    boxColliderMin: {x: 0, y: 0}
-    boxColliderMax: {x: 0, y: 0}
-    polyColliderIslands: []
-    polyColliderCap: 1
-    colliderConvex: 0
-    colliderSmoothSphereCollisions: 0
-    colliderColor: 0
-    attachPoints: []
-  - name: Janek_attack_80/32
-    disableTrimming: 0
-    additive: 0
-    scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 2800000, guid: 9a28096db371edd44b4996aaeb742612, type: 3}
-    materialId: 0
-    anchor: 4
-    anchorX: 0
-    anchorY: 0
-    overrideMesh: {fileID: 0}
-    doubleSidedSprite: 0
-    customSpriteGeometry: 0
-    geometryIslands: []
-    dice: 0
-    diceUnitX: 64
-    diceUnitY: 64
-    diceFilter: 0
-    pad: 0
-    extraPadding: 0
-    source: 0
-    fromSpriteSheet: 0
-    hasSpriteSheetId: 1
-    spriteSheetId: 3
-    spriteSheetX: 2
-    spriteSheetY: 10
-    extractRegion: 1
-    regionX: 160
-    regionY: 80
-    regionW: 80
-    regionH: 80
-    regionId: 32
-    colliderType: 0
-    colliderData: []
-    boxColliderMin: {x: 0, y: 0}
-    boxColliderMax: {x: 0, y: 0}
-    polyColliderIslands: []
-    polyColliderCap: 1
-    colliderConvex: 0
-    colliderSmoothSphereCollisions: 0
-    colliderColor: 0
-    attachPoints: []
-  - name: Janek_attack_80/33
-    disableTrimming: 0
-    additive: 0
-    scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 2800000, guid: 9a28096db371edd44b4996aaeb742612, type: 3}
-    materialId: 0
-    anchor: 4
-    anchorX: 0
-    anchorY: 0
-    overrideMesh: {fileID: 0}
-    doubleSidedSprite: 0
-    customSpriteGeometry: 0
-    geometryIslands: []
-    dice: 0
-    diceUnitX: 64
-    diceUnitY: 64
-    diceFilter: 0
-    pad: 0
-    extraPadding: 0
-    source: 0
-    fromSpriteSheet: 0
-    hasSpriteSheetId: 1
-    spriteSheetId: 3
+    spriteSheetId: 6
     spriteSheetX: 0
-    spriteSheetY: 11
+    spriteSheetY: 10
     extractRegion: 1
     regionX: 0
     regionY: 0
     regionW: 80
     regionH: 80
-    regionId: 33
+    regionId: 10
     colliderType: 0
     colliderData: []
     boxColliderMin: {x: 0, y: 0}
@@ -2249,11 +2285,11 @@ MonoBehaviour:
     colliderSmoothSphereCollisions: 0
     colliderColor: 0
     attachPoints: []
-  - name: Janek_attack_80/34
+  - name: 
     disableTrimming: 0
     additive: 0
     scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 2800000, guid: 9a28096db371edd44b4996aaeb742612, type: 3}
+    texture: {fileID: 0}
     materialId: 0
     anchor: 4
     anchorX: 0
@@ -2270,16 +2306,16 @@ MonoBehaviour:
     extraPadding: 0
     source: 0
     fromSpriteSheet: 0
-    hasSpriteSheetId: 1
-    spriteSheetId: 3
-    spriteSheetX: 1
-    spriteSheetY: 11
-    extractRegion: 1
-    regionX: 80
+    hasSpriteSheetId: 0
+    spriteSheetId: 0
+    spriteSheetX: 0
+    spriteSheetY: 0
+    extractRegion: 0
+    regionX: 0
     regionY: 0
-    regionW: 80
-    regionH: 80
-    regionId: 34
+    regionW: 0
+    regionH: 0
+    regionId: 0
     colliderType: 0
     colliderData: []
     boxColliderMin: {x: 0, y: 0}
@@ -2290,11 +2326,11 @@ MonoBehaviour:
     colliderSmoothSphereCollisions: 0
     colliderColor: 0
     attachPoints: []
-  - name: Janek_attack_80/35
+  - name: 
     disableTrimming: 0
     additive: 0
     scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 2800000, guid: 9a28096db371edd44b4996aaeb742612, type: 3}
+    texture: {fileID: 0}
     materialId: 0
     anchor: 4
     anchorX: 0
@@ -2311,16 +2347,16 @@ MonoBehaviour:
     extraPadding: 0
     source: 0
     fromSpriteSheet: 0
-    hasSpriteSheetId: 1
-    spriteSheetId: 3
-    spriteSheetX: 2
-    spriteSheetY: 11
-    extractRegion: 1
-    regionX: 160
+    hasSpriteSheetId: 0
+    spriteSheetId: 0
+    spriteSheetX: 0
+    spriteSheetY: 0
+    extractRegion: 0
+    regionX: 0
     regionY: 0
-    regionW: 80
-    regionH: 80
-    regionId: 35
+    regionW: 0
+    regionH: 0
+    regionId: 0
     colliderType: 0
     colliderData: []
     boxColliderMin: {x: 0, y: 0}
