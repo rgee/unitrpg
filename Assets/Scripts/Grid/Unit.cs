@@ -58,6 +58,11 @@ namespace Grid {
             _collider = GetComponent<Collider>();
         }
 
+        public void SnapToGrid() {
+            var map = CombatObjects.GetMap();
+            transform.position = map.GetWorldPosForGridPos(gridPosition);
+        }
+
         public bool IsAlive() {
             return model.IsAlive;
         }

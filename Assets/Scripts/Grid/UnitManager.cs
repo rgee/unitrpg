@@ -55,8 +55,6 @@ namespace Grid {
             unitGameObjects.Add(obj);
             unitsByPosition.Add(component.gridPosition, obj);
             unitModels.Add(component.model);
-            obj.transform.SetParent(transform);
-            obj.transform.position = Grid.GetWorldPosForGridPos(component.gridPosition);
         }
 
         private void OnDestroy() {
