@@ -32,7 +32,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 154476}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 800, y: 321, z: -.400000006}
+  m_LocalPosition: {x: 800, y: 321, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -103,7 +103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   library: {fileID: 11447394, guid: 9b1937669734c14489e4a65467411a05, type: 2}
-  defaultClipId: 0
+  defaultClipId: 13
   playAutomatically: 0
 --- !u!114 &11428528
 MonoBehaviour:
@@ -119,7 +119,7 @@ MonoBehaviour:
   collection: {fileID: 11443694, guid: 83921e92a697f444eb7e7194ae322678, type: 2}
   _color: {r: 1, g: 1, b: 1, a: 1}
   _scale: {x: -1, y: 1, z: 1}
-  _spriteId: 31
+  _spriteId: 93
   boxCollider2D: {fileID: 0}
   polygonCollider2D: []
   edgeCollider2D: []
@@ -218,7 +218,7 @@ Prefab:
         type: 2}
     - target: {fileID: 0}
       propertyPath: _spriteId
-      value: 0
+      value: 93
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: model.Character
@@ -232,11 +232,15 @@ Prefab:
         type: 2}
     - target: {fileID: 0}
       propertyPath: defaultClipId
-      value: 0
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: model.IsFriendly
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
