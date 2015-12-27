@@ -11,6 +11,7 @@ namespace Models.Combat {
         Wait = 1 << 5,
         Brace = 1 << 6,
         Cover = 1 << 7,
-        Attack = 1 << 8
+        Attack = 1 << 8,
+        Interact = 1 << 9
     }
 }

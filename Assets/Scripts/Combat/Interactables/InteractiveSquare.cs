@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 namespace Combat.Interactables {
@@ -12,6 +13,9 @@ namespace Combat.Interactables {
 
         [Tooltip("The position of this square in grid space.")]
         public Vector2 GridPosition;
+
+        [Tooltip("The name of the action that will be taken when this object is interacted with.")]
+        public string ActionName;
 
         private IScriptedEvent _event;
 
