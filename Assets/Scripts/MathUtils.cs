@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public static class MathUtils {
@@ -12,6 +13,15 @@ public static class MathUtils {
     public enum Orientation {
         HORIZONTAL,
         VERTICAL
+    }
+
+    public static IEnumerable<Vector2> GetAdjacentPoints(Vector2 point) {
+        return new List<Vector2> {
+            new Vector2(point.x-1, point.y),
+            new Vector2(point.x+1, point.y),
+            new Vector2(point.x, point.y-1),
+            new Vector2(point.x, point.y+1)
+        };
     }
 
     public static int ManhattanDistance(int x1, int y1, int x2, int y2) {

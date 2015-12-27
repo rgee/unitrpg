@@ -80,18 +80,9 @@ namespace Models.Combat {
         }
 
         private IEnumerable<Unit> GetAdjacentUnits(Unit unit) {
-            return from point in GetAdjacentPoints(unit.GridPosition)
+            return from point in MathUtils.GetAdjacentPoints(unit.GridPosition)
                    where _map.IsOccupied(point)
                    select _map.GetUnitByPosition(point);
         } 
-
-        private static IEnumerable<Vector2> GetAdjacentPoints(Vector2 point) {
-            return new List<Vector2> {
-                new Vector2(point.x-1, point.y),
-                new Vector2(point.x+1, point.y),
-                new Vector2(point.x, point.y-1),
-                new Vector2(point.x, point.y+1)
-            };
-        }
     }
 }

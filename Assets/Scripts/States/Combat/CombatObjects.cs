@@ -1,4 +1,5 @@
-﻿using Grid;
+﻿using Combat.Interactables;
+using Grid;
 using UI.ActionMenu;
 using UnityEngine;
 
@@ -9,6 +10,10 @@ public static class CombatObjects {
 
     public static HealPreviewManager GetHealPreviewManager() {
         return GameObject.Find("BattleManager/HealPreviewManager").GetComponent<HealPreviewManager>();
+    }
+
+    public static InteractiveSquareManager GetInteractiveSquareManager() {
+        return GameObject.FindGameObjectWithTag("InteractiveSquareManager").GetComponent<InteractiveSquareManager>();
     }
 
     public static MapGrid GetMap() {
