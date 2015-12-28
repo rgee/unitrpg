@@ -37,7 +37,7 @@ namespace Models.Combat {
                     results.Add(CombatAction.Trade);
                 }
 
-                if (GetAdjacentInteractiveTiles(unit).Any()) {
+                if (GetUsableAdjacentInteractiveTiles(unit).Any()) {
                     results.Add(CombatAction.Use);
                 }
             }
@@ -87,6 +87,13 @@ namespace Models.Combat {
             return from point in MathUtils.GetAdjacentPoints(unit.GridPosition)
                    where !_map.IsOccupied(point)
                    select _map.GetTileByPosition(point);
+        }
+
+        private IEnumerable<InteractiveTile> GetUsableAdjacentInteractiveTiles(Unit unit) {
+            return from tile in GetAdjacentInteractiveTiles(unit)
+                   where tile.CanTrigger()
+                   select tile;
+
         } 
 
         private IEnumerable<Unit> GetAdjacentUnits(Unit unit) {
