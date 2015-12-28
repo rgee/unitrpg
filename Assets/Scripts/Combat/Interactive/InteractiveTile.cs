@@ -8,6 +8,7 @@ namespace Combat.Interactive {
     public class InteractiveTile : MonoBehaviour {
         public Vector2 GridPosition;
         public string Id;
+        public bool Repeatable;
 
         private ITileInteractivityRule _rule;
         private IScriptedEvent _event;
@@ -23,7 +24,7 @@ namespace Combat.Interactive {
             _grid = CombatObjects.GetMap();
         }
 
-        bool CanBeUsed() {
+        public bool CanBeUsed() {
             return _rule.CanBeUsed();
         }
 

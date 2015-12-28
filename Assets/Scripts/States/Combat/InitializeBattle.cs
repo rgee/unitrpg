@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Models;
 using Models.Combat;
@@ -20,8 +21,9 @@ namespace States.Combat {
             var saveGame = BinarySaveManager.CurrentState;
             if (saveGame != null) {
                 foreach (var character in saveGame.Characters) {
+                    var localCharacter = character;
                     var unitsForCharacter = from unit in unitModels
-                                            where unit.Character.Name == character.Name
+                                            where unit.Character.Name == localCharacter.Name
                                             select unit;
 
                     foreach (var unit in unitsForCharacter) {
@@ -31,7 +33,16 @@ namespace States.Combat {
                 }
             }
 
-            var map = new Map(unitModels, new List<InteractiveTile>());
+            var interactiveTiles = new List<InteractiveTile>();
+
+            // Find all the interactive tiles in the game world and convert them to the model
+            foreach (var tile in FindObjectsOfType<global::Combat.Interactive.InteractiveTile>()) {
+                var tileModel = new InteractiveTile(tile.Id, tile.GridPosition, tile.Repeatable, CreateTilePredicate(tile));
+
+                interactiveTiles.Add(tileModel);
+            }
+
+            var map = new Map(unitModels, interactiveTiles);
             var turnState = new Turn(map);
             var objective = new Models.Combat.Objectives.Rout();
             var actionProber = new ActionProber(map, turnState);
@@ -50,6 +61,10 @@ namespace States.Combat {
             foreach (var prefab in ManagerPrefabs) {
                 Instantiate(prefab);
             }
+        }
+
+        private static Func<bool> CreateTilePredicate(global::Combat.Interactive.InteractiveTile tile) {
+            return tile.CanBeUsed;
         }
 
         void CompleteInitialization() {
