@@ -54,7 +54,7 @@ namespace Combat.Interactive {
             yield return _event.Play();
         }
 
-        void OnDrawGizmos() {
+        void OnDrawGizmosSelected() {
             Gizmos.color = Color.green;
             Gizmos.DrawWireCube(transform.position, new Vector3(32f, 32f, 32f));
         }
