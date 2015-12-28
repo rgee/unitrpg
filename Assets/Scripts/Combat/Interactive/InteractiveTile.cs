@@ -1,9 +1,9 @@
 ﻿using System.Collections;
-using Models.Combat;
+using Combat.Interactive.Rules;
 using UnityEngine;
 
 namespace Combat.Interactive {
-    [RequireComponent(typeof(ITileInteractivityRule))]
+    [ExecuteInEditMode]
     [RequireComponent(typeof(IScriptedEvent))]
     public class InteractiveTile : MonoBehaviour {
         public Vector2 GridPosition;
@@ -11,14 +11,35 @@ namespace Combat.Interactive {
 
         private ITileInteractivityRule _rule;
         private IScriptedEvent _event;
+        private MapGrid _grid;
 
         void Awake() {
             _rule = GetComponent<ITileInteractivityRule>();
+            if (_rule == null) {
+                _rule = new DummyRule();
+            }
+
             _event = GetComponent<IScriptedEvent>();
+            _grid = CombatObjects.GetMap();
         }
 
         bool CanBeUsed() {
             return _rule.CanBeUsed();
+        }
+
+        void Update() {
+#if UNITY_EDITOR
+            if (_grid != null) {
+                SnapToGrid();
+            }
+#endif
+        }
+
+        void SnapToGrid() {
+            var mapOffset = _grid.transform.position;
+            var tileSize = _grid.tileSizeInPixels;
+
+            transform.position = mapOffset + (new Vector3(GridPosition.x, GridPosition.y)*tileSize);
         }
 
         IEnumerator Use(Grid.Unit unit) {
@@ -31,6 +52,11 @@ namespace Combat.Interactive {
             }
 
             yield return _event.Play();
+        }
+
+        void OnDrawGizmos() {
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireCube(transform.position, new Vector3(32f, 32f, 32f));
         }
     }
 }

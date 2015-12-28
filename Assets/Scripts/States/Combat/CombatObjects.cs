@@ -1,5 +1,4 @@
-﻿using Combat.Interactables;
-using Grid;
+﻿using Grid;
 using UI.ActionMenu;
 using UnityEngine;
 
