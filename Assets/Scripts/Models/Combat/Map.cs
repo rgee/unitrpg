@@ -6,8 +6,9 @@ using UnityEngine;
 namespace Models.Combat {
     public class Map : IMap {
         private readonly Dictionary<Vector2, Unit> _unitsByPosition = new Dictionary<Vector2, Unit>();
+        private readonly Dictionary<Vector2, InteractiveTile> _interactiveTilesByPosition = new Dictionary<Vector2, InteractiveTile>(); 
 
-        public Map(IEnumerable<Unit> units) {
+        public Map(IEnumerable<Unit> units, IEnumerable<InteractiveTile> interactiveTiles) {
             CombatEventBus.ModelDeaths.AddListener(RemoveUnit);
             foreach (var unit in units) {
                 if (_unitsByPosition.ContainsKey(unit.GridPosition)) {
@@ -16,6 +17,22 @@ namespace Models.Combat {
 
                 _unitsByPosition[unit.GridPosition] = unit;
             }
+
+            foreach (var tile in interactiveTiles) {
+                if (_interactiveTilesByPosition.ContainsKey(tile.GridPosition)) {
+                    throw new ArgumentException("Cannot place two interactive tiles at the same position.");
+                }
+
+                _interactiveTilesByPosition[tile.GridPosition] = tile;
+            }
+        }
+
+        public InteractiveTile GetTileByPosition(Vector2 position) {
+            if (!_interactiveTilesByPosition.ContainsKey(position)) {
+                return null;
+            }
+
+            return _interactiveTilesByPosition[position];
         }
 
         public void AddUnit(Unit unit) {
@@ -32,7 +49,6 @@ namespace Models.Combat {
         private void RemoveUnit(Unit unit) {
             _unitsByPosition.Remove(unit.GridPosition);
         }
-
 
         public IEnumerable<Unit> GetFriendlyUnits() {
             return from unit in GetAllUnits()

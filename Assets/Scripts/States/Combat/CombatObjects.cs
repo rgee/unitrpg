@@ -12,10 +12,6 @@ public static class CombatObjects {
         return GameObject.Find("BattleManager/HealPreviewManager").GetComponent<HealPreviewManager>();
     }
 
-    public static InteractiveSquareManager GetInteractiveSquareManager() {
-        return GameObject.FindGameObjectWithTag("InteractiveSquareManager").GetComponent<InteractiveSquareManager>();
-    }
-
     public static MapGrid GetMap() {
         return GameObject.FindGameObjectWithTag("Map").GetComponent<MapGrid>();
     }

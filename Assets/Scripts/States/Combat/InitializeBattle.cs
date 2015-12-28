@@ -31,7 +31,7 @@ namespace States.Combat {
                 }
             }
 
-            var map = new Map(unitModels);
+            var map = new Map(unitModels, new List<InteractiveTile>());
             var turnState = new Turn(map);
             var objective = new Models.Combat.Objectives.Rout();
             var actionProber = new ActionProber(map, turnState);
