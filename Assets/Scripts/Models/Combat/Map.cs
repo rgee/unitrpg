@@ -23,6 +23,12 @@ namespace Models.Combat {
             }
         }
 
+        public IEnumerable<InteractiveTile> GetAdjacentInteractiveTiles(Vector2 position) {
+            return MathUtils.GetAdjacentPoints(position)
+                .Select(p => GetTileByPosition(p))
+                .Where(tile => tile != null && tile.CanTrigger());
+        }
+
         public void AddInteractiveTile(InteractiveTile tile) {
             if (_interactiveTilesByPosition.ContainsKey(tile.GridPosition)) {
                 throw new ArgumentException("Cannot place two interactive tiles at the same position.");

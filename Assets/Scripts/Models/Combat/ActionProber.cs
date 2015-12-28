@@ -84,9 +84,10 @@ namespace Models.Combat {
         }
 
         private IEnumerable<InteractiveTile> GetAdjacentInteractiveTiles(Unit unit) {
-            return from point in MathUtils.GetAdjacentPoints(unit.GridPosition)
-                   where !_map.IsOccupied(point)
-                   select _map.GetTileByPosition(point);
+            return MathUtils.GetAdjacentPoints(unit.GridPosition)
+                .Where(p => !_map.IsOccupied(p))
+                .Select(p => _map.GetTileByPosition(p))
+                .Where(tile => tile != null);
         }
 
         private IEnumerable<InteractiveTile> GetUsableAdjacentInteractiveTiles(Unit unit) {

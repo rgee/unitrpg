@@ -62,7 +62,8 @@ namespace UI.ActionMenu.Bubbles {
             new MenuAction("Attack", 3),
             new MenuAction("Brace", 2),
             new MenuAction("Cover", 1),
-            new MenuAction("Wait", 0)
+            new MenuAction("Wait", 0),
+            new MenuAction("Use", 9)
         }; 
 
         void Awake() {

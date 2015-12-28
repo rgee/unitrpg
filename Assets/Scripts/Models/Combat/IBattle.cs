@@ -28,6 +28,7 @@ namespace Models.Combat {
         IEnumerable<CombatAction> GetAvailableFightActions(Unit unit); 
         void UseItem(Item item, Unit unit);
 
+        IEnumerable<InteractiveTile> GetAdjacentInteractiveTiles(Vector2 position);
         InteractiveTile GetInteractiveTileByLocation(Vector2 position);
         void TriggerInteractiveTile(InteractiveTile tile, Unit unit);
 

@@ -43,7 +43,7 @@ namespace Combat.Interactive {
             transform.position = mapOffset + (new Vector3(GridPosition.x, GridPosition.y)*tileSize);
         }
 
-        IEnumerator Use(Grid.Unit unit) {
+        public IEnumerator Use(Grid.Unit unit) {
             var battle = CombatObjects.GetBattleState().Model;
 
             var tile = battle.GetInteractiveTileByLocation(GridPosition);
@@ -52,7 +52,7 @@ namespace Combat.Interactive {
                 battle.TriggerInteractiveTile(tile, unitModel);
             }
 
-            yield return _event.Play();
+            yield return StartCoroutine(_event.Play());
         }
 
         void OnDrawGizmosSelected() {
