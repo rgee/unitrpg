@@ -19,12 +19,24 @@ namespace Models.Combat {
             }
 
             foreach (var tile in interactiveTiles) {
-                if (_interactiveTilesByPosition.ContainsKey(tile.GridPosition)) {
-                    throw new ArgumentException("Cannot place two interactive tiles at the same position.");
-                }
-
-                _interactiveTilesByPosition[tile.GridPosition] = tile;
+                AddInteractiveTile(tile);
             }
+        }
+
+        public void AddInteractiveTile(InteractiveTile tile) {
+            if (_interactiveTilesByPosition.ContainsKey(tile.GridPosition)) {
+                throw new ArgumentException("Cannot place two interactive tiles at the same position.");
+            }
+
+            _interactiveTilesByPosition[tile.GridPosition] = tile;
+        }
+
+        public void RemoveInteractiveTile(Vector2 position) {
+            if (!_interactiveTilesByPosition.ContainsKey(position)) {
+                throw new ArgumentException("Cannot remove non-existent interactive tile.");
+            }
+
+            _interactiveTilesByPosition.Remove(position);
         }
 
         public InteractiveTile GetTileByPosition(Vector2 position) {
