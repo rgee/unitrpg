@@ -10,23 +10,29 @@ namespace Models.Combat {
 
         public readonly Vector2 GridPosition;
         public readonly string Id;
-
+        private readonly Func<bool> _triggerCondtion;
         private readonly bool _repeatable;
+
         private bool _triggered;
 
-        public InteractiveTile(string id, Vector2 gridPosition, bool repeatable) {
+        public InteractiveTile(string id, Vector2 gridPosition, bool repeatable, Func<bool> triggerCondtion) {
             Id = id;
             GridPosition = gridPosition;
             _repeatable = repeatable;
+            _triggerCondtion = triggerCondtion;
         }
 
         public bool CanTrigger() {
-            return _repeatable || !_triggered;
+            if (_repeatable) {
+                return _triggerCondtion.Invoke();
+            }
+
+            return !_triggered && _triggerCondtion.Invoke();
         }
 
         public void Trigger() {
             if (!CanTrigger()) {
-                throw new ArgumentException("Cannot trigger non-repeatable interactive tile twice");
+                throw new ArgumentException("Tile cannot be triggered.");
             }
 
             _triggered = true;
