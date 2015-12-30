@@ -37,6 +37,9 @@ public class FriendlyUnitSelected : CancelableCombatState {
             case CombatAction.Move:
                 _animator.SetTrigger("move_selected");
                 break;
+            case CombatAction.Use:
+                _animator.SetTrigger("use_selected");
+                break;
             case CombatAction.Fight:
                 break;
             case CombatAction.Item:

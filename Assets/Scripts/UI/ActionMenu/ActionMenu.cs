@@ -32,6 +32,8 @@ namespace UI.ActionMenu {
 
         IEnumerator AwaitActionSelect(IEnumerable<CombatAction> actions, IEnumerable<CombatAction> fightActions) {
            _view.Show(actions, fightActions);
+
+            // Keep yielding until the view has been dismissed or has an action.
             while (_view.SelectedAction == null && !_view.Canceled) {
                 yield return null;
             }

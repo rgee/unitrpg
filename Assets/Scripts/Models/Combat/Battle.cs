@@ -19,6 +19,19 @@ namespace Models.Combat {
             _actionProber = actionProber;
         }
 
+        public InteractiveTile GetInteractiveTileByLocation(Vector2 position) {
+            return _map.GetTileByPosition(position);
+        }
+
+        public IEnumerable<InteractiveTile> GetAdjacentInteractiveTiles(Vector2 position) {
+            return _map.GetAdjacentInteractiveTiles(position);
+        }
+
+        public void TriggerInteractiveTile(InteractiveTile tile, Unit unit) {
+            tile.Trigger();
+            _turnState.RecordAction(unit);
+        }
+
         public IEnumerable<CombatAction> GetAvailableActions(Unit unit) {
             return _actionProber.GetAvailableActions(unit);
         }

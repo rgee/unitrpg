@@ -10,5 +10,10 @@ namespace Models.Combat {
         IEnumerable<Unit> GetEnemyUnits();
         void MoveUnit(Unit unit, Vector2 location);
         void AddUnit(Unit unit);
+
+        IEnumerable<InteractiveTile> GetAdjacentInteractiveTiles(Vector2 position);
+        InteractiveTile GetTileByPosition(Vector2 position);
+        void AddInteractiveTile(InteractiveTile tile);
+        void RemoveInteractiveTile(Vector2 position);
     }
 }

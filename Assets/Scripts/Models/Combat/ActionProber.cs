@@ -36,6 +36,10 @@ namespace Models.Combat {
                 if (AnyAdjacentFriendlies(unit)) {
                     results.Add(CombatAction.Trade);
                 }
+
+                if (GetUsableAdjacentInteractiveTiles(unit).Any()) {
+                    results.Add(CombatAction.Use);
+                }
             }
 
 
@@ -79,19 +83,24 @@ namespace Models.Combat {
             return _turn.CanAct(unit);
         }
 
+        private IEnumerable<InteractiveTile> GetAdjacentInteractiveTiles(Unit unit) {
+            return MathUtils.GetAdjacentPoints(unit.GridPosition)
+                .Where(p => !_map.IsOccupied(p))
+                .Select(p => _map.GetTileByPosition(p))
+                .Where(tile => tile != null);
+        }
+
+        private IEnumerable<InteractiveTile> GetUsableAdjacentInteractiveTiles(Unit unit) {
+            return from tile in GetAdjacentInteractiveTiles(unit)
+                   where tile.CanTrigger()
+                   select tile;
+
+        } 
+
         private IEnumerable<Unit> GetAdjacentUnits(Unit unit) {
-            return from point in GetAdjacentPoints(unit.GridPosition)
+            return from point in MathUtils.GetAdjacentPoints(unit.GridPosition)
                    where _map.IsOccupied(point)
                    select _map.GetUnitByPosition(point);
         } 
-
-        private static IEnumerable<Vector2> GetAdjacentPoints(Vector2 point) {
-            return new List<Vector2> {
-                new Vector2(point.x-1, point.y),
-                new Vector2(point.x+1, point.y),
-                new Vector2(point.x, point.y-1),
-                new Vector2(point.x, point.y+1)
-            };
-        }
     }
 }
