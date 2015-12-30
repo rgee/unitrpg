@@ -56,8 +56,12 @@ namespace Combat.Interactive {
         }
 
         void OnDrawGizmosSelected() {
-            Gizmos.color = Color.green;
-            Gizmos.DrawWireCube(transform.position, new Vector3(32f, 32f, 32f));
+            if (_grid != null) {
+                Gizmos.color = Color.green;
+
+                var gridSize = _grid.tileSizeInPixels;
+                Gizmos.DrawWireCube(transform.position, new Vector3(gridSize, gridSize, gridSize));
+            }
         }
     }
 }
