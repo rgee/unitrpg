@@ -2,4 +2,5 @@
 
 internal interface AIStrategy {
     IEnumerator act();
+    bool Awake { get; set; }
 }

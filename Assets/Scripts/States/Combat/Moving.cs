@@ -1,19 +1,31 @@
-﻿using Grid;
+﻿using System.Collections;
+using Combat;
 using UnityEngine;
 
 public class Moving : StateMachineBehaviour {
-    private MapGrid Grid;
-    private BattleState State;
+    private MapGrid _grid;
+    private BattleState _state;
+    private BattleManager _battleManager;
+    private Animator _animator;
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-        State = CombatObjects.GetBattleState();
-        Grid = CombatObjects.GetMap();
+        _state = CombatObjects.GetBattleState();
+        _battleManager = CombatObjects.GetBattleManager();
+        _grid = CombatObjects.GetMap();
+        _animator = animator;
 
-        var unit = State.SelectedUnit;
-        unit.MoveTo(State.MovementDestination, Grid, () => {
-            CombatEventBus.Moves.Dispatch(State.SelectedUnit, State.MovementDestination);
-            State.ResetMovementState();
-            animator.SetTrigger("unit_moved");
-        });
+        var unit = _state.SelectedUnit;
+        unit.StartCoroutine(DoMove());
+    }
+
+    private IEnumerator DoMove() {
+        var unit = _state.SelectedUnit;
+
+        var movementHandler = new EventTriggerMovementHandler(_battleManager);
+        yield return unit.StartCoroutine(unit.MoveTo(_state.MovementDestination, _grid, movementHandler));
+
+        CombatEventBus.Moves.Dispatch(_state.SelectedUnit, _state.MovementDestination);
+        _state.ResetMovementState();
+        _animator.SetTrigger("unit_moved");
     }
 }

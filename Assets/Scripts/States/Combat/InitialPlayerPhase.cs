@@ -20,15 +20,13 @@ public class InitialPlayerPhase : StateMachineBehaviour {
         var turnComplete = friendlyUnits.All(unit => BattleState.UnitActed(unit));
 
         var battleManager = CombatObjects.GetBattleManager();
-        battleManager.StartCoroutine(battleManager.RunTriggeredEvents(() => {
-            if (turnComplete) {
-                BattleState.Model.EndTurn(TurnControl.Friendly);
-                animator.SetTrigger("actions_exhausted");
-                BattleState.ResetTurnState();
-            } else {
-                UnitManager.OnUnitClick += OnUnitClicked;
-            }
-        }));
+        if (turnComplete) {
+            BattleState.Model.EndTurn(TurnControl.Friendly);
+            animator.SetTrigger("actions_exhausted");
+            BattleState.ResetTurnState();
+        } else {
+            UnitManager.OnUnitClick += OnUnitClicked;
+        }
     }
 
     private void OnUnitClicked(Grid.Unit unit, Vector2 gridPosition, bool rightClick) {

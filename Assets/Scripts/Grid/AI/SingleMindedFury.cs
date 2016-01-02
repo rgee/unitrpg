@@ -24,6 +24,12 @@ public class SingleMindedFury : MonoBehaviour, AIStrategy {
     public GameObject Target;
     private Grid.Unit Unit;
     private FightExecutor _executorInstance;
+    public bool IsAwake = true;
+
+    bool AIStrategy.Awake {
+        get { return IsAwake; }
+        set { IsAwake = value; }
+    }
 
     public IEnumerator act() {
         CameraController.Lock();
@@ -142,7 +148,7 @@ public class SingleMindedFury : MonoBehaviour, AIStrategy {
                               .Take(moveRange).ToList();
 
         if (!path.error) {
-            yield return StartCoroutine(Unit.MoveAlongPath(limitedPath));
+            yield return StartCoroutine(Unit.FollowPath(limitedPath));
 
             var destination = Grid.GridPositionForWorldPosition(limitedPath.Last());
             CombatEventBus.Moves.Dispatch(Unit, destination);

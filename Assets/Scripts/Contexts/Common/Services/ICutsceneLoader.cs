@@ -1,5 +1,7 @@
-﻿namespace Assets.Contexts.Common.Services {
+﻿using Models.Dialogue;
+
+namespace Assets.Contexts.Common.Services {
     public interface ICutsceneLoader {
-        Models.Dialogue.Cutscene Load(string resoucePath);
+        Cutscene Load(string resoucePath);
     }
 }

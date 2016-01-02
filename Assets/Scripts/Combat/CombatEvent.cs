@@ -9,17 +9,28 @@ namespace Combat {
      * Subclasses of CombatEvent will have access to a simplified
      * set of high-level actions that can be performed on the game world.
      */
+    [ExecuteInEditMode]
     public abstract class CombatEvent : MonoBehaviour, ITrigger, IScriptedEvent {
-        public abstract HashSet<Vector2> Locations { get; }
 
         public IScriptedEvent Event {
             get { return this; }
         }
 
+        void OnDrawGizmosSelected() {
+            if (_grid != null) {
+                Gizmos.color = Color.green;
+
+                var gridSize = _grid.tileSizeInPixels;
+                Gizmos.DrawWireCube(transform.position, new Vector3(gridSize, gridSize, gridSize));
+            }
+        }
+
         private GameObject _camera;
+        private MapGrid _grid;
 
         void Start() {
             _camera = CombatObjects.GetCamera();
+            _grid = CombatObjects.GetMap();
         }
 
         public abstract IEnumerator Play();

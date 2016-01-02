@@ -11,7 +11,7 @@ public class AIManager : Singleton<AIManager> {
             // Unfortunately Unity requires us to use the non-generic method to get a component
             // that is an interface type.
             var strat = (AIStrategy) unit.GetComponent(typeof (AIStrategy));
-            if (strat != null) {
+            if (strat != null && strat.Awake) {
                 yield return StartCoroutine(strat.act());
             } else {
                 yield return null;
