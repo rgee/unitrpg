@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Assets.Models.Combat;
 using DG.Tweening;
 using UnityEngine;
 
@@ -9,12 +10,25 @@ public class UnitController : MonoBehaviour {
     private BattleState _battleState;
     private Grid.Unit _unit;
 
-    public void Start() {
+    private MapGrid _grid;
+
+    private class DummyMovementEventHandler : IMovementEventHandler {
+        public IEnumerator HandleMovement(Grid.Unit unit, Vector2 destination) {
+            yield return null;
+        }
+    }
+
+    public void Awake() {
         _unit = GetComponent<Grid.Unit>();
         _battleState = CombatObjects.GetBattleState();
+        _grid = CombatObjects.GetMap();
     }
 
     public IEnumerator FollowPath(List<Vector3> path) {
+        yield return StartCoroutine(FollowPath(path, new DummyMovementEventHandler()));
+    } 
+
+    public IEnumerator FollowPath(List<Vector3> path, IMovementEventHandler movementEventHandler) {
         var pathIndex = 0;
         var previousPoint = MathUtils.Round(transform.position);
 
@@ -29,6 +43,10 @@ public class UnitController : MonoBehaviour {
                 .SetEase(Ease.Linear)
                 .WaitForCompletion();
 
+            var gridPosition = _grid.GridPositionForWorldPosition(currentDestination);
+
+            yield return StartCoroutine(movementEventHandler.HandleMovement(_unit, gridPosition));
+
             pathIndex++;
             previousPoint = currentDestination;
         }
@@ -39,9 +57,8 @@ public class UnitController : MonoBehaviour {
     private void CommitMoveToModel(IEnumerable<Vector3> path) {
         var unitModel = _unit.model;
         var battleModel = _battleState.Model;
-        var grid = CombatObjects.GetMap();
 
-        var gridPointPath = path.Select(point => grid.GridPositionForWorldPosition(point))
+        var gridPointPath = path.Select(point => _grid.GridPositionForWorldPosition(point))
             .ToList();
 
         var destination = gridPointPath.Last();
