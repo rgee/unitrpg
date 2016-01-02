@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.Remoting.Messaging;
+using Assets.Models.Combat;
 using Combat;
 using DG.Tweening;
 using Models;
@@ -156,7 +157,7 @@ namespace Grid {
             yield return StartCoroutine(Controller.FollowPath(path));
         }
 
-        public IEnumerator MoveTo(Vector2 pos, MapGrid grid) {
+        public IEnumerator MoveTo(Vector2 pos, MapGrid grid, IMovementEventHandler movementEventHandler) {
             var worldSpaceDestination = grid.GetWorldPosForGridPos(pos);
             DisableCollision();
             grid.RescanGraph();
@@ -176,7 +177,7 @@ namespace Grid {
             }
 
             if (path != null) {
-                yield return StartCoroutine(Controller.FollowPath(path));
+                yield return StartCoroutine(Controller.FollowPath(path, movementEventHandler));
             }
         }
     }
