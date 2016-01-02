@@ -10,8 +10,8 @@ namespace Combat {
         protected Dictionary<MathUtils.CardinalDirection, tk2dSpriteAnimationClip> _windupAnimationClips =
             new Dictionary<MathUtils.CardinalDirection, tk2dSpriteAnimationClip>();
 
-        new void Start() {
-            base.Start();
+        new void Awake() {
+            base.Awake();
             _windupAnimationClips[MathUtils.CardinalDirection.E] = FindClip("windup east");
             _windupAnimationClips[MathUtils.CardinalDirection.N] = FindClip("windup north");
             _windupAnimationClips[MathUtils.CardinalDirection.S] = FindClip("windup south");

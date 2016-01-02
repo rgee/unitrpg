@@ -415,6 +415,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3279561d75b28d409c20d3dbcc1bca9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11444396
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b480c2bed75d704b8324b86be281b61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11448344
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -694,6 +705,9 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 1
     m_ConditionEvent: enemies_acted
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: reinforcements_triggered
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 110247210}
@@ -2132,7 +2146,8 @@ AnimatorState:
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 110129606}
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: 11444396}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1

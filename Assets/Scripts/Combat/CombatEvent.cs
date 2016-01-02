@@ -27,8 +27,10 @@ namespace Combat {
 
         private GameObject _camera;
         private MapGrid _grid;
+        private BattleManager _battle;
 
         void Start() {
+            _battle = CombatObjects.GetBattleManager();
             _camera = CombatObjects.GetCamera();
             _grid = CombatObjects.GetMap();
         }
@@ -56,6 +58,10 @@ namespace Combat {
             }
 
             yield return null;
+        }
+
+        protected void ScheduleReinforcements(List<ScriptedEvents.SpawnableUnit> units) {
+            _battle.ScheduleReinforcements(units);
         }
 
         protected IEnumerator StartDialogue() {
