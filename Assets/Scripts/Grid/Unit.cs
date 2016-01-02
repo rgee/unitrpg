@@ -152,37 +152,32 @@ namespace Grid {
             model.Character.ApplyExp(amt);
         }
 
-        public IEnumerator MoveAlongPath(List<Vector3> path) {
-            var complete = false;
-            Controller.MoveAlongPath(path, () => complete = true);
-            while (!complete) {
-                yield return new WaitForEndOfFrame();
-            }
+        public IEnumerator FollowPath(List<Vector3> path) {
+            yield return StartCoroutine(Controller.FollowPath(path));
         }
 
-        public void MoveTo(Vector2 pos, MapGrid grid, Action onMovementComplete) {
-            MoveTo(pos, grid, arg => { }, onMovementComplete);
-        }
-
-        public void MoveTo(Vector2 pos, MapGrid grid, OnSearchComplete searchCb, Action callback) {
-            var destination = grid.GetWorldPosForGridPos(pos);
-
-            // Remove this unit's collider so the pathfinder wont see the currently-occupied Grid square
-            // as a blockage.
+        public IEnumerator MoveTo(Vector2 pos, MapGrid grid) {
+            var worldSpaceDestination = grid.GetWorldPosForGridPos(pos);
             DisableCollision();
             grid.RescanGraph();
-            seeker.StartPath(transform.position, destination, p => {
-                // Re-enable the collider and scan the graph so other units see us.
-                EnableCollision();
-                grid.RescanGraph();
-                searchCb(!p.error);
-                if (!p.error) {
-                    var trimmedPath = p.vectorPath.GetRange(1, p.vectorPath.Count - 1);
-                    Controller.MoveAlongPath(trimmedPath, callback);
-                } else {
-                    callback();
+
+            var seekingComplete = false;
+            List<Vector3> path = null;
+            seeker.StartPath(transform.position, worldSpaceDestination, result => {
+                seekingComplete = true;
+                if (!result.error) {
+                    path = result.vectorPath.GetRange(1, result.vectorPath.Count - 1);
                 }
-            }, 1 << 0);
+            });
+
+            // Block on the Seeker becuase it doesn't expose a Coroutine-based API.
+            while (!seekingComplete) {
+                yield return null;
+            }
+
+            if (path != null) {
+                yield return StartCoroutine(Controller.FollowPath(path));
+            }
         }
     }
 }
