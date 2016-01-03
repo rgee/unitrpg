@@ -2614,6 +2614,7 @@ GameObject:
   - 114: {fileID: 528679916}
   - 114: {fileID: 528679917}
   - 65: {fileID: 528679918}
+  - 114: {fileID: 528679919}
   m_Layer: 0
   m_Name: Clinic
   m_TagString: Untagged
@@ -2630,7 +2631,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1104, y: 624, z: .367456913}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1316142394}
   m_Father: {fileID: 40248057}
   m_RootOrder: 8
 --- !u!114 &528679913
@@ -2721,6 +2723,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 192, y: 128, z: .200000003}
   m_Center: {x: 0, y: 64, z: 0}
+--- !u!114 &528679919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 528679911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 991f3d97acdd4204f85da3968fe4039a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &532292483
 GameObject:
   m_ObjectHideFlags: 0
@@ -4702,7 +4715,6 @@ Transform:
   m_Children:
   - {fileID: 2098887303}
   - {fileID: 1512347709}
-  - {fileID: 1316142394}
   m_Father: {fileID: 0}
   m_RootOrder: 7
 --- !u!1001 &862576492
@@ -8298,15 +8310,16 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1316142394}
-  - 114: {fileID: 1316142393}
   - 114: {fileID: 1316142392}
+  - 114: {fileID: 1316142395}
+  - 114: {fileID: 1316142393}
   m_Layer: 0
   m_Name: ClinicDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1316142392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8319,7 +8332,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GridPosition: {x: 36, y: 20}
-  Id: 
+  Id: clinic_visit
   Repeatable: 0
 --- !u!114 &1316142393
 MonoBehaviour:
@@ -8329,10 +8342,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1316142391}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 102148ea20b267840a3115a0e0048171, type: 3}
+  m_Script: {fileID: 11500000, guid: 0b8120cbdfb2cbe4ea398576a3333d67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DialoguePrefab: {fileID: 0}
+  Clinic: {fileID: 528679919}
 --- !u!4 &1316142394
 Transform:
   m_ObjectHideFlags: 0
@@ -8340,11 +8353,23 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1316142391}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1152, y: 640, z: 0}
+  m_LocalPosition: {x: 48, y: 16, z: -7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 840560681}
-  m_RootOrder: 2
+  m_Father: {fileID: 528679912}
+  m_RootOrder: 0
+--- !u!114 &1316142395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1316142391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1acd8c1758006124f91d4a8e80316fbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Enabled: 1
 --- !u!1 &1360064556
 GameObject:
   m_ObjectHideFlags: 0
