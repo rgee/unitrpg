@@ -20,7 +20,7 @@ GameObject:
   - 114: {fileID: 11410800}
   - 65: {fileID: 6557240}
   m_Layer: 0
-  m_Name: Gatsu
+  m_Name: Gatsu_Ch2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -198,7 +198,7 @@ MonoBehaviour:
   gridPosition: {x: 25, y: 10}
   Killing: 0
   model:
-    Character: {fileID: 11400000, guid: b63e6187e15b34f70acdcf7446448502, type: 2}
+    Character: {fileID: 11400000, guid: 2fbf1d24a24e4bd4cb577f5b82b19e0d, type: 2}
     GridPosition: {x: 25, y: 10}
     Health: 0
     IsFriendly: 0
@@ -231,6 +231,11 @@ Prefab:
       propertyPath: IsAwake
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: model.Character
+      value: 
+      objectReference: {fileID: 11400000, guid: 2fbf1d24a24e4bd4cb577f5b82b19e0d,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 154476}
