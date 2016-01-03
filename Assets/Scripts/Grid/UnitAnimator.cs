@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,7 +29,7 @@ namespace Grid {
         protected Dictionary<MathUtils.CardinalDirection, tk2dSpriteAnimationClip> _dodgeAnimationClips = 
             new Dictionary<MathUtils.CardinalDirection, tk2dSpriteAnimationClip>();
 
-        protected void Start() {
+        protected void Awake() {
             _unit = GetComponent<Unit>();
             _animator = GetComponent<tk2dSpriteAnimator>();
             _sprite = GetComponent<tk2dSprite>();
@@ -62,8 +63,9 @@ namespace Grid {
             _animator.AnimationEventTriggered = null;
         }
 
-        public void FadeIn() {
-            _sprite.DOFade(1f, 0.4f);
+        public IEnumerator FadeIn() {
+            _sprite.color = new Color(_sprite.color.r, _sprite.color.g, _sprite.color.b, 0);
+            yield return _sprite.DOFade(1f, 0.7f).WaitForCompletion();
         }
 
         private void HandleHit(tk2dSpriteAnimator animator, tk2dSpriteAnimationClip clip, int frame) {

@@ -106,7 +106,7 @@ MonoBehaviour:
   AggroRange: 2147483647
   ExecutorPrefab: {fileID: 193992, guid: 5a3b99e90e1b2024cb3d3bfc144323ef, type: 2}
   Target: {fileID: 0}
-  IsAwake: 0
+  IsAwake: 1
 --- !u!114 &11421198
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -226,7 +226,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: IsAwake
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 154476}

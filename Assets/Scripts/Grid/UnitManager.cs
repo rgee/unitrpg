@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Xsl;
@@ -38,11 +39,15 @@ namespace Grid {
             CombatEventBus.Moves.AddListener(ChangeUnitPosition);
         }
 
-        public void SpawnUnit(GameObject obj) {
+        public IEnumerator SpawnUnit(GameObject obj) {
             AddUnit(obj);
+
+            var unitComponent = obj.GetComponent<Unit>();
+            obj.transform.position = Grid.GetWorldPosForGridPos(unitComponent.model.GridPosition); 
+
             var animator = obj.GetComponent<UnitAnimator>();
             if (animator != null) {
-                animator.FadeIn();
+                yield return StartCoroutine(animator.FadeIn());
             }
         }
 

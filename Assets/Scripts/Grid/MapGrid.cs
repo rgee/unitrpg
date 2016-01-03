@@ -116,7 +116,7 @@ public class MapGrid : Singleton<MapGrid> {
 
     public Vector3 GetWorldPosForGridPos(Vector2 gridPos) {
         if (!IsInGrid(gridPos)) {
-            return new Vector3(float.MaxValue, float.MaxValue, float.MaxValue);
+            return new Vector3(float.MaxValue, float.MaxValue, 0);
         }
 
         var tileSize = (int) tileSizeInPixels;
