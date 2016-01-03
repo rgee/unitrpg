@@ -73,7 +73,10 @@ public class BattleManager : SceneEntryPoint {
             var spawn = unit.SpawnPoint;
             var worldSpaceSpawnPoint = _grid.GetWorldPosForGridPos(spawn);
 
-            yield return _camera.transform.DOMove(worldSpaceSpawnPoint, 0.7f)
+            // Maintain the camera's existing z position.
+            var newCameraPos = new Vector3(worldSpaceSpawnPoint.x, worldSpaceSpawnPoint.y, _camera.transform.position.z);
+
+            yield return _camera.transform.DOMove(newCameraPos, 0.7f)
                 .SetEase(Ease.OutCubic)
                 .WaitForCompletion();
 

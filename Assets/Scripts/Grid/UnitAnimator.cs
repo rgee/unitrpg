@@ -65,8 +65,7 @@ namespace Grid {
 
         public IEnumerator FadeIn() {
             _sprite.color = new Color(_sprite.color.r, _sprite.color.g, _sprite.color.b, 0);
-
-            yield return _sprite.DOFade(1f, 4f).WaitForCompletion();
+            yield return _sprite.DOFade(1f, 0.7f).WaitForCompletion();
         }
 
         private void HandleHit(tk2dSpriteAnimator animator, tk2dSpriteAnimationClip clip, int frame) {
