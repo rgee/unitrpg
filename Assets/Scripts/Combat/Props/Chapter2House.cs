@@ -22,13 +22,22 @@ namespace Combat.Props {
                 seq.Insert(0, tween);
             }
 
+
             yield return seq.WaitForCompletion();
+
+            foreach (var light in _lights) {
+                light.EnablePulse();
+            }
 
             _interactiveTileRule.Enabled = true;
         }
 
         public IEnumerator Disable() {
             // Kill the lights
+            foreach (var light in _lights) {
+                light.DisablePulse();
+            }
+
             // Disable the interactivity
             var seq = DOTween.Sequence();
             foreach (var light in _lights) {
