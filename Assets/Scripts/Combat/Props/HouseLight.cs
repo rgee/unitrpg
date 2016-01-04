@@ -1,9 +1,9 @@
-﻿using System.Collections;
-using DG.Tweening;
+﻿using DG.Tweening;
 using UnityEngine;
 
 namespace Combat.Props {
-    public class HouseLight : MonoBehaviour, IToggleableProp {
+    public class HouseLight : MonoBehaviour {
+        private static float ENABLE_TIME_SECONDS = 0.5f;
         private tk2dSprite _sprite;
         private Vector3 _originalScale;
         public bool Enabled;
@@ -17,14 +17,12 @@ namespace Combat.Props {
             }
         }
 
-        public IEnumerator Enable() {
-            yield return _sprite.DOScale(_originalScale, 0.7f).WaitForCompletion();
-            Enabled = true;
+        public Tween GetEnableTween() {
+            return _sprite.DOScale(_originalScale, ENABLE_TIME_SECONDS).SetEase(Ease.OutCubic);
         }
 
-        public IEnumerator Disable() {
-            yield return _sprite.DOScale(new Vector3(0, 0, 1), 0.7f).WaitForCompletion();
-            Enabled = false;
+        public Tween GetDisableTween() {
+            return _sprite.DOScale(new Vector3(0, 0, 1), ENABLE_TIME_SECONDS).SetEase(Ease.OutCubic);
         }
     }
 }

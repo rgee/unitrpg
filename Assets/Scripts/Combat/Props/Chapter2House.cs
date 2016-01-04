@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using Combat.Interactive.Rules;
+using DG.Tweening;
 using UnityEngine;
 
 namespace Combat.Props {
@@ -15,9 +16,13 @@ namespace Combat.Props {
         public IEnumerator Enable() {
             // Turn on the lights
             // Make the door interactive
+            var seq = DOTween.Sequence();
             foreach (var light in _lights) {
-                yield return StartCoroutine(light.Enable());
+                var tween = light.GetEnableTween();
+                seq.Insert(0, tween);
             }
+
+            yield return seq.WaitForCompletion();
 
             _interactiveTileRule.Enabled = true;
         }
@@ -25,9 +30,13 @@ namespace Combat.Props {
         public IEnumerator Disable() {
             // Kill the lights
             // Disable the interactivity
+            var seq = DOTween.Sequence();
             foreach (var light in _lights) {
-                yield return StartCoroutine(light.Disable());
+                var tween = light.GetDisableTween();
+                seq.Insert(0, tween);
             }
+
+            yield return seq.WaitForCompletion();
 
             _interactiveTileRule.Enabled = false;
         }
