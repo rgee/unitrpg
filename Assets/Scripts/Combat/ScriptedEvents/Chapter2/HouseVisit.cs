@@ -7,19 +7,31 @@ using UnityEngine;
 
 namespace Assets.Combat.ScriptedEvents.Chapter2 {
     [RequireComponent(typeof(TogglableTileRule))]
-    public class HouseVisit : MonoBehaviour, IScriptedEvent {
+    public class HouseVisit : CombatEvent {
         public Chapter2Manager ChapterManager;
-        public IToggleableProp House;
-        public IToggleableProp NextHouse;
+        public GameObject HouseObj; 
+        public GameObject NextHouseObj;
 
-        public IEnumerator Play() {
+        public override IEnumerator Play() {
 
             // TODO: Play the dialogue
 
-            yield return StartCoroutine(House.Disable());
+            var house = HouseObj.GetComponent<IToggleableProp>();
+            var nextHouse = NextHouseObj.GetComponent<IToggleableProp>();
 
-            if (NextHouse != null) {
-                yield return StartCoroutine(NextHouse.Enable());
+            yield return StartCoroutine(house.Disable());
+
+            if (nextHouse != null) {
+                var originalCameraPosition = CombatObjects.GetCamera().transform.position;
+                var newHouseTransform = NextHouseObj.transform;
+                var housePosition = new Vector3(newHouseTransform.position.x, newHouseTransform.position.y, originalCameraPosition.z);
+
+                yield return new WaitForSeconds(0.3f);
+                yield return StartCoroutine(PanCamera(housePosition));
+                yield return new WaitForSeconds(0.1f);
+                yield return StartCoroutine(nextHouse.Enable());
+                yield return new WaitForSeconds(0.1f);
+                yield return StartCoroutine(PanCamera(originalCameraPosition));
             }
         }
     }

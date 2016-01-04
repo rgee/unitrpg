@@ -28,7 +28,8 @@ namespace Combat.Props {
         private void CreatePulseTween() {
             _pulseTween = _sprite.DOScale(PULSE_SCALE, 2f)
                 .SetRelative()
-                .SetLoops(-1, LoopType.Yoyo);
+                .SetLoops(-1, LoopType.Yoyo)
+                .Pause();
         }
 
         public Tween GetEnableTween() {

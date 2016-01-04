@@ -4684,6 +4684,10 @@ Prefab:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11445962, guid: 57ed076985e425f43a30d3070f592c92, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 57ed076985e425f43a30d3070f592c92, type: 2}
   m_IsPrefabParent: 0
@@ -11030,6 +11034,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ChapterManager: {fileID: 0}
+  HouseObj: {fileID: 1915542477}
+  NextHouseObj: {fileID: 528679911}
 --- !u!114 &1512347712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13939,6 +13945,7 @@ GameObject:
   - 114: {fileID: 1915542479}
   - 114: {fileID: 1915542482}
   - 65: {fileID: 1915542483}
+  - 114: {fileID: 1915542484}
   m_Layer: 0
   m_Name: Narrow House
   m_TagString: Untagged
@@ -14044,6 +14051,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 123, y: 270, z: .200000003}
   m_Center: {x: .5, y: 140, z: 0}
+--- !u!114 &1915542484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1915542477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa38267503654d949af503a21472dbad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1919599400
 GameObject:
   m_ObjectHideFlags: 0
@@ -15507,6 +15525,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ChapterManager: {fileID: 0}
+  HouseObj: {fileID: 1579461191}
+  NextHouseObj: {fileID: 1915542477}
 --- !u!1 &2134362309
 GameObject:
   m_ObjectHideFlags: 0
