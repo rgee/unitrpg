@@ -5427,8 +5427,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1512347709}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
 --- !u!1001 &862576492
@@ -9443,7 +9442,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1acd8c1758006124f91d4a8e80316fbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Enabled: 1
+  Enabled: 0
 --- !u!1 &1355574669
 GameObject:
   m_ObjectHideFlags: 0
@@ -10983,8 +10982,9 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1512347709}
-  - 114: {fileID: 1512347711}
   - 114: {fileID: 1512347710}
+  - 114: {fileID: 1512347712}
+  - 114: {fileID: 1512347711}
   m_Layer: 0
   m_Name: HouseDoor
   m_TagString: Untagged
@@ -10999,11 +10999,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1512347708}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 800, y: 640, z: 0}
+  m_LocalPosition: {x: -8, y: 21, z: -7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 840560681}
-  m_RootOrder: 0
+  m_Father: {fileID: 1915542478}
+  m_RootOrder: 8
 --- !u!114 &1512347710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11026,10 +11026,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 1512347708}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 102148ea20b267840a3115a0e0048171, type: 3}
+  m_Script: {fileID: 11500000, guid: b04c983efe3b93d44890e15a5cc70591, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DialoguePrefab: {fileID: 0}
+  ChapterManager: {fileID: 0}
+--- !u!114 &1512347712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1512347708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1acd8c1758006124f91d4a8e80316fbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Enabled: 0
 --- !u!43 &1513690559
 Mesh:
   m_ObjectHideFlags: 0
@@ -13952,6 +13964,7 @@ Transform:
   - {fileID: 1963910633}
   - {fileID: 1913430459}
   - {fileID: 1174853141}
+  - {fileID: 1512347709}
   m_Father: {fileID: 40248057}
   m_RootOrder: 6
 --- !u!114 &1915542479
