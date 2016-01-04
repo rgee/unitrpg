@@ -1,18 +1,26 @@
 ﻿using System.Collections;
 using Combat;
+using Combat.Interactive.Rules;
 using Combat.Managers;
 using Combat.Props;
+using UnityEngine;
 
 namespace Assets.Combat.ScriptedEvents.Chapter2 {
-    public class HouseVisit : IScriptedEvent {
+    [RequireComponent(typeof(TogglableTileRule))]
+    public class HouseVisit : MonoBehaviour, IScriptedEvent {
         public Chapter2Manager ChapterManager;
-        public Chapter2House House;
+        public IToggleableProp House;
+        public IToggleableProp NextHouse;
 
         public IEnumerator Play() {
-            // Play the dialogue
-            // Turn out the lights
-            // Remove the interactive tile
-            yield return null;
+
+            // TODO: Play the dialogue
+
+            yield return StartCoroutine(House.Disable());
+
+            if (NextHouse != null) {
+                yield return StartCoroutine(NextHouse.Enable());
+            }
         }
     }
 }
