@@ -12,15 +12,22 @@ namespace Assets.Combat.ScriptedEvents.Chapter2 {
         public GameObject HouseObj; 
         public GameObject NextHouseObj;
 
+        public GameObject LiatDialoguePrefab;
+        public GameObject JanekDialoguePrefab;
+
+        public GameObject LiatRejectedDialoguePrefab;
+        public GameObject JanekRejectedDialoguePrefab;
+
         public override IEnumerator Play() {
 
-            // TODO: Play the dialogue
+            yield return StartCoroutine(PlayDialogue());
 
             var house = HouseObj.GetComponent<IToggleableProp>();
-            var nextHouse = NextHouseObj.GetComponent<IToggleableProp>();
-
             yield return StartCoroutine(house.Disable());
 
+            yield return StartCoroutine(RunRejectedDialogue());
+
+            var nextHouse = NextHouseObj.GetComponent<IToggleableProp>();
             if (nextHouse != null) {
                 var originalCameraPosition = CombatObjects.GetCamera().transform.position;
                 var newHouseTransform = NextHouseObj.transform;
@@ -33,6 +40,48 @@ namespace Assets.Combat.ScriptedEvents.Chapter2 {
                 yield return new WaitForSeconds(0.1f);
                 yield return StartCoroutine(PanCamera(originalCameraPosition));
             }
+        }
+
+        private IEnumerator PlayDialogue() {
+            var selectedUnitName = CombatObjects.GetBattleState().SelectedUnit.model.Character.Name;
+            GameObject prefab;
+            if (selectedUnitName.Equals("Liat")) {
+                prefab = LiatDialoguePrefab;
+            } else {
+                prefab = JanekDialoguePrefab;
+            }
+
+            yield return StartCoroutine(RunDialogue(prefab));
+        }
+
+        private IEnumerator RunRejectedDialogue() {
+            
+            var selectedUnitName = CombatObjects.GetBattleState().SelectedUnit.model.Character.Name;
+            GameObject prefab;
+            if (selectedUnitName.Equals("Liat")) {
+                prefab = LiatRejectedDialoguePrefab;
+            } else {
+                prefab = JanekRejectedDialoguePrefab;
+            }
+
+            yield return StartCoroutine(RunDialogue(prefab));
+        }
+
+        private IEnumerator RunDialogue(GameObject prefab) {
+            var dialogueObject = Instantiate(prefab);
+            var dialogue = dialogueObject.GetComponent<Dialogue>();
+
+            var completed = false;
+            dialogue.OnComplete += () => {
+                completed = true;
+            };
+
+            dialogue.Begin();
+            while (!completed) {
+                yield return null;
+            }
+
+            Destroy(dialogueObject);
         }
     }
 }
