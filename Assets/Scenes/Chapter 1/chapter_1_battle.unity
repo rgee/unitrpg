@@ -6150,11 +6150,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11408130, guid: 57ed076985e425f43a30d3070f592c92, type: 2}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11427878, guid: 57ed076985e425f43a30d3070f592c92, type: 2}
       propertyPath: zoomFactor
-      value: 1.88999999
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 57ed076985e425f43a30d3070f592c92, type: 2}
@@ -12258,7 +12258,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireOnSkip: 0
   firetime: 7.4000001
-  duration: -1
+  duration: .100000001
   serializedAdditionalObjectsPaths: []
   Dialogue: {fileID: 928017145}
 --- !u!1 &1018802915 stripped
@@ -14468,6 +14468,49 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b8bfab5258323cd48abf98df83b9a450, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1221111773
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1221111774}
+  - 114: {fileID: 1221111775}
+  m_Layer: 0
+  m_Name: ResetToStandardZoom
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1221111774
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1221111773}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1641699274}
+  m_RootOrder: 3
+--- !u!114 &1221111775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1221111773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 043c333cad6d92b408a791a3e890af66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireOnSkip: 0
+  firetime: 7.5
+  duration: .5
+  serializedAdditionalObjectsPaths: []
 --- !u!1 &1221621230 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 131646, guid: b8bfab5258323cd48abf98df83b9a450, type: 2}
@@ -19333,7 +19376,7 @@ MonoBehaviour:
   runningTime: 0
   playbackRate: 1
   version: 16
-  duration: 7.5
+  duration: 8
   isLoopingSequence: 0
   isPingPongingSequence: 0
   updateOnFixedUpdate: 0
@@ -19859,6 +19902,7 @@ Transform:
   - {fileID: 1015511417}
   - {fileID: 1024016239}
   - {fileID: 85850754}
+  - {fileID: 1221111774}
   m_Father: {fileID: 692483587}
   m_RootOrder: 0
 --- !u!114 &1641699275
