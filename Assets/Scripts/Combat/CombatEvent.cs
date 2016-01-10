@@ -64,8 +64,21 @@ namespace Combat {
             _battle.ScheduleReinforcements(units);
         }
 
-        protected IEnumerator StartDialogue() {
-            yield return null;
+        protected IEnumerator RunDialogue(GameObject prefab) {
+            var dialogueObject = Instantiate(prefab);
+            var dialogue = dialogueObject.GetComponent<Dialogue>();
+
+            var completed = false;
+            dialogue.OnComplete += () => {
+                completed = true;
+            };
+
+            dialogue.Begin();
+            while (!completed) {
+                yield return null;
+            }
+
+            Destroy(dialogueObject);
         }
     }
 }

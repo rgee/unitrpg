@@ -5,27 +5,32 @@ using UnityEngine;
 
 namespace Combat.ScriptedEvents.Chapter2 {
     [RequireComponent(typeof(TogglableTileRule))]
-    public class ClinicVisit : MonoBehaviour, IScriptedEvent {
+    public class ClinicVisit : CombatEvent {
         public Chapter2House Clinic;
+
+        public GameObject LiatKnockDialogue;
+        public GameObject LiatRecruitDialogue;
 
         public GameObject MaellePrefab;
 
         // TODO: BFS for an unoccupied spawn point near the door.
         private Vector2 _spawnPoint = new Vector2(37, 19);
 
-        public IEnumerator Play() {
-            // 1) Start Maelle dialogue
+        public override IEnumerator Play() {
+            // 1) Start Maelle dialogues
+            yield return StartCoroutine(RunDialogue(LiatKnockDialogue));
+            yield return StartCoroutine(RunDialogue(LiatRecruitDialogue));
 
-            // 2) Spawn Maelle
+            // 2) Turn out light (save energy!)
+            yield return StartCoroutine(Clinic.Disable());
+
+            // 3) Spawn Maelle
             var battle = CombatObjects.GetBattleManager();
             var maelle = new SpawnableUnit {
                 Prefab = MaellePrefab,
                 SpawnPoint = _spawnPoint
             };
             yield return StartCoroutine(battle.SpawnSingleUnit(maelle));
-
-            // 3) Turn out light (save energy!)
-            yield return StartCoroutine(Clinic.Disable());
         }
     }
 }

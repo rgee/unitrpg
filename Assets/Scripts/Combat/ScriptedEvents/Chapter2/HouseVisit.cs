@@ -69,21 +69,5 @@ namespace Assets.Combat.ScriptedEvents.Chapter2 {
             yield return StartCoroutine(RunDialogue(prefab));
         }
 
-        private IEnumerator RunDialogue(GameObject prefab) {
-            var dialogueObject = Instantiate(prefab);
-            var dialogue = dialogueObject.GetComponent<Dialogue>();
-
-            var completed = false;
-            dialogue.OnComplete += () => {
-                completed = true;
-            };
-
-            dialogue.Begin();
-            while (!completed) {
-                yield return null;
-            }
-
-            Destroy(dialogueObject);
-        }
     }
 }
