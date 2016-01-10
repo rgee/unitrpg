@@ -61,38 +61,54 @@ public class BattleManager : SceneEntryPoint {
         stateMachine.SetTrigger("battle_start");
     }
 
+    public IEnumerator SpawnSingleUnit(SpawnableUnit unit) {
+        var units = new List<SpawnableUnit>() {unit};
+        yield return StartCoroutine(SpawnUnits(units));
+    }
+
+    private IEnumerator SpawnUnit(SpawnableUnit unit) {
+        var spawn = unit.SpawnPoint;
+        var worldSpaceSpawnPoint = _grid.GetWorldPosForGridPos(spawn);
+
+        // Maintain the camera's existing z position.
+        var newCameraPos = new Vector3(worldSpaceSpawnPoint.x, worldSpaceSpawnPoint.y, _camera.transform.position.z);
+
+        yield return StartCoroutine(PanCamera(newCameraPos));
+
+        var unitGameObject = Instantiate(unit.Prefab);
+        unitGameObject.transform.SetParent(_unitManager.transform);
+
+        var unitComp = unitGameObject.GetComponent<Grid.Unit>();
+        unitComp.gridPosition = unitComp.model.GridPosition = spawn;
+
+        yield return StartCoroutine(_unitManager.SpawnUnit(unitGameObject));
+    }
+
+    private IEnumerator SpawnUnits(IEnumerable<SpawnableUnit> units) {
+        
+        var originalCameraPosition = _camera.transform.position;
+
+        foreach (var unit in units) {
+            yield return StartCoroutine(SpawnUnit(unit));
+        }
+
+        yield return StartCoroutine(PanCamera(originalCameraPosition));
+    }
+
+
     public void ScheduleReinforcements(List<SpawnableUnit> units) {
         _scheduledReinforcements.AddRange(units);
         _battleStateMachine.SetBool("reinforcements_triggered", true);
     }
 
     public IEnumerator SpawnReinforcements() {
-        var originalCameraPosition = _camera.transform.position;
+        yield return StartCoroutine(SpawnUnits(_scheduledReinforcements));
+        _scheduledReinforcements = new List<SpawnableUnit>();
+    }
 
-        foreach (var unit in _scheduledReinforcements) {
-            var spawn = unit.SpawnPoint;
-            var worldSpaceSpawnPoint = _grid.GetWorldPosForGridPos(spawn);
-
-            // Maintain the camera's existing z position.
-            var newCameraPos = new Vector3(worldSpaceSpawnPoint.x, worldSpaceSpawnPoint.y, _camera.transform.position.z);
-
-            yield return _camera.transform.DOMove(newCameraPos, 0.7f)
-                .SetEase(Ease.OutCubic)
-                .WaitForCompletion();
-
-            var unitGameObject = Instantiate(unit.Prefab);
-            unitGameObject.transform.SetParent(_unitManager.transform);
-
-            var unitComp = unitGameObject.GetComponent<Grid.Unit>();
-            unitComp.gridPosition = unitComp.model.GridPosition = spawn;
-
-            yield return StartCoroutine(_unitManager.SpawnUnit(unitGameObject));
-        }
-
-        yield return _camera.transform.DOMove(originalCameraPosition, 0.7f)
+    private IEnumerator PanCamera(Vector3 position) {
+        yield return _camera.transform.DOMove(position, 0.7f)
             .SetEase(Ease.OutCubic)
             .WaitForCompletion();
-
-        _scheduledReinforcements = new List<SpawnableUnit>();
     }
 }
