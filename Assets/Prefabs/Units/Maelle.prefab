@@ -178,7 +178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0c3b59a9ae3d354a8c3c62245c997b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  friendly: 0
+  friendly: 1
   gridPosition: {x: 25, y: 10}
   Killing: 0
   model:
@@ -241,6 +241,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: friendly
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

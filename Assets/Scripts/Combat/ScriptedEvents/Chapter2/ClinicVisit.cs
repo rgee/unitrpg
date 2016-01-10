@@ -6,12 +6,12 @@ using UnityEngine;
 namespace Combat.ScriptedEvents.Chapter2 {
     [RequireComponent(typeof(TogglableTileRule))]
     public class ClinicVisit : MonoBehaviour, IScriptedEvent {
-        public Clinic Clinic;
+        public Chapter2House Clinic;
 
         public GameObject MaellePrefab;
 
         // TODO: BFS for an unoccupied spawn point near the door.
-        private Vector2 _spawnPoint = new Vector2(25, 31);
+        private Vector2 _spawnPoint = new Vector2(37, 19);
 
         public IEnumerator Play() {
             // 1) Start Maelle dialogue

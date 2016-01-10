@@ -25,7 +25,9 @@ namespace Assets.Combat.ScriptedEvents.Chapter2 {
             var house = HouseObj.GetComponent<IToggleableProp>();
             yield return StartCoroutine(house.Disable());
 
-            yield return StartCoroutine(RunRejectedDialogue());
+            if (LiatRejectedDialoguePrefab != null || JanekRejectedDialoguePrefab != null) {
+                yield return StartCoroutine(RunRejectedDialogue());
+            }
 
             var nextHouse = NextHouseObj.GetComponent<IToggleableProp>();
             if (nextHouse != null) {
