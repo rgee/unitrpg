@@ -463,7 +463,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   observerKeyframes: []
-  currentSnapshots: []
+  currentSnapshots:
+  - camera: {fileID: 552425136}
+    listener: {fileID: 552425135}
+    target: {fileID: 0}
+    state: 1
+  - camera: {fileID: 997996801}
+    listener: {fileID: 0}
+    target: {fileID: 0}
+    state: 1
   layersToIgnore:
     serializedVersion: 2
     m_Bits: 0
@@ -1027,6 +1035,16 @@ MonoBehaviour:
   serializedAdditionalObjectsPaths: []
   Destination: {x: 11, y: 7}
   Start: {x: 22, y: 7}
+--- !u!81 &552425135 stripped
+AudioListener:
+  m_PrefabParentObject: {fileID: 8120168, guid: 57ed076985e425f43a30d3070f592c92,
+    type: 2}
+  m_PrefabInternal: {fileID: 2070448643}
+--- !u!20 &552425136 stripped
+Camera:
+  m_PrefabParentObject: {fileID: 2060688, guid: 57ed076985e425f43a30d3070f592c92,
+    type: 2}
+  m_PrefabInternal: {fileID: 2070448643}
 --- !u!1 &569535633
 GameObject:
   m_ObjectHideFlags: 0
@@ -1992,6 +2010,11 @@ Transform:
   - {fileID: 1020669747}
   m_Father: {fileID: 59133754}
   m_RootOrder: 1
+--- !u!20 &997996801 stripped
+Camera:
+  m_PrefabParentObject: {fileID: 2041854, guid: 60ed52da4d04237499fa3acdd2879c4e,
+    type: 2}
+  m_PrefabInternal: {fileID: 1616219500}
 --- !u!1 &1020669744
 GameObject:
   m_ObjectHideFlags: 0
@@ -4039,11 +4062,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 499590, guid: 57ed076985e425f43a30d3070f592c92, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 354.399994
+      value: 354
       objectReference: {fileID: 0}
     - target: {fileID: 499590, guid: 57ed076985e425f43a30d3070f592c92, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 206.800003
+      value: 229
       objectReference: {fileID: 0}
     - target: {fileID: 499590, guid: 57ed076985e425f43a30d3070f592c92, type: 2}
       propertyPath: m_LocalPosition.z
@@ -4071,7 +4094,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11427878, guid: 57ed076985e425f43a30d3070f592c92, type: 2}
       propertyPath: zoomFactor
-      value: 1.88999999
+      value: 2.76999998
       objectReference: {fileID: 0}
     - target: {fileID: 144838, guid: 57ed076985e425f43a30d3070f592c92, type: 2}
       propertyPath: m_Name
