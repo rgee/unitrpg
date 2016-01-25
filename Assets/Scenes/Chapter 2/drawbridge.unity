@@ -7542,6 +7542,11 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 31, y: 31, z: .200000003}
   m_Center: {x: -.5, y: .5, z: 0}
+--- !u!20 &597102581 stripped
+Camera:
+  m_PrefabParentObject: {fileID: 2041854, guid: 60ed52da4d04237499fa3acdd2879c4e,
+    type: 2}
+  m_PrefabInternal: {fileID: 134606334}
 --- !u!1001 &608326805
 Prefab:
   m_ObjectHideFlags: 0
@@ -9181,7 +9186,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   observerKeyframes: []
-  currentSnapshots: []
+  currentSnapshots:
+  - camera: {fileID: 597102581}
+    listener: {fileID: 0}
+    target: {fileID: 0}
+    state: 1
+  - camera: {fileID: 1934538639}
+    listener: {fileID: 1934538635}
+    target: {fileID: 0}
+    state: 1
   layersToIgnore:
     serializedVersion: 2
     m_Bits: 0
@@ -25793,6 +25806,16 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 447708, guid: 5dfb6c7c29956be469fb68ffaa8f4c7b, type: 2}
   m_PrefabInternal: {fileID: 1926239866}
+--- !u!81 &1934538635 stripped
+AudioListener:
+  m_PrefabParentObject: {fileID: 8120168, guid: 57ed076985e425f43a30d3070f592c92,
+    type: 2}
+  m_PrefabInternal: {fileID: 1614622969}
+--- !u!20 &1934538639 stripped
+Camera:
+  m_PrefabParentObject: {fileID: 2060688, guid: 57ed076985e425f43a30d3070f592c92,
+    type: 2}
+  m_PrefabInternal: {fileID: 1614622969}
 --- !u!4 &1934538640 stripped
 Transform:
   m_PrefabParentObject: {fileID: 499590, guid: 57ed076985e425f43a30d3070f592c92, type: 2}
