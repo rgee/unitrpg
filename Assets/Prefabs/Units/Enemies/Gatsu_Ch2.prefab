@@ -33,7 +33,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 154476}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 800, y: 321, z: -.400000006}
+  m_LocalPosition: {x: 800, y: 321, z: -0.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -56,8 +56,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -79,7 +81,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10, y: 10, z: .200000003}
+  m_Size: {x: 10, y: 10, z: 0.2}
   m_Center: {x: 0, y: -11, z: 0}
 --- !u!114 &11402498
 MonoBehaviour:
@@ -204,7 +206,7 @@ MonoBehaviour:
     IsFriendly: 0
     Inventory: []
   IsDodging: 0
-  timePerMoveSquare: .300000012
+  timePerMoveSquare: 0.3
   Attacking: 0
   InCombat: 0
   Facing: 0

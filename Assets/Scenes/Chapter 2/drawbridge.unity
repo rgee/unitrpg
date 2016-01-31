@@ -8,25 +8,25 @@ SceneSettings:
   m_PVSPortalsArray: []
   m_OcclusionBakeSettings:
     smallestOccluder: 5
-    smallestHole: .25
+    smallestHole: 0.25
     backfaceThreshold: 100
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 6
   m_Fog: 0
-  m_FogColor: {r: .5, g: .5, b: .5, a: 1}
+  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
-  m_FogDensity: .00999999978
+  m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: .211999997, g: .226999998, b: .259000003, a: 1}
-  m_AmbientEquatorColor: {r: .114, g: .125, b: .133000001, a: 1}
-  m_AmbientGroundColor: {r: .0469999984, g: .0430000015, b: .0350000001, a: 1}
+  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
+  m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 3
   m_SkyboxMaterial: {fileID: 0}
-  m_HaloStrength: .5
+  m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
   m_HaloTexture: {fileID: 0}
@@ -40,7 +40,7 @@ RenderSettings:
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 5
+  serializedVersion: 6
   m_GIWorkflowMode: 1
   m_LightmapsMode: 1
   m_GISettings:
@@ -66,7 +66,7 @@ LightmapSettings:
     m_FinalGather: 0
     m_FinalGatherRayCount: 1024
     m_ReflectionCompression: 2
-  m_LightmapSnapshot: {fileID: 0}
+  m_LightingDataAsset: {fileID: 0}
   m_RuntimeCPUUsage: 25
 --- !u!196 &4
 NavMeshSettings:
@@ -74,15 +74,15 @@ NavMeshSettings:
   m_ObjectHideFlags: 0
   m_BuildSettings:
     serializedVersion: 2
-    agentRadius: .5
+    agentRadius: 0.5
     agentHeight: 2
     agentSlope: 45
-    agentClimb: .400000006
+    agentClimb: 0.4
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     accuratePlacement: 0
     minRegionArea: 2
-    cellSize: .166666672
+    cellSize: 0.16666667
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
 --- !u!1001 &9081228
@@ -145,8 +145,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &19575856
 Prefab:
   m_ObjectHideFlags: 0
@@ -207,8 +207,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!43 &23026458
 Mesh:
   m_ObjectHideFlags: 0
@@ -438,8 +438,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &29477982
 Prefab:
   m_ObjectHideFlags: 0
@@ -500,8 +500,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &33398976
 GameObject:
   m_ObjectHideFlags: 0
@@ -549,8 +549,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -605,7 +607,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collection: {fileID: 11483872, guid: b290bb6ae05947849850dd604900edea, type: 2}
   _color: {r: 1, g: 1, b: 1, a: 1}
-  _scale: {x: 17.0216064, y: 12.5611782, z: 1}
+  _scale: {x: 17.021606, y: 12.561178, z: 1}
   _spriteId: 61
   boxCollider2D: {fileID: 0}
   polygonCollider2D: []
@@ -640,8 +642,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -668,7 +672,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 42016765}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -.200000003}
+  m_LocalPosition: {x: 0, y: 0, z: -0.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1637078070}
@@ -735,8 +739,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &54471769
 GameObject:
   m_ObjectHideFlags: 0
@@ -830,8 +834,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &62390316
 Prefab:
   m_ObjectHideFlags: 0
@@ -892,8 +896,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &62469657
 GameObject:
   m_ObjectHideFlags: 0
@@ -934,7 +938,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireOnSkip: 0
-  firetime: 20.5748997
+  firetime: 20.5749
   duration: 8
   serializedAdditionalObjectsPaths: []
   Destination: {x: 17, y: 0}
@@ -999,8 +1003,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &68874284
 GameObject:
   m_ObjectHideFlags: 0
@@ -1025,7 +1029,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 68874284}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1024, y: 0, z: -9.99999997e-07}
+  m_LocalPosition: {x: 1024, y: 0, z: -0.000001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 311875499}
@@ -1048,8 +1052,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -1101,8 +1107,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireOnSkip: 0
-  firetime: .0080971662
-  duration: 3.60000014
+  firetime: 0.008097166
+  duration: 3.6000001
   serializedAdditionalObjectsPaths: []
   Destination: {x: 17, y: 20}
   Start: {x: 17, y: 29}
@@ -1166,8 +1172,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &82264708
 GameObject:
   m_ObjectHideFlags: 0
@@ -1208,8 +1214,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireOnSkip: 0
-  firetime: 3.77327895
-  duration: 11.1999998
+  firetime: 3.773279
+  duration: 11.2
   serializedAdditionalObjectsPaths: []
   Destination: {x: 17, y: 0}
   Start: {x: 17, y: 28}
@@ -1273,8 +1279,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &104081648
 Prefab:
   m_ObjectHideFlags: 0
@@ -1335,8 +1341,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &107873860
 Prefab:
   m_ObjectHideFlags: 0
@@ -1397,8 +1403,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &110347198
 GameObject:
   m_ObjectHideFlags: 0
@@ -1439,8 +1445,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireOnSkip: 0
-  firetime: 19.7732792
-  duration: .400000006
+  firetime: 19.77328
+  duration: 0.4
   serializedAdditionalObjectsPaths: []
   Destination: {x: 17, y: 9}
   Start: {x: 17, y: 10}
@@ -1504,8 +1510,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &127274211
 GameObject:
   m_ObjectHideFlags: 0
@@ -1584,8 +1590,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -1650,8 +1658,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &134606334
 Prefab:
   m_ObjectHideFlags: 0
@@ -1800,8 +1808,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &154846054
 GameObject:
   m_ObjectHideFlags: 0
@@ -1894,8 +1902,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &174911019
 Prefab:
   m_ObjectHideFlags: 0
@@ -1956,8 +1964,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &179914715
 GameObject:
   m_ObjectHideFlags: 0
@@ -2060,8 +2068,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 17, y: 19, z: .200000003}
-  m_Center: {x: .5, y: 9.5, z: 0}
+  m_Size: {x: 17, y: 19, z: 0.2}
+  m_Center: {x: 0.5, y: 9.5, z: 0}
 --- !u!114 &180086801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2083,22 +2091,22 @@ MonoBehaviour:
   boxCollider: {fileID: 180086800}
   meshCollider: {fileID: 0}
   meshColliderPositions:
-  - {x: 39, y: 238, z: -.100000001}
-  - {x: 39, y: 238, z: .100000001}
-  - {x: -28.5, y: 238, z: -.100000001}
-  - {x: -28.5, y: 238, z: .100000001}
-  - {x: -115, y: 204, z: -.100000001}
-  - {x: -115, y: 204, z: .100000001}
-  - {x: -143, y: 125, z: -.100000001}
-  - {x: -143, y: 125, z: .100000001}
-  - {x: -144, y: -239, z: -.100000001}
-  - {x: -144, y: -239, z: .100000001}
-  - {x: 144, y: -239, z: -.100000001}
-  - {x: 144, y: -239, z: .100000001}
-  - {x: 144, y: 139.5, z: -.100000001}
-  - {x: 144, y: 139.5, z: .100000001}
-  - {x: 101.5, y: 202, z: -.100000001}
-  - {x: 101.5, y: 202, z: .100000001}
+  - {x: 39, y: 238, z: -0.1}
+  - {x: 39, y: 238, z: 0.1}
+  - {x: -28.5, y: 238, z: -0.1}
+  - {x: -28.5, y: 238, z: 0.1}
+  - {x: -115, y: 204, z: -0.1}
+  - {x: -115, y: 204, z: 0.1}
+  - {x: -143, y: 125, z: -0.1}
+  - {x: -143, y: 125, z: 0.1}
+  - {x: -144, y: -239, z: -0.1}
+  - {x: -144, y: -239, z: 0.1}
+  - {x: 144, y: -239, z: -0.1}
+  - {x: 144, y: -239, z: 0.1}
+  - {x: 144, y: 139.5, z: -0.1}
+  - {x: 144, y: 139.5, z: 0.1}
+  - {x: 101.5, y: 202, z: -0.1}
+  - {x: 101.5, y: 202, z: 0.1}
   meshColliderMesh: {fileID: 731095523}
   renderLayer: 0
 --- !u!33 &180086802
@@ -2126,8 +2134,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -2172,7 +2182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireOnSkip: 0
-  firetime: 14.5587101
+  firetime: 14.55871
   duration: 6
   serializedAdditionalObjectsPaths: []
   Destination: {x: 17, y: 10}
@@ -2237,8 +2247,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &193357343
 Prefab:
   m_ObjectHideFlags: 0
@@ -2299,8 +2309,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &202194644
 Prefab:
   m_ObjectHideFlags: 0
@@ -2361,8 +2371,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &202687129
 Prefab:
   m_ObjectHideFlags: 0
@@ -2423,8 +2433,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &208950407
 Prefab:
   m_ObjectHideFlags: 0
@@ -2485,8 +2495,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &215474119
 GameObject:
   m_ObjectHideFlags: 0
@@ -2540,7 +2550,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 26, y: 56, z: .200000003}
+  m_Size: {x: 26, y: 56, z: 0.2}
   m_Center: {x: 0, y: 28, z: 0}
 --- !u!114 &215474123
 MonoBehaviour:
@@ -2590,8 +2600,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -2656,8 +2668,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &221216984
 Prefab:
   m_ObjectHideFlags: 0
@@ -2718,8 +2730,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &223451655
 GameObject:
   m_ObjectHideFlags: 0
@@ -2760,7 +2772,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireOnSkip: 0
-  firetime: 8.89068794
+  firetime: 8.890688
   duration: -1
   serializedAdditionalObjectsPaths: []
   enable: 1
@@ -2824,8 +2836,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &232747503
 Prefab:
   m_ObjectHideFlags: 0
@@ -2843,7 +2855,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 447708, guid: 5dfb6c7c29956be469fb68ffaa8f4c7b, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -3.4000001
+      value: -3.4
       objectReference: {fileID: 0}
     - target: {fileID: 447708, guid: 5dfb6c7c29956be469fb68ffaa8f4c7b, type: 2}
       propertyPath: m_LocalRotation.x
@@ -2964,8 +2976,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &237906415
 Prefab:
   m_ObjectHideFlags: 0
@@ -3026,8 +3038,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &240815315
 Prefab:
   m_ObjectHideFlags: 0
@@ -3088,8 +3100,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &249927033
 Prefab:
   m_ObjectHideFlags: 0
@@ -3150,8 +3162,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &255146072
 Prefab:
   m_ObjectHideFlags: 0
@@ -3212,8 +3224,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &261218264
 Prefab:
   m_ObjectHideFlags: 0
@@ -3274,8 +3286,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &274533981
 GameObject:
   m_ObjectHideFlags: 0
@@ -3434,8 +3446,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &319202885
 Prefab:
   m_ObjectHideFlags: 0
@@ -3496,8 +3508,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &319760017
 GameObject:
   m_ObjectHideFlags: 0
@@ -3539,7 +3551,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 32, y: 33, z: .200000003}
+  m_Size: {x: 32, y: 33, z: 0.2}
   m_Center: {x: 0, y: 16.5, z: 0}
 --- !u!114 &319760020
 MonoBehaviour:
@@ -3589,8 +3601,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -3899,8 +3913,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &334960354
 Prefab:
   m_ObjectHideFlags: 0
@@ -3961,8 +3975,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &341869635
 Prefab:
   m_ObjectHideFlags: 0
@@ -4023,8 +4037,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &346972536
 GameObject:
   m_ObjectHideFlags: 0
@@ -4078,8 +4092,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 19, y: 17, z: .200000003}
-  m_Center: {x: .5, y: 8.5, z: 0}
+  m_Size: {x: 19, y: 17, z: 0.2}
+  m_Center: {x: 0.5, y: 8.5, z: 0}
 --- !u!114 &346972540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4128,8 +4142,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -4175,7 +4191,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 26, y: 56, z: .200000003}
+  m_Size: {x: 26, y: 56, z: 0.2}
   m_Center: {x: 0, y: 28, z: 0}
 --- !u!114 &347497137
 MonoBehaviour:
@@ -4225,8 +4241,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -4273,7 +4291,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 112, y: 160, z: .200000003}
+  m_Size: {x: 112, y: 160, z: 0.2}
   m_Center: {x: 0, y: 80, z: 0}
 --- !u!114 &351687177
 MonoBehaviour:
@@ -4323,8 +4341,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -4400,8 +4420,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &356416519
 GameObject:
   m_ObjectHideFlags: 0
@@ -4442,7 +4462,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireOnSkip: 0
-  firetime: 20.5748997
+  firetime: 20.5749
   duration: 8
   serializedAdditionalObjectsPaths: []
   Destination: {x: 16, y: 0}
@@ -4507,8 +4527,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &364649666
 Prefab:
   m_ObjectHideFlags: 0
@@ -4569,8 +4589,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &364665911
 Prefab:
   m_ObjectHideFlags: 0
@@ -4629,6 +4649,39 @@ Prefab:
     - target: {fileID: 3302666, guid: 3d391fcdc2f6c09418b935e80e09f718, type: 2}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 485694, guid: 3d391fcdc2f6c09418b935e80e09f718, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11462940, guid: 3d391fcdc2f6c09418b935e80e09f718, type: 2}
+      propertyPath: collection
+      value: 
+      objectReference: {fileID: 11457902, guid: 1e3f2808773f7a94db011fbc90c82787,
+        type: 2}
+    - target: {fileID: 11462940, guid: 3d391fcdc2f6c09418b935e80e09f718, type: 2}
+      propertyPath: _spriteId
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2366028, guid: 3d391fcdc2f6c09418b935e80e09f718, type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 930431753f759874b85e7347561c70a4, type: 2}
+    - target: {fileID: 452608, guid: 3d391fcdc2f6c09418b935e80e09f718, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 458214, guid: 3d391fcdc2f6c09418b935e80e09f718, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11462940, guid: 3d391fcdc2f6c09418b935e80e09f718, type: 2}
+      propertyPath: _dimensions.x
+      value: 1204
+      objectReference: {fileID: 0}
+    - target: {fileID: 11462940, guid: 3d391fcdc2f6c09418b935e80e09f718, type: 2}
+      propertyPath: _dimensions.y
+      value: 174
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3d391fcdc2f6c09418b935e80e09f718, type: 2}
@@ -4697,8 +4750,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &388971245
 GameObject:
   m_ObjectHideFlags: 0
@@ -4740,8 +4793,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 27, y: 25, z: .200000003}
-  m_Center: {x: .5, y: -.5, z: 0}
+  m_Size: {x: 27, y: 25, z: 0.2}
+  m_Center: {x: 0.5, y: -0.5, z: 0}
 --- !u!114 &388971248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4790,8 +4843,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -4856,8 +4911,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &407518746
 Prefab:
   m_ObjectHideFlags: 0
@@ -4918,8 +4973,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &419615322
 Prefab:
   m_ObjectHideFlags: 0
@@ -4980,8 +5035,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &429527335
 Prefab:
   m_ObjectHideFlags: 0
@@ -5042,8 +5097,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &429881254
 Prefab:
   m_ObjectHideFlags: 0
@@ -5104,8 +5159,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!43 &431189321
 Mesh:
   m_ObjectHideFlags: 0
@@ -5354,8 +5409,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &443038500
 Prefab:
   m_ObjectHideFlags: 0
@@ -5416,8 +5471,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &443538409
 GameObject:
   m_ObjectHideFlags: 0
@@ -5442,7 +5497,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 443538409}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1024, y: 0, z: -9.99999997e-07}
+  m_LocalPosition: {x: 1024, y: 0, z: -0.000001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 42016766}
@@ -5465,8 +5520,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -5563,7 +5620,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 112, y: 160, z: .200000003}
+  m_Size: {x: 112, y: 160, z: 0.2}
   m_Center: {x: 0, y: 80, z: 0}
 --- !u!114 &455366993
 MonoBehaviour:
@@ -5613,8 +5670,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -5726,8 +5785,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 19, y: 17, z: .200000003}
-  m_Center: {x: .5, y: 8.5, z: 0}
+  m_Size: {x: 19, y: 17, z: 0.2}
+  m_Center: {x: 0.5, y: 8.5, z: 0}
 --- !u!114 &459801358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5776,8 +5835,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -5804,7 +5865,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 460477640}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -.300000012}
+  m_LocalPosition: {x: 0, y: 0, z: -0.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1937596709}
@@ -5852,8 +5913,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 67, y: 96, z: .200000003}
-  m_Center: {x: .5, y: 48, z: 0}
+  m_Size: {x: 67, y: 96, z: 0.2}
+  m_Center: {x: 0.5, y: 48, z: 0}
 --- !u!114 &461434540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5902,8 +5963,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -6096,8 +6159,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &464817322
 Prefab:
   m_ObjectHideFlags: 0
@@ -6115,7 +6178,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 447708, guid: 5dfb6c7c29956be469fb68ffaa8f4c7b, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -3.4000001
+      value: -3.4
       objectReference: {fileID: 0}
     - target: {fileID: 447708, guid: 5dfb6c7c29956be469fb68ffaa8f4c7b, type: 2}
       propertyPath: m_LocalRotation.x
@@ -6240,8 +6303,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &484149787
 Prefab:
   m_ObjectHideFlags: 0
@@ -6302,8 +6365,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &490190605
 GameObject:
   m_ObjectHideFlags: 0
@@ -6345,8 +6408,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 67, y: 30, z: .200000003}
-  m_Center: {x: .5, y: 15, z: 0}
+  m_Size: {x: 67, y: 30, z: 0.2}
+  m_Center: {x: 0.5, y: 15, z: 0}
 --- !u!114 &490190608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6395,8 +6458,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -6461,8 +6526,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &497960018
 Prefab:
   m_ObjectHideFlags: 0
@@ -6523,8 +6588,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &499287440
 Prefab:
   m_ObjectHideFlags: 0
@@ -6585,8 +6650,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &506413783
 Prefab:
   m_ObjectHideFlags: 0
@@ -6647,8 +6712,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &509354851
 GameObject:
   m_ObjectHideFlags: 0
@@ -6696,8 +6761,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -6769,8 +6836,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &525585294
 GameObject:
   m_ObjectHideFlags: 0
@@ -6874,8 +6941,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &550935873
 GameObject:
   m_ObjectHideFlags: 0
@@ -6917,8 +6984,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 67, y: 30, z: .200000003}
-  m_Center: {x: .5, y: 15, z: 0}
+  m_Size: {x: 67, y: 30, z: 0.2}
+  m_Center: {x: 0.5, y: 15, z: 0}
 --- !u!114 &550935876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6967,8 +7034,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -7033,8 +7102,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &553867492
 GameObject:
   m_ObjectHideFlags: 0
@@ -7113,8 +7182,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -7179,8 +7250,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &559669062
 Prefab:
   m_ObjectHideFlags: 0
@@ -7241,8 +7312,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &571099168
 GameObject:
   m_ObjectHideFlags: 0
@@ -7303,7 +7374,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 447708, guid: 5dfb6c7c29956be469fb68ffaa8f4c7b, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -3.4000001
+      value: -3.4
       objectReference: {fileID: 0}
     - target: {fileID: 447708, guid: 5dfb6c7c29956be469fb68ffaa8f4c7b, type: 2}
       propertyPath: m_LocalRotation.x
@@ -7439,7 +7510,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collection: {fileID: 11483872, guid: b290bb6ae05947849850dd604900edea, type: 2}
   _color: {r: 1, g: 1, b: 1, a: 1}
-  _scale: {x: 17.0216064, y: 12.5611782, z: 1}
+  _scale: {x: 17.021606, y: 12.561178, z: 1}
   _spriteId: 61
   boxCollider2D: {fileID: 0}
   polygonCollider2D: []
@@ -7474,8 +7545,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -7540,8 +7613,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!20 &597102581 stripped
 Camera:
   m_PrefabParentObject: {fileID: 2041854, guid: 60ed52da4d04237499fa3acdd2879c4e,
@@ -7607,8 +7680,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &612148104
 GameObject:
   m_ObjectHideFlags: 0
@@ -7662,8 +7735,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 57, y: 28, z: .200000003}
-  m_Center: {x: .5, y: 14, z: 0}
+  m_Size: {x: 57, y: 28, z: 0.2}
+  m_Center: {x: 0.5, y: 14, z: 0}
 --- !u!114 &612148108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7712,8 +7785,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -7778,8 +7853,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &621609207
 GameObject:
   m_ObjectHideFlags: 0
@@ -7821,8 +7896,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 27, y: 25, z: .200000003}
-  m_Center: {x: .5, y: -.5, z: 0}
+  m_Size: {x: 27, y: 25, z: 0.2}
+  m_Center: {x: 0.5, y: -0.5, z: 0}
 --- !u!114 &621609210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7871,8 +7946,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -7901,7 +7978,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 626721976}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1024, y: 0, z: -9.99999997e-07}
+  m_LocalPosition: {x: 1024, y: 0, z: -0.000001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1265459071}
@@ -7924,8 +8001,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -7997,8 +8076,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &635736675
 GameObject:
   m_ObjectHideFlags: 0
@@ -8082,7 +8161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireOnSkip: 0
-  firetime: 4.38866377
+  firetime: 4.388664
   duration: 4
   serializedAdditionalObjectsPaths: []
   Destination: {x: 17, y: 10}
@@ -8127,8 +8206,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireOnSkip: 0
-  firetime: 14.3643723
-  duration: .180000007
+  firetime: 14.364372
+  duration: 0.18
   serializedAdditionalObjectsPaths: []
   Dialogue: {fileID: 2074777591}
 --- !u!1001 &652373645
@@ -8191,8 +8270,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &660552672
 GameObject:
   m_ObjectHideFlags: 0
@@ -8236,7 +8315,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collection: {fileID: 11483872, guid: b290bb6ae05947849850dd604900edea, type: 2}
   _color: {r: 1, g: 1, b: 1, a: 1}
-  _scale: {x: 17.0216064, y: 12.5611782, z: 1}
+  _scale: {x: 17.021606, y: 12.561178, z: 1}
   _spriteId: 61
   boxCollider2D: {fileID: 0}
   polygonCollider2D: []
@@ -8271,8 +8350,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -8337,8 +8418,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &662823957
 Prefab:
   m_ObjectHideFlags: 0
@@ -8399,8 +8480,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &673385759
 Prefab:
   m_ObjectHideFlags: 0
@@ -8461,8 +8542,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &673683361
 Prefab:
   m_ObjectHideFlags: 0
@@ -8523,8 +8604,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &674923951
 Prefab:
   m_ObjectHideFlags: 0
@@ -8585,8 +8666,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &678691012
 GameObject:
   m_ObjectHideFlags: 0
@@ -8641,8 +8722,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 187, y: 193, z: .200000003}
-  m_Center: {x: .5, y: 96.5, z: 0}
+  m_Size: {x: 187, y: 193, z: 0.2}
+  m_Center: {x: 0.5, y: 96.5, z: 0}
 --- !u!114 &678691016
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8691,8 +8772,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -8919,8 +9002,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 19, y: 17, z: .200000003}
-  m_Center: {x: .5, y: 8.5, z: 0}
+  m_Size: {x: 19, y: 17, z: 0.2}
+  m_Center: {x: 0.5, y: 8.5, z: 0}
 --- !u!114 &714615485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8969,8 +9052,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -9035,8 +9120,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &717202630
 GameObject:
   m_ObjectHideFlags: 0
@@ -9090,7 +9175,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 26, y: 56, z: .200000003}
+  m_Size: {x: 26, y: 56, z: 0.2}
   m_Center: {x: 0, y: 28, z: 0}
 --- !u!114 &717202634
 MonoBehaviour:
@@ -9140,8 +9225,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -9276,8 +9363,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -9297,8 +9386,8 @@ Mesh:
     firstVertex: 0
     vertexCount: 16
     localAABB:
-      m_Center: {x: 0, y: -.5, z: 0}
-      m_Extent: {x: 144, y: 238.5, z: .100000001}
+      m_Center: {x: 0, y: -0.5, z: 0}
+      m_Extent: {x: 144, y: 238.5, z: 0.1}
   m_Shapes:
     vertices: []
     shapes: []
@@ -9404,8 +9493,8 @@ Mesh:
       m_BitSize: 0
     m_UVInfo: 0
   m_LocalAABB:
-    m_Center: {x: 0, y: -.5, z: 0}
-    m_Extent: {x: 144, y: 238.5, z: .100000001}
+    m_Center: {x: 0, y: -0.5, z: 0}
+    m_Extent: {x: 144, y: 238.5, z: 0.1}
   m_MeshUsageFlags: 0
   m_BakedConvexCollisionMesh: 
   m_BakedTriangleCollisionMesh: 
@@ -9470,8 +9559,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &736831005
 GameObject:
   m_ObjectHideFlags: 0
@@ -9621,8 +9710,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &746942567
 GameObject:
   m_ObjectHideFlags: 0
@@ -9664,8 +9753,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 27, y: 25, z: .200000003}
-  m_Center: {x: .5, y: -.5, z: 0}
+  m_Size: {x: 27, y: 25, z: 0.2}
+  m_Center: {x: 0.5, y: -0.5, z: 0}
 --- !u!114 &746942570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9714,8 +9803,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -9780,8 +9871,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &750956262
 GameObject:
   m_ObjectHideFlags: 0
@@ -9823,7 +9914,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 32, y: 33, z: .200000003}
+  m_Size: {x: 32, y: 33, z: 0.2}
   m_Center: {x: 0, y: 16.5, z: 0}
 --- !u!114 &750956265
 MonoBehaviour:
@@ -9873,8 +9964,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -9920,8 +10013,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 67, y: 30, z: .200000003}
-  m_Center: {x: .5, y: 15, z: 0}
+  m_Size: {x: 67, y: 30, z: 0.2}
+  m_Center: {x: 0.5, y: 15, z: 0}
 --- !u!114 &764208006
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9970,8 +10063,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -10036,8 +10131,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &773470074
 Prefab:
   m_ObjectHideFlags: 0
@@ -10098,8 +10193,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &773776879
 GameObject:
   m_ObjectHideFlags: 0
@@ -10142,7 +10237,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 112, y: 160, z: .200000003}
+  m_Size: {x: 112, y: 160, z: 0.2}
   m_Center: {x: 0, y: 80, z: 0}
 --- !u!114 &773776882
 MonoBehaviour:
@@ -10192,8 +10287,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -10354,8 +10451,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &781798500
 Prefab:
   m_ObjectHideFlags: 0
@@ -10496,8 +10593,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -10542,7 +10641,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireOnSkip: 0
-  firetime: 8.89068794
+  firetime: 8.890688
   duration: -1
   serializedAdditionalObjectsPaths: []
   enable: 1
@@ -10606,8 +10705,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &799460253
 Prefab:
   m_ObjectHideFlags: 0
@@ -10668,8 +10767,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &801177351
 Prefab:
   m_ObjectHideFlags: 0
@@ -10730,8 +10829,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &801816277
 GameObject:
   m_ObjectHideFlags: 0
@@ -10772,7 +10871,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireOnSkip: 0
-  firetime: 8.89068794
+  firetime: 8.890688
   duration: -1
   serializedAdditionalObjectsPaths: []
   enable: 1
@@ -10836,8 +10935,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &806550260
 GameObject:
   m_ObjectHideFlags: 0
@@ -10929,8 +11028,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &814707498
 Prefab:
   m_ObjectHideFlags: 0
@@ -10991,8 +11090,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &824054181
 GameObject:
   m_ObjectHideFlags: 0
@@ -11046,8 +11145,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 39, y: 26, z: .200000003}
-  m_Center: {x: .5, y: 13, z: 0}
+  m_Size: {x: 39, y: 26, z: 0.2}
+  m_Center: {x: 0.5, y: 13, z: 0}
 --- !u!114 &824054185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11069,22 +11168,22 @@ MonoBehaviour:
   boxCollider: {fileID: 824054184}
   meshCollider: {fileID: 0}
   meshColliderPositions:
-  - {x: 39, y: 238, z: -.100000001}
-  - {x: 39, y: 238, z: .100000001}
-  - {x: -28.5, y: 238, z: -.100000001}
-  - {x: -28.5, y: 238, z: .100000001}
-  - {x: -115, y: 204, z: -.100000001}
-  - {x: -115, y: 204, z: .100000001}
-  - {x: -143, y: 125, z: -.100000001}
-  - {x: -143, y: 125, z: .100000001}
-  - {x: -144, y: -239, z: -.100000001}
-  - {x: -144, y: -239, z: .100000001}
-  - {x: 144, y: -239, z: -.100000001}
-  - {x: 144, y: -239, z: .100000001}
-  - {x: 144, y: 139.5, z: -.100000001}
-  - {x: 144, y: 139.5, z: .100000001}
-  - {x: 101.5, y: 202, z: -.100000001}
-  - {x: 101.5, y: 202, z: .100000001}
+  - {x: 39, y: 238, z: -0.1}
+  - {x: 39, y: 238, z: 0.1}
+  - {x: -28.5, y: 238, z: -0.1}
+  - {x: -28.5, y: 238, z: 0.1}
+  - {x: -115, y: 204, z: -0.1}
+  - {x: -115, y: 204, z: 0.1}
+  - {x: -143, y: 125, z: -0.1}
+  - {x: -143, y: 125, z: 0.1}
+  - {x: -144, y: -239, z: -0.1}
+  - {x: -144, y: -239, z: 0.1}
+  - {x: 144, y: -239, z: -0.1}
+  - {x: 144, y: -239, z: 0.1}
+  - {x: 144, y: 139.5, z: -0.1}
+  - {x: 144, y: 139.5, z: 0.1}
+  - {x: 101.5, y: 202, z: -0.1}
+  - {x: 101.5, y: 202, z: 0.1}
   meshColliderMesh: {fileID: 731095523}
   renderLayer: 0
 --- !u!33 &824054186
@@ -11112,8 +11211,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -11191,7 +11292,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 26, y: 56, z: .200000003}
+  m_Size: {x: 26, y: 56, z: 0.2}
   m_Center: {x: 0, y: 28, z: 0}
 --- !u!114 &829240520
 MonoBehaviour:
@@ -11241,8 +11342,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -11307,8 +11410,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &841118511
 Prefab:
   m_ObjectHideFlags: 0
@@ -11369,8 +11472,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &862994082
 GameObject:
   m_ObjectHideFlags: 0
@@ -11411,8 +11514,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireOnSkip: 0
-  firetime: 3.77327943
-  duration: 11.6000004
+  firetime: 3.7732794
+  duration: 11.6
   serializedAdditionalObjectsPaths: []
   Destination: {x: 16, y: 0}
   Start: {x: 16, y: 29}
@@ -11456,8 +11559,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireOnSkip: 0
-  firetime: 14.5587101
-  duration: 5.5999999
+  firetime: 14.55871
+  duration: 5.6
   serializedAdditionalObjectsPaths: []
   Destination: {x: 17, y: 10}
   Start: {x: 31, y: 10}
@@ -11476,8 +11579,8 @@ Mesh:
     firstVertex: 0
     vertexCount: 16
     localAABB:
-      m_Center: {x: 0, y: -.5, z: 0}
-      m_Extent: {x: 144, y: 238.5, z: .100000001}
+      m_Center: {x: 0, y: -0.5, z: 0}
+      m_Extent: {x: 144, y: 238.5, z: 0.1}
   m_Shapes:
     vertices: []
     shapes: []
@@ -11583,8 +11686,8 @@ Mesh:
       m_BitSize: 0
     m_UVInfo: 0
   m_LocalAABB:
-    m_Center: {x: 0, y: -.5, z: 0}
-    m_Extent: {x: 144, y: 238.5, z: .100000001}
+    m_Center: {x: 0, y: -0.5, z: 0}
+    m_Extent: {x: 144, y: 238.5, z: 0.1}
   m_MeshUsageFlags: 0
   m_BakedConvexCollisionMesh: 
   m_BakedTriangleCollisionMesh: 
@@ -12665,8 +12768,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &888330690
 GameObject:
   m_ObjectHideFlags: 0
@@ -12708,7 +12811,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 32, y: 33, z: .200000003}
+  m_Size: {x: 32, y: 33, z: 0.2}
   m_Center: {x: 0, y: 16.5, z: 0}
 --- !u!114 &888330693
 MonoBehaviour:
@@ -12758,8 +12861,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -12805,7 +12910,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 112, y: 160, z: .200000003}
+  m_Size: {x: 112, y: 160, z: 0.2}
   m_Center: {x: 0, y: 80, z: 0}
 --- !u!114 &911944734
 MonoBehaviour:
@@ -12855,8 +12960,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -12942,8 +13049,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireOnSkip: 0
-  firetime: 12.5890684
-  duration: .5
+  firetime: 12.589068
+  duration: 0.5
   serializedAdditionalObjectsPaths: []
   Destination: {x: 814, y: 402, z: -10}
   Easing: 9
@@ -13007,8 +13114,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &944210254
 GameObject:
   m_ObjectHideFlags: 0
@@ -13049,8 +13156,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireOnSkip: 0
-  firetime: 20.1862354
-  duration: .400000006
+  firetime: 20.186235
+  duration: 0.4
   serializedAdditionalObjectsPaths: []
   Destination: {x: 17, y: 9}
   Start: {x: 17, y: 10}
@@ -13114,8 +13221,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &964185588
 Prefab:
   m_ObjectHideFlags: 0
@@ -13176,8 +13283,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &967069670
 GameObject:
   m_ObjectHideFlags: 0
@@ -13219,7 +13326,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 32, y: 33, z: .200000003}
+  m_Size: {x: 32, y: 33, z: 0.2}
   m_Center: {x: 0, y: 16.5, z: 0}
 --- !u!114 &967069673
 MonoBehaviour:
@@ -13269,8 +13376,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -13335,8 +13444,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!43 &981510952
 Mesh:
   m_ObjectHideFlags: 0
@@ -13506,7 +13615,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 374, y: 231, z: .200000003}
+  m_Size: {x: 374, y: 231, z: 0.2}
   m_Center: {x: 187, y: 115.5, z: 0}
 --- !u!114 &982648790
 MonoBehaviour:
@@ -13529,22 +13638,22 @@ MonoBehaviour:
   boxCollider: {fileID: 982648788}
   meshCollider: {fileID: 0}
   meshColliderPositions:
-  - {x: 39, y: 238, z: -.100000001}
-  - {x: 39, y: 238, z: .100000001}
-  - {x: -28.5, y: 238, z: -.100000001}
-  - {x: -28.5, y: 238, z: .100000001}
-  - {x: -115, y: 204, z: -.100000001}
-  - {x: -115, y: 204, z: .100000001}
-  - {x: -143, y: 125, z: -.100000001}
-  - {x: -143, y: 125, z: .100000001}
-  - {x: -144, y: -239, z: -.100000001}
-  - {x: -144, y: -239, z: .100000001}
-  - {x: 144, y: -239, z: -.100000001}
-  - {x: 144, y: -239, z: .100000001}
-  - {x: 144, y: 139.5, z: -.100000001}
-  - {x: 144, y: 139.5, z: .100000001}
-  - {x: 101.5, y: 202, z: -.100000001}
-  - {x: 101.5, y: 202, z: .100000001}
+  - {x: 39, y: 238, z: -0.1}
+  - {x: 39, y: 238, z: 0.1}
+  - {x: -28.5, y: 238, z: -0.1}
+  - {x: -28.5, y: 238, z: 0.1}
+  - {x: -115, y: 204, z: -0.1}
+  - {x: -115, y: 204, z: 0.1}
+  - {x: -143, y: 125, z: -0.1}
+  - {x: -143, y: 125, z: 0.1}
+  - {x: -144, y: -239, z: -0.1}
+  - {x: -144, y: -239, z: 0.1}
+  - {x: 144, y: -239, z: -0.1}
+  - {x: 144, y: -239, z: 0.1}
+  - {x: 144, y: 139.5, z: -0.1}
+  - {x: 144, y: 139.5, z: 0.1}
+  - {x: 101.5, y: 202, z: -0.1}
+  - {x: 101.5, y: 202, z: 0.1}
   meshColliderMesh: {fileID: 871170887}
   renderLayer: 0
 --- !u!33 &982648791
@@ -13572,8 +13681,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -13680,8 +13791,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &999642965
 GameObject:
   m_ObjectHideFlags: 0
@@ -13735,8 +13846,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 57, y: 28, z: .200000003}
-  m_Center: {x: .5, y: 14, z: 0}
+  m_Size: {x: 57, y: 28, z: 0.2}
+  m_Center: {x: 0.5, y: 14, z: 0}
 --- !u!114 &999642969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13785,8 +13896,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -13851,8 +13964,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &1023017467
 GameObject:
   m_ObjectHideFlags: 0
@@ -13920,7 +14033,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1029870992}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1024, y: 0, z: -9.99999997e-07}
+  m_LocalPosition: {x: 1024, y: 0, z: -0.000001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 460477641}
@@ -13943,8 +14056,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -13997,8 +14112,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 27, y: 25, z: .200000003}
-  m_Center: {x: .5, y: -.5, z: 0}
+  m_Size: {x: 27, y: 25, z: 0.2}
+  m_Center: {x: 0.5, y: -0.5, z: 0}
 --- !u!114 &1035707744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14047,8 +14162,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -14113,8 +14230,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &1038991307
 GameObject:
   m_ObjectHideFlags: 0
@@ -14158,7 +14275,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collection: {fileID: 11483872, guid: b290bb6ae05947849850dd604900edea, type: 2}
   _color: {r: 1, g: 1, b: 1, a: 1}
-  _scale: {x: 37.1540222, y: 12.1007061, z: 1}
+  _scale: {x: 37.154022, y: 12.100706, z: 1}
   _spriteId: 61
   boxCollider2D: {fileID: 0}
   polygonCollider2D: []
@@ -14193,8 +14310,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -14259,8 +14378,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &1045061440
 Prefab:
   m_ObjectHideFlags: 0
@@ -14321,8 +14440,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &1047768877
 GameObject:
   m_ObjectHideFlags: 0
@@ -14424,8 +14543,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &1050406052
 Prefab:
   m_ObjectHideFlags: 0
@@ -14486,8 +14605,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &1050914439
 Prefab:
   m_ObjectHideFlags: 0
@@ -14548,8 +14667,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &1052051969
 GameObject:
   m_ObjectHideFlags: 0
@@ -14603,8 +14722,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 19, y: 17, z: .200000003}
-  m_Center: {x: .5, y: 8.5, z: 0}
+  m_Size: {x: 19, y: 17, z: 0.2}
+  m_Center: {x: 0.5, y: 8.5, z: 0}
 --- !u!114 &1052051973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14653,8 +14772,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -14719,8 +14840,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &1065715131
 Prefab:
   m_ObjectHideFlags: 0
@@ -14781,8 +14902,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &1072568317
 Prefab:
   m_ObjectHideFlags: 0
@@ -14843,8 +14964,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &1079173386
 Prefab:
   m_ObjectHideFlags: 0
@@ -14862,7 +14983,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 447708, guid: 5dfb6c7c29956be469fb68ffaa8f4c7b, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -3.4000001
+      value: -3.4
       objectReference: {fileID: 0}
     - target: {fileID: 447708, guid: 5dfb6c7c29956be469fb68ffaa8f4c7b, type: 2}
       propertyPath: m_LocalRotation.x
@@ -14976,8 +15097,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 39, y: 26, z: .200000003}
-  m_Center: {x: .5, y: 13, z: 0}
+  m_Size: {x: 39, y: 26, z: 0.2}
+  m_Center: {x: 0.5, y: 13, z: 0}
 --- !u!114 &1085360381
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14999,22 +15120,22 @@ MonoBehaviour:
   boxCollider: {fileID: 1085360380}
   meshCollider: {fileID: 0}
   meshColliderPositions:
-  - {x: 39, y: 238, z: -.100000001}
-  - {x: 39, y: 238, z: .100000001}
-  - {x: -28.5, y: 238, z: -.100000001}
-  - {x: -28.5, y: 238, z: .100000001}
-  - {x: -115, y: 204, z: -.100000001}
-  - {x: -115, y: 204, z: .100000001}
-  - {x: -143, y: 125, z: -.100000001}
-  - {x: -143, y: 125, z: .100000001}
-  - {x: -144, y: -239, z: -.100000001}
-  - {x: -144, y: -239, z: .100000001}
-  - {x: 144, y: -239, z: -.100000001}
-  - {x: 144, y: -239, z: .100000001}
-  - {x: 144, y: 139.5, z: -.100000001}
-  - {x: 144, y: 139.5, z: .100000001}
-  - {x: 101.5, y: 202, z: -.100000001}
-  - {x: 101.5, y: 202, z: .100000001}
+  - {x: 39, y: 238, z: -0.1}
+  - {x: 39, y: 238, z: 0.1}
+  - {x: -28.5, y: 238, z: -0.1}
+  - {x: -28.5, y: 238, z: 0.1}
+  - {x: -115, y: 204, z: -0.1}
+  - {x: -115, y: 204, z: 0.1}
+  - {x: -143, y: 125, z: -0.1}
+  - {x: -143, y: 125, z: 0.1}
+  - {x: -144, y: -239, z: -0.1}
+  - {x: -144, y: -239, z: 0.1}
+  - {x: 144, y: -239, z: -0.1}
+  - {x: 144, y: -239, z: 0.1}
+  - {x: 144, y: 139.5, z: -0.1}
+  - {x: 144, y: 139.5, z: 0.1}
+  - {x: 101.5, y: 202, z: -0.1}
+  - {x: 101.5, y: 202, z: 0.1}
   meshColliderMesh: {fileID: 731095523}
   renderLayer: 0
 --- !u!33 &1085360382
@@ -15042,8 +15163,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -15089,7 +15212,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 32, y: 33, z: .200000003}
+  m_Size: {x: 32, y: 33, z: 0.2}
   m_Center: {x: 0, y: 16.5, z: 0}
 --- !u!114 &1091879559
 MonoBehaviour:
@@ -15139,8 +15262,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -15205,8 +15330,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &1106325877
 Prefab:
   m_ObjectHideFlags: 0
@@ -15267,8 +15392,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &1115849249
 GameObject:
   m_ObjectHideFlags: 0
@@ -15310,7 +15435,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireOnSkip: 0
   firetime: 20.987854
-  duration: 6.80000019
+  duration: 6.8
   serializedAdditionalObjectsPaths: []
   Destination: {x: 0, y: 9}
   Start: {x: 17, y: 9}
@@ -15374,8 +15499,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &1135207538
 Prefab:
   m_ObjectHideFlags: 0
@@ -15516,8 +15641,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -15582,8 +15709,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &1155663934
 Prefab:
   m_ObjectHideFlags: 0
@@ -15644,8 +15771,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &1159212990
 Prefab:
   m_ObjectHideFlags: 0
@@ -15706,8 +15833,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &1162219703
 GameObject:
   m_ObjectHideFlags: 0
@@ -15798,8 +15925,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &1173698403
 Prefab:
   m_ObjectHideFlags: 0
@@ -15860,8 +15987,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &1177072551
 GameObject:
   m_ObjectHideFlags: 0
@@ -15945,8 +16072,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireOnSkip: 0
-  firetime: 3.61133599
-  duration: .0900000036
+  firetime: 3.611336
+  duration: 0.09
   serializedAdditionalObjectsPaths: []
   Dialogue: {fileID: 1686391215}
 --- !u!1 &1202162586
@@ -15989,8 +16116,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireOnSkip: 0
-  firetime: 8.41295528
-  duration: 1.60000002
+  firetime: 8.412955
+  duration: 1.6
   serializedAdditionalObjectsPaths: []
   Destination: {x: 21, y: 10}
   Start: {x: 17, y: 10}
@@ -16054,8 +16181,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &1216301521
 Prefab:
   m_ObjectHideFlags: 0
@@ -16116,8 +16243,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &1219596565
 Prefab:
   m_ObjectHideFlags: 0
@@ -16178,8 +16305,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &1220122561
 Prefab:
   m_ObjectHideFlags: 0
@@ -16240,8 +16367,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &1225674007
 GameObject:
   m_ObjectHideFlags: 0
@@ -16284,7 +16411,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 112, y: 160, z: .200000003}
+  m_Size: {x: 112, y: 160, z: 0.2}
   m_Center: {x: 0, y: 80, z: 0}
 --- !u!114 &1225674010
 MonoBehaviour:
@@ -16334,8 +16461,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -16411,8 +16540,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &1231542497
 Prefab:
   m_ObjectHideFlags: 0
@@ -16473,8 +16602,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &1232619368
 GameObject:
   m_ObjectHideFlags: 0
@@ -16579,8 +16708,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &1250321825
 GameObject:
   m_ObjectHideFlags: 0
@@ -16634,8 +16763,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 19, y: 17, z: .200000003}
-  m_Center: {x: .5, y: 8.5, z: 0}
+  m_Size: {x: 19, y: 17, z: 0.2}
+  m_Center: {x: 0.5, y: 8.5, z: 0}
 --- !u!114 &1250321829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16684,8 +16813,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -16750,8 +16881,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &1265459070
 GameObject:
   m_ObjectHideFlags: 0
@@ -16774,7 +16905,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1265459070}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -.100000001}
+  m_LocalPosition: {x: 0, y: 0, z: -0.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 509354852}
@@ -16841,8 +16972,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &1272104798
 Prefab:
   m_ObjectHideFlags: 0
@@ -16903,8 +17034,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &1277495805
 GameObject:
   m_ObjectHideFlags: 0
@@ -16959,8 +17090,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 187, y: 193, z: .200000003}
-  m_Center: {x: .5, y: 96.5, z: 0}
+  m_Size: {x: 187, y: 193, z: 0.2}
+  m_Center: {x: 0.5, y: 96.5, z: 0}
 --- !u!114 &1277495809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17009,8 +17140,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -17056,7 +17189,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 112, y: 160, z: .200000003}
+  m_Size: {x: 112, y: 160, z: 0.2}
   m_Center: {x: 0, y: 80, z: 0}
 --- !u!114 &1278046650
 MonoBehaviour:
@@ -17106,8 +17239,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -17172,8 +17307,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &1303391962
 GameObject:
   m_ObjectHideFlags: 0
@@ -17214,8 +17349,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireOnSkip: 0
-  firetime: 20.6234798
-  duration: 6.80000019
+  firetime: 20.62348
+  duration: 6.8
   serializedAdditionalObjectsPaths: []
   Destination: {x: 0, y: 9}
   Start: {x: 17, y: 9}
@@ -17279,8 +17414,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &1309703613
 Prefab:
   m_ObjectHideFlags: 0
@@ -17341,8 +17476,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &1325549236
 GameObject:
   m_ObjectHideFlags: 0
@@ -17384,7 +17519,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 112, y: 160, z: .200000003}
+  m_Size: {x: 112, y: 160, z: 0.2}
   m_Center: {x: 0, y: 80, z: 0}
 --- !u!114 &1325549239
 MonoBehaviour:
@@ -17434,8 +17569,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -17500,8 +17637,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &1332759313
 Prefab:
   m_ObjectHideFlags: 0
@@ -17562,8 +17699,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &1348906824
 GameObject:
   m_ObjectHideFlags: 0
@@ -17604,8 +17741,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireOnSkip: 0
-  firetime: 12.7287455
-  duration: 1.60000002
+  firetime: 12.728745
+  duration: 1.6
   serializedAdditionalObjectsPaths: []
   Destination: {x: 30, y: 10}
   Start: {x: 34, y: 10}
@@ -17669,8 +17806,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &1351727616
 Prefab:
   m_ObjectHideFlags: 0
@@ -17731,8 +17868,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &1360335542
 GameObject:
   m_ObjectHideFlags: 0
@@ -17774,7 +17911,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 112, y: 160, z: .200000003}
+  m_Size: {x: 112, y: 160, z: 0.2}
   m_Center: {x: 0, y: 80, z: 0}
 --- !u!114 &1360335545
 MonoBehaviour:
@@ -17824,8 +17961,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -17890,8 +18029,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &1370810503
 Prefab:
   m_ObjectHideFlags: 0
@@ -17952,8 +18091,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &1370819936
 Prefab:
   m_ObjectHideFlags: 0
@@ -18014,8 +18153,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &1372337293
 GameObject:
   m_ObjectHideFlags: 0
@@ -18056,8 +18195,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireOnSkip: 0
-  firetime: 12.7287502
-  duration: 1.60000002
+  firetime: 12.72875
+  duration: 1.6
   serializedAdditionalObjectsPaths: []
   Destination: {x: 31, y: 10}
   Start: {x: 35, y: 10}
@@ -18200,8 +18339,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &1395836979
 Prefab:
   m_ObjectHideFlags: 0
@@ -18262,8 +18401,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &1400486942
 Prefab:
   m_ObjectHideFlags: 0
@@ -18324,8 +18463,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &1409770670
 Prefab:
   m_ObjectHideFlags: 0
@@ -18386,8 +18525,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &1414594554
 Prefab:
   m_ObjectHideFlags: 0
@@ -18448,8 +18587,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &1423092381
 Prefab:
   m_ObjectHideFlags: 0
@@ -18510,8 +18649,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &1436703402
 GameObject:
   m_ObjectHideFlags: 0
@@ -18552,7 +18691,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireOnSkip: 0
-  firetime: 20.5748997
+  firetime: 20.5749
   duration: 8
   serializedAdditionalObjectsPaths: []
   Destination: {x: 18, y: 0}
@@ -18660,8 +18799,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &1449072170
 GameObject:
   m_ObjectHideFlags: 0
@@ -18720,7 +18859,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 447708, guid: 5dfb6c7c29956be469fb68ffaa8f4c7b, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -3.4000001
+      value: -3.4
       objectReference: {fileID: 0}
     - target: {fileID: 447708, guid: 5dfb6c7c29956be469fb68ffaa8f4c7b, type: 2}
       propertyPath: m_LocalRotation.x
@@ -18871,8 +19010,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &1469025888
 Prefab:
   m_ObjectHideFlags: 0
@@ -18933,8 +19072,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &1470755126
 GameObject:
   m_ObjectHideFlags: 0
@@ -19039,8 +19178,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &1475207123
 GameObject:
   m_ObjectHideFlags: 0
@@ -19082,7 +19221,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 112, y: 160, z: .200000003}
+  m_Size: {x: 112, y: 160, z: 0.2}
   m_Center: {x: 0, y: 80, z: 0}
 --- !u!114 &1475207126
 MonoBehaviour:
@@ -19132,8 +19271,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -19198,8 +19339,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &1479697803
 Prefab:
   m_ObjectHideFlags: 0
@@ -19260,8 +19401,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &1482557070
 GameObject:
   m_ObjectHideFlags: 0
@@ -19411,8 +19552,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &1485237281
 GameObject:
   m_ObjectHideFlags: 0
@@ -19454,7 +19595,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 112, y: 160, z: .200000003}
+  m_Size: {x: 112, y: 160, z: 0.2}
   m_Center: {x: 0, y: 80, z: 0}
 --- !u!114 &1485237284
 MonoBehaviour:
@@ -19504,8 +19645,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -19551,7 +19694,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 32, y: 33, z: .200000003}
+  m_Size: {x: 32, y: 33, z: 0.2}
   m_Center: {x: 0, y: 16.5, z: 0}
 --- !u!114 &1504470297
 MonoBehaviour:
@@ -19601,8 +19744,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -19667,8 +19812,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &1512979131
 Prefab:
   m_ObjectHideFlags: 0
@@ -19729,8 +19874,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &1518385906
 Prefab:
   m_ObjectHideFlags: 0
@@ -19791,8 +19936,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &1520199473
 Prefab:
   m_ObjectHideFlags: 0
@@ -19853,8 +19998,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &1521595766
 GameObject:
   m_ObjectHideFlags: 0
@@ -19944,8 +20089,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 27, y: 25, z: .200000003}
-  m_Center: {x: .5, y: -.5, z: 0}
+  m_Size: {x: 27, y: 25, z: 0.2}
+  m_Center: {x: 0.5, y: -0.5, z: 0}
 --- !u!114 &1525956508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19994,8 +20139,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -20060,8 +20207,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!43 &1531798568
 Mesh:
   m_ObjectHideFlags: 0
@@ -20293,8 +20440,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &1538258062
 Prefab:
   m_ObjectHideFlags: 0
@@ -20355,8 +20502,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &1544396029
 GameObject:
   m_ObjectHideFlags: 0
@@ -20397,8 +20544,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireOnSkip: 0
-  firetime: 12.7287502
-  duration: 1.60000002
+  firetime: 12.72875
+  duration: 1.6
   serializedAdditionalObjectsPaths: []
   Destination: {x: 32, y: 10}
   Start: {x: 36, y: 10}
@@ -20443,7 +20590,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 32, y: 33, z: .200000003}
+  m_Size: {x: 32, y: 33, z: 0.2}
   m_Center: {x: 0, y: 16.5, z: 0}
 --- !u!114 &1547690798
 MonoBehaviour:
@@ -20493,8 +20640,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -20624,8 +20773,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &1554772931
 GameObject:
   m_ObjectHideFlags: 0
@@ -20666,8 +20815,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireOnSkip: 0
-  firetime: 14.5587044
-  duration: 1.60000002
+  firetime: 14.558704
+  duration: 1.6
   serializedAdditionalObjectsPaths: []
   Destination: {x: 17, y: 10}
   Start: {x: 21, y: 10}
@@ -20731,8 +20880,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &1567972288
 GameObject:
   m_ObjectHideFlags: 0
@@ -20806,8 +20955,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireOnSkip: 0
-  firetime: 20.1862354
-  duration: 6.80000019
+  firetime: 20.186235
+  duration: 6.8
   serializedAdditionalObjectsPaths: []
   Destination: {x: 0, y: 9}
   Start: {x: 17, y: 9}
@@ -20882,8 +21031,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireOnSkip: 0
-  firetime: 20.5748997
-  duration: .400000006
+  firetime: 20.5749
+  duration: 0.4
   serializedAdditionalObjectsPaths: []
   Destination: {x: 17, y: 9}
   Start: {x: 17, y: 10}
@@ -20991,8 +21140,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &1578623250
 Prefab:
   m_ObjectHideFlags: 0
@@ -21131,8 +21280,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &1588755158
 GameObject:
   m_ObjectHideFlags: 0
@@ -21173,8 +21322,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireOnSkip: 0
-  firetime: 14.5587044
-  duration: 5.44000006
+  firetime: 14.558704
+  duration: 5.44
   serializedAdditionalObjectsPaths: []
   Destination: {x: 412, y: 402, z: -10}
   Easing: 9
@@ -21238,8 +21387,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &1591977390
 GameObject:
   m_ObjectHideFlags: 0
@@ -21344,8 +21493,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &1606745911
 Prefab:
   m_ObjectHideFlags: 0
@@ -21406,8 +21555,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &1608725742
 Prefab:
   m_ObjectHideFlags: 0
@@ -21468,8 +21617,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &1614622969
 Prefab:
   m_ObjectHideFlags: 0
@@ -21575,6 +21724,27 @@ Prefab:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2366028, guid: 9c24960258e79414282cb1a66595bc6e, type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 930431753f759874b85e7347561c70a4, type: 2}
+    - target: {fileID: 11462940, guid: 9c24960258e79414282cb1a66595bc6e, type: 2}
+      propertyPath: collection
+      value: 
+      objectReference: {fileID: 11457902, guid: 1e3f2808773f7a94db011fbc90c82787,
+        type: 2}
+    - target: {fileID: 11462940, guid: 9c24960258e79414282cb1a66595bc6e, type: 2}
+      propertyPath: _spriteId
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11462940, guid: 9c24960258e79414282cb1a66595bc6e, type: 2}
+      propertyPath: _dimensions.x
+      value: 1204
+      objectReference: {fileID: 0}
+    - target: {fileID: 11462940, guid: 9c24960258e79414282cb1a66595bc6e, type: 2}
+      propertyPath: _dimensions.y
+      value: 174
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9c24960258e79414282cb1a66595bc6e, type: 2}
   m_IsPrefabParent: 0
@@ -21642,8 +21812,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &1626779645
 Prefab:
   m_ObjectHideFlags: 0
@@ -21704,8 +21874,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &1629308775
 Prefab:
   m_ObjectHideFlags: 0
@@ -21766,8 +21936,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &1635253300
 GameObject:
   m_ObjectHideFlags: 0
@@ -21809,7 +21979,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 32, y: 33, z: .200000003}
+  m_Size: {x: 32, y: 33, z: 0.2}
   m_Center: {x: 0, y: 16.5, z: 0}
 --- !u!114 &1635253303
 MonoBehaviour:
@@ -21859,8 +22029,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -21912,8 +22084,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -21985,8 +22159,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &1645632616
 GameObject:
   m_ObjectHideFlags: 0
@@ -22027,8 +22201,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireOnSkip: 0
-  firetime: 16.1821861
-  duration: .400000006
+  firetime: 16.182186
+  duration: 0.4
   serializedAdditionalObjectsPaths: []
   Destination: {x: 17, y: 9}
   Start: {x: 17, y: 10}
@@ -22092,8 +22266,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &1653193942
 Prefab:
   m_ObjectHideFlags: 0
@@ -22154,8 +22328,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &1671689960
 Prefab:
   m_ObjectHideFlags: 0
@@ -22216,8 +22390,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &1672100667
 Prefab:
   m_ObjectHideFlags: 0
@@ -22278,8 +22452,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &1682296360
 GameObject:
   m_ObjectHideFlags: 0
@@ -22387,8 +22561,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &1687332886
 Prefab:
   m_ObjectHideFlags: 0
@@ -22449,8 +22623,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &1689045129
 Prefab:
   m_ObjectHideFlags: 0
@@ -22511,8 +22685,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &1691261312
 GameObject:
   m_ObjectHideFlags: 0
@@ -22554,7 +22728,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 112, y: 160, z: .200000003}
+  m_Size: {x: 112, y: 160, z: 0.2}
   m_Center: {x: 0, y: 80, z: 0}
 --- !u!114 &1691261315
 MonoBehaviour:
@@ -22604,8 +22778,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -22670,8 +22846,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &1737972013
 Prefab:
   m_ObjectHideFlags: 0
@@ -22732,8 +22908,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &1739232283
 Prefab:
   m_ObjectHideFlags: 0
@@ -22837,8 +23013,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 67, y: 96, z: .200000003}
-  m_Center: {x: .5, y: 48, z: 0}
+  m_Size: {x: 67, y: 96, z: 0.2}
+  m_Center: {x: 0.5, y: 48, z: 0}
 --- !u!114 &1742227958
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22887,8 +23063,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -22924,7 +23102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collection: {fileID: 11483872, guid: b290bb6ae05947849850dd604900edea, type: 2}
   _color: {r: 1, g: 1, b: 1, a: 1}
-  _scale: {x: 37.1540222, y: 12.1007061, z: 1}
+  _scale: {x: 37.154022, y: 12.100706, z: 1}
   _spriteId: 61
   boxCollider2D: {fileID: 0}
   polygonCollider2D: []
@@ -22959,8 +23137,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -23037,8 +23217,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &1764467825
 Prefab:
   m_ObjectHideFlags: 0
@@ -23099,8 +23279,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &1766779822
 GameObject:
   m_ObjectHideFlags: 0
@@ -23142,8 +23322,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 27, y: 25, z: .200000003}
-  m_Center: {x: .5, y: -.5, z: 0}
+  m_Size: {x: 27, y: 25, z: 0.2}
+  m_Center: {x: 0.5, y: -0.5, z: 0}
 --- !u!114 &1766779825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23192,8 +23372,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -23258,8 +23440,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &1776710172
 Prefab:
   m_ObjectHideFlags: 0
@@ -23320,8 +23502,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &1782399137
 Prefab:
   m_ObjectHideFlags: 0
@@ -23382,8 +23564,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &1788656006
 Prefab:
   m_ObjectHideFlags: 0
@@ -23444,8 +23626,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &1790023885
 Prefab:
   m_ObjectHideFlags: 0
@@ -23506,8 +23688,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &1796770964
 Prefab:
   m_ObjectHideFlags: 0
@@ -23758,8 +23940,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &1809656618
 Prefab:
   m_ObjectHideFlags: 0
@@ -23820,8 +24002,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &1810440220
 Prefab:
   m_ObjectHideFlags: 0
@@ -23882,8 +24064,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &1817045329
 GameObject:
   m_ObjectHideFlags: 0
@@ -23937,7 +24119,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 218, y: 221, z: .200000003}
+  m_Size: {x: 218, y: 221, z: 0.2}
   m_Center: {x: 0, y: 110.5, z: 0}
 --- !u!114 &1817045333
 MonoBehaviour:
@@ -23987,8 +24169,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -24053,8 +24237,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &1826412390
 GameObject:
   m_ObjectHideFlags: 0
@@ -24096,8 +24280,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 27, y: 25, z: .200000003}
-  m_Center: {x: .5, y: -.5, z: 0}
+  m_Size: {x: 27, y: 25, z: 0.2}
+  m_Center: {x: 0.5, y: -0.5, z: 0}
 --- !u!114 &1826412393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24146,8 +24330,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -24212,8 +24398,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &1833533381
 Prefab:
   m_ObjectHideFlags: 0
@@ -24274,8 +24460,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &1835089353
 Prefab:
   m_ObjectHideFlags: 0
@@ -24336,8 +24522,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &1837633249
 GameObject:
   m_ObjectHideFlags: 0
@@ -24392,7 +24578,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 374, y: 231, z: .200000003}
+  m_Size: {x: 374, y: 231, z: 0.2}
   m_Center: {x: 187, y: 115.5, z: 0}
 --- !u!114 &1837633254
 MonoBehaviour:
@@ -24415,22 +24601,22 @@ MonoBehaviour:
   boxCollider: {fileID: 1837633252}
   meshCollider: {fileID: 0}
   meshColliderPositions:
-  - {x: 39, y: 238, z: -.100000001}
-  - {x: 39, y: 238, z: .100000001}
-  - {x: -28.5, y: 238, z: -.100000001}
-  - {x: -28.5, y: 238, z: .100000001}
-  - {x: -115, y: 204, z: -.100000001}
-  - {x: -115, y: 204, z: .100000001}
-  - {x: -143, y: 125, z: -.100000001}
-  - {x: -143, y: 125, z: .100000001}
-  - {x: -144, y: -239, z: -.100000001}
-  - {x: -144, y: -239, z: .100000001}
-  - {x: 144, y: -239, z: -.100000001}
-  - {x: 144, y: -239, z: .100000001}
-  - {x: 144, y: 139.5, z: -.100000001}
-  - {x: 144, y: 139.5, z: .100000001}
-  - {x: 101.5, y: 202, z: -.100000001}
-  - {x: 101.5, y: 202, z: .100000001}
+  - {x: 39, y: 238, z: -0.1}
+  - {x: 39, y: 238, z: 0.1}
+  - {x: -28.5, y: 238, z: -0.1}
+  - {x: -28.5, y: 238, z: 0.1}
+  - {x: -115, y: 204, z: -0.1}
+  - {x: -115, y: 204, z: 0.1}
+  - {x: -143, y: 125, z: -0.1}
+  - {x: -143, y: 125, z: 0.1}
+  - {x: -144, y: -239, z: -0.1}
+  - {x: -144, y: -239, z: 0.1}
+  - {x: 144, y: -239, z: -0.1}
+  - {x: 144, y: -239, z: 0.1}
+  - {x: 144, y: 139.5, z: -0.1}
+  - {x: 144, y: 139.5, z: 0.1}
+  - {x: 101.5, y: 202, z: -0.1}
+  - {x: 101.5, y: 202, z: 0.1}
   meshColliderMesh: {fileID: 871170887}
   renderLayer: 0
 --- !u!33 &1837633255
@@ -24458,8 +24644,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -24518,8 +24706,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 187, y: 193, z: .200000003}
-  m_Center: {x: .5, y: 96.5, z: 0}
+  m_Size: {x: 187, y: 193, z: 0.2}
+  m_Center: {x: 0.5, y: 96.5, z: 0}
 --- !u!114 &1840531809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24568,8 +24756,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -24634,8 +24824,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &1849346741
 Prefab:
   m_ObjectHideFlags: 0
@@ -24696,8 +24886,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &1852818462
 Prefab:
   m_ObjectHideFlags: 0
@@ -24836,8 +25026,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &1866460393
 Prefab:
   m_ObjectHideFlags: 0
@@ -24898,8 +25088,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &1884822364
 Prefab:
   m_ObjectHideFlags: 0
@@ -24960,8 +25150,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!43 &1890316413
 Mesh:
   m_ObjectHideFlags: 0
@@ -25150,8 +25340,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &1893479628
 GameObject:
   m_ObjectHideFlags: 0
@@ -25205,8 +25395,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 39, y: 26, z: .200000003}
-  m_Center: {x: .5, y: 13, z: 0}
+  m_Size: {x: 39, y: 26, z: 0.2}
+  m_Center: {x: 0.5, y: 13, z: 0}
 --- !u!114 &1893479632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25228,22 +25418,22 @@ MonoBehaviour:
   boxCollider: {fileID: 1893479631}
   meshCollider: {fileID: 0}
   meshColliderPositions:
-  - {x: 39, y: 238, z: -.100000001}
-  - {x: 39, y: 238, z: .100000001}
-  - {x: -28.5, y: 238, z: -.100000001}
-  - {x: -28.5, y: 238, z: .100000001}
-  - {x: -115, y: 204, z: -.100000001}
-  - {x: -115, y: 204, z: .100000001}
-  - {x: -143, y: 125, z: -.100000001}
-  - {x: -143, y: 125, z: .100000001}
-  - {x: -144, y: -239, z: -.100000001}
-  - {x: -144, y: -239, z: .100000001}
-  - {x: 144, y: -239, z: -.100000001}
-  - {x: 144, y: -239, z: .100000001}
-  - {x: 144, y: 139.5, z: -.100000001}
-  - {x: 144, y: 139.5, z: .100000001}
-  - {x: 101.5, y: 202, z: -.100000001}
-  - {x: 101.5, y: 202, z: .100000001}
+  - {x: 39, y: 238, z: -0.1}
+  - {x: 39, y: 238, z: 0.1}
+  - {x: -28.5, y: 238, z: -0.1}
+  - {x: -28.5, y: 238, z: 0.1}
+  - {x: -115, y: 204, z: -0.1}
+  - {x: -115, y: 204, z: 0.1}
+  - {x: -143, y: 125, z: -0.1}
+  - {x: -143, y: 125, z: 0.1}
+  - {x: -144, y: -239, z: -0.1}
+  - {x: -144, y: -239, z: 0.1}
+  - {x: 144, y: -239, z: -0.1}
+  - {x: 144, y: -239, z: 0.1}
+  - {x: 144, y: 139.5, z: -0.1}
+  - {x: 144, y: 139.5, z: 0.1}
+  - {x: 101.5, y: 202, z: -0.1}
+  - {x: 101.5, y: 202, z: 0.1}
   meshColliderMesh: {fileID: 731095523}
   renderLayer: 0
 --- !u!33 &1893479633
@@ -25271,8 +25461,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -25337,8 +25529,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &1900856003
 Prefab:
   m_ObjectHideFlags: 0
@@ -25399,8 +25591,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &1907161568
 Prefab:
   m_ObjectHideFlags: 0
@@ -25539,8 +25731,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &1917748474
 Prefab:
   m_ObjectHideFlags: 0
@@ -25601,8 +25793,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &1921295281
 GameObject:
   m_ObjectHideFlags: 0
@@ -25656,8 +25848,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 17, y: 19, z: .200000003}
-  m_Center: {x: .5, y: 9.5, z: 0}
+  m_Size: {x: 17, y: 19, z: 0.2}
+  m_Center: {x: 0.5, y: 9.5, z: 0}
 --- !u!114 &1921295285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25679,22 +25871,22 @@ MonoBehaviour:
   boxCollider: {fileID: 1921295284}
   meshCollider: {fileID: 0}
   meshColliderPositions:
-  - {x: 39, y: 238, z: -.100000001}
-  - {x: 39, y: 238, z: .100000001}
-  - {x: -28.5, y: 238, z: -.100000001}
-  - {x: -28.5, y: 238, z: .100000001}
-  - {x: -115, y: 204, z: -.100000001}
-  - {x: -115, y: 204, z: .100000001}
-  - {x: -143, y: 125, z: -.100000001}
-  - {x: -143, y: 125, z: .100000001}
-  - {x: -144, y: -239, z: -.100000001}
-  - {x: -144, y: -239, z: .100000001}
-  - {x: 144, y: -239, z: -.100000001}
-  - {x: 144, y: -239, z: .100000001}
-  - {x: 144, y: 139.5, z: -.100000001}
-  - {x: 144, y: 139.5, z: .100000001}
-  - {x: 101.5, y: 202, z: -.100000001}
-  - {x: 101.5, y: 202, z: .100000001}
+  - {x: 39, y: 238, z: -0.1}
+  - {x: 39, y: 238, z: 0.1}
+  - {x: -28.5, y: 238, z: -0.1}
+  - {x: -28.5, y: 238, z: 0.1}
+  - {x: -115, y: 204, z: -0.1}
+  - {x: -115, y: 204, z: 0.1}
+  - {x: -143, y: 125, z: -0.1}
+  - {x: -143, y: 125, z: 0.1}
+  - {x: -144, y: -239, z: -0.1}
+  - {x: -144, y: -239, z: 0.1}
+  - {x: 144, y: -239, z: -0.1}
+  - {x: 144, y: -239, z: 0.1}
+  - {x: 144, y: 139.5, z: -0.1}
+  - {x: 144, y: 139.5, z: 0.1}
+  - {x: 101.5, y: 202, z: -0.1}
+  - {x: 101.5, y: 202, z: 0.1}
   meshColliderMesh: {fileID: 731095523}
   renderLayer: 0
 --- !u!33 &1921295286
@@ -25722,8 +25914,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -25745,7 +25939,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 447708, guid: 5dfb6c7c29956be469fb68ffaa8f4c7b, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -3.4000001
+      value: -3.4
       objectReference: {fileID: 0}
     - target: {fileID: 447708, guid: 5dfb6c7c29956be469fb68ffaa8f4c7b, type: 2}
       propertyPath: m_LocalRotation.x
@@ -25861,7 +26055,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 26, y: 56, z: .200000003}
+  m_Size: {x: 26, y: 56, z: 0.2}
   m_Center: {x: 0, y: 28, z: 0}
 --- !u!114 &1935429190
 MonoBehaviour:
@@ -25911,8 +26105,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -25964,8 +26160,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -26037,8 +26235,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &1959542359
 GameObject:
   m_ObjectHideFlags: 0
@@ -26092,8 +26290,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 17, y: 19, z: .200000003}
-  m_Center: {x: .5, y: 9.5, z: 0}
+  m_Size: {x: 17, y: 19, z: 0.2}
+  m_Center: {x: 0.5, y: 9.5, z: 0}
 --- !u!114 &1959542363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26115,22 +26313,22 @@ MonoBehaviour:
   boxCollider: {fileID: 1959542362}
   meshCollider: {fileID: 0}
   meshColliderPositions:
-  - {x: 39, y: 238, z: -.100000001}
-  - {x: 39, y: 238, z: .100000001}
-  - {x: -28.5, y: 238, z: -.100000001}
-  - {x: -28.5, y: 238, z: .100000001}
-  - {x: -115, y: 204, z: -.100000001}
-  - {x: -115, y: 204, z: .100000001}
-  - {x: -143, y: 125, z: -.100000001}
-  - {x: -143, y: 125, z: .100000001}
-  - {x: -144, y: -239, z: -.100000001}
-  - {x: -144, y: -239, z: .100000001}
-  - {x: 144, y: -239, z: -.100000001}
-  - {x: 144, y: -239, z: .100000001}
-  - {x: 144, y: 139.5, z: -.100000001}
-  - {x: 144, y: 139.5, z: .100000001}
-  - {x: 101.5, y: 202, z: -.100000001}
-  - {x: 101.5, y: 202, z: .100000001}
+  - {x: 39, y: 238, z: -0.1}
+  - {x: 39, y: 238, z: 0.1}
+  - {x: -28.5, y: 238, z: -0.1}
+  - {x: -28.5, y: 238, z: 0.1}
+  - {x: -115, y: 204, z: -0.1}
+  - {x: -115, y: 204, z: 0.1}
+  - {x: -143, y: 125, z: -0.1}
+  - {x: -143, y: 125, z: 0.1}
+  - {x: -144, y: -239, z: -0.1}
+  - {x: -144, y: -239, z: 0.1}
+  - {x: 144, y: -239, z: -0.1}
+  - {x: 144, y: -239, z: 0.1}
+  - {x: 144, y: 139.5, z: -0.1}
+  - {x: 144, y: 139.5, z: 0.1}
+  - {x: 101.5, y: 202, z: -0.1}
+  - {x: 101.5, y: 202, z: 0.1}
   meshColliderMesh: {fileID: 731095523}
   renderLayer: 0
 --- !u!33 &1959542364
@@ -26158,8 +26356,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -26224,8 +26424,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &1964026694
 GameObject:
   m_ObjectHideFlags: 0
@@ -26266,8 +26466,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireOnSkip: 0
-  firetime: 3.77327943
-  duration: 11.6000004
+  firetime: 3.7732794
+  duration: 11.6
   serializedAdditionalObjectsPaths: []
   Destination: {x: 18, y: 0}
   Start: {x: 18, y: 29}
@@ -26331,8 +26531,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &1970634714
 GameObject:
   m_ObjectHideFlags: 0
@@ -26398,7 +26598,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1972659842}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.69000006, y: -.460000008, z: 3}
+  m_LocalPosition: {x: -1.69, y: -0.46, z: 3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 364665912}
@@ -26445,7 +26645,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireOnSkip: 0
-  firetime: 18.1214581
+  firetime: 18.121458
   duration: -1
   serializedAdditionalObjectsPaths: []
   enable: 1
@@ -26509,8 +26709,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &1985037977
 GameObject:
   m_ObjectHideFlags: 0
@@ -26552,7 +26752,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 112, y: 160, z: .200000003}
+  m_Size: {x: 112, y: 160, z: 0.2}
   m_Center: {x: 0, y: 80, z: 0}
 --- !u!114 &1985037980
 MonoBehaviour:
@@ -26602,8 +26802,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -26691,8 +26893,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireOnSkip: 0
-  firetime: 16.5991898
-  duration: 6.80000019
+  firetime: 16.59919
+  duration: 6.8
   serializedAdditionalObjectsPaths: []
   Destination: {x: 0, y: 9}
   Start: {x: 17, y: 9}
@@ -26862,8 +27064,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 39, y: 26, z: .200000003}
-  m_Center: {x: .5, y: 13, z: 0}
+  m_Size: {x: 39, y: 26, z: 0.2}
+  m_Center: {x: 0.5, y: 13, z: 0}
 --- !u!114 &2001744141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26885,22 +27087,22 @@ MonoBehaviour:
   boxCollider: {fileID: 2001744140}
   meshCollider: {fileID: 0}
   meshColliderPositions:
-  - {x: 39, y: 238, z: -.100000001}
-  - {x: 39, y: 238, z: .100000001}
-  - {x: -28.5, y: 238, z: -.100000001}
-  - {x: -28.5, y: 238, z: .100000001}
-  - {x: -115, y: 204, z: -.100000001}
-  - {x: -115, y: 204, z: .100000001}
-  - {x: -143, y: 125, z: -.100000001}
-  - {x: -143, y: 125, z: .100000001}
-  - {x: -144, y: -239, z: -.100000001}
-  - {x: -144, y: -239, z: .100000001}
-  - {x: 144, y: -239, z: -.100000001}
-  - {x: 144, y: -239, z: .100000001}
-  - {x: 144, y: 139.5, z: -.100000001}
-  - {x: 144, y: 139.5, z: .100000001}
-  - {x: 101.5, y: 202, z: -.100000001}
-  - {x: 101.5, y: 202, z: .100000001}
+  - {x: 39, y: 238, z: -0.1}
+  - {x: 39, y: 238, z: 0.1}
+  - {x: -28.5, y: 238, z: -0.1}
+  - {x: -28.5, y: 238, z: 0.1}
+  - {x: -115, y: 204, z: -0.1}
+  - {x: -115, y: 204, z: 0.1}
+  - {x: -143, y: 125, z: -0.1}
+  - {x: -143, y: 125, z: 0.1}
+  - {x: -144, y: -239, z: -0.1}
+  - {x: -144, y: -239, z: 0.1}
+  - {x: 144, y: -239, z: -0.1}
+  - {x: 144, y: -239, z: 0.1}
+  - {x: 144, y: 139.5, z: -0.1}
+  - {x: 144, y: 139.5, z: 0.1}
+  - {x: 101.5, y: 202, z: -0.1}
+  - {x: 101.5, y: 202, z: 0.1}
   meshColliderMesh: {fileID: 731095523}
   renderLayer: 0
 --- !u!33 &2001744142
@@ -26928,8 +27130,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -26994,8 +27198,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &2007045784
 Prefab:
   m_ObjectHideFlags: 0
@@ -27056,8 +27260,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &2008133654
 Prefab:
   m_ObjectHideFlags: 0
@@ -27188,8 +27392,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &2011864844
 Prefab:
   m_ObjectHideFlags: 0
@@ -27250,8 +27454,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &2026939132
 Prefab:
   m_ObjectHideFlags: 0
@@ -27312,8 +27516,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &2027561804
 Prefab:
   m_ObjectHideFlags: 0
@@ -27374,8 +27578,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &2039121297
 GameObject:
   m_ObjectHideFlags: 0
@@ -27416,8 +27620,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireOnSkip: 0
-  firetime: 14.5587082
-  duration: 5.20000029
+  firetime: 14.558708
+  duration: 5.2000003
   serializedAdditionalObjectsPaths: []
   Destination: {x: 17, y: 10}
   Start: {x: 30, y: 10}
@@ -27474,8 +27678,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: -67, y: 96, z: .200000003}
-  m_Center: {x: -.5, y: 48, z: 0}
+  m_Size: {x: -67, y: 96, z: 0.2}
+  m_Center: {x: -0.5, y: 48, z: 0}
 --- !u!114 &2049631185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27524,8 +27728,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -27590,8 +27796,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &2063744440
 Prefab:
   m_ObjectHideFlags: 0
@@ -27652,8 +27858,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &2074777591 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 112360, guid: 3d391fcdc2f6c09418b935e80e09f718, type: 2}
@@ -27718,8 +27924,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &2082087297
 GameObject:
   m_ObjectHideFlags: 0
@@ -27746,7 +27952,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2082087297}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 930.976379, y: 194.57782, z: 0}
+  m_LocalPosition: {x: 930.9764, y: 194.57782, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1567972289}
@@ -27761,7 +27967,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 26, y: 56, z: .200000003}
+  m_Size: {x: 26, y: 56, z: 0.2}
   m_Center: {x: 0, y: 28, z: 0}
 --- !u!114 &2082087300
 MonoBehaviour:
@@ -27811,8 +28017,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -27877,8 +28085,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &2094216632
 Prefab:
   m_ObjectHideFlags: 0
@@ -27939,8 +28147,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &2095029704
 Prefab:
   m_ObjectHideFlags: 0
@@ -28001,8 +28209,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &2107354291
 Prefab:
   m_ObjectHideFlags: 0
@@ -28063,8 +28271,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &2107884521
 Prefab:
   m_ObjectHideFlags: 0
@@ -28125,8 +28333,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &2109955478
 GameObject:
   m_ObjectHideFlags: 0
@@ -28231,8 +28439,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &2116001076
 Prefab:
   m_ObjectHideFlags: 0
@@ -28293,8 +28501,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &2127804085
 Prefab:
   m_ObjectHideFlags: 0
@@ -28355,8 +28563,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &2128276209
 Prefab:
   m_ObjectHideFlags: 0
@@ -28417,8 +28625,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &2146216578
 Prefab:
   m_ObjectHideFlags: 0
@@ -28479,8 +28687,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &2146522300
 Prefab:
   m_ObjectHideFlags: 0
@@ -28541,5 +28749,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
