@@ -10,16 +10,13 @@ namespace Models.Combat {
     /// </summary>
     public interface IBattle {
         #region Turn Operations
-
         bool IsComplete();
         bool IsFailed();
         void EndTurn(TurnControl control);
         int TurnCount { get; }
-
         #endregion
 
         #region Unit Action Operations
-
         bool CanMove(Unit unit);
         bool CanAct(Unit unit);
         void WaitUnit(Unit unit);
@@ -31,11 +28,9 @@ namespace Models.Combat {
         IEnumerable<InteractiveTile> GetAdjacentInteractiveTiles(Vector2 position);
         InteractiveTile GetInteractiveTileByLocation(Vector2 position);
         void TriggerInteractiveTile(InteractiveTile tile, Unit unit);
-
         #endregion
 
         #region Unit Roster Operations
-
         int GetMovesUsed(Unit unit);
         int GetRemainingMoves(Unit unit);
         Unit GetUnitByName(string name);
@@ -43,15 +38,11 @@ namespace Models.Combat {
         IEnumerable<Unit> GetFriendlyUnits();
         IEnumerable<Unit> GetEnemyUnits();
         void AddUnit(Unit unit);
-
         #endregion
 
         #region Fight Operations
-
         Fight SimulateFight(Unit attacker, AttackType attack, Unit defender);
         void ExecuteFight(Fight fight);
-
         #endregion
-
     }
 }
