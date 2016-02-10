@@ -1,5 +1,5 @@
 ﻿namespace Models.Fighting.Effects {
-    public class Miss : Damage {
+    public class Miss : WeaponHit {
         public MissReason Reason;
 
         public Miss(MissReason reason) : base(0) {

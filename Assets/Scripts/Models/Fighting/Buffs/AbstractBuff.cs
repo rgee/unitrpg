@@ -21,16 +21,22 @@ namespace Models.Fighting.Buffs {
         public virtual bool CanApply(IBattle battle) {
             return true;
         }
-
+        
+        public virtual Stat Modify(Stat stat) {
+            var mod = StatMods[stat.Type];
+            if (mod != null) {
+               var newValue = mod.Func(stat.Value);
+               return new Stat(newValue, stat.Type);
+            } 
+            
+            return stat;
+        }
+        
         public virtual IEffect Modify(IEffect effect) {
             return effect;
         }
 
         public virtual Attribute Apply(Attribute attribute) {
-            return attribute;
-        }
-
-        public virtual Attribute UnApply(Attribute attribute) {
             return attribute;
         }
     }

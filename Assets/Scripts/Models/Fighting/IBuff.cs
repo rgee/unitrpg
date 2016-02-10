@@ -22,11 +22,11 @@ namespace Models.Fighting {
         IEffect Modify(IEffect effect);
 
         IDictionary<StatType, StatMod> StatMods { get; }
+        
+        Stat Modify(Stat stat);
 
         string Name { get; }
 
         Attribute Apply(Attribute attribute);
-
-        Attribute UnApply(Attribute attribute);
     }
 }

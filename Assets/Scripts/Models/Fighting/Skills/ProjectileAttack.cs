@@ -5,8 +5,10 @@ namespace Models.Fighting.Skills {
     public class ProjectileAttack : ISkillStrategy {
         public SkillResult Compute(Skill skill, IRandomizer randomizer) {
             var defender = skill.Receiver;
-            var parryChance = defender.GetStat(StatType.ProjectileParryChance).Value;
-            var didParry = randomizer.GetNextRandom() < parryChance;
+            var parryChance = defender.GetStat(StatType.ProjectileParryChance);
+            parryChance = StatUtils.ApplyBuffs(parryChance, skill.ReceiverPreBuffs);
+            
+            var didParry = randomizer.GetNextRandom() < parryChance.Value;
 
             if (didParry) {
                 return new SkillResult(
