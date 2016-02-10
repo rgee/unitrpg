@@ -7,16 +7,6 @@ using NUnit.Framework;
 
 namespace Tests {
     public class StatUtilsTest {
-        class ConstantStat : Stat {
-            public int Value { get; private set; }
-            public StatType Type { get; private set; }
-
-            public ConstantStat(int value, StatType type) {
-                Value = value;
-                Type = type;
-            }
-        }
-
         class DummyBuff : AbstractBuff {
             public DummyBuff(Dictionary<StatType, Func<int, int>> mods) : base("dummy") {
                 foreach (var entry in mods) {
@@ -28,7 +18,7 @@ namespace Tests {
 
         [Test]
         public void CombineSingleBuffAndStat() {
-            var stat1 = new ConstantStat(50, StatType.HitChance);
+            var stat1 = new Stat(50, StatType.HitChance);
             var hitChanceBoost = new DummyBuff(new Dictionary<StatType, Func<int, int>> {
                 { StatType.HitChance, (i) => i + 10 }
             });
@@ -43,7 +33,7 @@ namespace Tests {
 
         [Test]
         public void CombineManyBuffs() {
-            var stat1 = new ConstantStat(50, StatType.HitChance);
+            var stat1 = new Stat(50, StatType.HitChance);
             var hitChanceBoost1 = new DummyBuff(new Dictionary<StatType, Func<int, int>> {
                 { StatType.HitChance, (i) => i + 10 }
             });
@@ -63,8 +53,8 @@ namespace Tests {
         [Test]
         public void IgnoreNonBuffedStats() {
             
-            var stat1 = new ConstantStat(50, StatType.HitChance);
-            var crit = new ConstantStat(10, StatType.CritChance);
+            var stat1 = new Stat(50, StatType.HitChance);
+            var crit = new Stat(10, StatType.CritChance);
             var hitChanceBoost = new DummyBuff(new Dictionary<StatType, Func<int, int>> {
                 { StatType.HitChance, (i) => i + 10 }
             });
