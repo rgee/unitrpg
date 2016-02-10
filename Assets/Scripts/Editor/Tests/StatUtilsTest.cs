@@ -7,7 +7,7 @@ using NUnit.Framework;
 
 namespace Tests {
     public class StatUtilsTest {
-        class ConstantStat : IStat {
+        class ConstantStat : Stat {
             public int Value { get; private set; }
             public StatType Type { get; private set; }
 
@@ -33,7 +33,7 @@ namespace Tests {
                 { StatType.HitChance, (i) => i + 10 }
             });
 
-            var result = StatUtils.ComputeStats(new List<IStat> {stat1}, new List<IBuff> {hitChanceBoost}).ToList();
+            var result = StatUtils.ComputeStats(new List<Stat> {stat1}, new List<IBuff> {hitChanceBoost}).ToList();
             Assert.AreEqual(1, result.Count);
 
             var modded = result[0];
@@ -52,7 +52,7 @@ namespace Tests {
                 { StatType.HitChance, (i) => i + 1 }
             });
 
-            var result = StatUtils.ComputeStats(new List<IStat> {stat1}, new List<IBuff> { hitChanceBoost1, hitChanceBoost2 }).ToList();
+            var result = StatUtils.ComputeStats(new List<Stat> {stat1}, new List<IBuff> { hitChanceBoost1, hitChanceBoost2 }).ToList();
             Assert.AreEqual(1, result.Count);
 
             var modded = result[0];
@@ -70,7 +70,7 @@ namespace Tests {
             });
 
 
-            var result = StatUtils.ComputeStats(new List<IStat> {stat1, crit}, new List<IBuff> {hitChanceBoost}).ToList();
+            var result = StatUtils.ComputeStats(new List<Stat> {stat1, crit}, new List<IBuff> {hitChanceBoost}).ToList();
             Assert.AreEqual(2, result.Count);
 
             var moddedHit = result.Find(stat => stat.Type == StatType.HitChance);
