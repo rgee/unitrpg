@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Models.Fighting.Skills;
+using UnityEngine;
 
 namespace Models.Fighting {
     public abstract class BaseCombatant : ICombatant {
         public int Health { get; protected set; }
+
+        public Vector2 Position { get; set; }
 
         public bool IsAlive {
             get { return Health > 0; }
@@ -20,8 +24,14 @@ namespace Models.Fighting {
 
         private Dictionary<StatType, Stat> _baseStats = new Dictionary<StatType, Stat>();
 
+        private Dictionary<int, ISkillStrategy> _strategies = new Dictionary<int, ISkillStrategy>(); 
+
         private Dictionary<Attribute.AttributeType, Attribute> _attributes =
             new Dictionary<Attribute.AttributeType, Attribute>();
+
+        public ISkillStrategy GetStrategyByDistance(int distance) {
+            return _strategies[distance];
+        }
 
         protected BaseCombatant() {
             Buffs = new List<IBuff>();
