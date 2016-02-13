@@ -8,21 +8,16 @@ namespace Models.Fighting {
             _randomizer = new BasicRandomizer();
         }
 
-        public FightPreview Simulate(ICombatant attacker, ICombatant defender, ISkillStrategy skillStrategy) {
+        public FightPreview Simulate(ICombatant attacker, ICombatant defender, ICombatant flanker, ISkillStrategy attackerStrategy,
+            ISkillStrategy flankerStrategy, ISkillStrategy defenderStrategy) {
+
             var distance = MathUtils.ManhattanDistance(attacker.Position, defender.Position);
-            var firstAttack = skillStrategy.Compute(attacker, defender, _randomizer);
+            var firstAttack = attackerStrategy.Compute(attacker, defender, _randomizer);
             var flankerAttack = null as SkillResult;
             var doubleAttack = null as SkillResult;
 
-            if (skillStrategy.SupportsFlanking) {
-                var flankerPosition = MathUtils.GetPositionAcrossFight(attacker.Position);
-
-                // TODO: Convert to ICombatant
-                ICombatant flanker = null; //_map.GetUnitByPosition(flankerPosition);
-                if (flanker != null) {
-                    var flankStrategy = flanker.GetStrategyByDistance(distance);
-                    flankerAttack = flankStrategy.Compute(attacker, defender, _randomizer);
-                }
+            if (flankerStrategy != null && flanker != null) {
+                flankerAttack = flankerStrategy.Compute(flanker, defender, _randomizer);
             }
 
             var counterStrategy = defender.GetStrategyByDistance(distance);
@@ -31,8 +26,8 @@ namespace Models.Fighting {
                 counterAttack = counterStrategy.Compute(defender, attacker, _randomizer);
             }
 
-            if (skillStrategy.DidDouble(attacker, defender)) {
-                doubleAttack = skillStrategy.Compute(attacker, defender, _randomizer);
+            if (attackerStrategy.DidDouble(attacker, defender)) {
+                doubleAttack = attackerStrategy.Compute(attacker, defender, _randomizer);
             }
 
             // Defender dies on the first hit
@@ -89,6 +84,26 @@ namespace Models.Fighting {
 
             // Bail out with just the first hit
             return null;
+        } 
+
+        public FightPreview Simulate(ICombatant attacker, ICombatant defender, ISkillStrategy skillStrategy) {
+            var distance = MathUtils.ManhattanDistance(attacker.Position, defender.Position);
+            var flankerStrategy = null as ISkillStrategy;
+            var flanker = null as ICombatant;
+
+            if (skillStrategy.SupportsFlanking) {
+                var flankerPosition = MathUtils.GetPositionAcrossFight(attacker.Position);
+
+                // TODO: Convert to ICombatant
+                flanker = null; //_map.GetUnitByPosition(flankerPosition);
+                if (flanker != null) {
+                    flankerStrategy = flanker.GetStrategyByDistance(distance);
+                }
+            }
+
+            var counterStrategy = defender.GetStrategyByDistance(distance);
+
+            return Simulate(attacker, defender, flanker, skillStrategy, flankerStrategy, counterStrategy);
         }
         
         public FightPreview SimulatePrimaryWeapon(ICombatant attacker, ICombatant defender) {
