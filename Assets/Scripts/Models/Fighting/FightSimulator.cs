@@ -10,16 +10,14 @@ namespace Models.Fighting {
         }
         
         public FightPreview SimulatePrimaryWeapon(ICombatant attacker, ICombatant defender) {
+            var randomizer = new BasicRandomizer();
             var weapon = _weapons.GetByName(attacker.PrimaryWeapon);
-            foreach (var receiverBuff in weapon.ReceiverPreCombatBuffs) {
-               defender.AddTemporaryBuff(receiverBuff) ;
-            }
             
-            var skill = new Skill(attacker, defender, weapon.ReceiverPreCombatBuffs, weapon.ReceiverOnHitBuffs);
-            
-            foreach (var receiverBuff in weapon.ReceiverPreCombatBuffs) {
-                defender.RemoveTemporaryBuff(receiverBuff);
-            }
+            var ourStrategy = new MeleeAttack();
+            var firstAttack = ourStrategy.Compute(attacker, defender, weapon, randomizer);
+
+            var distance = MathUtils.ManhattanDistance(attacker.Position, defender.Position);
+            var counterStrategy = defender.GetStrategyByDistance(distance);
             
             return null;
         }

@@ -3,10 +3,8 @@ using Models.Fighting.Effects;
 using Models.Fighting.Stats;
 
 namespace Models.Fighting.Skills {
-    public class MeleeAttack : ISkillStrategy {
-        public SkillResult Compute(Skill skill, IRandomizer randomizer) {
-            var attacker = skill.Initiator;
-            var defender = skill.Receiver;
+    public class MeleeAttack : AbstractSkillStrategy {
+        protected override SkillResult Compute(ICombatant attacker, ICombatant defender, IRandomizer randomizer) {
             var attackCount = new AttackCount(attacker, defender);
             
             var defenderEffects = new List<IEffect>();
