@@ -3,6 +3,8 @@ using Models.Fighting.Buffs;
 
 namespace Models.Fighting.Equip {
     public class WeaponDatabase : IWeaponDatabase {
+        public static readonly IWeaponDatabase Instance = new WeaponDatabase();
+
         private readonly Dictionary<string, Weapon> _weapons = new Dictionary<string, Weapon>();
 
         public WeaponDatabase() {

@@ -1,10 +1,14 @@
 using System.Collections.Generic;
 using Models.Fighting.Effects;
+using Models.Fighting.Equip;
 using Models.Fighting.Stats;
 
 namespace Models.Fighting.Skills {
     public class MeleeAttack : AbstractSkillStrategy {
-        protected override SkillResult Compute(ICombatant attacker, ICombatant defender, IRandomizer randomizer) {
+        public MeleeAttack() : base(true, true) {
+        }
+
+        protected override SkillResult ComputeResult(ICombatant attacker, ICombatant defender, IRandomizer randomizer) {
             var attackCount = new AttackCount(attacker, defender);
             
             var defenderEffects = new List<IEffect>();
@@ -24,7 +28,11 @@ namespace Models.Fighting.Skills {
   
             return new SkillResult(defenderEffects, attackerEffects);
         }
-        
+
+        protected override ICombatBuffProvider GetBuffProvider(ICombatant attacker) {
+            return WeaponDatabase.Instance.GetByName(attacker.PrimaryWeapon);
+        }
+
         private static WeaponHit ComputeHit(ICombatant attacker, ICombatant defender, IRandomizer random) {
             var hitChance = new HitChance(attacker, defender);
             var glanceChance = new GlanceChance(attacker, defender);

@@ -32,6 +32,10 @@ public static class MathUtils {
         return ManhattanDistance((int) start.x, (int) start.y, (int) end.x, (int) end.y);
     }
 
+    public static Vector2 GetPositionAcrossFight(Vector2 attackerPosition) {
+        return attackerPosition;
+    }
+
     public static CardinalDirection GetOpposite(this CardinalDirection dir) {
         switch (dir) {
             case CardinalDirection.N:
