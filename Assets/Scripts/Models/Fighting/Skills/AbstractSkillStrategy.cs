@@ -28,6 +28,10 @@ namespace Models.Fighting.Skills {
         }
 
         public bool DidDouble(ICombatant attacker, ICombatant defender) {
+            if (!SupportsDoubleAttack) {
+                return false;
+            }
+
             var buffProvider = GetBuffProvider(attacker);
             buffProvider.ReceiverPreCombatBuffs.ForEach(buff => defender.AddTemporaryBuff(buff));
             buffProvider.InitiatorPreCombatBuffs.ForEach(buff => attacker.AddTemporaryBuff(buff));
