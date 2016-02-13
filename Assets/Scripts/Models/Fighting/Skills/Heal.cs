@@ -14,7 +14,6 @@ namespace Models.Fighting.Skills {
         protected override SkillResult ComputeResult(ICombatant attacker, ICombatant defender, IRandomizer randomizer) { 
             var mySkill = attacker.GetAttribute(Attribute.AttributeType.Skill).Value;
             return new SkillResult(
-                new List<IEffect>(), 
                 new List<IEffect> {
                     new Damage(-mySkill)
                 }

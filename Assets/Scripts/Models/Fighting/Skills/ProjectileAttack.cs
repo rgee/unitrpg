@@ -17,14 +17,12 @@ namespace Models.Fighting.Skills {
 
             if (didParry) {
                 return new SkillResult(
-                    new List<IEffect>(), 
                     new List<IEffect> { new Miss(MissReason.Parry) }
                 );
             }
 
             // TODO: Finish ranged weapon damage/hit computation
             return new SkillResult(
-                new List<IEffect>(), 
                 new List<IEffect> { new WeaponHit(0) }
             );
         }

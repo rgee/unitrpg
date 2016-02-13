@@ -9,24 +9,11 @@ namespace Models.Fighting.Skills {
         }
 
         protected override SkillResult ComputeResult(ICombatant attacker, ICombatant defender, IRandomizer randomizer) {
-            var attackCount = new AttackCount(attacker, defender);
-            
             var defenderEffects = new List<IEffect>();
-            var attackerEffects = new List<IEffect>();
             var firstHit = ComputeHit(attacker, defender, randomizer);
             defenderEffects.Add(firstHit);
             
-            if (defender.Health > firstHit.Amount) {
-                var counter = ComputeHit(defender, attacker, randomizer);
-                attackerEffects.Add(counter);
-                
-                if (attacker.Health > counter.Amount && attackCount.Value > 1) {
-                    var doubleHit = ComputeHit(attacker, defender, randomizer);
-                    defenderEffects.Add(doubleHit);
-                }
-            }
-  
-            return new SkillResult(defenderEffects, attackerEffects);
+            return new SkillResult(defenderEffects);
         }
 
         protected override ICombatBuffProvider GetBuffProvider(ICombatant attacker) {

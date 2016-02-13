@@ -40,7 +40,6 @@ namespace Models.Fighting {
                 doubleAttack = skillStrategy.Compute(attacker, defender, _randomizer);
             }
 
-
             // Defender dies on the first hit
             var defenderHealth = defender.Health;
             var firstAttackDamage = firstAttack.GetDefenderDamage();
