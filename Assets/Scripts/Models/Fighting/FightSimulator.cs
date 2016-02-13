@@ -1,16 +1,11 @@
-using System;
-using Models.Combat;
-using Models.Fighting.Equip;
 using Models.Fighting.Skills;
 
 namespace Models.Fighting {
     public class FightSimulator {
         private readonly IRandomizer _randomizer;
-        private readonly IMap _map;
 
-        public FightSimulator(IMap map) {
+        public FightSimulator() {
             _randomizer = new BasicRandomizer();
-            _map = map;
         }
 
         public FightPreview Simulate(ICombatant attacker, ICombatant defender, ISkillStrategy skillStrategy) {
@@ -46,6 +41,9 @@ namespace Models.Fighting {
             var totalDamage = firstAttackDamage;
             if (firstAttackDamage >= defenderHealth) {
                // Bail out with just the first attack 
+                return new FightPreview {
+                    Initial =  firstAttack
+                };
             }
 
             if (flankerAttack != null) {
@@ -53,6 +51,10 @@ namespace Models.Fighting {
                 totalDamage += flankDamage;
                 if (totalDamage >= defenderHealth) {
                     // Bail out with two attacks
+                    return new FightPreview {
+                        Initial = firstAttack,
+                        Flank = flankerAttack
+                    };
                 }
             }
 
@@ -63,6 +65,11 @@ namespace Models.Fighting {
                 totalAttackerDamage = counterAttack.GetDefenderDamage();
                 if (totalAttackerDamage >= attackerHealth) {
                     // Bail out with 1-2 initial attacks and the defender attack
+                    return new FightPreview {
+                        Initial = firstAttack,
+                        Flank = flankerAttack,
+                        Counter = counterAttack
+                    };
                 }
             }
 
@@ -71,6 +78,12 @@ namespace Models.Fighting {
                 totalAttackerDamage += doubleDamage;
                 if (totalAttackerDamage >= attackerHealth) {
                     // Bail out with all previous hits + the double
+                    return new FightPreview {
+                        Initial = firstAttack,
+                        Flank = flankerAttack,
+                        Counter = counterAttack,
+                        Double = doubleAttack
+                    };
                 }
             }
 
