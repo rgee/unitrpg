@@ -5,7 +5,7 @@ using Models.Fighting.Stats;
 
 namespace Models.Fighting.Skills {
     public class MeleeAttack : AbstractSkillStrategy {
-        public MeleeAttack() : base(true, true) {
+        public MeleeAttack() : base(SkillType.Melee, true, true) {
         }
 
         protected override SkillResult ComputeResult(ICombatant attacker, ICombatant defender, IRandomizer randomizer) {

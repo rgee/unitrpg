@@ -4,7 +4,7 @@ using Models.Fighting.Equip;
 
 namespace Models.Fighting.Skills {
     public class ProjectileAttack : AbstractSkillStrategy {
-        public ProjectileAttack() : base(true, true) {
+        public ProjectileAttack() : base(SkillType.Ranged, true, true) {
         }
 
         protected override ICombatBuffProvider GetBuffProvider(ICombatant attacker) {

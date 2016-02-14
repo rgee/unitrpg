@@ -4,7 +4,7 @@ using Models.Fighting.Effects;
 
 namespace Models.Fighting.Skills {
     public class Kinesis : AbstractSkillStrategy {
-        public Kinesis() : base(true, false) {
+        public Kinesis() : base(SkillType.Kinesis, true, false) {
         }
 
         protected override ICombatBuffProvider GetBuffProvider(ICombatant attacker) {

@@ -4,7 +4,7 @@ using Models.Fighting.Equip;
 
 namespace Models.Fighting.Skills {
     public class Heal : AbstractSkillStrategy {
-        public Heal() : base(false, false) {
+        public Heal() : base(SkillType.Heal, false, false) {
         }
 
         protected override ICombatBuffProvider GetBuffProvider(ICombatant attacker) {
