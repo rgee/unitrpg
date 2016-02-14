@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Models.Fighting.Buffs;
 
 namespace Models.Fighting {
     public static class StatUtils {

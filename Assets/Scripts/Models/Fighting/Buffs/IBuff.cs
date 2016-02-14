@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Models.Combat;
 
-namespace Models.Fighting {
+namespace Models.Fighting.Buffs {
     public interface IBuff {
         Unit Host { get; set; }
 

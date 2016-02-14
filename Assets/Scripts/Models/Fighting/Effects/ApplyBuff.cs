@@ -1,4 +1,6 @@
-﻿namespace Models.Fighting.Effects {
+﻿using Models.Fighting.Buffs;
+
+namespace Models.Fighting.Effects {
     public class ApplyBuff : IEffect {
         private readonly IBuff _buff;
 

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Models.Fighting.Buffs;
 
 namespace Models.Fighting {
     public class NullBuffProvider : ICombatBuffProvider {
