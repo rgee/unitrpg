@@ -25,11 +25,11 @@ namespace Models.Fighting.Skills {
             var hitChance = new HitChance(attacker, defender);
             var glanceChance = new GlanceChance(attacker, defender);
             var critChance = new CritChance(attacker, defender);
-            if (random.GetNextRandom() < hitChance.Value) {
+            if (random.GetNextRandom() > (100 - hitChance.Value)) {
                 var baseDamage = ComputeDamage(attacker, defender);
-                if (random.GetNextRandom() < critChance.Value) {
+                if (random.GetNextRandom() > (100 - critChance.Value)) {
                     baseDamage *= 2;     
-                } else if (random.GetNextRandom() < glanceChance.Value) {
+                } else if (random.GetNextRandom() > (100 - glanceChance.Value)) {
                     baseDamage /= 2;
                 }
                 

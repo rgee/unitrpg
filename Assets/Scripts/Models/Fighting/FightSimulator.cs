@@ -10,6 +10,10 @@ namespace Models.Fighting {
             _randomizer = new BasicRandomizer();
         }
 
+        public FightSimulator(IRandomizer randomizer) {
+            _randomizer = randomizer;
+        }
+
         public FightPreview Simulate(ICombatant attacker, ICombatant defender, ICombatant flanker, ISkillStrategy attackerStrategy,
             ISkillStrategy flankerStrategy, ISkillStrategy defenderStrategy) {
 
@@ -84,7 +88,9 @@ namespace Models.Fighting {
             }
 
             // Bail out with just the first hit
-            return null;
+            return new FightPreview {
+                Initial = firstAttack
+            };
         } 
 
         public FightPreview Simulate(ICombatant attacker, ICombatant defender, ISkillStrategy skillStrategy) {

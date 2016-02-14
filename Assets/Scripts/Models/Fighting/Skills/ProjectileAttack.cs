@@ -14,7 +14,7 @@ namespace Models.Fighting.Skills {
 
         protected override SkillResult ComputeResult(ICombatant attacker, ICombatant defender, IRandomizer randomizer) {
             var parryChance = defender.GetStat(StatType.ProjectileParryChance);
-            var didParry = randomizer.GetNextRandom() < parryChance.Value;
+            var didParry = randomizer.GetNextRandom() < (100 - parryChance.Value);
 
             if (didParry) {
                 return new SkillResult(
