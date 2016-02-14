@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Models.Combat;
+using Models.Fighting.Skills;
 
 namespace Models.Fighting.Buffs {
     public interface IBuff {
@@ -12,6 +13,8 @@ namespace Models.Fighting.Buffs {
         /// <param name="battle">The world state.</param>
         /// <returns>True if the Host is eligible, False otherwise</returns>
         bool CanApply(IBattle battle);
+
+        bool AppliesToSkill(SkillType skillType);
 
         /// <summary>
         /// Modify an effect on a unit. For example, a buff that decreases incoming damage by 50% would return a new Effect with

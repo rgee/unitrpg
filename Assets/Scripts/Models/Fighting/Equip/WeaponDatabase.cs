@@ -25,7 +25,7 @@ namespace Models.Fighting.Equip {
                 .Name("Heavy Bow")
                 .Description("A 50lb shortbow capable of hitting targets at longer range.")
                 .Range(3)
-                .InitiatorPreBuffs(new AccuracyBuff(-20, "heavy_bow_accuracy_debuff"))
+                .InitiatorPreBuffs(new HeavyBowAccuracyDebuff())
                 .IsSecondary()
                 .Build());
 

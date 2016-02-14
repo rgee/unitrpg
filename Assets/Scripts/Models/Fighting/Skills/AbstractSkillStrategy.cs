@@ -1,11 +1,16 @@
-﻿using Models.Fighting.Stats;
+﻿using System;
+using System.Linq;
+using Models.Fighting.Stats;
+using WellFired.Shared;
 
 namespace Models.Fighting.Skills {
     public abstract class AbstractSkillStrategy : ISkillStrategy {
         public bool SupportsFlanking { get; private set; }
         public bool SupportsDoubleAttack { get; private set; }
+        public SkillType Type { get; private set; }
 
-        protected AbstractSkillStrategy(bool supportsFlanking, bool supportsDoubleAttack) {
+        protected AbstractSkillStrategy(SkillType type, bool supportsFlanking, bool supportsDoubleAttack) {
+            Type = type;
             SupportsFlanking = supportsFlanking;
             SupportsDoubleAttack = supportsDoubleAttack;
         }
@@ -15,14 +20,29 @@ namespace Models.Fighting.Skills {
         protected abstract SkillResult ComputeResult(ICombatant attacker, ICombatant defener, IRandomizer randomizer);
 
         public SkillResult Compute(ICombatant attacker, ICombatant defender, IRandomizer randomizer) {
+            return ComputeBuffedResult(attacker, defender, () => ComputeResult(attacker, defender, randomizer));
+        }
+
+        private T ComputeBuffedResult<T>(ICombatant attacker, ICombatant defender, Func<T> computation) {
+            
             var buffProvider = GetBuffProvider(attacker);
-            buffProvider.ReceiverPreCombatBuffs.ForEach(buff => defender.AddTemporaryBuff(buff));
-            buffProvider.InitiatorPreCombatBuffs.ForEach(buff => attacker.AddTemporaryBuff(buff));
+            buffProvider.ReceiverPreCombatBuffs
+                .Where(buff => buff.AppliesToSkill(Type))
+                .Each(buff => defender.AddTemporaryBuff(buff));
 
-            var result = ComputeResult(attacker, defender, randomizer);
+            buffProvider.InitiatorPreCombatBuffs
+                .Where(buff => buff.AppliesToSkill(Type))
+                .Each(buff => attacker.AddTemporaryBuff(buff));
 
-            buffProvider.ReceiverPreCombatBuffs.ForEach(buff => defender.RemoveTemporaryBuff(buff));
-            buffProvider.InitiatorPreCombatBuffs.ForEach(buff => attacker.RemoveTemporaryBuff(buff));
+            var result = computation();
+
+            buffProvider.ReceiverPreCombatBuffs
+                .Where(buff => buff.AppliesToSkill(Type))
+                .Each(buff => defender.RemoveTemporaryBuff(buff));
+
+            buffProvider.InitiatorPreCombatBuffs
+                .Where(buff => buff.AppliesToSkill(Type))
+                .Each(buff => attacker.RemoveTemporaryBuff(buff));
 
             return result;
         }
@@ -32,16 +52,7 @@ namespace Models.Fighting.Skills {
                 return false;
             }
 
-            var buffProvider = GetBuffProvider(attacker);
-            buffProvider.ReceiverPreCombatBuffs.ForEach(buff => defender.AddTemporaryBuff(buff));
-            buffProvider.InitiatorPreCombatBuffs.ForEach(buff => attacker.AddTemporaryBuff(buff));
-
-            var result = new AttackCount(attacker, defender).Value > 1;
-
-            buffProvider.ReceiverPreCombatBuffs.ForEach(buff => defender.RemoveTemporaryBuff(buff));
-            buffProvider.InitiatorPreCombatBuffs.ForEach(buff => attacker.RemoveTemporaryBuff(buff));
-
-            return result;
+            return ComputeBuffedResult(attacker, defender, () => new AttackCount(attacker, defender).Value > 1);
         }
     }
 }

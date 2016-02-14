@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Models.Combat;
+using Models.Fighting.Skills;
 
 namespace Models.Fighting.Buffs {
     public abstract class AbstractBuff : IBuff {
@@ -16,6 +17,10 @@ namespace Models.Fighting.Buffs {
 
         protected StatMod CreateMod(Func<int, int> modifierFuntion) {
             return new StatMod(Name, modifierFuntion);            
+        }
+
+        public virtual bool AppliesToSkill(SkillType type) {
+            return true;
         }
 
         public virtual bool CanApply(IBattle battle) {
