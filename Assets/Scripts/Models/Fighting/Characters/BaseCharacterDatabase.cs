@@ -5,10 +5,20 @@ namespace Models.Fighting.Characters {
         private readonly Dictionary<string, ICharacter> _characters = new Dictionary<string, ICharacter>();
 
         public BaseCharacterDatabase() {
-            var liat = new CharacterBuilder()
+            Add(new CharacterBuilder()
                 .Name("Liat")
                 .Weapons("Campaign Backblade", "Slim Recurve")
-                .Build();
+                .Build());
+
+            Add(new CharacterBuilder()
+                .Name("Janek")
+                .Weapons("Chained Mace")
+                .Build());
+
+            Add(new CharacterBuilder()
+                .Name("Maelle")
+                .Weapons("Shortsword")
+                .Build());
         }
 
         private void Add(ICharacter character) {
