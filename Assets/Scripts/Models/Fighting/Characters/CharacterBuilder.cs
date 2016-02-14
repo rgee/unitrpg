@@ -12,8 +12,8 @@ namespace Models.Fighting.Characters {
             return this;
         }
 
-        public CharacterBuilder Attributes(params Attribute[] attributes) {
-            _attributes = attributes.ToHashSet();
+        public CharacterBuilder Attributes(HashSet<Attribute> attr) {
+            _attributes = attr;
             return this;
         }
 
