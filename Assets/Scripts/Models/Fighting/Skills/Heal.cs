@@ -9,7 +9,7 @@ namespace Models.Fighting.Skills {
         }
 
         protected override ICombatBuffProvider GetBuffProvider(ICombatant attacker) {
-            return attacker.Weapons.First(weapon => weapon.Range == 1);
+            return attacker.EquippedWeapons.First(weapon => weapon.Range == 1);
         }
 
         protected override SkillResult ComputeResult(ICombatant attacker, ICombatant defender, IRandomizer randomizer) { 
