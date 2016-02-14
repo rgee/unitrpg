@@ -8,8 +8,8 @@ namespace Models.Fighting {
             Speed,
             Skill,
             Defense,
-            Kinesis,
-            Special
+            Special,
+            Move
         }
 
         public AttributeType Type { get; set; }

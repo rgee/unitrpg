@@ -12,7 +12,7 @@ namespace Models.Fighting.Skills {
         }
 
         protected override SkillResult ComputeResult(ICombatant attacker, ICombatant defender, IRandomizer randomizer) {
-            var myKinesis = attacker.GetAttribute(Attribute.AttributeType.Kinesis).Value;
+            var myKinesis = attacker.GetAttribute(Attribute.AttributeType.Special).Value;
             var hit = new List<IEffect> {new Damage(myKinesis)};
             return new SkillResult(hit);
         }
