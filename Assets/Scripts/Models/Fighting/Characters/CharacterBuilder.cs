@@ -4,10 +4,10 @@ using Models.Fighting.Skills;
 namespace Models.Fighting.Characters {
     public class CharacterBuilder {
         private string _name;
-        private HashSet<Attribute> _attributes;
-        private HashSet<Stat> _stats;
-        private HashSet<string> _weapons;
-        private HashSet<SkillType> _skills; 
+        private HashSet<Attribute> _attributes = new HashSet<Attribute>();
+        private HashSet<Stat> _stats = new HashSet<Stat>();
+        private HashSet<string> _weapons = new HashSet<string>();
+        private HashSet<SkillType> _skills = new HashSet<SkillType>(); 
 
         public CharacterBuilder Name(string name) {
             _name = name;
@@ -35,7 +35,7 @@ namespace Models.Fighting.Characters {
         }
            
         public ICharacter Build() {
-            return new BaseCharacter(_name, _attributes, _stats, _weapons);     
+            return new BaseCharacter(_name, _attributes, _stats, _weapons, _skills);     
         } 
     }
 }

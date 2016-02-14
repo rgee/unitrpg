@@ -7,7 +7,7 @@ using Models.Fighting.Equip;
 using UnityEngine;
 
 namespace Models.Fighting {
-    public abstract class BaseCombatant : ICombatant {
+    public class BaseCombatant : ICombatant {
         public int Health { get; protected set; }
 
         public Vector2 Position { get; set; }
@@ -24,7 +24,7 @@ namespace Models.Fighting {
 
         private readonly ICharacter _character;
 
-        protected BaseCombatant(ICharacter character) {
+        public BaseCombatant(ICharacter character) {
             Buffs = new List<IBuff>();
             _character = character;
 

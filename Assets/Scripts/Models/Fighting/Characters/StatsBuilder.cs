@@ -6,7 +6,7 @@ namespace Models.Fighting.Characters {
         private readonly HashSet<Stat> _stats = new HashSet<Stat>();
 
         public StatsBuilder ParryChance(int val) {
-            AddStat(StatType.MoveRange, val);
+            AddStat(StatType.ProjectileParryChance, val);
             return this;
         }
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Models.Fighting;
+using Models.Fighting.Characters;
 using Models.Fighting.Effects;
 using NUnit.Framework;
 
@@ -8,20 +9,20 @@ namespace Tests.Effects {
     [TestFixture]
     public class DamageTest {
 
-        private class FuckingBarrel : BaseCombatant {
-            public FuckingBarrel(int health) {
-                Health = health;
-            }
-        }
-
         [Test]
         public void TakeDamage() {
-            ICombatant barrel = new FuckingBarrel(50);
-            IEffect damage = new Damage(100);
+            var barrelCharacter = new CharacterBuilder()
+                .Attributes(new AttributesBuilder()
+                        .Health(50)
+                        .Defense(0)
+                    .Build())
+                .Build();
+            var fuckingBarrel = new BaseCombatant(barrelCharacter);
+            var damage = new Damage(100);
 
-            damage.Apply(barrel);
-            Assert.AreEqual(0, barrel.Health);
-            Assert.IsFalse(barrel.IsAlive);
+            damage.Apply(fuckingBarrel);
+            Assert.AreEqual(0, fuckingBarrel.Health);
+            Assert.IsFalse(fuckingBarrel.IsAlive);
         }
     }
 }
