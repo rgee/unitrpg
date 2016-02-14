@@ -7,6 +7,7 @@ namespace Models.Fighting.Characters {
         public BaseCharacterDatabase() {
             Add(new CharacterBuilder()
                 .Name("Liat")
+                .Stats(new StatsBuilder().Leadership().Build())
                 .Weapons("Campaign Backblade", "Slim Recurve")
                 .Build());
 

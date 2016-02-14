@@ -17,8 +17,8 @@ namespace Models.Fighting.Characters {
             return this;
         }
 
-        public CharacterBuilder Stats(params Stat[] stats) {
-            _stats = stats.ToHashSet();
+        public CharacterBuilder Stats(HashSet<Stat> stats) {
+            _stats = stats;
             return this;
         }
 
