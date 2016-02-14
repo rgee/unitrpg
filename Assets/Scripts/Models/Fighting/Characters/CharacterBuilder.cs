@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Models.Fighting.Skills;
 
 namespace Models.Fighting.Characters {
     public class CharacterBuilder {
@@ -6,6 +7,7 @@ namespace Models.Fighting.Characters {
         private HashSet<Attribute> _attributes;
         private HashSet<Stat> _stats;
         private HashSet<string> _weapons;
+        private HashSet<SkillType> _skills; 
 
         public CharacterBuilder Name(string name) {
             _name = name;
@@ -19,6 +21,11 @@ namespace Models.Fighting.Characters {
 
         public CharacterBuilder Stats(HashSet<Stat> stats) {
             _stats = stats;
+            return this;
+        }
+
+        public CharacterBuilder Skills(params SkillType[] skills) {
+            _skills = skills.ToHashSet();
             return this;
         }
 

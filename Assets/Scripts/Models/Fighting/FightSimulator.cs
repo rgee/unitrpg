@@ -1,3 +1,5 @@
+using System.Linq;
+using Models.Fighting.Equip;
 using Models.Fighting.Skills;
 
 namespace Models.Fighting {
@@ -20,10 +22,9 @@ namespace Models.Fighting {
                 flankerAttack = flankerStrategy.Compute(flanker, defender, _randomizer);
             }
 
-            var counterStrategy = defender.GetStrategyByDistance(distance);
             var counterAttack = null as SkillResult;
-            if (counterStrategy != null) {
-                counterAttack = counterStrategy.Compute(defender, attacker, _randomizer);
+            if (defenderStrategy != null) {
+                counterAttack = defenderStrategy.Compute(defender, attacker, _randomizer);
             }
 
             if (attackerStrategy.DidDouble(attacker, defender)) {
@@ -87,23 +88,39 @@ namespace Models.Fighting {
         } 
 
         public FightPreview Simulate(ICombatant attacker, ICombatant defender, ISkillStrategy skillStrategy) {
-            var distance = MathUtils.ManhattanDistance(attacker.Position, defender.Position);
             var flankerStrategy = null as ISkillStrategy;
             var flanker = null as ICombatant;
 
             if (skillStrategy.SupportsFlanking) {
                 var flankerPosition = MathUtils.GetPositionAcrossFight(attacker.Position);
+                var flankerDistance = MathUtils.ManhattanDistance(defender.Position, flankerPosition);
 
                 // TODO: Convert to ICombatant
                 flanker = null; //_map.GetUnitByPosition(flankerPosition);
                 if (flanker != null) {
-                    flankerStrategy = flanker.GetStrategyByDistance(distance);
+                    flankerStrategy = ChooseStrategyByDistance(flanker, flankerDistance);
                 }
             }
 
-            var counterStrategy = defender.GetStrategyByDistance(distance);
+            var distance = MathUtils.ManhattanDistance(attacker.Position, defender.Position);
+            var counterStrategy = ChooseStrategyByDistance(defender, distance);
 
             return Simulate(attacker, defender, flanker, skillStrategy, flankerStrategy, counterStrategy);
+        }
+
+        private ISkillStrategy ChooseStrategyByDistance(ICombatant combatant, int distance) {
+            var weapons = combatant.Weapons.Select(name => WeaponDatabase.Instance.GetByName(name));
+            var appropriateWeapon = weapons.FirstOrDefault(weapon => weapon.Range == distance);
+
+            if (appropriateWeapon == null) {
+                return null;
+            }
+
+            if (distance == 1) {
+                return new MeleeAttack();
+            } else {
+                return new ProjectileAttack();
+            }
         }
         
         public FightPreview SimulatePrimaryWeapon(ICombatant attacker, ICombatant defender) {

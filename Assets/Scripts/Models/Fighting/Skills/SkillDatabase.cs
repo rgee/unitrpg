@@ -1,18 +1,24 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Models.Fighting.Skills {
     public class SkillDatabase {
-        private class SkillRanges {
-            public ISkillStrategy Adjacent { get; set; }
-            public ISkillStrategy Ranged { get; set; }
-        }
-
-        private readonly Dictionary<string, SkillRanges> _ranges = new Dictionary<string, SkillRanges>() {
-            { "Liat", new SkillRanges {
-                    Adjacent = new MeleeAttack(),
-                    Ranged = new ProjectileAttack()
-                }
+        public ISkillStrategy GetStrategyByType(SkillType type) {
+            switch (type) {
+                case SkillType.Heal:
+                    return new Heal();
+                case SkillType.Melee:
+                    return new MeleeAttack();
+                case SkillType.Ranged:
+                    return new ProjectileAttack();
+                case SkillType.Kinesis:
+                    return new Kinesis();
+                case SkillType.Strafe:
+                case SkillType.Advance:
+                case SkillType.Overpower:
+                default:
+                    throw new ArgumentOutOfRangeException("type", type, null);
             }
-        };
+        }
     }
 }
