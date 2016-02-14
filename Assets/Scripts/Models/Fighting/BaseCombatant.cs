@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using Models.Fighting.Buffs;
-using Models.Fighting.Skills;
+using Models.Fighting.Characters;
+using Models.Fighting.Equip;
 using UnityEngine;
 
 namespace Models.Fighting {
@@ -19,15 +20,18 @@ namespace Models.Fighting {
         
         public List<IBuff> _temporaryBuffs = new List<IBuff>();
 
-        private Dictionary<StatType, Stat> _baseStats = new Dictionary<StatType, Stat>();
+        public HashSet<Weapon> EquippedWeapons { get; private set; }
 
-        private Dictionary<int, ISkillStrategy> _strategies = new Dictionary<int, ISkillStrategy>(); 
+        private readonly ICharacter _character;
 
-        private Dictionary<Attribute.AttributeType, Attribute> _attributes =
-            new Dictionary<Attribute.AttributeType, Attribute>();
-
-        protected BaseCombatant() {
+        protected BaseCombatant(ICharacter character) {
             Buffs = new List<IBuff>();
+            _character = character;
+
+            Health = character.Attributes.First(attr => attr.Type == Attribute.AttributeType.Health).Value;
+            EquippedWeapons = character.Weapons
+                .Select(name => WeaponDatabase.Instance.GetByName(name))
+                .ToHashSet();
         }
 
         public void TakeDamage(int amount) {
@@ -35,12 +39,12 @@ namespace Models.Fighting {
         }
 
         public Attribute GetAttribute(Attribute.AttributeType type) {
-            var baseAttr = _attributes[type];
+            var baseAttr = _character.Attributes.First(attr => attr.Type == type);
             return AttributeUtils.ApplyBuffs(baseAttr, Buffs.Concat(_temporaryBuffs));
         }
 
         public Stat GetStat(StatType type) {
-            var stat = _baseStats[type];
+            var stat = _character.Stats.FirstOrDefault(_stat => _stat.Type == type);
             return StatUtils.ApplyBuffs(stat, Buffs.Concat(_temporaryBuffs));
         }
 
