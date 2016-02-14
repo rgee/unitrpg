@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Models.Fighting.Effects;
 using Models.Fighting.Equip;
 using Models.Fighting.Stats;
@@ -17,7 +18,7 @@ namespace Models.Fighting.Skills {
         }
 
         protected override ICombatBuffProvider GetBuffProvider(ICombatant attacker) {
-            return WeaponDatabase.Instance.GetByName(attacker.PrimaryWeapon);
+            return attacker.EquippedWeapons.First(weapon => weapon.Range == 1);
         }
 
         private static WeaponHit ComputeHit(ICombatant attacker, ICombatant defender, IRandomizer random) {

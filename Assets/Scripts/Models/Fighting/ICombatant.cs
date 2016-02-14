@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Models.Fighting.Buffs;
+using Models.Fighting.Equip;
 using Models.Fighting.Skills;
 using UnityEngine;
 
@@ -14,10 +15,8 @@ namespace Models.Fighting {
         List<IBuff> Buffs { get; }
         void AddBuff(IBuff buff);
         void RemoveBuff(string name);
-        HashSet<string> Weapons { get; } 
-
+        HashSet<Weapon> EquippedWeapons { get; } 
         string PrimaryWeapon { get; set; }
-        string SecondaryWeapon { get; set; }
         void AddTemporaryBuff(IBuff temporaryBuff);
         void RemoveTemporaryBuff(IBuff temporaryBuff);
     }

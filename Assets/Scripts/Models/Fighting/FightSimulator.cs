@@ -109,7 +109,7 @@ namespace Models.Fighting {
         }
 
         private ISkillStrategy ChooseStrategyByDistance(ICombatant combatant, int distance) {
-            var weapons = combatant.Weapons.Select(name => WeaponDatabase.Instance.GetByName(name));
+            var weapons = combatant.EquippedWeapons.Select(name => WeaponDatabase.Instance.GetByName(name));
             var appropriateWeapon = weapons.FirstOrDefault(weapon => weapon.Range == distance);
 
             if (appropriateWeapon == null) {
