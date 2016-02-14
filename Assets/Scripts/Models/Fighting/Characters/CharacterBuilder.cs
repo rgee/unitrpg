@@ -1,0 +1,34 @@
+﻿using System.Collections.Generic;
+
+namespace Models.Fighting.Characters {
+    public class CharacterBuilder {
+        private string _name;
+        private HashSet<Attribute> _attributes;
+        private HashSet<Stat> _stats;
+        private HashSet<string> _weapons;
+
+        public CharacterBuilder Name(string name) {
+            _name = name;
+            return this;
+        }
+
+        public CharacterBuilder Attributes(params Attribute[] attributes) {
+            _attributes = attributes.ToHashSet();
+            return this;
+        }
+
+        public CharacterBuilder Stats(params Stat[] stats) {
+            _stats = stats.ToHashSet();
+            return this;
+        }
+
+        public CharacterBuilder Weapons(params string[] weapons) {
+            _weapons = weapons.ToHashSet();
+            return this;
+        }
+           
+        public ICharacter Build() {
+            return new BaseCharacter(_name, _attributes, _stats, _weapons);     
+        } 
+    }
+}

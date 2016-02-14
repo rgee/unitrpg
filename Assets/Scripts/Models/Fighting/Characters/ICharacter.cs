@@ -4,11 +4,9 @@ namespace Models.Fighting.Characters {
     public interface ICharacter {
         string Name { get; set; }
 
-        HashSet<Attribute> Atributes { get; set; }
-        HashSet<Stat> BaseStats { get; set; } 
+        HashSet<Attribute> Attributes { get; set; }
+        HashSet<Stat> Stats { get; set; } 
 
-        string WeaponName { get; set; }
-        
-        HashSet<AvailableSkill> Skills { get; set; } 
+        HashSet<string> Weapons { get; set; } 
     }
 }
