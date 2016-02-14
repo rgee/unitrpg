@@ -121,21 +121,5 @@ namespace Models.Fighting {
                 return new ProjectileAttack();
             }
         }
-        
-        public FightPreview SimulatePrimaryWeapon(ICombatant attacker, ICombatant defender) {
-            return null;
-        }
-        
-        public FightPreview SimulateSecondaryWeapon(ICombatant attacker, ICombatant defender) {
-            return null;
-        }
-        
-        public FightPreview SimulateKinesis(ICombatant attacker, ICombatant defender) {
-            return null;
-        }
-        
-        public FightPreview SimulateHeal(ICombatant attacker, ICombatant defender) {
-            return null;
-        }
     }
 }
