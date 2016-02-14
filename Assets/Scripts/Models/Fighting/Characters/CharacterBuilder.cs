@@ -3,6 +3,7 @@ using Models.Fighting.Skills;
 
 namespace Models.Fighting.Characters {
     public class CharacterBuilder {
+        private string _id;
         private string _name;
         private HashSet<Attribute> _attributes = new HashSet<Attribute>();
         private HashSet<Stat> _stats = new HashSet<Stat>();
@@ -33,9 +34,14 @@ namespace Models.Fighting.Characters {
             _weapons = weapons.ToHashSet();
             return this;
         }
+
+        public CharacterBuilder Id(string id) {
+            _id = id;
+            return this;
+        }
            
         public ICharacter Build() {
-            return new BaseCharacter(_name, _attributes, _stats, _weapons, _skills);     
+            return new BaseCharacter(_id, _name, _attributes, _stats, _weapons, _skills);     
         } 
     }
 }

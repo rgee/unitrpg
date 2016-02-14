@@ -3,6 +3,8 @@ using Models.Fighting.Skills;
 
 namespace Models.Fighting.Characters {
     public interface ICharacter {
+        string Id { get; set;  }
+
         string Name { get; set; }
 
         HashSet<Attribute> Attributes { get; set; }

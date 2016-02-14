@@ -2,10 +2,13 @@
 
 namespace Models.Fighting.Characters {
     public class BaseCharacterDatabase : CharacterDatabase {
+        public static CharacterDatabase Instance = new BaseCharacterDatabase();
+
         private readonly Dictionary<string, ICharacter> _characters = new Dictionary<string, ICharacter>();
 
         public BaseCharacterDatabase() {
             Add(new CharacterBuilder()
+                .Id("liat")
                 .Name("Liat")
                 .Stats(new StatsBuilder().Leadership().Build())
                 .Attributes(new AttributesBuilder()
@@ -20,6 +23,7 @@ namespace Models.Fighting.Characters {
                 .Build());
 
             Add(new CharacterBuilder()
+                .Id("janek")
                 .Name("Janek")
                 .Attributes(new AttributesBuilder()
                     .Health(15)
@@ -33,6 +37,7 @@ namespace Models.Fighting.Characters {
                 .Build());
 
             Add(new CharacterBuilder()
+                .Id("maelle")
                 .Name("Maelle")
                 .Attributes(new AttributesBuilder()
                     .Health(15)
@@ -43,6 +48,20 @@ namespace Models.Fighting.Characters {
                     .Strength(7)
                 .Build())
                 .Weapons("Shortsword")
+                .Build());
+
+            Add(new CharacterBuilder()
+                .Id("gatsu_chapter_1")
+                .Name("Soldier")
+                .Attributes(new AttributesBuilder()
+                    .Health(20)
+                    .Skill(3)
+                    .Speed(2)
+                    .Defense(2)
+                    .Special(0)
+                    .Strength(8)
+                .Build())
+                .Weapons("Greatsword")
                 .Build());
         }
 
