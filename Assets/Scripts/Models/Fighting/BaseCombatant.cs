@@ -15,10 +15,6 @@ namespace Models.Fighting {
             get { return Health > 0; }
         }
         
-        public string PrimaryWeapon { get; set; }
-        
-        public string SecondaryWeapon { get; set; }
-        
         public List<IBuff> Buffs { get; private set; }
         
         public List<IBuff> _temporaryBuffs = new List<IBuff>();
@@ -29,10 +25,6 @@ namespace Models.Fighting {
 
         private Dictionary<Attribute.AttributeType, Attribute> _attributes =
             new Dictionary<Attribute.AttributeType, Attribute>();
-
-        public ISkillStrategy GetStrategyByDistance(int distance) {
-            return _strategies[distance];
-        }
 
         protected BaseCombatant() {
             Buffs = new List<IBuff>();
