@@ -22,10 +22,8 @@ namespace Models.Fighting.Skills {
                 );
             }
 
-            // TODO: Finish ranged weapon damage/hit computation
-            return new SkillResult(
-                new List<IEffect> { new WeaponHit(0) }
-            );
+            var firstHit = DamageUtils.ComputeHit(attacker, defender, randomizer);
+            return new SkillResult(new List<IEffect>() { firstHit });
         }
     }
 }
