@@ -1,6 +1,7 @@
 using System.Linq;
 using Models.Fighting.Equip;
 using Models.Fighting.Skills;
+using UnityEngine;
 
 namespace Models.Fighting {
     public class FightSimulator {
@@ -17,7 +18,6 @@ namespace Models.Fighting {
         public FightPreview Simulate(ICombatant attacker, ICombatant defender, ICombatant flanker, ISkillStrategy attackerStrategy,
             ISkillStrategy flankerStrategy, ISkillStrategy defenderStrategy) {
 
-            var distance = MathUtils.ManhattanDistance(attacker.Position, defender.Position);
             var firstAttack = attackerStrategy.Compute(attacker, defender, _randomizer);
             var flankerAttack = null as SkillResult;
             var doubleAttack = null as SkillResult;
@@ -89,7 +89,10 @@ namespace Models.Fighting {
 
             // Bail out with just the first hit
             return new FightPreview {
-                Initial = firstAttack
+                Initial = firstAttack,
+                Counter = counterAttack,
+                Flank = flankerAttack,
+                Double = doubleAttack
             };
         } 
 
