@@ -12,16 +12,18 @@ namespace Models.Fighting.Characters {
         public string Id { get; set; }
         public string Name { get; set; }
         public int Level { get; set; }
+        public int Experience { get; set; }
         public HashSet<Attribute> Attributes { get; set; }
         public HashSet<Growth> Growths { get; set; } 
         public HashSet<Stat> Stats { get; set; }
         public HashSet<string> Weapons { get; set; }
         public HashSet<SkillType> Skills { get; set; }
 
-        public BaseCharacter(string id, string name, int level, HashSet<Attribute> attributes, HashSet<Growth> growths, HashSet<Stat> stats, HashSet<string> weapons, HashSet<SkillType> skills) {
+        public BaseCharacter(string id, string name, int level, int experience, HashSet<Attribute> attributes, HashSet<Growth> growths, HashSet<Stat> stats, HashSet<string> weapons, HashSet<SkillType> skills) {
             Id = id;
             Level = level;
             Name = name;
+            Experience = experience;
             Attributes = attributes;
             Growths = growths;
             Stats = stats;
@@ -30,6 +32,7 @@ namespace Models.Fighting.Characters {
         }
 
         public void LevelUp(IRandomizer randomizer) {
+            Experience = 0;
             Level = Level + 1;
             AttributeUtils.GetGrownTypes(Growths, randomizer).Each(type => {
                 AddToAttribute(type, 1);

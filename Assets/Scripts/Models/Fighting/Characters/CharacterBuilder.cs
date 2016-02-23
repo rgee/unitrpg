@@ -5,6 +5,8 @@ namespace Models.Fighting.Characters {
     public class CharacterBuilder {
         private string _id;
         private string _name;
+        private int _level = 1;
+        private int _experience;
         private HashSet<Attribute> _attributes = new HashSet<Attribute>();
         private HashSet<Stat> _stats = new HashSet<Stat>();
         private HashSet<string> _weapons = new HashSet<string>();
@@ -47,7 +49,7 @@ namespace Models.Fighting.Characters {
         }
            
         public ICharacter Build() {
-            return new BaseCharacter(_id, _name, _attributes, _growths, _stats, _weapons, _skills);     
+            return new BaseCharacter(_id, _name, _level, _experience, _attributes, _growths, _stats, _weapons, _skills);     
         } 
     }
 }

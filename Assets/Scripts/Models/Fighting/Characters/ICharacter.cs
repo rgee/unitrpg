@@ -9,7 +9,9 @@ namespace Models.Fighting.Characters {
 
         int Level { get; set; }
 
-        void LevelUp();
+        int Experience { get; set; }
+
+        void LevelUp(IRandomizer randomizer);
 
         HashSet<Attribute> Attributes { get; set; }
 
