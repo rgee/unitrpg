@@ -9,6 +9,7 @@ namespace Models.Fighting.Characters {
         private HashSet<Stat> _stats = new HashSet<Stat>();
         private HashSet<string> _weapons = new HashSet<string>();
         private HashSet<SkillType> _skills = new HashSet<SkillType>(); 
+        private HashSet<Growth> _growths = new HashSet<Growth>(); 
 
         public CharacterBuilder Name(string name) {
             _name = name;
@@ -22,6 +23,11 @@ namespace Models.Fighting.Characters {
 
         public CharacterBuilder Stats(HashSet<Stat> stats) {
             _stats = stats;
+            return this;
+        }
+
+        public CharacterBuilder Growths(HashSet<Growth> growths) {
+            _growths = growths;
             return this;
         }
 
@@ -41,7 +47,7 @@ namespace Models.Fighting.Characters {
         }
            
         public ICharacter Build() {
-            return new BaseCharacter(_id, _name, _attributes, _stats, _weapons, _skills);     
+            return new BaseCharacter(_id, _name, _attributes, _growths, _stats, _weapons, _skills);     
         } 
     }
 }

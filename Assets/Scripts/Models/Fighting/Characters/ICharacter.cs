@@ -9,6 +9,8 @@ namespace Models.Fighting.Characters {
 
         HashSet<Attribute> Attributes { get; set; }
 
+        HashSet<Growth> Growths { get; set; } 
+
         void AddToAttribute(Attribute.AttributeType type, int value);
 
         HashSet<Stat> Stats { get; set; } 

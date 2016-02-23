@@ -10,14 +10,16 @@ namespace Models.Fighting.Characters {
         public string Id { get; set; }
         public string Name { get; set; }
         public HashSet<Attribute> Attributes { get; set; }
+        public HashSet<Growth> Growths { get; set; } 
         public HashSet<Stat> Stats { get; set; }
         public HashSet<string> Weapons { get; set; }
         public HashSet<SkillType> Skills { get; set; }
 
-        public BaseCharacter(string id, string name, HashSet<Attribute> attributes, HashSet<Stat> stats, HashSet<string> weapons, HashSet<SkillType> skills) {
+        public BaseCharacter(string id, string name, HashSet<Attribute> attributes, HashSet<Growth> growths, HashSet<Stat> stats, HashSet<string> weapons, HashSet<SkillType> skills) {
             Id = id;
             Name = name;
             Attributes = attributes;
+            Growths = growths;
             Stats = stats;
             Weapons = weapons;
             Skills = skills;
