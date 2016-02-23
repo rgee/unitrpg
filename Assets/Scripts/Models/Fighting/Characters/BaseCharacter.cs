@@ -1,8 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Models.Fighting.Skills;
 
 namespace Models.Fighting.Characters {
     class BaseCharacter : ICharacter {
+        private const int AttributeMax = 200;
+
         public string Id { get; set; }
         public string Name { get; set; }
         public HashSet<Attribute> Attributes { get; set; }
@@ -17,6 +21,19 @@ namespace Models.Fighting.Characters {
             Stats = stats;
             Weapons = weapons;
             Skills = skills;
+        }
+
+        public void AddToAttribute(Attribute.AttributeType type, int value) {
+            Attributes = Attributes.Select((attribute => {
+                if (attribute.Type == type) {
+                    return new Attribute {
+                        Type = type,
+                        Value = Math.Min(AttributeMax, attribute.Value + value)
+                    };
+                }
+
+                return attribute;
+            })).ToHashSet();
         }
     }
 }
