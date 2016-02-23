@@ -1,4 +1,5 @@
-﻿using Models.Fighting;
+﻿using Assets.Scripts.Editor;
+using Models.Fighting;
 using Models.Fighting.Characters;
 using Models.Fighting.Skills;
 using NUnit.Framework;
@@ -7,17 +8,6 @@ using UnityEngine;
 namespace Tests {
     [TestFixture]
     public class FightingTest {
-        private class ConstantRandomizer : IRandomizer {
-            private int _constant;
-
-            public ConstantRandomizer(int constant) {
-                _constant = constant;
-            }
-
-            public int GetNextRandom() {
-                return _constant;
-            }
-        }
 
         [Test]
         public void TestBasicFight() {
