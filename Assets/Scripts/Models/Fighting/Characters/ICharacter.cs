@@ -7,6 +7,10 @@ namespace Models.Fighting.Characters {
 
         string Name { get; set; }
 
+        int Level { get; set; }
+
+        void LevelUp();
+
         HashSet<Attribute> Attributes { get; set; }
 
         HashSet<Growth> Growths { get; set; }
