@@ -26,6 +26,10 @@ namespace Models.Fighting.Buffs {
         public virtual bool CanApply(IBattle battle) {
             return true;
         }
+
+        public virtual void OnRemove() {
+            
+        }
         
         public virtual Stat Modify(Stat stat) {
             var mod = StatMods[stat.Type];

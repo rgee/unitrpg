@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using Models.Fighting.Skills;
 
 namespace Models.Fighting.Characters {
@@ -11,12 +12,18 @@ namespace Models.Fighting.Characters {
         private HashSet<Stat> _stats = new HashSet<Stat>();
         private HashSet<string> _weapons = new HashSet<string>();
         private HashSet<SkillType> _skills = new HashSet<SkillType>(); 
-        private HashSet<Growth> _growths = new HashSet<Growth>(); 
+        private HashSet<Growth> _growths = new HashSet<Growth>();
+        private HashSet<string> _inventory = new HashSet<string>(); 
 
         public CharacterBuilder Name(string name) {
             _name = name;
             return this;
         }
+
+        public CharacterBuilder Inventory(HashSet<string> inventory) {
+            _inventory = inventory;
+            return this;
+        } 
 
         public CharacterBuilder Attributes(HashSet<Attribute> attr) {
             _attributes = attr;
@@ -49,7 +56,7 @@ namespace Models.Fighting.Characters {
         }
            
         public ICharacter Build() {
-            return new BaseCharacter(_id, _name, _level, _experience, _attributes, _growths, _stats, _weapons, _skills);     
+            return new BaseCharacter(_id, _name, _level, _experience, _inventory, _attributes, _growths, _stats, _weapons, _skills);     
         } 
     }
 }

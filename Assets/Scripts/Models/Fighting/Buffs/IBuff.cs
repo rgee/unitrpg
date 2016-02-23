@@ -31,5 +31,7 @@ namespace Models.Fighting.Buffs {
         string Name { get; }
 
         Attribute Apply(Attribute attribute);
+
+        void OnRemove();
     }
 }
