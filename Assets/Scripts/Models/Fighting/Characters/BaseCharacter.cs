@@ -6,6 +6,7 @@ using Models.Fighting.Skills;
 namespace Models.Fighting.Characters {
     class BaseCharacter : ICharacter {
         private const int AttributeMax = 200;
+        private const int GrowthMax = 100;
 
         public string Id { get; set; }
         public string Name { get; set; }
@@ -35,6 +36,19 @@ namespace Models.Fighting.Characters {
                 }
 
                 return attribute;
+            })).ToHashSet();
+        }
+
+        public void AddToGrowth(Attribute.AttributeType type, int value) {
+            Growths = Growths.Select((growth => {
+                if (growth.Type == type) {
+                    return new Growth {
+                        Type = type,
+                        Value = Math.Min(GrowthMax, growth.Value + value)
+                    };
+                }
+
+                return growth;
             })).ToHashSet();
         }
     }
