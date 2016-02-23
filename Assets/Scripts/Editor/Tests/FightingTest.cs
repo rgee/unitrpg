@@ -157,5 +157,94 @@ namespace Tests {
             var counter = result.Counter;
             Assert.IsNull(counter);
         }
+
+        [Test]
+        public void TestAttackerKillsOnDouble() {
+            
+            var attackerCharacter = new CharacterBuilder()
+                .Attributes(new AttributesBuilder()
+                    .Health(15)
+                    .Skill(12)
+                    .Defense(2)
+                    .Special(0)
+                    .Speed(33)
+                    .Strength(10)
+                .Build())
+                .Weapons("Shortsword")
+                .Build();
+
+            var defenderCharacter = new CharacterBuilder()
+                .Attributes(new AttributesBuilder()
+                    .Health(15)
+                    .Skill(12)
+                    .Defense(0)
+                    .Special(0)
+                    .Speed(13)
+                    .Strength(7)
+                .Build())
+                .Stats(new StatsBuilder()
+                    .ParryChance(0)
+                .Build())
+                .Weapons("Shortsword")
+                .Build();
+
+            var attacker = new BaseCombatant(attackerCharacter);
+            var defender = new BaseCombatant(defenderCharacter);
+
+            attacker.Position = new Vector2(0, 0);
+            defender.Position = new Vector2(0, 1);
+
+            var simulator = new FightSimulator(new ConstantRandomizer(100));
+            var result = simulator.Simulate(attacker, defender, new MeleeAttack());
+
+            Assert.IsTrue(result.DefenderDies);
+            Assert.IsFalse(result.AttackerDies);
+            Assert.IsNotNull(result.Counter);
+            Assert.IsNotNull(result.Double);
+        }
+
+        [Test]
+        public void TestAttackerKillsOnFirstHit() {
+            
+            var attackerCharacter = new CharacterBuilder()
+                .Attributes(new AttributesBuilder()
+                    .Health(15)
+                    .Skill(12)
+                    .Defense(2)
+                    .Special(0)
+                    .Speed(13)
+                    .Strength(70)
+                .Build())
+                .Weapons("Shortsword")
+                .Build();
+
+            var defenderCharacter = new CharacterBuilder()
+                .Attributes(new AttributesBuilder()
+                    .Health(15)
+                    .Skill(12)
+                    .Defense(2)
+                    .Special(0)
+                    .Speed(13)
+                    .Strength(7)
+                .Build())
+                .Stats(new StatsBuilder()
+                    .ParryChance(0)
+                .Build())
+                .Weapons("Shortsword")
+                .Build();
+
+            var attacker = new BaseCombatant(attackerCharacter);
+            var defender = new BaseCombatant(defenderCharacter);
+
+            attacker.Position = new Vector2(0, 0);
+            defender.Position = new Vector2(0, 1);
+
+            var simulator = new FightSimulator(new ConstantRandomizer(100));
+            var result = simulator.Simulate(attacker, defender, new MeleeAttack());
+
+            Assert.IsTrue(result.DefenderDies);
+            Assert.IsFalse(result.AttackerDies);
+            Assert.IsNull(result.Counter);
+        }
     }
 }
