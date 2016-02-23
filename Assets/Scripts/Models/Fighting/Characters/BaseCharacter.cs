@@ -8,6 +8,7 @@ namespace Models.Fighting.Characters {
     class BaseCharacter : ICharacter {
         private const int AttributeMax = 200;
         private const int GrowthMax = 100;
+        private const int ExpMax = 100;
 
         public string Id { get; set; }
         public string Name { get; set; }
@@ -29,6 +30,14 @@ namespace Models.Fighting.Characters {
             Stats = stats;
             Weapons = weapons;
             Skills = skills;
+        }
+
+        public void AddExp(int amount) {
+            Experience = Math.Min(ExpMax, Experience + amount);
+        }
+
+        public bool CanLevel() {
+            return Experience >= ExpMax;
         }
 
         public void LevelUp(IRandomizer randomizer) {

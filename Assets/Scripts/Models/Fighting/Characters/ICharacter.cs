@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Models.Fighting.Skills;
 
 namespace Models.Fighting.Characters {
@@ -10,6 +11,10 @@ namespace Models.Fighting.Characters {
         int Level { get; set; }
 
         int Experience { get; set; }
+
+        void AddExp(int amount);
+
+        bool CanLevel();
 
         void LevelUp(IRandomizer randomizer);
 
