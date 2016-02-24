@@ -2,7 +2,7 @@
 using UnityEngine;
 
 namespace Models.Combat {
-    public interface IMap {
+    public interface IOldMap {
         bool IsOccupied(Vector2 position);
         Unit GetUnitByPosition(Vector2 position);
         IEnumerable<Unit> GetAllUnits();

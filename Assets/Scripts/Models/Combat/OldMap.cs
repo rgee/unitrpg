@@ -4,11 +4,11 @@ using System.Linq;
 using UnityEngine;
 
 namespace Models.Combat {
-    public class Map : IMap {
+    public class OldMap : IOldMap {
         private readonly Dictionary<Vector2, Unit> _unitsByPosition = new Dictionary<Vector2, Unit>();
         private readonly Dictionary<Vector2, InteractiveTile> _interactiveTilesByPosition = new Dictionary<Vector2, InteractiveTile>(); 
 
-        public Map(IEnumerable<Unit> units, IEnumerable<InteractiveTile> interactiveTiles) {
+        public OldMap(IEnumerable<Unit> units, IEnumerable<InteractiveTile> interactiveTiles) {
             CombatEventBus.ModelDeaths.AddListener(RemoveUnit);
             foreach (var unit in units) {
                 if (_unitsByPosition.ContainsKey(unit.GridPosition)) {

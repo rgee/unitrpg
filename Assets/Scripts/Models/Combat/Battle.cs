@@ -7,12 +7,12 @@ using UnityEngine;
 
 namespace Models.Combat {
     public class Battle : IBattle {
-        private readonly IMap _map;
+        private readonly IOldMap _map;
         private readonly IObjective _objective;
         private readonly ITurn _turnState;
         private readonly IActionProber _actionProber;
 
-        public Battle(IMap map, IObjective objective, ITurn turnState, IActionProber actionProber) {
+        public Battle(IOldMap map, IObjective objective, ITurn turnState, IActionProber actionProber) {
             _map = map;
             _objective = objective;
             _turnState = turnState;

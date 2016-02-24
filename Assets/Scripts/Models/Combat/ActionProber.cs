@@ -4,10 +4,10 @@ using UnityEngine;
 
 namespace Models.Combat {
     public class ActionProber : IActionProber {
-        private readonly IMap _map;
+        private readonly IOldMap _map;
         private readonly ITurn _turn;
 
-        public ActionProber(IMap map, ITurn turn) {
+        public ActionProber(IOldMap map, ITurn turn) {
             _map = map;
             _turn = turn;
         }
