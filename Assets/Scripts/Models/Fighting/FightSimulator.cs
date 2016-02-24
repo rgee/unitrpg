@@ -1,6 +1,7 @@
 using System.Linq;
 using Models.Fighting.Equip;
 using Models.Fighting.Skills;
+using UnityEngine;
 
 namespace Models.Fighting {
     public class FightSimulator {
@@ -41,7 +42,8 @@ namespace Models.Fighting {
             if (firstAttackDamage >= defenderHealth) {
                // Bail out with just the first attack 
                 return new FightPreview {
-                    Initial =  firstAttack
+                    Initial = firstAttack,
+                    DefenderDies = true
                 };
             }
 
@@ -52,7 +54,8 @@ namespace Models.Fighting {
                     // Bail out with two attacks
                     return new FightPreview {
                         Initial = firstAttack,
-                        Flank = flankerAttack
+                        Flank = flankerAttack,
+                        DefenderDies = true
                     };
                 }
             }
@@ -67,7 +70,8 @@ namespace Models.Fighting {
                     return new FightPreview {
                         Initial = firstAttack,
                         Flank = flankerAttack,
-                        Counter = counterAttack
+                        Counter = counterAttack,
+                        AttackerDies = true
                     };
                 }
             }
@@ -75,13 +79,15 @@ namespace Models.Fighting {
             if (doubleAttack != null) {
                 var doubleDamage = doubleAttack.GetDefenderDamage();
                 totalAttackerDamage += doubleDamage;
+                // Defender dies after being doubled
                 if (totalAttackerDamage >= attackerHealth) {
                     // Bail out with all previous hits + the double
                     return new FightPreview {
                         Initial = firstAttack,
                         Flank = flankerAttack,
                         Counter = counterAttack,
-                        Double = doubleAttack
+                        Double = doubleAttack,
+                        DefenderDies = true
                     };
                 }
             }

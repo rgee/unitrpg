@@ -7,5 +7,7 @@ namespace Models.Fighting {
         public SkillResult Flank { get; set; }
         public SkillResult Counter { get; set; }
         public SkillResult Double { get; set; }
+        public bool AttackerDies { get; set; }
+        public bool DefenderDies { get; set; }
     }
 }

@@ -11,7 +11,7 @@ namespace Models.Fighting.Skills {
 
         protected override SkillResult ComputeResult(ICombatant attacker, ICombatant defender, IRandomizer randomizer) {
             var defenderEffects = new List<IEffect>();
-            var firstHit = ComputeHit(attacker, defender, randomizer);
+            var firstHit = DamageUtils.ComputeHit(attacker, defender, randomizer);
             defenderEffects.Add(firstHit);
             
             return new SkillResult(defenderEffects);
@@ -19,30 +19,6 @@ namespace Models.Fighting.Skills {
 
         protected override ICombatBuffProvider GetBuffProvider(ICombatant attacker) {
             return attacker.EquippedWeapons.First(weapon => weapon.Range == 1);
-        }
-
-        private static WeaponHit ComputeHit(ICombatant attacker, ICombatant defender, IRandomizer random) {
-            var hitChance = new HitChance(attacker, defender);
-            var glanceChance = new GlanceChance(attacker, defender);
-            var critChance = new CritChance(attacker, defender);
-            if (random.GetNextRandom() > (100 - hitChance.Value)) {
-                var baseDamage = ComputeDamage(attacker, defender);
-                if (random.GetNextRandom() > (100 - critChance.Value)) {
-                    baseDamage *= 2;     
-                } else if (random.GetNextRandom() > (100 - glanceChance.Value)) {
-                    baseDamage /= 2;
-                }
-                
-                return new WeaponHit(baseDamage);
-            }
-            
-            return new Miss(MissReason.Miss);
-        }
-        
-        private static int ComputeDamage(ICombatant attacker, ICombatant defender) {
-            var strength = attacker.GetAttribute(Attribute.AttributeType.Strength);
-            var defense = defender.GetAttribute(Attribute.AttributeType.Defense);
-            return strength.Value - defense.Value;
         }
     }
 }
