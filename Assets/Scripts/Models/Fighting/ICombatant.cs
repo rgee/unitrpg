@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using Models.Fighting.Buffs;
 using Models.Fighting.Equip;
-using Models.Fighting.Skills;
 using UnityEngine;
 
 namespace Models.Fighting {
     public interface ICombatant {
+        string Id { get; }
         int Health { get; }
         void TakeDamage(int amount);
         bool IsAlive { get; }
