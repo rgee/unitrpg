@@ -12,7 +12,7 @@ namespace Models.Fighting.Buffs {
         /// </summary>
         /// <param name="battle">The world state.</param>
         /// <returns>True if the Host is eligible, False otherwise</returns>
-        bool CanApply(IBattle battle);
+        bool CanApply(IOldBattle battle);
 
         bool AppliesToSkill(SkillType skillType);
 

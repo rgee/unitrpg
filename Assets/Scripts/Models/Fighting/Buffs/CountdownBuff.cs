@@ -15,7 +15,7 @@ namespace Models.Fighting.Buffs {
             _turnsApplied -= 1;
         }
 
-        public override bool CanApply(IBattle battle) {
+        public override bool CanApply(IOldBattle battle) {
             return _turnsApplied <= _turns;
         }
 

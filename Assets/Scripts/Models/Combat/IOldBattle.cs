@@ -8,7 +8,7 @@ namespace Models.Combat {
     /// All code on the surface of and beneath this interface should be ignorant of 
     /// any concept of a view or a screen or player input.
     /// </summary>
-    public interface IBattle {
+    public interface IOldBattle {
         #region Turn Operations
         bool IsComplete();
         bool IsFailed();

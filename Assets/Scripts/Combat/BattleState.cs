@@ -4,7 +4,7 @@ using Models.Combat.Inventory;
 using UnityEngine;
 
 public class BattleState : MonoBehaviour {
-    public IBattle Model;
+    public IOldBattle Model;
 
     // Attack
     public Grid.Unit AttackTarget;

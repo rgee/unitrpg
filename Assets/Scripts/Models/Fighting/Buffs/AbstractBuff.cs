@@ -23,7 +23,7 @@ namespace Models.Fighting.Buffs {
             return true;
         }
 
-        public virtual bool CanApply(IBattle battle) {
+        public virtual bool CanApply(IOldBattle battle) {
             return true;
         }
 
