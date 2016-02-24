@@ -6,6 +6,13 @@ namespace Models.Fighting.Battle {
         private Dictionary<string, int> _movesRemaining = new Dictionary<string, int>();  
         private Dictionary<string, bool> _actionTaken = new Dictionary<string, bool>();
 
+        public Turn(List<ICombatant> combatants) {
+            combatants.ForEach(combatant => {
+                _movesRemaining[combatant.Id] = combatant.GetAttribute(Attribute.AttributeType.Move).Value;
+                _actionTaken[combatant.Id] = false;
+            });
+        }
+
         public void MarkMove(ICombatant combatant, int squares) {
             _movesRemaining[combatant.Id] = Math.Max(0, _movesRemaining[combatant.Id] - squares);
         }
