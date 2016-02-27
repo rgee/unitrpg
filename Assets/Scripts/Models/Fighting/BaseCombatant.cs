@@ -46,7 +46,7 @@ namespace Models.Fighting {
         }
 
         public Stat GetStat(StatType type) {
-            var stat = _character.Stats.FirstOrDefault(_stat => _stat.Type == type);
+            var stat = _character.Stats.FirstOrDefault(potentialStat => potentialStat.Type == type);
             return StatUtils.ApplyBuffs(stat, Buffs.Concat(_temporaryBuffs));
         }
 
