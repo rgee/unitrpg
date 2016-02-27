@@ -12,6 +12,8 @@ namespace Models.Fighting {
 
         public Vector2 Position { get; set; }
 
+        public string Id { get; set; }
+
         public bool IsAlive {
             get { return Health > 0; }
         }
