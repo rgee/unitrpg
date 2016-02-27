@@ -19,8 +19,8 @@ namespace Models.Fighting {
         }
         
         public List<IBuff> Buffs { get; private set; }
-        
-        public List<IBuff> _temporaryBuffs = new List<IBuff>();
+
+        private readonly List<IBuff> _temporaryBuffs = new List<IBuff>();
 
         public HashSet<Weapon> EquippedWeapons { get; private set; }
 
