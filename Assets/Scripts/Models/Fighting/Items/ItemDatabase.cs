@@ -3,6 +3,8 @@ using System.Collections.Generic;
 
 namespace Models.Fighting.Items {
     public class ItemDatabase : IItemDatabase {
+        public static readonly IItemDatabase Instance = new ItemDatabase();
+
         private readonly Dictionary<string, IItem> _items = new Dictionary<string, IItem>();
 
         public ItemDatabase() {
