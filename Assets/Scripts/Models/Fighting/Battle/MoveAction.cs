@@ -2,7 +2,7 @@
 using UnityEngine;
 
 namespace Models.Fighting.Battle {
-    public class MoveAction : CombatAction {
+    public class MoveAction : ICombatAction {
         private readonly IMap _map;
         private readonly ICombatant _combatant;
         private readonly Vector2 _destination;
