@@ -3,6 +3,8 @@ using System.Collections.Generic;
 
 namespace Models.Fighting.Skills {
     public class SkillDatabase {
+        public static readonly SkillDatabase Instance = new SkillDatabase();
+
         public ISkillStrategy GetStrategyByType(SkillType type) {
             switch (type) {
                 case SkillType.Heal:
