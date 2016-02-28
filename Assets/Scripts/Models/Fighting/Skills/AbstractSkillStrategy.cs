@@ -19,6 +19,12 @@ namespace Models.Fighting.Skills {
 
         protected abstract SkllEffects ComputeResult(ICombatant attacker, ICombatant defener, IRandomizer randomizer);
 
+        protected abstract SkillForecast ComputeForecast(ICombatant attacker, ICombatant defender);
+
+        public SkillForecast Forecast(ICombatant attacker, ICombatant defender) {
+            return ComputeBuffedResult(attacker, defender, () => Forecast(attacker, defender));
+        }
+
         public SkllEffects Compute(ICombatant attacker, ICombatant defender, IRandomizer randomizer) {
             return ComputeBuffedResult(attacker, defender, () => ComputeResult(attacker, defender, randomizer));
         }
