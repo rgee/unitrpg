@@ -8,7 +8,7 @@ namespace Models.Fighting.Skills {
             var glanceChance = new GlanceChance(attacker, defender);
             var critChance = new CritChance(attacker, defender);
             if (random.GetNextRandom() > (100 - hitChance.Value)) {
-                var baseDamage = ComputeDamage(attacker, defender);
+                var baseDamage = ComputeMeleeDamage(attacker, defender);
                 if (random.GetNextRandom() > (100 - critChance.Value)) {
                     baseDamage *= 2;     
                 } else if (random.GetNextRandom() > (100 - glanceChance.Value)) {
@@ -21,7 +21,7 @@ namespace Models.Fighting.Skills {
             return new Miss(MissReason.Miss);
         }
         
-        private static int ComputeDamage(ICombatant attacker, ICombatant defender) {
+        public static int ComputeMeleeDamage(ICombatant attacker, ICombatant defender) {
             var strength = attacker.GetAttribute(Attribute.AttributeType.Strength);
             var defense = defender.GetAttribute(Attribute.AttributeType.Defense);
             return strength.Value - defense.Value;

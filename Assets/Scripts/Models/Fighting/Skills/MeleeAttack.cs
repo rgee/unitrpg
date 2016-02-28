@@ -1,12 +1,37 @@
 using System.Collections.Generic;
 using System.Linq;
-using Models.Fighting.Effects;
-using Models.Fighting.Equip;
 using Models.Fighting.Stats;
 
 namespace Models.Fighting.Skills {
     public class MeleeAttack : AbstractSkillStrategy {
         public MeleeAttack() : base(SkillType.Melee, true, true) {
+        }
+
+        protected override SkillForecast ComputeForecast(ICombatant attacker, ICombatant defender) {
+            var hitChance = new HitChance(attacker, defender);
+            var critChance = new CritChance(attacker, defender);
+            var glanceChance = new GlanceChance(attacker, defender);
+
+            var chances = new SkillChances {
+                CritChance = critChance.Value,
+                HitChance = hitChance.Value,
+                GlanceChance = glanceChance.Value
+            };
+
+            var attackCount = new AttackCount(attacker, defender);
+
+            var hit = new SkillHit {
+                BaseDamage = DamageUtils.ComputeMeleeDamage(attacker, defender),
+                HitCount = attackCount.Value
+            };
+
+            return new SkillForecast {
+                Type = Type,
+                Hit = hit,
+                Chances = chances,
+                Attacker = attacker,
+                Defender = defender
+            };
         }
 
         protected override SkllEffects ComputeResult(ICombatant attacker, ICombatant defender, IRandomizer randomizer) {
