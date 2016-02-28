@@ -1,6 +1,6 @@
 ﻿namespace Models.Fighting.Skills {
-    public class SkillResult {
-        public SkllEffects Hit { get; set; }
+    public class SkillForecast {
+        public SkillHit Hit { get; set; }
         public SkillChances Chances { get; set; }
     }
 }
