@@ -11,10 +11,10 @@ namespace Models.Fighting.Skills {
             return new NullBuffProvider();
         }
 
-        protected override SkillHit ComputeResult(ICombatant attacker, ICombatant defender, IRandomizer randomizer) {
+        protected override SkllEffects ComputeResult(ICombatant attacker, ICombatant defender, IRandomizer randomizer) {
             var myKinesis = attacker.GetAttribute(Attribute.AttributeType.Special).Value;
             var hit = new List<IEffect> {new Damage(myKinesis)};
-            return new SkillHit(hit);
+            return new SkllEffects(hit);
         }
     }
 }

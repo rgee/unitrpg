@@ -3,14 +3,14 @@ using System.Linq;
 using Models.Fighting.Effects;
 
 namespace Models.Fighting.Skills {
-    public class SkillHit {
+    public class SkllEffects {
         public readonly List<IEffect> ReceiverEffects;
 
         public int AttackCount {
             get { return ReceiverEffects.OfType<Damage>().Count(); }
         }
 
-        public SkillHit(List<IEffect> receiverEffects) {
+        public SkllEffects(List<IEffect> receiverEffects) {
             ReceiverEffects = receiverEffects;
         }
 

@@ -9,12 +9,12 @@ namespace Models.Fighting.Skills {
         public MeleeAttack() : base(SkillType.Melee, true, true) {
         }
 
-        protected override SkillHit ComputeResult(ICombatant attacker, ICombatant defender, IRandomizer randomizer) {
+        protected override SkllEffects ComputeResult(ICombatant attacker, ICombatant defender, IRandomizer randomizer) {
             var defenderEffects = new List<IEffect>();
             var firstHit = DamageUtils.ComputeHit(attacker, defender, randomizer);
             defenderEffects.Add(firstHit);
             
-            return new SkillHit(defenderEffects);
+            return new SkllEffects(defenderEffects);
         }
 
         protected override ICombatBuffProvider GetBuffProvider(ICombatant attacker) {
