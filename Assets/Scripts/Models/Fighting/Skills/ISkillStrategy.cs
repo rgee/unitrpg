@@ -1,7 +1,7 @@
 ﻿namespace Models.Fighting.Skills {
     public interface ISkillStrategy {
         SkillForecast Forecast(ICombatant attacker, ICombatant defender);
-        SkllEffects Compute(ICombatant attacker, ICombatant defener, IRandomizer randomizer);
+        SkillEffects Compute(ICombatant attacker, ICombatant defener, IRandomizer randomizer);
         SkillType Type { get; }
         bool SupportsFlanking { get; }
         bool SupportsDoubleAttack { get; }

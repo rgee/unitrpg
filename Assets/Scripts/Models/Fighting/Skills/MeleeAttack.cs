@@ -34,12 +34,12 @@ namespace Models.Fighting.Skills {
             };
         }
 
-        protected override SkllEffects ComputeResult(ICombatant attacker, ICombatant defender, IRandomizer randomizer) {
+        protected override SkillEffects ComputeResult(ICombatant attacker, ICombatant defender, IRandomizer randomizer) {
             var defenderEffects = new List<IEffect>();
             var firstHit = DamageUtils.ComputeHit(attacker, defender, randomizer);
             defenderEffects.Add(firstHit);
             
-            return new SkllEffects(defenderEffects);
+            return new SkillEffects(defenderEffects);
         }
 
         protected override ICombatBuffProvider GetBuffProvider(ICombatant attacker) {

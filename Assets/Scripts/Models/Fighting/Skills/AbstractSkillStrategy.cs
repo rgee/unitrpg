@@ -17,7 +17,7 @@ namespace Models.Fighting.Skills {
 
         protected abstract ICombatBuffProvider GetBuffProvider(ICombatant attacker);
 
-        protected abstract SkllEffects ComputeResult(ICombatant attacker, ICombatant defener, IRandomizer randomizer);
+        protected abstract SkillEffects ComputeResult(ICombatant attacker, ICombatant defener, IRandomizer randomizer);
 
         protected abstract SkillForecast ComputeForecast(ICombatant attacker, ICombatant defender);
 
@@ -25,7 +25,7 @@ namespace Models.Fighting.Skills {
             return ComputeBuffedResult(attacker, defender, () => Forecast(attacker, defender));
         }
 
-        public SkllEffects Compute(ICombatant attacker, ICombatant defender, IRandomizer randomizer) {
+        public SkillEffects Compute(ICombatant attacker, ICombatant defender, IRandomizer randomizer) {
             return ComputeBuffedResult(attacker, defender, () => ComputeResult(attacker, defender, randomizer));
         }
 

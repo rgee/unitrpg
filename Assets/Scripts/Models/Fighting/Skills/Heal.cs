@@ -34,9 +34,9 @@ namespace Models.Fighting.Skills {
             return attacker.EquippedWeapons.First(weapon => weapon.Range == 1);
         }
 
-        protected override SkllEffects ComputeResult(ICombatant attacker, ICombatant defender, IRandomizer randomizer) { 
+        protected override SkillEffects ComputeResult(ICombatant attacker, ICombatant defender, IRandomizer randomizer) { 
             var mySkill = attacker.GetAttribute(Attribute.AttributeType.Skill).Value;
-            return new SkllEffects(
+            return new SkillEffects(
                 new List<IEffect> {
                     new Damage(-mySkill)
                 }
