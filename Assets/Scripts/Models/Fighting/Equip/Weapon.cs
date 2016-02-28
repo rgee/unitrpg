@@ -11,7 +11,6 @@ namespace Models.Fighting.Equip {
 
         public Weapon(string name, string description, int range, List<IBuff> initiatorPreCombatBuffs, 
             List<IBuff> receiverPreCombatBuffs) {
-
             Name = name;
             Description = description;
             Range = range;

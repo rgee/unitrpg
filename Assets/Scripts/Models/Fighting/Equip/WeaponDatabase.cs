@@ -33,6 +33,7 @@ namespace Models.Fighting.Equip {
                 .Name("Shortsword")
                 .Range(1)
                 .Build());
+
             Add(Weapon.Builder()
                 .Name("Dracian Hero Bow")
                 .Description("An ornate bow with gold-leafed limbs and historical detailing.")

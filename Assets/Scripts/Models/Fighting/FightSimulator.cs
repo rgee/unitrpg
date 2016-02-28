@@ -19,14 +19,14 @@ namespace Models.Fighting {
             ISkillStrategy flankerStrategy, ISkillStrategy defenderStrategy) {
 
             var firstAttack = attackerStrategy.Compute(attacker, defender, _randomizer);
-            var flankerAttack = null as SkillResult;
-            var doubleAttack = null as SkillResult;
+            var flankerAttack = null as SkillHit;
+            var doubleAttack = null as SkillHit;
 
             if (flankerStrategy != null && flanker != null) {
                 flankerAttack = flankerStrategy.Compute(flanker, defender, _randomizer);
             }
 
-            var counterAttack = null as SkillResult;
+            var counterAttack = null as SkillHit;
             if (defenderStrategy != null) {
                 counterAttack = defenderStrategy.Compute(defender, attacker, _randomizer);
             }

@@ -12,18 +12,18 @@ namespace Models.Fighting.Skills {
             return attacker.EquippedWeapons.First(weapon => weapon.Range >= 1);
         }
 
-        protected override SkillResult ComputeResult(ICombatant attacker, ICombatant defender, IRandomizer randomizer) {
+        protected override SkillHit ComputeResult(ICombatant attacker, ICombatant defender, IRandomizer randomizer) {
             var parryChance = defender.GetStat(StatType.ProjectileParryChance);
             var didParry = randomizer.GetNextRandom() < (100 - parryChance.Value);
 
             if (didParry) {
-                return new SkillResult(
+                return new SkillHit(
                     new List<IEffect> { new Miss(MissReason.Parry) }
                 );
             }
 
             var firstHit = DamageUtils.ComputeHit(attacker, defender, randomizer);
-            return new SkillResult(new List<IEffect>() { firstHit });
+            return new SkillHit(new List<IEffect>() { firstHit });
         }
     }
 }

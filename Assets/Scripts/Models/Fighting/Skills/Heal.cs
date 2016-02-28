@@ -12,9 +12,9 @@ namespace Models.Fighting.Skills {
             return attacker.EquippedWeapons.First(weapon => weapon.Range == 1);
         }
 
-        protected override SkillResult ComputeResult(ICombatant attacker, ICombatant defender, IRandomizer randomizer) { 
+        protected override SkillHit ComputeResult(ICombatant attacker, ICombatant defender, IRandomizer randomizer) { 
             var mySkill = attacker.GetAttribute(Attribute.AttributeType.Skill).Value;
-            return new SkillResult(
+            return new SkillHit(
                 new List<IEffect> {
                     new Damage(-mySkill)
                 }
