@@ -31,6 +31,12 @@ namespace Models.Fighting.Skills {
             };
         }
 
+        protected override SkillEffects ComputeEffects(SkillForecast forecast, IRandomizer randomizer) {
+            var myKinesis = forecast.Hit.BaseDamage;
+            var hit = new List<IEffect> {new Damage(myKinesis)};
+            return new SkillEffects(hit);
+        }
+
         protected override ICombatBuffProvider GetBuffProvider(ICombatant attacker) {
             return new NullBuffProvider();
         }

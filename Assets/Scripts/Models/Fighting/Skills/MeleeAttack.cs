@@ -34,6 +34,15 @@ namespace Models.Fighting.Skills {
             };
         }
 
+        protected override SkillEffects ComputeEffects(SkillForecast forecast, IRandomizer randomizer) {
+            var chances = forecast.Chances;
+            var effects = new List<IEffect>() {
+                DamageUtils.GetFinalizedPhysicalDamage(forecast.Hit.BaseDamage, chances, randomizer)
+            };
+
+            return new SkillEffects(effects);
+        }
+
         protected override SkillEffects ComputeResult(ICombatant attacker, ICombatant defender, IRandomizer randomizer) {
             var defenderEffects = new List<IEffect>();
             var firstHit = DamageUtils.ComputeHit(attacker, defender, randomizer);

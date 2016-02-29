@@ -30,6 +30,15 @@ namespace Models.Fighting.Skills {
             };
         }
 
+        protected override SkillEffects ComputeEffects(SkillForecast forecast, IRandomizer randomizer) {
+            var healAmount = forecast.Hit.BaseDamage;
+            return new SkillEffects(
+                new List<IEffect> {
+                    new Damage(healAmount)
+                }
+            );
+        }
+
         protected override ICombatBuffProvider GetBuffProvider(ICombatant attacker) {
             return attacker.EquippedWeapons.First(weapon => weapon.Range == 1);
         }

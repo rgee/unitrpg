@@ -20,6 +20,28 @@ namespace Models.Fighting.Skills {
             
             return new Miss(MissReason.Miss);
         }
+
+        public static WeaponHit GetFinalizedPhysicalDamage(int baseDamage, SkillChances chances, IRandomizer randomizer) {
+            // MISS :<
+            if (!RandomUtils.DidEventHappen(chances.HitChance, randomizer)) {
+                return new Miss(MissReason.Miss);
+            }
+
+            // CRIT :)
+            if (RandomUtils.DidEventHappen(chances.CritChance, randomizer)) {
+                return new WeaponHit(baseDamage * 2);
+            }
+
+
+            // GLANCE :(
+            if (RandomUtils.DidEventHappen(chances.GlanceChance, randomizer)) {
+                return new WeaponHit(baseDamage / 2);
+            }
+
+
+            // BASE :|
+            return new WeaponHit(baseDamage);
+        }
         
         public static int ComputeMeleeDamage(ICombatant attacker, ICombatant defender) {
             var strength = attacker.GetAttribute(Attribute.AttributeType.Strength);

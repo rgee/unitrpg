@@ -36,6 +36,21 @@ namespace Models.Fighting.Skills {
             };
         }
 
+        protected override SkillEffects ComputeEffects(SkillForecast forecast, IRandomizer randomizer) {
+            var defender = forecast.Defender;
+            var parryChance = defender.GetStat(StatType.ProjectileParryChance);
+            var didParry = RandomUtils.DidEventHappen(parryChance.Value, randomizer);
+            if (didParry) {
+                return new SkillEffects(
+                    new List<IEffect> { new Miss(MissReason.Parry) }
+                );
+            }
+
+            var baseDamage = forecast.Hit.BaseDamage;
+            var hit = DamageUtils.GetFinalizedPhysicalDamage(baseDamage, forecast.Chances, randomizer);
+            return new SkillEffects(new List<IEffect>() { hit });
+        }
+
         protected override ICombatBuffProvider GetBuffProvider(ICombatant attacker) {
             return attacker.EquippedWeapons.First(weapon => weapon.Range >= 1);
         }
