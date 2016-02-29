@@ -2,6 +2,7 @@
     public interface ISkillStrategy {
         SkillForecast Forecast(ICombatant attacker, ICombatant defender);
         SkillEffects Compute(ICombatant attacker, ICombatant defener, IRandomizer randomizer);
+        SkillEffects FinalizeForecast(SkillForecast forecast, IRandomizer randomizer);
         SkillType Type { get; }
         bool SupportsFlanking { get; }
         bool SupportsDoubleAttack { get; }
