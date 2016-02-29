@@ -1,0 +1,23 @@
+﻿using System.Collections.Generic;
+
+namespace Models.Fighting.Execution {
+    public class FightExecutor {
+        public void Execute(FinalizedFight fight) {
+            var phases = new List<FightPhase>() {
+                fight.InitialPhase,
+                fight.InitialPhase,
+                fight.CounterPhase,
+                fight.DoubleAttackPhase
+            };
+            phases.RemoveAll(phase => phase == null);
+
+            phases.ForEach(phase => {
+                var receiver = phase.Receiver;
+                var effects = phase.Effects.ReceiverEffects;
+                effects.ForEach(effect => {
+                    effect.Apply(receiver);
+                });
+            });
+        } 
+    }
+}
