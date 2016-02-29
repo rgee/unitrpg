@@ -25,7 +25,7 @@ namespace Models.Fighting.Execution {
         /// <summary>
         /// The thing(s) that happen(s) to the receiver after this fight phase.
         /// </summary>
-        public List<IEffect> Effects { get; set; }
+        public SkillEffects Effects { get; set; }
 
         /// <summary>
         /// The skill that was used by the initiator.
