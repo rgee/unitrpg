@@ -1,8 +1,15 @@
 ﻿using System.Linq;
+using Models.Fighting.Maps;
 using Models.Fighting.Skills;
 
 namespace Models.Fighting.Execution {
     public class FightForecaster {
+        private readonly IMap _map;
+
+        public FightForecaster(IMap map) {
+            _map = map;
+        }
+
         public FightForecast Forecast(ICombatant attacker, ICombatant defender, SkillType type) {
             var strategy = SkillDatabase.Instance.GetStrategyByType(type);
             var firstSkill = strategy.Forecast(attacker, defender);
@@ -12,8 +19,7 @@ namespace Models.Fighting.Execution {
                 var flankerPosition = MathUtils.GetPositionAcrossFight(attacker.Position);
                 var flankerDistance = MathUtils.ManhattanDistance(defender.Position, flankerPosition);
 
-                // TODO: Convert to ICombatant
-                var flanker = null as ICombatant; //_map.GetUnitByPosition(flankerPosition);
+                var flanker = _map.GetAtPosition(flankerPosition);
                 if (flanker != null) {
                     var flankerStrategy = ChooseStrategyByDistance(flanker, flankerDistance);
                     flankForecast = flankerStrategy.Forecast(flanker, defender);
