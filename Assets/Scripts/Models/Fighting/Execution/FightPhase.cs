@@ -6,7 +6,7 @@ namespace Models.Fighting.Execution {
     /// The effects of a single phase of a fight. 
     /// e.g. in a fight where there is one attack, and one counterattack, there are two phases.
     /// </summary>
-    public class ComputedFightPhase {
+    public class FightPhase {
         /// <summary>
         /// The combatant who acts during this phase.
         /// </summary>
