@@ -52,7 +52,17 @@ namespace Models.Fighting.Execution {
         }
 
         private FightPhase ComputePhase(SkillForecast skillForecast, IRandomizer randomizer) {
-            return null;
+            var initiator = skillForecast.Attacker;
+            var receiver = skillForecast.Defender;
+            var skill = SkillDatabase.Instance.GetStrategyByType(skillForecast.Type);
+
+            return new FightPhase {
+                Initiator = initiator,
+                Receiver = receiver,
+                Response = DefenderResponse.GetHit, // TODO: Skill strategy responsible for this?
+                Effects = skill.Compute(initiator, receiver, randomizer),
+                Skill = skillForecast.Type
+            };
         }
     }
 }
