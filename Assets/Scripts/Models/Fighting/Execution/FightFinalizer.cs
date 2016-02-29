@@ -60,7 +60,7 @@ namespace Models.Fighting.Execution {
                 Initiator = initiator,
                 Receiver = receiver,
                 Response = DefenderResponse.GetHit, // TODO: Skill strategy responsible for this?
-                Effects = skill.Compute(initiator, receiver, randomizer),
+                Effects = skill.FinalizeForecast(skillForecast, randomizer),
                 Skill = skillForecast.Type
             };
         }
