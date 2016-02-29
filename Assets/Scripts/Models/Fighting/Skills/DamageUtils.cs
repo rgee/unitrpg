@@ -21,6 +21,13 @@ namespace Models.Fighting.Skills {
             return new Miss(MissReason.Miss);
         }
 
+        /// <summary>
+        /// Get the actual melee damage effect after glance, crit, hit and stuff are accounted for.
+        /// </summary>
+        /// <param name="baseDamage">The raw damage</param>
+        /// <param name="chances">The chances for other things to modify it</param>
+        /// <param name="randomizer">A randomizer</param>
+        /// <returns></returns>
         public static WeaponHit GetFinalizedPhysicalDamage(int baseDamage, SkillChances chances, IRandomizer randomizer) {
             // MISS :<
             if (!RandomUtils.DidEventHappen(chances.HitChance, randomizer)) {
