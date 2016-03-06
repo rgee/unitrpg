@@ -8,7 +8,7 @@
         /// <returns></returns>
         public static bool DidEventHappen(int percentChance, IRandomizer randomizer) {
             var roll = randomizer.GetNextRandom();
-            return roll <= percentChance;
+            return roll > (100 - percentChance);
         }
     }
 }

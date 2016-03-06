@@ -28,7 +28,7 @@ namespace Models.Fighting.Skills {
         }
 
         public SkillForecast Forecast(ICombatant attacker, ICombatant defender) {
-            return ComputeBuffedResult(attacker, defender, () => Forecast(attacker, defender));
+            return ComputeBuffedResult(attacker, defender, () => ComputeForecast(attacker, defender));
         }
 
         public SkillEffects Compute(ICombatant attacker, ICombatant defender, IRandomizer randomizer) {

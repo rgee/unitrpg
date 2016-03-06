@@ -1,6 +1,8 @@
 ﻿using Assets.Scripts.Editor;
 using Models.Fighting;
 using Models.Fighting.Characters;
+using Models.Fighting.Execution;
+using Models.Fighting.Maps;
 using Models.Fighting.Skills;
 using NUnit.Framework;
 using UnityEngine;
@@ -41,20 +43,25 @@ namespace Tests {
             attacker.Position = new Vector2(0, 1);
             defender.Position = new Vector2(0, 0);
 
-            var simulator = new FightSimulator(new ConstantRandomizer(100));
+            var map = new Map();
+            map.AddCombatant(attacker);
+            map.AddCombatant(defender);
 
-            var result = simulator.Simulate(attacker, defender, new MeleeAttack());
-            var init = result.Initial;
-            Assert.NotNull(init);
+            var forecaster = new FightForecaster(map);
+            var forecast = forecaster.Forecast(attacker, defender, SkillType.Melee);
+            var finalizer = new FightFinalizer();
 
-            var dmg = init.GetDefenderDamage();
-            Assert.AreEqual(5, dmg);
+            var final = finalizer.Finalize(forecast, new ConstantRandomizer(100));
+            var initialPhase = final.InitialPhase;
+            Assert.NotNull(initialPhase);
 
-            var counter = result.Counter;
-            Assert.NotNull(counter);
+            var initialDamage = initialPhase.Effects.GetDefenderDamage();
+            Assert.AreEqual(5, initialDamage);
+            var counterPhase = final.CounterPhase;
+            Assert.NotNull(counterPhase);
 
-            var counterDmg = counter.GetDefenderDamage();
-            Assert.AreEqual(1, counterDmg);
+            var counterDamage = counterPhase.Effects.GetDefenderDamage();
+            Assert.AreEqual(1, counterDamage);
         }
 
         [Test]
@@ -95,18 +102,30 @@ namespace Tests {
             attacker.Position = new Vector2(0, 0);
             defender.Position = new Vector2(0, 2);
 
-            var simulator = new FightSimulator(new ConstantRandomizer(100));
+            var map = new Map();
+            map.AddCombatant(attacker);
+            map.AddCombatant(defender);
 
-            var result = simulator.Simulate(attacker, defender, new ProjectileAttack());
-            var init = result.Initial;
-            Assert.NotNull(init);
+            var forecaster = new FightForecaster(map);
+            var forecast = forecaster.Forecast(attacker, defender, SkillType.Ranged);
 
-            var dmg = init.GetDefenderDamage();
-            Assert.AreEqual(5, dmg);
+            var finalizer = new FightFinalizer();
+            var final = finalizer.Finalize(forecast, new ConstantRandomizer(100));
 
-            var counter = result.Counter;
-            Assert.NotNull(counter);
-            Assert.AreEqual(5, counter.GetDefenderDamage());
+            var initialPhase = final.InitialPhase;
+            Assert.NotNull(initialPhase);
+
+            var initialEffects = initialPhase.Effects;
+            Assert.AreEqual(5, initialEffects.GetDefenderDamage());
+
+            var counterPhase = final.CounterPhase;
+            Assert.NotNull(counterPhase);
+
+            var counterEffects = counterPhase.Effects;
+            Assert.AreEqual(5, counterEffects.GetDefenderDamage());
+
+            Assert.Null(final.DoubleAttackPhase);
+            Assert.Null(final.FlankerPhase);
         }
 
         [Test]
@@ -144,17 +163,23 @@ namespace Tests {
             attacker.Position = new Vector2(0, 0);
             defender.Position = new Vector2(0, 2);
 
-            var simulator = new FightSimulator(new ConstantRandomizer(100));
+            var map = new Map();
+            map.AddCombatant(attacker);
+            map.AddCombatant(defender);
 
-            var result = simulator.Simulate(attacker, defender, new ProjectileAttack());
-            var init = result.Initial;
-            Assert.NotNull(init);
+            var forecaster = new FightForecaster(map);
+            var forecast = forecaster.Forecast(attacker, defender, SkillType.Ranged);
+            var finalizer = new FightFinalizer();
+            var final = finalizer.Finalize(forecast, new ConstantRandomizer(100));
 
-            var dmg = init.GetDefenderDamage();
+            var initialPhase = final.InitialPhase;
+            Assert.NotNull(initialPhase);
+
+            var dmg = initialPhase.Effects.GetDefenderDamage();
             Assert.AreEqual(5, dmg);
 
-            var counter = result.Counter;
-            Assert.IsNull(counter);
+            Assert.IsNull(final.CounterPhase);
+            Assert.IsNull(final.FlankerPhase);
         }
 
         [Test]
@@ -193,13 +218,16 @@ namespace Tests {
             attacker.Position = new Vector2(0, 0);
             defender.Position = new Vector2(0, 1);
 
-            var simulator = new FightSimulator(new ConstantRandomizer(100));
-            var result = simulator.Simulate(attacker, defender, new MeleeAttack());
+            var map = new Map();
+            var forecaster = new FightForecaster(map);
+            var forecast = forecaster.Forecast(attacker, defender, SkillType.Melee);
+            var finalizer = new FightFinalizer();
+            var final = finalizer.Finalize(forecast, new ConstantRandomizer(100));
 
-            Assert.IsTrue(result.DefenderDies);
-            Assert.IsFalse(result.AttackerDies);
-            Assert.IsNotNull(result.Counter);
-            Assert.IsNotNull(result.Double);
+            Assert.NotNull(final.InitialPhase);
+            Assert.NotNull(final.CounterPhase);
+            Assert.NotNull(final.DoubleAttackPhase);
+            Assert.Null(final.FlankerPhase);
         }
 
         [Test]
@@ -235,15 +263,17 @@ namespace Tests {
             var attacker = new BaseCombatant(attackerCharacter);
             var defender = new BaseCombatant(defenderCharacter);
 
-            attacker.Position = new Vector2(0, 0);
-            defender.Position = new Vector2(0, 1);
 
-            var simulator = new FightSimulator(new ConstantRandomizer(100));
-            var result = simulator.Simulate(attacker, defender, new MeleeAttack());
+            var map = new Map();
+            var forecaster = new FightForecaster(map);
+            var forecast = forecaster.Forecast(attacker, defender, SkillType.Melee);
+            var finalizer = new FightFinalizer();
+            var final = finalizer.Finalize(forecast, new ConstantRandomizer(100));
 
-            Assert.IsTrue(result.DefenderDies);
-            Assert.IsFalse(result.AttackerDies);
-            Assert.IsNull(result.Counter);
+            Assert.NotNull(final.InitialPhase);
+            Assert.Null(final.CounterPhase);
+            Assert.Null(final.DoubleAttackPhase);
+            Assert.Null(final.FlankerPhase);
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions.Comparers;
 
 public static class MathUtils {
     public enum CardinalDirection {
@@ -33,7 +34,7 @@ public static class MathUtils {
     }
 
     public static Vector2 GetPositionAcrossFight(Vector2 attackerPosition) {
-        return attackerPosition;
+        return new Vector2(1000, 1000);
     }
 
     public static CardinalDirection GetOpposite(this CardinalDirection dir) {
