@@ -12,6 +12,7 @@ namespace Models.Fighting.Battle {
         public void Perform(Turn turn) {
             var item = ItemDatabase.Instance.GetItemById(_itemId);
             item.Use(_user);
+            turn.MarkAction(_user);
         }
     }
 }
