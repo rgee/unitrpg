@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Models.Fighting.Buffs;
+using Models.Fighting.Characters;
 using Models.Fighting.Equip;
 using UnityEngine;
 
@@ -18,5 +19,6 @@ namespace Models.Fighting {
         HashSet<Weapon> EquippedWeapons { get; } 
         void AddTemporaryBuff(IBuff temporaryBuff);
         void RemoveTemporaryBuff(IBuff temporaryBuff);
+        ArmyType Army { get; set; }
     }
 }

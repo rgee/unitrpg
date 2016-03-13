@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Models.Fighting.Characters;
 using Models.Fighting.Execution;
 using Models.Fighting.Maps;
 using Models.Fighting.Skills;

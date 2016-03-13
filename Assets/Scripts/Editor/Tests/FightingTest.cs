@@ -37,8 +37,8 @@ namespace Tests {
                 .Weapons("Shortsword")
                 .Build();
 
-            var attacker = new BaseCombatant(attackerCharacter);
-            var defender = new BaseCombatant(defenderCharacter);
+            var attacker = new BaseCombatant(attackerCharacter, ArmyType.Friendly);
+            var defender = new BaseCombatant(defenderCharacter, ArmyType.Friendly);
 
             attacker.Position = new Vector2(0, 1);
             defender.Position = new Vector2(0, 0);
@@ -96,8 +96,8 @@ namespace Tests {
                 .Weapons("Slim Recurve")
                 .Build();
 
-            var attacker = new BaseCombatant(attackerCharacter);
-            var defender = new BaseCombatant(defenderCharacter);
+            var attacker = new BaseCombatant(attackerCharacter, ArmyType.Friendly);
+            var defender = new BaseCombatant(defenderCharacter, ArmyType.Friendly);
 
             attacker.Position = new Vector2(0, 0);
             defender.Position = new Vector2(0, 2);
@@ -157,8 +157,8 @@ namespace Tests {
                 .Weapons("Shortsword")
                 .Build();
 
-            var attacker = new BaseCombatant(attackerCharacter);
-            var defender = new BaseCombatant(defenderCharacter);
+            var attacker = new BaseCombatant(attackerCharacter, ArmyType.Friendly);
+            var defender = new BaseCombatant(defenderCharacter, ArmyType.Friendly);
 
             attacker.Position = new Vector2(0, 0);
             defender.Position = new Vector2(0, 2);
@@ -212,8 +212,8 @@ namespace Tests {
                 .Weapons("Shortsword")
                 .Build();
 
-            var attacker = new BaseCombatant(attackerCharacter);
-            var defender = new BaseCombatant(defenderCharacter);
+            var attacker = new BaseCombatant(attackerCharacter, ArmyType.Friendly);
+            var defender = new BaseCombatant(defenderCharacter, ArmyType.Friendly);
 
             attacker.Position = new Vector2(0, 0);
             defender.Position = new Vector2(0, 1);
@@ -260,9 +260,8 @@ namespace Tests {
                 .Weapons("Shortsword")
                 .Build();
 
-            var attacker = new BaseCombatant(attackerCharacter);
-            var defender = new BaseCombatant(defenderCharacter);
-
+            var attacker = new BaseCombatant(attackerCharacter, ArmyType.Friendly);
+            var defender = new BaseCombatant(defenderCharacter, ArmyType.Friendly);
 
             var map = new Map();
             var forecaster = new FightForecaster(map);

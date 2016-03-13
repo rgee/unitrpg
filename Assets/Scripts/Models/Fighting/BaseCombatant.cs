@@ -24,11 +24,14 @@ namespace Models.Fighting {
 
         public HashSet<Weapon> EquippedWeapons { get; private set; }
 
+        public ArmyType Army { get; set; }
+
         private readonly ICharacter _character;
 
-        public BaseCombatant(ICharacter character) {
+        public BaseCombatant(ICharacter character, ArmyType army) {
             Buffs = new List<IBuff>();
             _character = character;
+            Army = army;
 
             Health = character.Attributes.First(attr => attr.Type == Attribute.AttributeType.Health).Value;
             EquippedWeapons = character.Weapons

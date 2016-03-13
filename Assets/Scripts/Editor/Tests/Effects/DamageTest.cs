@@ -17,7 +17,7 @@ namespace Tests.Effects {
                         .Defense(0)
                     .Build())
                 .Build();
-            var fuckingBarrel = new BaseCombatant(barrelCharacter);
+            var fuckingBarrel = new BaseCombatant(barrelCharacter, ArmyType.Other);
             var damage = new Damage(100);
 
             damage.Apply(fuckingBarrel);

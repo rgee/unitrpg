@@ -22,7 +22,8 @@ namespace Models.Fighting.Characters {
         public HashSet<SkillType> Skills { get; set; }
 
         public BaseCharacter(string id, string name, int level, int experience,
-            HashSet<string> inventory, HashSet<Attribute> attributes, HashSet<Growth> growths, HashSet<Stat> stats, HashSet<string> weapons, HashSet<SkillType> skills) {
+            HashSet<string> inventory, HashSet<Attribute> attributes, HashSet<Growth> growths, 
+            HashSet<Stat> stats, HashSet<string> weapons, HashSet<SkillType> skills) {
             Id = id;
             Level = level;
             Name = name;

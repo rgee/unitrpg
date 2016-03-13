@@ -33,5 +33,6 @@ namespace Models.Fighting.Characters {
         HashSet<SkillType> Skills { get; set; } 
 
         HashSet<string> Inventory { get; set; } 
+
     }
 }
