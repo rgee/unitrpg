@@ -12,6 +12,10 @@ namespace Models.Fighting.Battle {
             public ArmyType Army { get; set; }
         }
 
+        public List<ICombatant> GetAllCombatants() {
+            return _combatants.SelectMany(group => group).ToList();
+        }
+
         public CombatantDatabase(IEnumerable<CombatantReference> combatantReferences, ISaveGameRepository saveRepository) {
             var saveGame = saveRepository.CurrentSave;
 

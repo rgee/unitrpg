@@ -22,6 +22,10 @@ namespace Models.Fighting.Battle {
             _finalizer = new FightFinalizer();
             _turnOrder = turnOrder;
 
+            foreach (var combatant in combatants.GetAllCombatants()) {
+                map.AddCombatant(combatant);
+            }
+
             var firstArmy = _turnOrder[0];
             var firstCombatants = _combatants.GetCombatantsByArmy(firstArmy);
             _currentTurn = new Turn(firstCombatants);
