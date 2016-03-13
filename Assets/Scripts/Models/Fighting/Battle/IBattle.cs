@@ -5,6 +5,8 @@ namespace Models.Fighting.Battle {
     public interface IBattle {
         void SubmitAction(ICombatAction action);
 
+        void EndTurn();
+
         FightForecast ForecastFight(ICombatant attacker, ICombatant defender, SkillType type);
         FinalizedFight FinalizeFight(FightForecast forecast);
     }
