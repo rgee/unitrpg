@@ -2,6 +2,7 @@
 using System.Linq;
 using Models.Fighting.Characters;
 using Models.SaveGames;
+using UnityEngine;
 
 namespace Models.Fighting.Battle {
     public class CombatantDatabase : ICombatantDatabase {
@@ -9,6 +10,7 @@ namespace Models.Fighting.Battle {
 
         public class CombatantReference {
             public string Name { get; set; }
+            public Vector2 Position { get; set; }
             public ArmyType Army { get; set; }
         }
 
@@ -27,12 +29,17 @@ namespace Models.Fighting.Battle {
         }
 
         private static BaseCombatant LoadCombatantFromReference(ISaveGame saveGame, CombatantReference reference) {
-            var character = saveGame.GetCharacterByName(reference.Name);
-            if (character == null) {
-                character = BaseCharacterDatabase.Instance.GetCharacter(reference.Name);
+            var character = BaseCharacterDatabase.Instance.GetCharacter(reference.Name);
+            if (saveGame != null) {
+                var savedCharacter = saveGame.GetCharacterByName(reference.Name);
+                if (savedCharacter == null) {
+                    character = savedCharacter;
+                }
             }
 
-            return new BaseCombatant(character, reference.Army);
+            var result = new BaseCombatant(character, reference.Army);
+            result.Position = reference.Position;
+            return result;
         }
 
         public List<ICombatant> GetCombatantsByArmy(ArmyType army) {

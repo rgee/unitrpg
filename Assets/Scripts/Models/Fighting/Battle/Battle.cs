@@ -32,9 +32,15 @@ namespace Models.Fighting.Battle {
         }
 
         public void EndTurn() {
-            var armyIndex = _turnNumber % _turnOrder.Count;
-            var army = _turnOrder[armyIndex];
-            var combatants = _combatants.GetCombatantsByArmy(army);
+            var combatants = new List<ICombatant>();
+            var turnCount = _turnNumber;
+            while (combatants.Count <= 0) {
+                var armyIndex = turnCount % _turnOrder.Count;
+                var army = _turnOrder[armyIndex];
+                combatants = _combatants.GetCombatantsByArmy(army);
+                turnCount++;
+            }
+
             _currentTurn = new Turn(combatants);
         }
 
