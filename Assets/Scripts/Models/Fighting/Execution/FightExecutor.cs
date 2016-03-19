@@ -5,7 +5,7 @@ namespace Models.Fighting.Execution {
         public void Execute(FinalizedFight fight) {
             var phases = new List<FightPhase>() {
                 fight.InitialPhase,
-                fight.InitialPhase,
+                fight.FlankerPhase,
                 fight.CounterPhase,
                 fight.DoubleAttackPhase
             };

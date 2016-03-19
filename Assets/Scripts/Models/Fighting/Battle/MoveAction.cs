@@ -24,7 +24,7 @@ namespace Models.Fighting.Battle {
 
 
         public bool IsValid(Turn turn) {
-            return turn.GetRemainingMoveDistance(_combatant) <= _pathLength;
+            return turn.GetRemainingMoveDistance(_combatant) >= _pathLength;
         }
 
         public void Perform(Turn turn) {

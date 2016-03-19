@@ -8,6 +8,12 @@ namespace Models.Fighting.Battle {
         private readonly ICombatant _defender;
         private readonly FinalizedFight _fight;
 
+        public FightAction(ICombatant attacker, ICombatant defender, FinalizedFight fight) {
+            _attacker = attacker;
+            _defender = defender;
+            _fight = fight;
+        }
+
         public bool IsValid(Turn turn) {
             return turn.CanAct(_attacker);
         }

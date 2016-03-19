@@ -52,6 +52,15 @@ namespace Models.Fighting.Battle {
             action.Perform(_currentTurn);
         }
 
+
+        public bool CanMove(ICombatant combatant) {
+            return _currentTurn.CanMove(combatant);
+        }
+
+        public bool CanAct(ICombatant combatant) {
+            return _currentTurn.CanAct(combatant);
+        }
+
         public FightForecast ForecastFight(ICombatant attacker, ICombatant defender, SkillType type) {
             return _forecaster.Forecast(attacker, defender, type);
         }

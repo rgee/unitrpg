@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Models.Fighting.Buffs;
 
 namespace Models.Fighting.Equip {
@@ -42,9 +43,18 @@ namespace Models.Fighting.Equip {
                 .InitiatorPreBuffs(new ScaleDamageBuff(0.8f, "dracian_hero_bow_damage"),
                                    new LeadershipRangeBuff(1, "dracian_hero_bow_leadership"))
                 .Build());
+
+            Add(Weapon.Builder()
+                .Name("Chained Mace")
+                .Description("Anya's Brain")
+                .Range(1)
+                .Build());
         }
 
         public Weapon GetByName(string name) {
+            if (!_weapons.ContainsKey(name)) {
+                throw new ArgumentException("Invalid weapon: " + name);
+            }
             return _weapons[name];
         }
 

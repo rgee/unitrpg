@@ -7,6 +7,10 @@ namespace Models.Fighting.Battle {
 
         void EndTurn();
 
+        bool CanMove(ICombatant combatant);
+
+        bool CanAct(ICombatant combatant);
+
         FightForecast ForecastFight(ICombatant attacker, ICombatant defender, SkillType type);
         FinalizedFight FinalizeFight(FightForecast forecast);
     }

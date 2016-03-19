@@ -18,7 +18,7 @@ namespace Models.Fighting.Battle {
         }
 
         public void MarkAction(ICombatant combatant) {
-            _actionTaken[combatant.Id] = false;
+            _actionTaken[combatant.Id] = true;
         }
 
         public int GetRemainingMoveDistance(ICombatant combatant) {
