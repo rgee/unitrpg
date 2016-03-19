@@ -4,6 +4,11 @@ namespace Models.Fighting.Characters {
     public class AttributesBuilder {
         private readonly HashSet<Attribute> _attrs = new HashSet<Attribute>();
 
+        public AttributesBuilder Move(int val) {
+            AddAttribute(Attribute.AttributeType.Move, val);
+            return this;
+        }
+
         public AttributesBuilder Health(int val) {
             AddAttribute(Attribute.AttributeType.Health, val);
             return this;
