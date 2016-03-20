@@ -24,7 +24,7 @@ namespace Tests.Battle {
         }
 
         [Test]
-        public void TestBattleSetup() {
+        public void TestSingleFight() {
             var map = new Map();
             var random = new BasicRandomizer();
             var turnOrder = new List<ArmyType> {ArmyType.Friendly, ArmyType.Enemy, ArmyType.Other};
@@ -68,6 +68,80 @@ namespace Tests.Battle {
 
             Assert.IsTrue(battle.CanMove(liat));
             Assert.IsFalse(battle.CanAct(liat));
+        }
+
+        [Test]
+        public void TestKill() {
+            var map = new Map();
+            var random = new BasicRandomizer();
+            var turnOrder = new List<ArmyType> {ArmyType.Friendly, ArmyType.Enemy, ArmyType.Other};
+            var references = new List<CombatantDatabase.CombatantReference> {
+                new CombatantDatabase.CombatantReference {
+                    Position = new Vector2(),
+                    Name = "Liat",
+                    Army = ArmyType.Friendly
+                },
+                new CombatantDatabase.CombatantReference {
+                    Position = new Vector2(1, 0),
+                    Name = "Janek",
+                    Army = ArmyType.Enemy
+                }
+            };
+
+            var liatStats = new CharacterBuilder()
+                .Id("Liat")
+                .Name("Liat")
+                .Attributes(new AttributesBuilder()
+                    .Health(15)
+                    .Move(6)
+                    .Skill(99)
+                    .Defense(2)
+                    .Special(0)
+                    .Speed(13)
+                    .Strength(70)
+                .Build())
+                .Stats(new StatsBuilder()
+                    .ParryChance(0)
+                .Build())
+                .Weapons("Campaign Backblade", "Slim Recurve")
+                .Build();
+
+            var janekStats = new CharacterBuilder()
+                .Id("Janek")
+                .Name("Janek")
+                .Attributes(new AttributesBuilder()
+                    .Health(1)
+                    .Skill(12)
+                    .Move(6)
+                    .Defense(2)
+                    .Special(0)
+                    .Speed(13)
+                    .Strength(7)
+                .Build())
+                .Stats(new StatsBuilder()
+                    .ParryChance(0)
+                .Build())
+                .Weapons("Chained Mace")
+                .Build();
+
+            var saveGame = new DefaultSaveGame(new List<ICharacter> { liatStats, janekStats });
+            var saveGameRepo = new EmptySaveGameRepository { CurrentSave = saveGame };
+
+            var database = new CombatantDatabase(references, saveGameRepo);
+            var battle = new Models.Fighting.Battle.Battle(map, random, database, turnOrder);
+
+            var liat = database.GetCombatantsByArmy(ArmyType.Friendly)[0];
+            var janek = database.GetCombatantsByArmy(ArmyType.Enemy)[0];
+
+            var forecast = battle.ForecastFight(liat, janek, SkillType.Melee);
+            var finalizedFight = battle.FinalizeFight(forecast);
+
+            Assert.IsNull(finalizedFight.CounterPhase);
+
+            var fightAction = new FightAction(liat, janek, finalizedFight);
+            battle.SubmitAction(fightAction);
+
+            Assert.IsFalse(janek.IsAlive);
         }
     }
 }

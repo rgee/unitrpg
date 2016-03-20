@@ -32,7 +32,7 @@ namespace Models.Fighting.Battle {
             var character = BaseCharacterDatabase.Instance.GetCharacter(reference.Name);
             if (saveGame != null) {
                 var savedCharacter = saveGame.GetCharacterByName(reference.Name);
-                if (savedCharacter == null) {
+                if (savedCharacter != null) {
                     character = savedCharacter;
                 }
             }
