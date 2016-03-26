@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Models.Fighting.Buffs;
 using Models.Fighting.Characters;
 using Models.Fighting.Equip;
@@ -10,6 +11,7 @@ namespace Models.Fighting {
         int Health { get; }
         void TakeDamage(int amount);
         bool IsAlive { get; }
+        string Name { get; }
         Vector2 Position { get; set; }
         Attribute GetAttribute(Attribute.AttributeType type);
         Stat GetStat(StatType type);

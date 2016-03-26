@@ -17,6 +17,8 @@ namespace Models.Fighting {
         public bool IsAlive {
             get { return Health > 0; }
         }
+
+        public string Name { get; set; }
         
         public List<IBuff> Buffs { get; private set; }
 
@@ -33,6 +35,7 @@ namespace Models.Fighting {
             Id = Guid.NewGuid().ToString();
             _character = character;
             Army = army;
+            Name = character.Name;
 
             Health = character.Attributes.First(attr => attr.Type == Attribute.AttributeType.Health).Value;
             EquippedWeapons = character.Weapons

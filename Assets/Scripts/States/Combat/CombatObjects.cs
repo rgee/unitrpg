@@ -12,7 +12,11 @@ public static class CombatObjects {
     }
 
     public static MapGrid GetMap() {
-        return GameObject.FindGameObjectWithTag("Map").GetComponent<MapGrid>();
+        var map = GameObject.FindGameObjectWithTag("Map");
+        if (map != null) {
+            return map.GetComponent<MapGrid>();
+        }
+        return null;
     }
 
     public static Objective GetObjective() {
@@ -28,7 +32,6 @@ public static class CombatObjects {
         if (battleManager != null) {
             return battleManager.GetComponent<BattleState>();
         }
-
         return null;
     }
 

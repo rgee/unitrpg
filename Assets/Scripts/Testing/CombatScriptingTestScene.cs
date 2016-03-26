@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using Combat;
+using Grid;
 using Models.Fighting;
 using Models.Fighting.Characters;
 using Models.Fighting.Execution;
@@ -10,6 +11,7 @@ namespace Assets.Testing {
     public class CombatScriptingTestScene : MonoBehaviour {
         private FightPhase _firstPhase;
         private FightPhaseAnimator _phaseAnimator;
+        private UnitManager _unitManager;
 
         void Awake() {
             var liatStats = new CharacterBuilder()
@@ -32,7 +34,7 @@ namespace Assets.Testing {
 
             var gatsuStats = new CharacterBuilder()
                 .Id("Gatsu")
-                .Name("Gatsu")
+                .Name("Soldier")
                 .Attributes(new AttributesBuilder()
                     .Health(1)
                     .Skill(12)
@@ -55,15 +57,25 @@ namespace Assets.Testing {
             _firstPhase = new FightPhase();
             _firstPhase.Initiator = liat;
             _firstPhase.Receiver = gatsu;
-            _firstPhase.Response = DefenderResponse.GetHit;
+            _firstPhase.Response = DefenderResponse.Dodge;
             _firstPhase.Skill = SkillType.Melee;
 
             _phaseAnimator = GetComponent<FightPhaseAnimator>();
+            _unitManager = CombatObjects.GetUnitManager();
             StartCoroutine(RunTest());
         }
 
         IEnumerator RunTest() {
             yield return new WaitForSeconds(2);
+
+            var liat = _unitManager.GetUnitByName("Liat");
+            liat.InCombat = true;
+            liat.Facing = MathUtils.CardinalDirection.E;
+
+            var gatsu = _unitManager.GetUnitByName("Soldier");
+            gatsu.InCombat = true;
+            gatsu.Facing = MathUtils.CardinalDirection.W;
+
             yield return StartCoroutine(_phaseAnimator.Animate(_firstPhase));
         }
     }

@@ -19,6 +19,11 @@ namespace Grid {
         public GameObject SelectedUnit { get; private set; }
         public event UnitClickedEventHandler OnUnitClick;
 
+        public Unit GetUnitByName(string unitName) {
+            return unitGameObjects.Select(unit => unit.GetComponent<Unit>())
+                .FirstOrDefault(unitComponent => unitComponent.model.Character.Name == unitName);
+        }
+
         public Unit GetUnitByPosition(Vector2 pos) {
             if (!unitsByPosition.ContainsKey(pos)) {
                 return null;
