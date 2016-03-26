@@ -24,7 +24,12 @@ public static class CombatObjects {
     }
 
     public static BattleState GetBattleState() {
-        return GameObject.Find("BattleManager").GetComponent<BattleState>();
+        var battleManager = GameObject.Find("BattleManager");
+        if (battleManager != null) {
+            return battleManager.GetComponent<BattleState>();
+        }
+
+        return null;
     }
 
     public static UnitManager GetUnitManager() {
