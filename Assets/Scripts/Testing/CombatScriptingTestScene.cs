@@ -10,6 +10,7 @@ using UnityEngine;
 namespace Assets.Testing {
     public class CombatScriptingTestScene : MonoBehaviour {
         private FightPhase _firstPhase;
+        private FightPhase _flankPhase;
         private FightPhaseAnimator _phaseAnimator;
         private UnitManager _unitManager;
 
@@ -50,15 +51,39 @@ namespace Assets.Testing {
                 .Weapons("Chained Mace")
                 .Build();
 
+            var maelleStats = new CharacterBuilder()
+                .Id("maelle")
+                .Name("Maelle")
+                .Attributes(new AttributesBuilder()
+                    .Move(5)
+                    .Health(15)
+                    .Skill(12)
+                    .Defense(2)
+                    .Special(0)
+                    .Speed(13)
+                    .Strength(7)
+                .Build())
+                .Weapons("Shortsword")
+                .Build();
+
             var liat = new BaseCombatant(liatStats, ArmyType.Friendly);
             var gatsu = new BaseCombatant(gatsuStats, ArmyType.Friendly);
+            var maelle = new BaseCombatant(maelleStats, ArmyType.Friendly);
 
 
-            _firstPhase = new FightPhase();
-            _firstPhase.Initiator = liat;
-            _firstPhase.Receiver = gatsu;
-            _firstPhase.Response = DefenderResponse.Dodge;
-            _firstPhase.Skill = SkillType.Melee;
+            _firstPhase = new FightPhase {
+                Initiator = liat,
+                Receiver = gatsu,
+                Response = DefenderResponse.Dodge,
+                Skill = SkillType.Melee
+            };
+
+            _flankPhase = new FightPhase {
+                Initiator = maelle,
+                Receiver = gatsu,
+                Response = DefenderResponse.GetHit,
+                Skill = SkillType.Melee
+            };
 
             _phaseAnimator = GetComponent<FightPhaseAnimator>();
             _unitManager = CombatObjects.GetUnitManager();
@@ -76,7 +101,13 @@ namespace Assets.Testing {
             gatsu.InCombat = true;
             gatsu.Facing = MathUtils.CardinalDirection.W;
 
+            var maelle = _unitManager.GetUnitByName("Maelle");
+            maelle.InCombat = true;
+            maelle.Facing = MathUtils.CardinalDirection.W;
+
             yield return StartCoroutine(_phaseAnimator.Animate(_firstPhase));
+            yield return new WaitForSeconds(.7f);
+            yield return StartCoroutine(_phaseAnimator.Animate(_flankPhase));
         }
     }
 }
