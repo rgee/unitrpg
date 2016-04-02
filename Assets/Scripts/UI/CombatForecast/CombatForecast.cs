@@ -29,6 +29,12 @@ namespace UI.CombatForecast {
 
             var defenderHealthText = GetAmount("Health", CombatantParam.Defender).GetComponent<Text>();
             defenderHealthText.text = defenderHealth.ToString();
+
+            var attackerHitCount = GetAmount("HitCount", CombatantParam.Attacker);
+            attackerHitCount.SetActive(forecast.AttackerForecast.Hit.HitCount > 1);
+
+            var defenderHitCount = GetAmount("HitCount", CombatantParam.Defender);
+            defenderHitCount.SetActive(forecast.DefenderForecast.Hit.HitCount > 1);
         }
 
         private void PopulateChances(SkillChances chances, CombatantParam param) {
