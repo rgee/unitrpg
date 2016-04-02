@@ -24,8 +24,9 @@ namespace UI.CombatForecast {
             var forecastWindow = _currentWindow.transform.FindChild("Forecast");
             var canvasGroup = forecastWindow.GetComponent<CanvasGroup>();
             canvasGroup.alpha = 0;
-
             forecastWindow.transform.localPosition = new Vector3(0, -40, 0);
+
+            _currentWindow.GetComponent<CombatForecast>().SetForecast(forecast);
 
             var animSequence = DOTween.Sequence();
 
