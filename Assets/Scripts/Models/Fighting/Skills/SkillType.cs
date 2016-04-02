@@ -6,6 +6,6 @@
         Kinesis,
         Strafe,
         Advance,
-        Overpower
+        Knockback
     }
 }

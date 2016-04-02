@@ -1,7 +1,7 @@
 ﻿using Models.Fighting.Effects;
 
 namespace Models.Fighting.Skills {
-    public class Overpower : MeleeAttack {
+    public class Knockback : MeleeAttack {
         protected override SkillEffects ComputeEffects(SkillForecast forecast, IRandomizer randomizer) {
             var baseEffects = base.ComputeEffects(forecast, randomizer);
 

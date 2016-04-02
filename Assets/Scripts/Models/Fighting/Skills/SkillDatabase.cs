@@ -17,8 +17,9 @@ namespace Models.Fighting.Skills {
                     return new Kinesis();
                 case SkillType.Strafe:
                 case SkillType.Advance:
-                case SkillType.Overpower:
-                    return new Overpower();
+                    return new Advance();
+                case SkillType.Knockback:
+                    return new Knockback();
                 default:
                     throw new ArgumentOutOfRangeException("type", type, null);
             }
