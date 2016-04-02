@@ -6,6 +6,7 @@ using UnityEngine;
 
 namespace UI.CombatForecast {
     public class CombatForecastManager : Singleton<CombatForecastManager> {
+        private const float TransitionTime = 0.7f;
         public event Action OnConfirm;
         public event Action OnReject;
 
@@ -28,10 +29,10 @@ namespace UI.CombatForecast {
 
             _currentWindow.GetComponent<CombatForecast>().SetForecast(forecast);
 
-            var animSequence = DOTween.Sequence();
+            var animSequence = DOTween.Sequence().SetEase(Ease.OutCubic);
 
-            animSequence.Insert(0, canvasGroup.DOFade(1, 0.3f));
-            animSequence.Insert(0, forecastWindow.transform.DOLocalMove(Vector3.zero, 0.3f));
+            animSequence.Insert(0, canvasGroup.DOFade(1, TransitionTime));
+            animSequence.Insert(0, forecastWindow.transform.DOLocalMove(Vector3.zero, TransitionTime));
 
             animSequence.Play();
         }
@@ -41,7 +42,16 @@ namespace UI.CombatForecast {
                 return;
             } 
 
+            var forecastWindow = _currentWindow.transform.FindChild("Forecast");
+            var canvasGroup = forecastWindow.GetComponent<CanvasGroup>();
 
+
+            var animSequence = DOTween.Sequence().SetEase(Ease.OutCubic);
+
+            animSequence.Insert(0, canvasGroup.DOFade(0, TransitionTime));
+            animSequence.Insert(0, forecastWindow.transform.DOLocalMove(new Vector3(0, -40, 0), TransitionTime));
+
+            animSequence.Play();
         }
     }
 }
