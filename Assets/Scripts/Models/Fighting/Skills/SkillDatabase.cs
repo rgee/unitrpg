@@ -18,6 +18,7 @@ namespace Models.Fighting.Skills {
                 case SkillType.Strafe:
                 case SkillType.Advance:
                 case SkillType.Overpower:
+                    return new Overpower();
                 default:
                     throw new ArgumentOutOfRangeException("type", type, null);
             }

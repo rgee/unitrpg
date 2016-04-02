@@ -1,4 +1,5 @@
 ﻿using Combat;
+using Models.Fighting;
 using strange.extensions.signal.impl;
 using UnityEngine;
 
@@ -10,6 +11,8 @@ public static class CombatEventBus {
     public static Signal<Models.Combat.Unit> ModelDeaths = new Signal<Models.Combat.Unit>();
 
     public static Signal<Grid.Unit, Vector2> Moves = new Signal<Grid.Unit, Vector2>();
+
+    public static Signal<ICombatant, Vector2> CombatantMoves = new Signal<ICombatant, Vector2>();
 
     public static Signal<Models.Combat.Unit, Vector2> MoveSignal = new Signal<Models.Combat.Unit, Vector2>();
 

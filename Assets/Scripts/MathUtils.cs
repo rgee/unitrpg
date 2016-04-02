@@ -25,6 +25,21 @@ public static class MathUtils {
         };
     }
 
+    public static Vector2 GetAdjacentPoint(Vector2 point, CardinalDirection direction) {
+        switch (direction) {
+            case CardinalDirection.W:
+                return new Vector2(point.x-1, point.y);
+            case CardinalDirection.E:
+                return new Vector2(point.x-1, point.y);
+            case CardinalDirection.S:
+                return new Vector2(point.x, point.y-1);
+            case CardinalDirection.N:
+                return new Vector2(point.x, point.y+1);
+            default:
+                throw new ArgumentException("Invalid direction.");
+        }
+    }
+
     public static int ManhattanDistance(int x1, int y1, int x2, int y2) {
         return Mathf.Abs(x2 - x1) + Mathf.Abs(y2 - y1);
     }

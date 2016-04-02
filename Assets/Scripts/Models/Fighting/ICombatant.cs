@@ -18,6 +18,7 @@ namespace Models.Fighting {
         List<IBuff> Buffs { get; }
         void AddBuff(IBuff buff);
         void RemoveBuff(string name);
+        void MoveTo(Vector2 destination);
         HashSet<Weapon> EquippedWeapons { get; } 
         void AddTemporaryBuff(IBuff temporaryBuff);
         void RemoveTemporaryBuff(IBuff temporaryBuff);

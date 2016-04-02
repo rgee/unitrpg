@@ -4,7 +4,12 @@ using UnityEngine;
 
 namespace Models.Fighting.Maps {
     public class Map : IMap {
-        private readonly Dictionary<Vector2, ICombatant> _combatantsByPosition = new Dictionary<Vector2, ICombatant>(); 
+        private readonly Dictionary<Vector2, ICombatant> _combatantsByPosition = new Dictionary<Vector2, ICombatant>();
+
+        public Map() {
+            CombatEventBus.CombatantMoves.AddListener(MoveCombatant);
+        }
+
         public void AddCombatant(ICombatant combatant) {
             var position = combatant.Position;
             if (_combatantsByPosition.ContainsKey(position)) {

@@ -47,6 +47,10 @@ namespace Models.Fighting {
             Health = Math.Max(Health - amount, 0);
         }
 
+        public void MoveTo(Vector2 destination) {
+            CombatEventBus.CombatantMoves.Dispatch(this, destination);
+        }
+
         public Attribute GetAttribute(Attribute.AttributeType type) {
             var baseAttr = _character.Attributes.First(attr => attr.Type == type);
             return AttributeUtils.ApplyBuffs(baseAttr, Buffs.Concat(_temporaryBuffs));
