@@ -68,8 +68,14 @@ namespace Grid {
             yield return _sprite.DOFade(1f, 0.7f).WaitForCompletion();
         }
 
+        public IEnumerator FadeToDeath(float time) {
+            yield return _sprite.DOFade(0f, time).WaitForCompletion();
+            CombatEventBus.Deaths.Dispatch(_unit);
+        }
+
         private void HandleHit(tk2dSpriteAnimator animator, tk2dSpriteAnimationClip clip, int frame) {
             if (clip.frames[frame].eventInfo == HIT_EVENT_INFO) {
+                Debug.Log("HIT");
                 _unit.AttackConnected();
             }
         }

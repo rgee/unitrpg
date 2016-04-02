@@ -34,6 +34,7 @@ namespace Grid {
         public bool Killing;
         public Models.Combat.Unit model;
         public bool IsDodging;
+        public Unit CurrentAttackTarget;
         public float timePerMoveSquare = 0.3f;
 
         public event AttackCompletionHandler OnAttackComplete;
@@ -41,7 +42,6 @@ namespace Grid {
         public event Action OnDodgeComplete;
 
         private UnitController Controller;
-        private Unit CurrentAttackTarget;
         private Hit CurrentHit;
         private Seeker seeker;
         private Collider _collider;

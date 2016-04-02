@@ -135,6 +135,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c6ff86f412c8ee48b878c54e1414cb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Advancing: 0
+  AdvancingDestination: {x: 0, y: 0, z: 0}
 --- !u!114 &11452924
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -201,6 +203,7 @@ MonoBehaviour:
     IsFriendly: 1
     Inventory: []
   IsDodging: 0
+  CurrentAttackTarget: {fileID: 0}
   timePerMoveSquare: 0.3
   Attacking: 0
   InCombat: 0

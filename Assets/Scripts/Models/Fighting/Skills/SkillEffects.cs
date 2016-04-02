@@ -14,6 +14,9 @@ namespace Models.Fighting.Skills {
             ReceiverEffects = receiverEffects;
         }
 
+        public SkillEffects() {
+        }
+
         public int GetDefenderDamage() {
             return ReceiverEffects.OfType<Damage>().Sum(dmgEffect => dmgEffect.Amount);
         }
