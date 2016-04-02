@@ -7,6 +7,10 @@ namespace Models.Fighting.Skills {
         public MeleeAttack() : base(SkillType.Melee, true, true) {
         }
 
+        protected MeleeAttack(SkillType type, bool supportsFlanking, bool supportsDoubles) : base(type, supportsFlanking, supportsDoubles) {
+            
+        }
+
         protected override SkillForecast ComputeForecast(ICombatant attacker, ICombatant defender) {
             var hitChance = new HitChance(attacker, defender);
             var critChance = new CritChance(attacker, defender);
@@ -36,7 +40,7 @@ namespace Models.Fighting.Skills {
 
         protected override SkillEffects ComputeEffects(SkillForecast forecast, IRandomizer randomizer) {
             var chances = forecast.Chances;
-            var effects = new List<IEffect>() {
+            var effects = new List<IEffect> {
                 DamageUtils.GetFinalizedPhysicalDamage(forecast.Hit.BaseDamage, chances, randomizer)
             };
 

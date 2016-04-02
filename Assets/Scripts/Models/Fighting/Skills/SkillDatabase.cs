@@ -21,7 +21,7 @@ namespace Models.Fighting.Skills {
                 case SkillType.Knockback:
                     return new Knockback();
                 default:
-                    throw new ArgumentOutOfRangeException("type", type, null);
+                    throw new ArgumentOutOfRangeException("type", type, "Invalid skill type.");
             }
         }
     }

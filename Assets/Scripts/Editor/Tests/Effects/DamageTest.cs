@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Models.Fighting;
+﻿using Models.Fighting;
 using Models.Fighting.Characters;
 using Models.Fighting.Effects;
 using NUnit.Framework;

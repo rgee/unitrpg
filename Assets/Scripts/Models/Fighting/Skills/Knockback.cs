@@ -2,6 +2,9 @@
 
 namespace Models.Fighting.Skills {
     public class Knockback : MeleeAttack {
+        public Knockback() : base(SkillType.Knockback, true, true) {
+        }
+
         protected override SkillEffects ComputeEffects(SkillForecast forecast, IRandomizer randomizer) {
             var baseEffects = base.ComputeEffects(forecast, randomizer);
 

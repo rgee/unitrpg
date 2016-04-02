@@ -8,6 +8,11 @@ namespace Models.Fighting.Maps {
 
         public Map() {
             CombatEventBus.CombatantMoves.AddListener(MoveCombatant);
+            CombatEventBus.CombatantDeaths.AddListener(RemoveCombatant);
+        }
+
+        public void RemoveCombatant(ICombatant combatant) {
+            _combatantsByPosition.Remove(combatant.Position);
         }
 
         public void AddCombatant(ICombatant combatant) {

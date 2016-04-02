@@ -14,6 +14,8 @@ public static class CombatEventBus {
 
     public static Signal<ICombatant, Vector2> CombatantMoves = new Signal<ICombatant, Vector2>();
 
+    public static Signal<ICombatant> CombatantDeaths = new Signal<ICombatant>();
+
     public static Signal<Models.Combat.Unit, Vector2> MoveSignal = new Signal<Models.Combat.Unit, Vector2>();
 
     public static Signal<Models.Combat.Unit> DeathSignal = new Signal<Models.Combat.Unit>();

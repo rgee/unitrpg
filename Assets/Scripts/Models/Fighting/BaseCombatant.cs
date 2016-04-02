@@ -45,6 +45,9 @@ namespace Models.Fighting {
 
         public void TakeDamage(int amount) {
             Health = Math.Max(Health - amount, 0);
+            if (Health == 0) {
+                CombatEventBus.CombatantDeaths.Dispatch(this);
+            }
         }
 
         public void MoveTo(Vector2 destination) {
