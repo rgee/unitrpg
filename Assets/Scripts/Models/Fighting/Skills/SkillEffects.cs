@@ -15,6 +15,7 @@ namespace Models.Fighting.Skills {
         }
 
         public SkillEffects() {
+            ReceiverEffects = new List<IEffect>();
         }
 
         public int GetDefenderDamage() {

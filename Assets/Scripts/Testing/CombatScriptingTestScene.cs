@@ -75,6 +75,7 @@ namespace Assets.Testing {
                 Initiator = liat,
                 Receiver = gatsu,
                 Response = DefenderResponse.Dodge,
+                Effects = new SkillEffects(),
                 Skill = SkillType.Melee
             };
 
@@ -82,6 +83,7 @@ namespace Assets.Testing {
                 Initiator = maelle,
                 Receiver = gatsu,
                 Response = DefenderResponse.GetHit,
+                Effects = new SkillEffects(),
                 Skill = SkillType.Melee
             };
 

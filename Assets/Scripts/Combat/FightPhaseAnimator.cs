@@ -33,6 +33,8 @@ namespace Combat {
                     initUnit.Attacking = true;
                     yield return new WaitForSeconds(0.4f);
                     StartCoroutine(receiverUnit.GetComponent<UnitAnimator>().FadeToDeath(0.3f));
+                } else {
+                    initUnit.Attacking = true;
                 }
             }
 
