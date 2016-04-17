@@ -5,13 +5,15 @@ using Models.Fighting.Skills;
 namespace Models.Fighting.Execution {
     public class FightForecaster {
         private readonly IMap _map;
+        private readonly SkillDatabase _skillDatabase;
 
-        public FightForecaster(IMap map) {
+        public FightForecaster(IMap map, SkillDatabase skillDatabase) {
             _map = map;
+            _skillDatabase = skillDatabase;
         }
 
         public FightForecast Forecast(ICombatant attacker, ICombatant defender, SkillType type) {
-            var strategy = SkillDatabase.Instance.GetStrategyByType(type);
+            var strategy = _skillDatabase.GetStrategyByType(type);
             var firstSkill = strategy.Forecast(attacker, defender);
             var flankForecast = null as SkillForecast;
 

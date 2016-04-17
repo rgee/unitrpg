@@ -2,6 +2,13 @@
 
 namespace Models.Fighting.Execution {
     public class FightFinalizer {
+
+        private readonly SkillDatabase _skillDatabase;
+
+        public FightFinalizer(SkillDatabase skillDatabase) {
+            _skillDatabase = skillDatabase;
+        }
+
         public FinalizedFight Finalize(FightForecast forecast, IRandomizer randomizer) {
             var builder = new FinalizedFightBuilder();
             var firstPhase = ComputePhase(forecast.AttackerForecast, randomizer);
@@ -54,7 +61,7 @@ namespace Models.Fighting.Execution {
         private FightPhase ComputePhase(SkillForecast skillForecast, IRandomizer randomizer) {
             var initiator = skillForecast.Attacker;
             var receiver = skillForecast.Defender;
-            var skill = SkillDatabase.Instance.GetStrategyByType(skillForecast.Type);
+            var skill = _skillDatabase.GetStrategyByType(skillForecast.Type);
 
             return new FightPhase {
                 Initiator = initiator,

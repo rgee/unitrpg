@@ -1,8 +1,12 @@
 ﻿using Models.Fighting.Effects;
+using Models.Fighting.Maps;
 
 namespace Models.Fighting.Skills {
     public class Knockback : MeleeAttack {
-        public Knockback() : base(SkillType.Knockback, true, true) {
+        private readonly IMap _map;
+
+        public Knockback(IMap map) : base(SkillType.Knockback, true, true) {
+            _map = map;
         }
 
         protected override SkillEffects ComputeEffects(SkillForecast forecast, IRandomizer randomizer) {

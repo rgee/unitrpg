@@ -11,6 +11,7 @@ namespace Models.Fighting.Battle {
         private readonly FightForecaster _forecaster;
         private readonly FightFinalizer _finalizer;
         private readonly List<ArmyType> _turnOrder;
+        private readonly SkillDatabase _skillDatabase;
         private readonly ICombatantDatabase _combatants;
         private int _turnNumber = 1;
         private Turn _currentTurn;
@@ -18,8 +19,9 @@ namespace Models.Fighting.Battle {
         public Battle(IMap map, IRandomizer randomizer, ICombatantDatabase combatants, List<ArmyType> turnOrder) {
             _randomizer = randomizer;
             _combatants = combatants;
-            _forecaster = new FightForecaster(map);
-            _finalizer = new FightFinalizer();
+            _skillDatabase = new SkillDatabase(map);
+            _forecaster = new FightForecaster(map, _skillDatabase);
+            _finalizer = new FightFinalizer(_skillDatabase);
             _turnOrder = turnOrder;
 
             foreach (var combatant in combatants.GetAllCombatants()) {

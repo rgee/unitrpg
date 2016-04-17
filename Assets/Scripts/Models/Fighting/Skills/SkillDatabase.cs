@@ -1,9 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using Models.Fighting.Maps;
 
 namespace Models.Fighting.Skills {
     public class SkillDatabase {
-        public static readonly SkillDatabase Instance = new SkillDatabase();
+        private readonly IMap _map;
+
+        public SkillDatabase(IMap map) {
+            _map = map;
+        }
 
         public ISkillStrategy GetStrategyByType(SkillType type) {
             switch (type) {
@@ -19,7 +24,7 @@ namespace Models.Fighting.Skills {
                 case SkillType.Advance:
                     return new Advance();
                 case SkillType.Knockback:
-                    return new Knockback();
+                    return new Knockback(_map);
                 default:
                     throw new ArgumentOutOfRangeException("type", type, "Invalid skill type.");
             }

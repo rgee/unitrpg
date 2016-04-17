@@ -47,9 +47,11 @@ namespace Tests {
             map.AddCombatant(attacker);
             map.AddCombatant(defender);
 
-            var forecaster = new FightForecaster(map);
+            var skillDatabase = new SkillDatabase(map);
+
+            var forecaster = new FightForecaster(map, skillDatabase);
             var forecast = forecaster.Forecast(attacker, defender, SkillType.Melee);
-            var finalizer = new FightFinalizer();
+            var finalizer = new FightFinalizer(skillDatabase);
 
             var final = finalizer.Finalize(forecast, new ConstantRandomizer(100));
             var initialPhase = final.InitialPhase;
@@ -106,10 +108,11 @@ namespace Tests {
             map.AddCombatant(attacker);
             map.AddCombatant(defender);
 
-            var forecaster = new FightForecaster(map);
+            var skillDatabase = new SkillDatabase(map);
+            var forecaster = new FightForecaster(map, skillDatabase);
             var forecast = forecaster.Forecast(attacker, defender, SkillType.Ranged);
 
-            var finalizer = new FightFinalizer();
+            var finalizer = new FightFinalizer(skillDatabase);
             var final = finalizer.Finalize(forecast, new ConstantRandomizer(100));
 
             var initialPhase = final.InitialPhase;
@@ -167,9 +170,10 @@ namespace Tests {
             map.AddCombatant(attacker);
             map.AddCombatant(defender);
 
-            var forecaster = new FightForecaster(map);
+            var skillDatabase = new SkillDatabase(map);
+            var forecaster = new FightForecaster(map, skillDatabase);
             var forecast = forecaster.Forecast(attacker, defender, SkillType.Ranged);
-            var finalizer = new FightFinalizer();
+            var finalizer = new FightFinalizer(skillDatabase);
             var final = finalizer.Finalize(forecast, new ConstantRandomizer(100));
 
             var initialPhase = final.InitialPhase;
@@ -219,9 +223,10 @@ namespace Tests {
             defender.Position = new Vector2(0, 1);
 
             var map = new Map();
-            var forecaster = new FightForecaster(map);
+            var skillDatabase = new SkillDatabase(map);
+            var forecaster = new FightForecaster(map, skillDatabase);
             var forecast = forecaster.Forecast(attacker, defender, SkillType.Melee);
-            var finalizer = new FightFinalizer();
+            var finalizer = new FightFinalizer(skillDatabase);
             var final = finalizer.Finalize(forecast, new ConstantRandomizer(100));
 
             Assert.NotNull(final.InitialPhase);
@@ -264,9 +269,10 @@ namespace Tests {
             var defender = new BaseCombatant(defenderCharacter, ArmyType.Friendly);
 
             var map = new Map();
-            var forecaster = new FightForecaster(map);
+            var skillDatabase = new SkillDatabase(map);
+            var forecaster = new FightForecaster(map, skillDatabase);
             var forecast = forecaster.Forecast(attacker, defender, SkillType.Melee);
-            var finalizer = new FightFinalizer();
+            var finalizer = new FightFinalizer(skillDatabase);
             var final = finalizer.Finalize(forecast, new ConstantRandomizer(100));
 
             Assert.NotNull(final.InitialPhase);
