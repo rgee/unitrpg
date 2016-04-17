@@ -5,6 +5,8 @@ namespace Models.Fighting.Maps {
         void AddCombatant(ICombatant combatant);
         void MoveCombatant(ICombatant combatant, Vector2 position);
 
+        bool IsBlocked(Vector2 position);
+
         ICombatant GetAtPosition(Vector2 position);
     }
 }

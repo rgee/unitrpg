@@ -20,6 +20,15 @@ namespace Models.Fighting.Maps {
             CombatEventBus.CombatantDeaths.AddListener(RemoveCombatant);
         }
 
+        public bool IsBlocked(Vector2 position) {
+            if (!_tiles.ContainsKey(position)) {
+                return false;
+            }
+
+            var tile = GetTileByPosition(position);
+            return tile.Obstructed || tile.Occupant != null;
+        }
+
         private Tile GetTileByPosition(Vector2 position) {
             if (!_tiles.ContainsKey(position)) {
                 throw new ArgumentException("Position out of map bounds: " + position);
