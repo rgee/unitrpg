@@ -4,39 +4,68 @@ using UnityEngine;
 
 namespace Models.Fighting.Maps {
     public class Map : IMap {
-        private readonly Dictionary<Vector2, ICombatant> _combatantsByPosition = new Dictionary<Vector2, ICombatant>();
+        private readonly Dictionary<Vector2, Tile> _tiles = new Dictionary<Vector2, Tile>(); 
 
-        public Map() {
+        public Map() : this(20) {
+        }
+
+        public Map(int size) {
+            for (var i = 0; i < size; i++) {
+                for (var j = 0; j < size; j++) {
+                    _tiles[new Vector2(i, j)] = new Tile();
+                }
+            }
+
             CombatEventBus.CombatantMoves.AddListener(MoveCombatant);
             CombatEventBus.CombatantDeaths.AddListener(RemoveCombatant);
         }
 
+        private Tile GetTileByPosition(Vector2 position) {
+            if (!_tiles.ContainsKey(position)) {
+                throw new ArgumentException("Position out of map bounds: " + position);
+            }
+            return _tiles[position];
+        }
+
         public void RemoveCombatant(ICombatant combatant) {
-            _combatantsByPosition.Remove(combatant.Position);
+            var tile = GetTileByPosition(combatant.Position);
+            tile.Occupant = null;
         }
 
         public void AddCombatant(ICombatant combatant) {
             var position = combatant.Position;
-            if (_combatantsByPosition.ContainsKey(position)) {
-                throw new ArgumentException("There's already a combatant at "+ position);
+            var tile = GetTileByPosition(position);
+            if (tile.Occupant != null) {
+                throw new ArgumentException("There's already a combatant at " + position);
             }
-            _combatantsByPosition[position] = combatant;
+            tile.Occupant = combatant;
         }
 
         public void MoveCombatant(ICombatant combatant, Vector2 position) {
-            if (_combatantsByPosition.ContainsKey(position)) {
+            var destination = GetTileByPosition(position);
+            if (destination.Occupant != null) {
                 throw new ArgumentException("There's already a combatant at "+ position);
             }
 
-            _combatantsByPosition.Remove(combatant.Position);
-            _combatantsByPosition[position] = combatant;
+            if (destination.Obstructed) {
+                throw new ArgumentException("Position " + position + " is not walkable.");
+            }
+
+            var source = GetTileByPosition(combatant.Position);
+            source.Occupant = null;
+            destination.Occupant = combatant;
             combatant.Position = position;
         }
 
         public ICombatant GetAtPosition(Vector2 position) {
-            ICombatant result;
-            _combatantsByPosition.TryGetValue(position, out result);
-            return result;
+            Tile result;
+            _tiles.TryGetValue(position, out result);
+
+            if (result == null) {
+                return null;
+            }
+
+            return result.Occupant;
         }
     }
 }
