@@ -28,9 +28,7 @@ namespace Combat {
                 if (phase.Effects.ReceiverEffects.OfType<Advance>().Any()) {
                     var unitGameObject = initUnit.gameObject;
                     var liatAnimator = unitGameObject.GetComponent<LiatAnimator>();
-                    liatAnimator.AdvancingDestination = receiverUnit.transform.position;
-                    liatAnimator.Advancing = true;
-                    initUnit.Attacking = true;
+                    liatAnimator.Advance(receiverUnit.transform.position);
                     yield return new WaitForSeconds(0.4f);
                     StartCoroutine(receiverUnit.GetComponent<UnitAnimator>().FadeToDeath(0.3f));
                 } else {
