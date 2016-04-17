@@ -16,7 +16,7 @@ namespace Models.Fighting.Skills {
             var defender = forecast.Defender;
 
             var direction = MathUtils.DirectionTo(attacker.Position, defender.Position);
-            baseEffects.ReceiverEffects.Add(new Shove(direction));
+            baseEffects.ReceiverEffects.Add(new Shove(direction, _map));
 
             return baseEffects;
         }
