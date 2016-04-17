@@ -20,6 +20,15 @@ namespace Models.Fighting.Maps {
             CombatEventBus.CombatantDeaths.AddListener(RemoveCombatant);
         }
 
+        public void AddObstruction(Vector2 position) {
+            var tile = GetTileByPosition(position);
+            if (tile.Occupant != null) {
+                throw new ArgumentException("Cannot add an obstruction on an occupied tile.");
+            }
+
+            tile.Obstructed = true;
+        }
+
         public bool IsBlocked(Vector2 position) {
             if (!_tiles.ContainsKey(position)) {
                 return false;
