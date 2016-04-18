@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Linq;
 using Grid;
+using Models.Fighting.Effects;
 using Models.Fighting.Execution;
 using Models.Fighting.Skills;
 using UnityEngine;
@@ -34,11 +35,25 @@ namespace Combat {
                     liatAnimator.Advance(receiverUnit.transform.position);
                     yield return new WaitForSeconds(0.4f);
                     StartCoroutine(receiverUnit.GetComponent<UnitAnimator>().FadeToDeath(0.3f));
-                } else if (receiverEffects.OfType<Knockback>().Any()) {
-                    // TODO: Activate the Janek knockback animation
-                    // TODO: Slide the target unit back a square.
                 } else {
-                    initUnit.Attacking = true;
+                    var shoveEffects = receiverEffects.OfType<Shove>();
+                    if (shoveEffects.Any()) {
+                        // TODO: Slide the target unit back a square.
+                        Debug.Log("Awaiting hit connection callback to start knockback slide.");
+
+                        Action hitConnectedCallback = null;
+                        hitConnectedCallback = () => {
+                            var targetAnimator = receiverUnit.GetComponent<UnitAnimator>();
+                            var destination = shoveEffects.First().GetDestination(phase.Receiver);
+                            var worldDestination = MapGrid.Instance.GetWorldPosForGridPos(destination);
+                            targetAnimator.SlideTo(worldDestination);
+                            initUnit.OnHitConnected -= hitConnectedCallback;
+                        };
+                        initUnit.OnHitConnected += hitConnectedCallback;
+
+                    } else {
+                        initUnit.Attacking = true;
+                    }
                 }
             }
 

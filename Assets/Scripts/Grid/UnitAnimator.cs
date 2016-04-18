@@ -73,6 +73,10 @@ namespace Grid {
             CombatEventBus.Deaths.Dispatch(_unit);
         }
 
+        public IEnumerator SlideTo(Vector3 destination) {
+            yield return transform.DOMove(destination, 0.7f).SetEase(Ease.InCubic).WaitForCompletion();
+        }
+
         private void HandleHit(tk2dSpriteAnimator animator, tk2dSpriteAnimationClip clip, int frame) {
             if (clip.frames[frame].eventInfo == HIT_EVENT_INFO) {
                 Debug.Log("HIT");
