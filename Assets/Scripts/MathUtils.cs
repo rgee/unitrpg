@@ -30,7 +30,7 @@ public static class MathUtils {
             case CardinalDirection.W:
                 return new Vector2(point.x-1, point.y);
             case CardinalDirection.E:
-                return new Vector2(point.x-1, point.y);
+                return new Vector2(point.x+1, point.y);
             case CardinalDirection.S:
                 return new Vector2(point.x, point.y-1);
             case CardinalDirection.N:

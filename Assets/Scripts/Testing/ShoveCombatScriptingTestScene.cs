@@ -54,6 +54,9 @@ namespace Assets.Testing {
             var janek = new BaseCombatant(janekStats, ArmyType.Friendly);
             var gatsu = new BaseCombatant(gatsuStats, ArmyType.Enemy);
 
+            janek.Position = new Vector2(1, 0);
+            gatsu.Position = new Vector2(2, 0);
+
             var map = new Map();
 
             _firstPhase = new FightPhase {

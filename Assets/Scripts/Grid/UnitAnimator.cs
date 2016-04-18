@@ -74,7 +74,7 @@ namespace Grid {
         }
 
         public IEnumerator SlideTo(Vector3 destination) {
-            yield return transform.DOMove(destination, 0.7f).SetEase(Ease.InCubic).WaitForCompletion();
+            yield return transform.DOMove(destination, 0.3f).SetEase(Ease.OutCubic).WaitForCompletion();
         }
 
         private void HandleHit(tk2dSpriteAnimator animator, tk2dSpriteAnimationClip clip, int frame) {
