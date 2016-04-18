@@ -1,4 +1,5 @@
 ﻿using Models.Fighting.Maps;
+using UnityEngine;
 
 namespace Models.Fighting.Effects {
     public class Shove : IEffect {
@@ -10,10 +11,20 @@ namespace Models.Fighting.Effects {
             _map = map;
         }
 
-        public void Apply(ICombatant combatant) {
+        public Vector2 GetDestination(ICombatant combatant) {
             var position = combatant.Position;
             var destination = MathUtils.GetAdjacentPoint(position, _direction);
-            if (!_map.IsBlocked(destination)) {
+
+            if (_map.IsBlocked(destination)) {
+                destination = position;
+            }
+
+            return destination;
+        }
+
+        public void Apply(ICombatant combatant) {
+            var destination = GetDestination(combatant);
+            if (!destination.Equals(combatant.Position)) {
                 combatant.MoveTo(destination);
             }
         }
