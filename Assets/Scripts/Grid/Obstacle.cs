@@ -11,10 +11,10 @@ namespace Grid {
 
         void OnDrawGizmos() {
             // Draw a red outline around the obstacle.
-            Gizmos.color = Color.red;
+            Gizmos.color = new Color(1, 0, 0, 0.2f);
 
             var snappedPosition = _mapManager.GetSnappedGridPosition(transform.position);
-            Gizmos.DrawWireCube(snappedPosition, new Vector3(_mapManager.GridSize, _mapManager.GridSize, 1));
+            Gizmos.DrawCube(snappedPosition, new Vector3(_mapManager.GridSize, _mapManager.GridSize, 1));
         }
     }
 }
