@@ -25,6 +25,12 @@ public static class MathUtils {
         };
     }
 
+    public static float MapRange(float fromStart, float fromEnd, float toStart, float toEnd, float value) {
+        var inputRange = fromEnd - fromStart;
+        var outputRange = toEnd - toStart;
+        return (value - fromStart)*outputRange/inputRange + toStart;
+    }
+
     public static Vector2 GetAdjacentPoint(Vector2 point, CardinalDirection direction) {
         switch (direction) {
             case CardinalDirection.W:
