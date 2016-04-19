@@ -6,18 +6,21 @@ namespace Models.Fighting.Maps {
     public class Map : IMap {
         private readonly Dictionary<Vector2, Tile> _tiles = new Dictionary<Vector2, Tile>(); 
 
-        public Map() : this(20) {
+        public Map() : this(20, 20) {
         }
 
-        public Map(int size) {
-            for (var i = 0; i < size; i++) {
-                for (var j = 0; j < size; j++) {
+        public Map(int width, int height) {
+            for (var i = 0; i < width; i++) {
+                for (var j = 0; j < height; j++) {
                     _tiles[new Vector2(i, j)] = new Tile();
                 }
             }
 
             CombatEventBus.CombatantMoves.AddListener(MoveCombatant);
             CombatEventBus.CombatantDeaths.AddListener(RemoveCombatant);
+        }
+
+        public Map(int size) : this(size, size) {
         }
 
         public void AddObstruction(Vector2 position) {

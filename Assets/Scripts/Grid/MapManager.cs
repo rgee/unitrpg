@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Grid {
-    public class MapManager : MonoBehaviour {
+    public class MapManager : Singleton<MapManager> {
         public int Width;
         public int Height;
         public int GridSize;
@@ -11,7 +13,20 @@ namespace Grid {
             
         }
 
-        public Vector3 GetSnappedGridPosition(Vector3 position) {
+        public List<Vector2> GetObstacles() {
+            return GetComponentsInChildren<Obstacle>()
+                .ToList()
+                .Select((obstacle => GetGridPosition(obstacle.transform.position)))
+                .ToList();
+        }
+
+        public Vector3 GetSnappedWorldPosition(Vector3 position) {
+
+            var gridPosition = GetGridPosition(position);
+            return new Vector3(gridPosition.x*GridSize+transform.position.x, gridPosition.y*GridSize+transform.position.y, position.z);
+        }
+
+        public Vector2 GetGridPosition(Vector3 position) {
             var maxX = transform.position.x + (Width*GridSize);
             var maxY = transform.position.y + (Height*GridSize);
             var minX = transform.position.x;
@@ -20,9 +35,7 @@ namespace Grid {
 
             var gridX = Math.Floor(MathUtils.MapRange(minX, maxX, 0, Width, position.x + offset));
             var gridY = Math.Floor(MathUtils.MapRange(minY, maxY, 0, Height, position.y + offset));
-
-            return new Vector3((float)gridX*GridSize+transform.position.x, (float)gridY*GridSize+transform.position.y, position.z);
-
+            return new Vector2((float)gridX, (float)gridY);
         }
 
         void OnDrawGizmos() {
