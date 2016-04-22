@@ -10,8 +10,8 @@ namespace Contexts.Global.Commands {
         public string NextSceneName { get; set; }
 
         public override void Execute() {
-            GameObject.Destroy(PreviousContext);
             UnityEngine.Application.LoadLevelAdditive(NextSceneName);
+            GameObject.Destroy(PreviousContext);
         }
     }
 }
