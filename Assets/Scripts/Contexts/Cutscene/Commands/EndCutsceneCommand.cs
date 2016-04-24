@@ -26,7 +26,7 @@ namespace Contexts.Cutscene.Commands {
 
         public override void Execute() {
             var save = SaveGameService.CurrentSave;
-            var nextChapter = save.LastChapterCompleted.GetValueOrDefault(-1) + 1;
+            var nextChapter = save.ChapterNumber + 1;
             var nextConfig = BattleConfigRepository.GetConfigByIndex(nextChapter);
             var nextSceneName = nextConfig.InitialSceneName;
 

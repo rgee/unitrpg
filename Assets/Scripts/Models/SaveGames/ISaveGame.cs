@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Models.Fighting.Characters;
 
 namespace Models.SaveGames {
@@ -7,5 +8,6 @@ namespace Models.SaveGames {
         int ChapterNumber { get; set; }
         List<ICharacter> Characters { get; set; }
         ICharacter GetCharacterByName(string name);
+        DateTime LastSaveTime { get; set; }
     }
 }

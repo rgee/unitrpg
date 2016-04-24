@@ -1,12 +1,13 @@
 ﻿using System.Collections.Generic;
 using Contexts.Global.Models;
+using Models.SaveGames;
 
 namespace Contexts.Global.Services {
     public interface ISaveGameService {
-        Models.SaveGame CurrentSave { get; }
+        ISaveGame CurrentSave { get; }
         void Reset();
         void Choose(LoadedSaveGame saveGame);
-        void Overwrite(Models.SaveGame newSave);
+        void Overwrite(ISaveGame newSave);
         List<LoadedSaveGame> GetAll();
     }
 }

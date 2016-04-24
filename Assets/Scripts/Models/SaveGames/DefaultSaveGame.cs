@@ -7,6 +7,7 @@ namespace Models.SaveGames {
         public string Id { get; set; }
         public int ChapterNumber { get; set; }
         public List<ICharacter> Characters { get; set; }
+        public DateTime LastSaveTime { get; set; }
 
         public DefaultSaveGame(List<ICharacter> characters) {
             Id = Guid.NewGuid().ToString();

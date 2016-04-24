@@ -6,12 +6,13 @@ using System.Reflection;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using Contexts.Global.Models;
+using Models.Fighting.Characters;
+using Models.SaveGames;
 using UnityEngine;
-using SaveGame = Contexts.Global.Models.SaveGame;
 
 namespace Contexts.Global.Services {
     public class SaveGameService : ISaveGameService {
-        public Models.SaveGame CurrentSave { get; private set; }
+        public ISaveGame CurrentSave { get; private set; }
 
         private string _currentPath;
 
@@ -21,7 +22,7 @@ namespace Contexts.Global.Services {
         }
 
         public void Reset() {
-            CurrentSave = new Models.SaveGame(-1, null, null);
+            CurrentSave = new DefaultSaveGame(new List<ICharacter>());
         }
 
         public void Choose(LoadedSaveGame saveGame) {
@@ -29,7 +30,7 @@ namespace Contexts.Global.Services {
             CurrentSave = saveGame.Save;
         }
 
-        public void Overwrite(Models.SaveGame newSave) {
+        public void Overwrite(ISaveGame newSave) {
             var path = _currentPath == null ? GenerateFileName() : _currentPath;
             var stream = File.Open(path, FileMode.OpenOrCreate);
             try {
@@ -61,7 +62,7 @@ namespace Contexts.Global.Services {
             var stream = File.Open(path, FileMode.Open);
             try {
                 var formatter = getFormatter();
-                var save = (Models.SaveGame) formatter.Deserialize(stream);
+                var save = (ISaveGame) formatter.Deserialize(stream);
                 return new LoadedSaveGame(path, save);
             } finally {
                 stream.Close();
