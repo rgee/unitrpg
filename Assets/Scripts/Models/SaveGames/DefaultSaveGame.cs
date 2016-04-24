@@ -11,7 +11,7 @@ namespace Models.SaveGames {
 
         public DefaultSaveGame(List<ICharacter> characters) {
             Id = Guid.NewGuid().ToString();
-            ChapterNumber = 1;
+            ChapterNumber = 0;
             Characters = characters;
         }
 

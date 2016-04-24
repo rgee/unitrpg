@@ -3,7 +3,7 @@
 namespace Contexts.Common.Model {
     public class ApplicationState {
         public List<Models.Dialogue.Cutscene> CurrentCutsceneSequence { get; set; }
-        private int _currentCutsceneIndex = 0;
+        private int _currentCutsceneIndex;
 
         public Models.Dialogue.Cutscene GetCurrentCutscene() {
             if (CurrentCutsceneSequence.Count <= 0 || CurrentCutsceneSequence.Count <= _currentCutsceneIndex) {

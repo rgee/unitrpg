@@ -9,7 +9,11 @@ namespace Contexts.Common.Model {
                 "chapter_1_battle_new",
                 new List<string>() {
                     "Chapter 1/Intro/male_soldier_report",
-                    "Chapter 1/Intro/female_soldier_report"
+                    "Chapter 1/Intro/female_soldier_report",
+                    "Chapter 1/Intro/liat_janek_prep",
+                    "Chapter 1/Intro/liat_audric_h2h",
+                    "Chapter 1/Intro/liat_audric_balcony",
+                    "Chapter 1/Intro/liat_audric_overlook"
                 }
             ),
             new BattleConfig(
