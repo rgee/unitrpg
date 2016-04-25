@@ -6,8 +6,8 @@ namespace Contexts.Global.Services {
     public interface ISaveGameService {
         ISaveGame CurrentSave { get; }
         void CreateNewGame();
-        void Choose(LoadedSaveGame saveGame);
+        void Choose(ISaveGame saveGame);
         void Overwrite(ISaveGame newSave);
-        List<LoadedSaveGame> GetAll();
+        List<ISaveGame> GetAll();
     }
 }
