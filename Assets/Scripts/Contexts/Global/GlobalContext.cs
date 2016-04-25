@@ -21,7 +21,7 @@ namespace Contexts.Global {
             injectionBinder.Bind<RevealScreenSignal>().ToSingleton().CrossContext();
             injectionBinder.Bind<FadeScreenSignal>().ToSingleton().CrossContext();
             injectionBinder.Bind<ScreenRevealedSignal>().ToSingleton().CrossContext();
-            injectionBinder.Bind<ScreenFadedSignal>().ToSingleton();
+            injectionBinder.Bind<ScreenFadedSignal>().ToSingleton().CrossContext();
 
             injectionBinder.Bind<IBattleConfigRepository>().To<BattleConfigRepository>().ToSingleton().CrossContext();
             injectionBinder.Bind<ICutsceneLoader>().To<CutsceneLoader>().ToSingleton().CrossContext();
