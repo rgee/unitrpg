@@ -8,29 +8,49 @@ using Contexts.Global.Services;
 using Contexts.Global.Signals;
 using Models.Fighting.Characters;
 using Models.SaveGames;
-using strange.extensions.context.impl;
+using strange.extensions.injector.api;
 using UnityEngine;
 
 namespace Contexts.Global {
     public class GlobalContext : BaseContext {
+        private class SingletonBinder<P> {
+            private readonly IInjectionBinding _binding;
+
+            public SingletonBinder(IInjectionBinder binder) {
+                _binding = binder.Bind<P>();
+            }
+
+            public void ByWayOf<T>() {
+                _binding.To<T>().ToSingleton().CrossContext();
+            }
+        }
+
         public GlobalContext(MonoBehaviour view) : base(view) {
 
         }
 
-        protected override void mapBindings() {
-            injectionBinder.Bind<RevealScreenSignal>().ToSingleton().CrossContext();
-            injectionBinder.Bind<FadeScreenSignal>().ToSingleton().CrossContext();
-            injectionBinder.Bind<ScreenRevealedSignal>().ToSingleton().CrossContext();
-            injectionBinder.Bind<ScreenFadedSignal>().ToSingleton().CrossContext();
+        private SingletonBinder<T> Singleton<T>() {
+            return new SingletonBinder<T>(injectionBinder);
+        }
 
-            injectionBinder.Bind<IBattleConfigRepository>().To<BattleConfigRepository>().ToSingleton().CrossContext();
-            injectionBinder.Bind<ICutsceneLoader>().To<CutsceneLoader>().ToSingleton().CrossContext();
-            injectionBinder.Bind<ISaveGameRepository>().To<TestingSaveGameRepository>().ToSingleton().CrossContext();
-            injectionBinder.Bind<ISaveGameService>().To<SaveGameService>().ToSingleton().CrossContext();
-            injectionBinder.Bind<CharacterDatabase>().To<BaseCharacterDatabase>().ToSingleton().CrossContext();
-            injectionBinder.Bind<LoadSceneSignal>().ToSingleton().CrossContext();
-            injectionBinder.Bind<ChangeSceneSignal>().ToSingleton().CrossContext();
-            injectionBinder.Bind<ChangeSceneMultiSignal>().ToSingleton().CrossContext();
+        private void ConcreteSingleton<T>() {
+            injectionBinder.Bind<T>().ToSingleton().CrossContext();
+        }
+
+        protected override void mapBindings() {
+            ConcreteSingleton<RevealScreenSignal>();
+            ConcreteSingleton<FadeScreenSignal>();
+            ConcreteSingleton<ScreenRevealedSignal>();
+            ConcreteSingleton<ScreenFadedSignal>();
+            ConcreteSingleton<LoadSceneSignal>();
+            ConcreteSingleton<ChangeSceneSignal>();
+            ConcreteSingleton<ChangeSceneMultiSignal>();
+
+            Singleton<IBattleConfigRepository>().ByWayOf<BattleConfigRepository>();
+            Singleton<ICutsceneLoader>().ByWayOf<CutsceneLoader>();
+            Singleton<ISaveGameRepository>().ByWayOf<TestingSaveGameRepository>();
+            Singleton<ISaveGameService>().ByWayOf<SaveGameService>();
+            Singleton<CharacterDatabase>().ByWayOf<BaseCharacterDatabase>();
 
             commandBinder.Bind<LoadSceneSignal>()
                 .To<FadeSceneBlackCommand>()
