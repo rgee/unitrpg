@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace Models.Fighting.Characters {
     public class BaseCharacterDatabase : CharacterDatabase {
@@ -75,6 +76,10 @@ namespace Models.Fighting.Characters {
 
         public ICharacter GetCharacter(string name) {
             return _characters[name];
+        }
+
+        public List<ICharacter> GetAllCharacters() {
+            return _characters.Values.ToList();
         }
     }
 }

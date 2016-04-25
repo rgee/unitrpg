@@ -21,7 +21,7 @@ namespace Contexts.Global.Services {
             Debug.Log("constructing save game service");
         }
 
-        public void Reset() {
+        public void CreateNewGame() {
             CurrentSave = new DefaultSaveGame(new List<ICharacter>());
         }
 

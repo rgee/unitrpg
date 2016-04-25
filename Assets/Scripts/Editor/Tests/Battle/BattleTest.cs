@@ -14,7 +14,16 @@ namespace Tests.Battle {
     public class BattleTest {
         private class EmptySaveGameRepository : ISaveGameRepository {
             public ISaveGame CurrentSave { get; set; }
-            public void LoadSave(ISaveGame save) {
+
+            public void CreateNewGame() {
+                throw new System.NotImplementedException();
+            }
+
+            public void Choose(ISaveGame saveGame) {
+                throw new System.NotImplementedException();
+            }
+
+            public void Overwrite(ISaveGame saveGame) {
                 throw new System.NotImplementedException();
             }
 

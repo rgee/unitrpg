@@ -30,7 +30,7 @@ namespace Contexts.MainMenu.Commands {
         public GameObject Context { get; set; }
 
         public override void Execute() {
-            SaveGameService.Reset();
+            SaveGameService.CreateNewGame();
 
             var battleConfig = BattleConfigRepository.GetConfigByIndex(0);
             var preBattleCutscenes = battleConfig.DialogueResourceSequence;
