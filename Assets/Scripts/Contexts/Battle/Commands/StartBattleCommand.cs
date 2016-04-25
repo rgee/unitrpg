@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Contexts.Battle.Commands {
     public class StartBattleCommand : Command {
         public override void Execute() {
-            Debug.Log("Starting Battle - Fill me in!");
+            ApplicationEventBus.SceneStart.Dispatch();
         }
     }
 }
