@@ -1,5 +1,6 @@
 ﻿using Contexts.Battle.Signals;
 using Contexts.Battle.Utilities;
+using Models.Fighting;
 using strange.extensions.mediation.impl;
 using UnityEngine;
 
@@ -18,7 +19,10 @@ namespace Contexts.Battle.Views {
             View.MapClicked.AddListener(OnMapClicked);
 
             var dimensions = new MapDimensions(View.Width, View.Height);
-            InitializeMapSignal.Dispatch(dimensions);
+            var combatants = View.GetCombatants();
+            var randomizer = new BasicRandomizer();
+            var config = new MapConfiguration(dimensions, combatants, randomizer);
+            InitializeMapSignal.Dispatch(config);
         }
 
         private void OnMapClicked(Vector2 clickPosition) {

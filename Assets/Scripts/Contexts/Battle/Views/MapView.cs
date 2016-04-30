@@ -1,4 +1,8 @@
-﻿using strange.extensions.mediation.impl;
+﻿using System.Collections.Generic;
+using System.Linq;
+using Models.Fighting.Battle;
+using Models.Fighting.Characters;
+using strange.extensions.mediation.impl;
 using strange.extensions.signal.impl;
 using UnityEngine;
 
@@ -8,8 +12,12 @@ namespace Contexts.Battle.Views {
         public int Width;
         public int Height;
 
-        void Awake() {
+        private GameObject _units;
+
+        protected override void Awake() {
+            base.Awake();
             // Get the map manager component           
+            _units = transform.FindChild("Units").gameObject;
         }
 
         void Update() {
@@ -26,5 +34,20 @@ namespace Contexts.Battle.Views {
             // use the map manager component
             return null;
         }
+
+        public List<CombatantDatabase.CombatantReference> GetCombatants() {
+            var units = _units.GetComponentsInChildren<Grid.Unit>();
+
+            return units.Select(unit => {
+                var character = unit.GetCharacter();
+                return new CombatantDatabase.CombatantReference {
+                    Position = unit.gridPosition,
+                    Name = character.Name,
+
+                    // TODO: Have dropdown for army type
+                    Army = unit.friendly ? ArmyType.Friendly : ArmyType.Enemy
+                };
+            }).ToList();
+        } 
     }
 }

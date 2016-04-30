@@ -18,14 +18,18 @@ namespace Models.Fighting.Battle {
             return _combatants.SelectMany(group => group).ToList();
         }
 
-        public CombatantDatabase(IEnumerable<CombatantReference> combatantReferences, ISaveGameRepository saveRepository) {
-            var saveGame = saveRepository.CurrentSave;
-
+        public CombatantDatabase(IEnumerable<CombatantReference> combatantReferences, ISaveGame saveGame) {
             _combatants = combatantReferences.Select(reference => {
                 return LoadCombatantFromReference(saveGame, reference);
             })
             .Cast<ICombatant>()
             .ToLookup(c => c.Army, c => c);
+        }
+
+
+        public CombatantDatabase(IEnumerable<CombatantReference> combatantReferences, ISaveGameRepository saveRepository) 
+            : this(combatantReferences, saveRepository.CurrentSave) {
+
         }
 
         private static BaseCombatant LoadCombatantFromReference(ISaveGame saveGame, CombatantReference reference) {
@@ -37,8 +41,7 @@ namespace Models.Fighting.Battle {
                 }
             }
 
-            var result = new BaseCombatant(character, reference.Army);
-            result.Position = reference.Position;
+            var result = new BaseCombatant(character, reference.Army) {Position = reference.Position};
             return result;
         }
 
