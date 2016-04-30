@@ -16,12 +16,12 @@ namespace Contexts.Battle.Views {
         public InitializeMapSignal InitializeMapSignal { get; set; }
 
         [Inject]
-        public BattleStartSignal BattleStartSignal { get; set; }
+        public GatherBattleFromEditorSignal GatherSignal { get; set; }
 
         public override void OnRegister() {
             View.MapClicked.AddListener(OnMapClicked);
 
-            BattleStartSignal.AddOnce(() => {
+            GatherSignal.AddOnce(() => {
                 var dimensions = new MapDimensions(View.Width, View.Height);
                 var combatants = View.GetCombatants();
                 var randomizer = new BasicRandomizer();

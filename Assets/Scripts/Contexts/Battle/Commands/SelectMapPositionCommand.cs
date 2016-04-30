@@ -19,7 +19,7 @@ namespace Contexts.Battle.Commands {
             var state = BattleViewModel.State;
             var combatant = BattleViewModel.Map.GetAtPosition(Position);
             if (state == BattleUIState.SelectingUnit) {
-                if (combatant.Army == ArmyType.Friendly) {
+                if (combatant != null && combatant.Army == ArmyType.Friendly) {
                     // Mark the unit at Position as selected, change the battle state.
                     BattleViewModel.SelectedCombatant = combatant;
                     UnitSelectedSignal.Dispatch();

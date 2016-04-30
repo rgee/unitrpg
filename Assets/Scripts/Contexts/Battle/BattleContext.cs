@@ -6,6 +6,8 @@ using Contexts.Battle.Commands;
 using Contexts.Battle.Models;
 using Contexts.Battle.Signals;
 using Contexts.Battle.Views;
+using Contexts.Global.Signals;
+using strange.extensions.command.api;
 using strange.extensions.context.impl;
 using UnityEngine;
 
@@ -18,19 +20,23 @@ namespace Contexts.Battle {
         protected override void mapBindings() {
             base.mapBindings();
 
+            ICommandBinding startBinding;
             if (this == Context.firstContext) {
-                commandBinder.GetBinding<StartSignal>().To<StartBattleCommand>().InSequence();
+                startBinding = commandBinder.GetBinding<StartSignal>();
+            } else {
+                startBinding = commandBinder.Bind<BattleStartSignal>();
             }
+
+            startBinding.To<StartBattleCommand>().InSequence();
 
             injectionBinder.Bind<BattleViewState>().To(new BattleViewState()).ToSingleton();
 
             injectionBinder.Bind<BattleStartSignal>().ToSingleton().CrossContext();
+            injectionBinder.Bind<GatherBattleFromEditorSignal>().ToSingleton();
             injectionBinder.Bind<InitializeMapSignal>().ToSingleton();
             injectionBinder.Bind<MapPositionClickedSignal>().ToSingleton();
             injectionBinder.Bind<UnitSelectedSignal>().ToSingleton();
 
-            commandBinder.Bind<BattleStartSignal>()
-                .To<StartBattleCommand>();
             commandBinder.Bind<InitializeMapSignal>().To<InitializeMapCommand>();
             commandBinder.Bind<MapPositionClickedSignal>().To<SelectMapPositionCommand>();
 
