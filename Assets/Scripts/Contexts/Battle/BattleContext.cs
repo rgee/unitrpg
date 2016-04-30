@@ -3,9 +3,8 @@
 using Assets.Contexts.Base;
 using Contexts.Base.Signals;
 using Contexts.Battle.Commands;
+using Contexts.Battle.Models;
 using Contexts.Battle.Signals;
-using Contexts.Global.Signals;
-using strange.extensions.command.api;
 using strange.extensions.context.impl;
 using UnityEngine;
 
@@ -21,6 +20,8 @@ namespace Contexts.Battle {
             if (this == Context.firstContext) {
                 commandBinder.GetBinding<StartSignal>().To<StartBattleCommand>();
             }
+
+            injectionBinder.Bind<BattleViewState>().To(new BattleViewState()).ToSingleton();
 
             injectionBinder.Bind<BattleStartSignal>().ToSingleton().CrossContext();
             injectionBinder.Bind<InitializeMapSignal>().ToSingleton();
