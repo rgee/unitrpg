@@ -12,14 +12,6 @@ namespace Contexts.Battle.Views {
         public int Width;
         public int Height;
 
-        private GameObject _units;
-
-        protected override void Awake() {
-            base.Awake();
-            // Get the map manager component           
-            _units = transform.FindChild("Units").gameObject;
-        }
-
         void Update() {
             if (Input.GetMouseButtonDown(0)) {
                 var clickPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -36,7 +28,8 @@ namespace Contexts.Battle.Views {
         }
 
         public List<CombatantDatabase.CombatantReference> GetCombatants() {
-            var units = _units.GetComponentsInChildren<Grid.Unit>();
+            var unitContainer = transform.FindChild("Units").gameObject;
+            var units = unitContainer.GetComponentsInChildren<Grid.Unit>();
 
             return units.Select(unit => {
                 var character = unit.GetCharacter();

@@ -5,6 +5,7 @@ using Contexts.Base.Signals;
 using Contexts.Battle.Commands;
 using Contexts.Battle.Models;
 using Contexts.Battle.Signals;
+using Contexts.Battle.Views;
 using strange.extensions.context.impl;
 using UnityEngine;
 
@@ -18,7 +19,7 @@ namespace Contexts.Battle {
             base.mapBindings();
 
             if (this == Context.firstContext) {
-                commandBinder.GetBinding<StartSignal>().To<StartBattleCommand>();
+                commandBinder.GetBinding<StartSignal>().To<StartBattleCommand>().InSequence();
             }
 
             injectionBinder.Bind<BattleViewState>().To(new BattleViewState()).ToSingleton();
@@ -32,6 +33,8 @@ namespace Contexts.Battle {
                 .To<StartBattleCommand>();
             commandBinder.Bind<InitializeMapSignal>().To<InitializeMapCommand>();
             commandBinder.Bind<MapPositionClickedSignal>().To<SelectMapPositionCommand>();
+
+            mediationBinder.Bind<MapView>().To<MapViewMediator>();
         }
     }
 }

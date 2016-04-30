@@ -15,14 +15,19 @@ namespace Contexts.Battle.Views {
         [Inject]
         public InitializeMapSignal InitializeMapSignal { get; set; }
 
+        [Inject]
+        public BattleStartSignal BattleStartSignal { get; set; }
+
         public override void OnRegister() {
             View.MapClicked.AddListener(OnMapClicked);
 
-            var dimensions = new MapDimensions(View.Width, View.Height);
-            var combatants = View.GetCombatants();
-            var randomizer = new BasicRandomizer();
-            var config = new MapConfiguration(dimensions, combatants, randomizer);
-            InitializeMapSignal.Dispatch(config);
+            BattleStartSignal.AddOnce(() => {
+                var dimensions = new MapDimensions(View.Width, View.Height);
+                var combatants = View.GetCombatants();
+                var randomizer = new BasicRandomizer();
+                var config = new MapConfiguration(dimensions, combatants, randomizer);
+                InitializeMapSignal.Dispatch(config);
+            });
         }
 
         private void OnMapClicked(Vector2 clickPosition) {

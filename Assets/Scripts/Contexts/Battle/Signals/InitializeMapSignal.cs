@@ -7,6 +7,6 @@ namespace Contexts.Battle.Signals {
     /// business layer to create the Map on the model. This should be replaced
     /// with loading a JSON file for the map with obstacles and dimensions.
     /// </summary>
-    public class InitializeMapSignal : Signal<MapDimensions> {
+    public class InitializeMapSignal : Signal<MapConfiguration> {
     }
 }
