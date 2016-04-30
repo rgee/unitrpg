@@ -10,15 +10,18 @@ using UnityEngine;
 namespace Contexts.Battle.Views {
     public class MapView : View {
         public Signal<Vector2> MapClicked = new Signal<Vector2>();
+        public Signal<Vector2> MapHovered = new Signal<Vector2>(); 
         public int Width;
         public int TileSize;
         public int Height;
 
         void Update() {
+            var mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            var mouseGridPosition = GetGridPositionForWorldPosition(mousePosition);
             if (Input.GetMouseButtonDown(0)) {
-                var clickPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                var gridPosition = GetGridPositionForWorldPosition(clickPosition);
-                MapClicked.Dispatch(gridPosition);
+                MapClicked.Dispatch(mouseGridPosition);
+            } else {
+                MapHovered.Dispatch(mouseGridPosition);
             }
         }
 
@@ -29,6 +32,23 @@ namespace Contexts.Battle.Views {
                 (float) Math.Floor(MathUtils.MapRange(0, widthExtent, 0, Width, worldPosition.x + Mathf.FloorToInt(TileSize/2f))),
                 (float) Math.Floor(MathUtils.MapRange(0, heightExtent, 0, Height, worldPosition.y + Mathf.FloorToInt(TileSize/2f)))
             );
+        }
+
+        public Vector3 GetWorldPositionForGridPosition(Vector2 gridPosition) {
+            
+            var widthExtent = Width*TileSize;
+            var heightExtent = Height*TileSize;
+
+            // Map the input values for the x and y axis in grid space to world space.
+            // Be sure to output the center of the tile in world space by adding
+            // 1/2 the tile height and width!
+            var result = new Vector3(
+                MathUtils.MapRange(0, Width, 0, widthExtent, gridPosition.x), 
+                MathUtils.MapRange(0, Height, 0, heightExtent, gridPosition.y),
+                0
+            );
+
+            return result;
         }
 
         public List<CombatantDatabase.CombatantReference> GetCombatants() {

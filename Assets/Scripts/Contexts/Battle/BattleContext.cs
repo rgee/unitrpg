@@ -32,6 +32,7 @@ namespace Contexts.Battle {
             injectionBinder.Bind<BattleViewState>().To(new BattleViewState()).ToSingleton();
 
             injectionBinder.Bind<BattleStartSignal>().ToSingleton().CrossContext();
+            injectionBinder.Bind<HoveredTileChangeSignal>().ToSingleton();
             injectionBinder.Bind<GatherBattleFromEditorSignal>().ToSingleton();
             injectionBinder.Bind<InitializeMapSignal>().ToSingleton();
             injectionBinder.Bind<MapPositionClickedSignal>().ToSingleton();
@@ -39,8 +40,10 @@ namespace Contexts.Battle {
 
             commandBinder.Bind<InitializeMapSignal>().To<InitializeMapCommand>();
             commandBinder.Bind<MapPositionClickedSignal>().To<SelectMapPositionCommand>();
+            commandBinder.Bind<HoverPositionSignal>().To<MapHoveredCommand>();
 
             mediationBinder.Bind<MapView>().To<MapViewMediator>();
+            mediationBinder.Bind<MapHighlightView>().To<MapHighlightViewMediator>();
         }
     }
 }
