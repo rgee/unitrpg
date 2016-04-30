@@ -25,7 +25,7 @@ namespace Contexts.Battle.Views {
             }
         }
 
-        private Vector2 GetGridPositionForWorldPosition(Vector3 worldPosition) {
+        public Vector2 GetGridPositionForWorldPosition(Vector3 worldPosition) {
             var widthExtent = Width*TileSize;
             var heightExtent = Height*TileSize;
             return new Vector2(
@@ -65,6 +65,18 @@ namespace Contexts.Battle.Views {
                     Army = unit.friendly ? ArmyType.Friendly : ArmyType.Enemy
                 };
             }).ToList();
+        }
+
+        public List<Vector2> GetObstructedPositions() {
+            var obstructions = transform.FindChild("Obstructions");
+            var results = new List<Vector2>();
+
+            foreach (Transform obstacle in obstructions) {
+                var gridPosition = GetGridPositionForWorldPosition(obstacle.position);
+                results.Add(gridPosition);
+            }
+            
+            return results;
         } 
 
         void OnDrawGizmos() {

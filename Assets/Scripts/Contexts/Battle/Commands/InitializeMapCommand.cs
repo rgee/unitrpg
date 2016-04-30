@@ -23,6 +23,10 @@ namespace Contexts.Battle.Commands {
             var dimensions = Configuration.Dimensions;
             Model.Map = new Map(dimensions.Width, dimensions.Height);
 
+            foreach (var blockage in Configuration.ObstructedPositions) {
+                Model.Map.AddObstruction(blockage);
+            }
+
             var turnOrder = new List<ArmyType> {ArmyType.Friendly, ArmyType.Enemy, ArmyType.Other};
             var saveGame = SaveGameService.CurrentSave;
             var database = new CombatantDatabase(Configuration.Combatants, saveGame);

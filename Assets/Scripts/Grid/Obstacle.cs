@@ -1,20 +1,23 @@
-﻿using UnityEngine;
+﻿using Contexts.Battle.Views;
+using UnityEngine;
 
 namespace Grid {
     [ExecuteInEditMode]
     public class Obstacle : MonoBehaviour {
-        private MapManager _mapManager;
+        private MapView _view;
 
         void Awake() {
-            _mapManager = GetComponentInParent<MapManager>();
+            _view = transform.parent.parent.GetComponentInParent<MapView>();
         }
 
         void OnDrawGizmos() {
             // Draw a red outline around the obstacle.
             Gizmos.color = new Color(1, 0, 0, 0.2f);
 
-            var snappedPosition = _mapManager.GetSnappedWorldPosition(transform.position);
-            Gizmos.DrawCube(snappedPosition, new Vector3(_mapManager.GridSize, _mapManager.GridSize, 1));
+            var gridPos = _view.GetGridPositionForWorldPosition(transform.position);
+            var snappedPosition = _view.GetWorldPositionForGridPosition(gridPos);
+            var size = _view.TileSize;
+            Gizmos.DrawCube(snappedPosition, new Vector3(size, size, 1));
         }
     }
 }

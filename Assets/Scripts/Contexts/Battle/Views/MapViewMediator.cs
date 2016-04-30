@@ -33,7 +33,8 @@ namespace Contexts.Battle.Views {
                 var dimensions = new MapDimensions(View.Width, View.Height);
                 var combatants = View.GetCombatants();
                 var randomizer = new BasicRandomizer();
-                var config = new MapConfiguration(dimensions, combatants, randomizer);
+                var obstructions = View.GetObstructedPositions();
+                var config = new MapConfiguration(dimensions, combatants, randomizer, obstructions);
                 InitializeMapSignal.Dispatch(config);
             });
         }
