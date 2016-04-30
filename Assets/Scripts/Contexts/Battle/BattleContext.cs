@@ -45,6 +45,7 @@ namespace Contexts.Battle {
 
             mediationBinder.Bind<MapView>().To<MapViewMediator>();
             mediationBinder.Bind<MapHighlightView>().To<MapHighlightViewMediator>();
+            mediationBinder.Bind<ActionMenuView>().To<ActionMenuViewMediator>();
         }
     }
 }
