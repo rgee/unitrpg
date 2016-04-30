@@ -43,9 +43,11 @@ public class UnitController : MonoBehaviour {
                 .SetEase(Ease.Linear)
                 .WaitForCompletion();
 
-            var gridPosition = _grid.GridPositionForWorldPosition(currentDestination);
-
-            yield return StartCoroutine(movementEventHandler.HandleMovement(_unit, gridPosition));
+            // This isn't always used and is on the chopping block for StrangeIoC stuff.
+            if (_grid != null) {
+                var gridPosition = _grid.GridPositionForWorldPosition(currentDestination);
+                yield return StartCoroutine(movementEventHandler.HandleMovement(_unit, gridPosition));
+            }
 
             pathIndex++;
             previousPoint = currentDestination;
@@ -57,6 +59,10 @@ public class UnitController : MonoBehaviour {
     private void CommitMoveToModel(IEnumerable<Vector3> path) {
         var unitModel = _unit.model;
         var battleModel = _battleState.Model;
+        if (battleModel == null) {
+            Debug.LogError("Could not find battle state to commit movement.");
+            return;
+        }
 
         var gridPointPath = path.Select(point => _grid.GridPositionForWorldPosition(point))
             .ToList();
