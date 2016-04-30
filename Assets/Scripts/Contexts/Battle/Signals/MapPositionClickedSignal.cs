@@ -2,6 +2,6 @@
 using UnityEngine;
 
 namespace Contexts.Battle.Signals {
-    public class MapPositionClicked : Signal<Vector2> {
+    public class MapPositionClickedSignal : Signal<Vector2> {
     }
 }

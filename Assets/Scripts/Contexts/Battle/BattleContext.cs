@@ -23,8 +23,14 @@ namespace Contexts.Battle {
             }
 
             injectionBinder.Bind<BattleStartSignal>().ToSingleton().CrossContext();
+            injectionBinder.Bind<InitializeMapSignal>().ToSingleton();
+            injectionBinder.Bind<MapPositionClickedSignal>().ToSingleton();
+            injectionBinder.Bind<UnitSelectedSignal>().ToSingleton();
+
             commandBinder.Bind<BattleStartSignal>()
                 .To<StartBattleCommand>();
+            commandBinder.Bind<InitializeMapSignal>().To<InitializeMapCommand>();
+            commandBinder.Bind<MapPositionClickedSignal>().To<SelectMapPositionCommand>();
         }
     }
 }

@@ -5,6 +5,8 @@ using UnityEngine;
 namespace Contexts.Battle.Views {
     public class MapView : View {
         public Signal<Vector2> MapClicked = new Signal<Vector2>();
+        public int Width;
+        public int Height;
 
         void Awake() {
             // Get the map manager component           

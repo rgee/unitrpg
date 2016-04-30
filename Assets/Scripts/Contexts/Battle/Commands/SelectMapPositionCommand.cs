@@ -5,7 +5,7 @@ using strange.extensions.command.impl;
 using UnityEngine;
 
 namespace Contexts.Battle.Commands {
-    public class SelectMapPosition : Command {
+    public class SelectMapPositionCommand : Command {
         [Inject]
         public BattleViewState BattleViewModel { get; set; }
 
@@ -13,7 +13,7 @@ namespace Contexts.Battle.Commands {
         public Vector2 Position { get; set; }
 
         [Inject]
-        public UnitSelected UnitSelected { get; set; }
+        public UnitSelectedSignal UnitSelectedSignal { get; set; }
 
         public override void Execute() {
             var state = BattleViewModel.State;
@@ -22,7 +22,7 @@ namespace Contexts.Battle.Commands {
                 if (combatant.Army == ArmyType.Friendly) {
                     // Mark the unit at Position as selected, change the battle state.
                     BattleViewModel.SelectedCombatant = combatant;
-                    UnitSelected.Dispatch();
+                    UnitSelectedSignal.Dispatch();
                 }
             } else if (state == BattleUIState.SelectingMoveLocation) {
                 // Make the unit move

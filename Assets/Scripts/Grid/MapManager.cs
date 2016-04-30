@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Models.Fighting.Maps;
 using UnityEngine;
 
 namespace Grid {
@@ -8,10 +9,6 @@ namespace Grid {
         public int Width;
         public int Height;
         public int GridSize;
-
-        void Awake() {
-            
-        }
 
         public List<Vector2> GetObstacles() {
             return GetComponentsInChildren<Obstacle>()
