@@ -32,6 +32,15 @@ namespace Models.Fighting.Maps {
             tile.Obstructed = true;
         }
 
+        public bool IsBlockedByEnvironment(Vector2 position) {
+            if (!_tiles.ContainsKey(position)) {
+                return false;
+            }
+
+            var tile = GetTileByPosition(position);
+            return tile.Obstructed;
+        }
+
         public bool IsBlocked(Vector2 position) {
             if (!_tiles.ContainsKey(position)) {
                 return false;

@@ -8,6 +8,8 @@ namespace Models.Fighting.Maps {
 
         bool IsBlocked(Vector2 position);
 
+        bool IsBlockedByEnvironment(Vector2 position);
+
         void AddObstruction(Vector2 position);
 
         ICombatant GetAtPosition(Vector2 position);

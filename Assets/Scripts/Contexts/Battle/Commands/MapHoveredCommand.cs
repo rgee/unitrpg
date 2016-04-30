@@ -14,9 +14,21 @@ namespace Contexts.Battle.Commands {
         [Inject]
         public HoveredTileChangeSignal HoveredTileChangeSignal { get; set; }
 
+        [Inject]
+        public HoverTileDisableSignal HoverTileDisableSignal { get; set; }
+
         public override void Execute() {
-            Model.HoveredTile = Position.GridCoordinates;
-            HoveredTileChangeSignal.Dispatch(Position.WorldCoordinates);
+            var map = Model.Map;
+            if (map == null) {
+                return;
+            }
+
+            if (map.IsBlockedByEnvironment(Position.GridCoordinates)) {
+                HoverTileDisableSignal.Dispatch();
+            } else {
+                Model.HoveredTile = Position.GridCoordinates;
+                HoveredTileChangeSignal.Dispatch(Position.WorldCoordinates);
+            }
         }
     }
 }
