@@ -32,7 +32,6 @@ namespace Models.Fighting {
 
         public BaseCombatant(ICharacter character, ArmyType army) {
             Buffs = new List<IBuff>();
-            Id = Guid.NewGuid().ToString();
             _character = character;
             Army = army;
             Name = character.Name;

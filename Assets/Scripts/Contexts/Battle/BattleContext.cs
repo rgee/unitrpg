@@ -38,6 +38,7 @@ namespace Contexts.Battle {
             injectionBinder.Bind<MapPositionClickedSignal>().ToSingleton();
             injectionBinder.Bind<UnitSelectedSignal>().ToSingleton();
             injectionBinder.Bind<HoverTileDisableSignal>().ToSingleton();
+            injectionBinder.Bind<MoveCombatantSignal>().ToSingleton();
 
             commandBinder.Bind<InitializeMapSignal>().To<InitializeMapCommand>();
             commandBinder.Bind<MapPositionClickedSignal>().To<SelectMapPositionCommand>();

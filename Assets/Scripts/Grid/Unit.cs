@@ -30,6 +30,7 @@ namespace Grid {
                 {MathUtils.CardinalDirection.S, 0}
             };
 
+        public string Id;
         public bool friendly;
         public Vector2 gridPosition;
         public bool Killing;

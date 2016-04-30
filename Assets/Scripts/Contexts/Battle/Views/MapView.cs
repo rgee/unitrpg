@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Contexts.Battle.Utilities;
 using Models.Fighting.Battle;
 using Models.Fighting.Characters;
 using strange.extensions.mediation.impl;
@@ -23,6 +24,18 @@ namespace Contexts.Battle.Views {
             } else {
                 MapHovered.Dispatch(mouseGridPosition);
             }
+        }
+
+        public void MoveUnit(string id, List<Vector2> path) {
+            var unitGameObject = FindUnitById(id);
+            if (unitGameObject == null) {
+                Debug.LogError("Cannot find unit to move by id: " + id);
+                return;
+            }
+
+            var worldPositions = path.Select(pos => GetWorldPositionForGridPosition(pos)).ToList();
+            var unitComp = unitGameObject.GetComponent<Grid.Unit>();
+            StartCoroutine(unitComp.FollowPath(worldPositions));
         }
 
         public Vector2 GetGridPositionForWorldPosition(Vector3 worldPosition) {
@@ -51,6 +64,19 @@ namespace Contexts.Battle.Views {
             return result;
         }
 
+        private GameObject FindUnitById(string id) {
+            var unitContainer = transform.FindChild("Units");
+
+            foreach (Transform unit in unitContainer) {
+                var unitComponent = unit.GetComponent<Grid.Unit>();
+                if (unitComponent.Id == id) {
+                    return unit.gameObject;
+                }
+            }
+
+            return null;
+        }
+
         public List<CombatantDatabase.CombatantReference> GetCombatants() {
             var unitContainer = transform.FindChild("Units").gameObject;
             var units = unitContainer.GetComponentsInChildren<Grid.Unit>();
@@ -58,6 +84,7 @@ namespace Contexts.Battle.Views {
             return units.Select(unit => {
                 var character = unit.GetCharacter();
                 return new CombatantDatabase.CombatantReference {
+                    Id = unit.Id,
                     Position = unit.gridPosition,
                     Name = character.Name,
 

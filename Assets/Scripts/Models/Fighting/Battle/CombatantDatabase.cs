@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Models.Fighting.Characters;
 using Models.SaveGames;
@@ -9,6 +10,7 @@ namespace Models.Fighting.Battle {
         private readonly ILookup<ArmyType, ICombatant> _combatants;
 
         public class CombatantReference {
+            public string Id { get; set; }
             public string Name { get; set; }
             public Vector2 Position { get; set; }
             public ArmyType Army { get; set; }
@@ -41,7 +43,15 @@ namespace Models.Fighting.Battle {
                 }
             }
 
-            var result = new BaseCombatant(character, reference.Army) {Position = reference.Position};
+            var id = reference.Id;
+            if (id == null) {
+                id = Guid.NewGuid().ToString();
+            }
+
+            var result = new BaseCombatant(character, reference.Army) {
+                Position = reference.Position,
+                Id = id
+            };
             return result;
         }
 

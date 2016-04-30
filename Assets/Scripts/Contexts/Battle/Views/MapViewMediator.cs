@@ -25,10 +25,14 @@ namespace Contexts.Battle.Views {
         [Inject]
         public HoverPositionSignal HoverPositionSignal { get; set; }
 
+        [Inject]
+        public MoveCombatantSignal MoveCombatantSignal { get; set; }
+
         public override void OnRegister() {
             View.MapClicked.AddListener(OnMapClicked);
             View.MapHovered.AddListener(OnMapHovered);
 
+            MoveCombatantSignal.AddListener(OnMove);
             GatherSignal.AddOnce(() => {
                 var dimensions = new MapDimensions(View.Width, View.Height);
                 var combatants = View.GetCombatants();
@@ -37,6 +41,10 @@ namespace Contexts.Battle.Views {
                 var config = new MapConfiguration(dimensions, combatants, randomizer, obstructions);
                 InitializeMapSignal.Dispatch(config);
             });
+        }
+
+        private void OnMove(MovementPath path) {
+            View.MoveUnit(path.Combatant.Id, path.Positions);
         }
 
         private void OnMapHovered(Vector2 hoverPosition) {
