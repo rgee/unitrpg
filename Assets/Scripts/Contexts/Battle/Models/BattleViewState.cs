@@ -1,6 +1,7 @@
 ﻿using Models.Fighting;
 using Models.Fighting.Battle;
 using Models.Fighting.Maps;
+using Models.Fighting.Skills;
 using UnityEngine;
 
 namespace Contexts.Battle.Models {
@@ -12,6 +13,8 @@ namespace Contexts.Battle.Models {
         public IMap Map { get; set; }
 
         public ICombatant SelectedCombatant { get; set; }
+
+        public SkillType SelectedSkillType { get; set; }
 
         public Vector2 HoveredTile { get; set; }
     }

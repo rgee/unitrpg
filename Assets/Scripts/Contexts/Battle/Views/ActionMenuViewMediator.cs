@@ -44,8 +44,12 @@ namespace Contexts.Battle.Views {
             ActionSelectedSignal.Dispatch(CombatActionType.Fight);
 
             // When the user selected 'Fight', preprare to handle the Back signal
-            BackSignal.AddOnce(View.ReturnToTop);
+            BackSignal.AddOnce(ReturnToTop);
             View.ShowFightSubMenu();
+        }
+
+        private void ReturnToTop() {
+            View.ReturnToTop();
         }
 
 

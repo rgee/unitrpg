@@ -1,6 +1,7 @@
 ﻿using Contexts.Battle.Models;
 using Contexts.Battle.Signals;
 using strange.extensions.command.impl;
+using UnityEditor;
 
 namespace Contexts.Battle.Commands {
     public class BackCommand : Command {
@@ -18,6 +19,9 @@ namespace Contexts.Battle.Commands {
                     Model.SelectedCombatant = null;
                     Model.State = BattleUIState.SelectingUnit;
                     UnitDeselectedSignal.Dispatch();
+                    break;
+                case BattleUIState.SelectingFightAction:
+                    Model.State = BattleUIState.SelectingAction;
                     break;
 
             }

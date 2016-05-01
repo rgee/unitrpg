@@ -12,6 +12,7 @@ namespace Models.Combat {
         Brace = 1 << 6,
         Cover = 1 << 7,
         Attack = 1 << 8,
-        Use = 1 << 9
+        Use = 1 << 9,
+        Speical = 1 << 10
     }
 }

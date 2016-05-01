@@ -981,6 +981,7 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -6193,6 +6194,14 @@ Prefab:
     - target: {fileID: 11427878, guid: 57ed076985e425f43a30d3070f592c92, type: 2}
       propertyPath: zoomFactor
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11427878, guid: 57ed076985e425f43a30d3070f592c92, type: 2}
+      propertyPath: forceResolution.x
+      value: 1280
+      objectReference: {fileID: 0}
+    - target: {fileID: 11427878, guid: 57ed076985e425f43a30d3070f592c92, type: 2}
+      propertyPath: forceResolution.y
+      value: 720
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 57ed076985e425f43a30d3070f592c92, type: 2}
@@ -20925,6 +20934,7 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: -331272077
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -24569,10 +24579,6 @@ Prefab:
     - target: {fileID: 409568, guid: 60ed52da4d04237499fa3acdd2879c4e, type: 2}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 148438, guid: 60ed52da4d04237499fa3acdd2879c4e, type: 2}
-      propertyPath: m_TagString
-      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 60ed52da4d04237499fa3acdd2879c4e, type: 2}

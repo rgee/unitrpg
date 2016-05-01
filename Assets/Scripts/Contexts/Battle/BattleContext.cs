@@ -47,10 +47,12 @@ namespace Contexts.Battle {
             commandBinder.Bind<MapPositionClickedSignal>().To<SelectMapPositionCommand>();
             commandBinder.Bind<HoverPositionSignal>().To<MapHoveredCommand>();
             commandBinder.Bind<BackSignal>().To<BackCommand>();
+            commandBinder.Bind<CombatActionSelectedSignal>().To<CombatActionSelectedCommand>();
 
             mediationBinder.Bind<MapView>().To<MapViewMediator>();
             mediationBinder.Bind<MapHighlightView>().To<MapHighlightViewMediator>();
             mediationBinder.Bind<ActionMenuView>().To<ActionMenuViewMediator>();
+            mediationBinder.Bind<BattleView>().To<BattleViewMediator>();
         }
     }
 }
