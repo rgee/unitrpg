@@ -37,12 +37,16 @@ namespace Contexts.Battle {
             injectionBinder.Bind<InitializeMapSignal>().ToSingleton();
             injectionBinder.Bind<MapPositionClickedSignal>().ToSingleton();
             injectionBinder.Bind<UnitSelectedSignal>().ToSingleton();
+            injectionBinder.Bind<UnitDeselectedSignal>().ToSingleton();
             injectionBinder.Bind<HoverTileDisableSignal>().ToSingleton();
             injectionBinder.Bind<MoveCombatantSignal>().ToSingleton();
+            injectionBinder.Bind<BackSignal>().ToSingleton();
+            injectionBinder.Bind<CombatActionSelectedSignal>().ToSingleton();
 
             commandBinder.Bind<InitializeMapSignal>().To<InitializeMapCommand>();
             commandBinder.Bind<MapPositionClickedSignal>().To<SelectMapPositionCommand>();
             commandBinder.Bind<HoverPositionSignal>().To<MapHoveredCommand>();
+            commandBinder.Bind<BackSignal>().To<BackCommand>();
 
             mediationBinder.Bind<MapView>().To<MapViewMediator>();
             mediationBinder.Bind<MapHighlightView>().To<MapHighlightViewMediator>();
