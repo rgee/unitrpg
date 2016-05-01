@@ -24,7 +24,7 @@ namespace Models {
         public int Strength;
         public int StrengthGrowth;
         public float MoveTimePerSquare = 0.3f;
-        public List<CombatAction> Actions; 
+        public List<CombatActionType> Actions; 
 
         public Character(Character character) {
             Defense = character.Defense;

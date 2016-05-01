@@ -2,7 +2,7 @@
 
 namespace Models.Combat {
     [Flags]
-    public enum CombatAction {
+    public enum CombatActionType {
         Move = 1 << 0,
         Fight = 1 << 1,
         Item = 1 << 2,

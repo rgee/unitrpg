@@ -32,11 +32,11 @@ namespace Models.Combat {
             _turnState.RecordAction(unit);
         }
 
-        public IEnumerable<CombatAction> GetAvailableActions(Unit unit) {
+        public IEnumerable<CombatActionType> GetAvailableActions(Unit unit) {
             return _actionProber.GetAvailableActions(unit);
         }
 
-        public IEnumerable<CombatAction> GetAvailableFightActions(Unit unit) {
+        public IEnumerable<CombatActionType> GetAvailableFightActions(Unit unit) {
             return _actionProber.GetAvailableFightActions(unit);
         } 
 

@@ -2,7 +2,7 @@
 
 namespace Models.Combat {
     public interface IActionProber {
-        IEnumerable<CombatAction> GetAvailableActions(Unit unit);
-        IEnumerable<CombatAction> GetAvailableFightActions(Unit unit);
+        IEnumerable<CombatActionType> GetAvailableActions(Unit unit);
+        IEnumerable<CombatActionType> GetAvailableFightActions(Unit unit);
     }
 }

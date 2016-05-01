@@ -21,8 +21,8 @@ namespace Models.Combat {
         bool CanAct(Unit unit);
         void WaitUnit(Unit unit);
         void MoveUnit(Unit unit, List<Vector2> path, Vector2 location);
-        IEnumerable<CombatAction> GetAvailableActions(Unit unit);
-        IEnumerable<CombatAction> GetAvailableFightActions(Unit unit); 
+        IEnumerable<CombatActionType> GetAvailableActions(Unit unit);
+        IEnumerable<CombatActionType> GetAvailableFightActions(Unit unit); 
         void UseItem(Item item, Unit unit);
 
         IEnumerable<InteractiveTile> GetAdjacentInteractiveTiles(Vector2 position);

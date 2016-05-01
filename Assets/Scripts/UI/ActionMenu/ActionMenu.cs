@@ -11,7 +11,7 @@ namespace UI.ActionMenu {
 
         public event Action OnCancel;
 
-        public delegate void ActionSelectedEventHandler(CombatAction action);
+        public delegate void ActionSelectedEventHandler(CombatActionType actionType);
         public event ActionSelectedEventHandler OnActionSelected;
 
 
@@ -19,28 +19,28 @@ namespace UI.ActionMenu {
             _view = GetComponent<IActionMenuView>();
         }
 
-        public void Show(IEnumerable<CombatAction> actions, IEnumerable<CombatAction> fightActions) {
+        public void Show(IEnumerable<CombatActionType> actions, IEnumerable<CombatActionType> fightActions) {
            StartCoroutine(AwaitActionSelect(actions, fightActions));
         }
 
         public void Hide() {
             StopAllCoroutines();
             _view.Canceled = false;
-            _view.SelectedAction = null;
+            _view.SelectedActionType = null;
             StartCoroutine(_view.Hide());
         }
 
-        IEnumerator AwaitActionSelect(IEnumerable<CombatAction> actions, IEnumerable<CombatAction> fightActions) {
+        IEnumerator AwaitActionSelect(IEnumerable<CombatActionType> actions, IEnumerable<CombatActionType> fightActions) {
            _view.Show(actions, fightActions);
 
             // Keep yielding until the view has been dismissed or has an action.
-            while (_view.SelectedAction == null && !_view.Canceled) {
+            while (_view.SelectedActionType == null && !_view.Canceled) {
                 yield return null;
             }
 
-            if (_view.SelectedAction != null) {
+            if (_view.SelectedActionType != null) {
                 if (OnActionSelected != null) {
-                    OnActionSelected(_view.SelectedAction.Value);
+                    OnActionSelected(_view.SelectedActionType.Value);
                 }
             } else if (_view.Canceled) {
                 if (OnCancel != null) {
