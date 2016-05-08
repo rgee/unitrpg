@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Models.Fighting.Maps {
@@ -96,6 +97,35 @@ namespace Models.Fighting.Maps {
             }
 
             return result.Occupant;
+        }
+
+        public HashSet<Vector2> BreadthFirstSearch(Vector2 start, int maxDistance, bool ignoreOtherUnits) {
+            var fringe = new Queue<Vector2>();            
+            var results = new HashSet<Vector2>();
+            
+            fringe.Enqueue(start);
+            while (fringe.Count > 0) {
+                var current = fringe.Dequeue();
+                var neighbors = MathUtils.GetAdjacentPoints(current);
+                var openNeighbors = neighbors.Where((neighbor) => { 
+                    if (MathUtils.ManhattanDistance(start, neighbor) > maxDistance) {
+                        return false;
+                    }
+                    
+                    if (ignoreOtherUnits) {
+                        return IsBlockedByEnvironment(neighbor);
+                    } else {
+                        return IsBlocked(neighbor);
+                    }
+                });
+                
+                foreach (var node in openNeighbors) {
+                    fringe.Enqueue(node);
+                    results.Add(node);  
+                }
+            }
+            
+            return results;
         }
     }
 }
