@@ -17,6 +17,7 @@ namespace Models.Fighting.Maps {
                 }
             }
 
+            // TODO: Refactor to not be static.
             CombatEventBus.CombatantMoves.AddListener(MoveCombatant);
             CombatEventBus.CombatantDeaths.AddListener(RemoveCombatant);
         }
@@ -75,7 +76,7 @@ namespace Models.Fighting.Maps {
         public void MoveCombatant(ICombatant combatant, Vector2 position) {
             var destination = GetTileByPosition(position);
             if (destination.Occupant != null) {
-                throw new ArgumentException("There's already a combatant at "+ position);
+                throw new ArgumentException("There's already a combatant " + "(" + destination.Occupant.Name + ")" + " at "+ position);
             }
 
             if (destination.Obstructed) {

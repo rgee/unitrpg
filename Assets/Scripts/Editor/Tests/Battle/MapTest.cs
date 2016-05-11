@@ -14,8 +14,9 @@ namespace Tests.Battle {
         [Test]
         public void TestBFS() {
             var map = new Map(5);
+            map.AddObstruction(new Vector2(1, 0));
             var result = map.BreadthFirstSearch(Vector2.zero, 1, true);
-            Assert.AreEqual(3, result.Count);
+            Assert.AreEqual(2, result.Count);
         }
     }
 }
