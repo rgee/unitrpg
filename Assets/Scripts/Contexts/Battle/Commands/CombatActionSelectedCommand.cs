@@ -1,6 +1,7 @@
 ﻿using Contexts.Battle.Models;
 using Contexts.Battle.Signals;
 using Models.Combat;
+using Models.Fighting;
 using Models.Fighting.Skills;
 using strange.extensions.command.impl;
 
@@ -13,7 +14,7 @@ namespace Contexts.Battle.Commands {
         public BattleViewState Model { get; set; }
 
         [Inject]
-        public MoveSelectedSignal MoveSelectedSignal { get; set; }
+        public NewMoveRangeSignal NewMoveRangeSignal { get; set; }
 
         public override void Execute() {
             if (ActionType == CombatActionType.Attack) {
@@ -24,8 +25,13 @@ namespace Contexts.Battle.Commands {
                 // TODO: Determine special skill type
             } else if (ActionType == CombatActionType.Move) {
                 Model.State = BattleUIState.SelectingMoveLocation;
-                // TODO: Get move range and set highlighted squares
-                MoveSelectedSignal.Dispatch();
+
+                var map = Model.Map;
+                var origin = Model.SelectedCombatant.Position;
+                var moveRange = Model.SelectedCombatant.GetAttribute(Attribute.AttributeType.Move);
+                var squares = map.BreadthFirstSearch(origin, moveRange.Value, false);
+
+                NewMoveRangeSignal.Dispatch(squares);
             } else if (ActionType == CombatActionType.Fight) { 
                 Model.State = BattleUIState.SelectingFightAction;
             } else {
