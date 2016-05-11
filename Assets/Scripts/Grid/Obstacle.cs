@@ -14,9 +14,10 @@ namespace Grid {
             // Draw a red outline around the obstacle.
             Gizmos.color = new Color(1, 0, 0, 0.2f);
 
-            var gridPos = _view.GetGridPositionForWorldPosition(transform.position);
-            var snappedPosition = _view.GetWorldPositionForGridPosition(gridPos);
-            var size = _view.TileSize;
+            var dimensions = _view.GetDimensions();
+            var gridPos = dimensions.GetGridPositionForWorldPosition(transform.position);
+            var snappedPosition = dimensions.GetWorldPositionForGridPosition(gridPos);
+            var size = dimensions.TileSize;
             Gizmos.DrawCube(snappedPosition, new Vector3(size, size, 1));
         }
     }

@@ -1,4 +1,5 @@
-﻿using Models.Fighting;
+﻿using Contexts.Battle.Utilities;
+using Models.Fighting;
 using Models.Fighting.Battle;
 using Models.Fighting.Maps;
 using Models.Fighting.Skills;
@@ -17,5 +18,7 @@ namespace Contexts.Battle.Models {
         public SkillType SelectedSkillType { get; set; }
 
         public Vector2 HoveredTile { get; set; }
+
+        public MapDimensions Dimensions { get; set; }
     }
 }

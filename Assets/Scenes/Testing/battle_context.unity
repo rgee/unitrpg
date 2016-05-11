@@ -214,6 +214,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78f84f4e5a1e22249a5307d6632d393c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BaseSortOrder: -99
+  MapHighlightPrefab: {fileID: 133506, guid: 93f3a9d030a037b428cae048d1f6bf91, type: 2}
+  GlobalEnemyMaterial: {fileID: 2100000, guid: 8481194d3a0650243ac2f1ff9519d8ef, type: 2}
+  AttackSelectionMaterial: {fileID: 2100000, guid: 90594c636de501e428f525f0c11f0d0b,
+    type: 2}
+  HoverSelectionMaterial: {fileID: 0}
+  MovementSelectionMaterial: {fileID: 2100000, guid: ab88c5ac613a069478342536ecd4c80d,
+    type: 2}
+  SpecificEnemyMaterial: {fileID: 2100000, guid: dbe564274e8c99040bce9d5fd242642e,
+    type: 2}
 --- !u!1 &187450914
 GameObject:
   m_ObjectHideFlags: 0
@@ -538,11 +548,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 499590, guid: 57ed076985e425f43a30d3070f592c92, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -199
+      value: -89
       objectReference: {fileID: 0}
     - target: {fileID: 499590, guid: 57ed076985e425f43a30d3070f592c92, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -189
+      value: -66
       objectReference: {fileID: 0}
     - target: {fileID: 499590, guid: 57ed076985e425f43a30d3070f592c92, type: 2}
       propertyPath: m_LocalPosition.z
@@ -570,15 +580,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11408130, guid: 57ed076985e425f43a30d3070f592c92, type: 2}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11427878, guid: 57ed076985e425f43a30d3070f592c92, type: 2}
       propertyPath: nativeResolutionWidth
-      value: 960
+      value: 1920
       objectReference: {fileID: 0}
     - target: {fileID: 11427878, guid: 57ed076985e425f43a30d3070f592c92, type: 2}
       propertyPath: nativeResolutionHeight
-      value: 640
+      value: 1080
       objectReference: {fileID: 0}
     - target: {fileID: 11427878, guid: 57ed076985e425f43a30d3070f592c92, type: 2}
       propertyPath: forceResolution.x
@@ -594,7 +604,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11427878, guid: 57ed076985e425f43a30d3070f592c92, type: 2}
       propertyPath: zoomFactor
-      value: 1
+      value: 3.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 57ed076985e425f43a30d3070f592c92, type: 2}

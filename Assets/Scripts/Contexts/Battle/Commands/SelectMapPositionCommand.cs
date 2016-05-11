@@ -25,8 +25,8 @@ namespace Contexts.Battle.Commands {
                     BattleViewModel.SelectedCombatant = combatant;
                     BattleViewModel.State = BattleUIState.SelectingAction;
 
-                    var mapView = GameObject.FindObjectOfType<MapView>();
-                    var worldPosition = mapView.GetWorldPositionForGridPosition(combatant.Position);
+                    var dimensions = BattleViewModel.Dimensions;
+                    var worldPosition = dimensions.GetWorldPositionForGridPosition(combatant.Position);
                     UnitSelectedSignal.Dispatch(worldPosition);
                 }
             } else if (state == BattleUIState.SelectingMoveLocation) {

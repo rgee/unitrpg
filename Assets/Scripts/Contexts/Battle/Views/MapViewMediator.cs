@@ -34,7 +34,7 @@ namespace Contexts.Battle.Views {
 
             MoveCombatantSignal.AddListener(OnMove);
             GatherSignal.AddOnce(() => {
-                var dimensions = new MapDimensions(View.Width, View.Height);
+                var dimensions = new MapDimensions(View.Width, View.Height, View.TileSize);
                 var combatants = View.GetCombatants();
                 var randomizer = new BasicRandomizer();
                 var obstructions = View.GetObstructedPositions();
@@ -49,7 +49,7 @@ namespace Contexts.Battle.Views {
 
         private void OnMapHovered(Vector2 hoverPosition) {
             if (BattleModel.HoveredTile != hoverPosition) {
-                var worldPosition = View.GetWorldPositionForGridPosition(hoverPosition);
+                var worldPosition = View.GetDimensions().GetWorldPositionForGridPosition(hoverPosition);
                 HoverPositionSignal.Dispatch(new GridPosition(hoverPosition, worldPosition));
             }
         }
