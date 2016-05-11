@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using Contexts.Battle.Models;
 using Contexts.Battle.Signals;
-using Models.Fighting;
 using strange.extensions.mediation.impl;
 using UnityEngine;
 
@@ -36,7 +35,6 @@ namespace Contexts.Battle.Views {
 
         private void OnMoveSelected(HashSet<Vector2> range) {
             var dims = Model.Dimensions;
-
             View.HighlightPositions(range, HighlightLevel.PlayerMove, dims);
         }
 

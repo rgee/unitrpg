@@ -56,6 +56,7 @@ namespace Contexts.Battle.Views {
         private GameObject CreateHighlight(Vector3 pos, HighlightLevel level) {
             var highlight = Instantiate(MapHighlightPrefab);
             highlight.transform.position = pos;
+            highlight.transform.SetParent(transform);
 
             var highlightRenderer = highlight.GetComponent<Renderer>();
             highlightRenderer.sortingLayerName = "Default";
