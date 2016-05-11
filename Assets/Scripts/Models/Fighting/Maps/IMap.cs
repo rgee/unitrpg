@@ -18,5 +18,7 @@ namespace Models.Fighting.Maps {
         ICombatant GetAtPosition(Vector2 position);
         
         HashSet<Vector2> BreadthFirstSearch(Vector2 start, int maxDistance, bool ignoreOtherUnits);
+
+        List<Vector2> FindPath(Vector2 start, Vector2 goal);
     }
 }

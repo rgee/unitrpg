@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using C5;
 using UnityEngine;
 
 namespace Models.Fighting.Maps {
@@ -73,7 +74,7 @@ namespace Models.Fighting.Maps {
             tile.Occupant = combatant;
         }
 
-        public HashSet<ICombatant> GetAdjacent(Vector2 position) {
+        public System.Collections.Generic.HashSet<ICombatant> GetAdjacent(Vector2 position) {
 
             return MathUtils.GetAdjacentPoints(position)
                 .Select(point => GetAtPosition(position))
@@ -111,9 +112,9 @@ namespace Models.Fighting.Maps {
             return _tiles.ContainsKey(position);
         }
 
-        public HashSet<Vector2> BreadthFirstSearch(Vector2 start, int maxDistance, bool ignoreOtherUnits) {
+        public System.Collections.Generic.HashSet<Vector2> BreadthFirstSearch(Vector2 start, int maxDistance, bool ignoreOtherUnits) {
             var fringe = new Queue<Vector2>();            
-            var results = new HashSet<Vector2>();
+            var results = new System.Collections.Generic.HashSet<Vector2>();
             
             fringe.Enqueue(start);
             while (fringe.Count > 0) {
@@ -130,9 +131,9 @@ namespace Models.Fighting.Maps {
                     
                     if (ignoreOtherUnits) {
                         return !IsBlockedByEnvironment(neighbor);
-                    } else {
-                        return !IsBlocked(neighbor);
                     }
+                    
+                    return !IsBlocked(neighbor);
                 });
                 
                 foreach (var node in openNeighbors) {
@@ -144,6 +145,12 @@ namespace Models.Fighting.Maps {
             }
             
             return results;
+        }
+
+        public List<Vector2> FindPath(Vector2 start, Vector2 goal) {
+
+            var openNodes = new IntervalHeap<Vector2>();
+            return null;
         }
     }
 }
