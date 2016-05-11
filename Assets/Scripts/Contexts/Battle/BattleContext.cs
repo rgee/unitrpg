@@ -43,13 +43,14 @@ namespace Contexts.Battle {
             injectionBinder.Bind<BackSignal>().ToSingleton();
             injectionBinder.Bind<CombatActionSelectedSignal>().ToSingleton();
             injectionBinder.Bind<NewMoveRangeSignal>().ToSingleton();
+            injectionBinder.Bind<ClearHighlightSignal>().ToSingleton();
 
             commandBinder.Bind<InitializeMapSignal>().To<InitializeMapCommand>();
             commandBinder.Bind<MapPositionClickedSignal>().To<SelectMapPositionCommand>();
             commandBinder.Bind<HoverPositionSignal>().To<MapHoveredCommand>();
             commandBinder.Bind<BackSignal>().To<BackCommand>();
             commandBinder.Bind<CombatActionSelectedSignal>().To<CombatActionSelectedCommand>();
-
+            
             mediationBinder.Bind<MapView>().To<MapViewMediator>();
             mediationBinder.Bind<MapHighlightView>().To<MapHighlightViewMediator>();
             mediationBinder.Bind<ActionMenuView>().To<ActionMenuViewMediator>();

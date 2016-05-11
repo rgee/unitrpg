@@ -9,7 +9,13 @@ namespace Contexts.Battle.Commands {
         public BattleViewState Model { get; set; }
 
         [Inject]
+        public UnitSelectedSignal UnitSelectedSignal { get; set; }
+
+        [Inject]
         public UnitDeselectedSignal UnitDeselectedSignal { get; set; }
+
+        [Inject]
+        public ClearHighlightSignal ClearHighlightSignal { get; set; }
 
         public override void Execute() {
             var state = Model.State;
@@ -24,6 +30,15 @@ namespace Contexts.Battle.Commands {
                     Model.State = BattleUIState.SelectingAction;
                     break;
 
+                case BattleUIState.SelectingMoveLocation:
+                    Model.State = BattleUIState.SelectingAction;
+                    ClearHighlightSignal.Dispatch(HighlightLevel.PlayerMove);
+
+                    var combatant = Model.SelectedCombatant;
+                    var dimensions = Model.Dimensions;
+                    var worldPosition = dimensions.GetWorldPositionForGridPosition(combatant.Position);
+                    UnitSelectedSignal.Dispatch(worldPosition);
+                    break;
             }
         }
     }

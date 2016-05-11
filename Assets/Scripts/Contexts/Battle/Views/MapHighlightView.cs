@@ -16,7 +16,7 @@ namespace Contexts.Battle.Views {
         public Material MovementSelectionMaterial;
         public Material SpecificEnemyMaterial;
 
-        private HashSet<GameObject> _highlights;
+        private Dictionary<HighlightLevel, HashSet<GameObject>> _highlightsByLevel = new Dictionary<HighlightLevel, HashSet<GameObject>>();
 
         private GameObject _hoverHighlight;
 
@@ -34,15 +34,20 @@ namespace Contexts.Battle.Views {
             var worldPositions =
                 positions.Select(pos => dimensions.GetWorldPositionForGridPosition(pos)).ToList();
 
-            _highlights = worldPositions.Select(pos => CreateHighlight(pos, level)).ToHashSet();
+            var highlights = worldPositions.Select(pos => CreateHighlight(pos, level)).ToHashSet();
+            _highlightsByLevel[level] = highlights;
         }
 
-        public void ClearHighlightedPositions() {
-            foreach (var highlight in _highlights) {
+        public void ClearHighlightedPositions(HighlightLevel level) {
+            if (!_highlightsByLevel.ContainsKey(level)) {
+                return;
+            }
+
+            foreach (var highlight in _highlightsByLevel[level]) {
                 Destroy(highlight);
             }
 
-            _highlights = null;
+            _highlightsByLevel.Remove(level);
         }
 
         public void DisableHoverHighlight() {

@@ -16,6 +16,9 @@ namespace Contexts.Battle.Views {
         public NewMoveRangeSignal NewMoveRangeSignal { get; set; }
 
         [Inject]
+        public ClearHighlightSignal ClearHighlightSignal { get; set; }
+
+        [Inject]
         public BattleViewState Model { get; set; }
 
         [Inject]
@@ -26,11 +29,16 @@ namespace Contexts.Battle.Views {
 
             HoveredTileChangeSignal.AddListener(OnHighlightPositionChange);
             HoverTileDisableSignal.AddListener(OnHighlightDisable);
+            ClearHighlightSignal.AddListener(OnClearHighlight);
             NewMoveRangeSignal.AddListener(OnMoveSelected);
         }
 
         private void OnHighlightPositionChange(Vector3 newPosition) {
            View.SetHighlightedPosition(newPosition); 
+        }
+
+        public void OnClearHighlight(HighlightLevel level) {
+            View.ClearHighlightedPositions(level);
         }
 
         private void OnMoveSelected(HashSet<Vector2> range) {
