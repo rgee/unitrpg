@@ -59,7 +59,7 @@ namespace Contexts.Battle.Views {
         }
 
         private void ShowActionMenu(Vector3 unitPosition) {
-            View.Show(unitPosition);
+            View.Show(unitPosition, BattleModel.AvailableActions);
         }
 
         private void HideActionMenu() {

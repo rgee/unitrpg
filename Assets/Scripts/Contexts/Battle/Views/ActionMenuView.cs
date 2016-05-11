@@ -293,17 +293,10 @@ namespace Contexts.Battle.Views {
             yield return StartCoroutine(HideBubbleGroups(bubbleGroups));
         }
 
-        public void Show(Vector3 position) {
+        public void Show(Vector3 position, HashSet<CombatActionType> actions) {
             if (!_hidden) {
                 return;
             }
-
-            Debug.Log("Showing action menu at " + position);
-            var actions = new List<CombatActionType> {
-                CombatActionType.Move,
-                CombatActionType.Fight,
-                CombatActionType.Item
-            };
 
             var fightActions = new List<CombatActionType> {
                 CombatActionType.Attack,

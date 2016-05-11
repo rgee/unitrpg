@@ -73,6 +73,13 @@ namespace Models.Fighting.Maps {
             tile.Occupant = combatant;
         }
 
+        public HashSet<ICombatant> GetAdjacent(Vector2 position) {
+
+            return MathUtils.GetAdjacentPoints(position)
+                .Select(point => GetAtPosition(position))
+                .ToHashSet();
+        }
+
         public void MoveCombatant(ICombatant combatant, Vector2 position) {
             var destination = GetTileByPosition(position);
             if (destination.Occupant != null) {
