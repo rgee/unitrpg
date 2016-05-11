@@ -99,6 +99,10 @@ namespace Models.Fighting.Maps {
             return result.Occupant;
         }
 
+        private bool IsOnMap(Vector2 position) {
+            return _tiles.ContainsKey(position);
+        }
+
         public HashSet<Vector2> BreadthFirstSearch(Vector2 start, int maxDistance, bool ignoreOtherUnits) {
             var fringe = new Queue<Vector2>();            
             var results = new HashSet<Vector2>();
@@ -108,20 +112,26 @@ namespace Models.Fighting.Maps {
                 var current = fringe.Dequeue();
                 var neighbors = MathUtils.GetAdjacentPoints(current);
                 var openNeighbors = neighbors.Where((neighbor) => { 
+                    if (!IsOnMap(neighbor)) {
+                        return false;
+                    }
+
                     if (MathUtils.ManhattanDistance(start, neighbor) > maxDistance) {
                         return false;
                     }
                     
                     if (ignoreOtherUnits) {
-                        return IsBlockedByEnvironment(neighbor);
+                        return !IsBlockedByEnvironment(neighbor);
                     } else {
-                        return IsBlocked(neighbor);
+                        return !IsBlocked(neighbor);
                     }
                 });
                 
                 foreach (var node in openNeighbors) {
-                    fringe.Enqueue(node);
-                    results.Add(node);  
+                    if (!results.Contains(node)) {
+                        fringe.Enqueue(node);
+                        results.Add(node);  
+                    }
                 }
             }
             
