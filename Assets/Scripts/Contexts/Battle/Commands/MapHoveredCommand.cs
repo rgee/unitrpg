@@ -17,17 +17,34 @@ namespace Contexts.Battle.Commands {
         [Inject]
         public HoverTileDisableSignal HoverTileDisableSignal { get; set; }
 
+        [Inject]
+        public MovementPathReadySignal PathReadySignal { get; set; }
+
+        [Inject]
+        public MovementPathUnavailableSignal PathUnavailableSignal { get; set; }
+
         public override void Execute() {
             var map = Model.Map;
             if (map == null) {
                 return;
             }
 
-            if (map.IsBlockedByEnvironment(Position.GridCoordinates)) {
-                HoverTileDisableSignal.Dispatch();
+            if (Model.State == BattleUIState.SelectingMoveLocation) {
+                var combatant = Model.SelectedCombatant;
+                var path = map.FindPath(combatant.Position, Position.GridCoordinates);
+                if (path == null) {
+                    PathUnavailableSignal.Dispatch();
+                } else {
+                    PathReadySignal.Dispatch(path);
+                }
             } else {
-                Model.HoveredTile = Position.GridCoordinates;
-                HoveredTileChangeSignal.Dispatch(Position.WorldCoordinates);
+
+                if (map.IsBlockedByEnvironment(Position.GridCoordinates)) {
+                    HoverTileDisableSignal.Dispatch();
+                } else {
+                    Model.HoveredTile = Position.GridCoordinates;
+                    HoveredTileChangeSignal.Dispatch(Position.WorldCoordinates);
+                }
             }
         }
     }
