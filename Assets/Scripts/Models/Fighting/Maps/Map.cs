@@ -150,10 +150,13 @@ namespace Models.Fighting.Maps {
         }
 
         public List<Vector2> FindPath(Vector2 start, Vector2 goal) {
+            if (start == goal) {
+                return null;
+            }
 
-            var openNodes = new C5.IntervalHeap<Vector2>();
             var exactCosts = new Dictionary<Vector2, double>();
             var estimates = new Dictionary<Vector2, double>();
+            var openNodes = new C5.IntervalHeap<Vector2>(new AStarComparer(exactCosts, estimates));
             var closedNodes = new HashSet<Vector2>();
             var path = new Dictionary<Vector2, Vector2>();
 
@@ -188,6 +191,7 @@ namespace Models.Fighting.Maps {
                     estimates[neighbor] = heuristicScore;
                     exactCosts[neighbor] = tentativeScore;
                     path[neighbor] = currentCheapest;
+                    openNodes.Add(neighbor);
                 }
             }
 
@@ -199,9 +203,10 @@ namespace Models.Fighting.Maps {
 
             while (cameFrom.ContainsKey(current)) {
                 current = cameFrom[current];
-                result.AddRange(ReconstructPath(cameFrom, current));
+                result.Add(current);
             }
 
+            result.Reverse();
             return result;
         } 
 
