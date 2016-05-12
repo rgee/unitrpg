@@ -58,5 +58,17 @@ namespace Tests.Battle {
 
             Assert.Null(path);
         }
+
+        [Test]
+        public void TestGoalObstructed() {
+            
+            var map = new Map(5);
+            var start = Vector2.zero;
+            var end = new Vector2(2, 0);
+            map.AddObstruction(new Vector2(2, 0));
+            var path = map.FindPath(start, end);
+
+            Assert.Null(path);
+        }
     }
 }

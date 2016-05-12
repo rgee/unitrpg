@@ -34,7 +34,7 @@ namespace Contexts.Battle.Commands {
                 var combatant = Model.SelectedCombatant;
                 var moveRange = combatant.GetAttribute(Attribute.AttributeType.Move).Value;
                 var path = map.FindPath(combatant.Position, Position.GridCoordinates);
-                if (path == null || path.Count > moveRange) {
+                if (path == null || path.Count - 1 > moveRange) {
                     PathUnavailableSignal.Dispatch();
                 } else {
                     PathReadySignal.Dispatch(path);

@@ -114,23 +114,27 @@ namespace Models.Fighting.Maps {
             return _tiles.ContainsKey(position);
         }
 
-        public System.Collections.Generic.HashSet<Vector2> BreadthFirstSearch(Vector2 start, int maxDistance, bool ignoreOtherUnits) {
+        public HashSet<Vector2> BreadthFirstSearch(Vector2 start, int maxDistance, bool ignoreOtherUnits) {
             var fringe = new Queue<Vector2>();            
-            var results = new System.Collections.Generic.HashSet<Vector2>();
+            var results = new HashSet<Vector2>();
+            var distances = new Dictionary<Vector2, int>();
+            distances[start] = 1;
             
             fringe.Enqueue(start);
             while (fringe.Count > 0) {
                 var current = fringe.Dequeue();
+                if (distances[current] > maxDistance) {
+                    break;
+                }
+
+                var currentDist = distances[current];
+
                 var neighbors = MathUtils.GetAdjacentPoints(current);
                 var openNeighbors = neighbors.Where((neighbor) => { 
                     if (!IsOnMap(neighbor)) {
                         return false;
                     }
 
-                    if (MathUtils.ManhattanDistance(start, neighbor) > maxDistance) {
-                        return false;
-                    }
-                    
                     if (ignoreOtherUnits) {
                         return !IsBlockedByEnvironment(neighbor);
                     }
@@ -142,6 +146,7 @@ namespace Models.Fighting.Maps {
                     if (!results.Contains(node)) {
                         fringe.Enqueue(node);
                         results.Add(node);  
+                        distances.Add(node, currentDist + 1);
                     }
                 }
             }
@@ -151,6 +156,10 @@ namespace Models.Fighting.Maps {
 
         public List<Vector2> FindPath(Vector2 start, Vector2 goal) {
             if (start == goal) {
+                return null;
+            }
+
+            if (IsBlocked(goal)) {
                 return null;
             }
 
