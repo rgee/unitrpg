@@ -1,5 +1,6 @@
 ﻿using Contexts.Battle.Models;
 using Contexts.Battle.Signals;
+using Models.Fighting;
 using strange.extensions.command.impl;
 using UnityEngine;
 
@@ -31,8 +32,9 @@ namespace Contexts.Battle.Commands {
 
             if (Model.State == BattleUIState.SelectingMoveLocation) {
                 var combatant = Model.SelectedCombatant;
+                var moveRange = combatant.GetAttribute(Attribute.AttributeType.Move).Value;
                 var path = map.FindPath(combatant.Position, Position.GridCoordinates);
-                if (path == null) {
+                if (path == null || path.Count > moveRange) {
                     PathUnavailableSignal.Dispatch();
                 } else {
                     PathReadySignal.Dispatch(path);
