@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using C5;
+using System.Net;
+using Newtonsoft.Json;
 using UnityEngine;
 
 namespace Models.Fighting.Maps {
@@ -149,8 +151,70 @@ namespace Models.Fighting.Maps {
 
         public List<Vector2> FindPath(Vector2 start, Vector2 goal) {
 
-            var openNodes = new IntervalHeap<Vector2>();
+            var openNodes = new C5.IntervalHeap<Vector2>();
+            var exactCosts = new Dictionary<Vector2, double>();
+            var estimates = new Dictionary<Vector2, double>();
+            var closedNodes = new HashSet<Vector2>();
+            var path = new Dictionary<Vector2, Vector2>();
+
+            openNodes.Add(start);
+            exactCosts[start] = 0d;
+
+            while (!openNodes.IsEmpty) {
+                var currentCheapest = openNodes.FindMin();
+                if (currentCheapest == goal) {
+                    return ReconstructPath(path, currentCheapest);
+                }
+
+                openNodes.DeleteMin();
+                closedNodes.Add(currentCheapest);
+                var neighbors = MathUtils.GetAdjacentPoints(currentCheapest);
+                foreach (var neighbor in neighbors) {
+                    if (closedNodes.Contains(neighbor)) {
+                        continue;
+                    }
+
+                    var tentativeScore = exactCosts[currentCheapest] + CalculateDistance(currentCheapest, neighbor);
+                    if (estimates.ContainsKey(neighbor)) {
+                        var previousEstimate = estimates[neighbor];
+                        if (tentativeScore >= previousEstimate) {
+                            continue;
+                        }
+                    } else {
+                        closedNodes.Add(neighbor);
+                    }
+
+                    var heuristicScore = tentativeScore + EstimateDistance(neighbor, goal);
+                    estimates[neighbor] = heuristicScore;
+                    exactCosts[neighbor] = tentativeScore;
+                    path[neighbor] = currentCheapest;
+                }
+            }
+
             return null;
+        }
+
+        public List<Vector2> ReconstructPath(Dictionary<Vector2, Vector2> cameFrom, Vector2 current) {
+            var result = new List<Vector2> {current};
+
+            while (cameFrom.ContainsKey(current)) {
+                current = cameFrom[current];
+                result.AddRange(ReconstructPath(cameFrom, current));
+            }
+
+            return result;
+        } 
+
+        private double EstimateDistance(Vector2 start, Vector2 end) {
+            return MathUtils.ManhattanDistance(start, end);
+        }
+
+        private double CalculateDistance(Vector2 start, Vector2 end) {
+            if (IsBlocked(end)) {
+                return double.MaxValue;
+            }
+
+            return Vector2.Distance(start, end); 
         }
     }
 }
