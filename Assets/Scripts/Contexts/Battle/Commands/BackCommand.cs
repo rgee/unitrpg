@@ -11,6 +11,9 @@ namespace Contexts.Battle.Commands {
         [Inject]
         public UnitDeselectedSignal UnitDeselectedSignal { get; set; }
 
+        [Inject]
+        public UnitSelectedSignal UnitSelectedSignal { get; set; }
+
         public override void Execute() {
             var state = Model.State;
 
@@ -25,6 +28,10 @@ namespace Contexts.Battle.Commands {
                     break;
 
                 case BattleUIState.SelectingMoveLocation:
+                    var combatant = Model.SelectedCombatant;
+                    var dimensions = Model.Dimensions;
+                    var worldPosition = dimensions.GetWorldPositionForGridPosition(combatant.Position);
+                    UnitSelectedSignal.Dispatch(worldPosition);
                     Model.State = BattleUIState.SelectingAction;
                     break;
             }

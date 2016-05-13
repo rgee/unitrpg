@@ -21,6 +21,8 @@ namespace Contexts.Battle.Models {
             }
         }
 
+        public MovementPath CurrentMovementPath { get; set; }
+
         public IBattle Battle { get; set; }
 
         public IMap Map { get; set; }

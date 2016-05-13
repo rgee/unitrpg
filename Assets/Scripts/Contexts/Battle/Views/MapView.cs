@@ -35,7 +35,7 @@ namespace Contexts.Battle.Views {
             }
 
             var dimensoins = GetDimensions(); 
-            var worldPositions = path.Select(pos => dimensoins.GetWorldPositionForGridPosition(pos)).ToList();
+            var worldPositions = path.Skip(1).Select(pos => dimensoins.GetWorldPositionForGridPosition(pos)).ToList();
             var unitComp = unitGameObject.GetComponent<Grid.Unit>();
             StartCoroutine(unitComp.FollowPath(worldPositions));
         }

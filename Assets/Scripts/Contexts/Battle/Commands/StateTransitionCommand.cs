@@ -49,12 +49,10 @@ namespace Contexts.Battle.Commands {
                     break;
                 case BattleUIState.SelectingMoveLocation:
                     ClearHighlightSignal.Dispatch(HighlightLevel.PlayerMove);
-
-                    var combatant = Model.SelectedCombatant;
-                    var dimensions = Model.Dimensions;
-                    var worldPosition = dimensions.GetWorldPositionForGridPosition(combatant.Position);
-                    UnitSelectedSignal.Dispatch(worldPosition);
                     PathUnavailableSignal.Dispatch();
+                    Model.CurrentMovementPath = null;
+                    break;
+                case BattleUIState.CombatantMoving:
                     break;
                 default:
                     throw new ArgumentOutOfRangeException("state", state, null);
@@ -63,6 +61,8 @@ namespace Contexts.Battle.Commands {
 
         private void Setup(BattleUIState state) {
             switch (state) {
+                case BattleUIState.CombatantMoving:
+                    break;
                 case BattleUIState.SelectingUnit:
                     break;
                 case BattleUIState.SelectingAction:

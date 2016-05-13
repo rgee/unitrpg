@@ -1,5 +1,6 @@
 ﻿using Contexts.Battle.Models;
 using Contexts.Battle.Signals;
+using Contexts.Battle.Utilities;
 using Models.Fighting;
 using strange.extensions.command.impl;
 using UnityEngine;
@@ -36,8 +37,10 @@ namespace Contexts.Battle.Commands {
                 var path = map.FindPath(combatant.Position, Position.GridCoordinates);
                 if (path == null || path.Count - 1 > moveRange) {
                     PathUnavailableSignal.Dispatch();
+                    Model.CurrentMovementPath = null;
                 } else {
                     PathReadySignal.Dispatch(path);
+                    Model.CurrentMovementPath = new MovementPath(path, Model.SelectedCombatant);
                 }
             } else {
 

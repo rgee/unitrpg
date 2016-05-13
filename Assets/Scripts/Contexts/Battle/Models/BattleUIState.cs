@@ -4,6 +4,7 @@
         SelectingAction,
         SelectingFightAction,
         SelectingAttackTarget,
-        SelectingMoveLocation    
+        SelectingMoveLocation,
+        CombatantMoving
     }
 }

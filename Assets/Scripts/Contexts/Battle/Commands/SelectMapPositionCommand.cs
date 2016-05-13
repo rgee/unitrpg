@@ -21,6 +21,9 @@ namespace Contexts.Battle.Commands {
         [Inject]
         public UnitSelectedSignal UnitSelectedSignal { get; set; }
 
+        [Inject]
+        public MoveCombatantSignal MoveCombatantSignal { get; set; }
+
         public override void Execute() {
             var state = BattleViewModel.State;
             var combatant = BattleViewModel.Map.GetAtPosition(Position);
@@ -37,6 +40,11 @@ namespace Contexts.Battle.Commands {
                 }
             } else if (state == BattleUIState.SelectingMoveLocation) {
                 // Make the unit move
+                if (BattleViewModel.CurrentMovementPath != null) {
+                    MoveCombatantSignal.Dispatch(BattleViewModel.CurrentMovementPath);
+                }
+
+                BattleViewModel.State = BattleUIState.CombatantMoving;
             } else if (state == BattleUIState.SelectingAttackTarget) {
                 // Forecast the fight against this unit
             }
