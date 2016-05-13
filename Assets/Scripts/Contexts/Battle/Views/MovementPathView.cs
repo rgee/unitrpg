@@ -167,11 +167,19 @@ namespace Contexts.Battle.Views {
                 var exitDirection = Exit.Value.Direction;
                 return entranceDirection.GetOrientation() != exitDirection.GetOrientation();
             }
+
+            public override string ToString() {
+                return string.Format("Entrance: {0}, Exit: {1}", Entrance, Exit);
+            }
         }
 
         private struct Transition {
             public Vector3 Destination;
             public MathUtils.CardinalDirection Direction;
+
+            public override string ToString() {
+                return string.Format("Destination: {0}, Direction: {1}", Destination, Direction);
+            }
         }
     }
 }

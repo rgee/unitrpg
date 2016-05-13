@@ -48,10 +48,8 @@ namespace Contexts.Battle.Views {
         }
 
         private void OnMapHovered(Vector2 hoverPosition) {
-            if (BattleModel.HoveredTile != hoverPosition) {
-                var worldPosition = View.GetDimensions().GetWorldPositionForGridPosition(hoverPosition);
-                HoverPositionSignal.Dispatch(new GridPosition(hoverPosition, worldPosition));
-            }
+            var worldPosition = View.GetDimensions().GetWorldPositionForGridPosition(hoverPosition);
+            HoverPositionSignal.Dispatch(new GridPosition(hoverPosition, worldPosition));
         }
 
         private void OnMapClicked(Vector2 clickPosition) {
