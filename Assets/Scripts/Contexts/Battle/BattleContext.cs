@@ -29,7 +29,7 @@ namespace Contexts.Battle {
 
             startBinding.To<StartBattleCommand>().InSequence();
 
-            injectionBinder.Bind<BattleViewState>().To(new BattleViewState()).ToSingleton();
+            injectionBinder.Bind<BattleViewState>().ToSingleton();
 
             injectionBinder.Bind<BattleStartSignal>().ToSingleton().CrossContext();
             injectionBinder.Bind<HoveredTileChangeSignal>().ToSingleton();
@@ -46,12 +46,14 @@ namespace Contexts.Battle {
             injectionBinder.Bind<ClearHighlightSignal>().ToSingleton();
             injectionBinder.Bind<MovementPathReadySignal>().ToSingleton();
             injectionBinder.Bind<MovementPathUnavailableSignal>().ToSingleton();
+            injectionBinder.Bind<StateTransitionSignal>().ToSingleton();
 
             commandBinder.Bind<InitializeMapSignal>().To<InitializeMapCommand>();
             commandBinder.Bind<MapPositionClickedSignal>().To<SelectMapPositionCommand>();
             commandBinder.Bind<HoverPositionSignal>().To<MapHoveredCommand>();
             commandBinder.Bind<BackSignal>().To<BackCommand>();
             commandBinder.Bind<CombatActionSelectedSignal>().To<CombatActionSelectedCommand>();
+            commandBinder.Bind<StateTransitionSignal>().To<StateTransitionCommand>();
             
             mediationBinder.Bind<MapView>().To<MapViewMediator>();
             mediationBinder.Bind<MapHighlightView>().To<MapHighlightViewMediator>();

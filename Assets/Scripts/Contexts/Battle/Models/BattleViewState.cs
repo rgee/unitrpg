@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Contexts.Battle.Signals;
 using Contexts.Battle.Utilities;
 using Models.Combat;
 using Models.Fighting;
@@ -9,7 +10,16 @@ using UnityEngine;
 
 namespace Contexts.Battle.Models {
     public class BattleViewState {
-        public BattleUIState State { get; set; }
+        private BattleUIState _state;
+
+        public BattleUIState State {
+            get { return _state; }
+            set {
+                var transition = new StateTransition(_state, value);
+                StateTransitionSignal.Dispatch(transition);
+                _state = value;
+            }
+        }
 
         public IBattle Battle { get; set; }
 
@@ -24,5 +34,8 @@ namespace Contexts.Battle.Models {
         public HashSet<CombatActionType> AvailableActions { get; set; }
 
         public MapDimensions Dimensions { get; set; }
+
+        [Inject]
+        public StateTransitionSignal StateTransitionSignal { get; set; }
     }
 }
