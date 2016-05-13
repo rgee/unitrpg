@@ -183,6 +183,7 @@ namespace Contexts.Battle.Views {
         }
 
         public void ShowFightSubMenu() {
+            _hidden = false;
             var points = _getPoints(_currentFightActions.Count());
 
             var fightPosition = _bubblesByActionName["Fight"].transform.localPosition;
