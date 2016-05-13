@@ -4,9 +4,9 @@ using System.Linq;
 
 namespace Models.Fighting.Battle {
     public class Turn {
-        private Dictionary<string, int> _movesRemaining = new Dictionary<string, int>();  
-        private Dictionary<string, bool> _actionTaken = new Dictionary<string, bool>();
-        private List<ICombatant> _combatants; 
+        private readonly Dictionary<string, int> _movesRemaining = new Dictionary<string, int>();  
+        private readonly Dictionary<string, bool> _actionTaken = new Dictionary<string, bool>();
+        private readonly List<ICombatant> _combatants; 
 
         public Turn(List<ICombatant> combatants) {
             _combatants = combatants;
