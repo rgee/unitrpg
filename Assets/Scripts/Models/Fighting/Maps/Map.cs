@@ -39,7 +39,7 @@ namespace Models.Fighting.Maps {
 
         public bool IsBlockedByEnvironment(Vector2 position) {
             if (!_tiles.ContainsKey(position)) {
-                return false;
+                return true;
             }
 
             var tile = GetTileByPosition(position);
@@ -48,7 +48,7 @@ namespace Models.Fighting.Maps {
 
         public bool IsBlocked(Vector2 position) {
             if (!_tiles.ContainsKey(position)) {
-                return false;
+                return true;
             }
 
             var tile = GetTileByPosition(position);
