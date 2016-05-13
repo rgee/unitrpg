@@ -17,14 +17,16 @@ public class MapHighlightManager : Singleton<MapHighlightManager> {
     }
 
     private readonly Dictionary<string, MapSelection> SelectionsByName = new Dictionary<string, MapSelection>();
-    public Material AttackSelectionMaterial;
-    public int BaseSortOrder = -1000;
-    public Material GlobalEnemyMaterial;
     private GameObject HoverHighlight;
-    public Material HoverSelectionMaterial;
+
+    public int BaseSortOrder = -1000;
     public GameObject MapHighlightPrefab;
+    public Material GlobalEnemyMaterial;
+    public Material AttackSelectionMaterial;
+    public Material HoverSelectionMaterial;
     public Material MovementSelectionMaterial;
     public Material SpecificEnemyMaterial;
+
     private UnitManager UnitManager;
     public bool HoverSelectorEnabled { get; set; }
 

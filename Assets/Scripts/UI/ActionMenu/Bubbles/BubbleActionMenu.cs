@@ -15,7 +15,7 @@ namespace UI.ActionMenu.Bubbles {
         [Tooltip("The prefab for each bubble.")]
         public GameObject BubblePrefab;
 
-        public CombatAction? SelectedAction { get; set; }
+        public CombatActionType? SelectedActionType { get; set; }
 
         public bool FightSelected { get; set; }
 
@@ -39,8 +39,8 @@ namespace UI.ActionMenu.Bubbles {
             { 5, new List<float> { 0f, 75f, -75f, 135f, -135f } }
         };
 
-        private IEnumerable<CombatAction> _currentFightActions;
-        private IEnumerable<CombatAction> _currentActions;
+        private IEnumerable<CombatActionType> _currentFightActions;
+        private IEnumerable<CombatActionType> _currentActions;
 
         private struct MenuAction {
             public readonly string Name;
@@ -76,11 +76,11 @@ namespace UI.ActionMenu.Bubbles {
             }
         }
 
-        public void Show(IEnumerable<CombatAction> actions, IEnumerable<CombatAction> fightActions) {
+        public void Show(IEnumerable<CombatActionType> actions, IEnumerable<CombatActionType> fightActions) {
             _currentActions = actions;
             _currentFightActions = fightActions;
 
-            var combatActions = actions as IList<CombatAction> ?? actions.ToList();
+            var combatActions = actions as IList<CombatActionType> ?? actions.ToList();
 
             var sortedBubbles = getSortedBubblesForActions(combatActions);
 
@@ -95,7 +95,7 @@ namespace UI.ActionMenu.Bubbles {
             ScaleInBubbles(points, sortedBubbles);
         }
 
-        private List<GameObject> getSortedBubblesForActions(IList<CombatAction> combatActions) {
+        private List<GameObject> getSortedBubblesForActions(IList<CombatActionType> combatActions) {
             // Convert the combat action enums to MenuAction names
             var actionStrings = combatActions.Select(action => action.ToString()).ToHashSet();
 
@@ -217,8 +217,8 @@ namespace UI.ActionMenu.Bubbles {
                     TransitionToNewBubbles();
                     break;
                 default:
-                    var actionEnum = (CombatAction) Enum.Parse(typeof(CombatAction), action);
-                    SelectedAction = actionEnum;
+                    var actionEnum = (CombatActionType) Enum.Parse(typeof(CombatActionType), action);
+                    SelectedActionType = actionEnum;
                     break;
             }
         }

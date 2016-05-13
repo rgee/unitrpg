@@ -2,12 +2,12 @@
 
 namespace Models.Combat.Objectives {
     public class Rout : IObjective {
-        public bool IsFailed(IBattle battle) {
+        public bool IsFailed(IOldBattle battle) {
             return battle.GetFriendlyUnits()
                          .All(unit => !unit.IsAlive);
         }
 
-        public bool IsComplete(IBattle battle) {
+        public bool IsComplete(IOldBattle battle) {
             return battle.GetEnemyUnits()
                          .All(unit => unit.IsAlive);
         }

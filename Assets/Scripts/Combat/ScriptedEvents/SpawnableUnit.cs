@@ -5,7 +5,8 @@ using System.Text;
 using UnityEngine;
 
 namespace Combat.ScriptedEvents {
-    public class SpawnableUnit : ScriptableObject {
+    [Serializable]
+    public class SpawnableUnit {
         public GameObject Prefab;
         public Vector2 SpawnPoint;
     }

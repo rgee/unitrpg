@@ -42,12 +42,12 @@ namespace States.Combat {
                 interactiveTiles.Add(tileModel);
             }
 
-            var map = new Map(unitModels, interactiveTiles);
+            var map = new OldMap(unitModels, interactiveTiles);
             var turnState = new Turn(map);
             var objective = new Models.Combat.Objectives.Rout();
             var actionProber = new ActionProber(map, turnState);
 
-            state.Model = new Battle(map, objective, turnState, actionProber);
+            state.Model = new OldBattle(map, objective, turnState, actionProber);
             
             var directorObj = GameObject.Find("BattleIntroDirector");
             if (directorObj != null) {

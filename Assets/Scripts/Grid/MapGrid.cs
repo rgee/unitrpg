@@ -33,7 +33,9 @@ public class MapGrid : Singleton<MapGrid> {
     }
 
     public void RescanGraph() {
-        Pathfinder.Scan();
+        if (Pathfinder != null) {
+            Pathfinder.Scan();
+        }
     }
 
     public void Awake() {

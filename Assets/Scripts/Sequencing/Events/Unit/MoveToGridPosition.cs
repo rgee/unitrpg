@@ -28,7 +28,6 @@ namespace Assets.Sequencing.Events.Unit {
 #endif
 
         public override void FireEvent() {
-            var distance = MathUtils.ManhattanDistance(Start, Destination);
             var worldDestinaion = _grid.GetWorldPosForGridPos(Destination);
             var worldStart = _grid.GetWorldPosForGridPos(Start);
             AffectedObject.transform.localPosition = worldStart;

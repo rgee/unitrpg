@@ -77,7 +77,7 @@ MonoBehaviour:
       eventInfo: 
       eventInt: 0
       eventFloat: 0
-    fps: 13.9999981
+    fps: 13.999998
     loopStart: 0
     wrapMode: 0
   - name: run north
@@ -437,8 +437,8 @@ MonoBehaviour:
     - spriteCollection: {fileID: 11404484, guid: ec5fac889b4abc841ae89c03208fbea1,
         type: 2}
       spriteId: 24
-      triggerEvent: 0
-      eventInfo: 
+      triggerEvent: 1
+      eventInfo: hit
       eventInt: 0
       eventFloat: 0
     - spriteCollection: {fileID: 11404484, guid: ec5fac889b4abc841ae89c03208fbea1,
@@ -471,7 +471,7 @@ MonoBehaviour:
       eventFloat: 0
     fps: 14
     loopStart: 0
-    wrapMode: 0
+    wrapMode: 2
   - name: attack south
     frames:
     - spriteCollection: {fileID: 11404484, guid: ec5fac889b4abc841ae89c03208fbea1,
@@ -666,16 +666,30 @@ MonoBehaviour:
     frames:
     - spriteCollection: {fileID: 11404484, guid: ec5fac889b4abc841ae89c03208fbea1,
         type: 2}
+      spriteId: 81
+      triggerEvent: 0
+      eventInfo: 
+      eventInt: 0
+      eventFloat: 0
+    - spriteCollection: {fileID: 11404484, guid: ec5fac889b4abc841ae89c03208fbea1,
+        type: 2}
       spriteId: 17
       triggerEvent: 0
       eventInfo: 
       eventInt: 0
       eventFloat: 0
     fps: 30
-    loopStart: 0
-    wrapMode: 0
+    loopStart: 1
+    wrapMode: 1
   - name: combat south
     frames:
+    - spriteCollection: {fileID: 11404484, guid: ec5fac889b4abc841ae89c03208fbea1,
+        type: 2}
+      spriteId: 82
+      triggerEvent: 0
+      eventInfo: 
+      eventInt: 0
+      eventFloat: 0
     - spriteCollection: {fileID: 11404484, guid: ec5fac889b4abc841ae89c03208fbea1,
         type: 2}
       spriteId: 40
@@ -684,10 +698,17 @@ MonoBehaviour:
       eventInt: 0
       eventFloat: 0
     fps: 30
-    loopStart: 0
-    wrapMode: 0
+    loopStart: 1
+    wrapMode: 1
   - name: combat north
     frames:
+    - spriteCollection: {fileID: 11404484, guid: ec5fac889b4abc841ae89c03208fbea1,
+        type: 2}
+      spriteId: 83
+      triggerEvent: 0
+      eventInfo: 
+      eventInt: 0
+      eventFloat: 0
     - spriteCollection: {fileID: 11404484, guid: ec5fac889b4abc841ae89c03208fbea1,
         type: 2}
       spriteId: 29
@@ -696,8 +717,8 @@ MonoBehaviour:
       eventInt: 0
       eventFloat: 0
     fps: 30
-    loopStart: 0
-    wrapMode: 0
+    loopStart: 1
+    wrapMode: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

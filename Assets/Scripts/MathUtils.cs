@@ -17,11 +17,32 @@ public static class MathUtils {
 
     public static IEnumerable<Vector2> GetAdjacentPoints(Vector2 point) {
         return new List<Vector2> {
-            new Vector2(point.x-1, point.y),
-            new Vector2(point.x+1, point.y),
-            new Vector2(point.x, point.y-1),
-            new Vector2(point.x, point.y+1)
-        };
+            GetAdjacentPoint(point, CardinalDirection.W) ,
+            GetAdjacentPoint(point, CardinalDirection.E),
+            GetAdjacentPoint(point, CardinalDirection.S),
+            GetAdjacentPoint(point, CardinalDirection.N)
+        };  
+    }
+
+    public static float MapRange(float fromStart, float fromEnd, float toStart, float toEnd, float value) {
+        var inputRange = fromEnd - fromStart;
+        var outputRange = toEnd - toStart;
+        return (value - fromStart)*outputRange/inputRange + toStart;
+    }
+
+    public static Vector2 GetAdjacentPoint(Vector2 point, CardinalDirection direction) {
+        switch (direction) {
+            case CardinalDirection.W:
+                return new Vector2(point.x-1, point.y);
+            case CardinalDirection.E:
+                return new Vector2(point.x+1, point.y);
+            case CardinalDirection.S:
+                return new Vector2(point.x, point.y-1);
+            case CardinalDirection.N:
+                return new Vector2(point.x, point.y+1);
+            default:
+                throw new ArgumentException("Invalid direction.");
+        }
     }
 
     public static int ManhattanDistance(int x1, int y1, int x2, int y2) {
@@ -30,6 +51,10 @@ public static class MathUtils {
 
     public static int ManhattanDistance(Vector2 start, Vector2 end) {
         return ManhattanDistance((int) start.x, (int) start.y, (int) end.x, (int) end.y);
+    }
+
+    public static Vector2 GetPositionAcrossFight(Vector2 attackerPosition) {
+        return new Vector2(1000, 1000);
     }
 
     public static CardinalDirection GetOpposite(this CardinalDirection dir) {

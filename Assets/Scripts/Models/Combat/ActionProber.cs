@@ -4,50 +4,50 @@ using UnityEngine;
 
 namespace Models.Combat {
     public class ActionProber : IActionProber {
-        private readonly IMap _map;
+        private readonly IOldMap _map;
         private readonly ITurn _turn;
 
-        public ActionProber(IMap map, ITurn turn) {
+        public ActionProber(IOldMap map, ITurn turn) {
             _map = map;
             _turn = turn;
         }
 
-        public IEnumerable<CombatAction> GetAvailableFightActions(Unit unit) {
+        public IEnumerable<CombatActionType> GetAvailableFightActions(Unit unit) {
             if (!CanFight(unit)) {
-                return new List<CombatAction>();
+                return new List<CombatActionType>();
             }
 
             return unit.Character.Actions;
         } 
 
-        public IEnumerable<CombatAction> GetAvailableActions(Unit unit) {
-            var results = new List<CombatAction>();
+        public IEnumerable<CombatActionType> GetAvailableActions(Unit unit) {
+            var results = new List<CombatActionType>();
             if (CanFight(unit)) {
-                results.Add(CombatAction.Fight);
+                results.Add(CombatActionType.Fight);
             }
 
             if (CanAct(unit)) {
-                if (!results.Contains(CombatAction.Fight)) {
-                    results.Add(CombatAction.Brace);
+                if (!results.Contains(CombatActionType.Fight)) {
+                    results.Add(CombatActionType.Brace);
                 }
 
-                results.Add(CombatAction.Item);
+                results.Add(CombatActionType.Item);
 
                 if (AnyAdjacentFriendlies(unit)) {
-                    results.Add(CombatAction.Trade);
+                    results.Add(CombatActionType.Trade);
                 }
 
                 if (GetUsableAdjacentInteractiveTiles(unit).Any()) {
-                    results.Add(CombatAction.Use);
+                    results.Add(CombatActionType.Use);
                 }
             }
 
 
             if (HasRemainingMoves(unit)) {
-                results.Add(CombatAction.Move);
+                results.Add(CombatActionType.Move);
             }
 
-            results.Add(CombatAction.Wait);
+            results.Add(CombatActionType.Wait);
             return results;
         }
 

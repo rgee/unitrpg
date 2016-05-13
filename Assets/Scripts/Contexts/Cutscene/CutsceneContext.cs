@@ -26,13 +26,15 @@ namespace Contexts.Cutscene {
                     .To<LoadTestCutsceneCommand>();
             } else {
                 startBinding = commandBinder.Bind<ScreenRevealedSignal>();
-                commandBinder.Bind<CutsceneCompleteSignal>().To<EndCutsceneCommand>();
             }
 
             startBinding.To<StartDialogueCommand>().InSequence();
             mediationBinder.Bind<CutsceneView>().To<CutsceneViewMediator>();
 
             injectionBinder.Bind<StartCutsceneSignal>().ToSingleton();
+            injectionBinder.Bind<CutsceneCompleteSignal>().ToSingleton();
+
+            commandBinder.Bind<CutsceneCompleteSignal>().To<EndCutsceneCommand>();
         }
     }
 }

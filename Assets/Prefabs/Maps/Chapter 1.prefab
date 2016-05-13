@@ -4390,7 +4390,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 144866}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1024, y: 0, z: -9.99999997e-07}
+  m_LocalPosition: {x: 1024, y: 0, z: -0.000001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 424406}
@@ -4872,7 +4872,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 157030}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1024, y: 0, z: -9.99999997e-07}
+  m_LocalPosition: {x: 1024, y: 0, z: -0.000001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 483898}
@@ -6101,7 +6101,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 199200}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1024, y: 0, z: -9.99999997e-07}
+  m_LocalPosition: {x: 1024, y: 0, z: -0.000001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 461624}
@@ -6564,7 +6564,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 104000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1024, y: 0, z: -9.99999997e-07}
+  m_LocalPosition: {x: 1024, y: 0, z: -0.000001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 464212}
@@ -6684,7 +6684,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 176266}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1024, y: 0, z: -9.99999997e-07}
+  m_LocalPosition: {x: 1024, y: 0, z: -0.000001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 479940}
@@ -6815,8 +6815,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -6839,8 +6841,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -6863,8 +6867,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -6887,8 +6893,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -6911,8 +6919,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -6935,8 +6945,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -6959,8 +6971,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -6983,8 +6997,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -7007,8 +7023,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -7031,8 +7049,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -7055,8 +7075,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -7079,8 +7101,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -7103,8 +7127,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -7127,8 +7153,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -7151,8 +7179,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -7175,8 +7205,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -7199,8 +7231,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -7223,8 +7257,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -7247,8 +7283,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -7271,8 +7309,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -7295,8 +7335,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -7319,8 +7361,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -7343,8 +7387,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -7367,8 +7413,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -7391,8 +7439,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -7415,8 +7465,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -7439,8 +7491,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -7463,8 +7517,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -7487,8 +7543,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -7511,8 +7569,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -7535,8 +7595,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -7559,8 +7621,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -7583,8 +7647,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -7607,8 +7673,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -7631,8 +7699,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -7655,8 +7725,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -7679,8 +7751,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -7703,8 +7777,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -7727,8 +7803,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -7751,8 +7829,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -7775,8 +7855,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -7799,8 +7881,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -7823,8 +7907,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -7847,8 +7933,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -7871,8 +7959,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -7895,8 +7985,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -7919,8 +8011,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -7943,8 +8037,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -7967,8 +8063,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -7991,8 +8089,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -8015,8 +8115,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -8039,8 +8141,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -8063,8 +8167,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -8087,8 +8193,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -8111,8 +8219,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -8135,8 +8245,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -8159,8 +8271,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -8183,8 +8297,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -8207,8 +8323,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -8231,8 +8349,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -8255,8 +8375,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -8279,8 +8401,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -8303,8 +8427,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -8327,8 +8453,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -8351,8 +8479,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -8375,8 +8505,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -8399,8 +8531,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -8423,8 +8557,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -8447,8 +8583,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -8471,8 +8609,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -8495,8 +8635,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -8519,8 +8661,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -8543,8 +8687,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -8567,8 +8713,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -8591,8 +8739,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -8615,8 +8765,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -8639,8 +8791,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -8663,8 +8817,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -8687,8 +8843,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -8711,8 +8869,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -8735,8 +8895,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -8759,8 +8921,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -8783,8 +8947,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -8807,8 +8973,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -8831,8 +8999,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -8855,8 +9025,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -8879,8 +9051,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -8903,8 +9077,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -8927,8 +9103,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -8951,8 +9129,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -8975,8 +9155,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -8999,8 +9181,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -9023,8 +9207,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -9047,8 +9233,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -9071,8 +9259,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -9095,8 +9285,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -9119,8 +9311,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -9143,8 +9337,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -9167,8 +9363,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -9191,8 +9389,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -9215,8 +9415,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -9239,8 +9441,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -9263,8 +9467,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -9287,8 +9493,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -9311,8 +9519,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -9335,8 +9545,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -9359,8 +9571,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -9383,8 +9597,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -9407,8 +9623,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -9431,8 +9649,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -9455,8 +9675,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -9479,8 +9701,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -9503,8 +9727,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -9527,8 +9753,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -9551,8 +9779,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -9575,8 +9805,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -9599,8 +9831,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -9623,8 +9857,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -9647,8 +9883,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -9671,8 +9909,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -9695,8 +9935,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -9719,8 +9961,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -9743,8 +9987,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -9767,8 +10013,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -9791,8 +10039,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -9815,8 +10065,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -9839,8 +10091,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -9863,8 +10117,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -9887,8 +10143,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -9911,8 +10169,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -9935,8 +10195,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -9959,8 +10221,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -9983,8 +10247,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -10007,8 +10273,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -10031,8 +10299,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -10055,8 +10325,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -10079,8 +10351,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -10103,8 +10377,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -10127,8 +10403,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -10151,8 +10429,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -10175,8 +10455,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -10199,8 +10481,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -10223,8 +10507,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -10247,8 +10533,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -10271,8 +10559,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -10295,8 +10585,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -10319,8 +10611,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -10343,8 +10637,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -10367,8 +10663,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -10391,8 +10689,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -10415,8 +10715,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -10439,8 +10741,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -10463,8 +10767,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -10487,8 +10793,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -10511,8 +10819,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -10535,8 +10845,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -10559,8 +10871,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -10583,8 +10897,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -10607,8 +10923,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -10631,8 +10949,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -10655,8 +10975,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -10679,8 +11001,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -10703,8 +11027,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -10727,8 +11053,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -10751,8 +11079,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -10775,8 +11105,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -10799,8 +11131,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -10823,8 +11157,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -10847,8 +11183,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -10871,8 +11209,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -10895,8 +11235,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -10919,8 +11261,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -10943,8 +11287,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -10967,8 +11313,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -10991,8 +11339,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -11015,8 +11365,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -11039,8 +11391,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -11063,8 +11417,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -11087,8 +11443,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -11111,8 +11469,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -11135,8 +11495,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -11159,8 +11521,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -11183,8 +11547,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -11207,8 +11573,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -11231,8 +11599,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -11255,8 +11625,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -11279,8 +11651,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -11303,8 +11677,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -11327,8 +11703,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -11351,8 +11729,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -11375,8 +11755,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -11399,8 +11781,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -11423,8 +11807,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -11447,8 +11833,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -11471,8 +11859,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -13008,8 +13398,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6500904
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13020,8 +13410,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6501658
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13032,8 +13422,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6502360
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13044,8 +13434,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6502462
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13056,8 +13446,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6503232
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13068,8 +13458,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6503280
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13080,8 +13470,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6503804
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13092,8 +13482,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6503902
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13104,8 +13494,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6504936
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13116,8 +13506,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6505932
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13128,8 +13518,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6506256
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13140,8 +13530,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6506702
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13152,8 +13542,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6506748
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13164,8 +13554,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6506810
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13176,8 +13566,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6506854
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13188,8 +13578,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6507044
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13200,8 +13590,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6507070
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13212,8 +13602,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6507156
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13224,8 +13614,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6507576
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13236,8 +13626,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6509336
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13248,8 +13638,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6510522
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13260,8 +13650,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6511516
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13272,8 +13662,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6512232
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13284,8 +13674,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6512648
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13296,8 +13686,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6512692
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13308,8 +13698,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6512720
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13320,8 +13710,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6513006
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13332,8 +13722,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6513304
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13344,8 +13734,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6513428
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13356,8 +13746,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6514504
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13368,8 +13758,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6515142
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13380,8 +13770,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6515232
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13392,8 +13782,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6515244
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13404,8 +13794,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6515530
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13416,8 +13806,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6516214
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13428,8 +13818,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6516484
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13440,8 +13830,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6517592
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13452,8 +13842,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6519608
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13464,8 +13854,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6521112
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13476,8 +13866,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6521392
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13488,8 +13878,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6521496
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13500,8 +13890,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6522930
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13512,8 +13902,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6522932
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13524,8 +13914,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6523184
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13536,8 +13926,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6523302
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13548,8 +13938,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6523384
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13560,8 +13950,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6523804
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13572,8 +13962,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6525562
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13584,8 +13974,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6525728
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13596,8 +13986,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6525732
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13608,8 +13998,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6526072
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13620,8 +14010,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6527802
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13632,8 +14022,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6528756
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13644,8 +14034,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6529898
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13656,8 +14046,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6530348
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13668,8 +14058,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6531804
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13680,8 +14070,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6532136
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13692,8 +14082,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6532478
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13704,8 +14094,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6533482
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13716,8 +14106,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6533926
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13728,8 +14118,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6533942
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13740,8 +14130,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6534326
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13752,8 +14142,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6534532
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13764,8 +14154,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6535382
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13776,8 +14166,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6536582
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13788,8 +14178,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6536728
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13800,8 +14190,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6537166
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13812,8 +14202,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6538224
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13824,8 +14214,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6538540
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13836,8 +14226,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6538678
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13848,8 +14238,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6538758
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13860,8 +14250,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6539170
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13872,8 +14262,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6540128
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13884,8 +14274,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6541054
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13896,8 +14286,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6541828
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13908,8 +14298,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6542100
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13920,8 +14310,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6542434
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13932,8 +14322,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6543648
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13944,8 +14334,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6545234
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13956,8 +14346,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6545772
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13968,8 +14358,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6545968
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13980,8 +14370,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6546530
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13992,8 +14382,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6546648
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14004,8 +14394,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6547030
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14016,8 +14406,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6547558
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14028,8 +14418,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6547592
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14040,8 +14430,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6548082
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14052,8 +14442,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6548840
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14064,8 +14454,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6549110
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14076,8 +14466,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6549464
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14088,8 +14478,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6549950
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14100,8 +14490,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6550512
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14112,8 +14502,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6552174
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14124,8 +14514,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6552996
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14136,8 +14526,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6553544
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14148,8 +14538,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6554510
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14160,8 +14550,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6554826
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14172,8 +14562,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6555556
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14184,8 +14574,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6556466
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14196,8 +14586,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6557066
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14208,8 +14598,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6557114
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14220,8 +14610,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6557860
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14232,8 +14622,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6558776
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14244,8 +14634,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6560154
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14256,8 +14646,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6560182
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14268,8 +14658,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6560414
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14280,8 +14670,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6560484
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14292,8 +14682,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6561870
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14304,8 +14694,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6562240
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14316,8 +14706,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6562984
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14328,8 +14718,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6563178
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14340,8 +14730,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6563348
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14352,8 +14742,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6563994
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14364,8 +14754,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6564344
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14376,8 +14766,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6564424
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14388,8 +14778,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6564714
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14400,8 +14790,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6565668
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14412,8 +14802,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6566082
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14424,8 +14814,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6566282
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14436,8 +14826,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6567346
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14448,8 +14838,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6568746
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14460,8 +14850,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6568962
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14472,8 +14862,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6569038
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14484,8 +14874,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6569518
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14496,8 +14886,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6570566
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14508,8 +14898,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6570752
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14520,8 +14910,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6570868
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14532,8 +14922,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6571242
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14544,8 +14934,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6572278
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14556,8 +14946,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6572558
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14568,8 +14958,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6573678
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14580,8 +14970,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6573698
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14592,8 +14982,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6573904
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14604,8 +14994,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6573906
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14616,8 +15006,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6574492
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14628,8 +15018,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6574650
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14640,8 +15030,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6576118
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14652,8 +15042,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6576154
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14664,8 +15054,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6576266
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14676,8 +15066,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6577878
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14688,8 +15078,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6579008
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14700,8 +15090,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6580002
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14712,8 +15102,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6580434
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14724,8 +15114,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6580680
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14736,8 +15126,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6581164
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14748,8 +15138,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6582226
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14760,8 +15150,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6582546
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14772,8 +15162,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6584322
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14784,8 +15174,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6584488
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14796,8 +15186,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6584600
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14808,8 +15198,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6585408
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14820,8 +15210,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6585744
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14832,8 +15222,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6586288
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14844,8 +15234,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6586548
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14856,8 +15246,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6587016
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14868,8 +15258,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6587106
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14880,8 +15270,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6587824
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14892,8 +15282,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6587844
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14904,8 +15294,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6588198
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14916,8 +15306,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6588220
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14928,8 +15318,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6588294
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14940,8 +15330,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6588832
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14952,8 +15342,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6588932
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14964,8 +15354,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6590014
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14976,8 +15366,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6591078
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14988,8 +15378,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6591304
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -15000,8 +15390,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6591338
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -15012,8 +15402,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6591582
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -15024,8 +15414,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6594528
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -15036,8 +15426,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6594852
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -15048,8 +15438,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6594960
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -15060,8 +15450,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6594994
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -15072,8 +15462,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6595792
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -15084,8 +15474,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6597026
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -15096,8 +15486,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6597730
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -15108,8 +15498,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6598102
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -15120,8 +15510,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6598740
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -15132,8 +15522,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6599566
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -15144,8 +15534,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!65 &6599924
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -15156,8 +15546,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 31, y: 31, z: .200000003}
-  m_Center: {x: -.5, y: .5, z: 0}
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
 --- !u!114 &11400066
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -16250,13 +16640,13 @@ MonoBehaviour:
   prioritizeGraphs: 0
   prioritizeGraphsLimit: 1
   colorSettings:
-    _NodeConnection: {r: 1, g: 1, b: 1, a: .899999976}
-    _UnwalkableNode: {r: 1, g: 0, b: 0, a: .5}
-    _BoundsHandles: {r: .289999992, g: .453999996, b: .740999997, a: .899999976}
-    _ConnectionLowLerp: {r: 0, g: 1, b: 0, a: .5}
-    _ConnectionHighLerp: {r: 1, g: 0, b: 0, a: .5}
-    _MeshEdgeColor: {r: 0, g: 0, b: 0, a: .5}
-    _MeshColor: {r: .125, g: .68599999, b: 0, a: .189999998}
+    _NodeConnection: {r: 1, g: 1, b: 1, a: 0.9}
+    _UnwalkableNode: {r: 1, g: 0, b: 0, a: 0.5}
+    _BoundsHandles: {r: 0.29, g: 0.454, b: 0.741, a: 0.9}
+    _ConnectionLowLerp: {r: 0, g: 1, b: 0, a: 0.5}
+    _ConnectionHighLerp: {r: 1, g: 0, b: 0, a: 0.5}
+    _MeshEdgeColor: {r: 0, g: 0, b: 0, a: 0.5}
+    _MeshColor: {r: 0.125, g: 0.686, b: 0, a: 0.19}
     _AreaColors: []
   tagNames:
   - Basic Ground
@@ -16297,7 +16687,7 @@ MonoBehaviour:
   maxFrameTime: 10
   minAreaSize: 0
   limitGraphUpdates: 1
-  maxGraphUpdateFreq: .200000003
+  maxGraphUpdateFreq: 0.2
   euclideanEmbedding:
     mode: 0
     seed: 0

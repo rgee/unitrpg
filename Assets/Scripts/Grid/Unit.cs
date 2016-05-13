@@ -21,6 +21,7 @@ namespace Grid {
 
         public delegate void OnSearchComplete(bool foundPath);
 
+
         private static readonly Dictionary<MathUtils.CardinalDirection, int> animatorDirections =
             new Dictionary<MathUtils.CardinalDirection, int> {
                 {MathUtils.CardinalDirection.W, 1},
@@ -29,19 +30,21 @@ namespace Grid {
                 {MathUtils.CardinalDirection.S, 0}
             };
 
+        public string Id;
         public bool friendly;
         public Vector2 gridPosition;
         public bool Killing;
         public Models.Combat.Unit model;
         public bool IsDodging;
+        public Unit CurrentAttackTarget;
         public float timePerMoveSquare = 0.3f;
 
         public event AttackCompletionHandler OnAttackComplete;
         public event Action OnAttackStart;
         public event Action OnDodgeComplete;
+        public event Action OnHitConnected;
 
         private UnitController Controller;
-        private Unit CurrentAttackTarget;
         private Hit CurrentHit;
         private Seeker seeker;
         private Collider _collider;
@@ -108,6 +111,10 @@ namespace Grid {
         }
 
         public void AttackConnected() {
+            if (OnHitConnected != null) {
+                OnHitConnected();
+            }
+
             // This can happen if you're just tweaking around with animations in the editor.
             if (CurrentAttackTarget == null) {
                 Debug.LogWarning("Unit " + model.Character.Name + " attacked nothing.");

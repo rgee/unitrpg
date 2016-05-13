@@ -37,10 +37,7 @@ namespace Combat.Interactive {
         }
 
         void SnapToGrid() {
-            var mapOffset = _grid.transform.position;
-            var tileSize = _grid.tileSizeInPixels;
-
-            transform.position = mapOffset + (new Vector3(GridPosition.x, GridPosition.y)*tileSize);
+            transform.position = _grid.GetWorldPosForGridPos(GridPosition);
         }
 
         public IEnumerator Use(Grid.Unit unit) {

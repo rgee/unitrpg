@@ -55,8 +55,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -78,7 +80,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10, y: 10, z: .200000003}
+  m_Size: {x: 10, y: 10, z: 0.2}
   m_Center: {x: 0, y: -11, z: 0}
 --- !u!114 &11402498
 MonoBehaviour:
@@ -188,7 +190,8 @@ MonoBehaviour:
     IsFriendly: 1
     Inventory: []
   IsDodging: 0
-  timePerMoveSquare: .300000012
+  CurrentAttackTarget: {fileID: 0}
+  timePerMoveSquare: 0.3
   Attacking: 0
   InCombat: 0
   Facing: 0

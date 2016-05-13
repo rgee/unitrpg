@@ -5,9 +5,9 @@ using UnityEngine;
 
 namespace UI.ActionMenu {
     public interface IActionMenuView {
-        void Show(IEnumerable<CombatAction> actions, IEnumerable<CombatAction> fightActions);
+        void Show(IEnumerable<CombatActionType> actions, IEnumerable<CombatActionType> fightActions);
         bool Canceled { get; set; }
-        CombatAction? SelectedAction { get; set; }
+        CombatActionType? SelectedActionType { get; set; }
         IEnumerator Hide();
     }
 }

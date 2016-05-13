@@ -32,36 +32,36 @@ public class FriendlyUnitSelected : CancelableCombatState {
         base.OnCancel(); 
     }
     
-    private void HandleAction(CombatAction action) {
-        switch (action) {
-            case CombatAction.Move:
+    private void HandleAction(CombatActionType actionType) {
+        switch (actionType) {
+            case CombatActionType.Move:
                 _animator.SetTrigger("move_selected");
                 break;
-            case CombatAction.Use:
+            case CombatActionType.Use:
                 _animator.SetTrigger("use_selected");
                 break;
-            case CombatAction.Fight:
+            case CombatActionType.Fight:
                 break;
-            case CombatAction.Item:
+            case CombatActionType.Item:
                 _animator.SetTrigger("item_selected");
                 break;
-            case CombatAction.Trade:
+            case CombatActionType.Trade:
                 break;
-            case CombatAction.Talk:
+            case CombatActionType.Talk:
                 break;
-            case CombatAction.Wait:
+            case CombatActionType.Wait:
                 _battleState.Model.WaitUnit(_battleState.SelectedUnit.model);
                 _animator.SetTrigger("wait_selected");
                 break;
-            case CombatAction.Brace:
+            case CombatActionType.Brace:
                 break;
-            case CombatAction.Cover:
+            case CombatActionType.Cover:
                 break;
-            case CombatAction.Attack:
+            case CombatActionType.Attack:
                 _animator.SetTrigger("attack_selected");
                 break;
             default:
-                throw new ArgumentException("Could not handle action " + action);
+                throw new ArgumentException("Could not handle action " + actionType);
         }
         _menu.Hide();
     }

@@ -172,7 +172,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 177512}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.12150002, z: 0}
+  m_LocalPosition: {x: 0, y: 1.1215, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 447640}
@@ -188,7 +188,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 198338}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -.000607073307, z: -1}
+  m_LocalPosition: {x: 0, y: -0.0006070733, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 432568}
@@ -202,7 +202,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 120928}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.71457911, y: 0, z: -.899999976}
+  m_LocalPosition: {x: 1.7145791, y: 0, z: -0.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 401914}
@@ -214,7 +214,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 166072}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .0988514423, y: -.177000001, z: -.00999999978}
+  m_LocalPosition: {x: 0.09885144, y: -0.177, z: -0.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 403248}
@@ -226,7 +226,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 156554}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .0966098309, y: -.193000004, z: -.00999999978}
+  m_LocalPosition: {x: 0.09660983, y: -0.193, z: -0.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 403248}
@@ -238,7 +238,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 134176}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .857289553, y: 0, z: -.899999976}
+  m_LocalPosition: {x: 0.85728955, y: 0, z: -0.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 401914}
@@ -250,7 +250,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 119826}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -.899999976}
+  m_LocalPosition: {x: 0, y: 0, z: -0.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 401914}
@@ -262,7 +262,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 104470}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.2762909, y: 139.802841, z: 0}
+  m_LocalPosition: {x: -11.276291, y: 139.80284, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 403248}
@@ -276,7 +276,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 155798}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.57186866, y: 0, z: -.899999976}
+  m_LocalPosition: {x: 2.5718687, y: 0, z: -0.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 401914}
@@ -299,8 +299,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -323,8 +325,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -347,8 +351,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -331272077
@@ -371,8 +377,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -331272077
@@ -395,8 +403,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -419,8 +429,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -435,7 +447,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: c588c2d12d3f5514195827aeb65feb8a, type: 2}
+  - {fileID: 2100000, guid: 930431753f759874b85e7347561c70a4, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -443,8 +455,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -331272077
@@ -492,8 +506,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a677072d2a0bc494abd400e1dd1a0918, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bMin: {x: 0, y: -1.66291499, z: 0}
-  bMax: {x: .857289553, y: 0, z: 0}
+  bMin: {x: 0, y: -1.662915, z: 0}
+  bMax: {x: 0.85728955, y: 0, z: 0}
   layoutItems: []
   autoResizeCollider: 0
 --- !u!114 &11416262
@@ -529,8 +543,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a677072d2a0bc494abd400e1dd1a0918, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bMin: {x: 0, y: -1.66291499, z: 0}
-  bMax: {x: .857289553, y: 0, z: 0}
+  bMin: {x: 0, y: -1.662915, z: 0}
+  bMax: {x: 0.85728955, y: 0, z: 0}
   layoutItems: []
   autoResizeCollider: 0
 --- !u!114 &11418260
@@ -544,8 +558,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a677072d2a0bc494abd400e1dd1a0918, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bMin: {x: 0, y: -1.66291499, z: 0}
-  bMax: {x: .857289553, y: 0, z: 0}
+  bMin: {x: 0, y: -1.662915, z: 0}
+  bMax: {x: 0.85728955, y: 0, z: 0}
   layoutItems: []
   autoResizeCollider: 0
 --- !u!114 &11418668
@@ -617,7 +631,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActorDatabase: {fileID: 11400000, guid: 4e232bb4b8d95e1438bb8c9512da8dd5, type: 2}
-  Scale: .00079999998
+  Scale: 0.0008
   ActorName: 
 --- !u!114 &11442736
 MonoBehaviour:
@@ -631,7 +645,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActorDatabase: {fileID: 11400000, guid: 4e232bb4b8d95e1438bb8c9512da8dd5, type: 2}
-  Scale: .00079999998
+  Scale: 0.0008
   ActorName: 
 --- !u!114 &11463056
 MonoBehaviour:
@@ -644,8 +658,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8deddd35e4c74b44a8d12b692bb3ba21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bMin: {x: 0, y: -1.66291499, z: 0}
-  bMax: {x: 3.42915821, y: 0, z: 0}
+  bMin: {x: 0, y: -1.662915, z: 0}
+  bMax: {x: 3.4291582, y: 0, z: 0}
   layoutItems:
   - sprite: {fileID: 0}
     UIMask: {fileID: 0}
@@ -719,8 +733,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a677072d2a0bc494abd400e1dd1a0918, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bMin: {x: 0, y: -1.66291499, z: 0}
-  bMax: {x: .857289553, y: 0, z: 0}
+  bMin: {x: 0, y: -1.662915, z: 0}
+  bMax: {x: 0.85728955, y: 0, z: 0}
   layoutItems: []
   autoResizeCollider: 0
 --- !u!114 &11485500
@@ -775,7 +789,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActorDatabase: {fileID: 11400000, guid: 4e232bb4b8d95e1438bb8c9512da8dd5, type: 2}
-  Scale: .00079999998
+  Scale: 0.0008
   ActorName: 
 --- !u!114 &11492880
 MonoBehaviour:
@@ -800,7 +814,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActorDatabase: {fileID: 11400000, guid: 4e232bb4b8d95e1438bb8c9512da8dd5, type: 2}
-  Scale: .00079999998
+  Scale: 0.0008
   ActorName: 
 --- !u!114 &11496424
 MonoBehaviour:
@@ -838,7 +852,7 @@ MonoBehaviour:
     textureGradient: 0
     anchor: 0
     renderLayer: 0
-    scale: {x: .75, y: .75, z: 0}
+    scale: {x: 0.75, y: 0.75, z: 0}
     kerning: 0
     maxChars: 165
     inlineStyling: 0
@@ -857,10 +871,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14088a148d1a83e4780e3db13db5b6ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collection: {fileID: 11400000, guid: a7b2ba5d04adf144faffa96ff7497955, type: 2}
-  _color: {r: 0, g: 0, b: 0, a: .674509823}
+  collection: {fileID: 11457902, guid: 1e3f2808773f7a94db011fbc90c82787, type: 2}
+  _color: {r: 0, g: 0, b: 0, a: 0.6745098}
   _scale: {x: 1, y: 1, z: 1}
-  _spriteId: 21
+  _spriteId: 0
   boxCollider2D: {fileID: 0}
   polygonCollider2D: []
   edgeCollider2D: []
@@ -869,14 +883,14 @@ MonoBehaviour:
   meshColliderPositions: []
   meshColliderMesh: {fileID: 0}
   renderLayer: 0
-  _dimensions: {x: 1091.04419, y: 155.863937}
+  _dimensions: {x: 1204, y: 174}
   _anchor: 6
   _borderOnly: 0
   legacyMode: 0
-  borderTop: .28125
-  borderBottom: .28125
-  borderLeft: .28125
-  borderRight: .28125
+  borderTop: 0.28125
+  borderBottom: 0.28125
+  borderLeft: 0.28125
+  borderRight: 0.28125
   _createBoxCollider: 0
 --- !u!114 &11499714
 MonoBehaviour:
@@ -912,6 +926,23 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_LocalPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: collection
+      value: 
+      objectReference: {fileID: 11457902, guid: 1e3f2808773f7a94db011fbc90c82787,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: _spriteId
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _dimensions.x
+      value: 1204
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _dimensions.y
+      value: 174
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

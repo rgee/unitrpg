@@ -26,13 +26,12 @@ namespace Contexts.Cutscene.Commands {
 
         public override void Execute() {
             var save = SaveGameService.CurrentSave;
-            var nextChapter = save.LastChapterCompleted.GetValueOrDefault(-1) + 1;
-            var nextConfig = BattleConfigRepository.GetConfigByIndex(nextChapter);
-            var nextSceneName = nextConfig.InitialSceneName;
 
             ApplicationState.EndCurrentCutscene();
             var nextCutscene = ApplicationState.GetCurrentCutscene();
             if (nextCutscene == null) {
+                var nextConfig = BattleConfigRepository.GetConfigByIndex(save.ChapterNumber);
+                var nextSceneName = nextConfig.InitialSceneName;
                 ChangeSceneSignal.Dispatch(View, new List<string> { nextSceneName, "BattlePrep" });
             } else {
                 ChangeSceneSignal.Dispatch(View, new List<string> { "Cutscene" });

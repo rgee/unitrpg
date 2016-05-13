@@ -4,11 +4,11 @@ using UnityEngine;
 
 namespace Models.Combat {
     public class Turn : ITurn {
-        private readonly IMap _map;
+        private readonly IOldMap _map;
         private IDictionary<Unit, UnitTurnState> _turnState;
         private bool _friendlyComplete;
 
-        public Turn(IMap map) {
+        public Turn(IOldMap map) {
             _map = map;
             InitializeTurn();
         }

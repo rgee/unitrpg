@@ -70,7 +70,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 119714}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.66798472, y: -.0790929794, z: 4.77766085}
+  m_LocalPosition: {x: 2.6679847, y: -0.07909298, z: 4.777661}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 496966}
@@ -107,8 +107,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -331272077
@@ -131,8 +133,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -331272077
@@ -172,22 +176,22 @@ MonoBehaviour:
   boxCollider: {fileID: 0}
   meshCollider: {fileID: 0}
   meshColliderPositions:
-  - {x: 39, y: 238, z: -.100000001}
-  - {x: 39, y: 238, z: .100000001}
-  - {x: -28.5, y: 238, z: -.100000001}
-  - {x: -28.5, y: 238, z: .100000001}
-  - {x: -115, y: 204, z: -.100000001}
-  - {x: -115, y: 204, z: .100000001}
-  - {x: -143, y: 125, z: -.100000001}
-  - {x: -143, y: 125, z: .100000001}
-  - {x: -144, y: -239, z: -.100000001}
-  - {x: -144, y: -239, z: .100000001}
-  - {x: 144, y: -239, z: -.100000001}
-  - {x: 144, y: -239, z: .100000001}
-  - {x: 144, y: 139.5, z: -.100000001}
-  - {x: 144, y: 139.5, z: .100000001}
-  - {x: 101.5, y: 202, z: -.100000001}
-  - {x: 101.5, y: 202, z: .100000001}
+  - {x: 39, y: 238, z: -0.1}
+  - {x: 39, y: 238, z: 0.1}
+  - {x: -28.5, y: 238, z: -0.1}
+  - {x: -28.5, y: 238, z: 0.1}
+  - {x: -115, y: 204, z: -0.1}
+  - {x: -115, y: 204, z: 0.1}
+  - {x: -143, y: 125, z: -0.1}
+  - {x: -143, y: 125, z: 0.1}
+  - {x: -144, y: -239, z: -0.1}
+  - {x: -144, y: -239, z: 0.1}
+  - {x: 144, y: -239, z: -0.1}
+  - {x: 144, y: -239, z: 0.1}
+  - {x: 144, y: 139.5, z: -0.1}
+  - {x: 144, y: 139.5, z: 0.1}
+  - {x: 101.5, y: 202, z: -0.1}
+  - {x: 101.5, y: 202, z: 0.1}
   meshColliderMesh: {fileID: 0}
   renderLayer: 0
 --- !u!114 &11461346
@@ -211,22 +215,22 @@ MonoBehaviour:
   boxCollider: {fileID: 0}
   meshCollider: {fileID: 0}
   meshColliderPositions:
-  - {x: 39, y: 238, z: -.100000001}
-  - {x: 39, y: 238, z: .100000001}
-  - {x: -28.5, y: 238, z: -.100000001}
-  - {x: -28.5, y: 238, z: .100000001}
-  - {x: -115, y: 204, z: -.100000001}
-  - {x: -115, y: 204, z: .100000001}
-  - {x: -143, y: 125, z: -.100000001}
-  - {x: -143, y: 125, z: .100000001}
-  - {x: -144, y: -239, z: -.100000001}
-  - {x: -144, y: -239, z: .100000001}
-  - {x: 144, y: -239, z: -.100000001}
-  - {x: 144, y: -239, z: .100000001}
-  - {x: 144, y: 139.5, z: -.100000001}
-  - {x: 144, y: 139.5, z: .100000001}
-  - {x: 101.5, y: 202, z: -.100000001}
-  - {x: 101.5, y: 202, z: .100000001}
+  - {x: 39, y: 238, z: -0.1}
+  - {x: 39, y: 238, z: 0.1}
+  - {x: -28.5, y: 238, z: -0.1}
+  - {x: -28.5, y: 238, z: 0.1}
+  - {x: -115, y: 204, z: -0.1}
+  - {x: -115, y: 204, z: 0.1}
+  - {x: -143, y: 125, z: -0.1}
+  - {x: -143, y: 125, z: 0.1}
+  - {x: -144, y: -239, z: -0.1}
+  - {x: -144, y: -239, z: 0.1}
+  - {x: 144, y: -239, z: -0.1}
+  - {x: 144, y: -239, z: 0.1}
+  - {x: 144, y: 139.5, z: -0.1}
+  - {x: 144, y: 139.5, z: 0.1}
+  - {x: 101.5, y: 202, z: -0.1}
+  - {x: 101.5, y: 202, z: 0.1}
   meshColliderMesh: {fileID: 0}
   renderLayer: 0
 --- !u!1001 &100100000

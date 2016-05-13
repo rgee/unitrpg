@@ -37,9 +37,9 @@ namespace Combat {
 
         public abstract IEnumerator Play();
 
-        protected IEnumerator PanCamera(Vector2 destination) {
+        protected IEnumerator PanCamera(Vector3 destination) {
             const float time = .7f;
-            yield return _camera.transform.DOMove(destination, time).WaitForCompletion();
+            yield return _camera.transform.DOMove(destination, time).SetEase(Ease.OutCubic).WaitForCompletion();
         }
 
         protected IEnumerator SpawnUnits(List<ScriptedEvents.SpawnableUnit> units) {
@@ -64,8 +64,21 @@ namespace Combat {
             _battle.ScheduleReinforcements(units);
         }
 
-        protected IEnumerator StartDialogue() {
-            yield return null;
+        protected IEnumerator RunDialogue(GameObject prefab) {
+            var dialogueObject = Instantiate(prefab);
+            var dialogue = dialogueObject.GetComponent<Dialogue>();
+
+            var completed = false;
+            dialogue.OnComplete += () => {
+                completed = true;
+            };
+
+            dialogue.Begin();
+            while (!completed) {
+                yield return null;
+            }
+
+            Destroy(dialogueObject);
         }
     }
 }

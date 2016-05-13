@@ -19,6 +19,11 @@ namespace Grid {
         public GameObject SelectedUnit { get; private set; }
         public event UnitClickedEventHandler OnUnitClick;
 
+        public Unit GetUnitByName(string unitName) {
+            return unitGameObjects.Select(unit => unit.GetComponent<Unit>())
+                .FirstOrDefault(unitComponent => unitComponent.model.Character.Name == unitName);
+        }
+
         public Unit GetUnitByPosition(Vector2 pos) {
             if (!unitsByPosition.ContainsKey(pos)) {
                 return null;
@@ -71,20 +76,20 @@ namespace Grid {
             unitsByPosition.Remove(unit.gridPosition);
             unitModels.Remove(unit.model);
 
-            var gameObject = unit.gameObject;
-            unitGameObjects.Remove(gameObject);
-            gameObject.GetComponent<Renderer>().enabled = false;
-            gameObject.GetComponent<Animator>().enabled = false;
-      
-            gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            var unitGameObject = unit.gameObject;
+            unitGameObjects.Remove(unitGameObject);
+            unitGameObject.GetComponent<Renderer>().enabled = false;
+            unitGameObject.GetComponent<Collider>().enabled = false;
 
             var executor = GameObject.FindGameObjectWithTag("Fight Executor");
             if (executor != null) {
                 Destroy(executor);
             }
-            Destroy(gameObject, 5);
+            Destroy(unitGameObject, 5);
 
-            Grid.RescanGraph();
+            if (Grid != null) {
+                Grid.RescanGraph();
+            }
             CombatEventBus.ModelDeaths.Dispatch(unit.model);
         }
 

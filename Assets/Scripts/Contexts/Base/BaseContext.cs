@@ -32,7 +32,9 @@ namespace Assets.Contexts.Base {
         protected override void mapBindings() {
             var startBinding = commandBinder.Bind<StartSignal>();
             if (this == Context.firstContext) {
+                // Load the Global context before issuing the start command if it hasn't been loaded.
                 startBinding.To<RootStartCommand>().To<StartCommand>().InSequence();
+
                 injectionBinder.Bind<ApplicationState>().ToValue(new ApplicationState()).CrossContext();
                 injectionBinder.Bind<IRoutineRunner>().To<RoutineRunner>().CrossContext();
                 injectionBinder.Bind<AddSceneSignal>().ToSingleton().CrossContext();
