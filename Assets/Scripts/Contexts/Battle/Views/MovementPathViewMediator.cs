@@ -32,6 +32,7 @@ namespace Contexts.Battle.Views {
         private void ShowPath(List<Vector2> path) {
             var worldPath = path
                 .Select(tile => Model.Dimensions.GetWorldPositionForGridPosition(tile))
+                .Select(pos => new Vector3(Mathf.Round(pos.x), Mathf.Round(pos.y), 0))
                 .ToList();
 
             View.ShowPath(worldPath);

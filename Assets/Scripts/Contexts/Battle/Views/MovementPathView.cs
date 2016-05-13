@@ -63,10 +63,11 @@ namespace Contexts.Battle.Views {
         private void AddPathSegment(Vector3 position, Sprite sprite) {
             var obj = new GameObject("path_segment");
             obj.transform.position = position;
-            obj.AddComponent<DynamicSortedObject>();
+
             var objRenderer = obj.AddComponent<SpriteRenderer>();
             objRenderer.sprite = sprite;
-            objRenderer.sortingOrder = 16;
+            
+            obj.AddComponent<DynamicSortedObject>();
 
             _pathSprites.Add(obj);
         }
