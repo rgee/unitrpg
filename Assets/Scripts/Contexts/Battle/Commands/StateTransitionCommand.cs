@@ -74,8 +74,8 @@ namespace Contexts.Battle.Commands {
                 case BattleUIState.SelectingMoveLocation:
                     var map = Model.Map;
                     var origin = Model.SelectedCombatant.Position;
-                    var moveRange = Model.SelectedCombatant.GetAttribute(Attribute.AttributeType.Move);
-                    var squares = map.BreadthFirstSearch(origin, moveRange.Value, false);
+                    var moveRange = Model.Battle.GetRemainingMoves(Model.SelectedCombatant);
+                    var squares = map.BreadthFirstSearch(origin, moveRange, false);
 
                     NewMoveRangeSignal.Dispatch(squares);
                     HoverTileDisableSignal.Dispatch();

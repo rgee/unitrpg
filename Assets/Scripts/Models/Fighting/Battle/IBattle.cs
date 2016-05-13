@@ -3,6 +3,8 @@ using Models.Fighting.Skills;
 
 namespace Models.Fighting.Battle {
     public interface IBattle {
+        int GetRemainingMoves(ICombatant combatant);
+
         void SubmitAction(ICombatAction action);
 
         void EndTurn();
@@ -12,6 +14,7 @@ namespace Models.Fighting.Battle {
         bool CanAct(ICombatant combatant);
 
         FightForecast ForecastFight(ICombatant attacker, ICombatant defender, SkillType type);
+
         FinalizedFight FinalizeFight(FightForecast forecast);
     }
 }
