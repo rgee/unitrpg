@@ -57,6 +57,10 @@ public class UnitController : MonoBehaviour {
     }
 
     private void CommitMoveToModel(IEnumerable<Vector3> path) {
+        if (_battleState == null) {
+            return;
+        }
+
         var unitModel = _unit.model;
         var battleModel = _battleState.Model;
         if (battleModel == null) {

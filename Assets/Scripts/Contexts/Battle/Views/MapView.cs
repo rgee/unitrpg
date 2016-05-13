@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Contexts.Battle.Utilities;
@@ -12,13 +13,15 @@ namespace Contexts.Battle.Views {
     public class MapView : View {
         public Signal<Vector2> MapClicked = new Signal<Vector2>();
         public Signal<Vector2> MapHovered = new Signal<Vector2>(); 
+        public Signal MoveComplete = new Signal();
         public int Width;
         public int TileSize;
         public int Height;
 
         void Update() {
             var mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            var mouseGridPosition = GetGridPositionForWorldPosition(mousePosition);
+            var dimensions = GetDimensions();
+            var mouseGridPosition = dimensions.GetGridPositionForWorldPosition(mousePosition);
             if (Input.GetMouseButtonDown(0)) {
                 MapClicked.Dispatch(mouseGridPosition);
             } else {
@@ -33,36 +36,20 @@ namespace Contexts.Battle.Views {
                 return;
             }
 
-            var worldPositions = path.Select(pos => GetWorldPositionForGridPosition(pos)).ToList();
+            var dimensoins = GetDimensions(); 
+            var worldPositions = path.Skip(1).Select(pos => dimensoins.GetWorldPositionForGridPosition(pos)).ToList();
             var unitComp = unitGameObject.GetComponent<Grid.Unit>();
-            StartCoroutine(unitComp.FollowPath(worldPositions));
+            StartCoroutine(DoMove(worldPositions, unitComp));
         }
 
-        public Vector2 GetGridPositionForWorldPosition(Vector3 worldPosition) {
-            var widthExtent = Width*TileSize;
-            var heightExtent = Height*TileSize;
-            return new Vector2(
-                (float) Math.Floor(MathUtils.MapRange(0, widthExtent, 0, Width, worldPosition.x + Mathf.FloorToInt(TileSize/2f))),
-                (float) Math.Floor(MathUtils.MapRange(0, heightExtent, 0, Height, worldPosition.y + Mathf.FloorToInt(TileSize/2f)))
-            );
+        public MapDimensions GetDimensions() {
+            return new MapDimensions(Width, Height, TileSize);
         }
 
-        public Vector3 GetWorldPositionForGridPosition(Vector2 gridPosition) {
-            
-            var widthExtent = Width*TileSize;
-            var heightExtent = Height*TileSize;
-
-            // Map the input values for the x and y axis in grid space to world space.
-            // Be sure to output the center of the tile in world space by adding
-            // 1/2 the tile height and width!
-            var result = new Vector3(
-                MathUtils.MapRange(0, Width, 0, widthExtent, gridPosition.x), 
-                MathUtils.MapRange(0, Height, 0, heightExtent, gridPosition.y),
-                0
-            );
-
-            return result;
-        }
+        private IEnumerator DoMove(List<Vector3> positions, Grid.Unit unit) {
+            yield return StartCoroutine(unit.FollowPath(positions));
+            MoveComplete.Dispatch();
+        } 
 
         private GameObject FindUnitById(string id) {
             var unitContainer = transform.FindChild("Units");
@@ -97,9 +84,10 @@ namespace Contexts.Battle.Views {
         public List<Vector2> GetObstructedPositions() {
             var obstructions = transform.FindChild("Obstructions");
             var results = new List<Vector2>();
+            var dimensions = GetDimensions();
 
             foreach (Transform obstacle in obstructions) {
-                var gridPosition = GetGridPositionForWorldPosition(obstacle.position);
+                var gridPosition = dimensions.GetGridPositionForWorldPosition(obstacle.position);
                 results.Add(gridPosition);
             }
             

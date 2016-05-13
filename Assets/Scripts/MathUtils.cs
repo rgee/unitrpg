@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Assertions.Comparers;
 
 public static class MathUtils {
     public enum CardinalDirection {
@@ -18,11 +17,11 @@ public static class MathUtils {
 
     public static IEnumerable<Vector2> GetAdjacentPoints(Vector2 point) {
         return new List<Vector2> {
-            new Vector2(point.x-1, point.y),
-            new Vector2(point.x+1, point.y),
-            new Vector2(point.x, point.y-1),
-            new Vector2(point.x, point.y+1)
-        };
+            GetAdjacentPoint(point, CardinalDirection.W) ,
+            GetAdjacentPoint(point, CardinalDirection.E),
+            GetAdjacentPoint(point, CardinalDirection.S),
+            GetAdjacentPoint(point, CardinalDirection.N)
+        };  
     }
 
     public static float MapRange(float fromStart, float fromEnd, float toStart, float toEnd, float value) {

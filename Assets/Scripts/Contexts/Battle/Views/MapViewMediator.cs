@@ -28,13 +28,17 @@ namespace Contexts.Battle.Views {
         [Inject]
         public MoveCombatantSignal MoveCombatantSignal { get; set; }
 
+        [Inject]
+        public ActionCompleteSignal ActionCompleteSignal{ get; set; }
+
         public override void OnRegister() {
             View.MapClicked.AddListener(OnMapClicked);
+            View.MoveComplete.AddListener(OnMoveComplete);
             View.MapHovered.AddListener(OnMapHovered);
 
             MoveCombatantSignal.AddListener(OnMove);
             GatherSignal.AddOnce(() => {
-                var dimensions = new MapDimensions(View.Width, View.Height);
+                var dimensions = new MapDimensions(View.Width, View.Height, View.TileSize);
                 var combatants = View.GetCombatants();
                 var randomizer = new BasicRandomizer();
                 var obstructions = View.GetObstructedPositions();
@@ -43,15 +47,17 @@ namespace Contexts.Battle.Views {
             });
         }
 
+        private void OnMoveComplete() {
+           ActionCompleteSignal.Dispatch();
+        }
+
         private void OnMove(MovementPath path) {
             View.MoveUnit(path.Combatant.Id, path.Positions);
         }
 
         private void OnMapHovered(Vector2 hoverPosition) {
-            if (BattleModel.HoveredTile != hoverPosition) {
-                var worldPosition = View.GetWorldPositionForGridPosition(hoverPosition);
-                HoverPositionSignal.Dispatch(new GridPosition(hoverPosition, worldPosition));
-            }
+            var worldPosition = View.GetDimensions().GetWorldPositionForGridPosition(hoverPosition);
+            HoverPositionSignal.Dispatch(new GridPosition(hoverPosition, worldPosition));
         }
 
         private void OnMapClicked(Vector2 clickPosition) {

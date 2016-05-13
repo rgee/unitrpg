@@ -1,5 +1,9 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using Newtonsoft.Json;
 using UnityEngine;
 
 namespace Models.Fighting.Maps {
@@ -16,6 +20,7 @@ namespace Models.Fighting.Maps {
                 }
             }
 
+            // TODO: Refactor to not be static.
             CombatEventBus.CombatantMoves.AddListener(MoveCombatant);
             CombatEventBus.CombatantDeaths.AddListener(RemoveCombatant);
         }
@@ -34,7 +39,7 @@ namespace Models.Fighting.Maps {
 
         public bool IsBlockedByEnvironment(Vector2 position) {
             if (!_tiles.ContainsKey(position)) {
-                return false;
+                return true;
             }
 
             var tile = GetTileByPosition(position);
@@ -43,7 +48,7 @@ namespace Models.Fighting.Maps {
 
         public bool IsBlocked(Vector2 position) {
             if (!_tiles.ContainsKey(position)) {
-                return false;
+                return true;
             }
 
             var tile = GetTileByPosition(position);
@@ -71,10 +76,17 @@ namespace Models.Fighting.Maps {
             tile.Occupant = combatant;
         }
 
+        public HashSet<ICombatant> GetAdjacent(Vector2 position) {
+
+            return MathUtils.GetAdjacentPoints(position)
+                .Select(point => GetAtPosition(position))
+                .ToHashSet();
+        }
+
         public void MoveCombatant(ICombatant combatant, Vector2 position) {
             var destination = GetTileByPosition(position);
             if (destination.Occupant != null) {
-                throw new ArgumentException("There's already a combatant at "+ position);
+                throw new ArgumentException("There's already a combatant " + "(" + destination.Occupant.Name + ")" + " at "+ position);
             }
 
             if (destination.Obstructed) {
@@ -96,6 +108,127 @@ namespace Models.Fighting.Maps {
             }
 
             return result.Occupant;
+        }
+
+        private bool IsOnMap(Vector2 position) {
+            return _tiles.ContainsKey(position);
+        }
+
+        public HashSet<Vector2> BreadthFirstSearch(Vector2 start, int maxDistance, bool ignoreOtherUnits) {
+            var fringe = new Queue<Vector2>();            
+            var results = new HashSet<Vector2>();
+            var distances = new Dictionary<Vector2, int>();
+            distances[start] = 1;
+            
+            fringe.Enqueue(start);
+            while (fringe.Count > 0) {
+                var current = fringe.Dequeue();
+                if (distances[current] > maxDistance) {
+                    break;
+                }
+
+                var currentDist = distances[current];
+
+                var neighbors = MathUtils.GetAdjacentPoints(current);
+                var openNeighbors = neighbors.Where((neighbor) => { 
+                    if (!IsOnMap(neighbor)) {
+                        return false;
+                    }
+
+                    if (ignoreOtherUnits) {
+                        return !IsBlockedByEnvironment(neighbor);
+                    }
+                    
+                    return !IsBlocked(neighbor);
+                });
+                
+                foreach (var node in openNeighbors) {
+                    if (!results.Contains(node)) {
+                        fringe.Enqueue(node);
+                        results.Add(node);  
+                        distances.Add(node, currentDist + 1);
+                    }
+                }
+            }
+            
+            return results;
+        }
+
+        public List<Vector2> FindPath(Vector2 start, Vector2 goal) {
+            if (start == goal) {
+                return null;
+            }
+
+            if (IsBlocked(goal)) {
+                return null;
+            }
+
+            var exactCosts = new Dictionary<Vector2, double>();
+            var estimates = new Dictionary<Vector2, double>();
+            var openNodes = new C5.IntervalHeap<Vector2>(new AStarComparer(exactCosts, estimates));
+            var closedNodes = new HashSet<Vector2>();
+            var path = new Dictionary<Vector2, Vector2>();
+
+            openNodes.Add(start);
+            exactCosts[start] = 0d;
+
+            while (!openNodes.IsEmpty) {
+                var currentCheapest = openNodes.FindMin();
+                if (currentCheapest == goal) {
+                    return ReconstructPath(path, currentCheapest);
+                }
+
+                openNodes.DeleteMin();
+                closedNodes.Add(currentCheapest);
+                var neighbors = MathUtils.GetAdjacentPoints(currentCheapest);
+                foreach (var neighbor in neighbors) {
+                    if (closedNodes.Contains(neighbor)) {
+                        continue;
+                    }
+
+                    var tentativeScore = exactCosts[currentCheapest] + CalculateDistance(currentCheapest, neighbor);
+                    if (estimates.ContainsKey(neighbor)) {
+                        var previousEstimate = estimates[neighbor];
+                        if (tentativeScore >= previousEstimate) {
+                            continue;
+                        }
+                    } else {
+                        closedNodes.Add(neighbor);
+                    }
+
+                    var heuristicScore = tentativeScore + EstimateDistance(neighbor, goal);
+                    estimates[neighbor] = heuristicScore;
+                    exactCosts[neighbor] = tentativeScore;
+                    path[neighbor] = currentCheapest;
+                    openNodes.Add(neighbor);
+                }
+            }
+
+            return null;
+        }
+
+        public List<Vector2> ReconstructPath(Dictionary<Vector2, Vector2> cameFrom, Vector2 current) {
+            var result = new List<Vector2> {current};
+
+            while (cameFrom.ContainsKey(current)) {
+                current = cameFrom[current];
+                result.Add(current);
+            }
+
+            result.Reverse();
+            return result;
+        } 
+
+        private double EstimateDistance(Vector2 start, Vector2 end) {
+            return MathUtils.ManhattanDistance(start, end);
+        }
+
+        private double CalculateDistance(Vector2 start, Vector2 end) {
+            if (IsBlocked(end)) {
+                return double.MaxValue;
+            }
+
+            return Vector2.Distance(start, end); 
         }
     }
 }

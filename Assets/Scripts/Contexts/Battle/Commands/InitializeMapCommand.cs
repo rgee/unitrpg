@@ -21,6 +21,7 @@ namespace Contexts.Battle.Commands {
 
         public override void Execute() {
             var dimensions = Configuration.Dimensions;
+            Model.Dimensions = dimensions;  
             Model.Map = new Map(dimensions.Width, dimensions.Height);
 
             foreach (var blockage in Configuration.ObstructedPositions) {

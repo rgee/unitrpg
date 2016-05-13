@@ -20,7 +20,6 @@ namespace Contexts.Battle.Commands {
                 // TODO: Determine special skill type
             } else if (ActionType == CombatActionType.Move) {
                 Model.State = BattleUIState.SelectingMoveLocation;
-                // TODO: Get move range and set highlighted squares
             } else if (ActionType == CombatActionType.Fight) { 
                 Model.State = BattleUIState.SelectingFightAction;
             } else {

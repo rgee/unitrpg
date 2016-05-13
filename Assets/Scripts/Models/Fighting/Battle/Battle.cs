@@ -33,6 +33,14 @@ namespace Models.Fighting.Battle {
             _currentTurn = new Turn(firstCombatants);
         }
 
+        public bool ShouldTurnEnd() {
+            return _currentTurn.ShouldTurnEnd();
+        }
+
+        public int GetRemainingMoves(ICombatant combatant) {
+            return _currentTurn.GetRemainingMoveDistance(combatant);
+        }
+
         public void EndTurn() {
             var combatants = new List<ICombatant>();
             var turnCount = _turnNumber;

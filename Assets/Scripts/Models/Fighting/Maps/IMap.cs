@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 
 namespace Models.Fighting.Maps {
     public interface IMap {
@@ -12,6 +13,12 @@ namespace Models.Fighting.Maps {
 
         void AddObstruction(Vector2 position);
 
+        HashSet<ICombatant> GetAdjacent(Vector2 position);
+
         ICombatant GetAtPosition(Vector2 position);
+        
+        HashSet<Vector2> BreadthFirstSearch(Vector2 start, int maxDistance, bool ignoreOtherUnits);
+
+        List<Vector2> FindPath(Vector2 start, Vector2 goal);
     }
 }
