@@ -41,10 +41,13 @@ namespace Contexts.Battle.Commands {
             } else if (state == BattleUIState.SelectingMoveLocation) {
                 // Make the unit move
                 if (BattleViewModel.CurrentMovementPath != null) {
-                    MoveCombatantSignal.Dispatch(BattleViewModel.CurrentMovementPath);
-                }
 
-                BattleViewModel.State = BattleUIState.CombatantMoving;
+                    var moveAction = new MoveAction(BattleViewModel.Map, BattleViewModel.SelectedCombatant, Position);
+                    BattleViewModel.Battle.SubmitAction(moveAction);
+
+                    MoveCombatantSignal.Dispatch(BattleViewModel.CurrentMovementPath);
+                    BattleViewModel.State = BattleUIState.CombatantMoving;
+                }
             } else if (state == BattleUIState.SelectingAttackTarget) {
                 // Forecast the fight against this unit
             }

@@ -37,6 +37,12 @@ namespace Contexts.Battle.Models {
 
         public MapDimensions Dimensions { get; set; }
 
+        public void ResetUnitState() {
+            CurrentMovementPath = null;
+            SelectedCombatant = null;
+            AvailableActions = null;
+        }
+
         [Inject]
         public StateTransitionSignal StateTransitionSignal { get; set; }
     }

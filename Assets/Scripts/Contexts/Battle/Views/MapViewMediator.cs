@@ -28,8 +28,12 @@ namespace Contexts.Battle.Views {
         [Inject]
         public MoveCombatantSignal MoveCombatantSignal { get; set; }
 
+        [Inject]
+        public ActionCompleteSignal ActionCompleteSignal{ get; set; }
+
         public override void OnRegister() {
             View.MapClicked.AddListener(OnMapClicked);
+            View.MoveComplete.AddListener(OnMoveComplete);
             View.MapHovered.AddListener(OnMapHovered);
 
             MoveCombatantSignal.AddListener(OnMove);
@@ -41,6 +45,10 @@ namespace Contexts.Battle.Views {
                 var config = new MapConfiguration(dimensions, combatants, randomizer, obstructions);
                 InitializeMapSignal.Dispatch(config);
             });
+        }
+
+        private void OnMoveComplete() {
+           ActionCompleteSignal.Dispatch();
         }
 
         private void OnMove(MovementPath path) {

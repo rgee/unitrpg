@@ -47,6 +47,7 @@ namespace Contexts.Battle {
             injectionBinder.Bind<MovementPathReadySignal>().ToSingleton();
             injectionBinder.Bind<MovementPathUnavailableSignal>().ToSingleton();
             injectionBinder.Bind<StateTransitionSignal>().ToSingleton();
+            injectionBinder.Bind<ActionCompleteSignal>().ToSingleton();
 
             commandBinder.Bind<InitializeMapSignal>().To<InitializeMapCommand>();
             commandBinder.Bind<MapPositionClickedSignal>().To<SelectMapPositionCommand>();
@@ -54,7 +55,8 @@ namespace Contexts.Battle {
             commandBinder.Bind<BackSignal>().To<BackCommand>();
             commandBinder.Bind<CombatActionSelectedSignal>().To<CombatActionSelectedCommand>();
             commandBinder.Bind<StateTransitionSignal>().To<StateTransitionCommand>();
-            
+            commandBinder.Bind<ActionCompleteSignal>().To<ActionCompleteCommand>();
+
             mediationBinder.Bind<MapView>().To<MapViewMediator>();
             mediationBinder.Bind<MapHighlightView>().To<MapHighlightViewMediator>();
             mediationBinder.Bind<ActionMenuView>().To<ActionMenuViewMediator>();
