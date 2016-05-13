@@ -1,6 +1,7 @@
 ﻿using System;
 using Contexts.Battle.Models;
 using strange.extensions.command.impl;
+using UnityEngine;
 
 namespace Contexts.Battle.Commands {
     public class ActionCompleteCommand : Command {
@@ -9,17 +10,12 @@ namespace Contexts.Battle.Commands {
 
         public override void Execute() {
 
-            if (!ShouldTurnEnd()) {
+            if (!Model.Battle.ShouldTurnEnd()) {
                 Model.ResetUnitState();
                 Model.State = BattleUIState.SelectingUnit;
             } else {
-                
+               Debug.Log("TURN SHOULD END"); 
             }
-        }
-
-        private bool ShouldTurnEnd() {
-            // TODO: Figure out whether the turn needs to end.
-            return false;
         }
     }
 }
