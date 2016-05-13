@@ -76,7 +76,7 @@ namespace Models.Fighting.Maps {
             tile.Occupant = combatant;
         }
 
-        public System.Collections.Generic.HashSet<ICombatant> GetAdjacent(Vector2 position) {
+        public HashSet<ICombatant> GetAdjacent(Vector2 position) {
 
             return MathUtils.GetAdjacentPoints(position)
                 .Select(point => GetAtPosition(position))
