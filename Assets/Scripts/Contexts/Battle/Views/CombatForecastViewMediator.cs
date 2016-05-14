@@ -13,11 +13,27 @@ namespace Contexts.Battle.Views {
         [Inject]
         public FightForecastDisableSignal FightForecastDisableSignal { get; set; }
 
+        [Inject]
+        public FightConfirmedSignal FightConfirmedSignal { get; set; }
+
+        [Inject]
+        public BackSignal BackSignal { get; set; }
+
         public override void OnRegister() {
             base.OnRegister();
 
             FightForecastDisableSignal.AddListener(OnForecastDisable);
             FightForecastSignal.AddListener(OnNewForecast);
+            View.ConfirmSignal.AddListener(RelayConfirm);
+            View.RejectSignal.AddListener(RelayReject);
+        }
+
+        private void RelayReject() {
+           BackSignal.Dispatch();
+        }
+
+        private void RelayConfirm() {
+           FightConfirmedSignal.Dispatch(); 
         }
 
         private void OnNewForecast(FightForecast forecast) {

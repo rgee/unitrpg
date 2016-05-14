@@ -49,6 +49,7 @@ namespace Contexts.Battle {
             injectionBinder.Bind<ActionCompleteSignal>().ToSingleton();
             injectionBinder.Bind<NewFightForecastSignal>().ToSingleton();
             injectionBinder.Bind<FightForecastDisableSignal>().ToSingleton();
+            injectionBinder.Bind<FightConfirmedSignal>().ToSingleton();
 
             commandBinder.Bind<InitializeMapSignal>().To<InitializeMapCommand>();
             commandBinder.Bind<MapPositionClickedSignal>().To<SelectMapPositionCommand>();

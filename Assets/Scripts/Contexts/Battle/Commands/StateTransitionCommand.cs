@@ -26,9 +26,6 @@ namespace Contexts.Battle.Commands {
         public ClearHighlightSignal ClearHighlightSignal { get; set; }
 
         [Inject]
-        public UnitSelectedSignal UnitSelectedSignal { get; set; }
-
-        [Inject]
         public NewMapHighlightSignal HighlightSignal { get; set; }
 
         public override void Execute() {
@@ -55,6 +52,8 @@ namespace Contexts.Battle.Commands {
                     break;
                 case BattleUIState.CombatantMoving:
                     break;
+                case BattleUIState.ForecastingCombat:
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException("state", state, null);
             }
@@ -77,6 +76,8 @@ namespace Contexts.Battle.Commands {
                     break;
                 case BattleUIState.SelectingMoveLocation:
                     SetupMoveLocationState();
+                    break;
+                case BattleUIState.Fighting:
                     break;
                 default:
                     throw new ArgumentOutOfRangeException("state", state, null);

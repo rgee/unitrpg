@@ -54,17 +54,16 @@ namespace Contexts.Battle.Commands {
                     BattleViewModel.State = BattleUIState.CombatantMoving;
                 }
             } else if (state == BattleUIState.SelectingAttackTarget) {
-                var target = BattleViewModel.Map.GetAtPosition(Position);
-                if (target != null) {
+                if (combatant != null && combatant.Army == ArmyType.Enemy) {
                     // Forecast the fight against this unit
                     var battle = BattleViewModel.Battle;
-                    var selectedUnitPosition = combatant.Position;
+                    var selectedUnitPosition = BattleViewModel.SelectedCombatant.Position;
                     var distanceToTarget = MathUtils.ManhattanDistance(selectedUnitPosition, Position);
                     var map = BattleViewModel.Map;
                     var skill = battle.GetWeaponSkillForRange(distanceToTarget);
                     var skillDatabase = new SkillDatabase(map);
                     var forecaster = new FightForecaster(map, skillDatabase);
-                    var fight = forecaster.Forecast(combatant, target, skill);
+                    var fight = forecaster.Forecast(BattleViewModel.SelectedCombatant, combatant, skill);
                     FightForecastSignal.Dispatch(fight);
                     BattleViewModel.FightForecast = fight;
                     BattleViewModel.State = BattleUIState.ForecastingCombat;

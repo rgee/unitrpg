@@ -6,6 +6,7 @@
         SelectingAttackTarget,
         SelectingMoveLocation,
         ForecastingCombat,
+        Fighting,
         CombatantMoving
     }
 }

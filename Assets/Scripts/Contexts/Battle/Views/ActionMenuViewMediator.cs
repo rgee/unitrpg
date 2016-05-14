@@ -1,4 +1,5 @@
-﻿using Contexts.Battle.Models;
+﻿using Assets.Contexts;
+using Contexts.Battle.Models;
 using Contexts.Battle.Signals;
 using Models.Combat;
 using strange.extensions.mediation.impl;
@@ -64,7 +65,7 @@ namespace Contexts.Battle.Views {
 
         private void HideActionMenu() {
             View.Hide();
-            BackSignal.RemoveListener(View.ReturnToTop);
+            StrangeUtils.RemoveOnceListener(BackSignal, ReturnToTop);
         }
     }
 }

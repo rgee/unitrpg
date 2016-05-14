@@ -8,8 +8,8 @@ using UnityEngine;
 namespace Contexts.Battle.Views {
     public class CombatForecastView : View {
         private const float TransitionTime = 0.7f;
-        public Signal ConfirmSignal;
-        public Signal RejectSignal;
+        public Signal ConfirmSignal = new Signal();
+        public Signal RejectSignal = new Signal();
 
         public GameObject Prefab;
 
@@ -56,16 +56,24 @@ namespace Contexts.Battle.Views {
             yield return seq.WaitForCompletion();
 
             var forecastComponent = _currentWindow.GetComponent<UI.CombatForecast.CombatForecast>();
-            forecastComponent.OnConfirm += ConfirmSignal.Dispatch;
-            forecastComponent.OnReject += RejectSignal.Dispatch;
+            forecastComponent.OnConfirm += DispatchConfirm;
+            forecastComponent.OnReject += DispatchReject;
+        }
+
+        private void DispatchConfirm() {
+            ConfirmSignal.Dispatch();
+        }
+
+        private void DispatchReject() {
+            RejectSignal.Dispatch();
         }
 
         IEnumerator PlayAndDetachEvents(Tween seq) {
             yield return seq.WaitForCompletion();
 
             var forecastComponent = _currentWindow.GetComponent<UI.CombatForecast.CombatForecast>();
-            forecastComponent.OnConfirm -= ConfirmSignal.Dispatch;
-            forecastComponent.OnReject -= RejectSignal.Dispatch;
+            forecastComponent.OnConfirm -= DispatchConfirm;
+            forecastComponent.OnReject -= DispatchReject;
         }
     }
 }

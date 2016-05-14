@@ -32,6 +32,7 @@ namespace Contexts.Battle.Commands {
             }
 
             if (Model.State == BattleUIState.SelectingMoveLocation) {
+
                 var combatant = Model.SelectedCombatant;
                 var moveRange = combatant.GetAttribute(Attribute.AttributeType.Move).Value;
                 var path = map.FindPath(combatant.Position, Position.GridCoordinates);
@@ -42,7 +43,7 @@ namespace Contexts.Battle.Commands {
                     PathReadySignal.Dispatch(path);
                     Model.CurrentMovementPath = new MovementPath(path, Model.SelectedCombatant);
                 }
-            } else {
+            } else if (Model.State != BattleUIState.Fighting || Model.State != BattleUIState.CombatantMoving) {
 
                 if (map.IsBlockedByEnvironment(Position.GridCoordinates)) {
                     HoverTileDisableSignal.Dispatch();
