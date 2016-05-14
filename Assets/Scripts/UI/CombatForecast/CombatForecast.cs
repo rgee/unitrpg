@@ -22,7 +22,10 @@ namespace UI.CombatForecast {
             defenderName.text = forecast.AttackerForecast.Defender.Name.ToUpper();
 
             PopulateChances(forecast.AttackerForecast.Chances, CombatantParam.Attacker);
-            PopulateChances(forecast.DefenderForecast.Chances, CombatantParam.Defender);
+
+            if (forecast.DefenderForecast != null) {
+                PopulateChances(forecast.DefenderForecast.Chances, CombatantParam.Defender);
+            }
 
             var attackerHealth = forecast.AttackerForecast.Attacker.Health;
             var defenderHealth = forecast.AttackerForecast.Defender.Health;
@@ -36,8 +39,10 @@ namespace UI.CombatForecast {
             var attackerHitCount = GetAmount("HitCount", CombatantParam.Attacker);
             attackerHitCount.SetActive(forecast.AttackerForecast.Hit.HitCount > 1);
 
-            var defenderHitCount = GetAmount("HitCount", CombatantParam.Defender);
-            defenderHitCount.SetActive(forecast.DefenderForecast.Hit.HitCount > 1);
+            if (forecast.DefenderForecast != null) {
+                var defenderHitCount = GetAmount("HitCount", CombatantParam.Defender);
+                defenderHitCount.SetActive(forecast.DefenderForecast.Hit.HitCount > 1);
+            }
         }
 
         private void PopulateChances(SkillChances chances, CombatantParam param) {

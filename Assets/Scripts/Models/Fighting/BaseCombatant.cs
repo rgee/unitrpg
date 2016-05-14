@@ -60,6 +60,10 @@ namespace Models.Fighting {
 
         public Stat GetStat(StatType type) {
             var stat = _character.Stats.FirstOrDefault(potentialStat => potentialStat.Type == type);
+            if (stat == null) {
+                stat = new Stat(0, StatType.ProjectileParryChance);
+            }
+
             return StatUtils.ApplyBuffs(stat, Buffs.Concat(_temporaryBuffs));
         }
 

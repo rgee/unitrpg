@@ -47,7 +47,8 @@ namespace Contexts.Battle.Commands {
                 // Make the unit move
                 if (BattleViewModel.CurrentMovementPath != null) {
 
-                    var moveAction = new MoveAction(BattleViewModel.Map, BattleViewModel.SelectedCombatant, Position);
+                    var pathLength = BattleViewModel.CurrentMovementPath.Length;
+                    var moveAction = new MoveAction(BattleViewModel.Map, BattleViewModel.SelectedCombatant, Position, pathLength);
                     BattleViewModel.Battle.SubmitAction(moveAction);
 
                     MoveCombatantSignal.Dispatch(BattleViewModel.CurrentMovementPath);

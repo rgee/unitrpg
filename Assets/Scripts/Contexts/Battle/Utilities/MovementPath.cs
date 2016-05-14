@@ -7,6 +7,10 @@ namespace Contexts.Battle.Utilities {
         public readonly List<Vector2> Positions;
         public ICombatant Combatant;
 
+        public int Length {
+            get { return Positions.Count - 1; }
+        }
+
         public MovementPath(List<Vector2> positions, ICombatant combatant) {
             Positions = positions;
             Combatant = combatant;
