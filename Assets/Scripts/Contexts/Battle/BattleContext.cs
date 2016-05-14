@@ -50,6 +50,7 @@ namespace Contexts.Battle {
             injectionBinder.Bind<NewFightForecastSignal>().ToSingleton();
             injectionBinder.Bind<FightForecastDisableSignal>().ToSingleton();
             injectionBinder.Bind<FightConfirmedSignal>().ToSingleton();
+            injectionBinder.Bind<NewFinalizedFightSignal>().ToSingleton();
 
             commandBinder.Bind<InitializeMapSignal>().To<InitializeMapCommand>();
             commandBinder.Bind<MapPositionClickedSignal>().To<SelectMapPositionCommand>();
@@ -58,6 +59,7 @@ namespace Contexts.Battle {
             commandBinder.Bind<CombatActionSelectedSignal>().To<CombatActionSelectedCommand>();
             commandBinder.Bind<StateTransitionSignal>().To<StateTransitionCommand>();
             commandBinder.Bind<ActionCompleteSignal>().To<ActionCompleteCommand>();
+            commandBinder.Bind<FightConfirmedSignal>().To<FightConfirmedCommand>();
 
             mediationBinder.Bind<MapView>().To<MapViewMediator>();
             mediationBinder.Bind<MapHighlightView>().To<MapHighlightViewMediator>();

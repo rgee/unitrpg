@@ -28,6 +28,9 @@ namespace Contexts.Battle.Commands {
         [Inject]
         public NewMapHighlightSignal HighlightSignal { get; set; }
 
+        [Inject]
+        public FightForecastDisableSignal FightForecastDisableSignal { get; set; }
+
         public override void Execute() {
             Cleanup(Transition.Previous);
             Setup(Transition.Next);
@@ -50,9 +53,12 @@ namespace Contexts.Battle.Commands {
                     PathUnavailableSignal.Dispatch();
                     Model.CurrentMovementPath = null;
                     break;
+                case BattleUIState.Fighting:
+                    break;
                 case BattleUIState.CombatantMoving:
                     break;
                 case BattleUIState.ForecastingCombat:
+                    FightForecastDisableSignal.Dispatch();
                     break;
                 default:
                     throw new ArgumentOutOfRangeException("state", state, null);

@@ -2,6 +2,7 @@
 using Contexts.Battle.Signals;
 using Contexts.Battle.Utilities;
 using Models.Fighting;
+using Models.Fighting.Execution;
 using strange.extensions.mediation.impl;
 using UnityEngine;
 
@@ -31,10 +32,16 @@ namespace Contexts.Battle.Views {
         [Inject]
         public ActionCompleteSignal ActionCompleteSignal{ get; set; }
 
+        [Inject]
+        public NewFinalizedFightSignal FinalizedFightSignal { get; set; }
+
+
         public override void OnRegister() {
             View.MapClicked.AddListener(OnMapClicked);
             View.MoveComplete.AddListener(OnMoveComplete);
             View.MapHovered.AddListener(OnMapHovered);
+            View.FightComplete.AddListener(OnFightComplete);
+            FinalizedFightSignal.AddListener(OnFight);
 
             MoveCombatantSignal.AddListener(OnMove);
             GatherSignal.AddOnce(() => {
@@ -51,8 +58,16 @@ namespace Contexts.Battle.Views {
            ActionCompleteSignal.Dispatch();
         }
 
+        private void OnFightComplete() {
+           ActionCompleteSignal.Dispatch();   
+        }
+
         private void OnMove(MovementPath path) {
             View.MoveUnit(path.Combatant.Id, path.Positions);
+        }
+
+        private void OnFight(FinalizedFight finalizedFight) {
+            View.AnimateFight(finalizedFight);
         }
 
         private void OnMapHovered(Vector2 hoverPosition) {

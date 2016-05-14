@@ -107,9 +107,9 @@ namespace Assets.Testing {
             maelle.InCombat = true;
             maelle.Facing = MathUtils.CardinalDirection.W;
 
-            yield return StartCoroutine(_phaseAnimator.Animate(_firstPhase));
+            yield return StartCoroutine(_phaseAnimator.Animate(_firstPhase, liat, gatsu));
             yield return new WaitForSeconds(.7f);
-            yield return StartCoroutine(_phaseAnimator.Animate(_flankPhase));
+            yield return StartCoroutine(_phaseAnimator.Animate(_flankPhase, maelle, gatsu));
         }
     }
 }

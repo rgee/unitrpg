@@ -82,7 +82,7 @@ namespace Assets.Testing {
             gatsu.Facing = MathUtils.CardinalDirection.W;
 
             yield return new WaitForSeconds(1);
-            yield return StartCoroutine(_phaseAnimator.Animate(_firstPhase));
+            yield return StartCoroutine(_phaseAnimator.Animate(_firstPhase, liat, gatsu));
         }
     }
 }

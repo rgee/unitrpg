@@ -2,9 +2,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Combat;
 using Contexts.Battle.Utilities;
 using Models.Fighting.Battle;
 using Models.Fighting.Characters;
+using Models.Fighting.Execution;
 using strange.extensions.mediation.impl;
 using strange.extensions.signal.impl;
 using UnityEngine;
@@ -14,9 +16,16 @@ namespace Contexts.Battle.Views {
         public Signal<Vector2> MapClicked = new Signal<Vector2>();
         public Signal<Vector2> MapHovered = new Signal<Vector2>(); 
         public Signal MoveComplete = new Signal();
+        public Signal FightComplete = new Signal();
         public int Width;
         public int TileSize;
         public int Height;
+
+        private FightPhaseAnimator _phaseAnimator;
+
+        void Awake() {
+            _phaseAnimator = GetComponent<FightPhaseAnimator>();
+        }
 
         void Update() {
             var mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -92,7 +101,70 @@ namespace Contexts.Battle.Views {
             }
             
             return results;
-        } 
+        }
+
+        public void AnimateFight(FinalizedFight fight) {
+            var phases = new List<FightPhase> {fight.InitialPhase};
+
+            if (fight.FlankerPhase != null) {
+                phases.Add(fight.FlankerPhase);
+            }
+
+            if (fight.CounterPhase != null) {
+                phases.Add(fight.CounterPhase);
+            }
+
+            if (fight.DoubleAttackPhase != null) {
+                phases.Add(fight.DoubleAttackPhase);
+            }
+
+            var participants = new List<Grid.Unit>();
+
+            var primaryAttacker = FindUnitById(fight.InitialPhase.Initiator.Id).GetComponent<Grid.Unit>();
+            primaryAttacker.InCombat = true;
+            participants.Add(primaryAttacker);
+
+            var defender = FindUnitById(fight.InitialPhase.Receiver.Id).GetComponent<Grid.Unit>();
+            defender.InCombat = true;
+            participants.Add(defender);
+
+            primaryAttacker.Facing = MathUtils.DirectionTo(fight.InitialPhase.Initiator.Position,
+                fight.InitialPhase.Receiver.Position);
+            defender.Facing = MathUtils.DirectionTo(fight.InitialPhase.Receiver.Position,
+                fight.InitialPhase.Initiator.Position);
+
+            if (fight.FlankerPhase != null) {
+                var flanker = FindUnitById(fight.FlankerPhase.Initiator.Id).GetComponent<Grid.Unit>();
+                flanker.InCombat = true;
+                flanker.Facing = MathUtils.DirectionTo(fight.FlankerPhase.Initiator.Position,
+                    fight.FlankerPhase.Receiver.Position);
+                participants.Add(flanker);
+            }
+
+            FightComplete.AddOnce(() => {
+                foreach (var unit in participants) {
+                    unit.ReturnToRest();
+                }
+            });
+
+            StartCoroutine(AnimateFights(phases));
+        }
+
+        private IEnumerator AnimateFights(IEnumerable<FightPhase> phases) {
+            foreach (var phase in phases) {
+                yield return StartCoroutine(AnimateFightPhase(phase));
+                yield return new WaitForSeconds(0.4f);
+            }
+
+            FightComplete.Dispatch();
+        }
+
+        private IEnumerator AnimateFightPhase(FightPhase phase) {
+            var initiator = FindUnitById(phase.Initiator.Id).GetComponent<Grid.Unit>();
+            var receiver = FindUnitById(phase.Receiver.Id).GetComponent<Grid.Unit>();
+
+            yield return _phaseAnimator.Animate(phase, initiator, receiver);
+        }
 
         void OnDrawGizmos() {
             // Draw a green outline around the map.

@@ -10,15 +10,8 @@ using Advance = Models.Fighting.Effects.Advance;
 
 namespace Combat {
     public class FightPhaseAnimator : MonoBehaviour {
-        private UnitManager _unitManager;
 
-        void Awake() {
-            _unitManager = CombatObjects.GetUnitManager();
-        }
-
-        public IEnumerator Animate(FightPhase phase) {
-            var initUnit = _unitManager.GetUnitByName(phase.Initiator.Name);
-            var receiverUnit = _unitManager.GetUnitByName(phase.Receiver.Name);
+        public IEnumerator Animate(FightPhase phase, Grid.Unit initUnit, Grid.Unit receiverUnit) {
 
             initUnit.CurrentAttackTarget = receiverUnit;
 
@@ -26,8 +19,7 @@ namespace Combat {
             if (dodged) {
                 initUnit.Attacking = true;
                 receiverUnit.Dodge();
-            }
-            else {
+            } else {
                 var receiverEffects = phase.Effects.ReceiverEffects;
                 if (receiverEffects.OfType<Advance>().Any()) {
                     var unitGameObject = initUnit.gameObject;

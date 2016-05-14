@@ -1279,6 +1279,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 2069200421}
   - 114: {fileID: 2069200422}
+  - 114: {fileID: 2069200423}
   m_Layer: 0
   m_Name: Map
   m_TagString: Untagged
@@ -1316,6 +1317,17 @@ MonoBehaviour:
   Width: 16
   TileSize: 32
   Height: 9
+--- !u!114 &2069200423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2069200420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 151deb80fe749e441bf4d6306ab3a21a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2106114847
 GameObject:
   m_ObjectHideFlags: 0

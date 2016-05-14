@@ -75,16 +75,16 @@ namespace Assets.Testing {
         IEnumerator RunTest() {
             yield return new WaitForSeconds(2);
 
-            var liat = _unitManager.GetUnitByName("Janek");
-            liat.InCombat = true;
-            liat.Facing = MathUtils.CardinalDirection.E;
+            var Janek = _unitManager.GetUnitByName("Janek");
+            Janek.InCombat = true;
+            Janek.Facing = MathUtils.CardinalDirection.E;
 
             var gatsu = _unitManager.GetUnitByName("Soldier");
             gatsu.InCombat = true;
             gatsu.Facing = MathUtils.CardinalDirection.W;
 
             yield return new WaitForSeconds(1);
-            yield return StartCoroutine(_phaseAnimator.Animate(_firstPhase));
+            yield return StartCoroutine(_phaseAnimator.Animate(_firstPhase, Janek, gatsu));
         }
     }
 }

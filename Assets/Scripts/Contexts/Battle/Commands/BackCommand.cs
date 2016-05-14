@@ -14,8 +14,6 @@ namespace Contexts.Battle.Commands {
         [Inject]
         public UnitSelectedSignal UnitSelectedSignal { get; set; }
 
-        [Inject]
-        public FightForecastDisableSignal FightForecastDisableSignal { get; set; }
 
         public override void Execute() {
             var state = Model.State;
@@ -30,7 +28,6 @@ namespace Contexts.Battle.Commands {
                     Model.State = BattleUIState.SelectingAction;
                     break;
                 case BattleUIState.ForecastingCombat:
-                    FightForecastDisableSignal.Dispatch();
                     Model.SelectedTarget = null;
                     Model.State = BattleUIState.SelectingAttackTarget;
                     break;
