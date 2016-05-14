@@ -46,6 +46,7 @@ namespace Contexts.Battle.Commands {
                 case BattleUIState.SelectingFightAction:
                     break;
                 case BattleUIState.SelectingAttackTarget:
+                    ClearHighlightSignal.Dispatch(HighlightLevel.PlayerAttack);
                     break;
                 case BattleUIState.SelectingMoveLocation:
                     ClearHighlightSignal.Dispatch(HighlightLevel.PlayerMove);

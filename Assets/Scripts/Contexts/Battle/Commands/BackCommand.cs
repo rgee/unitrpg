@@ -27,6 +27,7 @@ namespace Contexts.Battle.Commands {
                     Model.State = BattleUIState.SelectingAction;
                     break;
 
+                case BattleUIState.SelectingAttackTarget:
                 case BattleUIState.SelectingMoveLocation:
                     var combatant = Model.SelectedCombatant;
                     var dimensions = Model.Dimensions;
