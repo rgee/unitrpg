@@ -398,6 +398,46 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 445186, guid: 93f3a9d030a037b428cae048d1f6bf91, type: 2}
   m_PrefabInternal: {fileID: 360457457}
+--- !u!1 &389534794
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 389534795}
+  - 114: {fileID: 389534796}
+  m_Layer: 0
+  m_Name: Combat Forecast View
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &389534795
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 389534794}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1696273886}
+  m_RootOrder: 4
+--- !u!114 &389534796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 389534794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e54943b1fe89a847970ddb2fc5d8b41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Prefab: {fileID: 147210, guid: 8de523887a48c5c438d38dd8acc37faa, type: 2}
 --- !u!1 &540207046
 GameObject:
   m_ObjectHideFlags: 0
@@ -1166,6 +1206,7 @@ Transform:
   - {fileID: 136811498}
   - {fileID: 1857658635}
   - {fileID: 1294868312}
+  - {fileID: 389534795}
   m_Father: {fileID: 187450915}
   m_RootOrder: 0
 --- !u!114 &1696273887
