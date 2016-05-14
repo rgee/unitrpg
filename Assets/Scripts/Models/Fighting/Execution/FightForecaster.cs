@@ -18,7 +18,8 @@ namespace Models.Fighting.Execution {
             var flankForecast = null as SkillForecast;
 
             if (strategy.SupportsFlanking) {
-                var flankerPosition = MathUtils.GetPositionAcrossFight(attacker.Position);
+                var direction = MathUtils.DirectionTo(attacker.Position, defender.Position);
+                var flankerPosition = MathUtils.GetPositionAcrossFight(attacker.Position, direction);
                 var flankerDistance = MathUtils.ManhattanDistance(defender.Position, flankerPosition);
 
                 var flanker = _map.GetAtPosition(flankerPosition);

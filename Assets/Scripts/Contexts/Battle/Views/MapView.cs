@@ -160,6 +160,7 @@ namespace Contexts.Battle.Views {
         }
 
         private IEnumerator AnimateFightPhase(FightPhase phase) {
+            Debug.LogFormat("Animating {0} vs {1}", phase.Initiator.Name, phase.Receiver.Name);
             var initiator = FindUnitById(phase.Initiator.Id).GetComponent<Grid.Unit>();
             var receiver = FindUnitById(phase.Receiver.Id).GetComponent<Grid.Unit>();
 

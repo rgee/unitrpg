@@ -53,8 +53,8 @@ public static class MathUtils {
         return ManhattanDistance((int) start.x, (int) start.y, (int) end.x, (int) end.y);
     }
 
-    public static Vector2 GetPositionAcrossFight(Vector2 attackerPosition) {
-        return new Vector2(1000, 1000);
+    public static Vector2 GetPositionAcrossFight(Vector2 attackerPosition, CardinalDirection direction) {
+        return GetAdjacentPoint(GetAdjacentPoint(attackerPosition, direction), direction);
     }
 
     public static CardinalDirection GetOpposite(this CardinalDirection dir) {

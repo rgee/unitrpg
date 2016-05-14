@@ -43,10 +43,23 @@ namespace Combat {
                             initUnit.OnHitConnected -= hitConnectedCallback;
                         };
                         initUnit.OnHitConnected += hitConnectedCallback;
+                        initUnit.Attacking = true;
+                    } else {
+                        var hitConnected = false;
+                        initUnit.Attacking = true;
+                        Action onHitConnected = null;
+                        onHitConnected = () => {
+                            hitConnected = true;
+                            initUnit.OnHitConnected -= onHitConnected;
+                        };
 
+                        initUnit.OnHitConnected += onHitConnected;
+
+                        while (!hitConnected) {
+                            yield return new WaitForEndOfFrame();
+                        }
                     }
 
-                    initUnit.Attacking = true;
                 }
             }
 
