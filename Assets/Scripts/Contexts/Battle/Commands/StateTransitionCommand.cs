@@ -29,7 +29,7 @@ namespace Contexts.Battle.Commands {
         public UnitSelectedSignal UnitSelectedSignal { get; set; }
 
         [Inject]
-        public NewMoveRangeSignal NewMoveRangeSignal { get; set; }
+        public NewMapHighlightSignal HighlightSignal { get; set; }
 
         public override void Execute() {
             Cleanup(Transition.Previous);
@@ -70,19 +70,37 @@ namespace Contexts.Battle.Commands {
                 case BattleUIState.SelectingFightAction:
                     break;
                 case BattleUIState.SelectingAttackTarget:
+                    SetupAttackTargetState();
                     break;
                 case BattleUIState.SelectingMoveLocation:
-                    var map = Model.Map;
-                    var origin = Model.SelectedCombatant.Position;
-                    var moveRange = Model.Battle.GetRemainingMoves(Model.SelectedCombatant);
-                    var squares = map.BreadthFirstSearch(origin, moveRange, false);
-
-                    NewMoveRangeSignal.Dispatch(squares);
-                    HoverTileDisableSignal.Dispatch();
+                    SetupMoveLocationState();
                     break;
                 default:
                     throw new ArgumentOutOfRangeException("state", state, null);
             }
+        }
+
+        private void SetupAttackTargetState() {
+            var map = Model.Map;
+            var battle = Model.Battle;
+            var origin = Model.SelectedCombatant.Position;
+            var range = battle.GetMaxWeaponAttackRange(Model.SelectedCombatant);
+            var attackableSquares = map.BreadthFirstSearch(origin, range, true);
+            var highlights = new MapHighlights(attackableSquares, HighlightLevel.PlayerAttack);
+
+            HighlightSignal.Dispatch(highlights);
+            HoverTileDisableSignal.Dispatch();
+        }
+
+        private void SetupMoveLocationState() {
+            var map = Model.Map;
+            var origin = Model.SelectedCombatant.Position;
+            var moveRange = Model.Battle.GetRemainingMoves(Model.SelectedCombatant);
+            var squares = map.BreadthFirstSearch(origin, moveRange, false);
+            var highlights = new MapHighlights(squares, HighlightLevel.PlayerMove);
+
+            HighlightSignal.Dispatch(highlights);
+            HoverTileDisableSignal.Dispatch();
         }
     }
 }

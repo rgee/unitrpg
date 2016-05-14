@@ -42,7 +42,7 @@ namespace Contexts.Battle {
             injectionBinder.Bind<MoveCombatantSignal>().ToSingleton();
             injectionBinder.Bind<BackSignal>().ToSingleton();
             injectionBinder.Bind<CombatActionSelectedSignal>().ToSingleton();
-            injectionBinder.Bind<NewMoveRangeSignal>().ToSingleton();
+            injectionBinder.Bind<NewMapHighlightSignal>().ToSingleton();
             injectionBinder.Bind<ClearHighlightSignal>().ToSingleton();
             injectionBinder.Bind<MovementPathReadySignal>().ToSingleton();
             injectionBinder.Bind<MovementPathUnavailableSignal>().ToSingleton();

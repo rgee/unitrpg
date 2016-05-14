@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Contexts.Battle.Models;
 using Contexts.Battle.Signals;
+using Contexts.Battle.Utilities;
 using strange.extensions.mediation.impl;
 using UnityEngine;
 
@@ -13,7 +14,7 @@ namespace Contexts.Battle.Views {
         public HoverTileDisableSignal HoverTileDisableSignal { get; set; }
 
         [Inject]
-        public NewMoveRangeSignal NewMoveRangeSignal { get; set; }
+        public NewMapHighlightSignal MapHighlightSignal { get; set; }
 
         [Inject]
         public ClearHighlightSignal ClearHighlightSignal { get; set; }
@@ -30,7 +31,7 @@ namespace Contexts.Battle.Views {
             HoveredTileChangeSignal.AddListener(OnHighlightPositionChange);
             HoverTileDisableSignal.AddListener(OnHighlightDisable);
             ClearHighlightSignal.AddListener(OnClearHighlight);
-            NewMoveRangeSignal.AddListener(OnMoveSelected);
+            MapHighlightSignal.AddListener(OnHighlight);
         }
 
         private void OnHighlightPositionChange(Vector3 newPosition) {
@@ -41,9 +42,9 @@ namespace Contexts.Battle.Views {
             View.ClearHighlightedPositions(level);
         }
 
-        private void OnMoveSelected(HashSet<Vector2> range) {
+        private void OnHighlight(MapHighlights highlights) {
             var dims = Model.Dimensions;
-            View.HighlightPositions(range, HighlightLevel.PlayerMove, dims);
+            View.HighlightPositions(highlights.Positions, highlights.Level, dims);
         }
 
         private void OnHighlightDisable() {
