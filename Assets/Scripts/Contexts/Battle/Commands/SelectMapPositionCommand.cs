@@ -76,15 +76,24 @@ namespace Contexts.Battle.Commands {
             var battle = BattleViewModel.Battle;
             var map = BattleViewModel.Map;
 
-            // TODO: Figure out if they can really fight at this range
-            var results = new HashSet<CombatActionType> {CombatActionType.Fight};
-
-
+            var results = new HashSet<CombatActionType>();
             if (battle.CanAct(combatant)) {
                 results.Add(CombatActionType.Item);
 
-                if (map.GetAdjacent(combatant.Position).Any()) {
-                    results.Add(CombatActionType.Item);
+                var attackableSquares = map.BreadthFirstSearch(combatant.Position, battle.GetMaxWeaponAttackRange(combatant), true);
+                var attackableUnits = attackableSquares
+                    .Select(square => map.GetAtPosition(square))
+                    .Where(unit => unit != null && unit.Army == ArmyType.Enemy);
+
+                if (attackableUnits.Any()) {
+                    results.Add(CombatActionType.Fight);
+                }
+
+                var friendlyUnits = attackableSquares
+                    .Select(square => map.GetAtPosition(square))
+                    .Where(unit => unit != null && unit.Army == ArmyType.Friendly);
+                if (friendlyUnits.Any()) {
+                    results.Add(CombatActionType.Trade);
                 }
             }
 
