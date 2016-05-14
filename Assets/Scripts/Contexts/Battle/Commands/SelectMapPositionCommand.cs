@@ -26,6 +26,9 @@ namespace Contexts.Battle.Commands {
         [Inject]
         public MoveCombatantSignal MoveCombatantSignal { get; set; }
 
+        [Inject]
+        public NewFightForecastSignal FightForecastSignal { get; set; }
+
         public override void Execute() {
             var state = BattleViewModel.State;
             var combatant = BattleViewModel.Map.GetAtPosition(Position);
@@ -62,6 +65,7 @@ namespace Contexts.Battle.Commands {
                     var skillDatabase = new SkillDatabase(map);
                     var forecaster = new FightForecaster(map, skillDatabase);
                     var fight = forecaster.Forecast(combatant, target, skill);
+                    FightForecastSignal.Dispatch(fight);
                     BattleViewModel.FightForecast = fight;
                     BattleViewModel.State = BattleUIState.ForecastingCombat;
                 }

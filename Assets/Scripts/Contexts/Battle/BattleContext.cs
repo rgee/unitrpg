@@ -6,7 +6,6 @@ using Contexts.Battle.Commands;
 using Contexts.Battle.Models;
 using Contexts.Battle.Signals;
 using Contexts.Battle.Views;
-using Contexts.Global.Signals;
 using strange.extensions.command.api;
 using strange.extensions.context.impl;
 using UnityEngine;
@@ -48,6 +47,8 @@ namespace Contexts.Battle {
             injectionBinder.Bind<MovementPathUnavailableSignal>().ToSingleton();
             injectionBinder.Bind<StateTransitionSignal>().ToSingleton();
             injectionBinder.Bind<ActionCompleteSignal>().ToSingleton();
+            injectionBinder.Bind<NewFightForecastSignal>().ToSingleton();
+            injectionBinder.Bind<FightForecastDisableSignal>().ToSingleton();
 
             commandBinder.Bind<InitializeMapSignal>().To<InitializeMapCommand>();
             commandBinder.Bind<MapPositionClickedSignal>().To<SelectMapPositionCommand>();
@@ -62,6 +63,7 @@ namespace Contexts.Battle {
             mediationBinder.Bind<ActionMenuView>().To<ActionMenuViewMediator>();
             mediationBinder.Bind<BattleView>().To<BattleViewMediator>();
             mediationBinder.Bind<MovementPathView>().To<MovementPathViewMediator>();
+            mediationBinder.Bind<CombatForecastView>().To<CombatForecastViewMediator>();
         }
     }
 }
