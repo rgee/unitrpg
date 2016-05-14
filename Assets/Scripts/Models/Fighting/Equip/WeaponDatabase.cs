@@ -23,6 +23,12 @@ namespace Models.Fighting.Equip {
                 .Build());
 
             Add(Weapon.Builder()
+                .Name("Greatsword")
+                .Description("A great sword!")
+                .Range(1)
+                .Build());
+
+            Add(Weapon.Builder()
                 .Name("Heavy Bow")
                 .Description("A 50lb shortbow capable of hitting targets at longer range.")
                 .Range(3)
