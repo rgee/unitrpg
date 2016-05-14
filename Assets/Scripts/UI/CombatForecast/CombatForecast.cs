@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 namespace UI.CombatForecast {
     public class CombatForecast : MonoBehaviour {
+        public event Action OnConfirm;
+        public event Action OnReject;
+
         private enum CombatantParam {
             Attacker,
             Defender
@@ -59,6 +62,18 @@ namespace UI.CombatForecast {
                 : transform.FindChild("Forecast/Defender Parameters");
 
             return parent.FindChild(objectName + " Amount").gameObject;
+        }
+
+        public void Confirm() {
+            if (OnConfirm != null) {
+                OnConfirm();
+            } 
+        }
+
+        public void Reject() {
+            if (OnReject != null) {
+                OnReject();
+            } 
         }
     }
 }
