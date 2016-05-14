@@ -130,7 +130,11 @@ namespace Models.Fighting.Maps {
                 var currentDist = distances[current];
 
                 var neighbors = MathUtils.GetAdjacentPoints(current);
-                var openNeighbors = neighbors.Where((neighbor) => { 
+                var openNeighbors = neighbors.Where((neighbor) => {
+                    if (neighbor == start) {
+                        return false;
+                    }
+
                     if (!IsOnMap(neighbor)) {
                         return false;
                     }
@@ -145,7 +149,7 @@ namespace Models.Fighting.Maps {
                 foreach (var node in openNeighbors) {
                     if (!results.Contains(node)) {
                         fringe.Enqueue(node);
-                        results.Add(node);  
+                        results.Add(node);
                         distances.Add(node, currentDist + 1);
                     }
                 }

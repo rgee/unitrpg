@@ -68,6 +68,8 @@ namespace Contexts.Battle.Commands {
                     break;
                 case BattleUIState.SelectingAction:
                     break;
+                case BattleUIState.ForecastingCombat:
+                    break;
                 case BattleUIState.SelectingFightAction:
                     break;
                 case BattleUIState.SelectingAttackTarget:

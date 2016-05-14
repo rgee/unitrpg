@@ -7,6 +7,8 @@ using Models.Combat;
 using Models.Fighting;
 using Models.Fighting.Battle;
 using Models.Fighting.Characters;
+using Models.Fighting.Execution;
+using Models.Fighting.Skills;
 using strange.extensions.command.impl;
 using UnityEngine;
 
@@ -49,7 +51,20 @@ namespace Contexts.Battle.Commands {
                     BattleViewModel.State = BattleUIState.CombatantMoving;
                 }
             } else if (state == BattleUIState.SelectingAttackTarget) {
-                // Forecast the fight against this unit
+                var target = BattleViewModel.Map.GetAtPosition(Position);
+                if (target != null) {
+                    // Forecast the fight against this unit
+                    var battle = BattleViewModel.Battle;
+                    var selectedUnitPosition = combatant.Position;
+                    var distanceToTarget = MathUtils.ManhattanDistance(selectedUnitPosition, Position);
+                    var map = BattleViewModel.Map;
+                    var skill = battle.GetWeaponSkillForRange(distanceToTarget);
+                    var skillDatabase = new SkillDatabase(map);
+                    var forecaster = new FightForecaster(map, skillDatabase);
+                    var fight = forecaster.Forecast(combatant, target, skill);
+                    BattleViewModel.FightForecast = fight;
+                    BattleViewModel.State = BattleUIState.ForecastingCombat;
+                }
             }
         }
 

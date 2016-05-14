@@ -4,6 +4,7 @@ using Contexts.Battle.Utilities;
 using Models.Combat;
 using Models.Fighting;
 using Models.Fighting.Battle;
+using Models.Fighting.Execution;
 using Models.Fighting.Maps;
 using Models.Fighting.Skills;
 using UnityEngine;
@@ -41,7 +42,13 @@ namespace Contexts.Battle.Models {
             CurrentMovementPath = null;
             SelectedCombatant = null;
             AvailableActions = null;
+            FightForecast = null;
+            SelectedTarget = null;
         }
+
+        public ICombatant SelectedTarget { get; set; }
+
+        public FightForecast FightForecast { get; set; }
 
         [Inject]
         public StateTransitionSignal StateTransitionSignal { get; set; }
