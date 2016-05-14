@@ -18,5 +18,9 @@ namespace Models.Fighting.Battle {
         FightForecast ForecastFight(ICombatant attacker, ICombatant defender, SkillType type);
 
         FinalizedFight FinalizeFight(FightForecast forecast);
+
+        int GetMaxWeaponAttackRange(ICombatant combatant);
+
+        SkillType GetWeaponSkillForRange(int range);
     }
 }

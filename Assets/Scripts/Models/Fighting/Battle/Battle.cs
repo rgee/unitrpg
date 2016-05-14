@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Models.Fighting.Characters;
 using Models.Fighting.Execution;
 using Models.Fighting.Maps;
@@ -31,6 +32,15 @@ namespace Models.Fighting.Battle {
             var firstArmy = _turnOrder[0];
             var firstCombatants = _combatants.GetCombatantsByArmy(firstArmy);
             _currentTurn = new Turn(firstCombatants);
+        }
+
+        public SkillType GetWeaponSkillForRange(int range) {
+            return range > 1 ? SkillType.Ranged : SkillType.Melee;
+        }
+
+        public int GetMaxWeaponAttackRange(ICombatant combatant) {
+            var weapons = combatant.EquippedWeapons;
+            return weapons.Max(weapon => weapon.Range);
         }
 
         public bool ShouldTurnEnd() {
