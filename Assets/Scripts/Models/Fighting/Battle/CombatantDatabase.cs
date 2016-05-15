@@ -20,6 +20,12 @@ namespace Models.Fighting.Battle {
             return _combatants.SelectMany(group => group).ToList();
         }
 
+        public ICombatant GetCombatantById(string id) {
+            return _combatants
+                .Select(group => group.FirstOrDefault(combatant => combatant.Id == id))
+                .FirstOrDefault(result => result != null);
+        }
+
         public CombatantDatabase(IEnumerable<CombatantReference> combatantReferences, ISaveGame saveGame) {
             _combatants = combatantReferences.Select(reference => {
                 return LoadCombatantFromReference(saveGame, reference);

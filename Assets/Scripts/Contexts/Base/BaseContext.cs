@@ -3,6 +3,9 @@ using Contexts.Base.Commands;
 using Contexts.Base.Signals;
 using Contexts.Common.Model;
 using Contexts.Common.Utils;
+using Contexts.Global.Services;
+using Models.Fighting.Characters;
+using Models.SaveGames;
 using strange.extensions.command.api;
 using strange.extensions.command.impl;
 using strange.extensions.context.impl;
@@ -37,6 +40,9 @@ namespace Assets.Contexts.Base {
 
                 injectionBinder.Bind<ApplicationState>().ToValue(new ApplicationState()).CrossContext();
                 injectionBinder.Bind<IRoutineRunner>().To<RoutineRunner>().CrossContext();
+                injectionBinder.Bind<ISaveGameRepository>().To<TestingSaveGameRepository>().ToSingleton().CrossContext();
+                injectionBinder.Bind<ISaveGameService>().To<SaveGameService>().ToSingleton().CrossContext();
+                injectionBinder.Bind<CharacterDatabase>().To<BaseCharacterDatabase>().ToSingleton().CrossContext();
                 injectionBinder.Bind<AddSceneSignal>().ToSingleton().CrossContext();
                 injectionBinder.Bind<QuitGameSignal>().ToSingleton().CrossContext();
                 commandBinder.Bind<AddSceneSignal>().To<AddSceneCommand>();

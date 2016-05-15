@@ -5,5 +5,6 @@ namespace Models.Fighting.Battle {
     public interface ICombatantDatabase {
         List<ICombatant> GetCombatantsByArmy(ArmyType army);
         List<ICombatant> GetAllCombatants();
+        ICombatant GetCombatantById(string id);
     }
 }

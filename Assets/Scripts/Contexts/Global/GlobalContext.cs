@@ -48,9 +48,6 @@ namespace Contexts.Global {
 
             Singleton<IBattleConfigRepository>().ByWayOf<BattleConfigRepository>();
             Singleton<ICutsceneLoader>().ByWayOf<CutsceneLoader>();
-            Singleton<ISaveGameRepository>().ByWayOf<TestingSaveGameRepository>();
-            Singleton<ISaveGameService>().ByWayOf<SaveGameService>();
-            Singleton<CharacterDatabase>().ByWayOf<BaseCharacterDatabase>();
 
             commandBinder.Bind<LoadSceneSignal>()
                 .To<FadeSceneBlackCommand>()

@@ -1,4 +1,5 @@
 ﻿using Contexts.Battle.Utilities;
+using Models.Fighting.Maps;
 using strange.extensions.signal.impl;
 
 namespace Contexts.Battle.Signals {

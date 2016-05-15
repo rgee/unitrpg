@@ -27,7 +27,6 @@ namespace Models.Fighting.Battle {
             _turnOrder = turnOrder;
 
             foreach (var combatant in combatants.GetAllCombatants()) {
-                map.AddCombatant(combatant);
                 _combatantsById[combatant.Id] = combatant;
             }
 

@@ -60,6 +60,8 @@ namespace Contexts.Battle.Commands {
                 case BattleUIState.ForecastingCombat:
                     FightForecastDisableSignal.Dispatch();
                     break;
+                case BattleUIState.Uninitialized:
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException("state", state, null);
             }
@@ -84,6 +86,8 @@ namespace Contexts.Battle.Commands {
                     SetupMoveLocationState();
                     break;
                 case BattleUIState.Fighting:
+                    break;
+                case BattleUIState.Uninitialized:
                     break;
                 default:
                     throw new ArgumentOutOfRangeException("state", state, null);

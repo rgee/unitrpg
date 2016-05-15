@@ -2,6 +2,7 @@
 using Contexts.Battle.Models;
 using Contexts.Battle.Utilities;
 using Contexts.Global.Services;
+using Models.Fighting;
 using Models.Fighting.Battle;
 using Models.Fighting.Characters;
 using Models.Fighting.Maps;
@@ -22,16 +23,11 @@ namespace Contexts.Battle.Commands {
         public override void Execute() {
             var dimensions = Configuration.Dimensions;
             Model.Dimensions = dimensions;  
-            Model.Map = new Map(dimensions.Width, dimensions.Height);
-
-            foreach (var blockage in Configuration.ObstructedPositions) {
-                Model.Map.AddObstruction(blockage);
-            }
+            Model.Map = Configuration.Map;
 
             var turnOrder = new List<ArmyType> {ArmyType.Friendly, ArmyType.Enemy, ArmyType.Other};
-            var saveGame = SaveGameService.CurrentSave;
-            var database = new CombatantDatabase(Configuration.Combatants, saveGame);
-            Model.Battle = new global::Models.Fighting.Battle.Battle(Model.Map, Configuration.Randomizer, database, turnOrder);
+            Model.Battle = new global::Models.Fighting.Battle.Battle(Model.Map, new BasicRandomizer(), Configuration.Combatants, turnOrder);
+            Model.State = BattleUIState.SelectingUnit;
         }
     }
 }

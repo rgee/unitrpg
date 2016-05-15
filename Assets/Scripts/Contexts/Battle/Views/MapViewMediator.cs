@@ -1,8 +1,11 @@
 ﻿using Contexts.Battle.Models;
 using Contexts.Battle.Signals;
 using Contexts.Battle.Utilities;
+using Contexts.Global.Services;
 using Models.Fighting;
+using Models.Fighting.Battle;
 using Models.Fighting.Execution;
+using Models.Fighting.Maps;
 using strange.extensions.mediation.impl;
 using UnityEngine;
 
@@ -35,6 +38,8 @@ namespace Contexts.Battle.Views {
         [Inject]
         public NewFinalizedFightSignal FinalizedFightSignal { get; set; }
 
+        [Inject]
+        public ISaveGameService SaveGameService { get; set; }
 
         public override void OnRegister() {
             View.MapClicked.AddListener(OnMapClicked);
@@ -43,13 +48,23 @@ namespace Contexts.Battle.Views {
             View.FightComplete.AddListener(OnFightComplete);
             FinalizedFightSignal.AddListener(OnFight);
 
+            var map = new Map(View.Width, View.Height);
+            foreach (var tile in View.GetObstructedPositions()) {
+                map.AddObstruction(tile);
+            }
+
+            var combatantReferences = View.GetCombatants();
+            var combatantDb = new CombatantDatabase(combatantReferences, SaveGameService.CurrentSave);
+            foreach (var combatant in combatantDb.GetAllCombatants()) {
+                map.AddCombatant(combatant);
+            }
+
+            View.CombatantDatabase = combatantDb;
+            View.Map = map;
+
             MoveCombatantSignal.AddListener(OnMove);
             GatherSignal.AddOnce(() => {
-                var dimensions = new MapDimensions(View.Width, View.Height, View.TileSize);
-                var combatants = View.GetCombatants();
-                var randomizer = new BasicRandomizer();
-                var obstructions = View.GetObstructedPositions();
-                var config = new MapConfiguration(dimensions, combatants, randomizer, obstructions);
+                var config = new MapConfiguration(View.GetDimensions(), View.Map, combatantDb);
                 InitializeMapSignal.Dispatch(config);
             });
         }

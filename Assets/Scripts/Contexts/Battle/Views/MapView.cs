@@ -6,6 +6,7 @@ using Combat;
 using Contexts.Battle.Utilities;
 using Models.Fighting.Battle;
 using Models.Fighting.Execution;
+using Models.Fighting.Maps;
 using strange.extensions.mediation.impl;
 using strange.extensions.signal.impl;
 using UnityEngine;
@@ -19,6 +20,11 @@ namespace Contexts.Battle.Views {
         public int Width;
         public int TileSize;
         public int Height;
+
+#region Fields exposed so sequences can hack around scene initialization
+        public IMap Map;
+        public ICombatantDatabase CombatantDatabase;
+#endregion
 
         private FightPhaseAnimator _phaseAnimator;
 
