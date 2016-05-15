@@ -49,7 +49,7 @@ namespace Models.Fighting.Characters {
                     .Defense(2)
                     .Special(0)
                     .Speed(13)
-                    .Strength(7)
+                    .Strength(70)
                 .Build())
                 .Weapons("Shortsword")
                 .Build());

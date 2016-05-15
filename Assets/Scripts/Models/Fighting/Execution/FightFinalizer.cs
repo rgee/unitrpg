@@ -62,12 +62,17 @@ namespace Models.Fighting.Execution {
             var initiator = skillForecast.Attacker;
             var receiver = skillForecast.Defender;
             var skill = _skillDatabase.GetStrategyByType(skillForecast.Type);
+            var effects = skill.FinalizeForecast(skillForecast, randomizer);
+            var damage = effects.GetDefenderDamage();
+            var receiverHealth = receiver.Health;
+            var receiverDead = receiverHealth <= damage;
 
             return new FightPhase {
                 Initiator = initiator,
                 Receiver = receiver,
+                ReceverDies = receiverDead,
                 Response = DefenderResponse.GetHit, // TODO: Skill strategy responsible for this?
-                Effects = skill.FinalizeForecast(skillForecast, randomizer),
+                Effects = effects,
                 Skill = skillForecast.Type
             };
         }

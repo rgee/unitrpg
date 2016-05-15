@@ -28,6 +28,11 @@ namespace Models.Fighting.Execution {
         public SkillEffects Effects { get; set; }
 
         /// <summary>
+        /// Whether or not the receiver of this fight phase dies from it.
+        /// </summary>
+        public bool ReceverDies { get; set; }
+
+        /// <summary>
         /// The skill that was used by the initiator.
         /// </summary>
         public SkillType Skill { get; set; }

@@ -13,6 +13,10 @@ namespace Assets.Contexts {
 
         public static void RemoveOnceListener<T>(Signal<T> signal, Action<T> action) {
             signal.OnceListener -= action;
-        } 
+        }
+
+        public static void Bubble(Signal source, Signal sink) {
+            source.AddListener(() => sink.Dispatch());
+        }
     }
 }

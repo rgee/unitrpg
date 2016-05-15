@@ -20,6 +20,9 @@ namespace Combat {
             var severity = phase.Effects.Severity;
 
             yield return StartCoroutine(initiator.Attack(phase.Receiver, severity));
+            if (phase.ReceverDies) {
+                receiver.Die();
+            }
         }
 
         public IEnumerator Animate(FightPhase phase, Grid.Unit initUnit, Grid.Unit receiverUnit) {

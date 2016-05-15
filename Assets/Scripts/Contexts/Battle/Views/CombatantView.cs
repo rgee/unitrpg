@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Assets.Contexts;
 using Combat;
 using Contexts.Battle.Utilities;
 using Models.Fighting;
@@ -22,17 +23,11 @@ namespace Contexts.Battle.Views {
         public MathUtils.CardinalDirection Facing = MathUtils.CardinalDirection.S;
         public float SecondsPerSquare = 0.3f;
 
-        public Signal DeathSignal {
-            get { return _animator.DeathSignal; }
-        }
+        public Signal DeathSignal = new Signal();
 
-        public Signal AttackCompleteSignal {
-            get { return _animator.AttackCompleteSignal; }
-        }
+        public Signal AttackCompleteSignal = new Signal();
 
-        public Signal DodgeCompleteSignal {
-            get { return _animator.DodgeCompleteSignal; }
-        }
+        public Signal DodgeCompleteSignal = new Signal();
 
         public Signal<WeaponHitConnection> AttackConnectedSignal = new Signal<WeaponHitConnection>();
 
@@ -44,6 +39,10 @@ namespace Contexts.Battle.Views {
 
             _controller = GetComponent<CombatantController>();
             _animator = GetComponent<CombatantAnimator>();
+
+            StrangeUtils.Bubble(_animator.DeathSignal, DeathSignal);
+            StrangeUtils.Bubble(_animator.AttackCompleteSignal, AttackCompleteSignal);
+            StrangeUtils.Bubble(_animator.DodgeCompleteSignal, DodgeCompleteSignal);
         }
 
         public void PrepareForCombat(MathUtils.CardinalDirection direction) {
@@ -91,6 +90,10 @@ namespace Contexts.Battle.Views {
 
         public IEnumerator FollowPath(IList<Vector3> path, MapDimensions dimensions) {
             return _controller.FollowPath(path, dimensions);
+        }
+
+        public void Die() {
+            StartCoroutine(_animator.FadeToDeath(0.7f));
         }
     }
 }
