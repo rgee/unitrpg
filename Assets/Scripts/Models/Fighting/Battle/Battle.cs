@@ -14,6 +14,7 @@ namespace Models.Fighting.Battle {
         private readonly List<ArmyType> _turnOrder;
         private readonly SkillDatabase _skillDatabase;
         private readonly ICombatantDatabase _combatants;
+        private readonly Dictionary<string, ICombatant> _combatantsById = new Dictionary<string, ICombatant>(); 
         private int _turnNumber = 1;
         private Turn _currentTurn;
 
@@ -27,11 +28,20 @@ namespace Models.Fighting.Battle {
 
             foreach (var combatant in combatants.GetAllCombatants()) {
                 map.AddCombatant(combatant);
+                _combatantsById[combatant.Id] = combatant;
             }
 
             var firstArmy = _turnOrder[0];
             var firstCombatants = _combatants.GetCombatantsByArmy(firstArmy);
             _currentTurn = new Turn(firstCombatants);
+        }
+
+        public ICombatant GetById(string id) {
+            if (!_combatantsById.ContainsKey(id)) {
+                return null;
+            }
+
+            return _combatantsById[id];
         }
 
         public SkillType GetWeaponSkillForRange(int range) {

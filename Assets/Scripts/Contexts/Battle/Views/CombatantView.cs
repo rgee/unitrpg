@@ -5,6 +5,7 @@ using Combat;
 using Contexts.Battle.Utilities;
 using Models.Fighting;
 using Models.Fighting.Characters;
+using Models.Fighting.Effects;
 using strange.extensions.mediation.impl;
 using strange.extensions.signal.impl;
 using UnityEngine;
@@ -33,9 +34,7 @@ namespace Contexts.Battle.Views {
             get { return _animator.DodgeCompleteSignal; }
         }
 
-        public Signal AttackConnectedSignal {
-            get { return _animator.AttackConnectedSignal; }
-        }
+        public Signal<WeaponHitConnection> AttackConnectedSignal = new Signal<WeaponHitConnection>();
 
         private CombatantController _controller;
         private CombatantAnimator _animator;
@@ -56,10 +55,15 @@ namespace Contexts.Battle.Views {
             State = CombatantState.Idle;
         }
 
-        public IEnumerator Attack() {
+        public IEnumerator Attack(ICombatant receiver, WeaponHitSeverity severity) {
             var attackComplete = false;
             var onComplete = new Action(() => {
                 attackComplete = true;
+            });
+
+            _animator.AttackConnectedSignal.AddOnce(() => {
+                var connection = new WeaponHitConnection(severity, receiver);
+                AttackConnectedSignal.Dispatch(connection);
             });
 
             _animator.AttackCompleteSignal.AddOnce(onComplete);

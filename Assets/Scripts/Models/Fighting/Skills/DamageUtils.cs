@@ -36,13 +36,13 @@ namespace Models.Fighting.Skills {
 
             // CRIT :)
             if (RandomUtils.DidEventHappen(chances.CritChance, randomizer)) {
-                return new WeaponHit(baseDamage * 2);
+                return new WeaponCrit(baseDamage);
             }
 
 
             // GLANCE :(
             if (RandomUtils.DidEventHappen(chances.GlanceChance, randomizer)) {
-                return new WeaponHit(baseDamage / 2);
+                return new WeaponGlance(baseDamage);
             }
 
 

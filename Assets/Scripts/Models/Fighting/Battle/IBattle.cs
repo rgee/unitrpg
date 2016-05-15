@@ -15,6 +15,8 @@ namespace Models.Fighting.Battle {
 
         bool CanAct(ICombatant combatant);
 
+        ICombatant GetById(string id);
+
         FightForecast ForecastFight(ICombatant attacker, ICombatant defender, SkillType type);
 
         FinalizedFight FinalizeFight(FightForecast forecast);

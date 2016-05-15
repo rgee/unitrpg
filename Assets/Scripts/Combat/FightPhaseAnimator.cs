@@ -17,7 +17,9 @@ namespace Combat {
                 StartCoroutine(receiver.Dodge());
             }
 
-            yield return StartCoroutine(initiator.Attack());
+            var severity = phase.Effects.Severity;
+
+            yield return StartCoroutine(initiator.Attack(phase.Receiver, severity));
         }
 
         public IEnumerator Animate(FightPhase phase, Grid.Unit initUnit, Grid.Unit receiverUnit) {

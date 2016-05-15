@@ -10,6 +10,25 @@ namespace Models.Fighting.Skills {
             get { return ReceiverEffects.OfType<Damage>().Count(); }
         }
 
+        public WeaponHitSeverity Severity {
+            get {
+                var weaponHits = ReceiverEffects.OfType<WeaponHit>().ToList();
+                if (!weaponHits.Any() || weaponHits.OfType<Miss>().Any()) {
+                    return WeaponHitSeverity.Miss;
+                }
+
+                if (weaponHits.OfType<WeaponCrit>().Any()) {
+                    return WeaponHitSeverity.Crit;
+                }
+
+                if (weaponHits.OfType<WeaponGlance>().Any()) {
+                    return WeaponHitSeverity.Glance;
+                }
+
+                return WeaponHitSeverity.Normal;
+            }
+        }
+
         public SkillEffects(List<IEffect> receiverEffects) {
             ReceiverEffects = receiverEffects;
         }

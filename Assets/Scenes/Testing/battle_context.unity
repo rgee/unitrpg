@@ -1577,6 +1577,7 @@ Transform:
   - {fileID: 1857658635}
   - {fileID: 1294868312}
   - {fileID: 389534795}
+  - {fileID: 1754114496}
   m_Father: {fileID: 187450915}
   m_RootOrder: 0
 --- !u!114 &1696273887
@@ -1590,6 +1591,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48d2562018569d44e9e2e0aca095f8b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1754114495
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1754114496}
+  - 114: {fileID: 1754114497}
+  m_Layer: 0
+  m_Name: Combat Effects View
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1754114496
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1754114495}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1696273886}
+  m_RootOrder: 5
+--- !u!114 &1754114497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1754114495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6705f0fd0951a047b4931eb1396670f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CritConfirmPrefab: {fileID: 157400, guid: 10f28569e2938456dae075b2015293a7, type: 2}
+  GlanceConfirmPrefab: {fileID: 181190, guid: e42d4dd13253d459f8d6e617ae2b1d3f, type: 2}
+  HitConfirmPrefab: {fileID: 153190, guid: 1147cb1b342404dc1aacf5625157d28b, type: 2}
 --- !u!1001 &1857658634
 Prefab:
   m_ObjectHideFlags: 0
