@@ -31,6 +31,10 @@ namespace Contexts.Battle.Commands {
 
         public override void Execute() {
             var state = BattleViewModel.State;
+            if (state == BattleUIState.Uninitialized) {
+                return;
+            }
+
             var combatant = BattleViewModel.Map.GetAtPosition(Position);
             if (state == BattleUIState.SelectingUnit) {
                 if (combatant != null && combatant.Army == ArmyType.Friendly) {

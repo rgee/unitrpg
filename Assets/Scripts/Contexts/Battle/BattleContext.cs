@@ -26,7 +26,7 @@ namespace Contexts.Battle {
                 startBinding = commandBinder.Bind<BattleStartSignal>();
             }
 
-            startBinding.To<StartBattleCommand>().InSequence();
+            startBinding.To<PlayIntroCutsceneCommand>().InSequence();
 
             injectionBinder.Bind<BattleViewState>().ToSingleton();
 
@@ -52,7 +52,10 @@ namespace Contexts.Battle {
             injectionBinder.Bind<FightConfirmedSignal>().ToSingleton();
             injectionBinder.Bind<NewFinalizedFightSignal>().ToSingleton();
             injectionBinder.Bind<AttackConnectedSignal>().ToSingleton();
+            injectionBinder.Bind<IntroCutsceneStartSignal>().ToSingleton();
+            injectionBinder.Bind<IntroCutsceneCompleteSignal>().ToSingleton();
 
+            commandBinder.Bind<IntroCutsceneCompleteSignal>().To<StartBattleCommand>();
             commandBinder.Bind<InitializeMapSignal>().To<InitializeMapCommand>();
             commandBinder.Bind<MapPositionClickedSignal>().To<SelectMapPositionCommand>();
             commandBinder.Bind<HoverPositionSignal>().To<MapHoveredCommand>();
@@ -70,6 +73,7 @@ namespace Contexts.Battle {
             mediationBinder.Bind<CombatForecastView>().To<CombatForecastViewMediator>();
             mediationBinder.Bind<CombatantView>().To<CombatantViewMediator>();
             mediationBinder.Bind<CombatEffectsView>().To<CombatEffectsViewMediator>();
+            mediationBinder.Bind<IntroCutsceneView>().To<IntroCutsceneViewMediator>();
         }
     }
 }
