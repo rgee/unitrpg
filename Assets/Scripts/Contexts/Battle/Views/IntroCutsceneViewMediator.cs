@@ -23,6 +23,7 @@ namespace Contexts.Battle.Views {
         private IEnumerator PlayCutscene() {
             Debug.Log("Playing intro cutscene");
             yield return StartCoroutine(View.Play());
+            yield return new WaitForSeconds(0.5f);
             CutscnCompleteSignal.Dispatch();
         }
     }
