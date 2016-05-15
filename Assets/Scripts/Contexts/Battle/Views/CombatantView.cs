@@ -10,7 +10,6 @@ using strange.extensions.signal.impl;
 using UnityEngine;
 
 namespace Contexts.Battle.Views {
-    [RequireComponent(typeof(FightPhaseAnimator))]
     [RequireComponent(typeof(CombatantController))]
     [RequireComponent(typeof(CombatantAnimator))]
     public class CombatantView : View {
@@ -38,14 +37,12 @@ namespace Contexts.Battle.Views {
             get { return _animator.AttackConnectedSignal; }
         }
 
-        private FightPhaseAnimator _phaseAnimator;
         private CombatantController _controller;
         private CombatantAnimator _animator;
 
         void Awake() {
             base.Awake();
 
-            _phaseAnimator = GetComponent<FightPhaseAnimator>();
             _controller = GetComponent<CombatantController>();
             _animator = GetComponent<CombatantAnimator>();
         }

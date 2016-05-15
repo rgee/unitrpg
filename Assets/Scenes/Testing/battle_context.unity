@@ -710,6 +710,10 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11402498, guid: f362fb41cb5e6e44c8a918ed0dfc286a, type: 2}
+    - {fileID: 11434602, guid: f362fb41cb5e6e44c8a918ed0dfc286a, type: 2}
+    - {fileID: 11455572, guid: f362fb41cb5e6e44c8a918ed0dfc286a, type: 2}
+    - {fileID: 6557240, guid: f362fb41cb5e6e44c8a918ed0dfc286a, type: 2}
+    - {fileID: 11481806, guid: f362fb41cb5e6e44c8a918ed0dfc286a, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: f362fb41cb5e6e44c8a918ed0dfc286a, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &558325117 stripped
@@ -737,17 +741,6 @@ MonoBehaviour:
   State: 0
   Facing: 1
   SecondsPerSquare: 0.3
---- !u!114 &558325120
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 558325118}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 151deb80fe749e441bf4d6306ab3a21a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &558325121
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1097,6 +1090,10 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11452606, guid: f9c4e8655aad264438010e3fb4de1652, type: 2}
+    - {fileID: 6502560, guid: f9c4e8655aad264438010e3fb4de1652, type: 2}
+    - {fileID: 11452924, guid: f9c4e8655aad264438010e3fb4de1652, type: 2}
+    - {fileID: 11410894, guid: f9c4e8655aad264438010e3fb4de1652, type: 2}
+    - {fileID: 11470802, guid: f9c4e8655aad264438010e3fb4de1652, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: f9c4e8655aad264438010e3fb4de1652, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &819618414 stripped
@@ -1124,17 +1121,6 @@ MonoBehaviour:
   State: 0
   Facing: 1
   SecondsPerSquare: 0.3
---- !u!114 &819618417
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 819618415}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 151deb80fe749e441bf4d6306ab3a21a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &819618418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1397,6 +1383,11 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11402498, guid: 5dfb6c7c29956be469fb68ffaa8f4c7b, type: 2}
+    - {fileID: 11410800, guid: 5dfb6c7c29956be469fb68ffaa8f4c7b, type: 2}
+    - {fileID: 11455572, guid: 5dfb6c7c29956be469fb68ffaa8f4c7b, type: 2}
+    - {fileID: 11434602, guid: 5dfb6c7c29956be469fb68ffaa8f4c7b, type: 2}
+    - {fileID: 6557240, guid: 5dfb6c7c29956be469fb68ffaa8f4c7b, type: 2}
+    - {fileID: 11481806, guid: 5dfb6c7c29956be469fb68ffaa8f4c7b, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 5dfb6c7c29956be469fb68ffaa8f4c7b, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &1416211870 stripped
@@ -1420,21 +1411,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CharacterName: Soldier
   CombatantId: gatsu_chapter_1
-  Army: 0
+  Army: 1
   State: 0
   Facing: 1
   SecondsPerSquare: 0.3
---- !u!114 &1416211873
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1416211871}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 151deb80fe749e441bf4d6306ab3a21a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1416211874
 MonoBehaviour:
   m_ObjectHideFlags: 0

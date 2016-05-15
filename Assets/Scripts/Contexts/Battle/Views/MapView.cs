@@ -5,7 +5,6 @@ using System.Linq;
 using Combat;
 using Contexts.Battle.Utilities;
 using Models.Fighting.Battle;
-using Models.Fighting.Characters;
 using Models.Fighting.Execution;
 using strange.extensions.mediation.impl;
 using strange.extensions.signal.impl;
@@ -70,17 +69,15 @@ namespace Contexts.Battle.Views {
 
         public List<CombatantDatabase.CombatantReference> GetCombatants() {
             var unitContainer = transform.FindChild("Units").gameObject;
-            var units = unitContainer.GetComponentsInChildren<Grid.Unit>();
+            var units = unitContainer.GetComponentsInChildren<CombatantView>();
+            var dimensions = GetDimensions();
 
             return units.Select(unit => {
-                var character = unit.GetCharacter();
                 return new CombatantDatabase.CombatantReference {
-                    Id = unit.Id,
-                    Position = unit.gridPosition,
-                    Name = character.Name,
-
-                    // TODO: Have dropdown for army type
-                    Army = unit.friendly ? ArmyType.Friendly : ArmyType.Enemy
+                    Id = unit.CombatantId,
+                    Position = dimensions.GetGridPositionForWorldPosition(unit.transform.position),
+                    Name = unit.CharacterName,
+                    Army = unit.Army
                 };
             }).ToList();
         }
