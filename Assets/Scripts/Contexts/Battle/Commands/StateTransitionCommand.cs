@@ -31,6 +31,9 @@ namespace Contexts.Battle.Commands {
         [Inject]
         public FightForecastDisableSignal FightForecastDisableSignal { get; set; }
 
+        [Inject]
+        public EnemyTurnCompleteSignal EnemyTurnCompleteSignal { get; set; }
+
         public override void Execute() {
             Cleanup(Transition.Previous);
             Setup(Transition.Next);
@@ -62,6 +65,10 @@ namespace Contexts.Battle.Commands {
                     break;
                 case BattleUIState.Uninitialized:
                     break;
+                case BattleUIState.PhaseChanging:
+                    break;
+                case BattleUIState.EnemyTurn:
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException("state", state, null);
             }
@@ -88,6 +95,12 @@ namespace Contexts.Battle.Commands {
                 case BattleUIState.Fighting:
                     break;
                 case BattleUIState.Uninitialized:
+                    break;
+                case BattleUIState.PhaseChanging:
+                    break;
+                case BattleUIState.EnemyTurn:
+                    // TODO: Implement enemy turn AI
+                    EnemyTurnCompleteSignal.Dispatch();
                     break;
                 default:
                     throw new ArgumentOutOfRangeException("state", state, null);

@@ -8,6 +8,8 @@
         SelectingMoveLocation,
         ForecastingCombat,
         Fighting,
-        CombatantMoving
+        CombatantMoving,
+        PhaseChanging,
+        EnemyTurn
     }
 }

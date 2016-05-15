@@ -54,6 +54,9 @@ namespace Contexts.Battle {
             injectionBinder.Bind<AttackConnectedSignal>().ToSingleton();
             injectionBinder.Bind<IntroCutsceneStartSignal>().ToSingleton();
             injectionBinder.Bind<IntroCutsceneCompleteSignal>().ToSingleton();
+            injectionBinder.Bind<EnemyTurnCompleteSignal>().ToSingleton();
+            injectionBinder.Bind<PhaseChangeCompleteSignal>().ToSingleton();
+            injectionBinder.Bind<PhaseChangeStartSignal>().ToSingleton();
 
             commandBinder.Bind<IntroCutsceneCompleteSignal>().To<StartBattleCommand>();
             commandBinder.Bind<InitializeMapSignal>().To<InitializeMapCommand>();
@@ -64,6 +67,8 @@ namespace Contexts.Battle {
             commandBinder.Bind<StateTransitionSignal>().To<StateTransitionCommand>();
             commandBinder.Bind<ActionCompleteSignal>().To<ActionCompleteCommand>();
             commandBinder.Bind<FightConfirmedSignal>().To<FightConfirmedCommand>();
+            commandBinder.Bind<PhaseChangeStartSignal>().To<PhaseChangeStartCommand>();
+            commandBinder.Bind<PhaseChangeCompleteSignal>().To<PhaseChangeCompleteCommand>();
 
             mediationBinder.Bind<MapView>().To<MapViewMediator>();
             mediationBinder.Bind<MapHighlightView>().To<MapHighlightViewMediator>();
@@ -73,6 +78,7 @@ namespace Contexts.Battle {
             mediationBinder.Bind<CombatForecastView>().To<CombatForecastViewMediator>();
             mediationBinder.Bind<CombatantView>().To<CombatantViewMediator>();
             mediationBinder.Bind<CombatEffectsView>().To<CombatEffectsViewMediator>();
+            mediationBinder.Bind<PhaseChangeView>().To<PhaseChangeViewMediator>();
             mediationBinder.Bind<IntroCutsceneView>().To<IntroCutsceneViewMediator>();
         }
     }
