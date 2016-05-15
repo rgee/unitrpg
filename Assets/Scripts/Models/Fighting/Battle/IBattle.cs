@@ -19,7 +19,7 @@ namespace Models.Fighting.Battle {
 
         bool CanAct(ICombatant combatant);
 
-        List<ICombatant> GetByArmy(ArmyType army);
+        List<ICombatant> GetAliveByArmy(ArmyType army);
         
         ICombatant GetById(string id);
 

@@ -5,7 +5,11 @@ namespace Models.Fighting.Maps {
     public interface IMap {
         void AddCombatant(ICombatant combatant);
 
+        void RemoveCombatant(ICombatant combatant);
+
         void MoveCombatant(ICombatant combatant, Vector2 position);
+
+        List<ICombatant> GetAllOnMap(); 
 
         bool IsBlocked(Vector2 position);
 

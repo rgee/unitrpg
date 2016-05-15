@@ -19,10 +19,6 @@ namespace Models.Fighting.Maps {
                     _tiles[new Vector2(i, j)] = new Tile();
                 }
             }
-
-            // TODO: Refactor to not be static.
-            CombatEventBus.CombatantMoves.AddListener(MoveCombatant);
-            CombatEventBus.CombatantDeaths.AddListener(RemoveCombatant);
         }
 
         public Map(int size) : this(size, size) {
@@ -53,6 +49,13 @@ namespace Models.Fighting.Maps {
 
             var tile = GetTileByPosition(position);
             return tile.Obstructed || tile.Occupant != null;
+        }
+
+        public List<ICombatant> GetAllOnMap() {
+            return _tiles.Values
+                .Where(tile => tile.Occupant != null)
+                .Select(tile => tile.Occupant)
+                .ToList();
         }
 
         private Tile GetTileByPosition(Vector2 position) {

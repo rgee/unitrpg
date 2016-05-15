@@ -30,7 +30,12 @@ namespace Contexts.Battle.Commands {
                 var hasUnits = false;
                 while (!hasUnits) {
                     nextPhase = phaseOrder[(phaseOrder.IndexOf(nextPhase) + 1)%phaseOrder.Count];
-                    hasUnits = Model.Battle.GetByArmy(GetArmyType(nextPhase)).Any();
+
+                    if (nextPhase == currentPhase) {
+                        throw new ArgumentException("Could not find any units to continue on with the next phase.");
+                    }
+
+                    hasUnits = Model.Battle.GetAliveByArmy(GetArmyType(nextPhase)).Any();
                 }
 
                 PhaseChangeStartSignal.Dispatch(nextPhase);

@@ -15,10 +15,12 @@ namespace Models.Fighting.Battle {
         private readonly SkillDatabase _skillDatabase;
         private readonly ICombatantDatabase _combatants;
         private readonly Dictionary<string, ICombatant> _combatantsById = new Dictionary<string, ICombatant>();
+        private readonly IMap _map;
         private Turn _currentTurn;
 
         public Battle(IMap map, IRandomizer randomizer, ICombatantDatabase combatants, List<ArmyType> turnOrder) {
             TurnNumber = 0;
+            _map = map;
             _randomizer = randomizer;
             _combatants = combatants;
             _skillDatabase = new SkillDatabase(map);
@@ -35,8 +37,10 @@ namespace Models.Fighting.Battle {
             _currentTurn = new Turn(firstCombatants);
         }
 
-        public List<ICombatant> GetByArmy(ArmyType army) {
-            return _combatants.GetCombatantsByArmy(army);
+        public List<ICombatant> GetAliveByArmy(ArmyType army) {
+            return _map.GetAllOnMap()
+                .Where(combatant => combatant.Army == army)
+                .ToList();
         }
 
         public int TurnNumber { get; private set; }
@@ -85,6 +89,12 @@ namespace Models.Fighting.Battle {
             }
 
             action.Perform(_currentTurn);
+
+            foreach (var combatant in _combatants.GetAllCombatants()) {
+                if (!combatant.IsAlive) {
+                    _map.RemoveCombatant(combatant);
+                }
+            }
         }
 
 
