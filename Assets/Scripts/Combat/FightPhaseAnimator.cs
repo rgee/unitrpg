@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Linq;
+using Contexts.Battle.Views;
 using Grid;
 using Models.Fighting.Effects;
 using Models.Fighting.Execution;
@@ -10,6 +11,14 @@ using Advance = Models.Fighting.Effects.Advance;
 
 namespace Combat {
     public class FightPhaseAnimator : MonoBehaviour {
+
+        public IEnumerator Animate(FightPhase phase, CombatantView initiator, CombatantView receiver) {
+            if (phase.Response == DefenderResponse.Dodge) {
+                StartCoroutine(receiver.Dodge());
+            }
+
+            yield return StartCoroutine(initiator.Attack());
+        }
 
         public IEnumerator Animate(FightPhase phase, Grid.Unit initUnit, Grid.Unit receiverUnit) {
 

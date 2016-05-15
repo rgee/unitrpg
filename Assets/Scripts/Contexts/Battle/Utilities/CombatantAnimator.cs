@@ -121,8 +121,7 @@ namespace Contexts.Battle.Utilities {
         }
 
         protected void UpdateFacingFlip() {
-            var inCorrectState = View.State == CombatantState.CombatReady ||
-                                 View.State == CombatantState.Running;
+            var inCorrectState = View.State != CombatantState.Idle;
             _sprite.FlipX = inCorrectState && View.Facing == MathUtils.CardinalDirection.W;
         }
 

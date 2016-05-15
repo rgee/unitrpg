@@ -66,19 +66,6 @@ namespace Contexts.Battle.Views {
             var dimensions = GetDimensions();
             yield return StartCoroutine(combatant.FollowPath(positions, dimensions));
             MoveComplete.Dispatch();
-        } 
-
-        private GameObject FindUnitById(string id) {
-            var unitContainer = transform.FindChild("Units");
-
-            foreach (Transform unit in unitContainer) {
-                var unitComponent = unit.GetComponent<Grid.Unit>();
-                if (unitComponent.Id == id) {
-                    return unit.gameObject;
-                }
-            }
-
-            return null;
         }
 
         public List<CombatantDatabase.CombatantReference> GetCombatants() {
@@ -126,32 +113,31 @@ namespace Contexts.Battle.Views {
                 phases.Add(fight.DoubleAttackPhase);
             }
 
-            var participants = new List<Grid.Unit>();
+            var participants = new List<CombatantView>();
 
-            var primaryAttacker = FindUnitById(fight.InitialPhase.Initiator.Id).GetComponent<Grid.Unit>();
-            primaryAttacker.InCombat = true;
+            var primaryAttacker = FindCombatantViewById(fight.InitialPhase.Initiator.Id);
+            var primaryAttackerDirection = MathUtils.DirectionTo(fight.InitialPhase.Initiator.Position,
+                fight.InitialPhase.Receiver.Position);
+            primaryAttacker.PrepareForCombat(primaryAttackerDirection);
             participants.Add(primaryAttacker);
 
-            var defender = FindUnitById(fight.InitialPhase.Receiver.Id).GetComponent<Grid.Unit>();
-            defender.InCombat = true;
+            var defender = FindCombatantViewById(fight.InitialPhase.Receiver.Id);
+            var defenderDirection = MathUtils.DirectionTo(fight.InitialPhase.Receiver.Position,
+                fight.InitialPhase.Initiator.Position);
+            defender.PrepareForCombat(defenderDirection);
             participants.Add(defender);
 
-            primaryAttacker.Facing = MathUtils.DirectionTo(fight.InitialPhase.Initiator.Position,
-                fight.InitialPhase.Receiver.Position);
-            defender.Facing = MathUtils.DirectionTo(fight.InitialPhase.Receiver.Position,
-                fight.InitialPhase.Initiator.Position);
-
             if (fight.FlankerPhase != null) {
-                var flanker = FindUnitById(fight.FlankerPhase.Initiator.Id).GetComponent<Grid.Unit>();
-                flanker.InCombat = true;
-                flanker.Facing = MathUtils.DirectionTo(fight.FlankerPhase.Initiator.Position,
+                var flanker = FindCombatantViewById(fight.FlankerPhase.Initiator.Id);
+                var flankerDirection = MathUtils.DirectionTo(fight.FlankerPhase.Initiator.Position,
                     fight.FlankerPhase.Receiver.Position);
+                flanker.PrepareForCombat(flankerDirection);
                 participants.Add(flanker);
             }
 
             FightComplete.AddOnce(() => {
-                foreach (var unit in participants) {
-                    unit.ReturnToRest();
+                foreach (var combatantView in participants) {
+                    combatantView.ReturnToRest();
                 }
             });
 
@@ -168,9 +154,8 @@ namespace Contexts.Battle.Views {
         }
 
         private IEnumerator AnimateFightPhase(FightPhase phase) {
-            Debug.LogFormat("Animating {0} vs {1}", phase.Initiator.Name, phase.Receiver.Name);
-            var initiator = FindUnitById(phase.Initiator.Id).GetComponent<Grid.Unit>();
-            var receiver = FindUnitById(phase.Receiver.Id).GetComponent<Grid.Unit>();
+            var initiator = FindCombatantViewById(phase.Initiator.Id);
+            var receiver = FindCombatantViewById(phase.Receiver.Id);
 
             yield return _phaseAnimator.Animate(phase, initiator, receiver);
         }

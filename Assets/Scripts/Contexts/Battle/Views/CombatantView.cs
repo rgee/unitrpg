@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Combat;
 using Contexts.Battle.Utilities;
+using Models.Fighting;
 using Models.Fighting.Characters;
 using strange.extensions.mediation.impl;
 using strange.extensions.signal.impl;
@@ -49,7 +50,16 @@ namespace Contexts.Battle.Views {
             _animator = GetComponent<CombatantAnimator>();
         }
 
-        public IEnumerator DoAttack() {
+        public void PrepareForCombat(MathUtils.CardinalDirection direction) {
+            Facing = direction;
+            State = CombatantState.CombatReady;
+        }
+
+        public void ReturnToRest() {
+            State = CombatantState.Idle;
+        }
+
+        public IEnumerator Attack() {
             var attackComplete = false;
             var onComplete = new Action(() => {
                 attackComplete = true;
@@ -61,6 +71,20 @@ namespace Contexts.Battle.Views {
             while (!attackComplete) {
                 yield return new WaitForEndOfFrame();
             }
+            State = CombatantState.CombatReady;
+        }
+
+        public IEnumerator Dodge() {
+            var dodgeComplete = false;
+            _animator.DodgeCompleteSignal.AddOnce(() => {
+                dodgeComplete = true;
+            });
+            State = CombatantState.Dodging;
+
+            while (!dodgeComplete) {
+                yield return new WaitForEndOfFrame();
+            }
+
             State = CombatantState.CombatReady;
         }
 
