@@ -39,10 +39,14 @@ namespace Contexts.Battle.Commands {
             var combatant = BattleViewModel.Map.GetAtPosition(Position);
             if (state == BattleUIState.SelectingUnit) {
                 if (combatant != null && combatant.Army == ArmyType.Friendly) {
+                    var actions = GetActions(combatant);
+                    if (actions.Count <= 0) {
+                        return;
+                    }
                     // Mark the unit at Position as selected, change the battle state.
                     BattleViewModel.SelectedCombatant = combatant;
                     BattleViewModel.State = BattleUIState.SelectingAction;
-                    BattleViewModel.AvailableActions = GetActions(combatant);
+                    BattleViewModel.AvailableActions = actions;
 
                     var dimensions = BattleViewModel.Dimensions;
                     var worldPosition = dimensions.GetWorldPositionForGridPosition(combatant.Position);

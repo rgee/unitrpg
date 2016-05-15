@@ -35,6 +35,10 @@ namespace Models.Fighting.Battle {
             _currentTurn = new Turn(firstCombatants);
         }
 
+        public List<ICombatant> GetByArmy(ArmyType army) {
+            return _combatants.GetCombatantsByArmy(army);
+        }
+
         public int TurnNumber { get; private set; }
 
         public ICombatant GetById(string id) {

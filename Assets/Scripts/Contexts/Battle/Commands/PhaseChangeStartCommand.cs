@@ -6,7 +6,11 @@ namespace Contexts.Battle.Commands {
         [Inject]
         public BattleViewState Model { get; set; }
 
+        [Inject]
+        public BattlePhase NextPhase { get; set; }
+
         public override void Execute() {
+            Model.Phase = NextPhase;
             Model.State = BattleUIState.PhaseChanging;
         }
     }

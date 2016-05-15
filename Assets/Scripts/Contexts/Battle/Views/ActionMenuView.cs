@@ -278,6 +278,9 @@ namespace Contexts.Battle.Views {
         }
         
         IEnumerable<Vector3> _getPoints(int numActions) {
+            if (!_layoutsBySize.ContainsKey(numActions)) {
+                throw new ArgumentException("Cannot show action menu with " + numActions + " actions.");
+            }
             var rotations = _layoutsBySize[numActions]
                 .Concat(new[] {180f});
 

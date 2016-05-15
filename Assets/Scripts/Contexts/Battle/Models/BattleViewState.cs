@@ -22,6 +22,8 @@ namespace Contexts.Battle.Models {
             }
         }
 
+        public BattlePhase Phase { get; set; }
+
         public MovementPath CurrentMovementPath { get; set; }
 
         public IBattle Battle { get; set; }
