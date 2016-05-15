@@ -8,8 +8,8 @@ using UnityEngine;
 
 namespace Contexts.Battle.Utilities {
     public class CombatantAnimator : MonoBehaviour {
-        protected CombatantView _view;
-        protected tk2dSpriteAnimator _animator;
+        protected CombatantView View;
+        protected tk2dSpriteAnimator Animator;
 
         public Signal DeathSignal = new Signal();
         public Signal AttackConnectedSignal = new Signal();
@@ -20,52 +20,52 @@ namespace Contexts.Battle.Utilities {
         private tk2dSpriteAnimationClip _idleClip;
         private tk2dSprite _sprite;
 
-        private static readonly string HIT_EVENT_INFO = "hit";
+        private const string HitEventInfo = "hit";
 
-        protected Dictionary<MathUtils.CardinalDirection, tk2dSpriteAnimationClip> _runningAnimationClips =
+        protected Dictionary<MathUtils.CardinalDirection, tk2dSpriteAnimationClip> RunningAnimationClips =
             new Dictionary<MathUtils.CardinalDirection, tk2dSpriteAnimationClip>();
 
-        protected Dictionary<MathUtils.CardinalDirection, tk2dSpriteAnimationClip> _combatAnimationClips =
+        protected Dictionary<MathUtils.CardinalDirection, tk2dSpriteAnimationClip> CombatAnimationClips =
             new Dictionary<MathUtils.CardinalDirection, tk2dSpriteAnimationClip>();
 
-        protected Dictionary<MathUtils.CardinalDirection, tk2dSpriteAnimationClip> _attackAnimationClips =
+        protected Dictionary<MathUtils.CardinalDirection, tk2dSpriteAnimationClip> AttackAnimationClips =
             new Dictionary<MathUtils.CardinalDirection, tk2dSpriteAnimationClip>();
 
-        protected Dictionary<MathUtils.CardinalDirection, tk2dSpriteAnimationClip> _dodgeAnimationClips =
+        protected Dictionary<MathUtils.CardinalDirection, tk2dSpriteAnimationClip> DodgeAnimationClips =
             new Dictionary<MathUtils.CardinalDirection, tk2dSpriteAnimationClip>();
 
         protected void Awake() {
-            _view = GetComponent<CombatantView>();
-            _animator = GetComponent<tk2dSpriteAnimator>();
+            View = GetComponent<CombatantView>();
+            Animator = GetComponent<tk2dSpriteAnimator>();
             _sprite = GetComponent<tk2dSprite>();
 
-            _runningAnimationClips[MathUtils.CardinalDirection.E] = FindClip("run east");
-            _runningAnimationClips[MathUtils.CardinalDirection.W] = FindClip("run east");
-            _runningAnimationClips[MathUtils.CardinalDirection.N] = FindClip("run north");
-            _runningAnimationClips[MathUtils.CardinalDirection.S] = FindClip("run south");
+            RunningAnimationClips[MathUtils.CardinalDirection.E] = FindClip("run east");
+            RunningAnimationClips[MathUtils.CardinalDirection.W] = FindClip("run east");
+            RunningAnimationClips[MathUtils.CardinalDirection.N] = FindClip("run north");
+            RunningAnimationClips[MathUtils.CardinalDirection.S] = FindClip("run south");
 
-            _combatAnimationClips[MathUtils.CardinalDirection.N] = FindClip("combat north");
-            _combatAnimationClips[MathUtils.CardinalDirection.S] = FindClip("combat south");
-            _combatAnimationClips[MathUtils.CardinalDirection.E] = FindClip("combat east");
-            _combatAnimationClips[MathUtils.CardinalDirection.W] = FindClip("combat east");
+            CombatAnimationClips[MathUtils.CardinalDirection.N] = FindClip("combat north");
+            CombatAnimationClips[MathUtils.CardinalDirection.S] = FindClip("combat south");
+            CombatAnimationClips[MathUtils.CardinalDirection.E] = FindClip("combat east");
+            CombatAnimationClips[MathUtils.CardinalDirection.W] = FindClip("combat east");
 
-            _attackAnimationClips[MathUtils.CardinalDirection.N] = FindClip("attack north");
-            _attackAnimationClips[MathUtils.CardinalDirection.S] = FindClip("attack south");
-            _attackAnimationClips[MathUtils.CardinalDirection.E] = FindClip("attack east");
-            _attackAnimationClips[MathUtils.CardinalDirection.W] = FindClip("attack east");
+            AttackAnimationClips[MathUtils.CardinalDirection.N] = FindClip("attack north");
+            AttackAnimationClips[MathUtils.CardinalDirection.S] = FindClip("attack south");
+            AttackAnimationClips[MathUtils.CardinalDirection.E] = FindClip("attack east");
+            AttackAnimationClips[MathUtils.CardinalDirection.W] = FindClip("attack east");
 
-            _dodgeAnimationClips[MathUtils.CardinalDirection.N] = FindClip("dodge north");
-            _dodgeAnimationClips[MathUtils.CardinalDirection.E] = FindClip("dodge east");
-            _dodgeAnimationClips[MathUtils.CardinalDirection.W] = FindClip("dodge east");
-            _dodgeAnimationClips[MathUtils.CardinalDirection.S] = FindClip("dodge south");
+            DodgeAnimationClips[MathUtils.CardinalDirection.N] = FindClip("dodge north");
+            DodgeAnimationClips[MathUtils.CardinalDirection.E] = FindClip("dodge east");
+            DodgeAnimationClips[MathUtils.CardinalDirection.W] = FindClip("dodge east");
+            DodgeAnimationClips[MathUtils.CardinalDirection.S] = FindClip("dodge south");
 
             _idleClip = FindClip("idle");
 
-            _animator.AnimationEventTriggered = HandleHit;
+            Animator.AnimationEventTriggered = HandleHit;
         }
 
         void OnDestroy() {
-            _animator.AnimationEventTriggered = null;
+            Animator.AnimationEventTriggered = null;
         }
 
         public IEnumerator FadeIn() {
@@ -83,15 +83,15 @@ namespace Contexts.Battle.Utilities {
         }
 
         private void HandleHit(tk2dSpriteAnimator animator, tk2dSpriteAnimationClip clip, int frame) {
-            if (clip.frames[frame].eventInfo == HIT_EVENT_INFO) {
+            if (clip.frames[frame].eventInfo == HitEventInfo) {
                 AttackConnectedSignal.Dispatch();
             }
         }
 
-        protected tk2dSpriteAnimationClip FindClip(string name) {
-            var clip = _animator.GetClipByName(name);
+        protected tk2dSpriteAnimationClip FindClip(string clipName) {
+            var clip = Animator.GetClipByName(clipName);
             if (clip == null) {
-                throw new ArgumentException("Required clip \"" + name + "\" not found.");
+                throw new ArgumentException("Required clip \"" + clipName + "\" not found.");
             }
 
             return clip;
@@ -99,9 +99,9 @@ namespace Contexts.Battle.Utilities {
 
         void Update() {
             UpdateFacingFlip();
-            switch (_view.State) {
+            switch (View.State) {
                 case CombatantState.Idle:
-                    _animator.Play(_idleClip);
+                    Animator.Play(_idleClip);
                     break;
                 case CombatantState.Attacking:
                     SetAttackAnimation();
@@ -121,42 +121,42 @@ namespace Contexts.Battle.Utilities {
         }
 
         protected void UpdateFacingFlip() {
-            var inCorrectState = _view.State == CombatantState.CombatReady ||
-                                 _view.State == CombatantState.Running;
-            _sprite.FlipX = inCorrectState && _view.Facing == MathUtils.CardinalDirection.W;
+            var inCorrectState = View.State == CombatantState.CombatReady ||
+                                 View.State == CombatantState.Running;
+            _sprite.FlipX = inCorrectState && View.Facing == MathUtils.CardinalDirection.W;
         }
 
         protected void SetDodgeAnimation() {
-            _animator.Play(_dodgeAnimationClips[_view.Facing]);
-            _animator.AnimationCompleted = SetNotDodging;
+            Animator.Play(DodgeAnimationClips[View.Facing]);
+            Animator.AnimationCompleted = SetNotDodging;
         }
 
         protected void SetRunningAnimation() {
-            _animator.Play(_runningAnimationClips[_view.Facing]);
+            Animator.Play(RunningAnimationClips[View.Facing]);
         }
 
         protected virtual void SetAttackAnimation() {
-            _animator.Play(_attackAnimationClips[_view.Facing]);
-            _animator.AnimationCompleted = SetNotAttacking;
+            Animator.Play(AttackAnimationClips[View.Facing]);
+            Animator.AnimationCompleted = SetNotAttacking;
             AttackStartedSignal.Dispatch();
         }
 
         protected void ResetCombatAnimation() {
-            _animator.PlayFromFrame(_combatAnimationClips[_view.Facing], 1);
+            Animator.PlayFromFrame(CombatAnimationClips[View.Facing], 1);
         }
 
         protected void SetCombatAnimation() {
-            _animator.Play(_combatAnimationClips[_view.Facing]);
+            Animator.Play(CombatAnimationClips[View.Facing]);
         }
 
         protected virtual void SetNotDodging(tk2dSpriteAnimator animator, tk2dSpriteAnimationClip clip) {
-            _animator.AnimationCompleted = null;
+            Animator.AnimationCompleted = null;
             ResetCombatAnimation();
             DodgeCompleteSignal.Dispatch();
         }
 
         protected virtual void SetNotAttacking(tk2dSpriteAnimator animator, tk2dSpriteAnimationClip clip) {
-            _animator.AnimationCompleted = null;
+            Animator.AnimationCompleted = null;
             ResetCombatAnimation();
             AttackCompleteSignal.Dispatch();
         }
