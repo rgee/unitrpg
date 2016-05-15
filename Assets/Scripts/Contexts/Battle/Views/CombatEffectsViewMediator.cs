@@ -34,6 +34,9 @@ namespace Contexts.Battle.Views {
                 case WeaponHitSeverity.Glance:
                     View.ShowGlance(position);
                     break;
+                case WeaponHitSeverity.Miss:
+                    View.ShowMiss();
+                    break;
             }
         }
     }
