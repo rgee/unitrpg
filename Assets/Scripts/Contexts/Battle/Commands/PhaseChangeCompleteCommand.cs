@@ -10,8 +10,10 @@ namespace Contexts.Battle.Commands {
         public BattlePhase Phase { get; set; }
 
         public override void Execute() {
-            Model.ResetUnitState();
-            Model.Battle.EndTurn();
+            if (Model.Battle.TurnNumber > 0) {
+                Model.ResetUnitState();
+                Model.Battle.EndTurn();
+            }
 
             if (Phase == BattlePhase.Enemy) {
                 Model.State = BattleUIState.EnemyTurn;

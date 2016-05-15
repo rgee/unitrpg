@@ -9,6 +9,9 @@ namespace Contexts.Battle.Commands {
         public BattleViewState Model { get; set; }
 
         public override void Execute() {
+            if (Model.State == BattleUIState.Uninitialized) {
+                return;
+            }
 
             if (!Model.Battle.ShouldTurnEnd()) {
                 Model.ResetUnitState();

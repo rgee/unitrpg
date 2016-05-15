@@ -7,6 +7,8 @@ namespace Models.Fighting.Battle {
 
         int GetRemainingMoves(ICombatant combatant);
 
+        int TurnNumber { get; }
+
         void SubmitAction(ICombatAction action);
 
         void EndTurn();

@@ -14,11 +14,11 @@ namespace Models.Fighting.Battle {
         private readonly List<ArmyType> _turnOrder;
         private readonly SkillDatabase _skillDatabase;
         private readonly ICombatantDatabase _combatants;
-        private readonly Dictionary<string, ICombatant> _combatantsById = new Dictionary<string, ICombatant>(); 
-        private int _turnNumber = 1;
+        private readonly Dictionary<string, ICombatant> _combatantsById = new Dictionary<string, ICombatant>();
         private Turn _currentTurn;
 
         public Battle(IMap map, IRandomizer randomizer, ICombatantDatabase combatants, List<ArmyType> turnOrder) {
+            TurnNumber = 0;
             _randomizer = randomizer;
             _combatants = combatants;
             _skillDatabase = new SkillDatabase(map);
@@ -30,10 +30,12 @@ namespace Models.Fighting.Battle {
                 _combatantsById[combatant.Id] = combatant;
             }
 
-            var firstArmy = _turnOrder[0];
+            var firstArmy = _turnOrder[TurnNumber];
             var firstCombatants = _combatants.GetCombatantsByArmy(firstArmy);
             _currentTurn = new Turn(firstCombatants);
         }
+
+        public int TurnNumber { get; private set; }
 
         public ICombatant GetById(string id) {
             if (!_combatantsById.ContainsKey(id)) {
@@ -62,7 +64,7 @@ namespace Models.Fighting.Battle {
 
         public void EndTurn() {
             var combatants = new List<ICombatant>();
-            var turnCount = _turnNumber;
+            var turnCount = TurnNumber;
             while (combatants.Count <= 0) {
                 var armyIndex = turnCount % _turnOrder.Count;
                 var army = _turnOrder[armyIndex];
