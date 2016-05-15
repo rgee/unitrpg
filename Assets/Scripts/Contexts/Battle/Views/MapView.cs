@@ -39,24 +39,32 @@ namespace Contexts.Battle.Views {
         }
 
         public void MoveUnit(string id, List<Vector2> path) {
-            var unitGameObject = FindUnitById(id);
-            if (unitGameObject == null) {
-                Debug.LogError("Cannot find unit to move by id: " + id);
-                return;
-            }
-
+            var combatant = FindCombatantViewById(id);
             var dimensoins = GetDimensions(); 
             var worldPositions = path.Skip(1).Select(pos => dimensoins.GetWorldPositionForGridPosition(pos)).ToList();
-            var unitComp = unitGameObject.GetComponent<Grid.Unit>();
-            StartCoroutine(DoMove(worldPositions, unitComp));
+            StartCoroutine(DoMove(worldPositions, combatant));
+        }
+
+        private CombatantView FindCombatantViewById(string id) {
+            var unitContainer = transform.FindChild("Units");
+
+            foreach (Transform unit in unitContainer) {
+                var combatantComponent = unit.GetComponent<CombatantView>();
+                if (combatantComponent.CombatantId == id) {
+                    return combatantComponent;
+                }
+            }
+
+            return null;
         }
 
         public MapDimensions GetDimensions() {
             return new MapDimensions(Width, Height, TileSize);
         }
 
-        private IEnumerator DoMove(List<Vector3> positions, Grid.Unit unit) {
-            yield return StartCoroutine(unit.FollowPath(positions));
+        private IEnumerator DoMove(IList<Vector3> positions, CombatantView combatant) {
+            var dimensions = GetDimensions();
+            yield return StartCoroutine(combatant.FollowPath(positions, dimensions));
             MoveComplete.Dispatch();
         } 
 
