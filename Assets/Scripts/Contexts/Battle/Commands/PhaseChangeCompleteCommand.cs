@@ -10,7 +10,6 @@ namespace Contexts.Battle.Commands {
         public BattlePhase Phase { get; set; }
 
         public override void Execute() {
-            base.Execute();
             Model.ResetUnitState();
             Model.Battle.EndTurn();
 

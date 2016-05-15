@@ -31,7 +31,8 @@ namespace Contexts.Battle.Commands {
 
         public override void Execute() {
             var state = BattleViewModel.State;
-            if (state == BattleUIState.Uninitialized) {
+            if (state == BattleUIState.Uninitialized ||
+                state == BattleUIState.PhaseChanging) {
                 return;
             }
 

@@ -31,6 +31,10 @@ namespace Contexts.Battle.Commands {
                 return;
             }
 
+            if (Model.State == BattleUIState.PhaseChanging) {
+                return;
+            }
+
             if (Model.State == BattleUIState.SelectingMoveLocation) {
 
                 var combatant = Model.SelectedCombatant;

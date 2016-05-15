@@ -7,7 +7,6 @@ namespace Contexts.Battle.Commands {
         public BattleViewState Model { get; set; }
 
         public override void Execute() {
-            base.Execute();
             Model.State = BattleUIState.PhaseChanging;
         }
     }

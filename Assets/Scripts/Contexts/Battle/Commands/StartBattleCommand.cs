@@ -10,10 +10,14 @@ namespace Contexts.Battle.Commands {
 
         [Inject]
         public GatherBattleFromEditorSignal GatherSignal { get; set; }
+        
+        [Inject]
+        public PhaseChangeStartSignal PhaseChangeStartSignal { get; set; }
 
         public override void Execute() {
-            ApplicationEventBus.SceneStart.Dispatch();
             GatherSignal.Dispatch();
+            ViewState.State = BattleUIState.PhaseChanging;
+            PhaseChangeStartSignal.Dispatch(BattlePhase.Player);
         }
     }
 }
