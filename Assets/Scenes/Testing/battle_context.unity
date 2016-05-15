@@ -901,7 +901,12 @@ Prefab:
       propertyPath: zoomFactor
       value: 3.4
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 11407828, guid: 57ed076985e425f43a30d3070f592c92, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 11407828, guid: 57ed076985e425f43a30d3070f592c92, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 57ed076985e425f43a30d3070f592c92, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &652556970
@@ -1633,6 +1638,9 @@ MonoBehaviour:
   CritConfirmPrefab: {fileID: 157400, guid: 10f28569e2938456dae075b2015293a7, type: 2}
   GlanceConfirmPrefab: {fileID: 181190, guid: e42d4dd13253d459f8d6e617ae2b1d3f, type: 2}
   HitConfirmPrefab: {fileID: 153190, guid: 1147cb1b342404dc1aacf5625157d28b, type: 2}
+  CritIntensity: 6
+  RegularIntensity: 4
+  ShakeDecay: 0.1
 --- !u!1001 &1857658634
 Prefab:
   m_ObjectHideFlags: 0
