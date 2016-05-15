@@ -67,6 +67,7 @@ namespace Contexts.Battle {
             mediationBinder.Bind<BattleView>().To<BattleViewMediator>();
             mediationBinder.Bind<MovementPathView>().To<MovementPathViewMediator>();
             mediationBinder.Bind<CombatForecastView>().To<CombatForecastViewMediator>();
+            mediationBinder.Bind<CombatantView>().To<CombatantViewMediator>();
         }
     }
 }
