@@ -69,6 +69,8 @@ namespace Contexts.Battle {
             commandBinder.Bind<FightConfirmedSignal>().To<FightConfirmedCommand>();
             commandBinder.Bind<PhaseChangeStartSignal>().To<PhaseChangeStartCommand>();
             commandBinder.Bind<PhaseChangeCompleteSignal>().To<PhaseChangeCompleteCommand>();
+            commandBinder.Bind<PlayerTurnCompleteSignal>().To<NextPhaseCommand>();
+            commandBinder.Bind<EnemyTurnCompleteSignal>().To<NextPhaseCommand>();
 
             mediationBinder.Bind<MapView>().To<MapViewMediator>();
             mediationBinder.Bind<MapHighlightView>().To<MapHighlightViewMediator>();

@@ -13,7 +13,7 @@ namespace Contexts.Battle.Commands {
         public BattleViewState Model { get; set; }
 
         [Inject]
-        public PhaseChangeStartSignal PhaseChangeStartSignal { get; set; }
+        public PlayerTurnCompleteSignal PlayerTurnCompleteSignal { get; set; }
 
         public override void Execute() {
             if (Model.State == BattleUIState.Uninitialized) {
@@ -24,34 +24,7 @@ namespace Contexts.Battle.Commands {
                 Model.ResetUnitState();
                 Model.State = BattleUIState.SelectingUnit;
             } else {
-                var currentPhase = Model.Phase;
-                var phaseOrder = new List<BattlePhase> {BattlePhase.Player, BattlePhase.Enemy, BattlePhase.Other};
-                var nextPhase = currentPhase;
-                var hasUnits = false;
-                while (!hasUnits) {
-                    nextPhase = phaseOrder[(phaseOrder.IndexOf(nextPhase) + 1)%phaseOrder.Count];
-
-                    if (nextPhase == currentPhase) {
-                        throw new ArgumentException("Could not find any units to continue on with the next phase.");
-                    }
-
-                    hasUnits = Model.Battle.GetAliveByArmy(GetArmyType(nextPhase)).Any();
-                }
-
-                PhaseChangeStartSignal.Dispatch(nextPhase);
-            }
-        }
-
-        private static ArmyType GetArmyType(BattlePhase phase) {
-            switch (phase) {
-                case BattlePhase.Player:
-                    return ArmyType.Friendly;
-                case BattlePhase.Enemy:
-                    return ArmyType.Enemy;
-                case BattlePhase.Other:
-                    return ArmyType.Other;
-                default:
-                    throw new ArgumentOutOfRangeException("phase", phase, null);
+                PlayerTurnCompleteSignal.Dispatch();
             }
         }
     }

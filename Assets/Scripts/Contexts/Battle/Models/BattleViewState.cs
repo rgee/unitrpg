@@ -1,9 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Contexts.Battle.Signals;
 using Contexts.Battle.Utilities;
 using Models.Combat;
 using Models.Fighting;
 using Models.Fighting.Battle;
+using Models.Fighting.Characters;
 using Models.Fighting.Execution;
 using Models.Fighting.Maps;
 using Models.Fighting.Skills;
@@ -54,5 +57,36 @@ namespace Contexts.Battle.Models {
 
         [Inject]
         public StateTransitionSignal StateTransitionSignal { get; set; }
+
+        public BattlePhase SelectNextPhase() {
+            
+            var phaseOrder = new List<BattlePhase> {BattlePhase.Player, BattlePhase.Enemy, BattlePhase.Other};
+            var nextPhase = Phase;
+            var hasUnits = false;
+            while (!hasUnits) {
+                nextPhase = phaseOrder[(phaseOrder.IndexOf(nextPhase) + 1)%phaseOrder.Count];
+
+                if (nextPhase == Phase) {
+                    throw new ArgumentException("Could not find any units to continue on with the next phase.");
+                }
+
+                hasUnits = Battle.GetAliveByArmy(GetArmyType(nextPhase)).Any();
+            }
+
+            return nextPhase;
+        }
+
+        private static ArmyType GetArmyType(BattlePhase phase) {
+            switch (phase) {
+                case BattlePhase.Player:
+                    return ArmyType.Friendly;
+                case BattlePhase.Enemy:
+                    return ArmyType.Enemy;
+                case BattlePhase.Other:
+                    return ArmyType.Other;
+                default:
+                    throw new ArgumentOutOfRangeException("phase", phase, null);
+            }
+        }
     }
 }
