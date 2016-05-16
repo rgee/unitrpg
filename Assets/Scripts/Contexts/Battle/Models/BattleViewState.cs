@@ -67,7 +67,7 @@ namespace Contexts.Battle.Models {
                 nextPhase = phaseOrder[(phaseOrder.IndexOf(nextPhase) + 1)%phaseOrder.Count];
 
                 if (nextPhase == Phase) {
-                    throw new ArgumentException("Could not find any units to continue on with the next phase.");
+                    return nextPhase;
                 }
 
                 hasUnits = Battle.GetAliveByArmy(GetArmyType(nextPhase)).Any();

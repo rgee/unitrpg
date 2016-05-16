@@ -74,6 +74,8 @@ namespace Contexts.Battle.Views {
             var forecastComponent = _currentWindow.GetComponent<UI.CombatForecast.CombatForecast>();
             forecastComponent.OnConfirm -= DispatchConfirm;
             forecastComponent.OnReject -= DispatchReject;
+            Destroy(_currentWindow);
+            _currentWindow = null;
         }
     }
 }
