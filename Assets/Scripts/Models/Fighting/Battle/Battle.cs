@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting;
+using Models.Fighting.Battle.Objectives;
 using Models.Fighting.Characters;
 using Models.Fighting.Execution;
 using Models.Fighting.Maps;
@@ -16,10 +18,16 @@ namespace Models.Fighting.Battle {
         private readonly ICombatantDatabase _combatants;
         private readonly Dictionary<string, ICombatant> _combatantsById = new Dictionary<string, ICombatant>();
         private readonly IMap _map;
+        private readonly List<IObjective> _objectives;
         private Turn _currentTurn;
 
-        public Battle(IMap map, IRandomizer randomizer, ICombatantDatabase combatants, List<ArmyType> turnOrder) {
+        public Battle(IMap map, IRandomizer randomizer, ICombatantDatabase combatants, List<ArmyType> turnOrder) : 
+            this(map, randomizer, combatants,turnOrder, new List<IObjective> { new Rout() }) {
+        }
+
+        public Battle(IMap map, IRandomizer randomizer, ICombatantDatabase combatants, List<ArmyType> turnOrder, List<IObjective> objectives) {
             TurnNumber = 0;
+            _objectives = objectives;
             _map = map;
             _randomizer = randomizer;
             _combatants = combatants;
@@ -35,6 +43,18 @@ namespace Models.Fighting.Battle {
             var firstArmy = _turnOrder[TurnNumber];
             var firstCombatants = _combatants.GetCombatantsByArmy(firstArmy);
             _currentTurn = new Turn(firstCombatants);
+        }
+
+        public List<IObjective> GetObjectives() {
+            return _objectives;
+        }
+
+        public bool IsWon() {
+            return _objectives.All(obj => obj.IsComplete(this)) && !_objectives.Any(obj => obj.HasFailed(this));
+        }
+
+        public bool IsLost() {
+            return _objectives.Any(obj => obj.HasFailed(this));
         }
 
         public List<ICombatant> GetAliveByArmy(ArmyType army) {

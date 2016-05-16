@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Models.Fighting.Battle.Objectives;
 using Models.Fighting.Characters;
 using Models.Fighting.Execution;
 using Models.Fighting.Skills;
@@ -30,5 +31,11 @@ namespace Models.Fighting.Battle {
         int GetMaxWeaponAttackRange(ICombatant combatant);
 
         SkillType GetWeaponSkillForRange(int range);
+
+        List<IObjective> GetObjectives();
+
+        bool IsWon();
+
+        bool IsLost();
     }
 }

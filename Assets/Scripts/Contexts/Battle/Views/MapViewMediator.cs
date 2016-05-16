@@ -64,7 +64,7 @@ namespace Contexts.Battle.Views {
 
             MoveCombatantSignal.AddListener(OnMove);
             GatherSignal.AddOnce(() => {
-                var config = new MapConfiguration(View.GetDimensions(), View.Map, combatantDb);
+                var config = new MapConfiguration(View.GetDimensions(), View.Map, combatantDb, View.ChapterNumber);
                 InitializeMapSignal.Dispatch(config);
             });
         }

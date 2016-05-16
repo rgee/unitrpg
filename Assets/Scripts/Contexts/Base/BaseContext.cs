@@ -43,6 +43,7 @@ namespace Assets.Contexts.Base {
                 injectionBinder.Bind<ISaveGameRepository>().To<TestingSaveGameRepository>().ToSingleton().CrossContext();
                 injectionBinder.Bind<ISaveGameService>().To<SaveGameService>().ToSingleton().CrossContext();
                 injectionBinder.Bind<CharacterDatabase>().To<BaseCharacterDatabase>().ToSingleton().CrossContext();
+                injectionBinder.Bind<IBattleConfigRepository>().To<BattleConfigRepository>().ToSingleton().CrossContext();
                 injectionBinder.Bind<AddSceneSignal>().ToSingleton().CrossContext();
                 injectionBinder.Bind<QuitGameSignal>().ToSingleton().CrossContext();
                 commandBinder.Bind<AddSceneSignal>().To<AddSceneCommand>();

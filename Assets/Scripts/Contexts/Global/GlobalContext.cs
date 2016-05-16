@@ -46,7 +46,6 @@ namespace Contexts.Global {
             ConcreteSingleton<ChangeSceneSignal>();
             ConcreteSingleton<ChangeSceneMultiSignal>();
 
-            Singleton<IBattleConfigRepository>().ByWayOf<BattleConfigRepository>();
             Singleton<ICutsceneLoader>().ByWayOf<CutsceneLoader>();
 
             commandBinder.Bind<LoadSceneSignal>()

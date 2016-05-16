@@ -34,8 +34,8 @@ namespace Contexts.BattlePrep.Views {
             });
 
             NewBattleConfigSignal.AddListener((config) => {
-                var objective = config.Objective;
-                View.UpdateObjective(objective.Description);
+                //var objective = config.Objective;
+                //View.UpdateObjective(objective.Description);
             });
         }
 

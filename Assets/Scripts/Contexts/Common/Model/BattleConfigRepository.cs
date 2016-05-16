@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
+using Models.Fighting.Battle.Objectives;
 
 namespace Contexts.Common.Model {
     public class BattleConfigRepository : IBattleConfigRepository {
 
         private readonly List<IBattleConfig> _configs = new List<IBattleConfig>() {
             new BattleConfig(
-                new Objectives.Rout(),
+                new Rout(), 
                 "chapter_1_battle",
                 new List<string>() {
                     "Chapter 1/Intro/male_soldier_report",
@@ -17,7 +18,7 @@ namespace Contexts.Common.Model {
                 }
             ),
             new BattleConfig(
-                new Objectives.Survive(8),
+                new Survive(8), 
                 "chapter_2_intro"
             ),
         }; 

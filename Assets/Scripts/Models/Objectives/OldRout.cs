@@ -2,7 +2,7 @@
 using Grid;
 using UnityEngine;
 
-public class Rout : Objective {
+public class OldRout : Objective {
     private Animator StateMachine;
     private UnitManager UnitManager;
 

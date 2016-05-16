@@ -1,12 +1,11 @@
 ﻿using System.Collections.Generic;
 using Contexts.Battle.Models;
 using Contexts.Battle.Utilities;
+using Contexts.Common.Model;
 using Contexts.Global.Services;
 using Models.Fighting;
-using Models.Fighting.Battle;
+using Models.Fighting.Battle.Objectives;
 using Models.Fighting.Characters;
-using Models.Fighting.Maps;
-using Models.SaveGames;
 using strange.extensions.command.impl;
 
 namespace Contexts.Battle.Commands {
@@ -20,13 +19,20 @@ namespace Contexts.Battle.Commands {
         [Inject]
         public ISaveGameService SaveGameService { get; set; }
 
+        [Inject]
+        public IBattleConfigRepository BattleConfigRepository { get; set; }
+
         public override void Execute() {
             var dimensions = Configuration.Dimensions;
             Model.Dimensions = dimensions;  
             Model.Map = Configuration.Map;
 
+            var objectives = new List<IObjective>();
+            var config = BattleConfigRepository.GetConfigByIndex(Configuration.ChapterNumber);
+            objectives.Add(config.Objective);
+
             var turnOrder = new List<ArmyType> {ArmyType.Friendly, ArmyType.Enemy, ArmyType.Other};
-            Model.Battle = new global::Models.Fighting.Battle.Battle(Model.Map, new BasicRandomizer(), Configuration.Combatants, turnOrder);
+            Model.Battle = new global::Models.Fighting.Battle.Battle(Model.Map, new BasicRandomizer(), Configuration.Combatants, turnOrder, objectives);
             Model.State = BattleUIState.SelectingUnit;
         }
     }

@@ -17,6 +17,7 @@ namespace Contexts.Battle.Views {
         public Signal<Vector2> MapHovered = new Signal<Vector2>(); 
         public Signal MoveComplete = new Signal();
         public Signal FightComplete = new Signal();
+        public int ChapterNumber;
         public int Width;
         public int TileSize;
         public int Height;

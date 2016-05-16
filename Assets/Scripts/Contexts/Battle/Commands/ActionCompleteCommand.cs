@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Contexts.Battle.Models;
+﻿using Contexts.Battle.Models;
 using Contexts.Battle.Signals;
-using Models.Fighting.Characters;
 using strange.extensions.command.impl;
 using UnityEngine;
 
@@ -20,7 +16,11 @@ namespace Contexts.Battle.Commands {
                 return;
             }
 
-            if (!Model.Battle.ShouldTurnEnd()) {
+            if (Model.Battle.IsWon()) {
+                Debug.Log("The battle is won.");
+            } else if (Model.Battle.IsLost()) {
+                Debug.Log("The battle is lost.");
+            } else if (!Model.Battle.ShouldTurnEnd()) {
                 Model.ResetUnitState();
                 Model.State = BattleUIState.SelectingUnit;
             } else {

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
-using Contexts.Common.Model.Objectives;
 using JetBrains.Annotations;
+using Models.Fighting.Battle.Objectives;
 
 namespace Contexts.Common.Model {
     public interface IBattleConfig {

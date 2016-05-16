@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Contexts.Common.Model.Objectives;
+using Models.Fighting.Battle.Objectives;
 
 namespace Contexts.Common.Model {
     public class BattleConfig : IBattleConfig {
