@@ -11,6 +11,9 @@ namespace Contexts.Battle.Commands {
         [Inject]
         public PlayerTurnCompleteSignal PlayerTurnCompleteSignal { get; set; }
 
+        [Inject]
+        public NextBattleSignal NextBattleSignal { get; set; }
+
         public override void Execute() {
             if (Model.State == BattleUIState.Uninitialized) {
                 return;
@@ -18,6 +21,7 @@ namespace Contexts.Battle.Commands {
 
             if (Model.Battle.IsWon()) {
                 Debug.Log("The battle is won.");
+                NextBattleSignal.Dispatch();
             } else if (Model.Battle.IsLost()) {
                 Debug.Log("The battle is lost.");
             } else if (!Model.Battle.ShouldTurnEnd()) {

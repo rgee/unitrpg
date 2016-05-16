@@ -34,6 +34,7 @@ namespace Contexts.Battle.Commands {
             var turnOrder = new List<ArmyType> {ArmyType.Friendly, ArmyType.Enemy, ArmyType.Other};
             Model.Battle = new global::Models.Fighting.Battle.Battle(Model.Map, new BasicRandomizer(), Configuration.Combatants, turnOrder, objectives);
             Model.State = BattleUIState.SelectingUnit;
+            Model.ChapterIndex = Configuration.ChapterNumber;
         }
     }
 }

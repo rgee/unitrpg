@@ -25,6 +25,8 @@ namespace Contexts.Battle.Models {
             }
         }
 
+        public int ChapterIndex { get; set; }
+
         public BattlePhase Phase { get; set; }
 
         public MovementPath CurrentMovementPath { get; set; }
