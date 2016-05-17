@@ -1,4 +1,5 @@
-﻿using Contexts.Battle.Views;
+﻿using Contexts.Battle.Utilities;
+using Contexts.Battle.Views;
 using UnityEngine;
 
 namespace Grid {
@@ -8,6 +9,16 @@ namespace Grid {
         public int Height = 1;
 
         private MapView _view;
+
+        public Rect GetMapSpaceRect(MapDimensions dimensions) {
+            var worldSpaceWidth = Width*dimensions.TileSize;
+            var worldSpaceHeight = Height*dimensions.TileSize;
+            var boundingOrigin = transform.position - new Vector3(worldSpaceWidth/2.0f, worldSpaceHeight/2.0f);
+
+            var gridSpaceOrigin = dimensions.GetGridPositionForWorldPosition(boundingOrigin);
+
+            return new Rect(gridSpaceOrigin.x, gridSpaceOrigin.y, Width, Height);
+        }
 
         void Awake() {
             _view = transform.parent.parent.GetComponentInParent<MapView>();

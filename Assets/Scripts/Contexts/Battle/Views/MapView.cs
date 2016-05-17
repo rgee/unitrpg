@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Combat;
 using Contexts.Battle.Utilities;
+using Grid;
 using Models.Fighting.Battle;
 using Models.Fighting.Execution;
 using Models.Fighting.Maps;
@@ -90,15 +91,21 @@ namespace Contexts.Battle.Views {
         }
 
         public List<Vector2> GetObstructedPositions() {
-            var obstructions = transform.FindChild("Obstructions");
             var results = new List<Vector2>();
             var dimensions = GetDimensions();
 
-            foreach (Transform obstacle in obstructions) {
-                var gridPosition = dimensions.GetGridPositionForWorldPosition(obstacle.position);
-                results.Add(gridPosition);
+            foreach (var obstacle in GetComponentsInChildren<Obstacle>()) {
+                var rect = obstacle.GetMapSpaceRect(dimensions);
+                for (var x = 0; x < Width; x++) {
+                    for (var y = 0; y < Height; y++) {
+                        var point = new Vector2(x, y);
+                        if (rect.Contains(point)) {
+                            results.Add(point);
+                        }
+                    }
+                }
             }
-            
+
             return results;
         }
 
