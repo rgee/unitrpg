@@ -62,6 +62,10 @@ namespace Models.Fighting.Battle {
         }
 
         public List<ICombatant> GetCombatantsByArmy(ArmyType army) {
+            if (!_combatants.Contains(army)) {
+                return new List<ICombatant>();
+            }
+
             return _combatants[army].ToList();
         }
     }

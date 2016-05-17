@@ -93,11 +93,18 @@ namespace Models.Fighting.Battle {
         public void EndTurn() {
             var combatants = new List<ICombatant>();
             var turnCount = TurnNumber;
+            var seenArmies = new HashSet<ArmyType>();
+
             while (combatants.Count <= 0) {
                 var armyIndex = turnCount % _turnOrder.Count;
                 var army = _turnOrder[armyIndex];
+                seenArmies.Add(army);
                 combatants = _combatants.GetCombatantsByArmy(army);
                 turnCount++;
+
+                if (seenArmies.Contains(army)) {
+                    break;
+                }
             }
 
             _currentTurn = new Turn(combatants);
