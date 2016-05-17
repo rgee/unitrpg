@@ -745,8 +745,8 @@ GameObject:
   - 124: {fileID: 12466336}
   - 92: {fileID: 9231526}
   - 81: {fileID: 8160278}
-  - 114: {fileID: 11494006}
   - 114: {fileID: 11493078}
+  - 114: {fileID: 11483828}
   m_Layer: 0
   m_Name: Pixel Perfect Camera
   m_TagString: MainCamera
@@ -2328,6 +2328,19 @@ MonoBehaviour:
           m_CallState: 2
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+--- !u!114 &11483828
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 198450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cbe939f8a206b44eb6d6ba3be6faf84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 300
+  UserControlEnabled: 1
 --- !u!114 &11485722
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2567,18 +2580,6 @@ MonoBehaviour:
           m_CallState: 2
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
---- !u!114 &11494006
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 198450}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20c8ea0ba2d7e43cd8ac80e4dc9b31b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 300
 --- !u!114 &11494110
 MonoBehaviour:
   m_ObjectHideFlags: 1
