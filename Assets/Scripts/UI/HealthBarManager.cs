@@ -24,7 +24,7 @@ public class HealthBarManager : MonoBehaviour {
         foreach (var entry in _healthBars) {
             var unit = entry.Key.GetComponent<Grid.Unit>().model;
             var healthPct = (float)unit.Health/unit.Character.MaxHealth;
-            entry.Value.GetComponent<HealthBar>().healthPct = healthPct*100;
+            entry.Value.GetComponent<HealthBar>().HealthPct = healthPct*100;
             AlignToUnit(entry.Key, entry.Value);
         }
     }
