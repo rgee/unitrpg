@@ -1,9 +1,14 @@
 ﻿namespace Contexts.Battle.Models {
     public enum CombatUIState {
         Default,
+        PhaseChange,
+        UnitSelection,
         ActionMenu,
         ContextMenu,
         MoveRange,
-        AttackRange
+        AttackRange,
+        Moving,
+        Fighting,
+        NpcLocked
     }
 }
