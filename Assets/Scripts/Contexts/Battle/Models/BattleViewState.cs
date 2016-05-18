@@ -84,6 +84,40 @@ namespace Contexts.Battle.Models {
                 .Permit(CombatStateTriggers.AllObjectivesCompleted, CombatState.Won)
                 .Permit(CombatStateTriggers.ActionsExhausted, CombatState.PlayerTurn);
 
+
+            var uiStateMachine = new StateMachine<CombatUIState, CombatUITriggers>(CombatUIState.Default);
+
+            uiStateMachine.Configure(CombatUIState.Default)
+                .Permit(CombatUITriggers.PhaseChange, CombatUIState.PhaseChanging)
+                .Permit(CombatUITriggers.UnitSelected, CombatUIState.ActionMenu);
+
+            uiStateMachine.Configure(CombatUIState.PhaseChanging)
+                .Permit(CombatUITriggers.PlayerPhaseStarted, CombatUIState.Default)
+                .Permit(CombatUITriggers.NpcPhaseStarted, CombatUIState.NpcLocked);
+
+            uiStateMachine.Configure(CombatUIState.ActionMenu)
+                .Permit(CombatUITriggers.MoveSelected, CombatUIState.MoveRange)
+                .Permit(CombatUITriggers.AttackSelected, CombatUIState.AttackRange)
+                .Permit(CombatUITriggers.Back, CombatUIState.Default);
+
+            uiStateMachine.Configure(CombatUIState.MoveRange)
+                .Permit(CombatUITriggers.TargetSelected, CombatUIState.Moving)
+                .Permit(CombatUITriggers.Back, CombatUIState.ActionMenu);
+
+            uiStateMachine.Configure(CombatUIState.Moving)
+                .Permit(CombatUITriggers.MovementComplete, CombatUIState.Default);
+
+            uiStateMachine.Configure(CombatUIState.AttackRange)
+                .Permit(CombatUITriggers.TargetSelected, CombatUIState.CombatForecast)
+                .Permit(CombatUITriggers.Back, CombatUIState.ActionMenu);
+
+            uiStateMachine.Configure(CombatUIState.CombatForecast)
+                .Permit(CombatUITriggers.ForecastAccepted, CombatUIState.Fighting)
+                .Permit(CombatUITriggers.ForecastRejected, CombatUIState.AttackRange)
+                .Permit(CombatUITriggers.Back, CombatUIState.AttackRange);
+
+            uiStateMachine.Configure(CombatUIState.Fighting)
+                .Permit(CombatUITriggers.FightComplete, CombatUIState.Default);
         }
 
 
