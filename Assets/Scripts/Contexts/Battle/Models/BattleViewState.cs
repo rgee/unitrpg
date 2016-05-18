@@ -95,6 +95,9 @@ namespace Contexts.Battle.Models {
                 .Permit(CombatUITriggers.PlayerPhaseStarted, CombatUIState.Default)
                 .Permit(CombatUITriggers.NpcPhaseStarted, CombatUIState.NpcLocked);
 
+            uiStateMachine.Configure(CombatUIState.NpcLocked)
+                .Permit(CombatUITriggers.NpcPhaseComplete, CombatUIState.PhaseChanging);
+
             uiStateMachine.Configure(CombatUIState.ActionMenu)
                 .Permit(CombatUITriggers.MoveSelected, CombatUIState.MoveRange)
                 .Permit(CombatUITriggers.AttackSelected, CombatUIState.AttackRange)
