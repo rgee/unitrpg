@@ -10,6 +10,7 @@ using Models.Fighting.Characters;
 using Models.Fighting.Execution;
 using Models.Fighting.Maps;
 using Models.Fighting.Skills;
+using Stateless;
 using UnityEngine;
 
 namespace Contexts.Battle.Models {
@@ -59,6 +60,32 @@ namespace Contexts.Battle.Models {
 
         [Inject]
         public StateTransitionSignal StateTransitionSignal { get; set; }
+
+
+        public BattleViewState() {
+            var combatStateMachine = new StateMachine<CombatState, CombatStateTriggers>(CombatState.Start);
+
+            combatStateMachine.Configure(CombatState.Start)
+                .Permit(CombatStateTriggers.BattleStarted, CombatState.PlayerTurn);
+
+            combatStateMachine.Configure(CombatState.PlayerTurn)
+                .Permit(CombatStateTriggers.ObjectiveFailed, CombatState.Lost)
+                .Permit(CombatStateTriggers.AllObjectivesCompleted, CombatState.Won)
+                .Permit(CombatStateTriggers.ActionsExhausted, CombatState.EnemyTurn);
+
+            combatStateMachine.Configure(CombatState.EnemyTurn)
+                .Permit(CombatStateTriggers.ObjectiveFailed, CombatState.Lost)
+                .Permit(CombatStateTriggers.AllObjectivesCompleted, CombatState.Won)
+                .Permit(CombatStateTriggers.ActionsExhausted, CombatState.OtherTurn);
+            
+
+            combatStateMachine.Configure(CombatState.OtherTurn)
+                .Permit(CombatStateTriggers.ObjectiveFailed, CombatState.Lost)
+                .Permit(CombatStateTriggers.AllObjectivesCompleted, CombatState.Won)
+                .Permit(CombatStateTriggers.ActionsExhausted, CombatState.PlayerTurn);
+
+        }
+
 
         public BattlePhase SelectNextPhase() {
             
