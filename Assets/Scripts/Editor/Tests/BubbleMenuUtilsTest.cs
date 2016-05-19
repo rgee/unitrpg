@@ -6,13 +6,6 @@ using NUnit.Framework;
 namespace Tests {
     [TestFixture]
     public class BubbleMenuUtilsTest {
-        public class DummyHandler : BubbleMenuUtils.IMenuTransitionHandler {
-            public void Dispatch(string result) {
-            }
-
-            public void ChangeLevel(string nextLevel) {
-            }
-        }
         [Test]
         public void TestLeafTermination() {
             var config = new HashSet<BubbleMenuItem> {
@@ -32,7 +25,7 @@ namespace Tests {
                 BubbleMenuItem.Leaf("End Turn", 4)
             };
 
-            var machine = BubbleMenuUtils.CreateStateMachine(config, new DummyHandler());
+            var machine = BubbleMenuUtils.CreateStateMachine(config);
             machine.Fire("Tactical");
             Assert.AreEqual("dispatch", machine.State);
         }
@@ -56,15 +49,12 @@ namespace Tests {
                 BubbleMenuItem.Leaf("End Turn", 4)
             };
 
-            var machine = BubbleMenuUtils.CreateStateMachine(config, new DummyHandler());
+            var machine = BubbleMenuUtils.CreateStateMachine(config);
             var initialState = machine.State;
             machine.Fire("System");
             Assert.AreEqual("System", machine.State);
 
-            var numTransitions = machine.PermittedTriggers.Count();
-            Assert.AreEqual(5, numTransitions);
-
-            machine.Fire("back");
+            machine.GoBack();
             Assert.AreEqual(initialState, machine.State);
 
             machine.Fire("System");
