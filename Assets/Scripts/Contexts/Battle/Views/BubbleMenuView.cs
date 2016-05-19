@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Contexts.Battle.Utilities;
 using strange.extensions.mediation.impl;
 using strange.extensions.signal.impl;
@@ -27,6 +28,37 @@ namespace Contexts.Battle.Views {
             _stateMachine = BubbleMenuUtils.CreateStateMachine(config);
             _stateMachine.SelectSignal.AddListener(Select);
             _stateMachine.ChangeLevelSignal.AddListener(ShowLevel);
+            var prefabNames = GetAllNames(config);
+
+            foreach (var buttonName in prefabNames) {
+                var path = "MenuBubbles/" + buttonName;
+                var child = Instantiate(Resources.Load(path)) as GameObject;
+                if (child == null) {
+                    throw new ArgumentException("Could not find menu item by name " + buttonName);
+                }
+                child.transform.SetParent(transform);
+            }
+        }
+
+        private List<string> GetAllNames(HashSet<BubbleMenuItem> items) {
+            return GetAllNames(new List<string>(), items);
+        }
+
+        private List<string> GetAllNames(List<string> names, HashSet<BubbleMenuItem> items) {
+            foreach (var item in items) {
+                names = GetAllNames(names, item);
+            }
+
+            return names;
+        }
+
+        private List<string> GetAllNames(List<string> names, BubbleMenuItem item) {
+            names.Add(item.Name);
+            if (item.IsLeaf()) {
+                return names;
+            }
+
+            return GetAllNames(names, item.Children);
         }
 
         public void Hide() {
