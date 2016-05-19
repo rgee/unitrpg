@@ -12,6 +12,10 @@ namespace Contexts.Battle.Utilities {
             Children = children;
         }
 
+        public bool IsLeaf() {
+            return Children == null || Children.Count <= 0;
+        }
+
         public static BubbleMenuItem Leaf(string name, int weight) {
             return new BubbleMenuItem(name, weight, new HashSet<BubbleMenuItem>());
         }
