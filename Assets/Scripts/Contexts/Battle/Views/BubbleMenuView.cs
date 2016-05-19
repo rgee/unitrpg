@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Contexts.Battle.Utilities;
 using strange.extensions.mediation.impl;
@@ -62,9 +63,18 @@ namespace Contexts.Battle.Views {
         }
 
         public void Hide() {
+            StartCoroutine(AnimateHide());
+        }
+
+        private IEnumerator AnimateHide() {
             // transition closed
+            yield return null;
+
             _stateMachine.SelectSignal.RemoveListener(Select);
             _stateMachine.ChangeLevelSignal.RemoveListener(ShowLevel);
+            foreach (Transform child in transform) {
+                Destroy(child.gameObject);
+            }
         }
 
         private void ShowLevel(string level) {
