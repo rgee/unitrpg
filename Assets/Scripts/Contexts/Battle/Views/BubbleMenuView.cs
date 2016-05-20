@@ -15,6 +15,8 @@ namespace Contexts.Battle.Views {
 
         [Tooltip("How far from the center the bubbles should be.")]
         public float Scale = 40f;
+
+        public Signal DismissSignal = new Signal();
         public Signal<string> ItemSelectedSignal = new Signal<string>();
 
         private const float ShowStaggerStepSeconds = 0.1f;
@@ -42,6 +44,7 @@ namespace Contexts.Battle.Views {
             _stateMachine = BubbleMenuUtils.CreateStateMachine(config);
             _stateMachine.SelectSignal.AddListener(Select);
             _stateMachine.ChangeLevelSignal.AddListener(ShowLevel);
+            _stateMachine.CloseSignal.AddListener(DismissSignal.Dispatch);
             var count = config.Count;
             var copiedConfig = new HashSet<BubbleMenuItem>().Concat(config).ToHashSet();
 
@@ -188,8 +191,11 @@ namespace Contexts.Battle.Views {
         }
 
         private IEnumerator AnimateHide() {
-            // transition closed
-            yield return null;
+            var bubbles = _bubbles.Values.Where(bubble => bubble.activeSelf).Select(bubble => bubble.transform);
+            var bubbleGroups = bubbles.GroupBy(bubble => bubble.localPosition.y)
+                .OrderByDescending(group => group.Key)
+                .ToList();
+            yield return StartCoroutine(HideBubbleGroups(bubbleGroups));
 
             _bubbles = new Dictionary<string, GameObject>();
             _stateMachine.SelectSignal.RemoveListener(Select);

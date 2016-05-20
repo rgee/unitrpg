@@ -96,7 +96,8 @@ namespace Contexts.Battle.Commands {
                     .Where(unit => unit != null && unit.Army == ArmyType.Enemy);
 
                 if (attackableUnits.Any()) {
-                    results.Add(CombatActionType.Fight);
+                    results.Add(CombatActionType.Attack);
+                    results.Add(CombatActionType.Brace);
                 }
 
                 var friendlyUnits = attackableSquares

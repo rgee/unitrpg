@@ -1,6 +1,8 @@
-﻿using Assets.Contexts;
+﻿using System;
+using Assets.Contexts;
 using Contexts.Battle.Models;
 using Contexts.Battle.Signals;
+using Contexts.Battle.Utilities;
 using Models.Combat;
 using strange.extensions.mediation.impl;
 using UnityEngine;
@@ -31,41 +33,30 @@ namespace Contexts.Battle.Views {
             UnitSelectedSignal.AddListener(ShowActionMenu);
             UnitDeselectedSignal.AddListener(HideActionMenu);
 
-            View.ActionTypeSelectedSignal.AddListener(HandleActionSelection);
-            View.BackSignal.AddListener(RelayBackSignal);
-            View.CancelSignal.AddListener(HideActionMenu);
-            View.FightSignal.AddListener(ShowFightSubMenu);
+            View.ItemSelectedSignal.AddListener(OnItemSelect);
+            View.DismissSignal.AddListener(RelayBackSignal);
+
+        }
+
+        private void OnItemSelect(string item) {
+            var result = (CombatActionType)Enum.Parse(typeof(CombatActionType), item);
+            ActionSelectedSignal.Dispatch(result);
         }
 
         private void RelayBackSignal() {
+            View.Hide();
             BackSignal.Dispatch();
         }
 
-        private void ShowFightSubMenu() {
-            ActionSelectedSignal.Dispatch(CombatActionType.Fight);
-
-            // When the user selected 'Fight', preprare to handle the Back signal
-            BackSignal.AddOnce(ReturnToTop);
-            View.ShowFightSubMenu();
-        }
-
-        private void ReturnToTop() {
-            View.ReturnToTop();
-        }
-
-
-        private void HandleActionSelection(CombatActionType actionType) {
-            ActionSelectedSignal.Dispatch(actionType);
-            HideActionMenu();
-        }
-
         private void ShowActionMenu(Vector3 unitPosition) {
-            View.Show(unitPosition, BattleModel.AvailableActions);
+            View.transform.localPosition = unitPosition;
+
+            var config = BubbleMenuUtils.CreateFromActions(BattleModel.AvailableActions);
+            View.Show(config);
         }
 
         private void HideActionMenu() {
             View.Hide();
-            StrangeUtils.RemoveOnceListener(BackSignal, ReturnToTop);
         }
     }
 }
