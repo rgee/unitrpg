@@ -5,6 +5,7 @@ using Contexts.Base.Signals;
 using Contexts.Battle.Commands;
 using Contexts.Battle.Models;
 using Contexts.Battle.Signals;
+using Contexts.Battle.Utilities;
 using Contexts.Battle.Views;
 using strange.extensions.command.api;
 using strange.extensions.context.impl;
@@ -86,6 +87,7 @@ namespace Contexts.Battle {
             mediationBinder.Bind<CombatEffectsView>().To<CombatEffectsViewMediator>();
             mediationBinder.Bind<PhaseChangeView>().To<PhaseChangeViewMediator>();
             mediationBinder.Bind<IntroCutsceneView>().To<IntroCutsceneViewMediator>();
+            mediationBinder.Bind<ContextMenuView>().To<ContextMenuViewMediator>();
         }
     }
 }

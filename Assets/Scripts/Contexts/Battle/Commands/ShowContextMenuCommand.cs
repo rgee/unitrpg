@@ -14,20 +14,6 @@ namespace Contexts.Battle.Commands {
         public BattleViewState ViewState { get; set; }
 
         public override void Execute() {
-            var dimensions = ViewState.Dimensions;
-            var worldPosition = dimensions.GetWorldPositionForGridPosition(Position);
-
-            var contextMenuView = new GameObject("context_menu");
-            contextMenuView.AddComponent<RectTransform>();
-            contextMenuView.AddComponent<GraphicRaycaster>();
-
-            var canvas = contextMenuView.GetComponent<Canvas>();
-            canvas.renderMode = RenderMode.WorldSpace;
-
-            contextMenuView.transform.position = worldPosition;
-
-            var view = contextMenuView.AddComponent<BubbleMenuView>();
-            view.Show(BubbleMenuTemplates.GetContextMenuTemplate());
         }
     }
 }
