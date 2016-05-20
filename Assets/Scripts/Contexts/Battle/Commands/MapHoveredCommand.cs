@@ -31,7 +31,7 @@ namespace Contexts.Battle.Commands {
                 return;
             }
 
-            if (Model.State == BattleUIState.PhaseChanging) {
+            if (Model.State == BattleUIState.PhaseChanging || Model.State == BattleUIState.ContextMenu) {
                 return;
             }
 

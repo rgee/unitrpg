@@ -69,6 +69,8 @@ namespace Contexts.Battle.Commands {
                     break;
                 case BattleUIState.EnemyTurn:
                     break;
+                case BattleUIState.ContextMenu:
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException("state", state, null);
             }
@@ -101,6 +103,8 @@ namespace Contexts.Battle.Commands {
                 case BattleUIState.EnemyTurn:
                     // TODO: Implement enemy turn AI
                     EnemyTurnCompleteSignal.Dispatch();
+                    break;
+                case BattleUIState.ContextMenu:
                     break;
                 default:
                     throw new ArgumentOutOfRangeException("state", state, null);

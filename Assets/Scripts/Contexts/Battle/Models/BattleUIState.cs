@@ -1,6 +1,7 @@
 ﻿namespace Contexts.Battle.Models {
     public enum BattleUIState {
         Uninitialized,
+        ContextMenu,
         SelectingUnit,
         SelectingAction,
         SelectingFightAction,

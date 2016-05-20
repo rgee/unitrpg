@@ -10,32 +10,36 @@ namespace Contexts.Battle.Views {
         public ContextMenuView View { get; set; }
 
         [Inject]
-        public ContextRequestedSignal ContextRequestedSignal { get; set; }
+        public ShowContextMenuSignal ShowContextMenuSignal { get; set; }
+
 
         [Inject]
-        public BattleViewState Model { get; set; }
-
+        public EndTurnSignal EndTurnSignal { get; set; }
+        
         [Inject]
-        public PlayerTurnCompleteSignal PlayerTurnCompleteSignal { get; set; }
+        public ExitContextMenuSignal ExitContextMenuSignal { get; set; }
 
         public override void OnRegister() {
-            View.DismissSignal.AddListener(View.Hide);
+            View.DismissSignal.AddListener(OnDismiss);
             View.ItemSelectedSignal.AddListener(OnItemSelected);
-            ContextRequestedSignal.AddListener(ShowMenu);
+            ShowContextMenuSignal.AddListener(ShowMenu);
+        }
+
+        public void OnDismiss() {
+            View.Hide();
+            ExitContextMenuSignal.Dispatch();
         }
 
         public void OnItemSelected(string item) {
             if (item == "End Turn") {
-               PlayerTurnCompleteSignal.Dispatch(); 
+               EndTurnSignal.Dispatch(); 
             }
             View.Hide();
         }
 
-        public void ShowMenu(Vector2 position) {
-            var dimensions = Model.Dimensions;
-            var worldPosition = dimensions.GetWorldPositionForGridPosition(position);
+        public void ShowMenu(Vector3 position) {
             var config = BubbleMenuTemplates.GetContextMenuTemplate();
-            View.transform.position = worldPosition;
+            View.transform.position = position;
 
             View.Show(config);
         }
