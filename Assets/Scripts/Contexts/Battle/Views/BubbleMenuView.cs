@@ -41,10 +41,12 @@ namespace Contexts.Battle.Views {
 
             foreach (var buttonName in prefabNames) {
                 var path = "MenuBubbles/" + buttonName;
-                var child = Instantiate(Resources.Load(path)) as GameObject;
-                if (child == null) {
+                var prefab = Resources.Load(path) as GameObject;
+                if (prefab == null) {
                     throw new ArgumentException("Could not find menu item by name " + buttonName);
                 }
+
+                var child = Instantiate(prefab);
                 child.transform.SetParent(transform);
                 child.SetActive(false);
             }

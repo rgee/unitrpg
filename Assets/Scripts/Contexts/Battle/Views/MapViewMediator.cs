@@ -39,6 +39,9 @@ namespace Contexts.Battle.Views {
         public NewFinalizedFightSignal FinalizedFightSignal { get; set; }
 
         [Inject]
+        public ContextRequestedSignal ContextRequestedSignal { get; set; }
+
+        [Inject]
         public ISaveGameService SaveGameService { get; set; }
 
         public override void OnRegister() {
@@ -46,6 +49,7 @@ namespace Contexts.Battle.Views {
             View.MoveComplete.AddListener(OnMoveComplete);
             View.MapHovered.AddListener(OnMapHovered);
             View.FightComplete.AddListener(OnFightComplete);
+            View.MapRightClicked.AddListener(OnRightClick);
             FinalizedFightSignal.AddListener(OnFight);
 
             var map = new Map(View.Width, View.Height);
@@ -67,6 +71,10 @@ namespace Contexts.Battle.Views {
                 var config = new MapConfiguration(View.GetDimensions(), View.Map, combatantDb, View.ChapterNumber);
                 InitializeMapSignal.Dispatch(config);
             });
+        }
+
+        private void OnRightClick(Vector2 position) {
+            ContextRequestedSignal.Dispatch(position);
         }
 
         private void OnMoveComplete() {

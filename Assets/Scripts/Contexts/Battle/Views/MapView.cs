@@ -15,6 +15,7 @@ using UnityEngine;
 namespace Contexts.Battle.Views {
     public class MapView : View {
         public Signal<Vector2> MapClicked = new Signal<Vector2>();
+        public Signal<Vector2> MapRightClicked = new Signal<Vector2>();
         public Signal<Vector2> MapHovered = new Signal<Vector2>(); 
         public Signal MoveComplete = new Signal();
         public Signal FightComplete = new Signal();
@@ -40,6 +41,8 @@ namespace Contexts.Battle.Views {
             var mouseGridPosition = dimensions.GetGridPositionForWorldPosition(mousePosition);
             if (Input.GetMouseButtonDown(0)) {
                 MapClicked.Dispatch(mouseGridPosition);
+            } else if (Input.GetMouseButtonDown(1)) { 
+                MapRightClicked.Dispatch(mouseGridPosition);
             } else {
                 MapHovered.Dispatch(mouseGridPosition);
             }

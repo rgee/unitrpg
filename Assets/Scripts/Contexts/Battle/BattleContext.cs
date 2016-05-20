@@ -58,7 +58,9 @@ namespace Contexts.Battle {
             injectionBinder.Bind<PhaseChangeCompleteSignal>().ToSingleton();
             injectionBinder.Bind<PhaseChangeStartSignal>().ToSingleton();
             injectionBinder.Bind<NextBattleSignal>().ToSingleton();
+            injectionBinder.Bind<ContextRequestedSignal>().ToSingleton();
 
+            commandBinder.Bind<ContextRequestedSignal>().To<ShowContextMenuCommand>();
             commandBinder.Bind<NextBattleSignal>().To<NextBattleCommand>();
             commandBinder.Bind<IntroCutsceneCompleteSignal>().To<StartBattleCommand>();
             commandBinder.Bind<InitializeMapSignal>().To<InitializeMapCommand>();
