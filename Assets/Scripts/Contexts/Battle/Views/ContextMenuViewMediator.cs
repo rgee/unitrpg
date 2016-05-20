@@ -28,6 +28,7 @@ namespace Contexts.Battle.Views {
             if (item == "End Turn") {
                PlayerTurnCompleteSignal.Dispatch(); 
             }
+            View.Hide();
         }
 
         public void ShowMenu(Vector2 position) {
