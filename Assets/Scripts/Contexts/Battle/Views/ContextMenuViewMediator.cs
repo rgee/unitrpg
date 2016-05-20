@@ -19,7 +19,11 @@ namespace Contexts.Battle.Views {
         [Inject]
         public ExitContextMenuSignal ExitContextMenuSignal { get; set; }
 
+        [Inject]
+        public BackSignal BackSignal { get; set; }
+
         public override void OnRegister() {
+            BackSignal.AddListener(OnDismiss);
             View.DismissSignal.AddListener(OnDismiss);
             View.ItemSelectedSignal.AddListener(OnItemSelected);
             ShowContextMenuSignal.AddListener(ShowMenu);

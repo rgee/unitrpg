@@ -14,6 +14,8 @@ namespace Contexts.Battle.Commands {
         [Inject]
         public UnitSelectedSignal UnitSelectedSignal { get; set; }
 
+        [Inject]
+        public ExitContextMenuSignal ExitContextMenuSignal { get; set; }
 
         public override void Execute() {
             var state = Model.State;
