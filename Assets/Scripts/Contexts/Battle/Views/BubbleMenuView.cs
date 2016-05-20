@@ -13,7 +13,7 @@ namespace Contexts.Battle.Views {
     public class BubbleMenuView : View {
 
         [Tooltip("How far from the center the bubbles should be.")]
-        public float Scale = 10f;
+        public float Scale = 40f;
         public Signal<string> ItemSelectedSignal = new Signal<string>();
 
         private const float ShowStaggerStepSeconds = 0.1f;
@@ -27,7 +27,7 @@ namespace Contexts.Battle.Views {
             { 2, new List<float> { 40f, -40f } },
             { 3, new List<float> { 0f, 90f, -90f } },
             { 4, new List<float> { 25f, -25f, 90f, -90f } },
-            { 5, new List<float> { 0f, 75f, -75f, 135f, -135f } }
+            { 5, new List<float> { 0f, 75f, -75f, 135f, -135f } },
         };
 
         private Dictionary<string, GameObject> _bubbles = new Dictionary<string, GameObject>();
@@ -36,8 +36,10 @@ namespace Contexts.Battle.Views {
             _stateMachine = BubbleMenuUtils.CreateStateMachine(config);
             _stateMachine.SelectSignal.AddListener(Select);
             _stateMachine.ChangeLevelSignal.AddListener(ShowLevel);
-            var prefabNames = GetAllNames(config);
+            var count = config.Count;
+
             config.Add(BubbleMenuItem.Leaf("Back", int.MaxValue));
+            var prefabNames = GetAllNames(config);
 
             foreach (var buttonName in prefabNames) {
                 var path = "MenuBubbles/" + buttonName;
@@ -49,8 +51,10 @@ namespace Contexts.Battle.Views {
                 var child = Instantiate(prefab);
                 child.transform.SetParent(transform);
                 child.SetActive(false);
+
+                _bubbles[buttonName] = child;
             }
-            var positions = GetPoints(config.Count);
+            var positions = GetPoints(count);
             var bubbles = GetGameObjectsForBubbles(config);
 
             ScaleInBubbles(positions, bubbles);
@@ -108,7 +112,13 @@ namespace Contexts.Battle.Views {
         private List<GameObject> GetGameObjectsForBubbles(HashSet<BubbleMenuItem> items) {
             return items
                 .OrderBy(item => item.Weight)
-                .Select(item => _bubbles[item.Name])
+                .Select(item => {
+                    if (!_bubbles.ContainsKey(item.Name)) {
+                        throw new ArgumentException("Could not find game object for bubble named: " + item.Name);
+                    }
+
+                    return _bubbles[item.Name];
+                })
                 .ToList();
         }
 

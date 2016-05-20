@@ -17,6 +17,11 @@ namespace Contexts.Battle.Commands {
             var worldPosition = dimensions.GetWorldPositionForGridPosition(Position);
 
             var contextMenuView = new GameObject("context_menu");
+            contextMenuView.AddComponent<RectTransform>();
+
+            var canvas = contextMenuView.AddComponent<Canvas>();
+            canvas.renderMode = RenderMode.WorldSpace;
+
             contextMenuView.transform.position = worldPosition;
 
             var view = contextMenuView.AddComponent<BubbleMenuView>();
