@@ -12,7 +12,7 @@ namespace Contexts.Battle.Utilities {
         }
 
         public class MenuStateMachine {
-            public readonly Signal<string> ChangeLevelSignal;
+            public readonly Signal<StateMachine<string, string>.Transition> ChangeLevelSignal;
             public readonly Signal<string> SelectSignal;
 
             public string State {
@@ -21,7 +21,7 @@ namespace Contexts.Battle.Utilities {
 
             private readonly StateMachine<string, string> _machine;
 
-            public MenuStateMachine(Signal<string> changeLevelSignal, Signal<string> selectSignal, StateMachine<string, string> machine) {
+            public MenuStateMachine(Signal<StateMachine<string, string>.Transition> changeLevelSignal, Signal<string> selectSignal, StateMachine<string, string> machine) {
                 ChangeLevelSignal = changeLevelSignal;
                 SelectSignal = selectSignal;
                 _machine = machine;
@@ -32,7 +32,7 @@ namespace Contexts.Battle.Utilities {
             }
 
             public void GoBack() {
-                _machine.Fire("back");
+                _machine.Fire("Back");
             }
         }
 
@@ -41,7 +41,7 @@ namespace Contexts.Battle.Utilities {
             var sentinelStartValue = "base";
             var machine = new StateMachine<string, string>(sentinelStartValue);
             var selectSignal = new Signal<string>();
-            var deepenSignal = new Signal<string>();
+            var deepenSignal = new Signal<StateMachine<string, string>.Transition>();
 
             machine.Configure("dispatch")
                 .OnEntry(transition => selectSignal.Dispatch(transition.Trigger));
@@ -52,11 +52,11 @@ namespace Contexts.Battle.Utilities {
         }
 
         private static StateMachine<string, string> CreateStateMachine(StateMachine<string, string> machine, string stateName, string parentState, HashSet<BubbleMenuItem> items,
-            Signal<string> deepenSignal) {
+            Signal<StateMachine<string, string>.Transition> deepenSignal) {
             var config = machine.Configure(stateName);
-            config.OnEntry(() => deepenSignal.Dispatch(stateName));
+            config.OnEntry((transition) => deepenSignal.Dispatch(transition));
             if (parentState != null) {
-                config.Permit("back", parentState);
+                config.Permit("Back", parentState);
             }
 
             foreach (var bubble in items) {
