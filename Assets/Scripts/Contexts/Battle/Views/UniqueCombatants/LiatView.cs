@@ -15,13 +15,13 @@ namespace Contexts.Battle.Views.UniqueCombatants {
         private readonly Dictionary<MathUtils.CardinalDirection, tk2dSpriteAnimationClip> _advanceAnimationClips =
             new Dictionary<MathUtils.CardinalDirection, tk2dSpriteAnimationClip>();
 
-        private tk2dSpriteAnimator _animator;
+        private tk2dSpriteAnimator _spriteAnimator;
         private CombatantAnimator _combatantAnimator;    
              
 
         protected override void Awake() {
             base.Awake();
-            _animator = GetComponent<tk2dSpriteAnimator>();
+            _spriteAnimator = GetComponent<tk2dSpriteAnimator>();
             _combatantAnimator = GetComponent<CombatantAnimator>();
             _windupAnimationClips[MathUtils.CardinalDirection.E] = FindClip("windup east");
             _windupAnimationClips[MathUtils.CardinalDirection.N] = FindClip("windup north");
@@ -35,7 +35,7 @@ namespace Contexts.Battle.Views.UniqueCombatants {
         }
 
         public tk2dSpriteAnimationClip FindClip(string clipName) {
-            var clip = _animator.GetClipByName(clipName);
+            var clip = _spriteAnimator.GetClipByName(clipName);
             if (clip == null) {
                 throw new ArgumentException("Required clip \"" + clipName + "\" not found.");
             }
@@ -61,8 +61,8 @@ namespace Contexts.Battle.Views.UniqueCombatants {
         }
 
         private IEnumerator PlayClip(tk2dSpriteAnimationClip clip) {
-            _animator.Play(clip);
-            while (_animator.IsPlaying(clip)) {
+            _spriteAnimator.Play(clip);
+            while (_spriteAnimator.IsPlaying(clip)) {
                 yield return null;
             }
         }
