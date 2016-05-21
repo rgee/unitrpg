@@ -38,8 +38,6 @@ namespace Contexts.Battle.Models {
 
         public ICombatant SelectedCombatant { get; set; }
 
-        public SkillType SelectedSkillType { get; set; }
-
         public Vector2 HoveredTile { get; set; }
 
         public HashSet<CombatActionType> AvailableActions { get; set; }

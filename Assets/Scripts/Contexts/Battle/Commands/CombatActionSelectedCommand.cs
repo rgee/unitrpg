@@ -13,8 +13,6 @@ namespace Contexts.Battle.Commands {
 
         public override void Execute() {
             if (ActionType == CombatActionType.Attack) {
-                // TODO: Check if we should use melee or ranged.
-                Model.SelectedSkillType = SkillType.Melee;
                 Model.State = BattleUIState.SelectingAttackTarget;
             } else if (ActionType == CombatActionType.Speical) {
                 // TODO: Determine special skill type

@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace Contexts.Battle.Views.UniqueCombatants {
     public class LiatView : CombatantView {
-        private Dictionary<MathUtils.CardinalDirection, tk2dSpriteAnimationClip> _windupAnimationClips =
+        private readonly Dictionary<MathUtils.CardinalDirection, tk2dSpriteAnimationClip> _windupAnimationClips =
             new Dictionary<MathUtils.CardinalDirection, tk2dSpriteAnimationClip>();
 
         private readonly Dictionary<MathUtils.CardinalDirection, tk2dSpriteAnimationClip> _advanceAnimationClips =
