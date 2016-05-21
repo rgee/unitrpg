@@ -7,7 +7,7 @@ namespace Models.Fighting.Maps {
             get { return _occupant; }
             set {
                 if (Obstructed) {
-                    throw new ArgumentException("Cannot add an occupant to an obstructed tile.");
+                    throw new ArgumentException("Cannot add an occupant to an obstructed tile. Id: " + value.Id);
                 }
                 _occupant = value;
             }

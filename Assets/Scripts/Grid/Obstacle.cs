@@ -13,7 +13,18 @@ namespace Grid {
         public Rect GetMapSpaceRect(MapDimensions dimensions) {
             var worldSpaceWidth = Width*dimensions.TileSize;
             var worldSpaceHeight = Height*dimensions.TileSize;
-            var boundingOrigin = transform.position - new Vector3(worldSpaceWidth/2.0f, worldSpaceHeight/2.0f);
+
+            var snappedPosition =
+                dimensions.GetWorldPositionForGridPosition(dimensions.GetGridPositionForWorldPosition(transform.position));
+            if (Width%2 == 0) {
+                snappedPosition.x = snappedPosition.x + dimensions.TileSize / 2.0f;
+            }
+
+            if (Height%2 == 0) {
+                snappedPosition.y = snappedPosition.y + dimensions.TileSize/2.0f;
+            }
+
+            var boundingOrigin = snappedPosition - new Vector3(worldSpaceWidth/2.0f, worldSpaceHeight/2.0f);
 
             var gridSpaceOrigin = dimensions.GetGridPositionForWorldPosition(boundingOrigin);
 
