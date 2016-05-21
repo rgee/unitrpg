@@ -34,7 +34,7 @@ namespace Contexts.Battle.Views {
         private CombatantController _controller;
         private CombatantAnimator _animator;
 
-        void Awake() {
+        protected virtual void Awake() {
             base.Awake();
 
             _controller = GetComponent<CombatantController>();

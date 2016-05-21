@@ -16,7 +16,7 @@ namespace Contexts.Battle.Views.UniqueCombatants {
 
         private tk2dSpriteAnimator _animator;
 
-        new void Awake() {
+        protected override void Awake() {
             base.Awake();
             _animator = GetComponent<tk2dSpriteAnimator>();
             _windupAnimationClips[MathUtils.CardinalDirection.E] = FindClip("windup east");
@@ -26,8 +26,8 @@ namespace Contexts.Battle.Views.UniqueCombatants {
 
             _advanceAnimationClips[MathUtils.CardinalDirection.W] = FindClip("advance east");
             _advanceAnimationClips[MathUtils.CardinalDirection.E] = FindClip("advance east");
-            _advanceAnimationClips[MathUtils.CardinalDirection.S] = FindClip("advance south");
-            _advanceAnimationClips[MathUtils.CardinalDirection.N] = FindClip("advance north");
+            //_advanceAnimationClips[MathUtils.CardinalDirection.S] = FindClip("advance south");
+            //_advanceAnimationClips[MathUtils.CardinalDirection.N] = FindClip("advance north");
         }
 
         public tk2dSpriteAnimationClip FindClip(string clipName) {
