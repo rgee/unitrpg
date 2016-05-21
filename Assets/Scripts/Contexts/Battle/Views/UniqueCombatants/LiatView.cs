@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Contexts.Battle.Utilities;
 using DG.Tweening;
 using Models.Fighting;
 using Models.Fighting.Effects;
@@ -15,10 +16,13 @@ namespace Contexts.Battle.Views.UniqueCombatants {
             new Dictionary<MathUtils.CardinalDirection, tk2dSpriteAnimationClip>();
 
         private tk2dSpriteAnimator _animator;
+        private CombatantAnimator _combatantAnimator;    
+             
 
         protected override void Awake() {
             base.Awake();
             _animator = GetComponent<tk2dSpriteAnimator>();
+            _combatantAnimator = GetComponent<CombatantAnimator>();
             _windupAnimationClips[MathUtils.CardinalDirection.E] = FindClip("windup east");
             _windupAnimationClips[MathUtils.CardinalDirection.N] = FindClip("windup north");
             _windupAnimationClips[MathUtils.CardinalDirection.S] = FindClip("windup south");
@@ -43,6 +47,7 @@ namespace Contexts.Battle.Views.UniqueCombatants {
             var windupClip = _windupAnimationClips[Facing];
             var advanceClip = _advanceAnimationClips[Facing];
 
+            _combatantAnimator.enabled = false;
             yield return StartCoroutine(PlayClip(windupClip));
 
             var advanceClipDuration = ((1000/advanceClip.fps)*advanceClip.frames.Length/1000);
@@ -52,22 +57,13 @@ namespace Contexts.Battle.Views.UniqueCombatants {
                 .SetEase(Ease.OutCubic)
                 .Play();
             yield return StartCoroutine(PlayClip(advanceClip));
+            _combatantAnimator.enabled = true;
         }
 
         private IEnumerator PlayClip(tk2dSpriteAnimationClip clip) {
-            bool complete = false;
-
-            Action<tk2dSpriteAnimator, tk2dSpriteAnimationClip> onCompleteAction = null;
-            onCompleteAction = (animator, playedClip) => {
-                complete = true;
-                _animator.AnimationCompleted -= onCompleteAction;
-            };
-
-            _animator.AnimationCompleted += onCompleteAction;
             _animator.Play(clip);
-
-            while (!complete) {
-                yield return new WaitForEndOfFrame();
+            while (_animator.IsPlaying(clip)) {
+                yield return null;
             }
         }
     }

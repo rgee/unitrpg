@@ -32,17 +32,23 @@ namespace Contexts.Battle.Views {
         public Signal<WeaponHitConnection> AttackConnectedSignal = new Signal<WeaponHitConnection>();
 
         private CombatantController _controller;
+        private tk2dSprite _sprite;
         private CombatantAnimator _animator;
 
         protected virtual void Awake() {
             base.Awake();
 
+            _sprite = GetComponent<tk2dSprite>();
             _controller = GetComponent<CombatantController>();
             _animator = GetComponent<CombatantAnimator>();
 
             StrangeUtils.Bubble(_animator.DeathSignal, DeathSignal);
             StrangeUtils.Bubble(_animator.AttackCompleteSignal, AttackCompleteSignal);
             StrangeUtils.Bubble(_animator.DodgeCompleteSignal, DodgeCompleteSignal);
+        }
+
+        public void Update() {
+            UpdateFacingFlip();
         }
 
         public void PrepareForCombat(MathUtils.CardinalDirection direction) {
@@ -52,6 +58,11 @@ namespace Contexts.Battle.Views {
 
         public void ReturnToRest() {
             State = CombatantState.Idle;
+        }
+
+        protected void UpdateFacingFlip() {
+            var inCorrectState = State != CombatantState.Idle;
+            _sprite.FlipX = inCorrectState && Facing == MathUtils.CardinalDirection.W;
         }
 
         public IEnumerator Attack(ICombatant receiver, WeaponHitSeverity severity) {

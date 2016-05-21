@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using Contexts.Battle.Views;
 using Grid;
@@ -11,6 +12,12 @@ using Advance = Models.Fighting.Effects.Advance;
 
 namespace Combat {
     public class FightPhaseAnimator : MonoBehaviour {
+        private readonly HashSet<SkillType> _specialSkills = new HashSet<SkillType> {
+           SkillType.Kinesis,
+           SkillType.Knockback,
+           SkillType.Advance,
+           SkillType.Strafe 
+        };
 
         public IEnumerator Animate(FightPhase phase, CombatantView initiator, CombatantView receiver) {
             if (phase.Response == DefenderResponse.Dodge) {
@@ -19,8 +26,12 @@ namespace Combat {
 
             var severity = phase.Effects.Severity;
 
-            //yield return StartCoroutine(initiator.Attack(phase.Receiver, severity));
-            yield return StartCoroutine(initiator.SpecialAttack(phase.Receiver, receiver, severity));
+            if (_specialSkills.Contains(phase.Skill)) {
+                yield return StartCoroutine(initiator.SpecialAttack(phase.Receiver, receiver, severity));
+            } else {
+                yield return StartCoroutine(initiator.Attack(phase.Receiver, severity));
+            }
+
             if (phase.ReceverDies) {
                 receiver.Die();
             }

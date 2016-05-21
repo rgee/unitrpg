@@ -98,7 +98,6 @@ namespace Contexts.Battle.Utilities {
         }
 
         void Update() {
-            UpdateFacingFlip();
             switch (View.State) {
                 case CombatantState.Idle:
                     Animator.Play(_idleClip);
@@ -118,11 +117,6 @@ namespace Contexts.Battle.Utilities {
                 default:
                     throw new ArgumentOutOfRangeException();
             }
-        }
-
-        protected void UpdateFacingFlip() {
-            var inCorrectState = View.State != CombatantState.Idle;
-            _sprite.FlipX = inCorrectState && View.Facing == MathUtils.CardinalDirection.W;
         }
 
         protected void SetDodgeAnimation() {
