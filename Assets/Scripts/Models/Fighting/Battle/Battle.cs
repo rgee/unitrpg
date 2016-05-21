@@ -73,8 +73,13 @@ namespace Models.Fighting.Battle {
             return _combatantsById[id];
         }
 
-        public SkillType GetWeaponSkillForRange(int range) {
-            return range > 1 ? SkillType.Ranged : SkillType.Melee;
+        public SkillType GetWeaponSkillForRange(ICombatant attacker, int range) {
+            var weapons = attacker.EquippedWeapons;
+            if (weapons.Any(weapon => weapon.Range > 1)) {
+                return range > 1 ? SkillType.Ranged : SkillType.Melee;
+            }
+
+            return SkillType.Melee;
         }
 
         public int GetMaxWeaponAttackRange(ICombatant combatant) {

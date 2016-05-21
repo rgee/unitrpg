@@ -30,7 +30,7 @@ namespace Models.Fighting.Battle {
 
         int GetMaxWeaponAttackRange(ICombatant combatant);
 
-        SkillType GetWeaponSkillForRange(int range);
+        SkillType GetWeaponSkillForRange(ICombatant combatant, int range);
 
         List<IObjective> GetObjectives();
 
