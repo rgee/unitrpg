@@ -74,6 +74,10 @@ namespace Contexts.Battle.Views {
             State = CombatantState.CombatReady;
         }
 
+        public virtual IEnumerator SpecialAttack(ICombatant receiver, CombatantView receiverView, WeaponHitSeverity severity) {
+            throw new InvalidOperationException("Combatant: " + CombatantId + " has no special attack.");
+        }
+
         public IEnumerator Dodge() {
             var dodgeComplete = false;
             _animator.DodgeCompleteSignal.AddOnce(() => {

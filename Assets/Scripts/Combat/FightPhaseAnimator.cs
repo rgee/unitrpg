@@ -19,7 +19,8 @@ namespace Combat {
 
             var severity = phase.Effects.Severity;
 
-            yield return StartCoroutine(initiator.Attack(phase.Receiver, severity));
+            //yield return StartCoroutine(initiator.Attack(phase.Receiver, severity));
+            yield return StartCoroutine(initiator.SpecialAttack(phase.Receiver, receiver, severity));
             if (phase.ReceverDies) {
                 receiver.Die();
             }
