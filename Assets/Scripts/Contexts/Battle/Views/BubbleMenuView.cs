@@ -210,9 +210,11 @@ namespace Contexts.Battle.Views {
             foreach (var root in items) {
                 if (root.Name == name) {
                     return root;
-                }
-                else {
-                    return FindItemByName(root.Children, name);
+                } else {
+                    var recursiveResult = FindItemByName(root.Children, name);
+                    if (recursiveResult != null) {
+                        return recursiveResult;
+                    }
                 }
             }
 
@@ -224,6 +226,7 @@ namespace Contexts.Battle.Views {
                 _bubbles.Values
                 .Where(bubble => bubble.activeSelf && bubble.name != "Back")
                 .Select(bubble => bubble.transform);
+
             var bubbleGroups = bubbles.GroupBy(bubble => bubble.localPosition.y)
                 .OrderByDescending(group => group.Key)
                 .ToList();

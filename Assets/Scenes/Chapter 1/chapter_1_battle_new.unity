@@ -12768,7 +12768,8 @@ Prefab:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11486922, guid: 22f433fdaa4878843bfc59a22223a8e6, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 22f433fdaa4878843bfc59a22223a8e6, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &1220716724
@@ -17123,10 +17124,31 @@ MonoBehaviour:
     instance: {fileID: 1675490229}
   _inEditMode: 1
   serializedMeshPath: 
+--- !u!1 &1545131787 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 147862, guid: 22f433fdaa4878843bfc59a22223a8e6, type: 2}
+  m_PrefabInternal: {fileID: 1219495580}
 --- !u!4 &1545131788 stripped
 Transform:
   m_PrefabParentObject: {fileID: 421102, guid: 22f433fdaa4878843bfc59a22223a8e6, type: 2}
   m_PrefabInternal: {fileID: 1219495580}
+--- !u!114 &1545131789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1545131787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 830ca693728843746bdef1403305af12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CharacterName: Liat
+  CombatantId: liat
+  Army: 0
+  State: 0
+  Facing: 1
+  SecondsPerSquare: 0.3
 --- !u!1001 &1553503842
 Prefab:
   m_ObjectHideFlags: 0
