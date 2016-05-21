@@ -1,10 +1,7 @@
 ﻿using System.Collections.Generic;
-using Contexts.BattlePrep.Signals;
-using Grid;
 using Models.Combat;
 using strange.extensions.signal.impl;
 using Stateless;
-using UI.ActionMenu.Bubbles;
 
 namespace Contexts.Battle.Utilities {
     public class BubbleMenuUtils {

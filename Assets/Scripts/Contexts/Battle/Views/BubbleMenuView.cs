@@ -187,6 +187,7 @@ namespace Contexts.Battle.Views {
         }
 
         public void Hide() {
+            StopAllCoroutines();
             StartCoroutine(AnimateHide());
         }
 
