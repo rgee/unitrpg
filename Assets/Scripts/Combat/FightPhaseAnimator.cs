@@ -27,7 +27,7 @@ namespace Combat {
             var severity = phase.Effects.Severity;
 
             if (_specialSkills.Contains(phase.Skill)) {
-                yield return StartCoroutine(initiator.SpecialAttack(phase.Receiver, receiver, severity));
+                yield return StartCoroutine(initiator.SpecialAttack(phase, receiver, severity));
             } else {
                 yield return StartCoroutine(initiator.Attack(phase.Receiver, severity));
             }

@@ -7,6 +7,7 @@ using Contexts.Battle.Utilities;
 using Models.Fighting;
 using Models.Fighting.Characters;
 using Models.Fighting.Effects;
+using Models.Fighting.Execution;
 using strange.extensions.mediation.impl;
 using strange.extensions.signal.impl;
 using UnityEngine;
@@ -85,7 +86,7 @@ namespace Contexts.Battle.Views {
             State = CombatantState.CombatReady;
         }
 
-        public virtual IEnumerator SpecialAttack(ICombatant receiver, CombatantView receiverView, WeaponHitSeverity severity) {
+        public virtual IEnumerator SpecialAttack(FightPhase phase, CombatantView receiverView, WeaponHitSeverity severity) {
             throw new InvalidOperationException("Combatant: " + CombatantId + " has no special attack.");
         }
 

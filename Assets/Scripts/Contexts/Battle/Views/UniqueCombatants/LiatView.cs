@@ -5,6 +5,7 @@ using Contexts.Battle.Utilities;
 using DG.Tweening;
 using Models.Fighting;
 using Models.Fighting.Effects;
+using Models.Fighting.Execution;
 using UnityEngine;
 
 namespace Contexts.Battle.Views.UniqueCombatants {
@@ -13,6 +14,9 @@ namespace Contexts.Battle.Views.UniqueCombatants {
             new Dictionary<MathUtils.CardinalDirection, tk2dSpriteAnimationClip>();
 
         private readonly Dictionary<MathUtils.CardinalDirection, tk2dSpriteAnimationClip> _advanceAnimationClips =
+            new Dictionary<MathUtils.CardinalDirection, tk2dSpriteAnimationClip>();
+
+        private readonly Dictionary<MathUtils.CardinalDirection, tk2dSpriteAnimationClip> _farAdvanceAnimationClips =
             new Dictionary<MathUtils.CardinalDirection, tk2dSpriteAnimationClip>();
 
         private tk2dSpriteAnimator _spriteAnimator;
@@ -32,6 +36,11 @@ namespace Contexts.Battle.Views.UniqueCombatants {
             _advanceAnimationClips[MathUtils.CardinalDirection.E] = FindClip("advance east");
             _advanceAnimationClips[MathUtils.CardinalDirection.S] = FindClip("advance south");
             _advanceAnimationClips[MathUtils.CardinalDirection.N] = FindClip("advance north");
+
+            _farAdvanceAnimationClips[MathUtils.CardinalDirection.W] = FindClip("advance east long");
+            _farAdvanceAnimationClips[MathUtils.CardinalDirection.E] = FindClip("advance east long");
+            _farAdvanceAnimationClips[MathUtils.CardinalDirection.S] = FindClip("advance south long");
+            _farAdvanceAnimationClips[MathUtils.CardinalDirection.N] = FindClip("advance north long");
         }
 
         public tk2dSpriteAnimationClip FindClip(string clipName) {
@@ -43,8 +52,11 @@ namespace Contexts.Battle.Views.UniqueCombatants {
             return clip;
         }
 
-        public override IEnumerator SpecialAttack(ICombatant receiver, CombatantView receiverView, WeaponHitSeverity severity) {
-            var windupClip = _windupAnimationClips[Facing];
+        public override IEnumerator SpecialAttack(FightPhase phase, CombatantView receiverView, WeaponHitSeverity severity) {
+            var receiver = phase.Receiver;
+            var attacker = phase.Initiator;
+            var distance = MathUtils.ManhattanDistance(attacker.Position, receiver.Position);
+            var windupClip = distance > 1 ? _farAdvanceAnimationClips[Facing] : _windupAnimationClips[Facing];
             var advanceClip = _advanceAnimationClips[Facing];
 
             _combatantAnimator.enabled = false;
