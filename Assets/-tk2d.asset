@@ -440,21 +440,21 @@ MonoBehaviour:
     - attack_north/8
     - attack_north/9
     - attack_north/10
-    - advance_side/0
-    - advance_side/1
-    - advance_side/2
-    - advance_side/3
-    - advance_side/4
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
+    - advance_east/0
+    - advance_east/1
+    - advance_east/2
+    - advance_east/3
+    - advance_east/4
+    - advance_east_long/0
+    - advance_east_long/1
+    - advance_east_long/2
+    - advance_east_long/3
+    - advance_east_long/4
+    - advance_north/0
+    - advance_north/1
+    - advance_north/2
+    - advance_north/3
+    - advance_north/4
     - run_east/0
     - run_east/1
     - run_east/2
@@ -474,26 +474,26 @@ MonoBehaviour:
     - dodge_south/0
     - run_south/4
     - run_north/4
-    - 
+    - advance_north/5
     - run_south/5
     - run_north/5
-    - 
+    - advance_north/6
     - run_south/6
     - run_north/6
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
+    - advance_north/7
+    - advance_north/8
+    - advance_north/9
+    - advance_north_long/0
+    - advance_north_long/1
+    - advance_north_long/2
+    - advance_north_long/3
+    - advance_north_long/4
+    - advance_north_long/5
+    - advance_north_long/6
+    - advance_north_long/7
+    - advance_north_long/8
+    - advance_north_long/9
+    - advance_south/0
     - dodge_north/0
     - dodge_east/0
     - dodge_south/1
@@ -525,12 +525,25 @@ MonoBehaviour:
     - dodge_east/9
     - dodge_south/10
     - dodge_north/10
-    - 
+    - advance_south/1
     - dodge_south/11
     - dodge_north/11
-    - 
+    - advance_south/2
     - dodge_south/12
     - dodge_north/12
+    - advance_south/3
+    - advance_south/4
+    - advance_south/5
+    - advance_south/6
+    - advance_south/7
+    - advance_south_long/0
+    - advance_south_long/1
+    - advance_south_long/2
+    - advance_south_long/3
+    - advance_south_long/4
+    - advance_south_long/5
+    - advance_south_long/6
+    - advance_south_long/7
     spriteTextureGUIDs:
     - 8677093a5febd2b499c6b5f39a14459c
     - 8677093a5febd2b499c6b5f39a14459c
@@ -582,21 +595,21 @@ MonoBehaviour:
     - f61bbbd5f4ecb4a45aa22e7b64b762a3
     - f61bbbd5f4ecb4a45aa22e7b64b762a3
     - f61bbbd5f4ecb4a45aa22e7b64b762a3
-    - a2a46eea0d9d6416cb082c076c055651
-    - a2a46eea0d9d6416cb082c076c055651
-    - a2a46eea0d9d6416cb082c076c055651
-    - a2a46eea0d9d6416cb082c076c055651
-    - a2a46eea0d9d6416cb082c076c055651
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
+    - e93bf9d13e61177428d2161c5ed2eed4
+    - e93bf9d13e61177428d2161c5ed2eed4
+    - e93bf9d13e61177428d2161c5ed2eed4
+    - e93bf9d13e61177428d2161c5ed2eed4
+    - e93bf9d13e61177428d2161c5ed2eed4
+    - 067505bc8520d0b41affdaf6b0233e46
+    - 067505bc8520d0b41affdaf6b0233e46
+    - 067505bc8520d0b41affdaf6b0233e46
+    - 067505bc8520d0b41affdaf6b0233e46
+    - 067505bc8520d0b41affdaf6b0233e46
+    - 5b7026135d0594f448e68e304b3185bd
+    - 5b7026135d0594f448e68e304b3185bd
+    - 5b7026135d0594f448e68e304b3185bd
+    - 5b7026135d0594f448e68e304b3185bd
+    - 5b7026135d0594f448e68e304b3185bd
     - 9d2f16b13d18b824e9b003994fd0fe8e
     - 9d2f16b13d18b824e9b003994fd0fe8e
     - 9d2f16b13d18b824e9b003994fd0fe8e
@@ -616,26 +629,26 @@ MonoBehaviour:
     - ea3aa426c98b64443bea0ce85ca9251b
     - 3663b5a6ef45a41dbac324b7daa5044c
     - 3663b5a6ef45a41dbac324b7daa5044c
-    - 
+    - 5b7026135d0594f448e68e304b3185bd
     - 3663b5a6ef45a41dbac324b7daa5044c
     - 3663b5a6ef45a41dbac324b7daa5044c
-    - 
+    - 5b7026135d0594f448e68e304b3185bd
     - 3663b5a6ef45a41dbac324b7daa5044c
     - 3663b5a6ef45a41dbac324b7daa5044c
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
+    - 5b7026135d0594f448e68e304b3185bd
+    - 5b7026135d0594f448e68e304b3185bd
+    - 5b7026135d0594f448e68e304b3185bd
+    - 705e2b4e5c4d0d74fb416bb6a64b7359
+    - 705e2b4e5c4d0d74fb416bb6a64b7359
+    - 705e2b4e5c4d0d74fb416bb6a64b7359
+    - 705e2b4e5c4d0d74fb416bb6a64b7359
+    - 705e2b4e5c4d0d74fb416bb6a64b7359
+    - 705e2b4e5c4d0d74fb416bb6a64b7359
+    - 705e2b4e5c4d0d74fb416bb6a64b7359
+    - 705e2b4e5c4d0d74fb416bb6a64b7359
+    - 705e2b4e5c4d0d74fb416bb6a64b7359
+    - 705e2b4e5c4d0d74fb416bb6a64b7359
+    - 7baba42e726e9428abf0a6f4bed24cb0
     - ea3aa426c98b64443bea0ce85ca9251b
     - ea3aa426c98b64443bea0ce85ca9251b
     - ea3aa426c98b64443bea0ce85ca9251b
@@ -667,12 +680,25 @@ MonoBehaviour:
     - ea3aa426c98b64443bea0ce85ca9251b
     - ea3aa426c98b64443bea0ce85ca9251b
     - ea3aa426c98b64443bea0ce85ca9251b
-    - 
+    - 7baba42e726e9428abf0a6f4bed24cb0
     - ea3aa426c98b64443bea0ce85ca9251b
     - ea3aa426c98b64443bea0ce85ca9251b
-    - 
+    - 7baba42e726e9428abf0a6f4bed24cb0
     - ea3aa426c98b64443bea0ce85ca9251b
     - ea3aa426c98b64443bea0ce85ca9251b
+    - 7baba42e726e9428abf0a6f4bed24cb0
+    - 7baba42e726e9428abf0a6f4bed24cb0
+    - 7baba42e726e9428abf0a6f4bed24cb0
+    - 7baba42e726e9428abf0a6f4bed24cb0
+    - 7baba42e726e9428abf0a6f4bed24cb0
+    - 2ac59e26aed778344a065aeffce52588
+    - 2ac59e26aed778344a065aeffce52588
+    - 2ac59e26aed778344a065aeffce52588
+    - 2ac59e26aed778344a065aeffce52588
+    - 2ac59e26aed778344a065aeffce52588
+    - 2ac59e26aed778344a065aeffce52588
+    - 2ac59e26aed778344a065aeffce52588
+    - 2ac59e26aed778344a065aeffce52588
     spriteTextureTimeStamps:
     - 1462833991.69877
     - 1462833991.69877
@@ -724,21 +750,21 @@ MonoBehaviour:
     - 1462833991.61486
     - 1462833991.61486
     - 1462833991.61486
-    - 1463776707.00545
-    - 1463776707.00545
-    - 1463776707.00545
-    - 1463776707.00545
-    - 1463776707.00545
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
+    - 1463790175.92875
+    - 1463790175.92875
+    - 1463790175.92875
+    - 1463790175.92875
+    - 1463790175.92875
+    - 1463790175.82564
+    - 1463790175.82564
+    - 1463790175.82564
+    - 1463790175.82564
+    - 1463790175.82564
+    - 1463790176.02766
+    - 1463790176.02766
+    - 1463790176.02766
+    - 1463790176.02766
+    - 1463790176.02766
     - 1462833991.71178
     - 1462833991.71178
     - 1462833991.71178
@@ -758,26 +784,26 @@ MonoBehaviour:
     - 1462833991.69226
     - 1462833991.70377
     - 1462833991.70377
-    - 0
+    - 1463790176.02766
     - 1462833991.70377
     - 1462833991.70377
-    - 0
+    - 1463790176.02766
     - 1462833991.70377
     - 1462833991.70377
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
+    - 1463790176.02766
+    - 1463790176.02766
+    - 1463790176.02766
+    - 1463790175.79661
+    - 1463790175.79661
+    - 1463790175.79661
+    - 1463790175.79661
+    - 1463790175.79661
+    - 1463790175.79661
+    - 1463790175.79661
+    - 1463790175.79661
+    - 1463790175.79661
+    - 1463790175.79661
+    - 1463790175.81063
     - 1462833991.69226
     - 1462833991.69226
     - 1462833991.69226
@@ -809,12 +835,25 @@ MonoBehaviour:
     - 1462833991.69226
     - 1462833991.69226
     - 1462833991.69226
-    - 0
+    - 1463790175.81063
     - 1462833991.69226
     - 1462833991.69226
-    - 0
+    - 1463790175.81063
     - 1462833991.69226
     - 1462833991.69226
+    - 1463790175.81063
+    - 1463790175.81063
+    - 1463790175.81063
+    - 1463790175.81063
+    - 1463790175.81063
+    - 1463790175.7801
+    - 1463790175.7801
+    - 1463790175.7801
+    - 1463790175.7801
+    - 1463790175.7801
+    - 1463790175.7801
+    - 1463790175.7801
+    - 1463790175.7801
     managedSpriteCollection: 0
     loadable: 0
     assetName: 

@@ -168,12 +168,12 @@ MonoBehaviour:
     splitMethod: 0
     version: 1
     colliderType: 0
-  - texture: {fileID: 2800000, guid: a2a46eea0d9d6416cb082c076c055651, type: 3}
+  - texture: {fileID: 2800000, guid: e93bf9d13e61177428d2161c5ed2eed4, type: 3}
     tilesX: 0
     tilesY: 0
     numTiles: 0
     anchor: 4
-    pad: 1
+    pad: 0
     scale: {x: 1, y: 1, z: 1}
     additive: 0
     active: 1
@@ -186,17 +186,17 @@ MonoBehaviour:
     splitMethod: 0
     version: 1
     colliderType: 0
-  - texture: {fileID: 2800000, guid: a2a46eea0d9d6416cb082c076c055651, type: 3}
+  - texture: {fileID: 2800000, guid: 067505bc8520d0b41affdaf6b0233e46, type: 3}
     tilesX: 0
     tilesY: 0
     numTiles: 0
     anchor: 4
-    pad: 1
+    pad: 0
     scale: {x: 1, y: 1, z: 1}
     additive: 0
     active: 1
-    tileWidth: 90
-    tileHeight: 90
+    tileWidth: 110
+    tileHeight: 110
     tileMarginX: 0
     tileMarginY: 0
     tileSpacingX: 0
@@ -330,6 +330,78 @@ MonoBehaviour:
     splitMethod: 0
     version: 1
     colliderType: 0
+  - texture: {fileID: 2800000, guid: 5b7026135d0594f448e68e304b3185bd, type: 3}
+    tilesX: 0
+    tilesY: 0
+    numTiles: 0
+    anchor: 4
+    pad: 0
+    scale: {x: 1, y: 1, z: 1}
+    additive: 0
+    active: 1
+    tileWidth: 80
+    tileHeight: 80
+    tileMarginX: 0
+    tileMarginY: 0
+    tileSpacingX: 0
+    tileSpacingY: 0
+    splitMethod: 0
+    version: 1
+    colliderType: 0
+  - texture: {fileID: 2800000, guid: 705e2b4e5c4d0d74fb416bb6a64b7359, type: 3}
+    tilesX: 0
+    tilesY: 0
+    numTiles: 0
+    anchor: 4
+    pad: 0
+    scale: {x: 1, y: 1, z: 1}
+    additive: 0
+    active: 1
+    tileWidth: 110
+    tileHeight: 110
+    tileMarginX: 0
+    tileMarginY: 0
+    tileSpacingX: 0
+    tileSpacingY: 0
+    splitMethod: 0
+    version: 1
+    colliderType: 0
+  - texture: {fileID: 2800000, guid: 7baba42e726e9428abf0a6f4bed24cb0, type: 3}
+    tilesX: 0
+    tilesY: 0
+    numTiles: 0
+    anchor: 4
+    pad: 0
+    scale: {x: 1, y: 1, z: 1}
+    additive: 0
+    active: 1
+    tileWidth: 90
+    tileHeight: 90
+    tileMarginX: 0
+    tileMarginY: 0
+    tileSpacingX: 0
+    tileSpacingY: 0
+    splitMethod: 0
+    version: 1
+    colliderType: 0
+  - texture: {fileID: 2800000, guid: 2ac59e26aed778344a065aeffce52588, type: 3}
+    tilesX: 0
+    tilesY: 0
+    numTiles: 0
+    anchor: 4
+    pad: 0
+    scale: {x: 1, y: 1, z: 1}
+    additive: 0
+    active: 1
+    tileWidth: 115
+    tileHeight: 115
+    tileMarginX: 0
+    tileMarginY: 0
+    tileSpacingX: 0
+    tileSpacingY: 0
+    splitMethod: 0
+    version: 1
+    colliderType: 0
   fonts: []
   defaults:
     additive: 0
@@ -349,10 +421,10 @@ MonoBehaviour:
   forcedTextureWidth: 2048
   forcedTextureHeight: 2048
   textureCompression: 0
-  atlasWidth: 256
+  atlasWidth: 512
   atlasHeight: 512
   forceSquareAtlas: 0
-  atlasWastage: 28.354645
+  atlasWastage: 51.25084
   allowMultipleAtlases: 0
   removeDuplicates: 1
   textureParams:
@@ -2412,15 +2484,15 @@ MonoBehaviour:
     colliderSmoothSphereCollisions: 0
     colliderColor: 0
     attachPoints: []
-  - name: advance_side/0
+  - name: advance_east/0
     disableTrimming: 0
     additive: 0
     scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 2800000, guid: a2a46eea0d9d6416cb082c076c055651, type: 3}
+    texture: {fileID: 2800000, guid: e93bf9d13e61177428d2161c5ed2eed4, type: 3}
     materialId: 0
-    anchor: 9
-    anchorX: 41
-    anchorY: 74
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
     overrideMesh: {fileID: 0}
     doubleSidedSprite: 0
     customSpriteGeometry: 0
@@ -2429,7 +2501,7 @@ MonoBehaviour:
     diceUnitX: 64
     diceUnitY: 64
     diceFilter: 0
-    pad: 1
+    pad: 0
     extraPadding: 0
     source: 0
     fromSpriteSheet: 0
@@ -2453,15 +2525,15 @@ MonoBehaviour:
     colliderSmoothSphereCollisions: 0
     colliderColor: 0
     attachPoints: []
-  - name: advance_side/1
+  - name: advance_east/1
     disableTrimming: 0
     additive: 0
     scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 2800000, guid: a2a46eea0d9d6416cb082c076c055651, type: 3}
+    texture: {fileID: 2800000, guid: e93bf9d13e61177428d2161c5ed2eed4, type: 3}
     materialId: 0
-    anchor: 9
-    anchorX: 41
-    anchorY: 74
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
     overrideMesh: {fileID: 0}
     doubleSidedSprite: 0
     customSpriteGeometry: 0
@@ -2470,7 +2542,7 @@ MonoBehaviour:
     diceUnitX: 64
     diceUnitY: 64
     diceFilter: 0
-    pad: 1
+    pad: 0
     extraPadding: 0
     source: 0
     fromSpriteSheet: 0
@@ -2494,15 +2566,15 @@ MonoBehaviour:
     colliderSmoothSphereCollisions: 0
     colliderColor: 0
     attachPoints: []
-  - name: advance_side/2
+  - name: advance_east/2
     disableTrimming: 0
     additive: 0
     scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 2800000, guid: a2a46eea0d9d6416cb082c076c055651, type: 3}
+    texture: {fileID: 2800000, guid: e93bf9d13e61177428d2161c5ed2eed4, type: 3}
     materialId: 0
-    anchor: 9
-    anchorX: 41
-    anchorY: 74
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
     overrideMesh: {fileID: 0}
     doubleSidedSprite: 0
     customSpriteGeometry: 0
@@ -2511,7 +2583,7 @@ MonoBehaviour:
     diceUnitX: 64
     diceUnitY: 64
     diceFilter: 0
-    pad: 1
+    pad: 0
     extraPadding: 0
     source: 0
     fromSpriteSheet: 0
@@ -2535,15 +2607,15 @@ MonoBehaviour:
     colliderSmoothSphereCollisions: 0
     colliderColor: 0
     attachPoints: []
-  - name: advance_side/3
+  - name: advance_east/3
     disableTrimming: 0
     additive: 0
     scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 2800000, guid: a2a46eea0d9d6416cb082c076c055651, type: 3}
+    texture: {fileID: 2800000, guid: e93bf9d13e61177428d2161c5ed2eed4, type: 3}
     materialId: 0
-    anchor: 9
-    anchorX: 41
-    anchorY: 74
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
     overrideMesh: {fileID: 0}
     doubleSidedSprite: 0
     customSpriteGeometry: 0
@@ -2552,7 +2624,7 @@ MonoBehaviour:
     diceUnitX: 64
     diceUnitY: 64
     diceFilter: 0
-    pad: 1
+    pad: 0
     extraPadding: 0
     source: 0
     fromSpriteSheet: 0
@@ -2576,15 +2648,15 @@ MonoBehaviour:
     colliderSmoothSphereCollisions: 0
     colliderColor: 0
     attachPoints: []
-  - name: advance_side/4
+  - name: advance_east/4
     disableTrimming: 0
     additive: 0
     scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 2800000, guid: a2a46eea0d9d6416cb082c076c055651, type: 3}
+    texture: {fileID: 2800000, guid: e93bf9d13e61177428d2161c5ed2eed4, type: 3}
     materialId: 0
-    anchor: 9
-    anchorX: 41
-    anchorY: 74
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
     overrideMesh: {fileID: 0}
     doubleSidedSprite: 0
     customSpriteGeometry: 0
@@ -2593,7 +2665,7 @@ MonoBehaviour:
     diceUnitX: 64
     diceUnitY: 64
     diceFilter: 0
-    pad: 1
+    pad: 0
     extraPadding: 0
     source: 0
     fromSpriteSheet: 0
@@ -2617,11 +2689,11 @@ MonoBehaviour:
     colliderSmoothSphereCollisions: 0
     colliderColor: 0
     attachPoints: []
-  - name: 
+  - name: advance_east_long/0
     disableTrimming: 0
     additive: 0
     scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 0}
+    texture: {fileID: 2800000, guid: 067505bc8520d0b41affdaf6b0233e46, type: 3}
     materialId: 0
     anchor: 4
     anchorX: 0
@@ -2638,15 +2710,15 @@ MonoBehaviour:
     extraPadding: 0
     source: 0
     fromSpriteSheet: 0
-    hasSpriteSheetId: 0
-    spriteSheetId: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 8
     spriteSheetX: 0
     spriteSheetY: 0
-    extractRegion: 0
+    extractRegion: 1
     regionX: 0
-    regionY: 0
-    regionW: 0
-    regionH: 0
+    regionY: 440
+    regionW: 110
+    regionH: 110
     regionId: 0
     colliderType: 0
     colliderData: []
@@ -2658,11 +2730,11 @@ MonoBehaviour:
     colliderSmoothSphereCollisions: 0
     colliderColor: 0
     attachPoints: []
-  - name: 
+  - name: advance_east_long/1
     disableTrimming: 0
     additive: 0
     scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 0}
+    texture: {fileID: 2800000, guid: 067505bc8520d0b41affdaf6b0233e46, type: 3}
     materialId: 0
     anchor: 4
     anchorX: 0
@@ -2679,15 +2751,179 @@ MonoBehaviour:
     extraPadding: 0
     source: 0
     fromSpriteSheet: 0
-    hasSpriteSheetId: 0
-    spriteSheetId: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 8
     spriteSheetX: 0
-    spriteSheetY: 0
-    extractRegion: 0
+    spriteSheetY: 1
+    extractRegion: 1
+    regionX: 0
+    regionY: 330
+    regionW: 110
+    regionH: 110
+    regionId: 1
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: advance_east_long/2
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 067505bc8520d0b41affdaf6b0233e46, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 0
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 8
+    spriteSheetX: 0
+    spriteSheetY: 2
+    extractRegion: 1
+    regionX: 0
+    regionY: 220
+    regionW: 110
+    regionH: 110
+    regionId: 2
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: advance_east_long/3
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 067505bc8520d0b41affdaf6b0233e46, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 0
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 8
+    spriteSheetX: 0
+    spriteSheetY: 3
+    extractRegion: 1
+    regionX: 0
+    regionY: 110
+    regionW: 110
+    regionH: 110
+    regionId: 3
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: advance_east_long/4
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 067505bc8520d0b41affdaf6b0233e46, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 0
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 8
+    spriteSheetX: 0
+    spriteSheetY: 4
+    extractRegion: 1
     regionX: 0
     regionY: 0
-    regionW: 0
-    regionH: 0
+    regionW: 110
+    regionH: 110
+    regionId: 4
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: advance_north/0
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 5b7026135d0594f448e68e304b3185bd, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 0
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 16
+    spriteSheetX: 0
+    spriteSheetY: 0
+    extractRegion: 1
+    regionX: 0
+    regionY: 720
+    regionW: 80
+    regionH: 80
     regionId: 0
     colliderType: 0
     colliderData: []
@@ -2699,11 +2935,11 @@ MonoBehaviour:
     colliderSmoothSphereCollisions: 0
     colliderColor: 0
     attachPoints: []
-  - name: 
+  - name: advance_north/1
     disableTrimming: 0
     additive: 0
     scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 0}
+    texture: {fileID: 2800000, guid: 5b7026135d0594f448e68e304b3185bd, type: 3}
     materialId: 0
     anchor: 4
     anchorX: 0
@@ -2720,16 +2956,16 @@ MonoBehaviour:
     extraPadding: 0
     source: 0
     fromSpriteSheet: 0
-    hasSpriteSheetId: 0
-    spriteSheetId: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 16
     spriteSheetX: 0
-    spriteSheetY: 0
-    extractRegion: 0
+    spriteSheetY: 1
+    extractRegion: 1
     regionX: 0
-    regionY: 0
-    regionW: 0
-    regionH: 0
-    regionId: 0
+    regionY: 640
+    regionW: 80
+    regionH: 80
+    regionId: 1
     colliderType: 0
     colliderData: []
     boxColliderMin: {x: 0, y: 0}
@@ -2740,11 +2976,11 @@ MonoBehaviour:
     colliderSmoothSphereCollisions: 0
     colliderColor: 0
     attachPoints: []
-  - name: 
+  - name: advance_north/2
     disableTrimming: 0
     additive: 0
     scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 0}
+    texture: {fileID: 2800000, guid: 5b7026135d0594f448e68e304b3185bd, type: 3}
     materialId: 0
     anchor: 4
     anchorX: 0
@@ -2761,16 +2997,16 @@ MonoBehaviour:
     extraPadding: 0
     source: 0
     fromSpriteSheet: 0
-    hasSpriteSheetId: 0
-    spriteSheetId: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 16
     spriteSheetX: 0
-    spriteSheetY: 0
-    extractRegion: 0
+    spriteSheetY: 2
+    extractRegion: 1
     regionX: 0
-    regionY: 0
-    regionW: 0
-    regionH: 0
-    regionId: 0
+    regionY: 560
+    regionW: 80
+    regionH: 80
+    regionId: 2
     colliderType: 0
     colliderData: []
     boxColliderMin: {x: 0, y: 0}
@@ -2781,11 +3017,11 @@ MonoBehaviour:
     colliderSmoothSphereCollisions: 0
     colliderColor: 0
     attachPoints: []
-  - name: 
+  - name: advance_north/3
     disableTrimming: 0
     additive: 0
     scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 0}
+    texture: {fileID: 2800000, guid: 5b7026135d0594f448e68e304b3185bd, type: 3}
     materialId: 0
     anchor: 4
     anchorX: 0
@@ -2802,16 +3038,16 @@ MonoBehaviour:
     extraPadding: 0
     source: 0
     fromSpriteSheet: 0
-    hasSpriteSheetId: 0
-    spriteSheetId: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 16
     spriteSheetX: 0
-    spriteSheetY: 0
-    extractRegion: 0
+    spriteSheetY: 3
+    extractRegion: 1
     regionX: 0
-    regionY: 0
-    regionW: 0
-    regionH: 0
-    regionId: 0
+    regionY: 480
+    regionW: 80
+    regionH: 80
+    regionId: 3
     colliderType: 0
     colliderData: []
     boxColliderMin: {x: 0, y: 0}
@@ -2822,11 +3058,11 @@ MonoBehaviour:
     colliderSmoothSphereCollisions: 0
     colliderColor: 0
     attachPoints: []
-  - name: 
+  - name: advance_north/4
     disableTrimming: 0
     additive: 0
     scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 0}
+    texture: {fileID: 2800000, guid: 5b7026135d0594f448e68e304b3185bd, type: 3}
     materialId: 0
     anchor: 4
     anchorX: 0
@@ -2843,180 +3079,16 @@ MonoBehaviour:
     extraPadding: 0
     source: 0
     fromSpriteSheet: 0
-    hasSpriteSheetId: 0
-    spriteSheetId: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 16
     spriteSheetX: 0
-    spriteSheetY: 0
-    extractRegion: 0
+    spriteSheetY: 4
+    extractRegion: 1
     regionX: 0
-    regionY: 0
-    regionW: 0
-    regionH: 0
-    regionId: 0
-    colliderType: 0
-    colliderData: []
-    boxColliderMin: {x: 0, y: 0}
-    boxColliderMax: {x: 0, y: 0}
-    polyColliderIslands: []
-    polyColliderCap: 1
-    colliderConvex: 0
-    colliderSmoothSphereCollisions: 0
-    colliderColor: 0
-    attachPoints: []
-  - name: 
-    disableTrimming: 0
-    additive: 0
-    scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 0}
-    materialId: 0
-    anchor: 4
-    anchorX: 0
-    anchorY: 0
-    overrideMesh: {fileID: 0}
-    doubleSidedSprite: 0
-    customSpriteGeometry: 0
-    geometryIslands: []
-    dice: 0
-    diceUnitX: 64
-    diceUnitY: 64
-    diceFilter: 0
-    pad: 0
-    extraPadding: 0
-    source: 0
-    fromSpriteSheet: 0
-    hasSpriteSheetId: 0
-    spriteSheetId: 0
-    spriteSheetX: 0
-    spriteSheetY: 0
-    extractRegion: 0
-    regionX: 0
-    regionY: 0
-    regionW: 0
-    regionH: 0
-    regionId: 0
-    colliderType: 0
-    colliderData: []
-    boxColliderMin: {x: 0, y: 0}
-    boxColliderMax: {x: 0, y: 0}
-    polyColliderIslands: []
-    polyColliderCap: 1
-    colliderConvex: 0
-    colliderSmoothSphereCollisions: 0
-    colliderColor: 0
-    attachPoints: []
-  - name: 
-    disableTrimming: 0
-    additive: 0
-    scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 0}
-    materialId: 0
-    anchor: 4
-    anchorX: 0
-    anchorY: 0
-    overrideMesh: {fileID: 0}
-    doubleSidedSprite: 0
-    customSpriteGeometry: 0
-    geometryIslands: []
-    dice: 0
-    diceUnitX: 64
-    diceUnitY: 64
-    diceFilter: 0
-    pad: 0
-    extraPadding: 0
-    source: 0
-    fromSpriteSheet: 0
-    hasSpriteSheetId: 0
-    spriteSheetId: 0
-    spriteSheetX: 0
-    spriteSheetY: 0
-    extractRegion: 0
-    regionX: 0
-    regionY: 0
-    regionW: 0
-    regionH: 0
-    regionId: 0
-    colliderType: 0
-    colliderData: []
-    boxColliderMin: {x: 0, y: 0}
-    boxColliderMax: {x: 0, y: 0}
-    polyColliderIslands: []
-    polyColliderCap: 1
-    colliderConvex: 0
-    colliderSmoothSphereCollisions: 0
-    colliderColor: 0
-    attachPoints: []
-  - name: 
-    disableTrimming: 0
-    additive: 0
-    scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 0}
-    materialId: 0
-    anchor: 4
-    anchorX: 0
-    anchorY: 0
-    overrideMesh: {fileID: 0}
-    doubleSidedSprite: 0
-    customSpriteGeometry: 0
-    geometryIslands: []
-    dice: 0
-    diceUnitX: 64
-    diceUnitY: 64
-    diceFilter: 0
-    pad: 0
-    extraPadding: 0
-    source: 0
-    fromSpriteSheet: 0
-    hasSpriteSheetId: 0
-    spriteSheetId: 0
-    spriteSheetX: 0
-    spriteSheetY: 0
-    extractRegion: 0
-    regionX: 0
-    regionY: 0
-    regionW: 0
-    regionH: 0
-    regionId: 0
-    colliderType: 0
-    colliderData: []
-    boxColliderMin: {x: 0, y: 0}
-    boxColliderMax: {x: 0, y: 0}
-    polyColliderIslands: []
-    polyColliderCap: 1
-    colliderConvex: 0
-    colliderSmoothSphereCollisions: 0
-    colliderColor: 0
-    attachPoints: []
-  - name: 
-    disableTrimming: 0
-    additive: 0
-    scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 0}
-    materialId: 0
-    anchor: 4
-    anchorX: 0
-    anchorY: 0
-    overrideMesh: {fileID: 0}
-    doubleSidedSprite: 0
-    customSpriteGeometry: 0
-    geometryIslands: []
-    dice: 0
-    diceUnitX: 64
-    diceUnitY: 64
-    diceFilter: 0
-    pad: 0
-    extraPadding: 0
-    source: 0
-    fromSpriteSheet: 0
-    hasSpriteSheetId: 0
-    spriteSheetId: 0
-    spriteSheetX: 0
-    spriteSheetY: 0
-    extractRegion: 0
-    regionX: 0
-    regionY: 0
-    regionW: 0
-    regionH: 0
-    regionId: 0
+    regionY: 400
+    regionW: 80
+    regionH: 80
+    regionId: 4
     colliderType: 0
     colliderData: []
     boxColliderMin: {x: 0, y: 0}
@@ -3806,11 +3878,11 @@ MonoBehaviour:
     colliderSmoothSphereCollisions: 0
     colliderColor: 0
     attachPoints: []
-  - name: 
+  - name: advance_north/5
     disableTrimming: 0
     additive: 0
     scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 0}
+    texture: {fileID: 2800000, guid: 5b7026135d0594f448e68e304b3185bd, type: 3}
     materialId: 0
     anchor: 4
     anchorX: 0
@@ -3827,16 +3899,16 @@ MonoBehaviour:
     extraPadding: 0
     source: 0
     fromSpriteSheet: 0
-    hasSpriteSheetId: 0
-    spriteSheetId: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 16
     spriteSheetX: 0
-    spriteSheetY: 0
-    extractRegion: 0
+    spriteSheetY: 5
+    extractRegion: 1
     regionX: 0
-    regionY: 0
-    regionW: 0
-    regionH: 0
-    regionId: 0
+    regionY: 320
+    regionW: 80
+    regionH: 80
+    regionId: 5
     colliderType: 0
     colliderData: []
     boxColliderMin: {x: 0, y: 0}
@@ -3929,11 +4001,11 @@ MonoBehaviour:
     colliderSmoothSphereCollisions: 0
     colliderColor: 0
     attachPoints: []
-  - name: 
+  - name: advance_north/6
     disableTrimming: 0
     additive: 0
     scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 0}
+    texture: {fileID: 2800000, guid: 5b7026135d0594f448e68e304b3185bd, type: 3}
     materialId: 0
     anchor: 4
     anchorX: 0
@@ -3950,16 +4022,16 @@ MonoBehaviour:
     extraPadding: 0
     source: 0
     fromSpriteSheet: 0
-    hasSpriteSheetId: 0
-    spriteSheetId: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 16
     spriteSheetX: 0
-    spriteSheetY: 0
-    extractRegion: 0
+    spriteSheetY: 6
+    extractRegion: 1
     regionX: 0
-    regionY: 0
-    regionW: 0
-    regionH: 0
-    regionId: 0
+    regionY: 240
+    regionW: 80
+    regionH: 80
+    regionId: 6
     colliderType: 0
     colliderData: []
     boxColliderMin: {x: 0, y: 0}
@@ -4052,11 +4124,11 @@ MonoBehaviour:
     colliderSmoothSphereCollisions: 0
     colliderColor: 0
     attachPoints: []
-  - name: 
+  - name: advance_north/7
     disableTrimming: 0
     additive: 0
     scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 0}
+    texture: {fileID: 2800000, guid: 5b7026135d0594f448e68e304b3185bd, type: 3}
     materialId: 0
     anchor: 4
     anchorX: 0
@@ -4073,15 +4145,138 @@ MonoBehaviour:
     extraPadding: 0
     source: 0
     fromSpriteSheet: 0
-    hasSpriteSheetId: 0
-    spriteSheetId: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 16
     spriteSheetX: 0
-    spriteSheetY: 0
-    extractRegion: 0
+    spriteSheetY: 7
+    extractRegion: 1
+    regionX: 0
+    regionY: 160
+    regionW: 80
+    regionH: 80
+    regionId: 7
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: advance_north/8
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 5b7026135d0594f448e68e304b3185bd, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 0
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 16
+    spriteSheetX: 0
+    spriteSheetY: 8
+    extractRegion: 1
+    regionX: 0
+    regionY: 80
+    regionW: 80
+    regionH: 80
+    regionId: 8
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: advance_north/9
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 5b7026135d0594f448e68e304b3185bd, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 0
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 16
+    spriteSheetX: 0
+    spriteSheetY: 9
+    extractRegion: 1
     regionX: 0
     regionY: 0
-    regionW: 0
-    regionH: 0
+    regionW: 80
+    regionH: 80
+    regionId: 9
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: advance_north_long/0
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 705e2b4e5c4d0d74fb416bb6a64b7359, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 0
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 17
+    spriteSheetX: 0
+    spriteSheetY: 0
+    extractRegion: 1
+    regionX: 0
+    regionY: 990
+    regionW: 110
+    regionH: 110
     regionId: 0
     colliderType: 0
     colliderData: []
@@ -4093,11 +4288,11 @@ MonoBehaviour:
     colliderSmoothSphereCollisions: 0
     colliderColor: 0
     attachPoints: []
-  - name: 
+  - name: advance_north_long/1
     disableTrimming: 0
     additive: 0
     scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 0}
+    texture: {fileID: 2800000, guid: 705e2b4e5c4d0d74fb416bb6a64b7359, type: 3}
     materialId: 0
     anchor: 4
     anchorX: 0
@@ -4114,16 +4309,16 @@ MonoBehaviour:
     extraPadding: 0
     source: 0
     fromSpriteSheet: 0
-    hasSpriteSheetId: 0
-    spriteSheetId: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 17
     spriteSheetX: 0
-    spriteSheetY: 0
-    extractRegion: 0
+    spriteSheetY: 1
+    extractRegion: 1
     regionX: 0
-    regionY: 0
-    regionW: 0
-    regionH: 0
-    regionId: 0
+    regionY: 880
+    regionW: 110
+    regionH: 110
+    regionId: 1
     colliderType: 0
     colliderData: []
     boxColliderMin: {x: 0, y: 0}
@@ -4134,11 +4329,11 @@ MonoBehaviour:
     colliderSmoothSphereCollisions: 0
     colliderColor: 0
     attachPoints: []
-  - name: 
+  - name: advance_north_long/2
     disableTrimming: 0
     additive: 0
     scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 0}
+    texture: {fileID: 2800000, guid: 705e2b4e5c4d0d74fb416bb6a64b7359, type: 3}
     materialId: 0
     anchor: 4
     anchorX: 0
@@ -4155,16 +4350,16 @@ MonoBehaviour:
     extraPadding: 0
     source: 0
     fromSpriteSheet: 0
-    hasSpriteSheetId: 0
-    spriteSheetId: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 17
     spriteSheetX: 0
-    spriteSheetY: 0
-    extractRegion: 0
+    spriteSheetY: 2
+    extractRegion: 1
     regionX: 0
-    regionY: 0
-    regionW: 0
-    regionH: 0
-    regionId: 0
+    regionY: 770
+    regionW: 110
+    regionH: 110
+    regionId: 2
     colliderType: 0
     colliderData: []
     boxColliderMin: {x: 0, y: 0}
@@ -4175,11 +4370,11 @@ MonoBehaviour:
     colliderSmoothSphereCollisions: 0
     colliderColor: 0
     attachPoints: []
-  - name: 
+  - name: advance_north_long/3
     disableTrimming: 0
     additive: 0
     scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 0}
+    texture: {fileID: 2800000, guid: 705e2b4e5c4d0d74fb416bb6a64b7359, type: 3}
     materialId: 0
     anchor: 4
     anchorX: 0
@@ -4196,16 +4391,16 @@ MonoBehaviour:
     extraPadding: 0
     source: 0
     fromSpriteSheet: 0
-    hasSpriteSheetId: 0
-    spriteSheetId: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 17
     spriteSheetX: 0
-    spriteSheetY: 0
-    extractRegion: 0
+    spriteSheetY: 3
+    extractRegion: 1
     regionX: 0
-    regionY: 0
-    regionW: 0
-    regionH: 0
-    regionId: 0
+    regionY: 660
+    regionW: 110
+    regionH: 110
+    regionId: 3
     colliderType: 0
     colliderData: []
     boxColliderMin: {x: 0, y: 0}
@@ -4216,11 +4411,11 @@ MonoBehaviour:
     colliderSmoothSphereCollisions: 0
     colliderColor: 0
     attachPoints: []
-  - name: 
+  - name: advance_north_long/4
     disableTrimming: 0
     additive: 0
     scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 0}
+    texture: {fileID: 2800000, guid: 705e2b4e5c4d0d74fb416bb6a64b7359, type: 3}
     materialId: 0
     anchor: 4
     anchorX: 0
@@ -4237,16 +4432,16 @@ MonoBehaviour:
     extraPadding: 0
     source: 0
     fromSpriteSheet: 0
-    hasSpriteSheetId: 0
-    spriteSheetId: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 17
     spriteSheetX: 0
-    spriteSheetY: 0
-    extractRegion: 0
+    spriteSheetY: 4
+    extractRegion: 1
     regionX: 0
-    regionY: 0
-    regionW: 0
-    regionH: 0
-    regionId: 0
+    regionY: 550
+    regionW: 110
+    regionH: 110
+    regionId: 4
     colliderType: 0
     colliderData: []
     boxColliderMin: {x: 0, y: 0}
@@ -4257,11 +4452,11 @@ MonoBehaviour:
     colliderSmoothSphereCollisions: 0
     colliderColor: 0
     attachPoints: []
-  - name: 
+  - name: advance_north_long/5
     disableTrimming: 0
     additive: 0
     scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 0}
+    texture: {fileID: 2800000, guid: 705e2b4e5c4d0d74fb416bb6a64b7359, type: 3}
     materialId: 0
     anchor: 4
     anchorX: 0
@@ -4278,16 +4473,16 @@ MonoBehaviour:
     extraPadding: 0
     source: 0
     fromSpriteSheet: 0
-    hasSpriteSheetId: 0
-    spriteSheetId: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 17
     spriteSheetX: 0
-    spriteSheetY: 0
-    extractRegion: 0
+    spriteSheetY: 5
+    extractRegion: 1
     regionX: 0
-    regionY: 0
-    regionW: 0
-    regionH: 0
-    regionId: 0
+    regionY: 440
+    regionW: 110
+    regionH: 110
+    regionId: 5
     colliderType: 0
     colliderData: []
     boxColliderMin: {x: 0, y: 0}
@@ -4298,11 +4493,11 @@ MonoBehaviour:
     colliderSmoothSphereCollisions: 0
     colliderColor: 0
     attachPoints: []
-  - name: 
+  - name: advance_north_long/6
     disableTrimming: 0
     additive: 0
     scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 0}
+    texture: {fileID: 2800000, guid: 705e2b4e5c4d0d74fb416bb6a64b7359, type: 3}
     materialId: 0
     anchor: 4
     anchorX: 0
@@ -4319,16 +4514,16 @@ MonoBehaviour:
     extraPadding: 0
     source: 0
     fromSpriteSheet: 0
-    hasSpriteSheetId: 0
-    spriteSheetId: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 17
     spriteSheetX: 0
-    spriteSheetY: 0
-    extractRegion: 0
+    spriteSheetY: 6
+    extractRegion: 1
     regionX: 0
-    regionY: 0
-    regionW: 0
-    regionH: 0
-    regionId: 0
+    regionY: 330
+    regionW: 110
+    regionH: 110
+    regionId: 6
     colliderType: 0
     colliderData: []
     boxColliderMin: {x: 0, y: 0}
@@ -4339,11 +4534,11 @@ MonoBehaviour:
     colliderSmoothSphereCollisions: 0
     colliderColor: 0
     attachPoints: []
-  - name: 
+  - name: advance_north_long/7
     disableTrimming: 0
     additive: 0
     scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 0}
+    texture: {fileID: 2800000, guid: 705e2b4e5c4d0d74fb416bb6a64b7359, type: 3}
     materialId: 0
     anchor: 4
     anchorX: 0
@@ -4360,16 +4555,16 @@ MonoBehaviour:
     extraPadding: 0
     source: 0
     fromSpriteSheet: 0
-    hasSpriteSheetId: 0
-    spriteSheetId: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 17
     spriteSheetX: 0
-    spriteSheetY: 0
-    extractRegion: 0
+    spriteSheetY: 7
+    extractRegion: 1
     regionX: 0
-    regionY: 0
-    regionW: 0
-    regionH: 0
-    regionId: 0
+    regionY: 220
+    regionW: 110
+    regionH: 110
+    regionId: 7
     colliderType: 0
     colliderData: []
     boxColliderMin: {x: 0, y: 0}
@@ -4380,11 +4575,11 @@ MonoBehaviour:
     colliderSmoothSphereCollisions: 0
     colliderColor: 0
     attachPoints: []
-  - name: 
+  - name: advance_north_long/8
     disableTrimming: 0
     additive: 0
     scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 0}
+    texture: {fileID: 2800000, guid: 705e2b4e5c4d0d74fb416bb6a64b7359, type: 3}
     materialId: 0
     anchor: 4
     anchorX: 0
@@ -4401,16 +4596,16 @@ MonoBehaviour:
     extraPadding: 0
     source: 0
     fromSpriteSheet: 0
-    hasSpriteSheetId: 0
-    spriteSheetId: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 17
     spriteSheetX: 0
-    spriteSheetY: 0
-    extractRegion: 0
+    spriteSheetY: 8
+    extractRegion: 1
     regionX: 0
-    regionY: 0
-    regionW: 0
-    regionH: 0
-    regionId: 0
+    regionY: 110
+    regionW: 110
+    regionH: 110
+    regionId: 8
     colliderType: 0
     colliderData: []
     boxColliderMin: {x: 0, y: 0}
@@ -4421,11 +4616,11 @@ MonoBehaviour:
     colliderSmoothSphereCollisions: 0
     colliderColor: 0
     attachPoints: []
-  - name: 
+  - name: advance_north_long/9
     disableTrimming: 0
     additive: 0
     scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 0}
+    texture: {fileID: 2800000, guid: 705e2b4e5c4d0d74fb416bb6a64b7359, type: 3}
     materialId: 0
     anchor: 4
     anchorX: 0
@@ -4442,16 +4637,16 @@ MonoBehaviour:
     extraPadding: 0
     source: 0
     fromSpriteSheet: 0
-    hasSpriteSheetId: 0
-    spriteSheetId: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 17
     spriteSheetX: 0
-    spriteSheetY: 0
-    extractRegion: 0
+    spriteSheetY: 9
+    extractRegion: 1
     regionX: 0
     regionY: 0
-    regionW: 0
-    regionH: 0
-    regionId: 0
+    regionW: 110
+    regionH: 110
+    regionId: 9
     colliderType: 0
     colliderData: []
     boxColliderMin: {x: 0, y: 0}
@@ -4462,11 +4657,11 @@ MonoBehaviour:
     colliderSmoothSphereCollisions: 0
     colliderColor: 0
     attachPoints: []
-  - name: 
+  - name: advance_south/0
     disableTrimming: 0
     additive: 0
     scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 0}
+    texture: {fileID: 2800000, guid: 7baba42e726e9428abf0a6f4bed24cb0, type: 3}
     materialId: 0
     anchor: 4
     anchorX: 0
@@ -4483,138 +4678,15 @@ MonoBehaviour:
     extraPadding: 0
     source: 0
     fromSpriteSheet: 0
-    hasSpriteSheetId: 0
-    spriteSheetId: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 18
     spriteSheetX: 0
     spriteSheetY: 0
-    extractRegion: 0
+    extractRegion: 1
     regionX: 0
-    regionY: 0
-    regionW: 0
-    regionH: 0
-    regionId: 0
-    colliderType: 0
-    colliderData: []
-    boxColliderMin: {x: 0, y: 0}
-    boxColliderMax: {x: 0, y: 0}
-    polyColliderIslands: []
-    polyColliderCap: 1
-    colliderConvex: 0
-    colliderSmoothSphereCollisions: 0
-    colliderColor: 0
-    attachPoints: []
-  - name: 
-    disableTrimming: 0
-    additive: 0
-    scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 0}
-    materialId: 0
-    anchor: 4
-    anchorX: 0
-    anchorY: 0
-    overrideMesh: {fileID: 0}
-    doubleSidedSprite: 0
-    customSpriteGeometry: 0
-    geometryIslands: []
-    dice: 0
-    diceUnitX: 64
-    diceUnitY: 64
-    diceFilter: 0
-    pad: 0
-    extraPadding: 0
-    source: 0
-    fromSpriteSheet: 0
-    hasSpriteSheetId: 0
-    spriteSheetId: 0
-    spriteSheetX: 0
-    spriteSheetY: 0
-    extractRegion: 0
-    regionX: 0
-    regionY: 0
-    regionW: 0
-    regionH: 0
-    regionId: 0
-    colliderType: 0
-    colliderData: []
-    boxColliderMin: {x: 0, y: 0}
-    boxColliderMax: {x: 0, y: 0}
-    polyColliderIslands: []
-    polyColliderCap: 1
-    colliderConvex: 0
-    colliderSmoothSphereCollisions: 0
-    colliderColor: 0
-    attachPoints: []
-  - name: 
-    disableTrimming: 0
-    additive: 0
-    scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 0}
-    materialId: 0
-    anchor: 4
-    anchorX: 0
-    anchorY: 0
-    overrideMesh: {fileID: 0}
-    doubleSidedSprite: 0
-    customSpriteGeometry: 0
-    geometryIslands: []
-    dice: 0
-    diceUnitX: 64
-    diceUnitY: 64
-    diceFilter: 0
-    pad: 0
-    extraPadding: 0
-    source: 0
-    fromSpriteSheet: 0
-    hasSpriteSheetId: 0
-    spriteSheetId: 0
-    spriteSheetX: 0
-    spriteSheetY: 0
-    extractRegion: 0
-    regionX: 0
-    regionY: 0
-    regionW: 0
-    regionH: 0
-    regionId: 0
-    colliderType: 0
-    colliderData: []
-    boxColliderMin: {x: 0, y: 0}
-    boxColliderMax: {x: 0, y: 0}
-    polyColliderIslands: []
-    polyColliderCap: 1
-    colliderConvex: 0
-    colliderSmoothSphereCollisions: 0
-    colliderColor: 0
-    attachPoints: []
-  - name: 
-    disableTrimming: 0
-    additive: 0
-    scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 0}
-    materialId: 0
-    anchor: 4
-    anchorX: 0
-    anchorY: 0
-    overrideMesh: {fileID: 0}
-    doubleSidedSprite: 0
-    customSpriteGeometry: 0
-    geometryIslands: []
-    dice: 0
-    diceUnitX: 64
-    diceUnitY: 64
-    diceFilter: 0
-    pad: 0
-    extraPadding: 0
-    source: 0
-    fromSpriteSheet: 0
-    hasSpriteSheetId: 0
-    spriteSheetId: 0
-    spriteSheetX: 0
-    spriteSheetY: 0
-    extractRegion: 0
-    regionX: 0
-    regionY: 0
-    regionW: 0
-    regionH: 0
+    regionY: 630
+    regionW: 90
+    regionH: 90
     regionId: 0
     colliderType: 0
     colliderData: []
@@ -5897,11 +5969,11 @@ MonoBehaviour:
     colliderSmoothSphereCollisions: 0
     colliderColor: 0
     attachPoints: []
-  - name: 
+  - name: advance_south/1
     disableTrimming: 0
     additive: 0
     scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 0}
+    texture: {fileID: 2800000, guid: 7baba42e726e9428abf0a6f4bed24cb0, type: 3}
     materialId: 0
     anchor: 4
     anchorX: 0
@@ -5918,16 +5990,16 @@ MonoBehaviour:
     extraPadding: 0
     source: 0
     fromSpriteSheet: 0
-    hasSpriteSheetId: 0
-    spriteSheetId: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 18
     spriteSheetX: 0
-    spriteSheetY: 0
-    extractRegion: 0
+    spriteSheetY: 1
+    extractRegion: 1
     regionX: 0
-    regionY: 0
-    regionW: 0
-    regionH: 0
-    regionId: 0
+    regionY: 540
+    regionW: 90
+    regionH: 90
+    regionId: 1
     colliderType: 0
     colliderData: []
     boxColliderMin: {x: 0, y: 0}
@@ -6020,11 +6092,11 @@ MonoBehaviour:
     colliderSmoothSphereCollisions: 0
     colliderColor: 0
     attachPoints: []
-  - name: 
+  - name: advance_south/2
     disableTrimming: 0
     additive: 0
     scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 0}
+    texture: {fileID: 2800000, guid: 7baba42e726e9428abf0a6f4bed24cb0, type: 3}
     materialId: 0
     anchor: 4
     anchorX: 0
@@ -6041,16 +6113,16 @@ MonoBehaviour:
     extraPadding: 0
     source: 0
     fromSpriteSheet: 0
-    hasSpriteSheetId: 0
-    spriteSheetId: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 18
     spriteSheetX: 0
-    spriteSheetY: 0
-    extractRegion: 0
+    spriteSheetY: 2
+    extractRegion: 1
     regionX: 0
-    regionY: 0
-    regionW: 0
-    regionH: 0
-    regionId: 0
+    regionY: 450
+    regionW: 90
+    regionH: 90
+    regionId: 2
     colliderType: 0
     colliderData: []
     boxColliderMin: {x: 0, y: 0}
@@ -6133,6 +6205,539 @@ MonoBehaviour:
     regionW: 50
     regionH: 50
     regionId: 37
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: advance_south/3
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 7baba42e726e9428abf0a6f4bed24cb0, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 0
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 18
+    spriteSheetX: 0
+    spriteSheetY: 3
+    extractRegion: 1
+    regionX: 0
+    regionY: 360
+    regionW: 90
+    regionH: 90
+    regionId: 3
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: advance_south/4
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 7baba42e726e9428abf0a6f4bed24cb0, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 0
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 18
+    spriteSheetX: 0
+    spriteSheetY: 4
+    extractRegion: 1
+    regionX: 0
+    regionY: 270
+    regionW: 90
+    regionH: 90
+    regionId: 4
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: advance_south/5
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 7baba42e726e9428abf0a6f4bed24cb0, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 0
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 18
+    spriteSheetX: 0
+    spriteSheetY: 5
+    extractRegion: 1
+    regionX: 0
+    regionY: 180
+    regionW: 90
+    regionH: 90
+    regionId: 5
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: advance_south/6
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 7baba42e726e9428abf0a6f4bed24cb0, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 0
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 18
+    spriteSheetX: 0
+    spriteSheetY: 6
+    extractRegion: 1
+    regionX: 0
+    regionY: 90
+    regionW: 90
+    regionH: 90
+    regionId: 6
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: advance_south/7
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 7baba42e726e9428abf0a6f4bed24cb0, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 0
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 18
+    spriteSheetX: 0
+    spriteSheetY: 7
+    extractRegion: 1
+    regionX: 0
+    regionY: 0
+    regionW: 90
+    regionH: 90
+    regionId: 7
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: advance_south_long/0
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 2ac59e26aed778344a065aeffce52588, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 0
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 19
+    spriteSheetX: 0
+    spriteSheetY: 0
+    extractRegion: 1
+    regionX: 0
+    regionY: 805
+    regionW: 115
+    regionH: 115
+    regionId: 0
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: advance_south_long/1
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 2ac59e26aed778344a065aeffce52588, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 0
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 19
+    spriteSheetX: 0
+    spriteSheetY: 1
+    extractRegion: 1
+    regionX: 0
+    regionY: 690
+    regionW: 115
+    regionH: 115
+    regionId: 1
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: advance_south_long/2
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 2ac59e26aed778344a065aeffce52588, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 0
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 19
+    spriteSheetX: 0
+    spriteSheetY: 2
+    extractRegion: 1
+    regionX: 0
+    regionY: 575
+    regionW: 115
+    regionH: 115
+    regionId: 2
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: advance_south_long/3
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 2ac59e26aed778344a065aeffce52588, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 0
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 19
+    spriteSheetX: 0
+    spriteSheetY: 3
+    extractRegion: 1
+    regionX: 0
+    regionY: 460
+    regionW: 115
+    regionH: 115
+    regionId: 3
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: advance_south_long/4
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 2ac59e26aed778344a065aeffce52588, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 0
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 19
+    spriteSheetX: 0
+    spriteSheetY: 4
+    extractRegion: 1
+    regionX: 0
+    regionY: 345
+    regionW: 115
+    regionH: 115
+    regionId: 4
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: advance_south_long/5
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 2ac59e26aed778344a065aeffce52588, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 0
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 19
+    spriteSheetX: 0
+    spriteSheetY: 5
+    extractRegion: 1
+    regionX: 0
+    regionY: 230
+    regionW: 115
+    regionH: 115
+    regionId: 5
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: advance_south_long/6
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 2ac59e26aed778344a065aeffce52588, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 0
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 19
+    spriteSheetX: 0
+    spriteSheetY: 6
+    extractRegion: 1
+    regionX: 0
+    regionY: 115
+    regionW: 115
+    regionH: 115
+    regionId: 6
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: advance_south_long/7
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 2ac59e26aed778344a065aeffce52588, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 0
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 1
+    spriteSheetId: 19
+    spriteSheetX: 0
+    spriteSheetY: 7
+    extractRegion: 1
+    regionX: 0
+    regionY: 0
+    regionW: 115
+    regionH: 115
+    regionId: 7
     colliderType: 0
     colliderData: []
     boxColliderMin: {x: 0, y: 0}

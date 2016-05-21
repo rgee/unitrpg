@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 7baba42e726e9428abf0a6f4bed24cb0
-timeCreated: 1428121960
+timeCreated: 1463815714
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -25,9 +25,9 @@ TextureImporter:
   bumpmap:
     convertToNormalMap: 0
     externalNormalMap: 0
-    heightScale: .25
+    heightScale: 0.25
     normalMapFilter: 0
-  isReadable: 0
+  isReadable: 1
   grayScaleToAlpha: 0
   generateCubemap: 0
   cubemapConvolution: 0
@@ -35,7 +35,7 @@ TextureImporter:
   cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
   textureFormat: -3
-  maxTextureSize: 1024
+  maxTextureSize: 8192
   textureSettings:
     filterMode: 0
     aniso: 16
@@ -45,15 +45,16 @@ TextureImporter:
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
+  allowsAlphaSplitting: 0
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
-  spritePivot: {x: .5, y: .5}
+  spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 1
   alphaIsTransparency: 1
-  textureType: 8
+  textureType: 5
   buildTargetSettings: []
   spriteSheet:
     sprites:
@@ -67,6 +68,17 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 11, y: 42}
+        - {x: 9, y: 42}
+        - {x: -10, y: 25}
+        - {x: -11, y: 16}
+        - {x: -11, y: 1}
+        - {x: -9, y: 0}
+        - {x: -3, y: 0}
+        - {x: 9, y: 7}
+        - {x: 13, y: 21}
+        - {x: 13, y: 40}
     - name: advance_south_1
       rect:
         serializedVersion: 2
@@ -77,6 +89,29 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 12, y: 31}
+        - {x: 12, y: 27}
+        - {x: 12, y: 29}
+        - {x: 5, y: 35}
+        - {x: 3, y: 35}
+        - {x: 2, y: 32}
+        - {x: 5, y: 25}
+        - {x: -2, y: 24}
+        - {x: -3, y: 21}
+        - {x: -4, y: 8}
+        - {x: 0, y: 0}
+        - {x: -2, y: 4}
+        - {x: -5, y: 7}
+        - {x: -8, y: 7}
+        - {x: -33, y: -8}
+        - {x: -35, y: -11}
+        - {x: -35, y: -13}
+        - {x: -25, y: -23}
+        - {x: -20, y: -29}
+        - {x: 12, y: -29}
+        - {x: 21, y: -27}
+        - {x: 21, y: 34}
     - name: advance_south_2
       rect:
         serializedVersion: 2
@@ -87,6 +122,14 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10, y: 3}
+        - {x: -23, y: -15}
+        - {x: -23, y: -28}
+        - {x: -20, y: -31}
+        - {x: 7, y: -31}
+        - {x: 7, y: -4}
+        - {x: -1, y: 3}
     - name: advance_south_3
       rect:
         serializedVersion: 2
@@ -97,6 +140,20 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -12, y: -35}
+        - {x: -9, y: -34}
+        - {x: -9, y: -31}
+        - {x: -12, y: -30}
+        - {x: -14, y: -32}
+      - - {x: -8, y: 3}
+        - {x: -13, y: -7}
+        - {x: -13, y: -28}
+        - {x: -8, y: -35}
+        - {x: 10, y: -35}
+        - {x: 10, y: -15}
+        - {x: 8, y: -6}
+        - {x: -2, y: 3}
     - name: advance_south_4
       rect:
         serializedVersion: 2
@@ -107,6 +164,35 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 8, y: -41}
+        - {x: 11, y: -40}
+        - {x: 11, y: -37}
+        - {x: 8, y: -36}
+        - {x: 6, y: -38}
+      - - {x: -11, y: -40}
+        - {x: -8, y: -39}
+        - {x: -8, y: -36}
+        - {x: -11, y: -35}
+        - {x: -13, y: -37}
+      - - {x: -2, y: -39}
+        - {x: 1, y: -38}
+        - {x: 1, y: -35}
+        - {x: -2, y: -34}
+        - {x: -4, y: -36}
+      - - {x: 8, y: -33}
+        - {x: 11, y: -32}
+        - {x: 11, y: -29}
+        - {x: 8, y: -28}
+        - {x: 6, y: -30}
+      - - {x: -13, y: -9}
+        - {x: -13, y: -32}
+        - {x: 18, y: -32}
+        - {x: 18, y: -19}
+        - {x: 1, y: 2}
+        - {x: -2, y: 4}
+        - {x: -6, y: 4}
+        - {x: -12, y: 3}
     - name: advance_south_5
       rect:
         serializedVersion: 2
@@ -117,6 +203,14 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10, y: 6}
+        - {x: -12, y: -4}
+        - {x: -12, y: -32}
+        - {x: 7, y: -32}
+        - {x: 17, y: -23}
+        - {x: 17, y: -11}
+        - {x: 6, y: 6}
     - name: advance_south_6
       rect:
         serializedVersion: 2
@@ -127,6 +221,14 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 3, y: 10}
+        - {x: -5, y: 6}
+        - {x: -11, y: -1}
+        - {x: -11, y: -32}
+        - {x: 10, y: -32}
+        - {x: 15, y: -15}
+        - {x: 15, y: 10}
     - name: advance_south_7
       rect:
         serializedVersion: 2
@@ -137,6 +239,15 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 5, y: 8}
+        - {x: -11, y: 8}
+        - {x: -11, y: -32}
+        - {x: 11, y: -32}
+        - {x: 12, y: -28}
+        - {x: 12, y: -5}
+        - {x: 8, y: 6}
+    outline: []
   spritePackingTag: liat
   userData: 
   assetBundleName: 
