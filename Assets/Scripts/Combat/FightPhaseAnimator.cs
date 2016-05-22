@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Contexts.Battle.Utilities;
 using Contexts.Battle.Views;
 using Grid;
 using Models.Fighting.Effects;
@@ -19,7 +20,7 @@ namespace Combat {
            SkillType.Strafe 
         };
 
-        public IEnumerator Animate(FightPhase phase, CombatantView initiator, CombatantView receiver) {
+        public IEnumerator Animate(FightPhase phase, CombatantView initiator, CombatantView receiver, MapDimensions dimensions) {
             if (phase.Response == DefenderResponse.Dodge) {
                 StartCoroutine(receiver.Dodge());
             }
@@ -27,7 +28,7 @@ namespace Combat {
             var severity = phase.Effects.Severity;
 
             if (_specialSkills.Contains(phase.Skill)) {
-                yield return StartCoroutine(initiator.SpecialAttack(phase, receiver, severity));
+                yield return StartCoroutine(initiator.SpecialAttack(phase, dimensions, receiver, severity));
             } else {
                 yield return StartCoroutine(initiator.Attack(phase.Receiver, severity));
             }

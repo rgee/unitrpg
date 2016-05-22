@@ -171,7 +171,7 @@ namespace Contexts.Battle.Views {
             var initiator = FindCombatantViewById(phase.Initiator.Id);
             var receiver = FindCombatantViewById(phase.Receiver.Id);
 
-            yield return _phaseAnimator.Animate(phase, initiator, receiver);
+            yield return _phaseAnimator.Animate(phase, initiator, receiver, GetDimensions());
         }
 
         void OnDrawGizmos() {

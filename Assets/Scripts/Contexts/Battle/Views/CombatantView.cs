@@ -86,7 +86,7 @@ namespace Contexts.Battle.Views {
             State = CombatantState.CombatReady;
         }
 
-        public virtual IEnumerator SpecialAttack(FightPhase phase, CombatantView receiverView, WeaponHitSeverity severity) {
+        public virtual IEnumerator SpecialAttack(FightPhase phase, MapDimensions dimensions, CombatantView receiverView, WeaponHitSeverity severity) {
             throw new InvalidOperationException("Combatant: " + CombatantId + " has no special attack.");
         }
 

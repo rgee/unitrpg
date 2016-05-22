@@ -53,7 +53,7 @@ namespace Contexts.Battle.Views.UniqueCombatants {
             return clip;
         }
 
-        public override IEnumerator SpecialAttack(FightPhase phase, CombatantView receiverView, WeaponHitSeverity severity) {
+        public override IEnumerator SpecialAttack(FightPhase phase, MapDimensions dimensions, CombatantView receiverView, WeaponHitSeverity severity) {
 
             var receiver = phase.Receiver;
             var didAdvance = phase.Effects.ReceiverEffects.OfType<Advance>().Any();
