@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using Models.Fighting.Characters;
 using Models.Fighting.Maps;
 using Models.Fighting.Skills;
 
@@ -23,7 +24,7 @@ namespace Models.Fighting.Execution {
                 var flankerDistance = MathUtils.ManhattanDistance(defender.Position, flankerPosition);
 
                 var flanker = _map.GetAtPosition(flankerPosition);
-                if (flanker != null) {
+                if (flanker != null && flanker.Army == ArmyType.Friendly) {
                     var flankerStrategy = ChooseStrategyByDistance(flanker, flankerDistance);
                     flankForecast = flankerStrategy.Forecast(flanker, defender);
                 }
