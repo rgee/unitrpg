@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Models.Fighting.Skills;
 
 namespace Models.Fighting.Characters {
     public class BaseCharacterDatabase : CharacterDatabase {
@@ -12,6 +13,7 @@ namespace Models.Fighting.Characters {
                 .Id("liat")
                 .Name("Liat")
                 .Stats(new StatsBuilder().Leadership().Build())
+                .Special(SkillType.Advance)
                 .Attributes(new AttributesBuilder()
                     .Move(5)
                     .Health(15)
@@ -27,6 +29,7 @@ namespace Models.Fighting.Characters {
             Add(new CharacterBuilder()
                 .Id("janek")
                 .Name("Janek")
+                .Special(SkillType.Knockback)
                 .Attributes(new AttributesBuilder()
                     .Move(5)
                     .Health(15)

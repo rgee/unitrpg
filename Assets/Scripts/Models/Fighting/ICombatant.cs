@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Models.Fighting.Buffs;
 using Models.Fighting.Characters;
 using Models.Fighting.Equip;
+using Models.Fighting.Skills;
 using UnityEngine;
 
 namespace Models.Fighting {
@@ -23,5 +24,6 @@ namespace Models.Fighting {
         void AddTemporaryBuff(IBuff temporaryBuff);
         void RemoveTemporaryBuff(IBuff temporaryBuff);
         ArmyType Army { get; set; }
+        SkillType? SpecialSkill { get; set; }
     }
 }

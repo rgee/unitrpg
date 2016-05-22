@@ -4,6 +4,7 @@ using System.Linq;
 using Models.Fighting.Buffs;
 using Models.Fighting.Characters;
 using Models.Fighting.Equip;
+using Models.Fighting.Skills;
 using UnityEngine;
 
 namespace Models.Fighting {
@@ -28,6 +29,8 @@ namespace Models.Fighting {
 
         public ArmyType Army { get; set; }
 
+        public SkillType? SpecialSkill { get; set; }
+
         private readonly ICharacter _character;
 
         public BaseCombatant(ICharacter character, ArmyType army) {
@@ -35,6 +38,7 @@ namespace Models.Fighting {
             _character = character;
             Army = army;
             Name = character.Name;
+            SpecialSkill = character.SpecialSkill;
 
             Health = character.Attributes.First(attr => attr.Type == Attribute.AttributeType.Health).Value;
             EquippedWeapons = character.Weapons

@@ -36,7 +36,7 @@ namespace Contexts.Battle.Views {
             { 5, new List<float> { 0f, 75f, -75f, 135f, -135f } },
         };
 
-        private Stack<string> path = new Stack<string>();
+        private Stack<string> _path = new Stack<string>();
 
         private Dictionary<string, GameObject> _bubbles = new Dictionary<string, GameObject>();
 
@@ -267,11 +267,11 @@ namespace Contexts.Battle.Views {
 
         private void ShowLevel(StateMachine<string, string>.Transition transition) {
             var level = transition.Destination;
-            if (path.Count > 0 && transition.Source == path.Peek()) {
+            if (_path.Count > 0 && transition.Source == _path.Peek()) {
 
-                var lastParent = path.Pop();
+                var lastParent = _path.Pop();
                 var parent = FindItemByName(_config, lastParent);
-                var isTopLevel = path.Count <= 0;
+                var isTopLevel = _path.Count <= 0;
                 var topLevelBubbles = GetGameObjectsForBubbles(isTopLevel ? _config : parent.Children);
                 var activeBubblesExceptBack = _bubbles.Values
                     .Where(bubble => bubble.activeSelf && bubble.name != "Back")
@@ -304,7 +304,7 @@ namespace Contexts.Battle.Views {
 
                 StartCoroutine(HideActiveExceptBack());
                 StartCoroutine(FlyToPositions(points, sortedBubbles));
-                path.Push(level);
+                _path.Push(level);
             }
         }
 

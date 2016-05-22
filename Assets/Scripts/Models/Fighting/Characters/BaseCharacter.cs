@@ -20,10 +20,11 @@ namespace Models.Fighting.Characters {
         public HashSet<Stat> Stats { get; set; }
         public HashSet<string> Weapons { get; set; }
         public HashSet<SkillType> Skills { get; set; }
+        public SkillType? SpecialSkill { get; set; }
 
         public BaseCharacter(string id, string name, int level, int experience,
             HashSet<string> inventory, HashSet<Attribute> attributes, HashSet<Growth> growths, 
-            HashSet<Stat> stats, HashSet<string> weapons, HashSet<SkillType> skills) {
+            HashSet<Stat> stats, HashSet<string> weapons, HashSet<SkillType> skills, SkillType? specialSkill) {
             Id = id;
             Level = level;
             Name = name;
@@ -34,6 +35,7 @@ namespace Models.Fighting.Characters {
             Stats = stats;
             Weapons = weapons;
             Skills = skills;
+            SpecialSkill = specialSkill;
         }
 
         public void AddExp(int amount) {

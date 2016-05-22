@@ -16,6 +16,8 @@ namespace Models.Fighting.Characters {
 
         bool CanLevel();
 
+        SkillType? SpecialSkill { get; set; }
+
         void LevelUp(IRandomizer randomizer);
 
         HashSet<Attribute> Attributes { get; set; }

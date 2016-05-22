@@ -44,6 +44,8 @@ namespace Contexts.Battle.Models {
 
         public MapDimensions Dimensions { get; set; }
 
+        public bool SpecialAttack { get; set; }
+
         public void ResetUnitState() {
             CurrentMovementPath = null;
             SelectedCombatant = null;

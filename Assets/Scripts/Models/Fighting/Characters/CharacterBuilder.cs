@@ -14,7 +14,13 @@ namespace Models.Fighting.Characters {
         private HashSet<string> _weapons = new HashSet<string>();
         private HashSet<SkillType> _skills = new HashSet<SkillType>(); 
         private HashSet<Growth> _growths = new HashSet<Growth>();
-        private HashSet<string> _inventory = new HashSet<string>(); 
+        private HashSet<string> _inventory = new HashSet<string>();
+        private SkillType? SpecialSkill;
+
+        public CharacterBuilder Special(SkillType type) {
+            SpecialSkill = type;
+            return this;
+        }
 
         public CharacterBuilder Name(string name) {
             _name = name;

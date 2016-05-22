@@ -15,7 +15,8 @@ namespace Contexts.Battle.Commands {
             if (ActionType == CombatActionType.Attack) {
                 Model.State = BattleUIState.SelectingAttackTarget;
             } else if (ActionType == CombatActionType.Speical) {
-                // TODO: Determine special skill type
+                Model.SpecialAttack = true;
+                Model.State = BattleUIState.SelectingAttackTarget;
             } else if (ActionType == CombatActionType.Move) {
                 Model.State = BattleUIState.SelectingMoveLocation;
             } else if (ActionType == CombatActionType.Fight) { 

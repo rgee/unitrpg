@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Contexts.Battle.Models;
 using Contexts.Battle.Signals;
@@ -71,7 +72,17 @@ namespace Contexts.Battle.Commands {
                     var selectedUnitPosition = attacker.Position;
                     var distanceToTarget = MathUtils.ManhattanDistance(selectedUnitPosition, Position);
                     var map = BattleViewModel.Map;
-                    var skill = battle.GetWeaponSkillForRange(attacker, distanceToTarget);
+
+                    SkillType skill;
+                    if (BattleViewModel.SpecialAttack) {
+                        if (!attacker.SpecialSkill.HasValue) {
+                            throw new ArgumentException("Combatant " + attacker.Id + " has no special skill configured.");
+                        }
+                        skill = attacker.SpecialSkill.Value;
+                    } else {
+                        skill = battle.GetWeaponSkillForRange(attacker, distanceToTarget);
+                    }
+
                     var skillDatabase = new SkillDatabase(map);
                     var forecaster = new FightForecaster(map, skillDatabase);
                     var fight = forecaster.Forecast(BattleViewModel.SelectedCombatant, combatant, skill);
@@ -99,6 +110,10 @@ namespace Contexts.Battle.Commands {
                 if (attackableUnits.Any()) {
                     results.Add(CombatActionType.Attack);
                     results.Add(CombatActionType.Brace);
+
+                    if (combatant.SpecialSkill.HasValue) {
+                        results.Add(CombatActionType.Speical);
+                    }
                 }
 
                 var friendlyUnits = attackableSquares
