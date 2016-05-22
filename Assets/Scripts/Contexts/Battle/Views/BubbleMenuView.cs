@@ -19,6 +19,7 @@ namespace Contexts.Battle.Views {
         public Signal DismissSignal = new Signal();
         public Signal<string> ItemSelectedSignal = new Signal<string>();
 
+        private bool _hidden = true;
         private const float ShowStaggerStepSeconds = 0.1f;
         private const float TransitionDurationSeconds = 0.3f;
         private readonly Vector2 _basisVector = new Vector2(0, 1);
@@ -40,6 +41,7 @@ namespace Contexts.Battle.Views {
         private Dictionary<string, GameObject> _bubbles = new Dictionary<string, GameObject>();
 
         public void Show(HashSet<BubbleMenuItem> config) {
+            _hidden = false;
             _config = config;
             _stateMachine = BubbleMenuUtils.CreateStateMachine(config);
             _stateMachine.SelectSignal.AddListener(Select);
@@ -187,6 +189,11 @@ namespace Contexts.Battle.Views {
         }
 
         public void Hide() {
+            if (_hidden) {
+                return;
+            }
+
+            _hidden = true;
             StopAllCoroutines();
             StartCoroutine(AnimateHide());
         }
