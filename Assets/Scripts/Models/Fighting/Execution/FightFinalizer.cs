@@ -1,4 +1,6 @@
-﻿using Models.Fighting.Skills;
+﻿using System.Linq;
+using Models.Fighting.Effects;
+using Models.Fighting.Skills;
 
 namespace Models.Fighting.Execution {
     public class FightFinalizer {
@@ -14,11 +16,14 @@ namespace Models.Fighting.Execution {
             var firstPhase = ComputePhase(forecast.AttackerForecast, randomizer);
             builder.Initial(firstPhase);
 
+
             var receiverDamageTally = new DamageTallyer(firstPhase.Receiver);
             ApplyDamageFromPhase(firstPhase, receiverDamageTally);
+            var receiverEffects = firstPhase.Effects.ReceiverEffects;
+            var shouldSuppressCounter = receiverEffects.OfType<SuppressCounter>().Any();
 
             // The receiver survived the first hit
-            if (!receiverDamageTally.IsDead()) {
+            if (!receiverDamageTally.IsDead() && !shouldSuppressCounter) {
                 // It's possible there is no flanker
                 if (forecast.FlankerForecast != null) {
                     var flankPhase = ComputePhase(forecast.FlankerForecast, randomizer);

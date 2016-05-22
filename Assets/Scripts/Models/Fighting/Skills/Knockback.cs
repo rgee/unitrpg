@@ -30,9 +30,16 @@ namespace Models.Fighting.Skills {
             var attacker = forecast.Attacker;
             var defender = forecast.Defender;
 
+            // Knockback doesn't take effect if you miss
             if (!baseEffects.ReceiverEffects.OfType<Miss>().Any()) {
                 var direction = MathUtils.DirectionTo(attacker.Position, defender.Position);
-                baseEffects.ReceiverEffects.Add(new Shove(direction, _map));
+                var destination = MathUtils.GetAdjacentPoint(defender.Position, direction);
+
+                // Knockback does nothing if the destination is blocked
+                if (!_map.IsBlocked(destination)) {
+                    baseEffects.ReceiverEffects.Add(new Shove(direction, _map));
+                    baseEffects.ReceiverEffects.Add(new SuppressCounter());
+                }
             }
 
             return baseEffects;
