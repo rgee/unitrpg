@@ -112,7 +112,7 @@ namespace Contexts.Battle.Commands {
                     results.Add(CombatActionType.Brace);
 
                     if (combatant.SpecialSkill.HasValue) {
-                        results.Add(CombatActionType.Speical);
+                        results.Add(CombatActionType.Special);
                     }
                 }
 

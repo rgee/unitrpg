@@ -15,10 +15,10 @@ namespace Models.Fighting.Characters {
         private HashSet<SkillType> _skills = new HashSet<SkillType>(); 
         private HashSet<Growth> _growths = new HashSet<Growth>();
         private HashSet<string> _inventory = new HashSet<string>();
-        private SkillType? SpecialSkill;
+        private SkillType? _specialSkill;
 
         public CharacterBuilder Special(SkillType type) {
-            SpecialSkill = type;
+            _specialSkill = type;
             return this;
         }
 
@@ -64,7 +64,7 @@ namespace Models.Fighting.Characters {
            
         public ICharacter Build() {
             return new BaseCharacter(_id, _name, _level, _experience, _inventory, _attributes,
-                _growths, _stats, _weapons, _skills);     
+                _growths, _stats, _weapons, _skills, _specialSkill);     
         } 
     }
 }

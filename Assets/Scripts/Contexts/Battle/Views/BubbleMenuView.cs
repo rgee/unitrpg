@@ -51,13 +51,14 @@ namespace Contexts.Battle.Views {
             var copiedConfig = new HashSet<BubbleMenuItem>().Concat(config).ToHashSet();
 
             copiedConfig.Add(BubbleMenuItem.Leaf("Back", int.MaxValue));
-            var prefabNames = GetAllNames(copiedConfig);
+            var configItems = Flatten(copiedConfig);
 
-            foreach (var buttonName in prefabNames) {
-                var path = "MenuBubbles/" + buttonName;
+            foreach (var item in configItems) {
+                var buttonName = item.Name;
+                var path = item.ResourcePath == null ? "MenuBubbles/" + buttonName : item.ResourcePath;
                 var prefab = Resources.Load(path) as GameObject;
                 if (prefab == null) {
-                    throw new ArgumentException("Could not find menu item by name " + buttonName);
+                    throw new ArgumentException("Could not find menu item at path: " + path);
                 }
 
                 var child = Instantiate(prefab);
@@ -167,25 +168,25 @@ namespace Contexts.Battle.Views {
                 .ToList();
         }
 
-        private List<string> GetAllNames(HashSet<BubbleMenuItem> items) {
-            return GetAllNames(new List<string>(), items);
+        private IList<BubbleMenuItem> Flatten(HashSet<BubbleMenuItem> items) {
+            return Flatten(new List<BubbleMenuItem>(), items);
         }
 
-        private List<string> GetAllNames(List<string> names, HashSet<BubbleMenuItem> items) {
+        private IList<BubbleMenuItem> Flatten(IList<BubbleMenuItem> list, HashSet<BubbleMenuItem> items) {
             foreach (var item in items) {
-                names = GetAllNames(names, item);
+                list = Flatten(list, item);
             }
 
-            return names;
+            return list;
         }
 
-        private List<string> GetAllNames(List<string> names, BubbleMenuItem item) {
-            names.Add(item.Name);
+        private IList<BubbleMenuItem> Flatten(IList<BubbleMenuItem> list, BubbleMenuItem item) {
+            list.Add(item);
             if (item.IsLeaf()) {
-                return names;
+                return list;
             }
 
-            return GetAllNames(names, item.Children);
+            return Flatten(list, item.Children);
         }
 
         public void Hide() {

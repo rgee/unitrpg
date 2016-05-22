@@ -13,6 +13,6 @@ namespace Models.Combat {
         Cover = 1 << 7,
         Attack = 1 << 8,
         Use = 1 << 9,
-        Speical = 1 << 10
+        Special = 1 << 10
     }
 }

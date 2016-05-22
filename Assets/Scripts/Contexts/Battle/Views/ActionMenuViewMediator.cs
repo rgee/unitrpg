@@ -51,7 +51,8 @@ namespace Contexts.Battle.Views {
         private void ShowActionMenu(Vector3 unitPosition) {
             View.transform.localPosition = unitPosition;
 
-            var config = BubbleMenuUtils.CreateFromActions(BattleModel.AvailableActions);
+            var characterName = BattleModel.SelectedCombatant.Name;
+            var config = BubbleMenuUtils.CreateFromActions(BattleModel.AvailableActions, characterName);
             View.Show(config);
         }
 

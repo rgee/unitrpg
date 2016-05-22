@@ -14,7 +14,7 @@ namespace Contexts.Battle.Commands {
         public override void Execute() {
             if (ActionType == CombatActionType.Attack) {
                 Model.State = BattleUIState.SelectingAttackTarget;
-            } else if (ActionType == CombatActionType.Speical) {
+            } else if (ActionType == CombatActionType.Special) {
                 Model.SpecialAttack = true;
                 Model.State = BattleUIState.SelectingAttackTarget;
             } else if (ActionType == CombatActionType.Move) {

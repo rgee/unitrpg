@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Models.Combat;
+using Models.Fighting;
 using strange.extensions.signal.impl;
 using Stateless;
 
@@ -8,7 +9,8 @@ namespace Contexts.Battle.Utilities {
 
         private static readonly HashSet<CombatActionType> FightActions = new HashSet<CombatActionType> {
             CombatActionType.Attack,
-            CombatActionType.Brace
+            CombatActionType.Brace,
+            CombatActionType.Special
         };
 
         private static readonly Dictionary<CombatActionType, int> ActionWeights = new Dictionary<CombatActionType, int> {
@@ -20,7 +22,8 @@ namespace Contexts.Battle.Utilities {
             { CombatActionType.Talk, 6 },
             { CombatActionType.Attack, 7 },
             { CombatActionType.Brace, 8 },
-            { CombatActionType.Cover, 9 }
+            { CombatActionType.Cover, 9 },
+            { CombatActionType.Special, 10 }
         };
 
         public interface IMenuTransitionHandler {
@@ -97,15 +100,17 @@ namespace Contexts.Battle.Utilities {
             return machine;
         }
 
-        public static HashSet<BubbleMenuItem> CreateFromActions(HashSet<CombatActionType> actionTypes) {
+        public static HashSet<BubbleMenuItem> CreateFromActions(HashSet<CombatActionType> actionTypes, string characterName) {
             var result = new HashSet<BubbleMenuItem>();
             var fightItems = new HashSet<BubbleMenuItem>();
 
             foreach (var action in actionTypes) {
-                var item = BubbleMenuItem.Leaf(action.ToString(), ActionWeights[action]);
                 if (FightActions.Contains(action)) {
+                    var resourcePath = action == CombatActionType.Special ? GetResourcePath(characterName) : null;
+                    var item = BubbleMenuItem.Leaf(action.ToString(), ActionWeights[action], resourcePath);
                     fightItems.Add(item);
                 } else {
+                    var item = BubbleMenuItem.Leaf(action.ToString(), ActionWeights[action]);
                     result.Add(item);
                 }
             }
@@ -114,6 +119,10 @@ namespace Contexts.Battle.Utilities {
                 result.Add(BubbleMenuItem.Branch("Fight", ActionWeights[CombatActionType.Fight], fightItems));
             }
             return result;
+        }
+
+        private static string GetResourcePath(string characterName) {
+            return "MenuBubbles/Special/" + characterName;
         }
     }
 }
