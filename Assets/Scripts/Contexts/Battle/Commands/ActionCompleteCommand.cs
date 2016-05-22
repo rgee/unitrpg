@@ -15,6 +15,10 @@ namespace Contexts.Battle.Commands {
         public NextBattleSignal NextBattleSignal { get; set; }
 
         public override void Execute() {
+            if (Model.PendingAction != null) {
+                Model.Battle.SubmitAction(Model.PendingAction);
+            }
+
             if (Model.State == BattleUIState.Uninitialized) {
                 return;
             }

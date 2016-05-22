@@ -7,6 +7,7 @@ using Models.Fighting.Characters;
 using Models.Fighting.Execution;
 using Models.Fighting.Maps;
 using Models.Fighting.Skills;
+using UnityEngine.Networking.Match;
 
 namespace Models.Fighting.Battle {
     public class Battle : IBattle {
@@ -37,12 +38,18 @@ namespace Models.Fighting.Battle {
             _turnOrder = turnOrder;
 
             foreach (var combatant in combatants.GetAllCombatants()) {
-                _combatantsById[combatant.Id] = combatant;
+                RegisterCombatant(combatant, map);
             }
 
             var firstArmy = _turnOrder[TurnNumber];
             var firstCombatants = _combatants.GetCombatantsByArmy(firstArmy);
             _currentTurn = new Turn(firstCombatants);
+        }
+
+        private void RegisterCombatant(ICombatant combatant, IMap map) {
+            _combatantsById[combatant.Id] = combatant;
+            combatant.MoveSignal.AddListener(destination => map.MoveCombatant(combatant, destination));
+            combatant.DeathSignal.AddListener(() => map.RemoveCombatant(combatant));
         }
 
         public List<IObjective> GetObjectives() {
@@ -122,12 +129,6 @@ namespace Models.Fighting.Battle {
             }
 
             action.Perform(_currentTurn);
-
-            foreach (var combatant in _combatants.GetAllCombatants()) {
-                if (!combatant.IsAlive) {
-                    _map.RemoveCombatant(combatant);
-                }
-            }
         }
 
 

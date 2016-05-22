@@ -21,8 +21,7 @@ namespace Contexts.Battle.Commands {
             var finalizer = new FightFinalizer(skillDatabase);
             var finalizedFight = finalizer.Finalize(Model.FightForecast, new BasicRandomizer());
             var action = new FightAction(attacker, defender, finalizedFight);
-
-            Model.Battle.SubmitAction(action);
+            Model.PendingAction = action;
 
             FinalizedFightSignal.Dispatch(finalizedFight);
             Model.State = BattleUIState.Fighting;

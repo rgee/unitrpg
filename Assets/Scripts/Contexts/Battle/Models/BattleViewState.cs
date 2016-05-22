@@ -46,7 +46,10 @@ namespace Contexts.Battle.Models {
 
         public bool SpecialAttack { get; set; }
 
+        public ICombatAction PendingAction { get; set; }
+
         public void ResetUnitState() {
+            PendingAction = null;
             CurrentMovementPath = null;
             SelectedCombatant = null;
             AvailableActions = null;

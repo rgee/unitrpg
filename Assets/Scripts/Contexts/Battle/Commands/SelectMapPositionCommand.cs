@@ -59,7 +59,7 @@ namespace Contexts.Battle.Commands {
 
                     var pathLength = BattleViewModel.CurrentMovementPath.Length;
                     var moveAction = new MoveAction(BattleViewModel.Map, BattleViewModel.SelectedCombatant, Position, pathLength);
-                    BattleViewModel.Battle.SubmitAction(moveAction);
+                    BattleViewModel.PendingAction = moveAction;
 
                     MoveCombatantSignal.Dispatch(BattleViewModel.CurrentMovementPath);
                     BattleViewModel.State = BattleUIState.CombatantMoving;

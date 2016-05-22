@@ -5,6 +5,7 @@ using Models.Fighting.Buffs;
 using Models.Fighting.Characters;
 using Models.Fighting.Equip;
 using Models.Fighting.Skills;
+using strange.extensions.signal.impl;
 using UnityEngine;
 
 namespace Models.Fighting {
@@ -31,6 +32,10 @@ namespace Models.Fighting {
 
         public SkillType? SpecialSkill { get; set; }
 
+        public Signal<Vector2> MoveSignal { get; private set; }
+
+        public Signal DeathSignal { get; private set; }
+
         private readonly ICharacter _character;
 
         public BaseCombatant(ICharacter character, ArmyType army) {
@@ -38,6 +43,8 @@ namespace Models.Fighting {
             _character = character;
             Army = army;
             Name = character.Name;
+            MoveSignal = new Signal<Vector2>();
+            DeathSignal = new Signal();
             SpecialSkill = character.SpecialSkill;
 
             Health = character.Attributes.First(attr => attr.Type == Attribute.AttributeType.Health).Value;
@@ -49,12 +56,12 @@ namespace Models.Fighting {
         public void TakeDamage(int amount) {
             Health = Math.Max(Health - amount, 0);
             if (Health == 0) {
-                CombatEventBus.CombatantDeaths.Dispatch(this);
+                DeathSignal.Dispatch();
             }
         }
 
         public void MoveTo(Vector2 destination) {
-            CombatEventBus.CombatantMoves.Dispatch(this, destination);
+            MoveSignal.Dispatch(destination);
         }
 
         public Attribute GetAttribute(Attribute.AttributeType type) {
