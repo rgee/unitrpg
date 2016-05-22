@@ -14,8 +14,12 @@ namespace Models.Fighting.Battle {
             _fight = fight;
         }
 
-        public bool IsValid(Turn turn) {
-            return turn.CanAct(_attacker);
+        public string GetValidationError(Turn turn) {
+            if (!turn.CanAct(_attacker)) {
+                return "The attacker, " + _attacker.Id + " has already acted this turn.";
+            }
+
+            return null;
         }
 
         public void Perform(Turn turn) {

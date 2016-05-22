@@ -116,8 +116,9 @@ namespace Models.Fighting.Battle {
         }
 
         public void SubmitAction(ICombatAction action) {
-            if (!action.IsValid(_currentTurn)) {
-                throw new ArgumentException("Invalid action.");
+            var validationError = action.GetValidationError(_currentTurn);
+            if (validationError != null) {
+                throw new ArgumentException("Invalid action [" + action.GetType() + "]: " + validationError);
             }
 
             action.Perform(_currentTurn);

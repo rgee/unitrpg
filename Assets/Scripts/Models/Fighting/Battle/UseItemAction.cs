@@ -5,9 +5,14 @@ namespace Models.Fighting.Battle {
         private readonly ICombatant _user;
         private readonly string _itemId;
 
-        public bool IsValid(Turn turn) {
-            return turn.CanAct(_user);
+        public string GetValidationError(Turn turn) {
+            if (!turn.CanAct(_user)) {
+                return "The attacker, " + _user.Id + " has already acted this turn.";
+            }
+
+            return null;
         }
+
 
         public void Perform(Turn turn) {
             var item = ItemDatabase.Instance.GetItemById(_itemId);

@@ -23,8 +23,12 @@ namespace Models.Fighting.Battle {
         }
 
 
-        public bool IsValid(Turn turn) {
-            return turn.GetRemainingMoveDistance(_combatant) >= _pathLength;
+        public string GetValidationError(Turn turn) {
+            if (turn.GetRemainingMoveDistance(_combatant) < _pathLength) {
+                return "The attacker, " + _combatant.Id + " has already moved this turn.";
+            }
+
+            return null;
         }
 
         public void Perform(Turn turn) {

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Contexts.Battle.Utilities;
 using DG.Tweening;
 using Models.Fighting;
@@ -53,7 +54,14 @@ namespace Contexts.Battle.Views.UniqueCombatants {
         }
 
         public override IEnumerator SpecialAttack(FightPhase phase, CombatantView receiverView, WeaponHitSeverity severity) {
+
             var receiver = phase.Receiver;
+            var didAdvance = phase.Effects.ReceiverEffects.OfType<Advance>().Any();
+            if (!didAdvance) {
+                yield return StartCoroutine(Attack(receiver, severity));
+                yield break;
+            }
+
             var attacker = phase.Initiator;
             var distance = MathUtils.ManhattanDistance(attacker.Position, receiver.Position);
             var windupClip = distance > 1 ? _farAdvanceAnimationClips[Facing] : _windupAnimationClips[Facing];
