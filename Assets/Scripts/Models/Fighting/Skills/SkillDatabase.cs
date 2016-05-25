@@ -22,7 +22,7 @@ namespace Models.Fighting.Skills {
                     return new Kinesis();
                 case SkillType.Strafe:
                 case SkillType.Advance:
-                    return new Advance();
+                    return new Advance(new MeleeAttack(), new ProjectileAttack());
                 case SkillType.Knockback:
                     return new Knockback(_map);
                 default:

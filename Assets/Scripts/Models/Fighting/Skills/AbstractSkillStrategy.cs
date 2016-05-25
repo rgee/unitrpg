@@ -15,13 +15,13 @@ namespace Models.Fighting.Skills {
             SupportsDoubleAttack = supportsDoubleAttack;
         }
 
-        protected abstract ICombatBuffProvider GetBuffProvider(ICombatant attacker);
+        public abstract ICombatBuffProvider GetBuffProvider(ICombatant attacker, ICombatant defender);
 
-        protected abstract SkillEffects ComputeResult(ICombatant attacker, ICombatant defener, IRandomizer randomizer);
+        public abstract SkillEffects ComputeResult(ICombatant attacker, ICombatant defener, IRandomizer randomizer);
 
-        protected abstract SkillForecast ComputeForecast(ICombatant attacker, ICombatant defender);
+        public abstract SkillForecast ComputeForecast(ICombatant attacker, ICombatant defender);
 
-        protected abstract SkillEffects ComputeEffects(SkillForecast forecast, IRandomizer randomizer);
+        public abstract SkillEffects ComputeEffects(SkillForecast forecast, IRandomizer randomizer);
 
         public SkillEffects FinalizeForecast(SkillForecast forecast, IRandomizer randomizer) {
             return ComputeBuffedResult(forecast.Attacker, forecast.Defender, () => ComputeEffects(forecast, randomizer));
@@ -37,7 +37,7 @@ namespace Models.Fighting.Skills {
 
         private T ComputeBuffedResult<T>(ICombatant attacker, ICombatant defender, Func<T> computation) {
             
-            var buffProvider = GetBuffProvider(attacker);
+            var buffProvider = GetBuffProvider(attacker, defender);
             buffProvider.ReceiverPreCombatBuffs
                 .Where(buff => buff.AppliesToSkill(Type))
                 .Each(buff => defender.AddTemporaryBuff(buff));

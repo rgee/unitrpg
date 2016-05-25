@@ -23,7 +23,7 @@ namespace Models.Fighting.Characters {
                     .Speed(13)
                     .Strength(7)
                 .Build())
-                .Weapons("Campaign Backblade", "Slim Recurve")
+                .Weapons("Campaign Backblade")
                 .Build());
 
             Add(new CharacterBuilder()

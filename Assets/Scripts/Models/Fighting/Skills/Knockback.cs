@@ -10,7 +10,7 @@ namespace Models.Fighting.Skills {
             _map = map;
         }
 
-        protected override SkillForecast ComputeForecast(ICombatant attacker, ICombatant defender) {
+        public override SkillForecast ComputeForecast(ICombatant attacker, ICombatant defender) {
             var result = base.ComputeForecast(attacker, defender);
 
             // Knockback only gets one hit, always
@@ -24,7 +24,7 @@ namespace Models.Fighting.Skills {
             return result;
         }
 
-        protected override SkillEffects ComputeEffects(SkillForecast forecast, IRandomizer randomizer) {
+        public override SkillEffects ComputeEffects(SkillForecast forecast, IRandomizer randomizer) {
             var baseEffects = base.ComputeEffects(forecast, randomizer);
 
             var attacker = forecast.Attacker;

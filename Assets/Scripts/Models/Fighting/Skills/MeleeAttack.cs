@@ -11,7 +11,7 @@ namespace Models.Fighting.Skills {
             
         }
 
-        protected override SkillForecast ComputeForecast(ICombatant attacker, ICombatant defender) {
+        public override SkillForecast ComputeForecast(ICombatant attacker, ICombatant defender) {
             var hitChance = new HitChance(attacker, defender);
             var critChance = new CritChance(attacker, defender);
             var glanceChance = new GlanceChance(attacker, defender);
@@ -38,7 +38,7 @@ namespace Models.Fighting.Skills {
             };
         }
 
-        protected override SkillEffects ComputeEffects(SkillForecast forecast, IRandomizer randomizer) {
+        public override SkillEffects ComputeEffects(SkillForecast forecast, IRandomizer randomizer) {
             var chances = forecast.Chances;
             var effects = new List<IEffect> {
                 DamageUtils.GetFinalizedPhysicalDamage(forecast.Hit.BaseDamage, chances, randomizer)
@@ -47,7 +47,7 @@ namespace Models.Fighting.Skills {
             return new SkillEffects(effects);
         }
 
-        protected override SkillEffects ComputeResult(ICombatant attacker, ICombatant defender, IRandomizer randomizer) {
+        public override SkillEffects ComputeResult(ICombatant attacker, ICombatant defender, IRandomizer randomizer) {
             var defenderEffects = new List<IEffect>();
             var firstHit = DamageUtils.ComputeHit(attacker, defender, randomizer);
             defenderEffects.Add(firstHit);
@@ -55,7 +55,7 @@ namespace Models.Fighting.Skills {
             return new SkillEffects(defenderEffects);
         }
 
-        protected override ICombatBuffProvider GetBuffProvider(ICombatant attacker) {
+        public override ICombatBuffProvider GetBuffProvider(ICombatant attacker, ICombatant defender) {
             return attacker.EquippedWeapons.First(weapon => weapon.Range == 1);
         }
     }

@@ -8,7 +8,7 @@ namespace Models.Fighting.Skills {
         public ProjectileAttack() : base(SkillType.Ranged, true, true) {
         }
 
-        protected override SkillForecast ComputeForecast(ICombatant attacker, ICombatant defender) {
+        public override SkillForecast ComputeForecast(ICombatant attacker, ICombatant defender) {
             var hitChance = new HitChance(attacker, defender);
             
             var critChance = new CritChance(attacker, defender);
@@ -36,7 +36,7 @@ namespace Models.Fighting.Skills {
             };
         }
 
-        protected override SkillEffects ComputeEffects(SkillForecast forecast, IRandomizer randomizer) {
+        public override SkillEffects ComputeEffects(SkillForecast forecast, IRandomizer randomizer) {
             var defender = forecast.Defender;
             var parryChance = defender.GetStat(StatType.ProjectileParryChance);
             var didParry = RandomUtils.DidEventHappen(parryChance.Value, randomizer);
@@ -51,11 +51,11 @@ namespace Models.Fighting.Skills {
             return new SkillEffects(new List<IEffect>() { hit });
         }
 
-        protected override ICombatBuffProvider GetBuffProvider(ICombatant attacker) {
+        public override ICombatBuffProvider GetBuffProvider(ICombatant attacker, ICombatant defender) {
             return attacker.EquippedWeapons.First(weapon => weapon.Range >= 1);
         }
 
-        protected override SkillEffects ComputeResult(ICombatant attacker, ICombatant defender, IRandomizer randomizer) {
+        public override SkillEffects ComputeResult(ICombatant attacker, ICombatant defender, IRandomizer randomizer) {
             var parryChance = defender.GetStat(StatType.ProjectileParryChance);
             var didParry = randomizer.GetNextRandom() < (100 - parryChance.Value);
 

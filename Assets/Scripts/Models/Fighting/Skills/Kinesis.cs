@@ -8,7 +8,7 @@ namespace Models.Fighting.Skills {
         }
 
 
-        protected override SkillForecast ComputeForecast(ICombatant attacker, ICombatant defender) {
+        public override SkillForecast ComputeForecast(ICombatant attacker, ICombatant defender) {
             var attackCount = 1;
             var chances = new SkillChances {
                 CritChance = 100,
@@ -31,17 +31,17 @@ namespace Models.Fighting.Skills {
             };
         }
 
-        protected override SkillEffects ComputeEffects(SkillForecast forecast, IRandomizer randomizer) {
+        public override SkillEffects ComputeEffects(SkillForecast forecast, IRandomizer randomizer) {
             var myKinesis = forecast.Hit.BaseDamage;
             var hit = new List<IEffect> {new Damage(myKinesis)};
             return new SkillEffects(hit);
         }
 
-        protected override ICombatBuffProvider GetBuffProvider(ICombatant attacker) {
+        public override ICombatBuffProvider GetBuffProvider(ICombatant attacker, ICombatant defender) {
             return new NullBuffProvider();
         }
 
-        protected override SkillEffects ComputeResult(ICombatant attacker, ICombatant defender, IRandomizer randomizer) {
+        public override SkillEffects ComputeResult(ICombatant attacker, ICombatant defender, IRandomizer randomizer) {
             var myKinesis = attacker.GetAttribute(Attribute.AttributeType.Special).Value;
             var hit = new List<IEffect> {new Damage(myKinesis)};
             return new SkillEffects(hit);
