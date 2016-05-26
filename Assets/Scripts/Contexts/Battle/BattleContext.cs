@@ -5,6 +5,7 @@ using Contexts.Base.Signals;
 using Contexts.Battle.Commands;
 using Contexts.Battle.Models;
 using Contexts.Battle.Signals;
+using Contexts.Battle.Signals.Camera;
 using Contexts.Battle.Utilities;
 using Contexts.Battle.Views;
 using Contexts.Battle.Views.UniqueCombatants;
@@ -65,6 +66,8 @@ namespace Contexts.Battle {
             injectionBinder.Bind<EndTurnSignal>().ToSingleton();
             injectionBinder.Bind<ShowContextMenuSignal>().ToSingleton();
             injectionBinder.Bind<ExitContextMenuSignal>().ToSingleton();
+            injectionBinder.Bind<CameraLockSignal>().ToSingleton();
+            injectionBinder.Bind<CameraUnlockSignal>().ToSingleton();
 
 
             commandBinder.Bind<ExitContextMenuSignal>().To<ExitContextMenuCommand>();
@@ -98,6 +101,7 @@ namespace Contexts.Battle {
             mediationBinder.Bind<PhaseChangeView>().To<PhaseChangeViewMediator>();
             mediationBinder.Bind<IntroCutsceneView>().To<IntroCutsceneViewMediator>();
             mediationBinder.Bind<ContextMenuView>().To<ContextMenuViewMediator>();
+            mediationBinder.Bind<CameraView>().To<CameraViewMediator>();
         }
     }
 }

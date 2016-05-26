@@ -1,8 +1,10 @@
 ﻿using System;
 using Contexts.Battle.Models;
 using Contexts.Battle.Signals;
+using Contexts.Battle.Signals.Camera;
 using Contexts.Battle.Utilities;
 using strange.extensions.command.impl;
+using UnityEngine;
 using Attribute = Models.Fighting.Attribute;
 
 namespace Contexts.Battle.Commands {
@@ -37,7 +39,14 @@ namespace Contexts.Battle.Commands {
         [Inject]
         public HoverTileEnableSignal HoverTileEnableSignal { get; set; }
 
+        [Inject]
+        public CameraLockSignal CameraLockSignal { get; set; }
+
+        [Inject]
+        public CameraUnlockSignal CameraUnlockSignal { get; set; }
+
         public override void Execute() {
+            Debug.LogFormat("State Transition from {0} to {1}", Transition.Previous, Transition.Next);
             Cleanup(Transition.Previous);
             Setup(Transition.Next);
         }
@@ -61,6 +70,7 @@ namespace Contexts.Battle.Commands {
                     Model.CurrentMovementPath = null;
                     break;
                 case BattleUIState.Fighting:
+                    HoverTileEnableSignal.Dispatch();
                     break;
                 case BattleUIState.CombatantMoving:
                     break;
@@ -70,8 +80,12 @@ namespace Contexts.Battle.Commands {
                 case BattleUIState.Uninitialized:
                     break;
                 case BattleUIState.PhaseChanging:
+                    HoverTileEnableSignal.Dispatch();
+                    CameraUnlockSignal.Dispatch();
                     break;
                 case BattleUIState.EnemyTurn:
+                    HoverTileEnableSignal.Dispatch();
+                    CameraUnlockSignal.Dispatch();
                     break;
                 case BattleUIState.ContextMenu:
                     break;
@@ -101,12 +115,17 @@ namespace Contexts.Battle.Commands {
                     SetupMoveLocationState();
                     break;
                 case BattleUIState.Fighting:
+                    HoverTileDisableSignal.Dispatch();
                     break;
                 case BattleUIState.Uninitialized:
                     break;
                 case BattleUIState.PhaseChanging:
+                    HoverTileDisableSignal.Dispatch();
+                    CameraLockSignal.Dispatch();
                     break;
                 case BattleUIState.EnemyTurn:
+                    CameraLockSignal.Dispatch();
+                    HoverTileDisableSignal.Dispatch();
                     // TODO: Implement enemy turn AI
                     EnemyTurnCompleteSignal.Dispatch();
                     break;
