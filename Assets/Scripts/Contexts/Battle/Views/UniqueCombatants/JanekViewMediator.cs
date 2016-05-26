@@ -6,9 +6,10 @@ namespace Contexts.Battle.Views.UniqueCombatants {
     // StrangeIoC does not work when binding two views to the same mediator class.
     // Nor does it allow subclassing the mediator to bind it. So far the 
     // only way I've gotten this to work is by duplication.
-    public class LiatViewMediator : Mediator {
+    public class JanekViewMediator : Mediator {
+         
         [Inject]
-        public LiatView View { get; set; }
+        public JanekView View { get; set; }
 
         [Inject]
         public AttackConnectedSignal AttackConnectedSignal { get; set; }

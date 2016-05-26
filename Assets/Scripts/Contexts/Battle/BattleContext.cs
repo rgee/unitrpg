@@ -92,6 +92,7 @@ namespace Contexts.Battle {
             mediationBinder.Bind<CombatForecastView>().To<CombatForecastViewMediator>();
             mediationBinder.Bind<CombatantView>().To<CombatantViewMediator>();
             mediationBinder.Bind<LiatView>().To<LiatViewMediator>();
+            mediationBinder.Bind<JanekView>().To<JanekViewMediator>();
             mediationBinder.Bind<CombatEffectsView>().To<CombatEffectsViewMediator>();
             mediationBinder.Bind<PhaseChangeView>().To<PhaseChangeViewMediator>();
             mediationBinder.Bind<IntroCutsceneView>().To<IntroCutsceneViewMediator>();
