@@ -2,10 +2,10 @@
 using Contexts.Battle.Utilities;
 using strange.extensions.mediation.impl;
 
-namespace Contexts.Battle.Views {
-    public class CombatantViewMediator : Mediator {
+namespace Contexts.Battle.Views.UniqueCombatants {
+    public class LiatViewMediator : Mediator {
         [Inject]
-        public CombatantView View { get; set; }
+        public LiatView View { get; set; }
 
         [Inject]
         public AttackConnectedSignal AttackConnectedSignal { get; set; }

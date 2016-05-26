@@ -7,6 +7,7 @@ using Contexts.Battle.Models;
 using Contexts.Battle.Signals;
 using Contexts.Battle.Utilities;
 using Contexts.Battle.Views;
+using Contexts.Battle.Views.UniqueCombatants;
 using strange.extensions.command.api;
 using strange.extensions.context.impl;
 using UnityEngine;
@@ -90,6 +91,7 @@ namespace Contexts.Battle {
             mediationBinder.Bind<MovementPathView>().To<MovementPathViewMediator>();
             mediationBinder.Bind<CombatForecastView>().To<CombatForecastViewMediator>();
             mediationBinder.Bind<CombatantView>().To<CombatantViewMediator>();
+            mediationBinder.Bind<LiatView>().To<LiatViewMediator>();
             mediationBinder.Bind<CombatEffectsView>().To<CombatEffectsViewMediator>();
             mediationBinder.Bind<PhaseChangeView>().To<PhaseChangeViewMediator>();
             mediationBinder.Bind<IntroCutsceneView>().To<IntroCutsceneViewMediator>();
