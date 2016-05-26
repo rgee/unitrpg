@@ -4,6 +4,7 @@ using Contexts.Battle.Utilities;
 using Models.Fighting;
 using strange.extensions.command.impl;
 using UnityEngine;
+using UnityEngine.Assertions.Comparers;
 
 namespace Contexts.Battle.Commands {
     public class MapHoveredCommand : Command {
@@ -50,7 +51,7 @@ namespace Contexts.Battle.Commands {
             } else if (Model.State != BattleUIState.Fighting || Model.State != BattleUIState.CombatantMoving) {
 
                 if (map.IsBlockedByEnvironment(Position.GridCoordinates)) {
-                    HoverTileDisableSignal.Dispatch();
+                    HoveredTileChangeSignal.Dispatch(new Vector2(float.MaxValue, float.MaxValue));
                 } else {
                     Model.HoveredTile = Position.GridCoordinates;
                     HoveredTileChangeSignal.Dispatch(Position.WorldCoordinates);

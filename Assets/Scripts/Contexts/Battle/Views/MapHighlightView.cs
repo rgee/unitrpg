@@ -27,7 +27,6 @@ namespace Contexts.Battle.Views {
 
         public void SetHighlightedPosition(Vector3 position) {
             _hoverHighlight.transform.position = position;
-            _hoverHighlight.SetActive(true);
         }
 
         public void HighlightPositions(IEnumerable<Vector2> positions, HighlightLevel level, MapDimensions dimensions) {

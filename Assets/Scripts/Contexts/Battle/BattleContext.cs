@@ -33,6 +33,7 @@ namespace Contexts.Battle {
             injectionBinder.Bind<BattleViewState>().ToSingleton();
 
             injectionBinder.Bind<BattleStartSignal>().ToSingleton().CrossContext();
+            injectionBinder.Bind<HoverTileEnableSignal>().ToSingleton();
             injectionBinder.Bind<HoveredTileChangeSignal>().ToSingleton();
             injectionBinder.Bind<GatherBattleFromEditorSignal>().ToSingleton();
             injectionBinder.Bind<InitializeMapSignal>().ToSingleton();

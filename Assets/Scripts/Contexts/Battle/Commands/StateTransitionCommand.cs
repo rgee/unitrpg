@@ -34,6 +34,9 @@ namespace Contexts.Battle.Commands {
         [Inject]
         public EnemyTurnCompleteSignal EnemyTurnCompleteSignal { get; set; }
 
+        [Inject]
+        public HoverTileEnableSignal HoverTileEnableSignal { get; set; }
+
         public override void Execute() {
             Cleanup(Transition.Previous);
             Setup(Transition.Next);
@@ -44,6 +47,7 @@ namespace Contexts.Battle.Commands {
                 case BattleUIState.SelectingUnit:
                     break;
                 case BattleUIState.SelectingAction:
+                    HoverTileEnableSignal.Dispatch();
                     UnitDeselectedSignal.Dispatch();
                     break;
                 case BattleUIState.SelectingFightAction:
@@ -81,8 +85,10 @@ namespace Contexts.Battle.Commands {
                 case BattleUIState.CombatantMoving:
                     break;
                 case BattleUIState.SelectingUnit:
+                    HoverTileEnableSignal.Dispatch();
                     break;
                 case BattleUIState.SelectingAction:
+                    HoverTileDisableSignal.Dispatch();
                     break;
                 case BattleUIState.ForecastingCombat:
                     break;
@@ -105,6 +111,7 @@ namespace Contexts.Battle.Commands {
                     EnemyTurnCompleteSignal.Dispatch();
                     break;
                 case BattleUIState.ContextMenu:
+                    HoverTileDisableSignal.Dispatch();
                     break;
                 default:
                     throw new ArgumentOutOfRangeException("state", state, null);

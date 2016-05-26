@@ -25,13 +25,21 @@ namespace Contexts.Battle.Views {
         [Inject]
         public MapHighlightView View { get; set; }
 
+        [Inject]
+        public HoverTileEnableSignal HoverTileEnableSignal { get; set; }
+
         public override void OnRegister() {
             base.OnRegister();
 
             HoveredTileChangeSignal.AddListener(OnHighlightPositionChange);
+            HoverTileEnableSignal.AddListener(OnHighlightEnable);
             HoverTileDisableSignal.AddListener(OnHighlightDisable);
             ClearHighlightSignal.AddListener(OnClearHighlight);
             MapHighlightSignal.AddListener(OnHighlight);
+        }
+
+        private void OnHighlightEnable() {
+            View.EnableHoverHighlight();
         }
 
         private void OnHighlightPositionChange(Vector3 newPosition) {
