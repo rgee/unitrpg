@@ -1,4 +1,5 @@
 ﻿using System;
+using Models.Fighting.Maps.Triggers;
 
 namespace Models.Fighting.Maps {
     public class Tile {
@@ -12,6 +13,8 @@ namespace Models.Fighting.Maps {
                 _occupant = value;
             }
         }
+
+        public EventTile Event;
 
         public bool Obstructed { get; set; }
     }

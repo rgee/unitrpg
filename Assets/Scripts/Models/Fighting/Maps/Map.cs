@@ -3,13 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using Models.Fighting.Maps.Triggers;
 using Newtonsoft.Json;
 using UnityEngine;
 
 namespace Models.Fighting.Maps {
     public class Map : IMap {
         private readonly Dictionary<Vector2, Tile> _tiles = new Dictionary<Vector2, Tile>(); 
-
         public Map() : this(20, 20) {
         }
 
@@ -22,6 +22,18 @@ namespace Models.Fighting.Maps {
         }
 
         public Map(int size) : this(size, size) {
+        }
+
+        public void AddEventTile(EventTile eventTile) {
+            GetTileByPosition(eventTile.Location).Event = eventTile;
+        }
+
+        public void RemoveEventTile(Vector2 location) {
+            GetTileByPosition(location).Event = null;
+        }
+
+        public EventTile GetEventTile(Vector2 location) {
+            return GetTileByPosition(location).Event;
         }
 
         public void AddObstruction(Vector2 position) {
