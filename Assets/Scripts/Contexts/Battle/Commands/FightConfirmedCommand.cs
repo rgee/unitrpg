@@ -15,14 +15,11 @@ namespace Contexts.Battle.Commands {
         public NewFinalizedFightSignal FinalizedFightSignal { get; set; }
 
         public override void Execute() {
-            var attacker = Model.SelectedCombatant;
-            var defender = Model.SelectedTarget;
             var skillDatabase = new SkillDatabase(Model.Map);
             var finalizer = new FightFinalizer(skillDatabase);
             var finalizedFight = finalizer.Finalize(Model.FightForecast, new BasicRandomizer());
-            var action = new FightAction(attacker, defender, finalizedFight);
-            Model.PendingAction = action;
 
+            Model.FinalizedFight = finalizedFight;
             FinalizedFightSignal.Dispatch(finalizedFight);
             Model.State = BattleUIState.Fighting;
         }

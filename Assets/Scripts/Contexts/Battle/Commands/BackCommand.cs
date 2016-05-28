@@ -30,7 +30,7 @@ namespace Contexts.Battle.Commands {
                     Model.State = BattleUIState.SelectingAction;
                     break;
                 case BattleUIState.ForecastingCombat:
-                    Model.SelectedTarget = null;
+                    Model.SelectedAttackTarget = null;
                     Model.State = BattleUIState.SelectingAttackTarget;
                     break;
                 case BattleUIState.SelectingAttackTarget:

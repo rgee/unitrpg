@@ -15,20 +15,24 @@ namespace Contexts.Battle.Commands {
         public NextBattleSignal NextBattleSignal { get; set; }
 
         public override void Execute() {
-            if (Model.PendingAction != null) {
-                Model.Battle.SubmitAction(Model.PendingAction);
+            // Flush the move action
+            var battle = Model.Battle;
+            if (Model.State == BattleUIState.CombatantMoving) {
+                battle.MoveCombatant(Model.CurrentMovementPath.Combatant, Model.CurrentMovementPath.Positions);
+            } else if (Model.State == BattleUIState.Fighting) {
+                battle.ExecuteFight(Model.FinalizedFight);
             }
 
             if (Model.State == BattleUIState.Uninitialized) {
                 return;
             }
 
-            if (Model.Battle.IsWon()) {
+            if (battle.IsWon()) {
                 Debug.Log("The battle is won.");
                 NextBattleSignal.Dispatch();
-            } else if (Model.Battle.IsLost()) {
+            } else if (battle.IsLost()) {
                 Debug.Log("The battle is lost.");
-            } else if (!Model.Battle.ShouldTurnEnd()) {
+            } else if (!battle.ShouldTurnEnd()) {
                 Model.ResetUnitState();
                 Model.State = BattleUIState.SelectingUnit;
             } else {

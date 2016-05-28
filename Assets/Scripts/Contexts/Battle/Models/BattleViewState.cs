@@ -40,6 +40,8 @@ namespace Contexts.Battle.Models {
 
         public Vector2 HoveredTile { get; set; }
 
+        public FinalizedFight FinalizedFight { get; set; }
+
         public HashSet<CombatActionType> AvailableActions { get; set; }
 
         public MapDimensions Dimensions { get; set; }
@@ -49,15 +51,16 @@ namespace Contexts.Battle.Models {
         public ICombatAction PendingAction { get; set; }
 
         public void ResetUnitState() {
+            FinalizedFight = null;
             PendingAction = null;
             CurrentMovementPath = null;
             SelectedCombatant = null;
             AvailableActions = null;
             FightForecast = null;
-            SelectedTarget = null;
+            SelectedAttackTarget = null;
         }
 
-        public ICombatant SelectedTarget { get; set; }
+        public ICombatant SelectedAttackTarget { get; set; }
 
         public FightForecast FightForecast { get; set; }
 
