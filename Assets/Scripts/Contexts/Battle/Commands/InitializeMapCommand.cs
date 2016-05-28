@@ -6,6 +6,7 @@ using Contexts.Global.Services;
 using Models.Fighting;
 using Models.Fighting.Battle.Objectives;
 using Models.Fighting.Characters;
+using Models.Fighting.Maps.Configuration;
 using strange.extensions.command.impl;
 
 namespace Contexts.Battle.Commands {
@@ -22,6 +23,9 @@ namespace Contexts.Battle.Commands {
         [Inject]
         public IBattleConfigRepository BattleConfigRepository { get; set; }
 
+        [Inject]
+        public IMapConfigRepository MapConfigRepository { get; set; }
+
         public override void Execute() {
             var dimensions = Configuration.Dimensions;
             Model.Dimensions = dimensions;  
@@ -32,7 +36,9 @@ namespace Contexts.Battle.Commands {
             objectives.Add(config.Objective);
 
             var turnOrder = new List<ArmyType> {ArmyType.Friendly, ArmyType.Enemy, ArmyType.Other};
-            Model.Battle = new global::Models.Fighting.Battle.Battle(Model.Map, new BasicRandomizer(), Configuration.Combatants, turnOrder, objectives);
+            Model.Battle = new global::Models.Fighting.Battle.Battle(Model.Map, new BasicRandomizer(), Configuration.Combatants, turnOrder, objectives,
+                MapConfigRepository, "test");
+
             Model.State = BattleUIState.SelectingUnit;
             Model.ChapterIndex = Configuration.ChapterNumber;
             

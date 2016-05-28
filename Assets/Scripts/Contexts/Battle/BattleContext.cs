@@ -9,6 +9,7 @@ using Contexts.Battle.Signals.Camera;
 using Contexts.Battle.Utilities;
 using Contexts.Battle.Views;
 using Contexts.Battle.Views.UniqueCombatants;
+using Models.Fighting.Maps.Configuration;
 using strange.extensions.command.api;
 using strange.extensions.context.impl;
 using UnityEngine;
@@ -36,6 +37,7 @@ namespace Contexts.Battle {
             injectionBinder.Bind<BattleEventRegistry>().ToSingleton().CrossContext();
             injectionBinder.Bind<BattleStartSignal>().ToSingleton().CrossContext();
 
+            injectionBinder.Bind<IMapConfigRepository>().To(new StaticMapConfigRepository());
             injectionBinder.Bind<HoverTileEnableSignal>().ToSingleton();
             injectionBinder.Bind<HoveredTileChangeSignal>().ToSingleton();
             injectionBinder.Bind<GatherBattleFromEditorSignal>().ToSingleton();

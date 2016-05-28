@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using Models.Fighting.Maps.Configuration;
 using Models.Fighting.Maps.Triggers;
 using Newtonsoft.Json;
 using UnityEngine;

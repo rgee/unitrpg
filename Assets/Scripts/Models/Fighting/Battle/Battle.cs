@@ -6,6 +6,7 @@ using Models.Fighting.Battle.Objectives;
 using Models.Fighting.Characters;
 using Models.Fighting.Execution;
 using Models.Fighting.Maps;
+using Models.Fighting.Maps.Configuration;
 using Models.Fighting.Maps.Triggers;
 using Models.Fighting.Skills;
 using strange.extensions.signal.impl;
@@ -30,10 +31,11 @@ namespace Models.Fighting.Battle {
         private Turn _currentTurn;
 
         public Battle(IMap map, IRandomizer randomizer, ICombatantDatabase combatants, List<ArmyType> turnOrder) : 
-            this(map, randomizer, combatants,turnOrder, new List<IObjective> { new Rout() }) {
+            this(map, randomizer, combatants,turnOrder, new List<IObjective> { new Rout() }, new StaticMapConfigRepository(), null) {
         }
 
-        public Battle(IMap map, IRandomizer randomizer, ICombatantDatabase combatants, List<ArmyType> turnOrder, List<IObjective> objectives) {
+        public Battle(IMap map, IRandomizer randomizer, ICombatantDatabase combatants, List<ArmyType> turnOrder, List<IObjective> objectives, 
+            IMapConfigRepository mapConfigRepository, string mapName) {
             TurnNumber = 0;
             EventTileSignal = new Signal<string>();
             _objectives = objectives;
@@ -48,6 +50,18 @@ namespace Models.Fighting.Battle {
 
             foreach (var combatant in combatants.GetAllCombatants()) {
                 RegisterCombatant(combatant, map);
+            }
+
+            // If there's a map config in the database for this map, use it.
+            if (mapName != null) {
+                var config = mapConfigRepository.GetConfigByMapName(mapName);
+                if (config == null) {
+                    Debug.LogErrorFormat("Coult not find map config for {0}", mapName);
+                } else {
+                    foreach (var eventTile in config.EventTiles) {
+                        _map.AddEventTile(eventTile);
+                    }
+                }
             }
 
             var firstArmy = _turnOrder[TurnNumber];
