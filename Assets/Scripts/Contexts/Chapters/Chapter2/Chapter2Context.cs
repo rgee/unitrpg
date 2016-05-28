@@ -9,9 +9,5 @@ namespace Assets.Contexts.Chapters.Chapter2 {
         public Chapter2Context(MonoBehaviour view) : base(view) {
 
         }
-
-        protected override void mapBindings() {
-            
-        }
     }
 }
