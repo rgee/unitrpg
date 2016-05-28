@@ -14,7 +14,7 @@ namespace Contexts.Battle.Views {
 
         private IEnumerator ExecuteEventCoroutines(IEnumerable<IEnumerator> coroutines) {
             foreach (var coroutine in coroutines) {
-                StartCoroutine(coroutine);
+                yield return StartCoroutine(coroutine);
                 yield return new WaitForSeconds(0.3f);
             }
 

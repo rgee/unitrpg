@@ -8,6 +8,8 @@ using Models.Fighting.Battle.Objectives;
 using Models.Fighting.Characters;
 using Models.Fighting.Maps.Configuration;
 using strange.extensions.command.impl;
+using strange.extensions.context.api;
+using UnityEngine;
 
 namespace Contexts.Battle.Commands {
     public class InitializeMapCommand : Command {
@@ -26,7 +28,12 @@ namespace Contexts.Battle.Commands {
         [Inject]
         public IMapConfigRepository MapConfigRepository { get; set; }
 
+        [Inject(ContextKeys.CONTEXT_VIEW)]
+        public GameObject ContextGameObject { get; set; }
+
         public override void Execute() {
+
+            var context = ContextGameObject.GetComponent<BattleRoot>();
             var dimensions = Configuration.Dimensions;
             Model.Dimensions = dimensions;  
             Model.Map = Configuration.Map;
@@ -37,7 +44,7 @@ namespace Contexts.Battle.Commands {
 
             var turnOrder = new List<ArmyType> {ArmyType.Friendly, ArmyType.Enemy, ArmyType.Other};
             Model.Battle = new global::Models.Fighting.Battle.Battle(Model.Map, new BasicRandomizer(), Configuration.Combatants, turnOrder, objectives,
-                MapConfigRepository, "test_events");
+                MapConfigRepository, context.MapName);
 
             Model.State = BattleUIState.SelectingUnit;
             Model.ChapterIndex = Configuration.ChapterNumber;

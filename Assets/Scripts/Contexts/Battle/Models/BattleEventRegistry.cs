@@ -12,6 +12,10 @@ namespace Contexts.Battle.Models {
     public class BattleEventRegistry {
         private readonly Dictionary<string, IEnumerator> _eventHandlers = new Dictionary<string, IEnumerator>();
 
+        public void RegisterHandler(string eventName, IEnumerator handler) {
+            _eventHandlers[eventName] = handler;
+        }
+
         public IEnumerator GetHandler(string eventName) {
             if (_eventHandlers.ContainsKey(eventName)) {
                 return _eventHandlers[eventName];
