@@ -9,13 +9,13 @@ namespace Models.Fighting.Maps.Triggers {
         public readonly Vector2 Location;
         public readonly string EventName;
         public readonly bool OneTimeUse;
-        public readonly InteractionMode Type;
+        public readonly InteractionMode InteractionMode;
 
-        public EventTile(Vector2 location, string eventName, bool oneTimeUse, InteractionMode type) {
+        public EventTile(Vector2 location, string eventName, bool oneTimeUse, InteractionMode interactionMode) {
             Location = location;
             EventName = eventName;
             OneTimeUse = oneTimeUse;
-            Type = type;
+            InteractionMode = interactionMode;
         }
     }
 }

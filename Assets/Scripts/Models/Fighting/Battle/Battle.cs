@@ -82,7 +82,7 @@ namespace Models.Fighting.Battle {
         private void _processTriggers(IEnumerable<Vector2> path) {
             foreach (var tile in path) {
                 var eventTile = _map.GetEventTile(tile);
-                if (eventTile != null && eventTile.Type == InteractionMode.Walk) {
+                if (eventTile != null && eventTile.InteractionMode == InteractionMode.Walk) {
                     EventTileSignal.Dispatch(eventTile.EventName);
                     if (eventTile.OneTimeUse) {
                         _map.RemoveEventTile(tile);
