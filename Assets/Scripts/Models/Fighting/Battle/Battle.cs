@@ -11,12 +11,14 @@ using Models.Fighting.Skills;
 using strange.extensions.signal.impl;
 using UnityEngine;
 using UnityEngine.Networking.Match;
+using FightExecutor = Models.Fighting.Execution.FightExecutor;
 
 namespace Models.Fighting.Battle {
     public class Battle : IBattle {
         public int TurnNumber { get; private set; }
         public Signal<string> EventTileSignal { get; private set; }
 
+        private readonly Execution.FightExecutor _executor = new Execution.FightExecutor();
         private readonly IRandomizer _randomizer;
         private readonly FightForecaster _forecaster;
         private readonly FightFinalizer _finalizer;
@@ -125,6 +127,11 @@ namespace Models.Fighting.Battle {
             }
 
             return SkillType.Melee;
+        }
+
+        public void ExecuteFight(FinalizedFight fight) {
+            _executor.Execute(fight);
+            _currentTurn.MarkAction(fight.InitialPhase.Initiator);
         }
 
         public int GetMaxWeaponAttackRange(ICombatant combatant) {
