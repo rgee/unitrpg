@@ -35,6 +35,11 @@ namespace Contexts.Battle.Commands {
             Model.Battle = new global::Models.Fighting.Battle.Battle(Model.Map, new BasicRandomizer(), Configuration.Combatants, turnOrder, objectives);
             Model.State = BattleUIState.SelectingUnit;
             Model.ChapterIndex = Configuration.ChapterNumber;
+            
+            Model.Battle.EventTileSignal.AddListener(eventName => {
+                Model.EventsThisActionPhase.Add(eventName);
+            });
         }
+
     }
 }

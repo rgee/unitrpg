@@ -70,8 +70,9 @@ namespace Contexts.Battle.Models {
         [Inject]
         public StateTransitionSignal StateTransitionSignal { get; set; }
 
-
         public BattleViewState() {
+            EventsThisActionPhase = new List<string>();
+
             var combatStateMachine = new StateMachine<CombatState, CombatStateTriggers>(CombatState.Start);
 
             combatStateMachine.Configure(CombatState.Start)
