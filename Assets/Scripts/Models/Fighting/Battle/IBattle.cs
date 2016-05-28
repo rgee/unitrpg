@@ -3,6 +3,8 @@ using Models.Fighting.Battle.Objectives;
 using Models.Fighting.Characters;
 using Models.Fighting.Execution;
 using Models.Fighting.Skills;
+using strange.extensions.signal.impl;
+using UnityEngine;
 
 namespace Models.Fighting.Battle {
     public interface IBattle {
@@ -11,6 +13,8 @@ namespace Models.Fighting.Battle {
         int GetRemainingMoves(ICombatant combatant);
 
         int TurnNumber { get; }
+
+        Signal<string> EventTileSignal { get; }
 
         void SubmitAction(ICombatAction action);
 
@@ -37,5 +41,7 @@ namespace Models.Fighting.Battle {
         bool IsWon();
 
         bool IsLost();
+
+        void MoveCombatant(ICombatant combatant, List<Vector2> path);
     }
 }

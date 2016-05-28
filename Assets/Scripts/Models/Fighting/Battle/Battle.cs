@@ -6,16 +6,21 @@ using Models.Fighting.Battle.Objectives;
 using Models.Fighting.Characters;
 using Models.Fighting.Execution;
 using Models.Fighting.Maps;
+using Models.Fighting.Maps.Triggers;
 using Models.Fighting.Skills;
+using strange.extensions.signal.impl;
+using UnityEngine;
 using UnityEngine.Networking.Match;
 
 namespace Models.Fighting.Battle {
     public class Battle : IBattle {
+        public int TurnNumber { get; private set; }
+        public Signal<string> EventTileSignal { get; private set; }
+
         private readonly IRandomizer _randomizer;
         private readonly FightForecaster _forecaster;
         private readonly FightFinalizer _finalizer;
         private readonly List<ArmyType> _turnOrder;
-        private readonly SkillDatabase _skillDatabase;
         private readonly ICombatantDatabase _combatants;
         private readonly Dictionary<string, ICombatant> _combatantsById = new Dictionary<string, ICombatant>();
         private readonly IMap _map;
@@ -28,13 +33,15 @@ namespace Models.Fighting.Battle {
 
         public Battle(IMap map, IRandomizer randomizer, ICombatantDatabase combatants, List<ArmyType> turnOrder, List<IObjective> objectives) {
             TurnNumber = 0;
+            EventTileSignal = new Signal<string>();
             _objectives = objectives;
             _map = map;
             _randomizer = randomizer;
             _combatants = combatants;
-            _skillDatabase = new SkillDatabase(map);
-            _forecaster = new FightForecaster(map, _skillDatabase);
-            _finalizer = new FightFinalizer(_skillDatabase);
+
+            var skillDatabase = new SkillDatabase(map);
+            _forecaster = new FightForecaster(map, skillDatabase);
+            _finalizer = new FightFinalizer(skillDatabase);
             _turnOrder = turnOrder;
 
             foreach (var combatant in combatants.GetAllCombatants()) {
@@ -64,13 +71,44 @@ namespace Models.Fighting.Battle {
             return _objectives.Any(obj => obj.HasFailed(this));
         }
 
+        public void MoveCombatant(ICombatant combatant, List<Vector2> path) {
+            _validateMove(combatant, path);
+
+            _map.MoveCombatant(combatant, path.Last());
+            _currentTurn.MarkMove(combatant, path.Count);
+            _processTriggers(path);
+        }
+
+        private void _processTriggers(IEnumerable<Vector2> path) {
+            foreach (var tile in path) {
+                var eventTile = _map.GetEventTile(tile);
+                if (eventTile != null && eventTile.Type == InteractionMode.Walk) {
+                    EventTileSignal.Dispatch(eventTile.EventName);
+                    if (eventTile.OneTimeUse) {
+                        _map.RemoveEventTile(tile);
+                    }
+                }
+            }
+        }
+
+        private void _validateMove(ICombatant combatant, List<Vector2> path) {
+            if (_currentTurn.GetRemainingMoveDistance(combatant) < path.Count) {
+               throw new InvalidActionException(combatant.Id + " has already moved this turn.");
+            }
+
+            foreach (var location in path) {
+                if (location != combatant.Position && _map.IsBlocked(location)) {
+                    var error = string.Format("Location ({0}, {1}) is blocked.", location.x, location.y);
+                    throw new InvalidActionException(error);
+                }
+            }
+        }
+
         public List<ICombatant> GetAliveByArmy(ArmyType army) {
             return _map.GetAllOnMap()
                 .Where(combatant => combatant.Army == army)
                 .ToList();
         }
-
-        public int TurnNumber { get; private set; }
 
         public ICombatant GetById(string id) {
             if (!_combatantsById.ContainsKey(id)) {
@@ -125,12 +163,11 @@ namespace Models.Fighting.Battle {
         public void SubmitAction(ICombatAction action) {
             var validationError = action.GetValidationError(_currentTurn);
             if (validationError != null) {
-                throw new ArgumentException("Invalid action [" + action.GetType() + "]: " + validationError);
+                throw new InvalidActionException(validationError);
             }
 
             action.Perform(_currentTurn);
         }
-
 
         public bool CanMove(ICombatant combatant) {
             return _currentTurn.CanMove(combatant);

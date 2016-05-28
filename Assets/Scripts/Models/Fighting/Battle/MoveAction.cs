@@ -1,4 +1,5 @@
-﻿using Models.Fighting.Maps;
+﻿using System.Collections.Generic;
+using Models.Fighting.Maps;
 using UnityEngine;
 
 namespace Models.Fighting.Battle {
@@ -7,12 +8,14 @@ namespace Models.Fighting.Battle {
         private readonly ICombatant _combatant;
         private readonly Vector2 _destination;
         private readonly int _pathLength;
+        private readonly List<Vector2> _path;
 
-        public MoveAction(IMap map, ICombatant combatant, Vector2 destination, int pathLength) {
+        public MoveAction(IMap map, ICombatant combatant, Vector2 destination, List<Vector2> path) {
             _map = map;
             _combatant = combatant;
             _destination = destination;
-            _pathLength = pathLength;
+            _path = path;
+            _pathLength = _path.Count;
         }
 
         public MoveAction(IMap map, ICombatant combatant, Vector2 destination) {
@@ -34,6 +37,15 @@ namespace Models.Fighting.Battle {
         public void Perform(Turn turn) {
             _map.MoveCombatant(_combatant, _destination);
             turn.MarkMove(_combatant, _pathLength);
+
+            if (_path != null) {
+                foreach (var tile in _path) {
+                    var eventTile = _map.GetEventTile(tile);
+                    if (eventTile != null) {
+                        
+                    }
+                }                
+            }
         }
     }
 }
