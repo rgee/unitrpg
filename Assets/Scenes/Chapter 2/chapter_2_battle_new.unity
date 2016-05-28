@@ -3425,9 +3425,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 414832586}
-  - 114: {fileID: 414832589}
-  - 114: {fileID: 414832588}
-  - 114: {fileID: 414832587}
   m_Layer: 0
   m_Name: InnDoor
   m_TagString: Untagged
@@ -3447,51 +3444,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1205920066}
   m_RootOrder: 0
---- !u!114 &414832587
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 414832585}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1acd8c1758006124f91d4a8e80316fbd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Enabled: 1
---- !u!114 &414832588
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 414832585}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b04c983efe3b93d44890e15a5cc70591, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ChapterManager: {fileID: 0}
-  HouseObj: {fileID: 1205920065}
-  NextHouseObj: {fileID: 2109470900}
-  LiatDialoguePrefab: {fileID: 112360, guid: 6d9d138c50bb60e4d8a23c948b1f76a2, type: 2}
-  JanekDialoguePrefab: {fileID: 0}
-  LiatRejectedDialoguePrefab: {fileID: 112360, guid: 51c28c1e3b5f0f34989a057d3fc8e96e,
-    type: 2}
-  JanekRejectedDialoguePrefab: {fileID: 0}
---- !u!114 &414832589
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 414832585}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d754f7adad8d10444b9163220fc03c0b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GridPosition: {x: 16, y: 20}
-  Id: 
-  Repeatable: 0
 --- !u!43 &419044387
 Mesh:
   m_ObjectHideFlags: 0
@@ -9352,9 +9304,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1537785828}
-  - 114: {fileID: 1537785831}
-  - 114: {fileID: 1537785830}
-  - 114: {fileID: 1537785829}
   m_Layer: 0
   m_Name: HouseDoor
   m_TagString: Untagged
@@ -9374,50 +9323,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2109470901}
   m_RootOrder: 8
---- !u!114 &1537785829
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1537785827}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b04c983efe3b93d44890e15a5cc70591, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ChapterManager: {fileID: 0}
-  HouseObj: {fileID: 2109470900}
-  NextHouseObj: {fileID: 10527780}
-  LiatDialoguePrefab: {fileID: 112360, guid: 10f1174bcde7e4143a8cb0be55389957, type: 2}
-  JanekDialoguePrefab: {fileID: 0}
-  LiatRejectedDialoguePrefab: {fileID: 0}
-  JanekRejectedDialoguePrefab: {fileID: 0}
---- !u!114 &1537785830
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1537785827}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1acd8c1758006124f91d4a8e80316fbd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Enabled: 0
---- !u!114 &1537785831
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1537785827}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d754f7adad8d10444b9163220fc03c0b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GridPosition: {x: 25, y: 20}
-  Id: 
-  Repeatable: 0
 --- !u!1 &1567528986
 GameObject:
   m_ObjectHideFlags: 0
@@ -9927,9 +9832,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1669418164}
-  - 114: {fileID: 1669418167}
-  - 114: {fileID: 1669418166}
-  - 114: {fileID: 1669418165}
   m_Layer: 0
   m_Name: ClinicDoor
   m_TagString: Untagged
@@ -9949,47 +9851,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 10527781}
   m_RootOrder: 0
---- !u!114 &1669418165
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1669418163}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b8120cbdfb2cbe4ea398576a3333d67, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Clinic: {fileID: 10527782}
-  LiatKnockDialogue: {fileID: 112360, guid: 2d8df548b462f134abce3a86b4a786f7, type: 2}
-  LiatRecruitDialogue: {fileID: 112360, guid: 5ea4b7fd551bb83439b3cbcc541f7583, type: 2}
-  MaellePrefab: {fileID: 154476, guid: f362fb41cb5e6e44c8a918ed0dfc286a, type: 2}
---- !u!114 &1669418166
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1669418163}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1acd8c1758006124f91d4a8e80316fbd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Enabled: 0
---- !u!114 &1669418167
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1669418163}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d754f7adad8d10444b9163220fc03c0b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GridPosition: {x: 36, y: 20}
-  Id: clinic_visit
-  Repeatable: 0
 --- !u!43 &1690308048
 Mesh:
   m_ObjectHideFlags: 0
