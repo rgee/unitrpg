@@ -56,11 +56,6 @@ namespace Contexts.Battle.Commands {
             } else if (state == BattleUIState.SelectingMoveLocation) {
                 // Make the unit move
                 if (BattleViewModel.CurrentMovementPath != null) {
-
-                    var pathLength = BattleViewModel.CurrentMovementPath.Length;
-                    var moveAction = new MoveAction(BattleViewModel.Map, BattleViewModel.SelectedCombatant, Position, pathLength);
-                    BattleViewModel.PendingAction = moveAction;
-
                     MoveCombatantSignal.Dispatch(BattleViewModel.CurrentMovementPath);
                     BattleViewModel.State = BattleUIState.CombatantMoving;
                 }

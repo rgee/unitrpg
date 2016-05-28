@@ -1,4 +1,7 @@
-﻿using Contexts.Battle.Models;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using Contexts.Battle.Models;
 using Contexts.Battle.Signals;
 using strange.extensions.command.impl;
 using UnityEngine;
@@ -9,10 +12,16 @@ namespace Contexts.Battle.Commands {
         public BattleViewState Model { get; set; }
 
         [Inject]
-        public PlayerTurnCompleteSignal PlayerTurnCompleteSignal { get; set; }
+        public NextBattleSignal NextBattleSignal { get; set; }
 
         [Inject]
-        public NextBattleSignal NextBattleSignal { get; set; }
+        public IncrememtTurnSignal IncrememtTurnSignal { get; set; }
+
+        [Inject]
+        public ProcessTileEventsSignal ProcessTileEventsSignal { get; set; }
+        
+        [Inject]
+        public BattleEventRegistry BattleEventRegistry { get; set; }
 
         public override void Execute() {
             // Flush the move action
@@ -30,13 +39,20 @@ namespace Contexts.Battle.Commands {
             if (battle.IsWon()) {
                 Debug.Log("The battle is won.");
                 NextBattleSignal.Dispatch();
+                return;
             } else if (battle.IsLost()) {
                 Debug.Log("The battle is lost.");
-            } else if (!battle.ShouldTurnEnd()) {
-                Model.ResetUnitState();
-                Model.State = BattleUIState.SelectingUnit;
+                return;
+            }
+
+            // If there are events to process because units walked over event tiles
+            // handle them first.
+            if (Model.EventsThisActionPhase.Count > 0) {
+                var events = Model.EventsThisActionPhase;
+                var handlers = events.Select(evt => BattleEventRegistry.GetHandler(evt)).ToList();
+                ProcessTileEventsSignal.Dispatch(handlers);
             } else {
-                PlayerTurnCompleteSignal.Dispatch();
+                IncrememtTurnSignal.Dispatch();                                
             }
         }
     }

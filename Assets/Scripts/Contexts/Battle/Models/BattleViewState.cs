@@ -58,7 +58,10 @@ namespace Contexts.Battle.Models {
             AvailableActions = null;
             FightForecast = null;
             SelectedAttackTarget = null;
+            EventsThisActionPhase = new List<string>();
         }
+
+        public List<string> EventsThisActionPhase { get; set; } 
 
         public ICombatant SelectedAttackTarget { get; set; }
 

@@ -33,7 +33,9 @@ namespace Contexts.Battle {
 
             injectionBinder.Bind<BattleViewState>().ToSingleton();
 
+            injectionBinder.Bind<BattleEventRegistry>().ToSingleton().CrossContext();
             injectionBinder.Bind<BattleStartSignal>().ToSingleton().CrossContext();
+
             injectionBinder.Bind<HoverTileEnableSignal>().ToSingleton();
             injectionBinder.Bind<HoveredTileChangeSignal>().ToSingleton();
             injectionBinder.Bind<GatherBattleFromEditorSignal>().ToSingleton();
@@ -68,7 +70,8 @@ namespace Contexts.Battle {
             injectionBinder.Bind<ExitContextMenuSignal>().ToSingleton();
             injectionBinder.Bind<CameraLockSignal>().ToSingleton();
             injectionBinder.Bind<CameraUnlockSignal>().ToSingleton();
-
+            injectionBinder.Bind<IncrememtTurnSignal>().ToSingleton();
+            injectionBinder.Bind<ProcessTileEventsSignal>().ToSingleton();
 
             commandBinder.Bind<ExitContextMenuSignal>().To<ExitContextMenuCommand>();
             commandBinder.Bind<EndTurnSignal>().To<EndTurnCommand>();
@@ -87,6 +90,7 @@ namespace Contexts.Battle {
             commandBinder.Bind<PhaseChangeCompleteSignal>().To<PhaseChangeCompleteCommand>();
             commandBinder.Bind<PlayerTurnCompleteSignal>().To<NextPhaseCommand>();
             commandBinder.Bind<EnemyTurnCompleteSignal>().To<NextPhaseCommand>();
+            commandBinder.Bind<IncrememtTurnSignal>().To<IncrementTurnCommand>();
 
             mediationBinder.Bind<MapView>().To<MapViewMediator>();
             mediationBinder.Bind<MapHighlightView>().To<MapHighlightViewMediator>();
