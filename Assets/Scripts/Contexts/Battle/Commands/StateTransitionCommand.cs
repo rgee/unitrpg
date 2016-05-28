@@ -67,7 +67,6 @@ namespace Contexts.Battle.Commands {
                 case BattleUIState.SelectingMoveLocation:
                     ClearHighlightSignal.Dispatch(HighlightLevel.PlayerMove);
                     PathUnavailableSignal.Dispatch();
-                    Model.CurrentMovementPath = null;
                     break;
                 case BattleUIState.Fighting:
                     HoverTileEnableSignal.Dispatch();

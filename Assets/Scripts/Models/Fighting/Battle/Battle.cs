@@ -56,7 +56,7 @@ namespace Models.Fighting.Battle {
             if (mapName != null) {
                 var config = mapConfigRepository.GetConfigByMapName(mapName);
                 if (config == null) {
-                    Debug.LogErrorFormat("Coult not find map config for {0}", mapName);
+                    Debug.LogErrorFormat("Could not find map config for {0}", mapName);
                 } else {
                     foreach (var eventTile in config.EventTiles) {
                         _map.AddEventTile(eventTile);
@@ -99,6 +99,7 @@ namespace Models.Fighting.Battle {
             foreach (var tile in path) {
                 var eventTile = _map.GetEventTile(tile);
                 if (eventTile != null && eventTile.InteractionMode == InteractionMode.Walk) {
+                    Debug.Log("Dispatching event tile trigger event: " + eventTile.EventName);
                     EventTileSignal.Dispatch(eventTile.EventName);
                     if (eventTile.OneTimeUse) {
                         _map.RemoveEventTile(tile);
