@@ -61,13 +61,15 @@ namespace Models.Fighting.Execution {
             var receiver = skillForecast.Defender;
             var skill = _skillDatabase.GetStrategyByType(skillForecast.Type);
             var effects = skill.FinalizeForecast(skillForecast, randomizer);
+            var didMiss = effects.ReceiverEffects.OfType<Miss>().Any();
+
             damageSoFar.ApplyDamage(effects.GetDefenderDamage());
 
             return new FightPhase {
                 Initiator = initiator,
                 Receiver = receiver,
                 ReceverDies = damageSoFar.IsDead(),
-                Response = DefenderResponse.GetHit, // TODO: Skill strategy responsible for this?
+                Response = didMiss ? DefenderResponse.Dodge : DefenderResponse.GetHit, 
                 Effects = effects,
                 Skill = skillForecast.Type
             };
