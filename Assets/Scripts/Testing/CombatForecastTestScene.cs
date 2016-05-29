@@ -12,12 +12,6 @@ namespace Assets.Testing {
             StartCoroutine(SetupScene());
         }
 
-        void Update() {
-            if (Input.GetKeyDown(KeyCode.Escape)) {
-                CombatEventBus.Backs.Dispatch();
-            }
-        }
-
         IEnumerator SetupScene() {
             yield return new WaitForSeconds(1);
 

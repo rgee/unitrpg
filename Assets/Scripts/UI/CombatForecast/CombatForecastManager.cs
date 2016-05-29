@@ -15,7 +15,6 @@ namespace UI.CombatForecast {
         private GameObject _currentWindow;
 
         void Awake() {
-            CombatEventBus.Backs.AddListener(HideForecast);
         }
 
         public void ShowForcast(FightForecast forecast) {

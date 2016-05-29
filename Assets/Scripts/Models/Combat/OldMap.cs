@@ -9,7 +9,6 @@ namespace Models.Combat {
         private readonly Dictionary<Vector2, InteractiveTile> _interactiveTilesByPosition = new Dictionary<Vector2, InteractiveTile>(); 
 
         public OldMap(IEnumerable<Unit> units, IEnumerable<InteractiveTile> interactiveTiles) {
-            CombatEventBus.ModelDeaths.AddListener(RemoveUnit);
             foreach (var unit in units) {
                 if (_unitsByPosition.ContainsKey(unit.GridPosition)) {
                     throw new ArgumentException("Cannot place two units at the same position.");
@@ -89,7 +88,6 @@ namespace Models.Combat {
             unit.GridPosition = location;
             _unitsByPosition[location] = unit;
 
-            CombatEventBus.MoveSignal.Dispatch(unit, location);
         }
 
         public bool IsOccupied(Vector2 position) {
