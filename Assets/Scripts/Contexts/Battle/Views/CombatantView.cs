@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using Assets.Contexts;
-using Combat;
 using Contexts.Battle.Utilities;
 using Models.Fighting;
 using Models.Fighting.Characters;
