@@ -47,9 +47,13 @@ namespace Models.SaveGames {
 
         private static ISaveGame LoadFile(string fileName) {
             var json = File.ReadAllText(fileName);
-            return JsonConvert.DeserializeObject<DefaultSaveGame>(json, new JsonSerializerSettings {
+            var result = JsonConvert.DeserializeObject<DefaultSaveGame>(json, new JsonSerializerSettings {
                 TypeNameHandling = TypeNameHandling.All
             });
+
+            result.Path = fileName;
+
+            return result;
         }
     }
 }
