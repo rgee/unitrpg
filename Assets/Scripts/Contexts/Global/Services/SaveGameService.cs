@@ -18,15 +18,10 @@ namespace Contexts.Global.Services {
         public ISaveGameRepository Repository { get; set; }
 
         [Inject]
-        public CharacterDatabase CharacterDB { get; set; }
-
-        [PostConstruct]
-        public void Announce() {
-            Debug.Log("constructing save game service");
-        }
+        public CharacterDatabase CharacterDb { get; set; }
 
         public void CreateNewGame() {
-            CurrentSave = new DefaultSaveGame(CharacterDB.GetAllCharacters());
+            CurrentSave = new DefaultSaveGame(CharacterDb.GetAllCharacters());
         }
 
         public void Choose(ISaveGame saveGame) {
