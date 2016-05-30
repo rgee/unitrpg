@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Models.Fighting.Characters;
+using Newtonsoft.Json;
 
 namespace Models.SaveGames {
     /// <summary>
@@ -29,7 +30,7 @@ namespace Models.SaveGames {
 
         public List<ISaveGame> GetAllSaves() {
             var files = Directory.GetFiles(path);
-            var saveNames = from file in files where file.EndsWith(".sav") select file;
+            var saveNames = from file in files where file.EndsWith(".json") select file;
             var saves = from name in saveNames select LoadFile(name);
 
             return saves
@@ -38,22 +39,17 @@ namespace Models.SaveGames {
         }
 
         private static void SaveFile(ISaveGame save) {
-            var stream = File.Open(save.Path, FileMode.Create);
-            try {
-                // TODO: write save file JSON
-            } finally {
-                stream.Close();
-            }
+            var json = JsonConvert.SerializeObject(save, Formatting.Indented, new JsonSerializerSettings {
+                TypeNameHandling = TypeNameHandling.All
+            });
+            File.WriteAllText(save.Path, json);
         }
 
         private static ISaveGame LoadFile(string fileName) {
-            var stream = File.Open(fileName, FileMode.Open);
-            try {
-                // TODO: parse save file JSON
-                return null;
-            } finally {
-                stream.Close();
-            }
+            var json = File.ReadAllText(fileName);
+            return JsonConvert.DeserializeObject<DefaultSaveGame>(json, new JsonSerializerSettings {
+                TypeNameHandling = TypeNameHandling.All
+            });
         }
     }
 }
