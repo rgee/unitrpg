@@ -12,6 +12,7 @@ using Models.Fighting.Execution;
 using Models.Fighting.Skills;
 using strange.extensions.command.impl;
 using UnityEngine;
+using Utils;
 
 namespace Contexts.Battle.Commands {
     public class SelectMapPositionCommand : Command {

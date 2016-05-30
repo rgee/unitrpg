@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using Utils;
 
 namespace Models.Fighting.Skills {
     public class Advance : AbstractSkillStrategy {

@@ -7,6 +7,7 @@ using Models.Fighting.Maps.Configuration;
 using Models.Fighting.Maps.Triggers;
 using Newtonsoft.Json;
 using UnityEngine;
+using Utils;
 
 namespace Models.Fighting.Maps {
     public class Map : IMap {

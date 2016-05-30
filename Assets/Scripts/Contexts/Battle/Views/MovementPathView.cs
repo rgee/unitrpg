@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using strange.extensions.mediation.impl;
 using UnityEngine;
+using Utils;
 
 namespace Contexts.Battle.Views {
     public class MovementPathView : View {

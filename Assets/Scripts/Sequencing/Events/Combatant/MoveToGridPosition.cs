@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Contexts.Battle.Views;
 using UnityEngine;
+using Utils;
 using WellFired;
 
 namespace Assets.Sequencing.Events.Combatant {

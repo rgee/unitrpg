@@ -8,6 +8,7 @@ using Models.Fighting;
 using Models.Fighting.Effects;
 using Models.Fighting.Execution;
 using UnityEngine;
+using Utils;
 
 namespace Contexts.Battle.Views.UniqueCombatants {
     public class LiatView : CombatantView {

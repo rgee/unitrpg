@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using Utils;
 
 namespace Contexts.Battle.Utilities {
     // Just a little value object to get around the single parameter, 

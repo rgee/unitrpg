@@ -4,6 +4,7 @@ using Contexts.Battle.Views;
 using DG.Tweening;
 using strange.extensions.signal.impl;
 using UnityEngine;
+using Utils;
 
 namespace Contexts.Battle.Utilities {
     [RequireComponent(typeof(CombatantView))]

@@ -2,6 +2,7 @@
 using Models.Fighting.Characters;
 using Models.Fighting.Maps;
 using Models.Fighting.Skills;
+using Utils;
 
 namespace Models.Fighting.Execution {
     public class FightForecaster {
