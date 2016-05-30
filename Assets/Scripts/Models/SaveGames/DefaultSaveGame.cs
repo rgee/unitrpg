@@ -7,9 +7,11 @@ using Utils;
 namespace Models.SaveGames {
     public class DefaultSaveGame : ISaveGame {
         public string Id { get; set; }
-        public string Path { get; set; }
-        public int ChapterNumber { get; set; }
 
+        [JsonIgnore]
+        public string Path { get; set; }
+
+        public int ChapterNumber { get; set; }
         public List<ICharacter> Characters { get; set; }
         public DateTime LastSaveTime { get; set; }
 

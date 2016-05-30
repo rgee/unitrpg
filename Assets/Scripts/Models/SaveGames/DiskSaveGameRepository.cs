@@ -12,10 +12,10 @@ namespace Models.SaveGames {
     /// </summary>
     public class DiskSaveGameRepository : ISaveGameRepository {
         public ISaveGame CurrentSave { get; set; }
-        private readonly string path;
+        private readonly string _rootPath;
 
-        public DiskSaveGameRepository(string path) {
-            this.path = path;
+        public DiskSaveGameRepository(string rootPath) {
+            this._rootPath = rootPath;
         }
 
         public void Overwrite(ISaveGame saveGame) {
@@ -29,7 +29,7 @@ namespace Models.SaveGames {
         }
 
         public List<ISaveGame> GetAllSaves() {
-            var files = Directory.GetFiles(path);
+            var files = Directory.GetFiles(_rootPath);
             var saveNames = from file in files where file.EndsWith(".json") select file;
             var saves = from name in saveNames select LoadFile(name);
 
