@@ -12,31 +12,26 @@ namespace Contexts.MainMenu.Views {
         public Sprite Sunset;
         public Sprite Night;
 
-        private Image _background;
-
-        void Awake() {
-            _background = GetComponent<Image>();
-            _background.enabled = false;
-        }
 
         public void SetTime(TimeOfDay time) {
+            var background = GetComponent<Image>();
             switch (time) {
                 case TimeOfDay.Sunrise:
-                    _background.sprite = Sunrise;
+                    background.sprite = Sunrise;
                     break;
                 case TimeOfDay.Day:
-                    _background.sprite = Day;
+                    background.sprite = Day;
                     break;
                 case TimeOfDay.Sunset:
-                    _background.sprite = Sunset;
+                    background.sprite = Sunset;
                     break;
                 case TimeOfDay.Night:
-                    _background.sprite = Night;
+                    background.sprite = Night;
                     break;
                 default:
                     throw new ArgumentOutOfRangeException("time", time, null);
             }
-            _background.enabled = true;
+            background.enabled = true;
         }
     }
 }

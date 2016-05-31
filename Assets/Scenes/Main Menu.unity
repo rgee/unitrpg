@@ -892,8 +892,8 @@ Transform:
   m_Children:
   - {fileID: 126878023}
   - {fileID: 1362553085}
-  - {fileID: 1473781738}
   - {fileID: 1006546741}
+  - {fileID: 1473781738}
   m_Father: {fileID: 0}
   m_RootOrder: 1
 --- !u!114 &825031585
@@ -1318,7 +1318,7 @@ RectTransform:
   m_Children:
   - {fileID: 211849342}
   m_Father: {fileID: 825031584}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -1631,10 +1631,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5932704f821a03340954fdd5f1d133a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Morning: {fileID: 21300000, guid: 1ccd0724265bf6346bc681d08dac78f7, type: 3}
-  Day: {fileID: 21300000, guid: 3a998d6a24a054548b4fc5c4d040752f, type: 3}
-  Evening: {fileID: 21300000, guid: 836fca91bd8352b4ea9653646804d63b, type: 3}
-  Night: {fileID: 21300000, guid: dbd99a11aaa610e46878d9cca65ce233, type: 3}
 --- !u!1 &1362553084
 GameObject:
   m_ObjectHideFlags: 0
@@ -1788,6 +1784,7 @@ GameObject:
   - 114: {fileID: 1473781741}
   - 222: {fileID: 1473781740}
   - 114: {fileID: 1473781739}
+  - 114: {fileID: 1473781743}
   m_Layer: 0
   m_Name: Background View
   m_TagString: Untagged
@@ -1806,7 +1803,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 825031584}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -1885,6 +1882,21 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1473781743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1473781737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 761fe5ba1785bb04faa7a2c6048912b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sunrise: {fileID: 21300000, guid: 1ccd0724265bf6346bc681d08dac78f7, type: 3}
+  Day: {fileID: 21300000, guid: 3a998d6a24a054548b4fc5c4d040752f, type: 3}
+  Sunset: {fileID: 21300000, guid: 836fca91bd8352b4ea9653646804d63b, type: 3}
+  Night: {fileID: 21300000, guid: dbd99a11aaa610e46878d9cca65ce233, type: 3}
 --- !u!1 &1502118007
 GameObject:
   m_ObjectHideFlags: 0
