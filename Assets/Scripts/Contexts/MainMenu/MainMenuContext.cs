@@ -12,12 +12,6 @@ namespace Contexts.MainMenu {
             
         }
 
-        protected override void addCoreComponents() {
-            base.addCoreComponents();
-            injectionBinder.Unbind<ICommandBinder>();
-            injectionBinder.Bind<ICommandBinder>().To<SignalCommandBinder>().ToSingleton();
-        }
-
         protected override void mapBindings() {
             base.mapBindings();
 
