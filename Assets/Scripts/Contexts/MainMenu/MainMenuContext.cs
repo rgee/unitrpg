@@ -25,6 +25,7 @@ namespace Contexts.MainMenu {
 
             commandBinder.Bind<OptionsSignal>().To<LoadOptionsCommand>();
             commandBinder.Bind<NewGameSignal>().To<NewGameCommand>();
+            commandBinder.Bind<LoadGameSignal>().To<LoadGameCommand>();
         }
 
         private static TimeOfDay GetTimeOfDay() {

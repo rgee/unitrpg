@@ -17,10 +17,14 @@ namespace Contexts.MainMenu.Views {
         [Inject]
         public NewGameSignal NewGameSignal { get; set; }
 
+        [Inject]
+        public LoadGameSignal LoadGameSignal { get; set; }
+
         public override void OnRegister() {
             View.QuitClicked.AddListener(OnQuitClicked);
             View.OptionsClicked.AddListener(OnOptionsClicked);
             View.NewGameClicked.AddListener(OnNewGameClicked);
+            View.LoadGameClicked.AddListener(LoadGameSignal.Dispatch);
         }
 
         private void OnNewGameClicked() {

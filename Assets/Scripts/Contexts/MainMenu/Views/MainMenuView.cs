@@ -20,5 +20,9 @@ namespace Contexts.MainMenu.Views {
         public void NewGame() {
             NewGameClicked.Dispatch();
         }
+
+        public void LoadGame() {
+            LoadGameClicked.Dispatch();
+        }
     }
 }
