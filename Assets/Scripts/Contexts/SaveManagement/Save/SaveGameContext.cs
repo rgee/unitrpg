@@ -15,7 +15,6 @@ namespace Assets.Contexts.SaveManagement.Save {
         protected override void mapBindings() {
             base.mapBindings();
 
-            commandBinder.Bind<SaveGameSelectedSignal>().To<SetCurrentSaveCommand>();
             commandBinder.Bind<EmptySaveSlotSelectedSignal>().To<WriteCurrentSaveCommand>();
         }
     }
