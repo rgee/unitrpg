@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using Models.Fighting.Characters;
 using Newtonsoft.Json;
+using UnityEngine;
 
 namespace Models.SaveGames {
     /// <summary>

@@ -1,6 +1,7 @@
 ﻿using Models.SaveGames;
 using strange.extensions.mediation.impl;
 using strange.extensions.signal.impl;
+using UnityEngine.UI;
 
 namespace Assets.Contexts.SaveManagement.Common {
     public class SaveGameFileView : View {
@@ -9,6 +10,9 @@ namespace Assets.Contexts.SaveManagement.Common {
 
         public void SetSaveGame(ISaveGame saveGame) {
             SaveGame = saveGame;
+
+            var id = transform.FindChild("id").GetComponent<Text>();
+            id.text = saveGame.Id;
         }
 
         public void Select() {

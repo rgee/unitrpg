@@ -40,7 +40,10 @@ namespace Assets.Contexts.Base {
 
                 injectionBinder.Bind<ApplicationState>().ToValue(new ApplicationState()).CrossContext();
                 injectionBinder.Bind<IRoutineRunner>().To<RoutineRunner>().CrossContext();
-                injectionBinder.Bind<ISaveGameRepository>().To<TestingSaveGameRepository>().ToSingleton().CrossContext();
+
+                var saveRepository = new DiskSaveGameRepository(UnityEngine.Application.persistentDataPath);
+                injectionBinder.Bind<ISaveGameRepository>().ToValue(saveRepository).CrossContext();
+
                 injectionBinder.Bind<ISaveGameService>().To<SaveGameService>().ToSingleton().CrossContext();
                 injectionBinder.Bind<CharacterDatabase>().To<BaseCharacterDatabase>().ToSingleton().CrossContext();
                 injectionBinder.Bind<IBattleConfigRepository>().To<BattleConfigRepository>().ToSingleton().CrossContext();
