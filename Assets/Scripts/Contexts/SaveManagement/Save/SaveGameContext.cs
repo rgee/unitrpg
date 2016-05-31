@@ -19,7 +19,13 @@ namespace Assets.Contexts.SaveManagement.Save {
             var saveList = new SaveGameList {AllSaves = saveService.GetAll()};
 
             injectionBinder.Bind<SaveGameList>().ToValue(saveList);
+            injectionBinder.Bind<EmptySaveSlotSelectedSignal>().ToSingleton();
+            injectionBinder.Bind<SaveGameSelectedSignal>().ToSingleton();
+
             mediationBinder.Bind<SaveGameFileListView>().To<SaveGameFileListMediator>();
+            mediationBinder.Bind<SaveGameFileView>().To<SaveGameFileMediator>();
+
+            commandBinder.Bind<SaveGameSelectedSignal>().To<SetCurrentSaveCommand>();
         }
     }
 }
