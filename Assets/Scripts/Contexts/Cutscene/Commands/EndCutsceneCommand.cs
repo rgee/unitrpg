@@ -32,7 +32,7 @@ namespace Contexts.Cutscene.Commands {
             if (nextCutscene == null) {
                 var nextConfig = BattleConfigRepository.GetConfigByIndex(save.ChapterNumber);
                 var nextSceneName = nextConfig.InitialSceneName;
-                ChangeSceneSignal.Dispatch(View, new List<string> { nextSceneName, "BattlePrep" });
+                ChangeSceneSignal.Dispatch(View, new List<string> { nextSceneName });
             } else {
                 ChangeSceneSignal.Dispatch(View, new List<string> { "Cutscene" });
             }

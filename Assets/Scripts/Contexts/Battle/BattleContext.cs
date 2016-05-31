@@ -9,6 +9,7 @@ using Contexts.Battle.Signals.Camera;
 using Contexts.Battle.Utilities;
 using Contexts.Battle.Views;
 using Contexts.Battle.Views.UniqueCombatants;
+using Contexts.Global.Signals;
 using Models.Fighting.Maps.Configuration;
 using strange.extensions.command.api;
 using strange.extensions.context.impl;
@@ -27,7 +28,7 @@ namespace Contexts.Battle {
             if (this == Context.firstContext) {
                 startBinding = commandBinder.GetBinding<StartSignal>();
             } else {
-                startBinding = commandBinder.Bind<BattleStartSignal>();
+                startBinding = commandBinder.Bind<ScreenRevealedSignal>();
             }
 
             startBinding.To<PlayIntroCutsceneCommand>().InSequence();
