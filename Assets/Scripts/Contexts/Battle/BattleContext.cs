@@ -6,6 +6,7 @@ using Contexts.Battle.Commands;
 using Contexts.Battle.Models;
 using Contexts.Battle.Signals;
 using Contexts.Battle.Signals.Camera;
+using Contexts.Battle.Signals.Public;
 using Contexts.Battle.Utilities;
 using Contexts.Battle.Views;
 using Contexts.Battle.Views.UniqueCombatants;
@@ -81,7 +82,9 @@ namespace Contexts.Battle {
             injectionBinder.Bind<CameraUnlockSignal>().ToSingleton();
             injectionBinder.Bind<IncrememtTurnSignal>().ToSingleton();
             injectionBinder.Bind<ProcessTileEventsSignal>().ToSingleton();
+            injectionBinder.Bind<BeginSurveyingSignal>().ToSingleton().CrossContext();
 
+            commandBinder.Bind<BeginSurveyingSignal>().To<BeginSurveyingCommand>();
             commandBinder.Bind<ExitContextMenuSignal>().To<ExitContextMenuCommand>();
             commandBinder.Bind<EndTurnSignal>().To<EndTurnCommand>();
             commandBinder.Bind<ContextRequestedSignal>().To<ShowContextMenuCommand>();

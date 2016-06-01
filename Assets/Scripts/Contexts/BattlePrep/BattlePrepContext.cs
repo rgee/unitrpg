@@ -1,6 +1,7 @@
 ﻿using Assets.Contexts.Base;
 using Contexts.BattlePrep.Commands;
 using Contexts.BattlePrep.Signals;
+using Contexts.BattlePrep.Signals.Public;
 using Contexts.BattlePrep.Views;
 using Models.SaveGames;
 using strange.extensions.context.impl;
@@ -25,6 +26,7 @@ namespace Contexts.BattlePrep {
                 injectionBinder.Bind<ISaveGameRepository>().ToValue(new TestingSaveGameRepository());
             }
 
+            injectionBinder.Bind<HidePrepSignal>().ToSingleton().CrossContext();
             injectionBinder.Bind<ShowBattlePrepSignal>().ToSingleton().CrossContext();
             commandBinder.Bind<ShowBattlePrepSignal>()
                 .To<BattlePrepStartCommand>()
@@ -43,6 +45,9 @@ namespace Contexts.BattlePrep {
                 .To<UpdateObjectiveCommand>();
 
             commandBinder.Bind<ClosePrepSignal>()
+                .To<ClosePrepCommand>();
+
+            commandBinder.Bind<HidePrepSignal>()
                 .To<HidePrepCommand>();
 
             mediationBinder.Bind<BattlePrepView>().To<BattlePrepViewMediator>();    

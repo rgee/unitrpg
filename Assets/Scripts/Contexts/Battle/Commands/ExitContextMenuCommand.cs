@@ -7,7 +7,9 @@ namespace Contexts.Battle.Commands {
         public BattleViewState ViewState { get; set; }
 
         public override void Execute() {
-            ViewState.State = BattleUIState.SelectingUnit;
+            if (ViewState.State == BattleUIState.ContextMenu) {
+                ViewState.State = BattleUIState.SelectingUnit;
+            }
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using Contexts.Battle.Signals;
+using Contexts.Battle.Signals.Public;
 using Contexts.BattlePrep.Models;
 using Contexts.BattlePrep.Signals;
 using strange.extensions.command.impl;
@@ -14,11 +15,15 @@ namespace Contexts.BattlePrep.Commands {
         [Inject]
         public BattleStartSignal BattleStartSignal { get; set; }
 
+        [Inject]
+        public BeginSurveyingSignal BeginSurveyingSignal { get; set; }
+
         public override void Execute() {
             switch (PrepAction) {
                 case BattlePrepAction.Trade:
                     break;
                 case BattlePrepAction.Survey:
+                    BeginSurveyingSignal.Dispatch();
                     break;
                 case BattlePrepAction.Personnel:
                     break;

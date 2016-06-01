@@ -88,6 +88,10 @@ namespace Contexts.Battle.Commands {
                     break;
                 case BattleUIState.ContextMenu:
                     break;
+                case BattleUIState.Preparations:
+                    break;
+                case BattleUIState.Surveying:
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException("state", state, null);
             }
@@ -130,6 +134,12 @@ namespace Contexts.Battle.Commands {
                     break;
                 case BattleUIState.ContextMenu:
                     HoverTileDisableSignal.Dispatch();
+                    break;
+                case BattleUIState.Preparations:
+                    CameraLockSignal.Dispatch();
+                    break;
+                case BattleUIState.Surveying:
+                    CameraUnlockSignal.Dispatch();
                     break;
                 default:
                     throw new ArgumentOutOfRangeException("state", state, null);

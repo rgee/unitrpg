@@ -1,5 +1,6 @@
 ﻿using Contexts.Battle.Models;
 using Contexts.Battle.Signals;
+using Contexts.BattlePrep.Signals;
 using strange.extensions.command.impl;
 using UnityEditor;
 
@@ -17,6 +18,9 @@ namespace Contexts.Battle.Commands {
         [Inject]
         public ExitContextMenuSignal ExitContextMenuSignal { get; set; }
 
+        [Inject]
+        public ShowBattlePrepSignal ShowBattlePrepSignal { get; set; }
+
         public override void Execute() {
             var state = Model.State;
 
@@ -32,6 +36,10 @@ namespace Contexts.Battle.Commands {
                 case BattleUIState.ForecastingCombat:
                     Model.SelectedAttackTarget = null;
                     Model.State = BattleUIState.SelectingAttackTarget;
+                    break;
+                case BattleUIState.Surveying:
+                    Model.State = BattleUIState.Preparations;
+                    ShowBattlePrepSignal.Dispatch();
                     break;
                 case BattleUIState.SelectingAttackTarget:
                 case BattleUIState.SelectingMoveLocation:
