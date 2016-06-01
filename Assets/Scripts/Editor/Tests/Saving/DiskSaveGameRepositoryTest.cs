@@ -39,7 +39,7 @@ namespace Tests.Saving {
             var characters = new List<ICharacter> {liat};
             var save = new DefaultSaveGame(characters) {Path = Path.Combine(path, "test_save.json")};
 
-            repository.Overwrite(save);
+            repository.Persist(save);
             var saves = repository.GetAllSaves();
             Assert.AreEqual(1, saves.Count);
         }

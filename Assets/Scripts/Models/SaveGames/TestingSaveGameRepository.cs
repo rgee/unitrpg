@@ -4,7 +4,7 @@ using Models.Fighting.Characters;
 namespace Models.SaveGames {
     public class TestingSaveGameRepository : ISaveGameRepository {
         public ISaveGame CurrentSave { get; set; }
-        public void Overwrite(ISaveGame saveGame) {
+        public void Persist(ISaveGame saveGame) {
         }
 
         public List<ISaveGame> GetAllSaves() {
@@ -12,7 +12,10 @@ namespace Models.SaveGames {
             return new List<ISaveGame> {
                 new DefaultSaveGame(characters)
             };
+        }
 
+        public void Overwrite(ISaveGame previousSave, ISaveGame newSave) {
+            throw new System.NotImplementedException();
         }
     }
 }

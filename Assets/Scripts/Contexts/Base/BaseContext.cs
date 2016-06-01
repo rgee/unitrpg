@@ -13,6 +13,7 @@ using UnityEngine;
 
 namespace Assets.Contexts.Base {
     public class BaseContext : MVCSContext {
+        private const int MaxSaves = 6;
         public BaseContext(MonoBehaviour view) : base(view) {
 
         }
@@ -41,7 +42,7 @@ namespace Assets.Contexts.Base {
                 injectionBinder.Bind<ApplicationState>().ToValue(new ApplicationState()).CrossContext();
                 injectionBinder.Bind<IRoutineRunner>().To<RoutineRunner>().CrossContext();
 
-                var saveRepository = new DiskSaveGameRepository(UnityEngine.Application.persistentDataPath);
+                var saveRepository = new DiskSaveGameRepository(UnityEngine.Application.persistentDataPath, MaxSaves);
                 injectionBinder.Bind<ISaveGameRepository>().ToValue(saveRepository).CrossContext();
 
                 injectionBinder.Bind<ISaveGameService>().To<SaveGameService>().ToSingleton().CrossContext();

@@ -15,6 +15,10 @@ namespace Tests.Battle {
         private class EmptySaveGameRepository : ISaveGameRepository {
             public ISaveGame CurrentSave { get; set; }
 
+            public void Overwrite(ISaveGame previousSave, ISaveGame newSave) {
+                throw new System.NotImplementedException();
+            }
+
             public void CreateNewGame() {
                 throw new System.NotImplementedException();
             }
@@ -23,7 +27,7 @@ namespace Tests.Battle {
                 throw new System.NotImplementedException();
             }
 
-            public void Overwrite(ISaveGame saveGame) {
+            public void Persist(ISaveGame saveGame) {
                 throw new System.NotImplementedException();
             }
 

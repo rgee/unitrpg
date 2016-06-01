@@ -24,12 +24,16 @@ namespace Contexts.Global.Services {
             CurrentSave = new DefaultSaveGame(CharacterDb.GetAllCharacters());
         }
 
-        public void Choose(ISaveGame saveGame) {
-            CurrentSave = saveGame;
+        public void Write(ISaveGame saveGame) {
+            Repository.Persist(saveGame);
         }
 
-        public void Overwrite(ISaveGame newSave) {
-            Repository.Overwrite(newSave);
+        public void Overwrite(ISaveGame existingSave, ISaveGame newSave) {
+            Repository.Overwrite(existingSave, newSave);
+        }
+
+        public void Choose(ISaveGame saveGame) {
+            CurrentSave = saveGame;
         }
 
         public List<ISaveGame> GetAll() {

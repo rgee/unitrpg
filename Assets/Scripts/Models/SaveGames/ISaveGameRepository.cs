@@ -4,7 +4,8 @@ using System.Collections.Generic;
 namespace Models.SaveGames {
     public interface ISaveGameRepository {
         ISaveGame CurrentSave { get; set; }
-        void Overwrite(ISaveGame saveGame);
+        void Persist(ISaveGame saveGame);
+        void Overwrite(ISaveGame previousSave, ISaveGame newSave);
         List<ISaveGame> GetAllSaves();
     }
 }

@@ -12,15 +12,45 @@ namespace Models.SaveGames {
     /// file on disk.
     /// </summary>
     public class DiskSaveGameRepository : ISaveGameRepository {
-        public ISaveGame CurrentSave { get; set; }
-        private readonly string _rootPath;
+        private const string Suffix = "_save.json";
 
-        public DiskSaveGameRepository(string rootPath) {
-            this._rootPath = rootPath;
+        public ISaveGame CurrentSave { get; set; }
+
+        private readonly string _rootPath;
+        private readonly int _maxSaves;
+
+        public DiskSaveGameRepository(string rootPath) : this(rootPath, int.MaxValue) { }
+
+        public DiskSaveGameRepository(string rootPath, int maxSaves) {
+            _rootPath = rootPath;
+            _maxSaves = maxSaves;
         }
 
-        public void Overwrite(ISaveGame saveGame) {
+        private string GenerateNewFileName() {
+            var files = Directory.GetFiles(_rootPath);
+            var saveNames = from file in files where file.EndsWith(Suffix) select file;
+
+            var nameSet = saveNames.ToHashSet();
+            if (nameSet.Count >= _maxSaves) {
+                throw new ArgumentException("Already at save capacity.");
+            }
+
+            for (var i = 0; i > _maxSaves; i++) {
+                var candidate = i + Suffix;
+                if (!nameSet.Contains(candidate)) {
+                    return candidate;
+                }
+            }
+
+            throw new ArgumentException("Could not find name.");
+        }
+
+        public void Persist(ISaveGame saveGame) {
             var previousSaveTime = saveGame.LastSaveTime;
+            if (saveGame.Path == null) {
+                saveGame.Path = Path.Combine(_rootPath, GenerateNewFileName());
+            }
+
             try {
                 saveGame.LastSaveTime = new DateTime();
                 SaveFile(saveGame);
@@ -31,7 +61,7 @@ namespace Models.SaveGames {
 
         public List<ISaveGame> GetAllSaves() {
             var files = Directory.GetFiles(_rootPath);
-            var saveNames = from file in files where file.EndsWith(".json") select file;
+            var saveNames = from file in files where file.EndsWith(Suffix) select file;
             var saves = from name in saveNames select LoadFile(name);
 
             return saves
@@ -55,6 +85,15 @@ namespace Models.SaveGames {
             result.Path = fileName;
 
             return result;
+        }
+
+        public void Overwrite(ISaveGame previousSave, ISaveGame newSave) {
+            var previousPath = previousSave.Path;
+            if (previousPath == null) {
+                throw new ArgumentException(string.Format("Previous save {0} has no path.", previousSave.Id));
+            }
+            newSave.Path = previousPath;
+            Persist(newSave); 
         }
     }
 }

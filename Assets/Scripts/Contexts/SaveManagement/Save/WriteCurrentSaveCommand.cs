@@ -23,7 +23,6 @@ namespace Assets.Contexts.SaveManagement.Save {
             if (SaveGameService.CurrentSave == null) {
                 Debug.LogError("Could not write to save file. No save file present.");
             }
-
         }
     }
 }
