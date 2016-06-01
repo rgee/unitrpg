@@ -12,7 +12,7 @@ namespace Contexts.BattlePrep.Commands {
         public BattlePrepAction PrepAction { get; set; }
 
         [Inject]
-        public StartBattleSignal StartBattleSignal { get; set; }
+        public BattleStartSignal BattleStartSignal { get; set; }
 
         public override void Execute() {
             switch (PrepAction) {
@@ -25,7 +25,7 @@ namespace Contexts.BattlePrep.Commands {
                 case BattlePrepAction.Morale:
                     break;
                 case BattlePrepAction.Fight:
-                    StartBattleSignal.Dispatch();
+                    BattleStartSignal.Dispatch();
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();

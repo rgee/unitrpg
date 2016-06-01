@@ -51,16 +51,8 @@ namespace Contexts.BattlePrep {
             commandBinder.Bind<UpdateObjectiveSignal>()
                 .To<UpdateObjectiveCommand>();
 
-            commandBinder.Bind<HideBattlePrepSignal>()
-                .To<HidePrepCommand>();
-
             commandBinder.Bind<ClosePrepSignal>()
                 .To<HidePrepCommand>();
-
-            commandBinder.Bind<StartBattleSignal>()
-                .To<HidePrepCommand>()
-                .To<StartBattleCommand>()
-                .InSequence();
 
             mediationBinder.Bind<BattlePrepView>().To<BattlePrepViewMediator>();    
         }
