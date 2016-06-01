@@ -1,6 +1,6 @@
 ﻿using strange.extensions.signal.impl;
 
-namespace Contexts.BattlePrep.Signals {
+namespace Contexts.BattlePrep.Signals.Public {
     public class ClosePrepSignal : Signal {
     }
 }

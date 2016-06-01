@@ -27,6 +27,7 @@ namespace Contexts.BattlePrep {
             }
 
             injectionBinder.Bind<HidePrepSignal>().ToSingleton().CrossContext();
+            injectionBinder.Bind<ClosePrepSignal>().ToSingleton().CrossContext();
             injectionBinder.Bind<ShowBattlePrepSignal>().ToSingleton().CrossContext();
             commandBinder.Bind<ShowBattlePrepSignal>()
                 .To<BattlePrepStartCommand>()
