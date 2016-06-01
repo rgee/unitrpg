@@ -46,8 +46,12 @@ namespace Contexts.Global {
             ConcreteSingleton<ChangeSceneSignal>();
             ConcreteSingleton<StartChapterSignal>();
             ConcreteSingleton<ChangeSceneMultiSignal>();
+            ConcreteSingleton<AddSceneSignal>();
 
             Singleton<ICutsceneLoader>().ByWayOf<CutsceneLoader>();
+
+            commandBinder.Bind<AddSceneSignal>()
+                .To<AddSingleSceneCommand>();
 
             commandBinder.Bind<StartChapterSignal>()
                 .To<StartChapterCommand>();
