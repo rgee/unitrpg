@@ -13,10 +13,8 @@ namespace Contexts.BattlePrep {
 
         public override void Launch() {
             base.Launch();
-            if (this == Context.firstContext) {
-                var startSignal = injectionBinder.GetInstance<ShowBattlePrepSignal>();
-                startSignal.Dispatch();
-            }
+            var startSignal = injectionBinder.GetInstance<ShowBattlePrepSignal>();
+            startSignal.Dispatch();
         }
 
         protected override void mapBindings() {

@@ -11,6 +11,7 @@ using Contexts.Battle.Views;
 using Contexts.Battle.Views.UniqueCombatants;
 using Contexts.Global.Signals;
 using Models.Fighting.Maps.Configuration;
+using Models.SaveGames;
 using strange.extensions.command.api;
 using strange.extensions.context.impl;
 using UnityEngine;
@@ -29,6 +30,11 @@ namespace Contexts.Battle {
                 startBinding = commandBinder.GetBinding<StartSignal>();
             } else {
                 startBinding = commandBinder.Bind<ScreenRevealedSignal>();
+            }
+
+            if (this == Context.firstContext) {
+                injectionBinder.Unbind<ISaveGameRepository>();
+                injectionBinder.Bind<ISaveGameRepository>().ToValue(new TestingSaveGameRepository());
             }
 
             startBinding.To<PlayIntroCutsceneCommand>().InSequence();
@@ -80,7 +86,13 @@ namespace Contexts.Battle {
             commandBinder.Bind<EndTurnSignal>().To<EndTurnCommand>();
             commandBinder.Bind<ContextRequestedSignal>().To<ShowContextMenuCommand>();
             commandBinder.Bind<NextBattleSignal>().To<NextBattleCommand>();
-            commandBinder.Bind<IntroCutsceneCompleteSignal>().To<StartBattleCommand>();
+
+            // When the intro cutscene completes, load the BattlePrep context into the scene
+            // and then trigger it.
+            commandBinder.Bind<IntroCutsceneCompleteSignal>()
+                .To<LoadPreparationsCommand>();
+
+            commandBinder.Bind<BattleStartSignal>().To<StartBattleCommand>();
             commandBinder.Bind<InitializeMapSignal>().To<InitializeMapCommand>();
             commandBinder.Bind<MapPositionClickedSignal>().To<SelectMapPositionCommand>();
             commandBinder.Bind<HoverPositionSignal>().To<MapHoveredCommand>();

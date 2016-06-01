@@ -1,5 +1,7 @@
 ﻿using System;
 using strange.extensions.command.impl;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Contexts.Base.Commands {
     public class AddSceneCommand : Command {
@@ -11,7 +13,8 @@ namespace Contexts.Base.Commands {
                 throw new Exception("Cannot load scene without name");
             }
 
-            UnityEngine.Application.LoadLevelAdditive(SceneName);
+            Debug.LogFormat("Loading Scene {0}", SceneName);
+            SceneManager.LoadScene(SceneName, LoadSceneMode.Additive);
         }
     }
 }
