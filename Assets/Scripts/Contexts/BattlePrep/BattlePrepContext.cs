@@ -1,21 +1,14 @@
-﻿
-
-using Assets.Contexts.Base;
-using Contexts.Base.Signals;
+﻿using Assets.Contexts.Base;
 using Contexts.BattlePrep.Commands;
 using Contexts.BattlePrep.Signals;
 using Contexts.BattlePrep.Views;
-using Contexts.Global.Services;
-using Contexts.Global.Signals;
 using Models.SaveGames;
-using strange.extensions.command.api;
 using strange.extensions.context.impl;
 using UnityEngine;
 
 namespace Contexts.BattlePrep {
     public class BattlePrepContext : BaseContext {
         public BattlePrepContext(MonoBehaviour view) : base(view) {
-
         }
 
         public override void Launch() {
