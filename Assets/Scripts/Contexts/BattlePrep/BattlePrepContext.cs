@@ -18,19 +18,24 @@ namespace Contexts.BattlePrep {
 
         }
 
+        public override void Launch() {
+            base.Launch();
+            if (this == Context.firstContext) {
+                var startSignal = injectionBinder.GetInstance<ShowBattlePrepSignal>();
+                startSignal.Dispatch();
+            }
+        }
+
         protected override void mapBindings() {
             base.mapBindings();
 
-            ICommandBinding startBinding;
             if (this == Context.firstContext) {
-                startBinding = commandBinder.GetBinding<StartSignal>();
                 injectionBinder.Unbind<ISaveGameRepository>();
                 injectionBinder.Bind<ISaveGameRepository>().ToValue(new TestingSaveGameRepository());
-            } else {
-                startBinding = commandBinder.Bind<ScreenRevealedSignal>();
             }
 
-            startBinding
+            injectionBinder.Bind<ShowBattlePrepSignal>().ToSingleton().CrossContext();
+            commandBinder.Bind<ShowBattlePrepSignal>()
                 .To<BattlePrepStartCommand>()
                 .To<ShowPrepCommand>().InSequence();
 
@@ -46,7 +51,7 @@ namespace Contexts.BattlePrep {
             commandBinder.Bind<UpdateObjectiveSignal>()
                 .To<UpdateObjectiveCommand>();
 
-            commandBinder.Bind<HidePrepSignal>()
+            commandBinder.Bind<HideBattlePrepSignal>()
                 .To<HidePrepCommand>();
 
             commandBinder.Bind<ClosePrepSignal>()
