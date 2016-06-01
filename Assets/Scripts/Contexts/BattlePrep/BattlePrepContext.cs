@@ -5,7 +5,9 @@ using Contexts.Base.Signals;
 using Contexts.BattlePrep.Commands;
 using Contexts.BattlePrep.Signals;
 using Contexts.BattlePrep.Views;
+using Contexts.Global.Services;
 using Contexts.Global.Signals;
+using Models.SaveGames;
 using strange.extensions.command.api;
 using strange.extensions.context.impl;
 using UnityEngine;
@@ -22,6 +24,8 @@ namespace Contexts.BattlePrep {
             ICommandBinding startBinding;
             if (this == Context.firstContext) {
                 startBinding = commandBinder.GetBinding<StartSignal>();
+                injectionBinder.Unbind<ISaveGameRepository>();
+                injectionBinder.Bind<ISaveGameRepository>().ToValue(new TestingSaveGameRepository());
             } else {
                 startBinding = commandBinder.Bind<ScreenRevealedSignal>();
             }

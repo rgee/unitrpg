@@ -3,7 +3,16 @@ using Models.Fighting.Characters;
 
 namespace Models.SaveGames {
     public class TestingSaveGameRepository : ISaveGameRepository {
-        public ISaveGame CurrentSave { get; set; }
+        public ISaveGame CurrentSave {
+            get {
+                return new DefaultSaveGame(BaseCharacterDatabase.Instance.GetAllCharacters());
+            }
+
+            set {
+                
+            }
+        }
+
         public void Persist(ISaveGame saveGame) {
         }
 

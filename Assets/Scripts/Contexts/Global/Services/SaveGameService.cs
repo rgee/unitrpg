@@ -12,7 +12,10 @@ using UnityEngine;
 
 namespace Contexts.Global.Services {
     public class SaveGameService : ISaveGameService {
-        public ISaveGame CurrentSave { get; private set; }
+        public ISaveGame CurrentSave {
+            get { return Repository.CurrentSave; }
+            private set { Repository.CurrentSave = value; }
+        }
 
         [Inject]
         public ISaveGameRepository Repository { get; set; }
