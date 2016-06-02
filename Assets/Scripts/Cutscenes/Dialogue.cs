@@ -15,7 +15,7 @@ public class Dialogue : MonoBehaviour {
 
     private int _deckIndex = -1;
     private int _cardIndex;
-    private bool _initialized;
+    private bool _running;
 
     private void Awake() {
         _controller = GetComponent<IDialogueController>();
@@ -36,7 +36,7 @@ public class Dialogue : MonoBehaviour {
     }
 
     private void Update() {
-        if (!_initialized) {
+        if (!_running) {
             return;
         }
         
@@ -51,6 +51,7 @@ public class Dialogue : MonoBehaviour {
 
     private IEnumerator End() {
         yield return StartCoroutine(_controller.End());
+        _running = false;
         if (OnComplete != null) {
             OnComplete();
         }
@@ -58,7 +59,7 @@ public class Dialogue : MonoBehaviour {
 
     private IEnumerator Initialize() {
         yield return StartCoroutine(_controller.Initialize(Model));
-        _initialized = true;
+        _running = true;
         NextDeck();
     } 
 
