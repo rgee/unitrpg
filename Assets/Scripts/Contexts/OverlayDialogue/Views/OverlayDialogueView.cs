@@ -16,7 +16,13 @@ namespace Assets.Contexts.OverlayDialogue.Views {
 
         public void StartDialogue(Cutscene dialogue) {
             _dialogue.Model = dialogue;
+            _dialogue.OnComplete += OnComplete;
             _dialogue.Begin();
-        } 
+        }
+
+        private void OnComplete() {
+            DialogueCompleteSignal.Dispatch();
+            _dialogue.OnComplete -= OnComplete;
+        }
     }
 }

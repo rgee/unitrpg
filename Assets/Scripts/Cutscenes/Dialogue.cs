@@ -18,8 +18,6 @@ public class Dialogue : MonoBehaviour {
     private bool _running;
 
     private void Awake() {
-        _controller = GetComponent<IDialogueController>();
-        _textAnimator = GetComponent<DialogueTextAnimator>();
         if (SourceFile != null) {
             Model = Models.Dialogue.DialogueUtils.ParseFromJson(SourceFile.text);
         }
@@ -32,6 +30,8 @@ public class Dialogue : MonoBehaviour {
     }
 
     public void Begin() {
+        _controller = GetComponent<IDialogueController>();
+        _textAnimator = GetComponent<DialogueTextAnimator>();
         StartCoroutine(Initialize());
     }
 
