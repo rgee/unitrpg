@@ -11,6 +11,7 @@ namespace Contexts.Battle.Commands {
         public BattleViewState Model { get; set; }
 
         public override void Execute() {
+            AddSceneSignal.Dispatch("OverlayDialogue");
             AddSceneSignal.Dispatch("BattlePrep");
             Model.State = BattleUIState.Preparations;
         }

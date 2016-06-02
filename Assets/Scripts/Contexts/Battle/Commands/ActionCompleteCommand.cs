@@ -27,7 +27,8 @@ namespace Contexts.Battle.Commands {
             // Flush the move action
             var battle = Model.Battle;
             if (Model.State == BattleUIState.CombatantMoving) {
-                battle.MoveCombatant(Model.CurrentMovementPath.Combatant, Model.CurrentMovementPath.Positions);
+                var path = Model.CurrentMovementPath.Positions.Skip(1).ToList();
+                battle.MoveCombatant(Model.CurrentMovementPath.Combatant, path);
             } else if (Model.State == BattleUIState.Fighting) {
                 battle.ExecuteFight(Model.FinalizedFight);
             }
