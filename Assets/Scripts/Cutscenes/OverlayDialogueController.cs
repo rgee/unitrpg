@@ -70,8 +70,6 @@ public class OverlayDialogueController : MonoBehaviour, IDialogueController {
             .Join(_bodyText.DOFade(0, IntroTime).SetEase(easing))
             .Join(_speakerText.DOFade(0, IntroTime).SetEase(easing))
             .WaitForCompletion();
-
-        Destroy(gameObject);
     }
 
 }

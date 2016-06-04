@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.IO;
 using Assets.Contexts.Chapters.Chapter2.Models;
 using Assets.Contexts.Chapters.Chapter2.Signals;
@@ -35,21 +36,27 @@ namespace Assets.Contexts.Chapters.Chapter2.Commands {
         public EastmerePlazaState EastmerePlaza { get; set; }
 
         public override void Execute() {
-            EventRegistry.RegisterHandler("inspect_inn", ShowVisit());
+            var innHouseDialogues = new Dictionary<string, string> {
+                { "Janek", "janek_inn_visit" },
+                { "Liat", "liat_inn_visit" }
+            };
+            EventRegistry.RegisterHandler("inspect_inn", DoVisit(innHouseDialogues, House.Inn));
+
+
+            var genericHouseDialogues = new Dictionary<string, string> {
+                { "Janek", "janek_house_visit" },
+                { "Liat", "liat_house_visit" }
+            };
+            EventRegistry.RegisterHandler("inspect_house", DoVisit(genericHouseDialogues, House.Generic));
         }
 
-        private IEnumerator ShowVisit() {
-
+        private IEnumerator DoVisit(Dictionary<string, string> nameToDialogue, House houseType) {
             // Choose the dialogue based on the current combatant
-            string dialogueName;
             var combatant = BattleModel.SelectedCombatant;
-            if (combatant.Name == "Liat") {
-                dialogueName = "liat_inn_visit";
-            } else if (combatant.Name == "Janek") {
-                dialogueName = "janek_inn_visit";
-            } else {
-                throw new ArgumentException("Can't find inn visit dialogue for " + combatant.Name);
+            if (!nameToDialogue.ContainsKey(combatant.Name)) {
+               throw new ArgumentException("Could not find " + houseType + " visit dialogue for " + combatant.Name); 
             }
+            var dialogueName = nameToDialogue[combatant.Name];
             var path = Path.Combine("Chapter 2", dialogueName);
 
             // Wait for the player to go through the dialogue
@@ -73,13 +80,14 @@ namespace Assets.Contexts.Chapters.Chapter2.Commands {
                 StrangeUtils.RemoveOnceListener(HouseLightTransitionCompleteSignal, houseDisabledCallback);
             };
             HouseLightTransitionCompleteSignal.AddListener(houseDisabledCallback);
-            MarkHouseVisitedSignal.Dispatch(House.Inn);
+            MarkHouseVisitedSignal.Dispatch(houseType);
             while (!houseDisabled) {
                 yield return new WaitForEndOfFrame();
             }
 
+            Debug.LogFormat("House Visit {0} complete. All done?: {1}", houseType, EastmerePlaza.HouseVisitsComplete);
             if (EastmerePlaza.HouseVisitsComplete) {
-               HouseLightEnableSignal.Dispatch(House.Clinic); 
+                HouseLightEnableSignal.Dispatch(House.Clinic);
             }
         }
     }
