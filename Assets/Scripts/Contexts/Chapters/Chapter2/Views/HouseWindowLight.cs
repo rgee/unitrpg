@@ -12,7 +12,7 @@ namespace Assets.Contexts.Chapters.Chapter2.Views {
         }
 
         public Tween GetTurnOnTween() {
-            return _sprite.DOScale(Vector3.one, 0.3f);
+            return _sprite.DOScale(Vector3.one, 0.3f);  
         }
 
         void Awake() {

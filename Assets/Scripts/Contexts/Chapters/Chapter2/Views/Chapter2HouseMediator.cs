@@ -11,16 +11,26 @@ namespace Assets.Contexts.Chapters.Chapter2.Views {
         public HouseLightDisableSignal HouseLightDisableSignal { get; set; }
 
         [Inject]
+        public HouseLightEnableSignal HouseLightEnableSignal { get; set; }
+
+        [Inject]
         public HouseLightTransitionCompleteSignal LightTransitionCompleteSignal { get; set; }
 
         public override void OnRegister() {
+            HouseLightEnableSignal.AddListener(OnHouseEnable);
             HouseLightDisableSignal.AddListener(OnHouseDisable);
-            View.DisablingCompleteSignal.AddListener(LightTransitionCompleteSignal.Dispatch);
+            View.LightTransitionCompleteSignal.AddListener(LightTransitionCompleteSignal.Dispatch);
         }
 
         private void OnHouseDisable(House house) {
             if (View.HouseType == house) {
                 View.StartDisabling();
+            }
+        }
+
+        private void OnHouseEnable(House house) {
+            if (View.HouseType == house) {
+                View.StartEnabling();
             }
         }
     }

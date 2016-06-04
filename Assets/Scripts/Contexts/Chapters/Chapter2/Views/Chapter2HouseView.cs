@@ -7,7 +7,7 @@ using strange.extensions.signal.impl;
 namespace Assets.Contexts.Chapters.Chapter2.Views {
     public class Chapter2HouseView : View {
         public House HouseType;
-        public Signal DisablingCompleteSignal = new Signal();
+        public Signal LightTransitionCompleteSignal = new Signal();
 
         public bool Enabled;
 
@@ -23,7 +23,7 @@ namespace Assets.Contexts.Chapters.Chapter2.Views {
             }
 
             sequence.OnComplete(() => {
-                DisablingCompleteSignal.Dispatch();
+                LightTransitionCompleteSignal.Dispatch();
                 Enabled = false;
             });
 
@@ -34,7 +34,19 @@ namespace Assets.Contexts.Chapters.Chapter2.Views {
             if (Enabled) {
                 return;
             } 
-            Enabled = true;
+
+            var lights = GetComponentsInChildren<HouseWindowLight>();
+            var sequence = DOTween.Sequence();
+            foreach (var houseLight in lights) {
+                sequence.Insert(0, houseLight.GetTurnOnTween());
+            }
+
+            sequence.OnComplete(() => {
+                LightTransitionCompleteSignal.Dispatch();
+                Enabled = true;
+            });
+
+            sequence.Play();
         }
     }
 }

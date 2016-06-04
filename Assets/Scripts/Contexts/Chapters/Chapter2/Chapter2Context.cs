@@ -20,6 +20,7 @@ namespace Assets.Contexts.Chapters.Chapter2 {
             injectionBinder.Bind<MarkHouseVisitedSignal>().ToSingleton();
             injectionBinder.Bind<HouseLightTransitionCompleteSignal>().ToSingleton();
             injectionBinder.Bind<HouseLightDisableSignal>().ToSingleton();
+            injectionBinder.Bind<HouseLightEnableSignal>().ToSingleton();
 
             injectionBinder.Bind<EastmerePlazaState>().ToSingleton();
 
