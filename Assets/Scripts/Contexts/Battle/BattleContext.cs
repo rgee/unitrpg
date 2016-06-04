@@ -40,7 +40,7 @@ namespace Contexts.Battle {
 
             startBinding.To<PlayIntroCutsceneCommand>().InSequence();
 
-            injectionBinder.Bind<BattleViewState>().ToSingleton();
+            injectionBinder.Bind<BattleViewState>().ToSingleton().CrossContext();
 
             injectionBinder.Bind<BattleEventRegistry>().ToSingleton().CrossContext();
             injectionBinder.Bind<BattleStartSignal>().ToSingleton().CrossContext();
