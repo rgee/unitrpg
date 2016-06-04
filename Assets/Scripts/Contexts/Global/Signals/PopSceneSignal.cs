@@ -1,7 +1,7 @@
 ﻿using strange.extensions.signal.impl;
 
 namespace Contexts.Global.Signals {
-    public class PopSceneSignal : Signal<string> {
+    public class PopSceneSignal : Signal {
         
     }
 }
