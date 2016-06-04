@@ -14,11 +14,11 @@ namespace Assets.Contexts.Chapters.Chapter2.Views {
         public HouseLightTransitionCompleteSignal LightTransitionCompleteSignal { get; set; }
 
         public override void OnRegister() {
-            HouseLightDisableSignal.AddListener(OnDisable);
+            HouseLightDisableSignal.AddListener(OnHouseDisable);
             View.DisablingCompleteSignal.AddListener(LightTransitionCompleteSignal.Dispatch);
         }
 
-        private void OnDisable(House house) {
+        private void OnHouseDisable(House house) {
             if (View.HouseType == house) {
                 View.StartDisabling();
             }

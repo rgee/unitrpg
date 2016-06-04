@@ -7823,8 +7823,6 @@ GameObject:
   - 23: {fileID: 1205920072}
   - 33: {fileID: 1205920071}
   - 114: {fileID: 1205920070}
-  - 114: {fileID: 1205920069}
-  - 65: {fileID: 1205920068}
   - 114: {fileID: 1205920067}
   m_Layer: 0
   m_Name: Inn
@@ -7866,32 +7864,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1205920065}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa38267503654d949af503a21472dbad, type: 3}
+  m_Script: {fileID: 11500000, guid: a66f6260d8ff991439ff940aec97752a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &1205920068
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1205920065}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 256, y: 192, z: 0.2}
-  m_Center: {x: 0, y: 96, z: 0}
---- !u!114 &1205920069
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1205920065}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6cc3178754687a449fca51c55dc16c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  HouseType: 0
 --- !u!114 &1205920070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7910,7 +7886,7 @@ MonoBehaviour:
   boxCollider2D: {fileID: 0}
   polygonCollider2D: []
   edgeCollider2D: []
-  boxCollider: {fileID: 1205920068}
+  boxCollider: {fileID: 0}
   meshCollider: {fileID: 0}
   meshColliderPositions: []
   meshColliderMesh: {fileID: 0}
