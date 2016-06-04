@@ -2,6 +2,7 @@
 using Models.Fighting.Battle.Objectives;
 using Models.Fighting.Characters;
 using Models.Fighting.Execution;
+using Models.Fighting.Maps.Triggers;
 using Models.Fighting.Skills;
 using strange.extensions.signal.impl;
 using UnityEngine;
@@ -45,5 +46,9 @@ namespace Models.Fighting.Battle {
         bool IsLost();
 
         void MoveCombatant(ICombatant combatant, List<Vector2> path);
+
+        void AddEventTile(EventTile eventTile);
+
+        void RemoveEventTile(Vector2 location);
     }
 }

@@ -69,6 +69,15 @@ namespace Models.Fighting.Battle {
             _currentTurn = new Turn(firstCombatants);
         }
 
+
+        public void AddEventTile(EventTile eventTile) {
+            _map.AddEventTile(eventTile);
+        }
+
+        public void RemoveEventTile(Vector2 location) {
+            _map.RemoveEventTile(location);
+        }
+
         private void RegisterCombatant(ICombatant combatant, IMap map) {
             _combatantsById[combatant.Id] = combatant;
             combatant.MoveSignal.AddListener(destination => map.MoveCombatant(combatant, destination));

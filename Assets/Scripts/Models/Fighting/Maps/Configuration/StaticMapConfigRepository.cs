@@ -15,7 +15,8 @@ namespace Models.Fighting.Maps.Configuration {
                 case "chapter2":
                     var chapter2Tiles = new List<EventTile> {
                         new EventTile(new Vector2(16, 19), "inspect_inn", true, InteractionMode.Walk),
-                        new EventTile(new Vector2(25, 19), "inspect_house", true, InteractionMode.Walk)
+                        new EventTile(new Vector2(25, 19), "inspect_house", true, InteractionMode.Walk),
+                        new EventTile(new Vector2(36, 19), "inspect_clinic", true, InteractionMode.Walk)
                     };
 
                     return new MapConfig(chapter2Tiles);

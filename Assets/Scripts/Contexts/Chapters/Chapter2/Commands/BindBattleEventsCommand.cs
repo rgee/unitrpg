@@ -48,6 +48,12 @@ namespace Assets.Contexts.Chapters.Chapter2.Commands {
                 { "Liat", "liat_house_visit" }
             };
             EventRegistry.RegisterHandler("inspect_house", DoVisit(genericHouseDialogues, House.Generic));
+
+            EventRegistry.RegisterHandler("inspect_clinic", DoClinicVisit());
+        }
+
+        private IEnumerator DoClinicVisit() {
+            yield return null;
         }
 
         private IEnumerator DoVisit(Dictionary<string, string> nameToDialogue, House houseType) {
