@@ -7029,6 +7029,10 @@ Prefab:
       propertyPath: ChapterNumber
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11455986, guid: bcca01fb85536a9449c63e3eed6b7021, type: 2}
+      propertyPath: cameraSettings.orthographicPixelsPerMeter
+      value: 300
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11445422, guid: bcca01fb85536a9449c63e3eed6b7021, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: bcca01fb85536a9449c63e3eed6b7021, type: 2}
@@ -7868,6 +7872,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HouseType: 0
+  Enabled: 1
 --- !u!114 &1205920070
 MonoBehaviour:
   m_ObjectHideFlags: 0

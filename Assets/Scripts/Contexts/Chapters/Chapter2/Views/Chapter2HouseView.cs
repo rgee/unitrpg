@@ -8,21 +8,21 @@ namespace Assets.Contexts.Chapters.Chapter2.Views {
         public House HouseType;
         public Signal DisablingCompleteSignal = new Signal();
 
-        private bool _enabled;
+        public bool Enabled;
 
         public void StartDisabling() {
-            if (!_enabled) {
+            if (!Enabled) {
                 return;
             }
             DisablingCompleteSignal.Dispatch();
-            _enabled = false;
+            Enabled = false;
         }
 
         public void StartEnabling() {
-            if (_enabled) {
+            if (Enabled) {
                 return;
             } 
-            _enabled = true;
+            Enabled = true;
         }
     }
 }
