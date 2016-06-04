@@ -1,6 +1,8 @@
 ﻿
 
+using Assets.Contexts.Chapters.Chapter2.Commands;
 using Assets.Contexts.Chapters.Chapter2.Models;
+using Assets.Contexts.Chapters.Chapter2.Signals;
 using Assets.Contexts.Chapters.Chapter2.Views;
 using Contexts.Battle;
 using Contexts.Battle.Signals;
@@ -15,6 +17,8 @@ namespace Assets.Contexts.Chapters.Chapter2 {
         protected override void mapBindings() {
             base.mapBindings();
 
+            injectionBinder.Bind<MarkHouseVisitedSignal>().ToSingleton();
+            injectionBinder.Bind<HouseLightTransitionCompleteSignal>().ToSingleton();
             injectionBinder.Bind<EastmerePlazaState>().ToSingleton();
             mediationBinder.Bind<Chapter2View>().To<Chapter2ViewMediator>();
 
