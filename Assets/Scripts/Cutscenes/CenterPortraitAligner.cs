@@ -5,6 +5,8 @@ public class CenterPortraitAligner : MonoBehaviour, IPortraitAligner {
 
     public virtual void Align(GameObject portrait, Facing facing, Vector3 scale) {
 
+        Utils.GameObjectUtils.SetLayerRecursively(portrait, transform.gameObject.layer);
+
         var xScale = facing == Facing.Left ? scale.x : -scale.x;
         portrait.transform.localScale = new Vector3(xScale, scale.y, scale.z);
         

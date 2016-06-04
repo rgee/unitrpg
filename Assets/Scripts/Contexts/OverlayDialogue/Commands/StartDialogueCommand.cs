@@ -14,6 +14,7 @@ namespace Assets.Contexts.OverlayDialogue.Commands {
         public NewCutsceneSignal NewCutsceneSignal { get; set; }
 
         public override void Execute() {
+
             var path = Path.Combine("Dialogue", DialogueAssetPath);
             var text = Resources.Load(path) as TextAsset;
             if (text == null) {
