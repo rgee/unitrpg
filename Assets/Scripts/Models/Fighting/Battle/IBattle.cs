@@ -29,6 +29,8 @@ namespace Models.Fighting.Battle {
         
         ICombatant GetById(string id);
 
+        void SpawnCombatant(ICombatant combatant);
+
         FightForecast ForecastFight(ICombatant attacker, ICombatant defender, SkillType type);
 
         FinalizedFight FinalizeFight(FightForecast forecast);

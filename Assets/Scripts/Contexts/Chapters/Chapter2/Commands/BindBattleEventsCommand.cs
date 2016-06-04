@@ -6,8 +6,10 @@ using Assets.Contexts.Chapters.Chapter2.Models;
 using Assets.Contexts.Chapters.Chapter2.Signals;
 using Assets.Contexts.OverlayDialogue.Signals.Public;
 using Contexts.Battle.Models;
+using Contexts.Battle.Signals.Public;
 using Contexts.Global.Signals;
 using strange.extensions.command.impl;
+using strange.extensions.context.api;
 using UnityEngine;
 
 namespace Assets.Contexts.Chapters.Chapter2.Commands {
@@ -40,7 +42,13 @@ namespace Assets.Contexts.Chapters.Chapter2.Commands {
         public PushSceneSignal PushSceneSignal { get; set; }
 
         [Inject]
-        public ScreenRevealedSignal RevealSignal { get; set; }
+        public ScenePopCompleteSignal ScenePopCompleteSignal { get; set; }
+
+        [Inject]
+        public SpawnCombatantSignal SpawnCombatantSignal { get; set; }
+
+        [Inject(ContextKeys.CONTEXT_VIEW)]
+        public GameObject View { get; set; }
 
         public override void Execute() {
             var innHouseDialogues = new Dictionary<string, string> {
@@ -67,11 +75,32 @@ namespace Assets.Contexts.Chapters.Chapter2.Commands {
                 dialogueComplete = true;
                 StrangeUtils.RemoveOnceListener(DialogueCompleteSignal, action);
             };
-            DialogueCompleteSignal.AddOnce(action);
+            ScenePopCompleteSignal.AddOnce(action);
             PushSceneSignal.Dispatch("chapter_2_clinic_visit");
             while (!dialogueComplete) {
                 yield return new WaitForEndOfFrame();
             }
+
+            var path = "Prefabs/Combatants/Maelle";
+            var maellePrefab = Resources.Load(path) as GameObject;
+            var maelle = GameObject.Instantiate(maellePrefab);
+
+            var units = View.transform.FindChild("Battle View/Map/Units");
+            maelle.transform.SetParent(units);
+
+            var position = new Vector2(35, 19);
+            var secondPositionOption = new Vector2(37, 19);
+
+            var map = BattleModel.Map;
+            if (map.IsBlocked(position)) {
+                position = secondPositionOption;
+            }
+
+            var dimensions = BattleModel.Dimensions;
+            var worldPosition = dimensions.GetWorldPositionForGridPosition(position);
+            maelle.transform.position = worldPosition;
+
+            SpawnCombatantSignal.Dispatch(maelle);
         }
 
         private IEnumerator DoVisit(Dictionary<string, string> nameToDialogue, House houseType) {

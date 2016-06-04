@@ -41,9 +41,10 @@ namespace Contexts.Battle {
             startBinding.To<PlayIntroCutsceneCommand>().InSequence();
 
             injectionBinder.Bind<BattleViewState>().ToSingleton().CrossContext();
-
             injectionBinder.Bind<BattleEventRegistry>().ToSingleton().CrossContext();
+
             injectionBinder.Bind<BattleStartSignal>().ToSingleton().CrossContext();
+            injectionBinder.Bind<SpawnCombatantSignal>().ToSingleton().CrossContext();
 
             injectionBinder.Bind<IMapConfigRepository>().To(new StaticMapConfigRepository());
             injectionBinder.Bind<HoverTileEnableSignal>().ToSingleton();
@@ -84,6 +85,7 @@ namespace Contexts.Battle {
             injectionBinder.Bind<ProcessTileEventsSignal>().ToSingleton();
             injectionBinder.Bind<BeginSurveyingSignal>().ToSingleton().CrossContext();
 
+            commandBinder.Bind<SpawnCombatantSignal>().To<SpawnCombatantCommand>();
             commandBinder.Bind<BeginSurveyingSignal>().To<BeginSurveyingCommand>();
             commandBinder.Bind<ExitContextMenuSignal>().To<ExitContextMenuCommand>();
             commandBinder.Bind<EndTurnSignal>().To<EndTurnCommand>();

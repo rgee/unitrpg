@@ -48,6 +48,7 @@ namespace Contexts.Global {
             ConcreteSingleton<ChangeSceneMultiSignal>();
             ConcreteSingleton<PushSceneSignal>();
             ConcreteSingleton<PopSceneSignal>();
+            ConcreteSingleton<ScenePopCompleteSignal>();
 
             Singleton<ICutsceneLoader>().ByWayOf<CutsceneLoader>();
 
@@ -64,6 +65,7 @@ namespace Contexts.Global {
                 .To<FadeSceneBlackCommand>()
                 .To<PopSeneCommand>()
                 .To<RevealSceneCommand>()
+                .To<CompleteScenePopCommand>()
                 .InSequence();
 
             commandBinder.Bind<LoadSceneSignal>()

@@ -69,6 +69,11 @@ namespace Models.Fighting.Battle {
             _currentTurn = new Turn(firstCombatants);
         }
 
+        public void SpawnCombatant(ICombatant combatant) {
+            _map.AddCombatant(combatant);
+            RegisterCombatant(combatant, _map);
+            _currentTurn.AddNewCombatant(combatant);
+        }
 
         public void AddEventTile(EventTile eventTile) {
             _map.AddEventTile(eventTile);

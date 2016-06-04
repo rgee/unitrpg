@@ -10,10 +10,12 @@ namespace Models.Fighting.Battle {
 
         public Turn(List<ICombatant> combatants) {
             _combatants = combatants;
-            _combatants.ForEach(combatant => {
-                _movesRemaining[combatant.Id] = combatant.GetAttribute(Attribute.AttributeType.Move).Value;
-                _actionTaken[combatant.Id] = false;
-            });
+            _combatants.ForEach(AddNewCombatant);
+        }
+
+        public void AddNewCombatant(ICombatant combatant) {
+            _movesRemaining[combatant.Id] = combatant.GetAttribute(Attribute.AttributeType.Move).Value;
+            _actionTaken[combatant.Id] = false;
         }
 
         public bool ShouldTurnEnd() {
