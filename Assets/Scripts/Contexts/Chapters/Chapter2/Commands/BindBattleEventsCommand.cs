@@ -6,6 +6,7 @@ using Assets.Contexts.Chapters.Chapter2.Models;
 using Assets.Contexts.Chapters.Chapter2.Signals;
 using Assets.Contexts.OverlayDialogue.Signals.Public;
 using Contexts.Battle.Models;
+using Contexts.Global.Signals;
 using strange.extensions.command.impl;
 using UnityEngine;
 
@@ -35,6 +36,12 @@ namespace Assets.Contexts.Chapters.Chapter2.Commands {
         [Inject]
         public EastmerePlazaState EastmerePlaza { get; set; }
 
+        [Inject]
+        public PushSceneSignal PushSceneSignal { get; set; }
+
+        [Inject]
+        public ScreenRevealedSignal RevealSignal { get; set; }
+
         public override void Execute() {
             var innHouseDialogues = new Dictionary<string, string> {
                 { "Janek", "janek_inn_visit" },
@@ -53,7 +60,18 @@ namespace Assets.Contexts.Chapters.Chapter2.Commands {
         }
 
         private IEnumerator DoClinicVisit() {
-            yield return null;
+            // Wait for the player to go through the dialogue
+            var dialogueComplete = false;
+            Action action = null;
+            action = () => {
+                dialogueComplete = true;
+                StrangeUtils.RemoveOnceListener(DialogueCompleteSignal, action);
+            };
+            DialogueCompleteSignal.AddOnce(action);
+            PushSceneSignal.Dispatch("chapter_2_clinic_visit");
+            while (!dialogueComplete) {
+                yield return new WaitForEndOfFrame();
+            }
         }
 
         private IEnumerator DoVisit(Dictionary<string, string> nameToDialogue, House houseType) {

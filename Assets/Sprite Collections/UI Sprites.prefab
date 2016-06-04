@@ -61,10 +61,10 @@ MonoBehaviour:
   forcedTextureWidth: 2048
   forcedTextureHeight: 2048
   textureCompression: 0
-  atlasWidth: 8
-  atlasHeight: 8
+  atlasWidth: 2048
+  atlasHeight: 2048
   forceSquareAtlas: 0
-  atlasWastage: 60.9375
+  atlasWastage: 50.274445
   allowMultipleAtlases: 0
   removeDuplicates: 1
   textureParams:
@@ -73,6 +73,47 @@ MonoBehaviour:
     additive: 0
     scale: {x: 1, y: 1, z: 1}
     texture: {fileID: 2800000, guid: 64873847c6409b14d988e5550deb0210, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 0
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 0
+    spriteSheetId: 0
+    spriteSheetX: 0
+    spriteSheetY: 0
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    regionId: 0
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
+  - name: clinic_1stfloor_night
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 6bf4a24ad38643e49883d15b3f05833a, type: 3}
     materialId: 0
     anchor: 4
     anchorX: 0
@@ -137,7 +178,7 @@ MonoBehaviour:
   mipmapEnabled: 0
   anisoLevel: 1
   physicsEngine: 0
-  physicsDepth: .100000001
+  physicsDepth: 0.1
   disableTrimming: 0
   disableRotation: 0
   normalGenerationMode: 0

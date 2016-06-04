@@ -45,24 +45,24 @@ MonoBehaviour:
   spriteDefinitions:
   - name: black_pixel
     boundsData:
-    - {x: .00138888892, y: -.00138888892, z: 0}
-    - {x: .00277777785, y: .00277777785, z: 0}
+    - {x: 0.0013888889, y: -0.0013888889, z: 0}
+    - {x: 0.0027777778, y: 0.0027777778, z: 0}
     untrimmedBoundsData:
-    - {x: .00138888892, y: -.00138888892, z: 0}
-    - {x: .00277777785, y: .00277777785, z: 0}
-    texelSize: {x: .00277777785, y: .00277777785}
+    - {x: 0.0013888889, y: -0.0013888889, z: 0}
+    - {x: 0.0027777778, y: 0.0027777778, z: 0}
+    texelSize: {x: 0.0027777778, y: 0.0027777778}
     positions:
-    - {x: 0, y: -.00277777785, z: 0}
-    - {x: .00277777785, y: -.00277777785, z: 0}
+    - {x: 0, y: -0.0027777778, z: 0}
+    - {x: 0.0027777778, y: -0.0027777778, z: 0}
     - {x: 0, y: 0, z: 0}
-    - {x: .00277777785, y: 0, z: 0}
+    - {x: 0.0027777778, y: 0, z: 0}
     normals: []
     tangents: []
     uvs:
-    - {x: .250124991, y: .250124991}
-    - {x: .374875009, y: .250124991}
-    - {x: .250124991, y: .374875009}
-    - {x: .374875009, y: .374875009}
+    - {x: 0.94043016, y: 0.0009770507}
+    - {x: 0.9409175, y: 0.0009770507}
+    - {x: 0.94043016, y: 0.0014643555}
+    - {x: 0.9409175, y: 0.0014643555}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
@@ -72,6 +72,53 @@ MonoBehaviour:
     material: {fileID: 2100000, guid: 930431753f759874b85e7347561c70a4, type: 2}
     materialId: 0
     sourceTextureGUID: 64873847c6409b14d988e5550deb0210
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd: 
+    colliderIndicesBack: 
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: clinic_1stfloor_night
+    boundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: 5.3333335, y: 3, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: 5.3333335, y: 3, z: 0}
+    texelSize: {x: 0.0027777778, y: 0.0027777778}
+    positions:
+    - {x: -2.6666667, y: -1.5, z: 0}
+    - {x: 2.6666667, y: -1.5, z: 0}
+    - {x: -2.6666667, y: 1.5, z: 0}
+    - {x: 2.6666667, y: 1.5, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.0009770507, y: 0.0009770507}
+    - {x: 0.9384761, y: 0.0009770507}
+    - {x: 0.0009770507, y: 0.52831984}
+    - {x: 0.9384761, y: 0.52831984}
+    normalizedUvs:
+    - {x: 0, y: 0}
+    - {x: 1, y: 0}
+    - {x: 0, y: 1}
+    - {x: 1, y: 1}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: 930431753f759874b85e7347561c70a4, type: 2}
+    materialId: 0
+    sourceTextureGUID: 6bf4a24ad38643e49883d15b3f05833a
     extractRegion: 0
     regionX: 0
     regionY: 0
@@ -107,7 +154,7 @@ MonoBehaviour:
   loadable: 0
   invOrthoSize: 1
   halfTargetHeight: 360
-  buildKey: 848555902
+  buildKey: 1412610697
   dataGuid: 1e3f2808773f7a94db011fbc90c82787
   managedSpriteCollection: 0
   hasPlatformData: 0

@@ -15,7 +15,7 @@ namespace Models.Fighting.Characters {
                 .Stats(new StatsBuilder().Leadership().Build())
                 .Special(SkillType.Advance)
                 .Attributes(new AttributesBuilder()
-                    .Move(5)
+                    .Move(50)
                     .Health(15)
                     .Skill(12)
                     .Defense(2)

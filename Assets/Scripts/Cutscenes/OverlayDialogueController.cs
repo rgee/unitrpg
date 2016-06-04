@@ -12,6 +12,9 @@ public class OverlayDialogueController : MonoBehaviour, IDialogueController {
     private tk2dTextMesh _bodyText;
     private tk2dTextMesh _speakerText;
 
+    private GameObject _bottomMask;
+    private GameObject _sideMask;
+
     private const float IntroTime = 0.5f;
 
     private void Awake() {
@@ -19,6 +22,8 @@ public class OverlayDialogueController : MonoBehaviour, IDialogueController {
         _panelSprite = transform.FindChild("Text Panel").GetComponent<tk2dSlicedSprite>();
         _bodyText = transform.FindChild("Text Panel/Text").GetComponent<tk2dTextMesh>();
         _speakerText = transform.FindChild("Text Panel/Speaker").GetComponent<tk2dTextMesh>();
+        _sideMask = transform.FindChild("Side Mask").gameObject;
+        _bottomMask = transform.FindChild("Bottom Mask").gameObject;
     }
 
     public void ChangeSpeaker(string speaker) {
@@ -33,6 +38,9 @@ public class OverlayDialogueController : MonoBehaviour, IDialogueController {
     }
 
     public IEnumerator Initialize(Cutscene model) {
+        _bottomMask.SetActive(true);
+        _sideMask.SetActive(true);
+
         var currentPosition = new Vector3(transform.position.x, transform.position.y*.5f, transform.position.z);
         var newPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
         transform.position = currentPosition;
@@ -70,6 +78,9 @@ public class OverlayDialogueController : MonoBehaviour, IDialogueController {
             .Join(_bodyText.DOFade(0, IntroTime).SetEase(easing))
             .Join(_speakerText.DOFade(0, IntroTime).SetEase(easing))
             .WaitForCompletion();
+
+        _bottomMask.SetActive(false);
+        _sideMask.SetActive(false);
     }
 
 }
