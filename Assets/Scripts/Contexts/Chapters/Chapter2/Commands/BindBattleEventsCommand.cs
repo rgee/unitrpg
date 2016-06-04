@@ -26,7 +26,13 @@ namespace Assets.Contexts.Chapters.Chapter2.Commands {
         public HouseLightTransitionCompleteSignal HouseLightTransitionCompleteSignal { get; set; }
 
         [Inject]
+        public HouseLightEnableSignal HouseLightEnableSignal { get; set; }
+
+        [Inject]
         public BattleViewState BattleModel { get; set; }
+
+        [Inject]
+        public EastmerePlazaState EastmerePlaza { get; set; }
 
         public override void Execute() {
             EventRegistry.RegisterHandler("inspect_inn", ShowVisit());
@@ -70,6 +76,10 @@ namespace Assets.Contexts.Chapters.Chapter2.Commands {
             MarkHouseVisitedSignal.Dispatch(House.Inn);
             while (!houseDisabled) {
                 yield return new WaitForEndOfFrame();
+            }
+
+            if (EastmerePlaza.HouseVisitsComplete) {
+               HouseLightEnableSignal.Dispatch(House.Clinic); 
             }
         }
     }

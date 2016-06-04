@@ -11,5 +11,9 @@ namespace Assets.Contexts.Chapters.Chapter2.Models {
         public bool InnInspected;
         public bool HouseInspected;
         public bool ClinicInspected;
+
+        public bool HouseVisitsComplete {
+            get { return HouseInspected && InnInspected; }
+        }
     }
 }
