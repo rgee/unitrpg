@@ -1,5 +1,6 @@
 ﻿using System.Runtime.InteropServices;
 using Assets.Contexts.Chapters.Chapter2.Models;
+using DG.Tweening;
 using strange.extensions.mediation.impl;
 using strange.extensions.signal.impl;
 
@@ -14,8 +15,19 @@ namespace Assets.Contexts.Chapters.Chapter2.Views {
             if (!Enabled) {
                 return;
             }
-            DisablingCompleteSignal.Dispatch();
-            Enabled = false;
+
+            var lights = GetComponentsInChildren<HouseWindowLight>();
+            var sequence = DOTween.Sequence();
+            foreach (var houseLight in lights) {
+                sequence.Insert(0, houseLight.GetTurnOutTween());
+            }
+
+            sequence.OnComplete(() => {
+                DisablingCompleteSignal.Dispatch();
+                Enabled = false;
+            });
+
+            sequence.Play();
         }
 
         public void StartEnabling() {
