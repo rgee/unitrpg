@@ -19,9 +19,14 @@ namespace Assets.Contexts.Chapters.Chapter2 {
 
             injectionBinder.Bind<MarkHouseVisitedSignal>().ToSingleton();
             injectionBinder.Bind<HouseLightTransitionCompleteSignal>().ToSingleton();
-            injectionBinder.Bind<EastmerePlazaState>().ToSingleton();
-            mediationBinder.Bind<Chapter2View>().To<Chapter2ViewMediator>();
+            injectionBinder.Bind<HouseLightDisableSignal>().ToSingleton();
 
+            injectionBinder.Bind<EastmerePlazaState>().ToSingleton();
+
+            mediationBinder.Bind<Chapter2View>().To<Chapter2ViewMediator>();
+            mediationBinder.Bind<Chapter2HouseView>().To<Chapter2HouseMediator>();
+
+            commandBinder.Bind<MarkHouseVisitedSignal>().To<MarkHouseVisitedCommand>();
             commandBinder.GetBinding<BattleStartSignal>().To<BindBattleEventsCommand>().InParallel();
         }
     }
