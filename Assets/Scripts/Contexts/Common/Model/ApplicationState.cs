@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace Contexts.Common.Model {
     public class ApplicationState {
+        public readonly Stack<string> AdditionalSceneStack = new Stack<string>();
         public List<Models.Dialogue.Cutscene> CurrentCutsceneSequence { get; set; }
         private int _currentCutsceneIndex;
 

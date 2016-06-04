@@ -46,11 +46,25 @@ namespace Contexts.Global {
             ConcreteSingleton<ChangeSceneSignal>();
             ConcreteSingleton<StartChapterSignal>();
             ConcreteSingleton<ChangeSceneMultiSignal>();
+            ConcreteSingleton<PushSceneSignal>();
+            ConcreteSingleton<PopSceneSignal>();
 
             Singleton<ICutsceneLoader>().ByWayOf<CutsceneLoader>();
 
             commandBinder.Bind<StartChapterSignal>()
                 .To<StartChapterCommand>();
+
+            commandBinder.Bind<PushSceneSignal>()
+                .To<FadeSceneBlackCommand>()
+                .To<PushSceneCommand>()
+                .To<RevealSceneCommand>()
+                .InSequence();
+
+            commandBinder.Bind<PopSceneSignal>()
+                .To<FadeSceneBlackCommand>()
+                .To<PopSeneCommand>()
+                .To<RevealSceneCommand>()
+                .InSequence();
 
             commandBinder.Bind<LoadSceneSignal>()
                 .To<FadeSceneBlackCommand>()
