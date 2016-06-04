@@ -7,6 +7,10 @@ namespace Assets.Contexts.Chapters.Chapter2.Views {
     public class HouseWindowLight : MonoBehaviour {
         private tk2dSprite _sprite;
 
+        public void TurnOut() {
+            _sprite.transform.localScale = Vector3.zero;
+        }
+
         public Tween GetTurnOutTween() {
             return _sprite.DOScale(Vector3.zero, 0.3f);
         }
