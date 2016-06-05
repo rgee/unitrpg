@@ -19,7 +19,7 @@ namespace Models.Fighting.Battle {
         public int TurnNumber { get; private set; }
         public Signal<string> EventTileSignal { get; private set; }
 
-        private readonly Execution.FightExecutor _executor = new Execution.FightExecutor();
+        private readonly FightExecutor _executor = new Execution.FightExecutor();
         private readonly IRandomizer _randomizer;
         private readonly FightForecaster _forecaster;
         private readonly FightFinalizer _finalizer;

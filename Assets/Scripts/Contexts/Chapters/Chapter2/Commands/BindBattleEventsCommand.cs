@@ -77,12 +77,14 @@ namespace Assets.Contexts.Chapters.Chapter2.Commands {
             };
             ScenePopCompleteSignal.AddOnce(action);
             PushSceneSignal.Dispatch("chapter_2_clinic_visit");
+
+            // Preload Maelle in the background.
+            var path = "Prefabs/Combatants/Maelle";
+            var maellePrefab = Resources.Load(path) as GameObject;
             while (!dialogueComplete) {
                 yield return new WaitForEndOfFrame();
             }
 
-            var path = "Prefabs/Combatants/Maelle";
-            var maellePrefab = Resources.Load(path) as GameObject;
             var maelle = GameObject.Instantiate(maellePrefab);
 
             var units = View.transform.FindChild("Battle View/Map/Units");
