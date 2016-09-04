@@ -36,6 +36,9 @@ namespace Contexts.Battle.Views {
         }
 
         void Update() {
+            if (Model.State == BattleUIState.Uninitialized) {
+                return;
+            }
             if (Input.GetKeyDown(KeyCode.Escape)) {
                 BackSignal.Dispatch();
             }            

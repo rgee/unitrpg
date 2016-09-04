@@ -11,7 +11,6 @@ using Models.Fighting.Maps.Triggers;
 using Models.Fighting.Skills;
 using strange.extensions.signal.impl;
 using UnityEngine;
-using FightExecutor = Models.Fighting.Execution.FightExecutor;
 
 namespace Models.Fighting.Battle {
     public class Battle : IBattle {
