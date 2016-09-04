@@ -10,12 +10,14 @@ namespace Contexts.Global.Models {
         public readonly int Height;
         public readonly List<Vector2> ObstructionLocations;
         public readonly List<TurnEventConfiguration> TurnEvents;
+        public readonly List<TriggerTileConfiguration> TriggerTiles;
 
-        public MapConfiguration(int width, int height, List<Vector2> obstructionLocations, List<TurnEventConfiguration> turnEvents) {
+        public MapConfiguration(int width, int height, List<Vector2> obstructionLocations, List<TurnEventConfiguration> turnEvents, List<TriggerTileConfiguration> triggerTiles) {
             Width = width;
             Height = height;
             ObstructionLocations = obstructionLocations;
             TurnEvents = turnEvents;
+            TriggerTiles = triggerTiles;
         }
 
         public static MapConfiguration CreateFromJson(JObject json) {
@@ -31,7 +33,7 @@ namespace Contexts.Global.Models {
                     .ToList();
 
             var turnEventsNode = json["turnEvents"] as JObject;
-            List<TurnEventConfiguration> turnEvents = new List<TurnEventConfiguration>();
+            var turnEvents = new List<TurnEventConfiguration>();
             if (turnEventsNode != null) {
                 turnEvents = turnEventsNode
                     .Properties()
@@ -44,7 +46,25 @@ namespace Contexts.Global.Models {
                     .ToList();
             }
 
-            return new MapConfiguration(width, height, obstructionValues, turnEvents);
+            var triggerTileNode = json["triggerTiles"] as JObject;
+            var triggerTiles = new List<TriggerTileConfiguration>();
+            if (triggerTileNode != null) {
+                triggerTiles = triggerTileNode
+                    .Properties()
+                    .Select(prop => {
+                        var tile = prop.Value;
+                        var locationNode = tile["location"] as JObject;
+                        var location =
+                            new Vector2(locationNode["x"].ToObject<int>(), locationNode["y"].ToObject<int>());
+
+                        var name = tile["name"].ToObject<string>();
+
+                        return new TriggerTileConfiguration(location, name);
+                    })
+                    .ToList();
+            }
+
+            return new MapConfiguration(width, height, obstructionValues, turnEvents, triggerTiles);
         }
     }
 }
