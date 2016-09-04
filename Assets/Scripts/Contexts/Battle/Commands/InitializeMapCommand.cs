@@ -7,6 +7,7 @@ using Models.Fighting;
 using Models.Fighting.Battle.Objectives;
 using Models.Fighting.Characters;
 using Models.Fighting.Maps.Configuration;
+using Models.Fighting.Maps.Triggers;
 using strange.extensions.command.impl;
 using strange.extensions.context.api;
 using UnityEngine;
@@ -43,8 +44,14 @@ namespace Contexts.Battle.Commands {
             objectives.Add(config.Objective);
 
             var turnOrder = new List<ArmyType> {ArmyType.Friendly, ArmyType.Enemy, ArmyType.Other};
+            var mapConfig = MapConfigRepository.GetConfigByMapName(context.MapName);
+
+            // If the map config is not here, that means it isn't configured.
+            var eventTiles = mapConfig != null ? mapConfig.EventTiles : new List<EventTile>();
+            Debug.LogWarning("No map config found for: " + context.MapName);
+            
             Model.Battle = new global::Models.Fighting.Battle.Battle(Model.Map, new BasicRandomizer(), Configuration.Combatants, turnOrder, objectives,
-                MapConfigRepository, context.MapName);
+                eventTiles);
 
             Model.State = BattleUIState.SelectingUnit;
             Model.ChapterIndex = Configuration.ChapterNumber;

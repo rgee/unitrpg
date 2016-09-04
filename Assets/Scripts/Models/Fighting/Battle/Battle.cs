@@ -29,7 +29,7 @@ namespace Models.Fighting.Battle {
         private Turn _currentTurn;
 
         public Battle(IMap map, IRandomizer randomizer, ICombatantDatabase combatants, List<ArmyType> turnOrder, List<IObjective> objectives, 
-            IMapConfigRepository mapConfigRepository, string mapName) {
+            List<EventTile> eventTiles) {
             TurnNumber = 0;
             EventTileSignal = new Signal<string>();
             _objectives = objectives;
@@ -46,16 +46,8 @@ namespace Models.Fighting.Battle {
                 RegisterCombatant(combatant, map);
             }
 
-            // If there's a map config in the database for this map, use it.
-            if (mapName != null) {
-                var config = mapConfigRepository.GetConfigByMapName(mapName);
-                if (config == null) {
-                    Debug.LogErrorFormat("Could not find map config for {0}", mapName);
-                } else {
-                    foreach (var eventTile in config.EventTiles) {
-                        _map.AddEventTile(eventTile);
-                    }
-                }
+            foreach (var eventTile in eventTiles) {
+                _map.AddEventTile(eventTile);
             }
 
             var firstArmy = _turnOrder[TurnNumber];
