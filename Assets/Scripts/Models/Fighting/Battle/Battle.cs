@@ -11,7 +11,6 @@ using Models.Fighting.Maps.Triggers;
 using Models.Fighting.Skills;
 using strange.extensions.signal.impl;
 using UnityEngine;
-using UnityEngine.Networking.Match;
 using FightExecutor = Models.Fighting.Execution.FightExecutor;
 
 namespace Models.Fighting.Battle {
@@ -19,7 +18,7 @@ namespace Models.Fighting.Battle {
         public int TurnNumber { get; private set; }
         public Signal<string> EventTileSignal { get; private set; }
 
-        private readonly Execution.FightExecutor _executor = new Execution.FightExecutor();
+        private readonly FightExecutor _executor = new FightExecutor();
         private readonly IRandomizer _randomizer;
         private readonly FightForecaster _forecaster;
         private readonly FightFinalizer _finalizer;
@@ -29,10 +28,6 @@ namespace Models.Fighting.Battle {
         private readonly IMap _map;
         private readonly List<IObjective> _objectives;
         private Turn _currentTurn;
-
-        public Battle(IMap map, IRandomizer randomizer, ICombatantDatabase combatants, List<ArmyType> turnOrder) : 
-            this(map, randomizer, combatants,turnOrder, new List<IObjective> { new Rout() }, new StaticMapConfigRepository(), null) {
-        }
 
         public Battle(IMap map, IRandomizer randomizer, ICombatantDatabase combatants, List<ArmyType> turnOrder, List<IObjective> objectives, 
             IMapConfigRepository mapConfigRepository, string mapName) {
