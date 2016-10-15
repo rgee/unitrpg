@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Contexts.Battle.Models;
-using Contexts.Battle.Utilities;
 using Contexts.Common.Model;
+using Contexts.Global.Models;
 using Contexts.Global.Services;
 using Models.Fighting;
 using Models.Fighting.Battle.Objectives;
@@ -11,6 +11,7 @@ using Models.Fighting.Maps.Triggers;
 using strange.extensions.command.impl;
 using strange.extensions.context.api;
 using UnityEngine;
+using MapConfiguration = Contexts.Battle.Utilities.MapConfiguration;
 
 namespace Contexts.Battle.Commands {
     public class InitializeMapCommand : Command {
@@ -19,6 +20,9 @@ namespace Contexts.Battle.Commands {
 
         [Inject]
         public MapConfiguration Configuration { get; set; }
+
+        [Inject]
+        public Game Game { get; set; }
 
         [Inject]
         public ISaveGameService SaveGameService { get; set; }

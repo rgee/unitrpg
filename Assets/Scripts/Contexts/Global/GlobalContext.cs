@@ -4,15 +4,21 @@ using Assets.Contexts.Base;
 using Assets.Contexts.Common.Services;
 using Contexts.Common.Model;
 using Contexts.Global.Commands;
+using Contexts.Global.Models;
 using Contexts.Global.Services;
 using Contexts.Global.Signals;
 using Models.Fighting.Characters;
 using Models.SaveGames;
+using Newtonsoft.Json.Linq;
+using strange.extensions.context.api;
 using strange.extensions.injector.api;
 using UnityEngine;
 
 namespace Contexts.Global {
-    public class GlobalContext : BaseContext {
+    public sealed class GlobalContext : BaseContext {
+
+        private readonly Game wholeGame;
+
         private class SingletonBinder<P> {
             private readonly IInjectionBinding _binding;
 
@@ -25,8 +31,13 @@ namespace Contexts.Global {
             }
         }
 
-        public GlobalContext(MonoBehaviour view) : base(view) {
+        public GlobalContext(MonoBehaviour view, Game game) : base(view, ContextStartupFlags.MANUAL_MAPPING) {
+            wholeGame = game;
 
+            // Call Start manually here while passing MANUAL_MAPPING to the base class constructor
+            // because otherwise `mapBindings` is executed before this class constructor is run,
+            // and the `wholeGame` field has not yet been initialized.
+            Start();
         }
 
         private SingletonBinder<T> Singleton<T>() {
@@ -49,6 +60,8 @@ namespace Contexts.Global {
             ConcreteSingleton<PushSceneSignal>();
             ConcreteSingleton<PopSceneSignal>();
             ConcreteSingleton<ScenePopCompleteSignal>();
+
+            injectionBinder.Bind<Game>().ToValue(wholeGame).CrossContext();
 
             Singleton<ICutsceneLoader>().ByWayOf<CutsceneLoader>();
 

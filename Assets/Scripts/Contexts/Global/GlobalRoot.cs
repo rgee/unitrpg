@@ -16,7 +16,7 @@ namespace Contexts.Global {
             stopwatch.Stop();
             
             Debug.LogFormat("Deserializing Game object took {0}ms", stopwatch.ElapsedMilliseconds);
-            context = new GlobalContext(this);
+            context = new GlobalContext(this, game);
         } 
     }
 }

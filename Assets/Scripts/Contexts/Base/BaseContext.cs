@@ -8,6 +8,7 @@ using Models.Fighting.Characters;
 using Models.SaveGames;
 using strange.extensions.command.api;
 using strange.extensions.command.impl;
+using strange.extensions.context.api;
 using strange.extensions.context.impl;
 using UnityEngine;
 
@@ -15,6 +16,10 @@ namespace Assets.Contexts.Base {
     public class BaseContext : MVCSContext {
         private const int MaxSaves = 6;
         public BaseContext(MonoBehaviour view) : base(view) {
+
+        }
+
+        public BaseContext(MonoBehaviour view, ContextStartupFlags flags) : base(view, flags) {
 
         }
 

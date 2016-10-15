@@ -6,13 +6,15 @@ using UnityEngine;
 
 namespace Contexts.Global.Models {
     public class MapConfiguration {
+        public readonly string DisplayName;
         public readonly int Width;
         public readonly int Height;
         public readonly List<Vector2> ObstructionLocations;
         public readonly List<TurnEventConfiguration> TurnEvents;
         public readonly List<TriggerTileConfiguration> TriggerTiles;
 
-        public MapConfiguration(int width, int height, List<Vector2> obstructionLocations, List<TurnEventConfiguration> turnEvents, List<TriggerTileConfiguration> triggerTiles) {
+        public MapConfiguration(string displayName, int width, int height, List<Vector2> obstructionLocations, List<TurnEventConfiguration> turnEvents, List<TriggerTileConfiguration> triggerTiles) {
+            DisplayName = displayName;
             Width = width;
             Height = height;
             ObstructionLocations = obstructionLocations;
@@ -21,6 +23,7 @@ namespace Contexts.Global.Models {
         }
 
         public static MapConfiguration CreateFromJson(JObject json) {
+            var displayName = json["displayName"].ToObject<string>();
             var width = json["width"].ToObject<int>();
             var height = json["height"].ToObject<int>();
 
@@ -64,7 +67,7 @@ namespace Contexts.Global.Models {
                     .ToList();
             }
 
-            return new MapConfiguration(width, height, obstructionValues, turnEvents, triggerTiles);
+            return new MapConfiguration(displayName, width, height, obstructionValues, turnEvents, triggerTiles);
         }
     }
 }
