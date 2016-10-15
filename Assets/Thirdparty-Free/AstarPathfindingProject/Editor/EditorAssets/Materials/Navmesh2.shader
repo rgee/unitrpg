@@ -1,3 +1,5 @@
+// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
+
 Shader "Transparent/Navmesh/TransparentAlwaysShow" {
 Properties {
     _Color ("Main Color", Color) = (1,1,1,0.5)
@@ -56,7 +58,7 @@ SubShader {
 		    v2f o;
 		    o.pos = mul (UNITY_MATRIX_MVP, v.vertex);
 		    
-		    float4 worldSpace = mul (_Object2World, v.vertex);
+		    float4 worldSpace = mul (unity_ObjectToWorld, v.vertex);
 		    o.uv = float2 (worldSpace.x*_Scale,worldSpace.z*_Scale);
 		    o.col = v.color*_FadeColor;
 		    return o;
@@ -107,7 +109,7 @@ SubShader {
 		    v2f o;
 		    o.pos = mul (UNITY_MATRIX_MVP, v.vertex);
 		    
-		    float4 worldSpace = mul (_Object2World, v.vertex);
+		    float4 worldSpace = mul (unity_ObjectToWorld, v.vertex);
 		    o.uv = float2 (worldSpace.x*_Scale,worldSpace.z*_Scale);
 		    o.col = v.color;
 		    return o;
