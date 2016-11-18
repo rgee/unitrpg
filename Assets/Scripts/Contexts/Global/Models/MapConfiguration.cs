@@ -27,7 +27,7 @@ namespace Contexts.Global.Models {
             var width = json["width"].ToObject<int>();
             var height = json["height"].ToObject<int>();
 
-            var obstructionsNode = json["obstrutions"] as JObject;
+            var obstructionsNode = json["obstructions"] as JObject;
             var obstructionValues = obstructionsNode == null
                 ? new List<Vector2>()
                 : obstructionsNode
