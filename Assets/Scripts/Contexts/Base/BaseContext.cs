@@ -1,11 +1,14 @@
-﻿using Assets.Contexts.Application.Signals;
+﻿using System;
+using Assets.Contexts.Application.Signals;
 using Contexts.Base.Commands;
 using Contexts.Base.Signals;
 using Contexts.Common.Model;
 using Contexts.Common.Utils;
+using Contexts.Global.Models;
 using Contexts.Global.Services;
 using Models.Fighting.Characters;
 using Models.SaveGames;
+using Newtonsoft.Json.Linq;
 using strange.extensions.command.api;
 using strange.extensions.command.impl;
 using strange.extensions.context.api;
@@ -16,10 +19,6 @@ namespace Assets.Contexts.Base {
     public class BaseContext : MVCSContext {
         private const int MaxSaves = 6;
         public BaseContext(MonoBehaviour view) : base(view) {
-
-        }
-
-        public BaseContext(MonoBehaviour view, ContextStartupFlags flags) : base(view, flags) {
 
         }
 
@@ -43,6 +42,19 @@ namespace Assets.Contexts.Base {
             if (this == Context.firstContext) {
                 // Load the Global context before issuing the start command if it hasn't been loaded.
                 startBinding.To<RootStartCommand>().To<StartCommand>().InSequence();
+
+                var gameConfigText = Resources.Load("Configuration/game_configuration") as TextAsset;
+                var stopwatch = System.Diagnostics.Stopwatch.StartNew();
+                if (gameConfigText != null) {
+                    var gameJson = JObject.Parse(gameConfigText.text);
+                    var game = Game.CreateFromJson(gameJson);
+                    stopwatch.Stop();
+
+                    Debug.LogFormat("Deserializing Game object took {0}ms", stopwatch.ElapsedMilliseconds);
+                    injectionBinder.Bind<Game>().ToValue(game).CrossContext();
+                } else {
+                    throw new Exception("Could not find game configuration file.");
+                }
 
                 injectionBinder.Bind<ApplicationState>().ToValue(new ApplicationState()).CrossContext();
                 injectionBinder.Bind<IRoutineRunner>().To<RoutineRunner>().CrossContext();

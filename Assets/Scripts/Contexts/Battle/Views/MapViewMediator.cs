@@ -1,6 +1,7 @@
 ﻿using Contexts.Battle.Models;
 using Contexts.Battle.Signals;
 using Contexts.Battle.Utilities;
+using Contexts.Global.Models;
 using Contexts.Global.Services;
 using Models.Fighting;
 using Models.Fighting.Battle;
@@ -8,6 +9,7 @@ using Models.Fighting.Execution;
 using Models.Fighting.Maps;
 using strange.extensions.mediation.impl;
 using UnityEngine;
+using MapConfiguration = Contexts.Battle.Utilities.MapConfiguration;
 
 namespace Contexts.Battle.Views {
     public class MapViewMediator : Mediator {
@@ -43,6 +45,9 @@ namespace Contexts.Battle.Views {
 
         [Inject]
         public ISaveGameService SaveGameService { get; set; }
+
+        [Inject]
+        public Game Game { get; set; }
 
         public override void OnRegister() {
             View.MapClicked.AddListener(OnMapClicked);

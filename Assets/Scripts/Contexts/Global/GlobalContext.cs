@@ -17,7 +17,6 @@ using UnityEngine;
 namespace Contexts.Global {
     public sealed class GlobalContext : BaseContext {
 
-        private readonly Game wholeGame;
 
         private class SingletonBinder<P> {
             private readonly IInjectionBinding _binding;
@@ -26,19 +25,12 @@ namespace Contexts.Global {
                 _binding = binder.Bind<P>();
             }
 
-            public void ByWayOf<T>() {
+            public void ByWayOf<T>() where T : P {
                 _binding.To<T>().ToSingleton().CrossContext();
             }
         }
 
-        public GlobalContext(MonoBehaviour view, Game game) : base(view, ContextStartupFlags.MANUAL_MAPPING) {
-            wholeGame = game;
-
-            // Call Start manually here while passing MANUAL_MAPPING to the base class constructor
-            // because otherwise `mapBindings` is executed before this class constructor is run,
-            // and the `wholeGame` field has not yet been initialized.
-            Start();
-        }
+        public GlobalContext(MonoBehaviour view) : base(view) { }
 
         private SingletonBinder<T> Singleton<T>() {
             return new SingletonBinder<T>(injectionBinder);
@@ -61,7 +53,7 @@ namespace Contexts.Global {
             ConcreteSingleton<PopSceneSignal>();
             ConcreteSingleton<ScenePopCompleteSignal>();
 
-            injectionBinder.Bind<Game>().ToValue(wholeGame).CrossContext();
+            //injectionBinder.Bind<Game>().ToValue(wholeGame).CrossContext();
 
             Singleton<ICutsceneLoader>().ByWayOf<CutsceneLoader>();
 
