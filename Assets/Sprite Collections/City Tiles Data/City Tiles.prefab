@@ -25,6 +25,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -59,10 +60,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: 3.90625019e-06, y: 1.95312509e-06}
-    - {x: .124996096, y: 1.95312509e-06}
-    - {x: 3.90625019e-06, y: .0624980479}
-    - {x: .124996096, y: .0624980479}
+    - {x: 0.00000390625, y: 0.000001953125}
+    - {x: 0.124996096, y: 0.000001953125}
+    - {x: 0.00000390625, y: 0.062498048}
+    - {x: 0.124996096, y: 0.062498048}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
@@ -83,8 +84,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: -.5, y: .5, z: 0}
-    - {x: 15.5, y: 15.5, z: .100000001}
+    - {x: -0.5, y: 0.5, z: 0}
+    - {x: 15.5, y: 15.5, z: 0.1}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -108,10 +109,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .125003904, y: 1.95312509e-06}
-    - {x: .249996096, y: 1.95312509e-06}
-    - {x: .125003904, y: .0624980479}
-    - {x: .249996096, y: .0624980479}
+    - {x: 0.1250039, y: 0.000001953125}
+    - {x: 0.2499961, y: 0.000001953125}
+    - {x: 0.1250039, y: 0.062498048}
+    - {x: 0.2499961, y: 0.062498048}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
@@ -132,8 +133,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: -.5, y: .5, z: 0}
-    - {x: 15.5, y: 15.5, z: .100000001}
+    - {x: -0.5, y: 0.5, z: 0}
+    - {x: 15.5, y: 15.5, z: 0.1}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -157,10 +158,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .250003904, y: 1.95312509e-06}
-    - {x: .374996096, y: 1.95312509e-06}
-    - {x: .250003904, y: .0624980479}
-    - {x: .374996096, y: .0624980479}
+    - {x: 0.2500039, y: 0.000001953125}
+    - {x: 0.3749961, y: 0.000001953125}
+    - {x: 0.2500039, y: 0.062498048}
+    - {x: 0.3749961, y: 0.062498048}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
@@ -181,8 +182,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: -.5, y: .5, z: 0}
-    - {x: 15.5, y: 15.5, z: .100000001}
+    - {x: -0.5, y: 0.5, z: 0}
+    - {x: 15.5, y: 15.5, z: 0.1}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -206,10 +207,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .250003904, y: .435548842}
-    - {x: .250003904, y: .488279283}
-    - {x: .374996096, y: .435548842}
-    - {x: .374996096, y: .488279283}
+    - {x: 0.2500039, y: 0.43554884}
+    - {x: 0.2500039, y: 0.48827928}
+    - {x: 0.3749961, y: 0.43554884}
+    - {x: 0.3749961, y: 0.48827928}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 0, y: 1}
@@ -230,8 +231,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: -.5, y: .5, z: 0}
-    - {x: 15.5, y: 15.5, z: .100000001}
+    - {x: -0.5, y: 0.5, z: 0}
+    - {x: 15.5, y: 15.5, z: 0.1}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -255,10 +256,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .375003904, y: 1.95312509e-06}
-    - {x: .499996096, y: 1.95312509e-06}
-    - {x: .375003904, y: .0624980479}
-    - {x: .499996096, y: .0624980479}
+    - {x: 0.3750039, y: 0.000001953125}
+    - {x: 0.4999961, y: 0.000001953125}
+    - {x: 0.3750039, y: 0.062498048}
+    - {x: 0.4999961, y: 0.062498048}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
@@ -279,8 +280,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: -.5, y: .5, z: 0}
-    - {x: 15.5, y: 15.5, z: .100000001}
+    - {x: -0.5, y: 0.5, z: 0}
+    - {x: 15.5, y: 15.5, z: 0.1}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -304,10 +305,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .500003934, y: 1.95312509e-06}
-    - {x: .624996066, y: 1.95312509e-06}
-    - {x: .500003934, y: .0624980479}
-    - {x: .624996066, y: .0624980479}
+    - {x: 0.50000393, y: 0.000001953125}
+    - {x: 0.62499607, y: 0.000001953125}
+    - {x: 0.50000393, y: 0.062498048}
+    - {x: 0.62499607, y: 0.062498048}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
@@ -328,8 +329,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: -.5, y: .5, z: 0}
-    - {x: 15.5, y: 15.5, z: .100000001}
+    - {x: -0.5, y: 0.5, z: 0}
+    - {x: 15.5, y: 15.5, z: 0.1}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -353,10 +354,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .625003934, y: 1.95312509e-06}
-    - {x: .749996066, y: 1.95312509e-06}
-    - {x: .625003934, y: .0624980479}
-    - {x: .749996066, y: .0624980479}
+    - {x: 0.62500393, y: 0.000001953125}
+    - {x: 0.74999607, y: 0.000001953125}
+    - {x: 0.62500393, y: 0.062498048}
+    - {x: 0.74999607, y: 0.062498048}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
@@ -377,8 +378,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: -.5, y: .5, z: 0}
-    - {x: 15.5, y: 15.5, z: .100000001}
+    - {x: -0.5, y: 0.5, z: 0}
+    - {x: 15.5, y: 15.5, z: 0.1}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -402,10 +403,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .750003934, y: 1.95312509e-06}
-    - {x: .874996066, y: 1.95312509e-06}
-    - {x: .750003934, y: .0624980479}
-    - {x: .874996066, y: .0624980479}
+    - {x: 0.75000393, y: 0.000001953125}
+    - {x: 0.87499607, y: 0.000001953125}
+    - {x: 0.75000393, y: 0.062498048}
+    - {x: 0.87499607, y: 0.062498048}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
@@ -426,8 +427,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: -.5, y: .5, z: 0}
-    - {x: 15.5, y: 15.5, z: .100000001}
+    - {x: -0.5, y: 0.5, z: 0}
+    - {x: 15.5, y: 15.5, z: 0.1}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -451,10 +452,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .875003934, y: 1.95312509e-06}
-    - {x: .999996066, y: 1.95312509e-06}
-    - {x: .875003934, y: .0624980479}
-    - {x: .999996066, y: .0624980479}
+    - {x: 0.87500393, y: 0.000001953125}
+    - {x: 0.99999607, y: 0.000001953125}
+    - {x: 0.87500393, y: 0.062498048}
+    - {x: 0.99999607, y: 0.062498048}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
@@ -475,8 +476,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: -.5, y: .5, z: 0}
-    - {x: 15.5, y: 15.5, z: .100000001}
+    - {x: -0.5, y: 0.5, z: 0}
+    - {x: 15.5, y: 15.5, z: 0.1}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -500,10 +501,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: 3.90625019e-06, y: .0625019521}
-    - {x: .124996096, y: .0625019521}
-    - {x: 3.90625019e-06, y: .124998048}
-    - {x: .124996096, y: .124998048}
+    - {x: 0.00000390625, y: 0.06250195}
+    - {x: 0.124996096, y: 0.06250195}
+    - {x: 0.00000390625, y: 0.12499805}
+    - {x: 0.124996096, y: 0.12499805}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
@@ -524,8 +525,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: -.5, y: .5, z: 0}
-    - {x: 15.5, y: 15.5, z: .100000001}
+    - {x: -0.5, y: 0.5, z: 0}
+    - {x: 15.5, y: 15.5, z: 0.1}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -549,10 +550,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .125003904, y: .0625019521}
-    - {x: .249996096, y: .0625019521}
-    - {x: .125003904, y: .124998048}
-    - {x: .249996096, y: .124998048}
+    - {x: 0.1250039, y: 0.06250195}
+    - {x: 0.2499961, y: 0.06250195}
+    - {x: 0.1250039, y: 0.12499805}
+    - {x: 0.2499961, y: 0.12499805}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
@@ -573,8 +574,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: -.5, y: .5, z: 0}
-    - {x: 15.5, y: 15.5, z: .100000001}
+    - {x: -0.5, y: 0.5, z: 0}
+    - {x: 15.5, y: 15.5, z: 0.1}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -598,10 +599,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .250003904, y: .0625019521}
-    - {x: .374996096, y: .0625019521}
-    - {x: .250003904, y: .124998048}
-    - {x: .374996096, y: .124998048}
+    - {x: 0.2500039, y: 0.06250195}
+    - {x: 0.3749961, y: 0.06250195}
+    - {x: 0.2500039, y: 0.12499805}
+    - {x: 0.3749961, y: 0.12499805}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
@@ -622,8 +623,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: -.5, y: .5, z: 0}
-    - {x: 15.5, y: 15.5, z: .100000001}
+    - {x: -0.5, y: 0.5, z: 0}
+    - {x: 15.5, y: 15.5, z: 0.1}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -647,10 +648,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .375003904, y: .0625019521}
-    - {x: .499996096, y: .0625019521}
-    - {x: .375003904, y: .124998048}
-    - {x: .499996096, y: .124998048}
+    - {x: 0.3750039, y: 0.06250195}
+    - {x: 0.4999961, y: 0.06250195}
+    - {x: 0.3750039, y: 0.12499805}
+    - {x: 0.4999961, y: 0.12499805}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
@@ -671,8 +672,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: -.5, y: .5, z: 0}
-    - {x: 15.5, y: 15.5, z: .100000001}
+    - {x: -0.5, y: 0.5, z: 0}
+    - {x: 15.5, y: 15.5, z: 0.1}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -696,10 +697,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .500003934, y: .0625019521}
-    - {x: .624996066, y: .0625019521}
-    - {x: .500003934, y: .124998048}
-    - {x: .624996066, y: .124998048}
+    - {x: 0.50000393, y: 0.06250195}
+    - {x: 0.62499607, y: 0.06250195}
+    - {x: 0.50000393, y: 0.12499805}
+    - {x: 0.62499607, y: 0.12499805}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
@@ -720,8 +721,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: -.5, y: .5, z: 0}
-    - {x: 15.5, y: 15.5, z: .100000001}
+    - {x: -0.5, y: 0.5, z: 0}
+    - {x: 15.5, y: 15.5, z: 0.1}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -745,10 +746,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .625003934, y: .0625019521}
-    - {x: .749996066, y: .0625019521}
-    - {x: .625003934, y: .124998048}
-    - {x: .749996066, y: .124998048}
+    - {x: 0.62500393, y: 0.06250195}
+    - {x: 0.74999607, y: 0.06250195}
+    - {x: 0.62500393, y: 0.12499805}
+    - {x: 0.74999607, y: 0.12499805}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
@@ -769,8 +770,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: -.5, y: .5, z: 0}
-    - {x: 15.5, y: 15.5, z: .100000001}
+    - {x: -0.5, y: 0.5, z: 0}
+    - {x: 15.5, y: 15.5, z: 0.1}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -794,10 +795,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .750003934, y: .0625019521}
-    - {x: .874996066, y: .0625019521}
-    - {x: .750003934, y: .124998048}
-    - {x: .874996066, y: .124998048}
+    - {x: 0.75000393, y: 0.06250195}
+    - {x: 0.87499607, y: 0.06250195}
+    - {x: 0.75000393, y: 0.12499805}
+    - {x: 0.87499607, y: 0.12499805}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
@@ -818,8 +819,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: -.5, y: .5, z: 0}
-    - {x: 15.5, y: 15.5, z: .100000001}
+    - {x: -0.5, y: 0.5, z: 0}
+    - {x: 15.5, y: 15.5, z: 0.1}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -843,10 +844,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .816410184, y: .433595717}
-    - {x: .816410184, y: .496091783}
-    - {x: .859371066, y: .433595717}
-    - {x: .859371066, y: .496091783}
+    - {x: 0.8164102, y: 0.43359572}
+    - {x: 0.8164102, y: 0.49609178}
+    - {x: 0.85937107, y: 0.43359572}
+    - {x: 0.85937107, y: 0.49609178}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 0, y: 1}
@@ -867,8 +868,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: -.5, y: .5, z: 0}
-    - {x: 15.5, y: 15.5, z: .100000001}
+    - {x: -0.5, y: 0.5, z: 0}
+    - {x: 15.5, y: 15.5, z: 0.1}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -892,10 +893,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .125003904, y: .484376967}
-    - {x: .249996096, y: .484376967}
-    - {x: .125003904, y: .525388658}
-    - {x: .249996096, y: .525388658}
+    - {x: 0.1250039, y: 0.48437697}
+    - {x: 0.2499961, y: 0.48437697}
+    - {x: 0.1250039, y: 0.52538866}
+    - {x: 0.2499961, y: 0.52538866}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
@@ -916,8 +917,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: -.5, y: .5, z: 0}
-    - {x: 15.5, y: 15.5, z: .100000001}
+    - {x: -0.5, y: 0.5, z: 0}
+    - {x: 15.5, y: 15.5, z: 0.1}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -941,10 +942,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .875003934, y: .0625019521}
-    - {x: .999996066, y: .0625019521}
-    - {x: .875003934, y: .124998048}
-    - {x: .999996066, y: .124998048}
+    - {x: 0.87500393, y: 0.06250195}
+    - {x: 0.99999607, y: 0.06250195}
+    - {x: 0.87500393, y: 0.12499805}
+    - {x: 0.99999607, y: 0.12499805}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
@@ -965,8 +966,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: -.5, y: .5, z: 0}
-    - {x: 15.5, y: 15.5, z: .100000001}
+    - {x: -0.5, y: 0.5, z: 0}
+    - {x: 15.5, y: 15.5, z: 0.1}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -990,10 +991,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: 3.90625019e-06, y: .437501967}
-    - {x: 3.90625019e-06, y: .484373033}
-    - {x: .124996096, y: .437501967}
-    - {x: .124996096, y: .484373033}
+    - {x: 0.00000390625, y: 0.43750197}
+    - {x: 0.00000390625, y: 0.48437303}
+    - {x: 0.124996096, y: 0.43750197}
+    - {x: 0.124996096, y: 0.48437303}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 0, y: 1}
@@ -1014,8 +1015,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: -.5, y: .5, z: 0}
-    - {x: 15.5, y: 15.5, z: .100000001}
+    - {x: -0.5, y: 0.5, z: 0}
+    - {x: 15.5, y: 15.5, z: 0.1}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -1039,10 +1040,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: 3.90625019e-06, y: .125001952}
-    - {x: .124996096, y: .125001952}
-    - {x: 3.90625019e-06, y: .187498048}
-    - {x: .124996096, y: .187498048}
+    - {x: 0.00000390625, y: 0.12500195}
+    - {x: 0.124996096, y: 0.12500195}
+    - {x: 0.00000390625, y: 0.18749805}
+    - {x: 0.124996096, y: 0.18749805}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
@@ -1063,8 +1064,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: -.5, y: .5, z: 0}
-    - {x: 15.5, y: 15.5, z: .100000001}
+    - {x: -0.5, y: 0.5, z: 0}
+    - {x: 15.5, y: 15.5, z: 0.1}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -1088,10 +1089,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .125003904, y: .125001952}
-    - {x: .249996096, y: .125001952}
-    - {x: .125003904, y: .187498048}
-    - {x: .249996096, y: .187498048}
+    - {x: 0.1250039, y: 0.12500195}
+    - {x: 0.2499961, y: 0.12500195}
+    - {x: 0.1250039, y: 0.18749805}
+    - {x: 0.2499961, y: 0.18749805}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
@@ -1112,8 +1113,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: -.5, y: .5, z: 0}
-    - {x: 15.5, y: 15.5, z: .100000001}
+    - {x: -0.5, y: 0.5, z: 0}
+    - {x: 15.5, y: 15.5, z: 0.1}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -1137,10 +1138,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .250003904, y: .125001952}
-    - {x: .374996096, y: .125001952}
-    - {x: .250003904, y: .187498048}
-    - {x: .374996096, y: .187498048}
+    - {x: 0.2500039, y: 0.12500195}
+    - {x: 0.3749961, y: 0.12500195}
+    - {x: 0.2500039, y: 0.18749805}
+    - {x: 0.3749961, y: 0.18749805}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
@@ -1161,8 +1162,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: -.5, y: .5, z: 0}
-    - {x: 15.5, y: 15.5, z: .100000001}
+    - {x: -0.5, y: 0.5, z: 0}
+    - {x: 15.5, y: 15.5, z: 0.1}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -1186,10 +1187,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .375003904, y: .125001952}
-    - {x: .499996096, y: .125001952}
-    - {x: .375003904, y: .187498048}
-    - {x: .499996096, y: .187498048}
+    - {x: 0.3750039, y: 0.12500195}
+    - {x: 0.4999961, y: 0.12500195}
+    - {x: 0.3750039, y: 0.18749805}
+    - {x: 0.4999961, y: 0.18749805}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
@@ -1210,8 +1211,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: -.5, y: .5, z: 0}
-    - {x: 15.5, y: 15.5, z: .100000001}
+    - {x: -0.5, y: 0.5, z: 0}
+    - {x: 15.5, y: 15.5, z: 0.1}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -1235,10 +1236,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .500003934, y: .125001952}
-    - {x: .624996066, y: .125001952}
-    - {x: .500003934, y: .187498048}
-    - {x: .624996066, y: .187498048}
+    - {x: 0.50000393, y: 0.12500195}
+    - {x: 0.62499607, y: 0.12500195}
+    - {x: 0.50000393, y: 0.18749805}
+    - {x: 0.62499607, y: 0.18749805}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
@@ -1259,8 +1260,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: -.5, y: .5, z: 0}
-    - {x: 15.5, y: 15.5, z: .100000001}
+    - {x: -0.5, y: 0.5, z: 0}
+    - {x: 15.5, y: 15.5, z: 0.1}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -1284,10 +1285,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .625003934, y: .125001952}
-    - {x: .749996066, y: .125001952}
-    - {x: .625003934, y: .187498048}
-    - {x: .749996066, y: .187498048}
+    - {x: 0.62500393, y: 0.12500195}
+    - {x: 0.74999607, y: 0.12500195}
+    - {x: 0.62500393, y: 0.18749805}
+    - {x: 0.74999607, y: 0.18749805}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
@@ -1308,8 +1309,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: -.5, y: .5, z: 0}
-    - {x: 15.5, y: 15.5, z: .100000001}
+    - {x: -0.5, y: 0.5, z: 0}
+    - {x: 15.5, y: 15.5, z: 0.1}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -1319,7 +1320,7 @@ MonoBehaviour:
     attachPoints: []
   - name: city_tiles/30
     boundsData:
-    - {x: -.5, y: 0, z: 0}
+    - {x: -0.5, y: 0, z: 0}
     - {x: 31, y: 32, z: 0}
     untrimmedBoundsData:
     - {x: 0, y: 0, z: 0}
@@ -1333,10 +1334,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .250003904, y: .375001967}
-    - {x: .250003904, y: .435544908}
-    - {x: .374996096, y: .375001967}
-    - {x: .374996096, y: .435544908}
+    - {x: 0.2500039, y: 0.37500197}
+    - {x: 0.2500039, y: 0.4355449}
+    - {x: 0.3749961, y: 0.37500197}
+    - {x: 0.3749961, y: 0.4355449}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 0, y: 1}
@@ -1357,8 +1358,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: -.5, y: .5, z: 0}
-    - {x: 15.5, y: 15.5, z: .100000001}
+    - {x: -0.5, y: 0.5, z: 0}
+    - {x: 15.5, y: 15.5, z: 0.1}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -1382,10 +1383,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .750003934, y: .490236342}
-    - {x: .750003934, y: .503904283}
-    - {x: .789058566, y: .490236342}
-    - {x: .789058566, y: .503904283}
+    - {x: 0.75000393, y: 0.49023634}
+    - {x: 0.75000393, y: 0.5039043}
+    - {x: 0.78905857, y: 0.49023634}
+    - {x: 0.78905857, y: 0.5039043}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 0, y: 1}
@@ -1406,8 +1407,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: -.5, y: .5, z: 0}
-    - {x: 15.5, y: 15.5, z: .100000001}
+    - {x: -0.5, y: 0.5, z: 0}
+    - {x: 15.5, y: 15.5, z: 0.1}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -1431,10 +1432,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .750003934, y: .125001952}
-    - {x: .874996066, y: .125001952}
-    - {x: .750003934, y: .187498048}
-    - {x: .874996066, y: .187498048}
+    - {x: 0.75000393, y: 0.12500195}
+    - {x: 0.87499607, y: 0.12500195}
+    - {x: 0.75000393, y: 0.18749805}
+    - {x: 0.87499607, y: 0.18749805}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
@@ -1455,8 +1456,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: -.5, y: .5, z: 0}
-    - {x: 15.5, y: 15.5, z: .100000001}
+    - {x: -0.5, y: 0.5, z: 0}
+    - {x: 15.5, y: 15.5, z: 0.1}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -1480,10 +1481,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .875003934, y: .125001952}
-    - {x: .999996066, y: .125001952}
-    - {x: .875003934, y: .187498048}
-    - {x: .999996066, y: .187498048}
+    - {x: 0.87500393, y: 0.12500195}
+    - {x: 0.99999607, y: 0.12500195}
+    - {x: 0.87500393, y: 0.18749805}
+    - {x: 0.99999607, y: 0.18749805}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
@@ -1504,8 +1505,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: -.5, y: .5, z: 0}
-    - {x: 15.5, y: 15.5, z: .100000001}
+    - {x: -0.5, y: 0.5, z: 0}
+    - {x: 15.5, y: 15.5, z: 0.1}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -1529,10 +1530,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .625003934, y: .488283217}
-    - {x: .625003934, y: .519529283}
-    - {x: .710933566, y: .488283217}
-    - {x: .710933566, y: .519529283}
+    - {x: 0.62500393, y: 0.48828322}
+    - {x: 0.62500393, y: 0.5195293}
+    - {x: 0.71093357, y: 0.48828322}
+    - {x: 0.71093357, y: 0.5195293}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 0, y: 1}
@@ -1553,8 +1554,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: -.5, y: .5, z: 0}
-    - {x: 15.5, y: 15.5, z: .100000001}
+    - {x: -0.5, y: 0.5, z: 0}
+    - {x: 15.5, y: 15.5, z: 0.1}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -1578,10 +1579,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: 3.90625019e-06, y: .187501952}
-    - {x: .124996096, y: .187501952}
-    - {x: 3.90625019e-06, y: .249998048}
-    - {x: .124996096, y: .249998048}
+    - {x: 0.00000390625, y: 0.18750195}
+    - {x: 0.124996096, y: 0.18750195}
+    - {x: 0.00000390625, y: 0.24999805}
+    - {x: 0.124996096, y: 0.24999805}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
@@ -1602,8 +1603,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: -.5, y: .5, z: 0}
-    - {x: 15.5, y: 15.5, z: .100000001}
+    - {x: -0.5, y: 0.5, z: 0}
+    - {x: 15.5, y: 15.5, z: 0.1}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -1627,10 +1628,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .125003904, y: .187501952}
-    - {x: .249996096, y: .187501952}
-    - {x: .125003904, y: .249998048}
-    - {x: .249996096, y: .249998048}
+    - {x: 0.1250039, y: 0.18750195}
+    - {x: 0.2499961, y: 0.18750195}
+    - {x: 0.1250039, y: 0.24999805}
+    - {x: 0.2499961, y: 0.24999805}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
@@ -1651,8 +1652,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: -.5, y: .5, z: 0}
-    - {x: 15.5, y: 15.5, z: .100000001}
+    - {x: -0.5, y: 0.5, z: 0}
+    - {x: 15.5, y: 15.5, z: 0.1}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -1676,10 +1677,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .250003904, y: .187501952}
-    - {x: .374996096, y: .187501952}
-    - {x: .250003904, y: .249998048}
-    - {x: .374996096, y: .249998048}
+    - {x: 0.2500039, y: 0.18750195}
+    - {x: 0.3749961, y: 0.18750195}
+    - {x: 0.2500039, y: 0.24999805}
+    - {x: 0.3749961, y: 0.24999805}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
@@ -1700,8 +1701,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: -.5, y: .5, z: 0}
-    - {x: 15.5, y: 15.5, z: .100000001}
+    - {x: -0.5, y: 0.5, z: 0}
+    - {x: 15.5, y: 15.5, z: 0.1}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -1725,10 +1726,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .375003904, y: .187501952}
-    - {x: .499996096, y: .187501952}
-    - {x: .375003904, y: .249998048}
-    - {x: .499996096, y: .249998048}
+    - {x: 0.3750039, y: 0.18750195}
+    - {x: 0.4999961, y: 0.18750195}
+    - {x: 0.3750039, y: 0.24999805}
+    - {x: 0.4999961, y: 0.24999805}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
@@ -1749,8 +1750,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: -.5, y: .5, z: 0}
-    - {x: 15.5, y: 15.5, z: .100000001}
+    - {x: -0.5, y: 0.5, z: 0}
+    - {x: 15.5, y: 15.5, z: 0.1}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -1774,10 +1775,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .500003934, y: .187501952}
-    - {x: .624996066, y: .187501952}
-    - {x: .500003934, y: .249998048}
-    - {x: .624996066, y: .249998048}
+    - {x: 0.50000393, y: 0.18750195}
+    - {x: 0.62499607, y: 0.18750195}
+    - {x: 0.50000393, y: 0.24999805}
+    - {x: 0.62499607, y: 0.24999805}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
@@ -1798,8 +1799,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: -.5, y: .5, z: 0}
-    - {x: 15.5, y: 15.5, z: .100000001}
+    - {x: -0.5, y: 0.5, z: 0}
+    - {x: 15.5, y: 15.5, z: 0.1}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -1823,10 +1824,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .625003934, y: .464845717}
-    - {x: .625003934, y: .488279283}
-    - {x: .749996066, y: .464845717}
-    - {x: .749996066, y: .488279283}
+    - {x: 0.62500393, y: 0.46484572}
+    - {x: 0.62500393, y: 0.48827928}
+    - {x: 0.74999607, y: 0.46484572}
+    - {x: 0.74999607, y: 0.48827928}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 0, y: 1}
@@ -1847,8 +1848,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: -.5, y: .5, z: 0}
-    - {x: 15.5, y: 15.5, z: .100000001}
+    - {x: -0.5, y: 0.5, z: 0}
+    - {x: 15.5, y: 15.5, z: 0.1}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -1872,10 +1873,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .625003934, y: .464845717}
-    - {x: .625003934, y: .488279283}
-    - {x: .749996066, y: .464845717}
-    - {x: .749996066, y: .488279283}
+    - {x: 0.62500393, y: 0.46484572}
+    - {x: 0.62500393, y: 0.48827928}
+    - {x: 0.74999607, y: 0.46484572}
+    - {x: 0.74999607, y: 0.48827928}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 0, y: 1}
@@ -1896,8 +1897,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: -.5, y: .5, z: 0}
-    - {x: 15.5, y: 15.5, z: .100000001}
+    - {x: -0.5, y: 0.5, z: 0}
+    - {x: 15.5, y: 15.5, z: 0.1}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -1907,7 +1908,7 @@ MonoBehaviour:
     attachPoints: []
   - name: city_tiles/44
     boundsData:
-    - {x: 1, y: -.5, z: 0}
+    - {x: 1, y: -0.5, z: 0}
     - {x: 30, y: 31, z: 0}
     untrimmedBoundsData:
     - {x: 0, y: 0, z: 0}
@@ -1921,10 +1922,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .375003904, y: .375001967}
-    - {x: .375003904, y: .433591783}
-    - {x: .496089846, y: .375001967}
-    - {x: .496089846, y: .433591783}
+    - {x: 0.3750039, y: 0.37500197}
+    - {x: 0.3750039, y: 0.43359178}
+    - {x: 0.49608985, y: 0.37500197}
+    - {x: 0.49608985, y: 0.43359178}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 0, y: 1}
@@ -1945,8 +1946,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: -.5, y: .5, z: 0}
-    - {x: 15.5, y: 15.5, z: .100000001}
+    - {x: -0.5, y: 0.5, z: 0}
+    - {x: 15.5, y: 15.5, z: 0.1}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -1956,7 +1957,7 @@ MonoBehaviour:
     attachPoints: []
   - name: city_tiles/45
     boundsData:
-    - {x: -1, y: -.5, z: 0}
+    - {x: -1, y: -0.5, z: 0}
     - {x: 30, y: 31, z: 0}
     untrimmedBoundsData:
     - {x: 0, y: 0, z: 0}
@@ -1970,10 +1971,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .496097654, y: .375001967}
-    - {x: .496097654, y: .433591783}
-    - {x: .617183566, y: .375001967}
-    - {x: .617183566, y: .433591783}
+    - {x: 0.49609765, y: 0.37500197}
+    - {x: 0.49609765, y: 0.43359178}
+    - {x: 0.61718357, y: 0.37500197}
+    - {x: 0.61718357, y: 0.43359178}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 0, y: 1}
@@ -1994,8 +1995,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: -.5, y: .5, z: 0}
-    - {x: 15.5, y: 15.5, z: .100000001}
+    - {x: -0.5, y: 0.5, z: 0}
+    - {x: 15.5, y: 15.5, z: 0.1}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -2019,10 +2020,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .625003934, y: .187501952}
-    - {x: .749996066, y: .187501952}
-    - {x: .625003934, y: .249998048}
-    - {x: .749996066, y: .249998048}
+    - {x: 0.62500393, y: 0.18750195}
+    - {x: 0.74999607, y: 0.18750195}
+    - {x: 0.62500393, y: 0.24999805}
+    - {x: 0.74999607, y: 0.24999805}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
@@ -2043,8 +2044,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: -.5, y: .5, z: 0}
-    - {x: 15.5, y: 15.5, z: .100000001}
+    - {x: -0.5, y: 0.5, z: 0}
+    - {x: 15.5, y: 15.5, z: 0.1}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -2068,10 +2069,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .750003934, y: .187501952}
-    - {x: .874996066, y: .187501952}
-    - {x: .750003934, y: .249998048}
-    - {x: .874996066, y: .249998048}
+    - {x: 0.75000393, y: 0.18750195}
+    - {x: 0.87499607, y: 0.18750195}
+    - {x: 0.75000393, y: 0.24999805}
+    - {x: 0.87499607, y: 0.24999805}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
@@ -2092,8 +2093,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: -.5, y: .5, z: 0}
-    - {x: 15.5, y: 15.5, z: .100000001}
+    - {x: -0.5, y: 0.5, z: 0}
+    - {x: 15.5, y: 15.5, z: 0.1}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -2103,7 +2104,7 @@ MonoBehaviour:
     attachPoints: []
   - name: city_tiles/48
     boundsData:
-    - {x: 1, y: .5, z: 0}
+    - {x: 1, y: 0.5, z: 0}
     - {x: 30, y: 31, z: 0}
     untrimmedBoundsData:
     - {x: 0, y: 0, z: 0}
@@ -2117,10 +2118,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .617191434, y: .375001967}
-    - {x: .617191434, y: .433591783}
-    - {x: .738277316, y: .375001967}
-    - {x: .738277316, y: .433591783}
+    - {x: 0.61719143, y: 0.37500197}
+    - {x: 0.61719143, y: 0.43359178}
+    - {x: 0.7382773, y: 0.37500197}
+    - {x: 0.7382773, y: 0.43359178}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 0, y: 1}
@@ -2141,8 +2142,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: -.5, y: .5, z: 0}
-    - {x: 15.5, y: 15.5, z: .100000001}
+    - {x: -0.5, y: 0.5, z: 0}
+    - {x: 15.5, y: 15.5, z: 0.1}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -2152,7 +2153,7 @@ MonoBehaviour:
     attachPoints: []
   - name: city_tiles/49
     boundsData:
-    - {x: -1, y: .5, z: 0}
+    - {x: -1, y: 0.5, z: 0}
     - {x: 30, y: 31, z: 0}
     untrimmedBoundsData:
     - {x: 0, y: 0, z: 0}
@@ -2166,10 +2167,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .738285184, y: .375001967}
-    - {x: .738285184, y: .433591783}
-    - {x: .859371066, y: .375001967}
-    - {x: .859371066, y: .433591783}
+    - {x: 0.7382852, y: 0.37500197}
+    - {x: 0.7382852, y: 0.43359178}
+    - {x: 0.85937107, y: 0.37500197}
+    - {x: 0.85937107, y: 0.43359178}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 0, y: 1}
@@ -2190,8 +2191,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: -.5, y: .5, z: 0}
-    - {x: 15.5, y: 15.5, z: .100000001}
+    - {x: -0.5, y: 0.5, z: 0}
+    - {x: 15.5, y: 15.5, z: 0.1}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -2215,10 +2216,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .750003934, y: .433595717}
-    - {x: .750003934, y: .490232408}
-    - {x: .816402316, y: .433595717}
-    - {x: .816402316, y: .490232408}
+    - {x: 0.75000393, y: 0.43359572}
+    - {x: 0.75000393, y: 0.4902324}
+    - {x: 0.8164023, y: 0.43359572}
+    - {x: 0.8164023, y: 0.4902324}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 0, y: 1}
@@ -2239,8 +2240,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: -.5, y: .5, z: 0}
-    - {x: 15.5, y: 15.5, z: .100000001}
+    - {x: -0.5, y: 0.5, z: 0}
+    - {x: 15.5, y: 15.5, z: 0.1}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -2264,10 +2265,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .875003934, y: .187501952}
-    - {x: .999996066, y: .187501952}
-    - {x: .875003934, y: .249998048}
-    - {x: .999996066, y: .249998048}
+    - {x: 0.87500393, y: 0.18750195}
+    - {x: 0.99999607, y: 0.18750195}
+    - {x: 0.87500393, y: 0.24999805}
+    - {x: 0.99999607, y: 0.24999805}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
@@ -2288,8 +2289,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: -.5, y: .5, z: 0}
-    - {x: 15.5, y: 15.5, z: .100000001}
+    - {x: -0.5, y: 0.5, z: 0}
+    - {x: 15.5, y: 15.5, z: 0.1}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -2313,10 +2314,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .859378934, y: .375001967}
-    - {x: .859378934, y: .431638658}
-    - {x: .984371066, y: .375001967}
-    - {x: .984371066, y: .431638658}
+    - {x: 0.85937893, y: 0.37500197}
+    - {x: 0.85937893, y: 0.43163866}
+    - {x: 0.98437107, y: 0.37500197}
+    - {x: 0.98437107, y: 0.43163866}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 0, y: 1}
@@ -2337,8 +2338,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: -.5, y: .5, z: 0}
-    - {x: 15.5, y: 15.5, z: .100000001}
+    - {x: -0.5, y: 0.5, z: 0}
+    - {x: 15.5, y: 15.5, z: 0.1}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -2362,10 +2363,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .125003904, y: .0625019521}
-    - {x: .249996096, y: .0625019521}
-    - {x: .125003904, y: .124998048}
-    - {x: .249996096, y: .124998048}
+    - {x: 0.1250039, y: 0.06250195}
+    - {x: 0.2499961, y: 0.06250195}
+    - {x: 0.1250039, y: 0.12499805}
+    - {x: 0.2499961, y: 0.12499805}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
@@ -2386,8 +2387,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: -.5, y: .5, z: 0}
-    - {x: 15.5, y: 15.5, z: .100000001}
+    - {x: -0.5, y: 0.5, z: 0}
+    - {x: 15.5, y: 15.5, z: 0.1}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -2411,10 +2412,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: 3.90625019e-06, y: .250001967}
-    - {x: .124996096, y: .250001967}
-    - {x: 3.90625019e-06, y: .312498033}
-    - {x: .124996096, y: .312498033}
+    - {x: 0.00000390625, y: 0.25000197}
+    - {x: 0.124996096, y: 0.25000197}
+    - {x: 0.00000390625, y: 0.31249803}
+    - {x: 0.124996096, y: 0.31249803}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
@@ -2435,8 +2436,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: -.5, y: .5, z: 0}
-    - {x: 15.5, y: 15.5, z: .100000001}
+    - {x: -0.5, y: 0.5, z: 0}
+    - {x: 15.5, y: 15.5, z: 0.1}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -2460,10 +2461,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .125003904, y: .250001967}
-    - {x: .249996096, y: .250001967}
-    - {x: .125003904, y: .312498033}
-    - {x: .249996096, y: .312498033}
+    - {x: 0.1250039, y: 0.25000197}
+    - {x: 0.2499961, y: 0.25000197}
+    - {x: 0.1250039, y: 0.31249803}
+    - {x: 0.2499961, y: 0.31249803}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
@@ -2484,8 +2485,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: -.5, y: .5, z: 0}
-    - {x: 15.5, y: 15.5, z: .100000001}
+    - {x: -0.5, y: 0.5, z: 0}
+    - {x: 15.5, y: 15.5, z: 0.1}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -2509,10 +2510,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .250003904, y: .250001967}
-    - {x: .374996096, y: .250001967}
-    - {x: .250003904, y: .312498033}
-    - {x: .374996096, y: .312498033}
+    - {x: 0.2500039, y: 0.25000197}
+    - {x: 0.3749961, y: 0.25000197}
+    - {x: 0.2500039, y: 0.31249803}
+    - {x: 0.3749961, y: 0.31249803}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
@@ -2533,8 +2534,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: -.5, y: .5, z: 0}
-    - {x: 15.5, y: 15.5, z: .100000001}
+    - {x: -0.5, y: 0.5, z: 0}
+    - {x: 15.5, y: 15.5, z: 0.1}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -2558,10 +2559,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .125003904, y: .437501967}
-    - {x: .125003904, y: .484373033}
-    - {x: .249996096, y: .437501967}
-    - {x: .249996096, y: .484373033}
+    - {x: 0.1250039, y: 0.43750197}
+    - {x: 0.1250039, y: 0.48437303}
+    - {x: 0.2499961, y: 0.43750197}
+    - {x: 0.2499961, y: 0.48437303}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 0, y: 1}
@@ -2582,8 +2583,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: -.5, y: .5, z: 0}
-    - {x: 15.5, y: 15.5, z: .100000001}
+    - {x: -0.5, y: 0.5, z: 0}
+    - {x: 15.5, y: 15.5, z: 0.1}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -2607,10 +2608,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .375003904, y: .250001967}
-    - {x: .499996096, y: .250001967}
-    - {x: .375003904, y: .312498033}
-    - {x: .499996096, y: .312498033}
+    - {x: 0.3750039, y: 0.25000197}
+    - {x: 0.4999961, y: 0.25000197}
+    - {x: 0.3750039, y: 0.31249803}
+    - {x: 0.4999961, y: 0.31249803}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
@@ -2631,8 +2632,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: -.5, y: .5, z: 0}
-    - {x: 15.5, y: 15.5, z: .100000001}
+    - {x: -0.5, y: 0.5, z: 0}
+    - {x: 15.5, y: 15.5, z: 0.1}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -2656,10 +2657,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .500003934, y: .474611342}
-    - {x: .624996066, y: .474611342}
-    - {x: .500003934, y: .496091783}
-    - {x: .624996066, y: .496091783}
+    - {x: 0.50000393, y: 0.47461134}
+    - {x: 0.62499607, y: 0.47461134}
+    - {x: 0.50000393, y: 0.49609178}
+    - {x: 0.62499607, y: 0.49609178}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
@@ -2680,8 +2681,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: -.5, y: .5, z: 0}
-    - {x: 15.5, y: 15.5, z: .100000001}
+    - {x: -0.5, y: 0.5, z: 0}
+    - {x: 15.5, y: 15.5, z: 0.1}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -2705,10 +2706,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .500003934, y: .250001967}
-    - {x: .624996066, y: .250001967}
-    - {x: .500003934, y: .312498033}
-    - {x: .624996066, y: .312498033}
+    - {x: 0.50000393, y: 0.25000197}
+    - {x: 0.62499607, y: 0.25000197}
+    - {x: 0.50000393, y: 0.31249803}
+    - {x: 0.62499607, y: 0.31249803}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
@@ -2729,8 +2730,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: -.5, y: .5, z: 0}
-    - {x: 15.5, y: 15.5, z: .100000001}
+    - {x: -0.5, y: 0.5, z: 0}
+    - {x: 15.5, y: 15.5, z: 0.1}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -2754,10 +2755,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .625003934, y: .250001967}
-    - {x: .749996066, y: .250001967}
-    - {x: .625003934, y: .312498033}
-    - {x: .749996066, y: .312498033}
+    - {x: 0.62500393, y: 0.25000197}
+    - {x: 0.74999607, y: 0.25000197}
+    - {x: 0.62500393, y: 0.31249803}
+    - {x: 0.74999607, y: 0.31249803}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
@@ -2778,8 +2779,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: -.5, y: .5, z: 0}
-    - {x: 15.5, y: 15.5, z: .100000001}
+    - {x: -0.5, y: 0.5, z: 0}
+    - {x: 15.5, y: 15.5, z: 0.1}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -2803,10 +2804,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .625003934, y: .250001967}
-    - {x: .749996066, y: .250001967}
-    - {x: .625003934, y: .312498033}
-    - {x: .749996066, y: .312498033}
+    - {x: 0.62500393, y: 0.25000197}
+    - {x: 0.74999607, y: 0.25000197}
+    - {x: 0.62500393, y: 0.31249803}
+    - {x: 0.74999607, y: 0.31249803}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
@@ -2827,8 +2828,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: -.5, y: .5, z: 0}
-    - {x: 15.5, y: 15.5, z: .100000001}
+    - {x: -0.5, y: 0.5, z: 0}
+    - {x: 15.5, y: 15.5, z: 0.1}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -2852,10 +2853,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .625003934, y: .250001967}
-    - {x: .749996066, y: .250001967}
-    - {x: .625003934, y: .312498033}
-    - {x: .749996066, y: .312498033}
+    - {x: 0.62500393, y: 0.25000197}
+    - {x: 0.74999607, y: 0.25000197}
+    - {x: 0.62500393, y: 0.31249803}
+    - {x: 0.74999607, y: 0.31249803}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
@@ -2876,8 +2877,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: -.5, y: .5, z: 0}
-    - {x: 15.5, y: 15.5, z: .100000001}
+    - {x: -0.5, y: 0.5, z: 0}
+    - {x: 15.5, y: 15.5, z: 0.1}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -2901,10 +2902,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: 3.90625019e-06, y: .484376967}
-    - {x: 3.90625019e-06, y: .531248033}
-    - {x: .124996096, y: .484376967}
-    - {x: .124996096, y: .531248033}
+    - {x: 0.00000390625, y: 0.48437697}
+    - {x: 0.00000390625, y: 0.53124803}
+    - {x: 0.124996096, y: 0.48437697}
+    - {x: 0.124996096, y: 0.53124803}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 0, y: 1}
@@ -2925,8 +2926,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: -.5, y: .5, z: 0}
-    - {x: 15.5, y: 15.5, z: .100000001}
+    - {x: -0.5, y: 0.5, z: 0}
+    - {x: 15.5, y: 15.5, z: 0.1}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -2950,10 +2951,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .750003934, y: .250001967}
-    - {x: .874996066, y: .250001967}
-    - {x: .750003934, y: .312498033}
-    - {x: .874996066, y: .312498033}
+    - {x: 0.75000393, y: 0.25000197}
+    - {x: 0.87499607, y: 0.25000197}
+    - {x: 0.75000393, y: 0.31249803}
+    - {x: 0.87499607, y: 0.31249803}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
@@ -2974,8 +2975,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: -.5, y: .5, z: 0}
-    - {x: 15.5, y: 15.5, z: .100000001}
+    - {x: -0.5, y: 0.5, z: 0}
+    - {x: 15.5, y: 15.5, z: 0.1}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -2999,10 +3000,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .710941434, y: .488283217}
-    - {x: .749996066, y: .488283217}
-    - {x: .710941434, y: .515623033}
-    - {x: .749996066, y: .515623033}
+    - {x: 0.71094143, y: 0.48828322}
+    - {x: 0.74999607, y: 0.48828322}
+    - {x: 0.71094143, y: 0.51562303}
+    - {x: 0.74999607, y: 0.51562303}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
@@ -3023,8 +3024,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: -.5, y: .5, z: 0}
-    - {x: 15.5, y: 15.5, z: .100000001}
+    - {x: -0.5, y: 0.5, z: 0}
+    - {x: 15.5, y: 15.5, z: 0.1}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -3048,10 +3049,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .875003934, y: .250001967}
-    - {x: .999996066, y: .250001967}
-    - {x: .875003934, y: .312498033}
-    - {x: .999996066, y: .312498033}
+    - {x: 0.87500393, y: 0.25000197}
+    - {x: 0.99999607, y: 0.25000197}
+    - {x: 0.87500393, y: 0.31249803}
+    - {x: 0.99999607, y: 0.31249803}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
@@ -3072,8 +3073,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: -.5, y: .5, z: 0}
-    - {x: 15.5, y: 15.5, z: .100000001}
+    - {x: -0.5, y: 0.5, z: 0}
+    - {x: 15.5, y: 15.5, z: 0.1}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -3097,10 +3098,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .500003934, y: .433595717}
-    - {x: .500003934, y: .474607408}
-    - {x: .624996066, y: .433595717}
-    - {x: .624996066, y: .474607408}
+    - {x: 0.50000393, y: 0.43359572}
+    - {x: 0.50000393, y: 0.4746074}
+    - {x: 0.62499607, y: 0.43359572}
+    - {x: 0.62499607, y: 0.4746074}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 0, y: 1}
@@ -3121,8 +3122,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: -.5, y: .5, z: 0}
-    - {x: 15.5, y: 15.5, z: .100000001}
+    - {x: -0.5, y: 0.5, z: 0}
+    - {x: 15.5, y: 15.5, z: 0.1}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -3146,10 +3147,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .859378934, y: .486330092}
-    - {x: .984371066, y: .486330092}
-    - {x: .859378934, y: .515623033}
-    - {x: .984371066, y: .515623033}
+    - {x: 0.85937893, y: 0.4863301}
+    - {x: 0.98437107, y: 0.4863301}
+    - {x: 0.85937893, y: 0.51562303}
+    - {x: 0.98437107, y: 0.51562303}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
@@ -3170,8 +3171,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: -.5, y: .5, z: 0}
-    - {x: 15.5, y: 15.5, z: .100000001}
+    - {x: -0.5, y: 0.5, z: 0}
+    - {x: 15.5, y: 15.5, z: 0.1}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -3195,10 +3196,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .625003934, y: .433595717}
-    - {x: .749996066, y: .433595717}
-    - {x: .625003934, y: .464841783}
-    - {x: .749996066, y: .464841783}
+    - {x: 0.62500393, y: 0.43359572}
+    - {x: 0.74999607, y: 0.43359572}
+    - {x: 0.62500393, y: 0.46484178}
+    - {x: 0.74999607, y: 0.46484178}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
@@ -3219,8 +3220,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: -.5, y: .5, z: 0}
-    - {x: 15.5, y: 15.5, z: .100000001}
+    - {x: -0.5, y: 0.5, z: 0}
+    - {x: 15.5, y: 15.5, z: 0.1}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -3244,10 +3245,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .984378934, y: .375001967}
-    - {x: .984378934, y: .437498033}
-    - {x: .999996066, y: .375001967}
-    - {x: .999996066, y: .437498033}
+    - {x: 0.98437893, y: 0.37500197}
+    - {x: 0.98437893, y: 0.43749803}
+    - {x: 0.99999607, y: 0.37500197}
+    - {x: 0.99999607, y: 0.43749803}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 0, y: 1}
@@ -3268,8 +3269,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: -.5, y: .5, z: 0}
-    - {x: 15.5, y: 15.5, z: .100000001}
+    - {x: -0.5, y: 0.5, z: 0}
+    - {x: 15.5, y: 15.5, z: 0.1}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -3293,10 +3294,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: 3.90625019e-06, y: .312501967}
-    - {x: .124996096, y: .312501967}
-    - {x: 3.90625019e-06, y: .374998033}
-    - {x: .124996096, y: .374998033}
+    - {x: 0.00000390625, y: 0.31250197}
+    - {x: 0.124996096, y: 0.31250197}
+    - {x: 0.00000390625, y: 0.37499803}
+    - {x: 0.124996096, y: 0.37499803}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
@@ -3317,8 +3318,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: -.5, y: .5, z: 0}
-    - {x: 15.5, y: 15.5, z: .100000001}
+    - {x: -0.5, y: 0.5, z: 0}
+    - {x: 15.5, y: 15.5, z: 0.1}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -3342,10 +3343,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .859378934, y: .431642592}
-    - {x: .859378934, y: .486326158}
-    - {x: .984371066, y: .431642592}
-    - {x: .984371066, y: .486326158}
+    - {x: 0.85937893, y: 0.4316426}
+    - {x: 0.85937893, y: 0.48632616}
+    - {x: 0.98437107, y: 0.4316426}
+    - {x: 0.98437107, y: 0.48632616}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 0, y: 1}
@@ -3366,8 +3367,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: -.5, y: .5, z: 0}
-    - {x: 15.5, y: 15.5, z: .100000001}
+    - {x: -0.5, y: 0.5, z: 0}
+    - {x: 15.5, y: 15.5, z: 0.1}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -3377,7 +3378,7 @@ MonoBehaviour:
     attachPoints: []
   - name: city_tiles/78
     boundsData:
-    - {x: .5, y: 15, z: 0}
+    - {x: 0.5, y: 15, z: 0}
     - {x: 31, y: 2, z: 0}
     untrimmedBoundsData:
     - {x: 0, y: 0, z: 0}
@@ -3391,10 +3392,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .984378934, y: .437501967}
-    - {x: .984378934, y: .498044908}
-    - {x: .992183566, y: .437501967}
-    - {x: .992183566, y: .498044908}
+    - {x: 0.98437893, y: 0.43750197}
+    - {x: 0.98437893, y: 0.4980449}
+    - {x: 0.99218357, y: 0.43750197}
+    - {x: 0.99218357, y: 0.4980449}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 0, y: 1}
@@ -3415,8 +3416,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: -.5, y: .5, z: 0}
-    - {x: 15.5, y: 15.5, z: .100000001}
+    - {x: -0.5, y: 0.5, z: 0}
+    - {x: 15.5, y: 15.5, z: 0.1}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -3426,7 +3427,7 @@ MonoBehaviour:
     attachPoints: []
   - name: city_tiles/79
     boundsData:
-    - {x: .5, y: 15, z: 0}
+    - {x: 0.5, y: 15, z: 0}
     - {x: 31, y: 2, z: 0}
     untrimmedBoundsData:
     - {x: 0, y: 0, z: 0}
@@ -3440,10 +3441,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .992191434, y: .437501967}
-    - {x: .992191434, y: .498044908}
-    - {x: .999996066, y: .437501967}
-    - {x: .999996066, y: .498044908}
+    - {x: 0.99219143, y: 0.43750197}
+    - {x: 0.99219143, y: 0.4980449}
+    - {x: 0.99999607, y: 0.43750197}
+    - {x: 0.99999607, y: 0.4980449}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 0, y: 1}
@@ -3464,8 +3465,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: -.5, y: .5, z: 0}
-    - {x: 15.5, y: 15.5, z: .100000001}
+    - {x: -0.5, y: 0.5, z: 0}
+    - {x: 15.5, y: 15.5, z: 0.1}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -3489,10 +3490,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .125003904, y: .312501967}
-    - {x: .249996096, y: .312501967}
-    - {x: .125003904, y: .374998033}
-    - {x: .249996096, y: .374998033}
+    - {x: 0.1250039, y: 0.31250197}
+    - {x: 0.2499961, y: 0.31250197}
+    - {x: 0.1250039, y: 0.37499803}
+    - {x: 0.2499961, y: 0.37499803}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
@@ -3513,8 +3514,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: -.5, y: .5, z: 0}
-    - {x: 15.5, y: 15.5, z: .100000001}
+    - {x: -0.5, y: 0.5, z: 0}
+    - {x: 15.5, y: 15.5, z: 0.1}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -3538,10 +3539,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .250003904, y: .312501967}
-    - {x: .374996096, y: .312501967}
-    - {x: .250003904, y: .374998033}
-    - {x: .374996096, y: .374998033}
+    - {x: 0.2500039, y: 0.31250197}
+    - {x: 0.3749961, y: 0.31250197}
+    - {x: 0.2500039, y: 0.37499803}
+    - {x: 0.3749961, y: 0.37499803}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
@@ -3562,8 +3563,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: -.5, y: .5, z: 0}
-    - {x: 15.5, y: 15.5, z: .100000001}
+    - {x: -0.5, y: 0.5, z: 0}
+    - {x: 15.5, y: 15.5, z: 0.1}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -3587,10 +3588,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .375003904, y: .433595717}
-    - {x: .375003904, y: .488279283}
-    - {x: .499996096, y: .433595717}
-    - {x: .499996096, y: .488279283}
+    - {x: 0.3750039, y: 0.43359572}
+    - {x: 0.3750039, y: 0.48827928}
+    - {x: 0.4999961, y: 0.43359572}
+    - {x: 0.4999961, y: 0.48827928}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 0, y: 1}
@@ -3620,7 +3621,7 @@ MonoBehaviour:
     attachPoints: []
   - name: city_tiles/13
     boundsData:
-    - {x: .5, y: .5, z: 0}
+    - {x: 0.5, y: 0.5, z: 0}
     - {x: 1, y: 1, z: 0}
     untrimmedBoundsData:
     - {x: 0, y: 0, z: 0}
@@ -3634,10 +3635,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .984378934, y: .498048842}
-    - {x: .988277316, y: .498048842}
-    - {x: .984378934, y: .499998033}
-    - {x: .988277316, y: .499998033}
+    - {x: 0.98437893, y: 0.49804884}
+    - {x: 0.9882773, y: 0.49804884}
+    - {x: 0.98437893, y: 0.49999803}
+    - {x: 0.9882773, y: 0.49999803}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
@@ -3681,10 +3682,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .375003904, y: .433595717}
-    - {x: .375003904, y: .488279283}
-    - {x: .499996096, y: .433595717}
-    - {x: .499996096, y: .488279283}
+    - {x: 0.3750039, y: 0.43359572}
+    - {x: 0.3750039, y: 0.48827928}
+    - {x: 0.4999961, y: 0.43359572}
+    - {x: 0.4999961, y: 0.48827928}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 0, y: 1}
@@ -3714,7 +3715,7 @@ MonoBehaviour:
     attachPoints: []
   - name: city_tiles/27
     boundsData:
-    - {x: .5, y: .5, z: 0}
+    - {x: 0.5, y: 0.5, z: 0}
     - {x: 1, y: 1, z: 0}
     untrimmedBoundsData:
     - {x: 0, y: 0, z: 0}
@@ -3728,10 +3729,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .984378934, y: .498048842}
-    - {x: .988277316, y: .498048842}
-    - {x: .984378934, y: .499998033}
-    - {x: .988277316, y: .499998033}
+    - {x: 0.98437893, y: 0.49804884}
+    - {x: 0.9882773, y: 0.49804884}
+    - {x: 0.98437893, y: 0.49999803}
+    - {x: 0.9882773, y: 0.49999803}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
@@ -3761,7 +3762,7 @@ MonoBehaviour:
     attachPoints: []
   - name: city_tiles/40
     boundsData:
-    - {x: .5, y: .5, z: 0}
+    - {x: 0.5, y: 0.5, z: 0}
     - {x: 1, y: 1, z: 0}
     untrimmedBoundsData:
     - {x: 0, y: 0, z: 0}
@@ -3775,10 +3776,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .984378934, y: .498048842}
-    - {x: .988277316, y: .498048842}
-    - {x: .984378934, y: .499998033}
-    - {x: .988277316, y: .499998033}
+    - {x: 0.98437893, y: 0.49804884}
+    - {x: 0.9882773, y: 0.49804884}
+    - {x: 0.98437893, y: 0.49999803}
+    - {x: 0.9882773, y: 0.49999803}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
@@ -3808,7 +3809,7 @@ MonoBehaviour:
     attachPoints: []
   - name: city_tiles/41
     boundsData:
-    - {x: .5, y: .5, z: 0}
+    - {x: 0.5, y: 0.5, z: 0}
     - {x: 1, y: 1, z: 0}
     untrimmedBoundsData:
     - {x: 0, y: 0, z: 0}
@@ -3822,10 +3823,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .984378934, y: .498048842}
-    - {x: .988277316, y: .498048842}
-    - {x: .984378934, y: .499998033}
-    - {x: .988277316, y: .499998033}
+    - {x: 0.98437893, y: 0.49804884}
+    - {x: 0.9882773, y: 0.49804884}
+    - {x: 0.98437893, y: 0.49999803}
+    - {x: 0.9882773, y: 0.49999803}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
@@ -3855,7 +3856,7 @@ MonoBehaviour:
     attachPoints: []
   - name: city_tiles/54
     boundsData:
-    - {x: .5, y: .5, z: 0}
+    - {x: 0.5, y: 0.5, z: 0}
     - {x: 1, y: 1, z: 0}
     untrimmedBoundsData:
     - {x: 0, y: 0, z: 0}
@@ -3869,10 +3870,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .984378934, y: .498048842}
-    - {x: .988277316, y: .498048842}
-    - {x: .984378934, y: .499998033}
-    - {x: .988277316, y: .499998033}
+    - {x: 0.98437893, y: 0.49804884}
+    - {x: 0.9882773, y: 0.49804884}
+    - {x: 0.98437893, y: 0.49999803}
+    - {x: 0.9882773, y: 0.49999803}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
@@ -3902,7 +3903,7 @@ MonoBehaviour:
     attachPoints: []
   - name: city_tiles/55
     boundsData:
-    - {x: .5, y: .5, z: 0}
+    - {x: 0.5, y: 0.5, z: 0}
     - {x: 1, y: 1, z: 0}
     untrimmedBoundsData:
     - {x: 0, y: 0, z: 0}
@@ -3916,10 +3917,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .984378934, y: .498048842}
-    - {x: .988277316, y: .498048842}
-    - {x: .984378934, y: .499998033}
-    - {x: .988277316, y: .499998033}
+    - {x: 0.98437893, y: 0.49804884}
+    - {x: 0.9882773, y: 0.49804884}
+    - {x: 0.98437893, y: 0.49999803}
+    - {x: 0.9882773, y: 0.49999803}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
@@ -3949,7 +3950,7 @@ MonoBehaviour:
     attachPoints: []
   - name: city_tiles/68
     boundsData:
-    - {x: .5, y: .5, z: 0}
+    - {x: 0.5, y: 0.5, z: 0}
     - {x: 1, y: 1, z: 0}
     untrimmedBoundsData:
     - {x: 0, y: 0, z: 0}
@@ -3963,10 +3964,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .984378934, y: .498048842}
-    - {x: .988277316, y: .498048842}
-    - {x: .984378934, y: .499998033}
-    - {x: .988277316, y: .499998033}
+    - {x: 0.98437893, y: 0.49804884}
+    - {x: 0.9882773, y: 0.49804884}
+    - {x: 0.98437893, y: 0.49999803}
+    - {x: 0.9882773, y: 0.49999803}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
@@ -3996,7 +3997,7 @@ MonoBehaviour:
     attachPoints: []
   - name: city_tiles/69
     boundsData:
-    - {x: .5, y: .5, z: 0}
+    - {x: 0.5, y: 0.5, z: 0}
     - {x: 1, y: 1, z: 0}
     untrimmedBoundsData:
     - {x: 0, y: 0, z: 0}
@@ -4010,10 +4011,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .984378934, y: .498048842}
-    - {x: .988277316, y: .498048842}
-    - {x: .984378934, y: .499998033}
-    - {x: .988277316, y: .499998033}
+    - {x: 0.98437893, y: 0.49804884}
+    - {x: 0.9882773, y: 0.49804884}
+    - {x: 0.98437893, y: 0.49999803}
+    - {x: 0.9882773, y: 0.49999803}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
@@ -4043,7 +4044,7 @@ MonoBehaviour:
     attachPoints: []
   - name: city_tiles/82
     boundsData:
-    - {x: .5, y: .5, z: 0}
+    - {x: 0.5, y: 0.5, z: 0}
     - {x: 1, y: 1, z: 0}
     untrimmedBoundsData:
     - {x: 0, y: 0, z: 0}
@@ -4057,10 +4058,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .984378934, y: .498048842}
-    - {x: .988277316, y: .498048842}
-    - {x: .984378934, y: .499998033}
-    - {x: .988277316, y: .499998033}
+    - {x: 0.98437893, y: 0.49804884}
+    - {x: 0.9882773, y: 0.49804884}
+    - {x: 0.98437893, y: 0.49999803}
+    - {x: 0.9882773, y: 0.49999803}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
@@ -4090,7 +4091,7 @@ MonoBehaviour:
     attachPoints: []
   - name: city_tiles/83
     boundsData:
-    - {x: .5, y: .5, z: 0}
+    - {x: 0.5, y: 0.5, z: 0}
     - {x: 1, y: 1, z: 0}
     untrimmedBoundsData:
     - {x: 0, y: 0, z: 0}
@@ -4104,10 +4105,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .984378934, y: .498048842}
-    - {x: .988277316, y: .498048842}
-    - {x: .984378934, y: .499998033}
-    - {x: .988277316, y: .499998033}
+    - {x: 0.98437893, y: 0.49804884}
+    - {x: 0.9882773, y: 0.49804884}
+    - {x: 0.98437893, y: 0.49999803}
+    - {x: 0.9882773, y: 0.49999803}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
@@ -4151,10 +4152,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .375003904, y: .312501967}
-    - {x: .499996096, y: .312501967}
-    - {x: .375003904, y: .374998033}
-    - {x: .499996096, y: .374998033}
+    - {x: 0.3750039, y: 0.31250197}
+    - {x: 0.4999961, y: 0.31250197}
+    - {x: 0.3750039, y: 0.37499803}
+    - {x: 0.4999961, y: 0.37499803}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
@@ -4198,10 +4199,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .500003934, y: .312501967}
-    - {x: .624996066, y: .312501967}
-    - {x: .500003934, y: .374998033}
-    - {x: .624996066, y: .374998033}
+    - {x: 0.50000393, y: 0.31250197}
+    - {x: 0.62499607, y: 0.31250197}
+    - {x: 0.50000393, y: 0.37499803}
+    - {x: 0.62499607, y: 0.37499803}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
@@ -4245,10 +4246,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .625003934, y: .312501967}
-    - {x: .749996066, y: .312501967}
-    - {x: .625003934, y: .374998033}
-    - {x: .749996066, y: .374998033}
+    - {x: 0.62500393, y: 0.31250197}
+    - {x: 0.74999607, y: 0.31250197}
+    - {x: 0.62500393, y: 0.37499803}
+    - {x: 0.74999607, y: 0.37499803}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
@@ -4292,10 +4293,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .750003934, y: .312501967}
-    - {x: .874996066, y: .312501967}
-    - {x: .750003934, y: .374998033}
-    - {x: .874996066, y: .374998033}
+    - {x: 0.75000393, y: 0.31250197}
+    - {x: 0.87499607, y: 0.31250197}
+    - {x: 0.75000393, y: 0.37499803}
+    - {x: 0.87499607, y: 0.37499803}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
@@ -4339,10 +4340,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .875003934, y: .312501967}
-    - {x: .999996066, y: .312501967}
-    - {x: .875003934, y: .374998033}
-    - {x: .999996066, y: .374998033}
+    - {x: 0.87500393, y: 0.31250197}
+    - {x: 0.99999607, y: 0.31250197}
+    - {x: 0.87500393, y: 0.37499803}
+    - {x: 0.99999607, y: 0.37499803}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
@@ -4386,10 +4387,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: 3.90625019e-06, y: .375001967}
-    - {x: .124996096, y: .375001967}
-    - {x: 3.90625019e-06, y: .437498033}
-    - {x: .124996096, y: .437498033}
+    - {x: 0.00000390625, y: 0.37500197}
+    - {x: 0.124996096, y: 0.37500197}
+    - {x: 0.00000390625, y: 0.43749803}
+    - {x: 0.124996096, y: 0.43749803}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
@@ -4433,10 +4434,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .125003904, y: .375001967}
-    - {x: .249996096, y: .375001967}
-    - {x: .125003904, y: .437498033}
-    - {x: .249996096, y: .437498033}
+    - {x: 0.1250039, y: 0.37500197}
+    - {x: 0.2499961, y: 0.37500197}
+    - {x: 0.1250039, y: 0.43749803}
+    - {x: 0.2499961, y: 0.43749803}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
@@ -4480,8 +4481,8 @@ MonoBehaviour:
   assetName: 
   loadable: 0
   invOrthoSize: 2
-  halfTargetHeight: .5
-  buildKey: 793101683
+  halfTargetHeight: 0.5
+  buildKey: 1167976246
   dataGuid: 799f00848bbe1bb4c845eefbbf6a472e
   managedSpriteCollection: 0
   hasPlatformData: 0

@@ -25,6 +25,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -45,10 +46,10 @@ MonoBehaviour:
   spriteDefinitions:
   - name: drace_body
     boundsData:
-    - {x: 0, y: -.5, z: 0}
+    - {x: 0, y: -0.5, z: 0}
     - {x: 1304, y: 1673, z: 0}
     untrimmedBoundsData:
-    - {x: 0, y: -.5, z: 0}
+    - {x: 0, y: -0.5, z: 0}
     - {x: 1304, y: 1673, z: 0}
     texelSize: {x: 1, y: 1}
     positions:
@@ -59,10 +60,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .000977050746, y: .000977050746}
-    - {x: .637694836, y: .000977050746}
-    - {x: .000977050746, y: .817870617}
-    - {x: .637694836, y: .817870617}
+    - {x: 0.0009770507, y: 0.0009770507}
+    - {x: 0.63769484, y: 0.0009770507}
+    - {x: 0.0009770507, y: 0.8178706}
+    - {x: 0.63769484, y: 0.8178706}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
@@ -83,8 +84,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: 0, y: -.5, z: 0}
-    - {x: 652, y: 836.5, z: .100000001}
+    - {x: 0, y: -0.5, z: 0}
+    - {x: 652, y: 836.5, z: 0.1}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -94,10 +95,10 @@ MonoBehaviour:
     attachPoints: []
   - name: male_head
     boundsData:
-    - {x: .5, y: -.5, z: 0}
+    - {x: 0.5, y: -0.5, z: 0}
     - {x: 499, y: 629, z: 0}
     untrimmedBoundsData:
-    - {x: .5, y: -.5, z: 0}
+    - {x: 0.5, y: -0.5, z: 0}
     - {x: 499, y: 629, z: 0}
     texelSize: {x: 1, y: 1}
     positions:
@@ -108,10 +109,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .639648914, y: .000977050746}
-    - {x: .639648914, y: .244628415}
-    - {x: .946776867, y: .000977050746}
-    - {x: .946776867, y: .244628415}
+    - {x: 0.6396489, y: 0.0009770507}
+    - {x: 0.6396489, y: 0.24462841}
+    - {x: 0.94677687, y: 0.0009770507}
+    - {x: 0.94677687, y: 0.24462841}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 0, y: 1}
@@ -141,10 +142,10 @@ MonoBehaviour:
     attachPoints: []
   - name: female_head
     boundsData:
-    - {x: .5, y: -.5, z: 0}
+    - {x: 0.5, y: -0.5, z: 0}
     - {x: 499, y: 629, z: 0}
     untrimmedBoundsData:
-    - {x: .5, y: -.5, z: 0}
+    - {x: 0.5, y: -0.5, z: 0}
     - {x: 499, y: 629, z: 0}
     texelSize: {x: 1, y: 1}
     positions:
@@ -155,10 +156,10 @@ MonoBehaviour:
     normals: []
     tangents: []
     uvs:
-    - {x: .639648914, y: .246582523}
-    - {x: .639648914, y: .490233898}
-    - {x: .946776867, y: .246582523}
-    - {x: .946776867, y: .490233898}
+    - {x: 0.6396489, y: 0.24658252}
+    - {x: 0.6396489, y: 0.4902339}
+    - {x: 0.94677687, y: 0.24658252}
+    - {x: 0.94677687, y: 0.4902339}
     normalizedUvs:
     - {x: 0, y: 0}
     - {x: 0, y: 1}
@@ -202,8 +203,8 @@ MonoBehaviour:
   assetName: 
   loadable: 0
   invOrthoSize: 2
-  halfTargetHeight: .5
-  buildKey: 1309832762
+  halfTargetHeight: 0.5
+  buildKey: 1036015564
   dataGuid: 37c658112de388f4192b5e2251e6f2da
   managedSpriteCollection: 0
   hasPlatformData: 0

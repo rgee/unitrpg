@@ -25,6 +25,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -64,7 +65,7 @@ MonoBehaviour:
   atlasWidth: 2048
   atlasHeight: 2048
   forceSquareAtlas: 0
-  atlasWastage: 32.5200577
+  atlasWastage: 32.520058
   allowMultipleAtlases: 0
   removeDuplicates: 1
   textureParams:
@@ -219,7 +220,7 @@ MonoBehaviour:
   mipmapEnabled: 0
   anisoLevel: 1
   physicsEngine: 0
-  physicsDepth: .100000001
+  physicsDepth: 0.1
   disableTrimming: 0
   disableRotation: 0
   normalGenerationMode: 0
