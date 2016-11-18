@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Combat;
 using Contexts.Battle.Utilities;
-using Grid;
 using Models.Fighting.Battle;
 using Models.Fighting.Execution;
 using Models.Fighting.Maps;
@@ -20,6 +19,7 @@ namespace Contexts.Battle.Views {
         public Signal<Vector2> MapHovered = new Signal<Vector2>(); 
         public Signal MoveComplete = new Signal();
         public Signal FightComplete = new Signal();
+        public string MapId;
         public int ChapterNumber;
         public int Width;
         public int TileSize;
@@ -59,14 +59,8 @@ namespace Contexts.Battle.Views {
         private CombatantView FindCombatantViewById(string id) {
             var unitContainer = transform.FindChild("Units");
 
-            foreach (Transform unit in unitContainer) {
-                var combatantComponent = unit.GetComponent<CombatantView>();
-                if (combatantComponent.CombatantId == id) {
-                    return combatantComponent;
-                }
-            }
-
-            return null;
+            return (from Transform unit in unitContainer select unit.GetComponent<CombatantView>())
+                .FirstOrDefault(combatantComponent => combatantComponent.CombatantId == id);
         }
 
         public MapDimensions GetDimensions() {
@@ -92,25 +86,6 @@ namespace Contexts.Battle.Views {
                     Army = unit.Army
                 };
             }).ToList();
-        }
-
-        public List<Vector2> GetObstructedPositions() {
-            var results = new List<Vector2>();
-            var dimensions = GetDimensions();
-
-            foreach (var obstacle in GetComponentsInChildren<Obstacle>()) {
-                var rect = obstacle.GetMapSpaceRect(dimensions);
-                for (var x = 0; x < Width; x++) {
-                    for (var y = 0; y < Height; y++) {
-                        var point = new Vector2(x, y);
-                        if (rect.Contains(point)) {
-                            results.Add(point);
-                        }
-                    }
-                }
-            }
-
-            return results;
         }
 
         public void AnimateFight(FinalizedFight fight) {

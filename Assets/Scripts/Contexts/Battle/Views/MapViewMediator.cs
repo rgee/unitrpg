@@ -1,4 +1,5 @@
-﻿using Contexts.Battle.Models;
+﻿using System;
+using Contexts.Battle.Models;
 using Contexts.Battle.Signals;
 using Contexts.Battle.Utilities;
 using Contexts.Global.Models;
@@ -57,8 +58,13 @@ namespace Contexts.Battle.Views {
             View.MapRightClicked.AddListener(OnRightClick);
             FinalizedFightSignal.AddListener(OnFight);
 
-            var map = new Map(View.Width, View.Height);
-            foreach (var tile in View.GetObstructedPositions()) {
+            if (!Game.Maps.ContainsKey(View.MapId)) {
+                throw new Exception("Could not find map by id " + View.MapId);
+            }
+
+            var mapConfig = Game.Maps[View.MapId];
+            var map = new Map(mapConfig.Width, mapConfig.Height);
+            foreach (var tile in mapConfig.ObstructionLocations) {
                 map.AddObstruction(tile);
             }
 
