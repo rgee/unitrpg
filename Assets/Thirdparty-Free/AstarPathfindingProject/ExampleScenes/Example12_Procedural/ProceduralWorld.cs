@@ -3,8 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Pathfinding;
 
+[HelpURL("http://arongranberg.com/astar/docs/class_procedural_world.php")]
 public class ProceduralWorld : MonoBehaviour {
-
 	public Transform target;
 
 	public ProceduralPrefab[] prefabs;
@@ -66,29 +66,28 @@ public class ProceduralWorld : MonoBehaviour {
 	void Start () {
 		// Calculate the closest tiles
 		// and then recalculate the graph
-		Update ();
-		AstarPath.active.Scan ();
+		Update();
+		AstarPath.active.Scan();
 
-		StartCoroutine (GenerateTiles ());
+		StartCoroutine(GenerateTiles());
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
-
 		// Calculate the tile the target is standing on
-		Int2 p = new Int2 ( Mathf.RoundToInt ((target.position.x - tileSize*0.5f) / tileSize), Mathf.RoundToInt ((target.position.z - tileSize*0.5f) / tileSize) );
+		Int2 p = new Int2(Mathf.RoundToInt((target.position.x - tileSize*0.5f) / tileSize), Mathf.RoundToInt((target.position.z - tileSize*0.5f) / tileSize));
 
 		// Clamp range
 		range = range < 1 ? 1 : range;
 
 		// Remove tiles which are out of range
 		bool changed = true;
-		while ( changed ) {
+		while (changed) {
 			changed = false;
-			foreach (KeyValuePair<Int2,ProceduralTile> pair in tiles ) {
-				if ( Mathf.Abs (pair.Key.x-p.x) > range || Mathf.Abs (pair.Key.y-p.y) > range ) {
-					pair.Value.Destroy ();
-					tiles.Remove ( pair.Key );
+			foreach (KeyValuePair<Int2, ProceduralTile> pair in tiles) {
+				if (Mathf.Abs(pair.Key.x-p.x) > range || Mathf.Abs(pair.Key.y-p.y) > range) {
+					pair.Value.Destroy();
+					tiles.Remove(pair.Key);
 					changed = true;
 					break;
 				}
@@ -97,16 +96,16 @@ public class ProceduralWorld : MonoBehaviour {
 
 		// Add tiles which have come in range
 		// and start calculating them
-		for ( int x = p.x-range; x <= p.x+range; x++ ) {
-			for ( int z = p.y-range; z <= p.y+range; z++ ) {
-				if ( !tiles.ContainsKey ( new Int2(x,z) ) ) {
-					ProceduralTile tile = new ProceduralTile ( this, x, z );
-					var generator = tile.Generate ();
+		for (int x = p.x-range; x <= p.x+range; x++) {
+			for (int z = p.y-range; z <= p.y+range; z++) {
+				if (!tiles.ContainsKey(new Int2(x, z))) {
+					ProceduralTile tile = new ProceduralTile(this, x, z);
+					var generator = tile.Generate();
 					// Tick it one step forward
-					generator.MoveNext ();
+					generator.MoveNext();
 					// Calculate the rest later
-					tileGenerationQueue.Enqueue (generator);
-					tiles.Add ( new Int2(x,z), tile );
+					tileGenerationQueue.Enqueue(generator);
+					tiles.Add(new Int2(x, z), tile);
 				}
 			}
 		}
@@ -114,26 +113,24 @@ public class ProceduralWorld : MonoBehaviour {
 		// The ones directly adjacent to the current one
 		// should always be completely calculated
 		// make sure they are
-		for ( int x = p.x-1; x <= p.x+1; x++ ) {
-			for ( int z = p.y-1; z <= p.y+1; z++ ) {
-				tiles[new Int2(x,z)].ForceFinish();
+		for (int x = p.x-1; x <= p.x+1; x++) {
+			for (int z = p.y-1; z <= p.y+1; z++) {
+				tiles[new Int2(x, z)].ForceFinish();
 			}
 		}
-
 	}
 
 	IEnumerator GenerateTiles () {
 		while (true) {
 			if (tileGenerationQueue.Count > 0) {
-				var generator = tileGenerationQueue.Dequeue ();
-				yield return StartCoroutine (generator);
+				var generator = tileGenerationQueue.Dequeue();
+				yield return StartCoroutine(generator);
 			}
 			yield return null;
 		}
 	}
 
 	class ProceduralTile {
-		
 		int x, z;
 		System.Random rnd;
 		bool staticBatching;
@@ -142,102 +139,101 @@ public class ProceduralWorld : MonoBehaviour {
 
 		public bool destroyed { get; private set; }
 
-		public ProceduralTile ( ProceduralWorld world, int x, int z) {
+		public ProceduralTile (ProceduralWorld world, int x, int z) {
 			this.x = x;
 			this.z = z;
 			this.world = world;
-			rnd = new System.Random ( (x * 10007) ^ (z*36007));
+			rnd = new System.Random((x * 10007) ^ (z*36007));
 		}
 
 		Transform root;
 		IEnumerator ie;
 
 		public IEnumerator Generate () {
-			ie = InternalGenerate ();
-			GameObject rt = new GameObject ("Tile " + x + " " + z );
+			ie = InternalGenerate();
+			GameObject rt = new GameObject("Tile " + x + " " + z);
 			root = rt.transform;
-			while ( ie != null && root != null && ie.MoveNext ()) yield return ie.Current;
+			while (ie != null && root != null && ie.MoveNext()) yield return ie.Current;
 			ie = null;
 		}
 
 		public void ForceFinish () {
-			while ( ie != null && root != null && ie.MoveNext ()) {}
+			while (ie != null && root != null && ie.MoveNext()) {}
 			ie = null;
 		}
 
 		Vector3 RandomInside () {
 			Vector3 v = new Vector3();
+
 			v.x = (x + (float)rnd.NextDouble())*world.tileSize;
 			v.z = (z + (float)rnd.NextDouble())*world.tileSize;
 			return v;
 		}
-	
-		Vector3 RandomInside ( float px, float pz) {
+
+		Vector3 RandomInside (float px, float pz) {
 			Vector3 v = new Vector3();
+
 			v.x = (px + (float)rnd.NextDouble()/world.subTiles)*world.tileSize;
 			v.z = (pz + (float)rnd.NextDouble()/world.subTiles)*world.tileSize;
 			return v;
 		}
 
 		Quaternion RandomYRot () {
-			return Quaternion.Euler ( 360*(float)rnd.NextDouble(),0, 360*(float)rnd.NextDouble());
+			return Quaternion.Euler(360*(float)rnd.NextDouble(), 0, 360*(float)rnd.NextDouble());
 		}
 
 		IEnumerator InternalGenerate () {
-			
-			Debug.Log ( "Generating tile " + x + ", " + z );
+			Debug.Log("Generating tile " + x + ", " + z);
 			int counter = 0;
 
-			float[,] ditherMap = new float[world.subTiles+2,world.subTiles+2];
+			float[, ] ditherMap = new float[world.subTiles+2, world.subTiles+2];
 
 			//List<GameObject> objs = new List<GameObject>();
 
-			for ( int i=0;i<world.prefabs.Length;i++ ) {
-
+			for (int i = 0; i < world.prefabs.Length; i++) {
 				ProceduralPrefab pref = world.prefabs[i];
 
-				if ( pref.singleFixed ) {
-					Vector3 p = new Vector3 ( (x+0.5f) * world.tileSize, 0, (z+0.5f) * world.tileSize );
-					GameObject ob = GameObject.Instantiate ( pref.prefab, p, Quaternion.identity ) as GameObject;
+				if (pref.singleFixed) {
+					Vector3 p = new Vector3((x+0.5f) * world.tileSize, 0, (z+0.5f) * world.tileSize);
+					GameObject ob = GameObject.Instantiate(pref.prefab, p, Quaternion.identity) as GameObject;
 					ob.transform.parent = root;
 				} else {
 					float subSize = world.tileSize/world.subTiles;
 
-					for ( int sx=0; sx < world.subTiles; sx++ ) {
-						for ( int sz=0; sz < world.subTiles; sz++ ) {
-							ditherMap[sx+1,sz+1] = 0;
+					for (int sx = 0; sx < world.subTiles; sx++) {
+						for (int sz = 0; sz < world.subTiles; sz++) {
+							ditherMap[sx+1, sz+1] = 0;
 						}
 					}
 
-					for ( int sx=0; sx < world.subTiles; sx++ ) {
-						for ( int sz=0; sz < world.subTiles; sz++ ) {
-
+					for (int sx = 0; sx < world.subTiles; sx++) {
+						for (int sz = 0; sz < world.subTiles; sz++) {
 							float px = x + sx/(float)world.subTiles;//sx / world.tileSize;
 							float pz = z + sz/(float)world.subTiles;//sz / world.tileSize;
 
-							float perl = Mathf.Pow (Mathf.PerlinNoise ( (px + pref.perlinOffset.x)*pref.perlinScale, (pz + pref.perlinOffset.y)*pref.perlinScale ), pref.perlinPower );
-							
-							float density = pref.density * Mathf.Lerp ( 1, perl, pref.perlin) * Mathf.Lerp ( 1, (float)rnd.NextDouble (), pref.random );
-							float fcount = subSize*subSize*density + ditherMap[sx+1,sz+1];
+							float perl = Mathf.Pow(Mathf.PerlinNoise((px + pref.perlinOffset.x)*pref.perlinScale, (pz + pref.perlinOffset.y)*pref.perlinScale), pref.perlinPower);
+
+							float density = pref.density * Mathf.Lerp(1, perl, pref.perlin) * Mathf.Lerp(1, (float)rnd.NextDouble(), pref.random);
+							float fcount = subSize*subSize*density + ditherMap[sx+1, sz+1];
 							int count = Mathf.RoundToInt(fcount);
 
 							// Apply dithering
 							// See http://en.wikipedia.org/wiki/Floyd%E2%80%93Steinberg_dithering
-							ditherMap[sx+1+1,sz+1+0] += (7f/16f) * (fcount - count);
-							ditherMap[sx+1-1,sz+1+1] += (3f/16f) * (fcount - count);
-							ditherMap[sx+1+0,sz+1+1] += (5f/16f) * (fcount - count);
-							ditherMap[sx+1+1,sz+1+1] += (1f/16f) * (fcount - count);
+							ditherMap[sx+1+1, sz+1+0] += (7f/16f) * (fcount - count);
+							ditherMap[sx+1-1, sz+1+1] += (3f/16f) * (fcount - count);
+							ditherMap[sx+1+0, sz+1+1] += (5f/16f) * (fcount - count);
+							ditherMap[sx+1+1, sz+1+1] += (1f/16f) * (fcount - count);
 
 							// Create a number of objects
-							for ( int j=0;j<count;j++) {
+							for (int j = 0; j < count; j++) {
 								// Find a random position inside the current sub-tile
-								Vector3 p = RandomInside (px, pz);
-								GameObject ob = GameObject.Instantiate ( pref.prefab, p, RandomYRot () ) as GameObject;
+								Vector3 p = RandomInside(px, pz);
+								GameObject ob = GameObject.Instantiate(pref.prefab, p, RandomYRot()) as GameObject;
 								ob.transform.parent = root;
 								//ob.SetActive ( false );
 								//objs.Add ( ob );
 								counter++;
-								if ( counter % 2 == 0 )
+								if (counter % 2 == 0)
 									yield return null;
 							}
 						}
@@ -251,15 +247,15 @@ public class ProceduralWorld : MonoBehaviour {
 			yield return null;
 
 			//Batch everything for improved performance
-			if (Application.HasProLicense () && world.staticBatching) {
-				StaticBatchingUtility.Combine (root.gameObject);
+			if (Application.HasProLicense() && world.staticBatching) {
+				StaticBatchingUtility.Combine(root.gameObject);
 			}
 		}
 
 		public void Destroy () {
 			if (root != null) {
-				Debug.Log ("Destroying tile " + x + ", " + z);
-				GameObject.Destroy (root.gameObject);
+				Debug.Log("Destroying tile " + x + ", " + z);
+				GameObject.Destroy(root.gameObject);
 				root = null;
 			}
 

@@ -56,11 +56,11 @@ namespace Contexts.Global.Models {
                     .Properties()
                     .Select(prop => {
                         var tile = prop.Value;
-                        var locationNode = tile["location"] as JObject;
+                        var locationNode = tile["position"] as JObject;
                         var location =
                             new Vector2(locationNode["x"].ToObject<int>(), locationNode["y"].ToObject<int>());
 
-                        var name = tile["name"].ToObject<string>();
+                        var name = tile["eventName"].ToObject<string>();
 
                         return new TriggerTileConfiguration(location, name);
                     })

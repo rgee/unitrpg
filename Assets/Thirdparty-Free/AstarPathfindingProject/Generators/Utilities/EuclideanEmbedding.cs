@@ -20,7 +20,6 @@ namespace Pathfinding {
 	 */
 	[System.Serializable]
 	public class EuclideanEmbedding {
-
 		public HeuristicOptimizationMode mode;
 
 		public int seed;
@@ -34,24 +33,13 @@ namespace Pathfinding {
 		public bool dirty;
 
 
-		void EnsureCapacity ( int index ) {
+		void EnsureCapacity (int index) {
 		}
 
-		public uint GetHeuristic ( int nodeIndex1, int nodeIndex2 ) {
+		public uint GetHeuristic (int nodeIndex1, int nodeIndex2) {
 			return 0;
 		}
 
-		void GetClosestWalkableNodesToChildrenRecursively ( Transform tr, List<GraphNode> nodes ) {
-			foreach (Transform ch in tr ) {
-
-				NNInfo info = AstarPath.active.GetNearest ( ch.position, NNConstraint.Default );
-				if ( info.node != null && info.node.Walkable ) {
-					nodes.Add ( info.node );
-				}
-
-				GetClosestWalkableNodesToChildrenRecursively ( tr, nodes );
-			}
-		}
 
 		public void RecalculatePivots () {
 		}
@@ -59,6 +47,7 @@ namespace Pathfinding {
 		public void RecalculateCosts () {
 			dirty = false;
 		}
+
 
 		public void OnDrawGizmos () {
 		}

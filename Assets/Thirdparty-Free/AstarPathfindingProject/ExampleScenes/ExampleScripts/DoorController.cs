@@ -2,8 +2,8 @@ using UnityEngine;
 using System.Collections;
 using Pathfinding;
 
+[HelpURL("http://arongranberg.com/astar/docs/class_door_controller.php")]
 public class DoorController : MonoBehaviour {
-
 	private bool open = false;
 
 	public int opentag = 1;
@@ -18,14 +18,13 @@ public class DoorController : MonoBehaviour {
 		bounds = GetComponent<Collider>().bounds;
 
 		// Initially open the door
-		SetState (open);
+		SetState(open);
 	}
 
 	void OnGUI () {
-
 		// Show a UI button for opening and closing the door
-		if (GUI.Button (new Rect (5,yOffset,100,22), "Toggle Door")) {
-			SetState (!open);
+		if (GUI.Button(new Rect(5, yOffset, 100, 22), "Toggle Door")) {
+			SetState(!open);
 		}
 	}
 
@@ -40,20 +39,20 @@ public class DoorController : MonoBehaviour {
 			int tag = open ? opentag : closedtag;
 
 			// There are only 32 tags
-			if (tag > 31) { Debug.LogError ("tag > 31"); return; }
+			if (tag > 31) { Debug.LogError("tag > 31"); return; }
 
 			guo.modifyTag = true;
 			guo.setTag = tag;
 			guo.updatePhysics = false;
 
-			AstarPath.active.UpdateGraphs (guo);
+			AstarPath.active.UpdateGraphs(guo);
 		}
 
 		// Play door animations
 		if (open) {
-			GetComponent<Animation>().Play ("Open");
+			GetComponent<Animation>().Play("Open");
 		} else {
-			GetComponent<Animation>().Play ("Close");
+			GetComponent<Animation>().Play("Close");
 		}
 	}
 }

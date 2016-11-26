@@ -187,6 +187,7 @@ namespace Models.Fighting.Maps {
             var exactCosts = new Dictionary<Vector2, double>();
             var estimates = new Dictionary<Vector2, double>();
             var openNodes = new C5.IntervalHeap<Vector2>(new AStarComparer(exactCosts, estimates));
+
             var closedNodes = new HashSet<Vector2>();
             var path = new Dictionary<Vector2, Vector2>();
 
@@ -194,12 +195,11 @@ namespace Models.Fighting.Maps {
             exactCosts[start] = 0d;
 
             while (!openNodes.IsEmpty) {
-                var currentCheapest = openNodes.FindMin();
+                var currentCheapest = openNodes.DeleteMin();
                 if (currentCheapest == goal) {
                     return ReconstructPath(path, currentCheapest);
                 }
 
-                openNodes.DeleteMin();
                 closedNodes.Add(currentCheapest);
                 var neighbors = MathUtils.GetAdjacentPoints(currentCheapest);
                 foreach (var neighbor in neighbors) {
@@ -208,20 +208,14 @@ namespace Models.Fighting.Maps {
                     }
 
                     var tentativeScore = exactCosts[currentCheapest] + CalculateDistance(currentCheapest, neighbor);
-                    if (estimates.ContainsKey(neighbor)) {
-                        var previousEstimate = estimates[neighbor];
-                        if (tentativeScore >= previousEstimate) {
-                            continue;
-                        }
-                    } else {
-                        closedNodes.Add(neighbor);
-                    }
+                    if (!estimates.ContainsKey(neighbor) || tentativeScore < estimates[neighbor]) {
+                        var heuristicScore = tentativeScore + EstimateDistance(neighbor, goal);
+                        estimates[neighbor] = heuristicScore;
+                        exactCosts[neighbor] = tentativeScore;
+                        path[neighbor] = currentCheapest;
 
-                    var heuristicScore = tentativeScore + EstimateDistance(neighbor, goal);
-                    estimates[neighbor] = heuristicScore;
-                    exactCosts[neighbor] = tentativeScore;
-                    path[neighbor] = currentCheapest;
-                    openNodes.Add(neighbor);
+                        openNodes.Add(neighbor);
+                    }
                 }
             }
 

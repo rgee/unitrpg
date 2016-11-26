@@ -1,7 +1,192 @@
 /** \page changelog Changelog
 
-- TODO
-	- http://forum.arongranberg.com/t/bug-tiled-recast-scan-ignores-graph-bounds/2137
+- 3.8.6 (2016-10-31)
+	- Upgrade Notes
+		- Note that a few features and some fixes that have been available in the beta releases are not
+			included in this version because they were either not ready to be released or depended on other
+			changes that were not ready.
+		- Dropped support for Unity 5.1.
+		- Moved some things to inside the Pathfinding namespace to avoid naming collisions with other packages.
+			Make sure you have the line 'using Pathfinding;' at the top of your scripts.
+		- Seeker.StartMultiTargetPath will now also set the enabledTags and tagPenalties fields on the path.
+			Similar to what StartPath has done. This has been the intended behaviour from the start, but bugs happen.
+			See http://forum.arongranberg.com/t/multitargetpath-doesnt-support-tag-constraints/2561/3
+		- The JsonFx library is no longer used, so the Pathfinding.JsonFx.dll file in the plugins folder
+			may be removed to reduce the build size a bit. Unity Packages cannot delete files, so you have to delete it manually.
+		- RecastGraph.UpdateArea (along with a few other functions) is now explicitly implemented for the IUpdatableGraph interface
+			as it is usually a bad idea to try to call those methods directly (use AstarPath.UpdateGraphs instead).
+		- AstarPath.FlushWorkItems previously had pretty bad default values for the optional parameters.
+			By default it would not necessarily complete all work items, it would just complete those that
+			took a single frame. This is pretty much never what you actually want so to avoid
+			confusion the default value has been changed.
+	- New Features and Improvements
+		- The JsonFx library is no longer used. Instead a very tiny json serializer and deserializer has been written.
+			In addition to reducing code size and being slightly faster, it also means that users using Windows Phone
+			no longer have to use the ASTAR_NO_JSON compiler directive. I do not have access to a windows phone
+			however, so I have not tested to build it for that platform. If any issues arise I would appreciate if
+			you post them in the forum.
+		- Improved inspector for NavmeshCut.
+		- NodeLink2 can now be used even when using cached startup or when loading serialized data in other ways just as long as the NodeLink2 components are still in the scene.
+		- LevelGridNode now has support for custom non-grid connections (just like GridNode has).
+		- Added GridNode.XCoordinateInGrid and GridNode.ZCoordinateInGrid.
+		- Improved documentation for GraphUpdateShape a bit.
+	- Changes
+		- Removed EditorUtilities.GetMd5Hash since it was not used anywhere.
+		- Deprecated TileHandler.GetTileType and TileHandler.GetTileTypeCount.
+		- Seeker.StartPath now properly handles MultiTargetPath objects as well.
+		- Seeker.StartMultiTargetPath is now deprecated. Note that it will now also set the
+			enabledTags and tagPenalties fields on the path. Similar to what StartPath has done.
+		- Removed GridGraph.bounds since it was not used or set anywhere.
+		- GraphNode.AddConnection will now throw an ArgumentNullException if you try to call it with a null target node.
+		- Made PointGraph.AddChildren and PointGraph.CountChildren protected since it makes no sense for them to be called by other scripts.
+		- Changed how the 'Save & Load' tab looks to make it easier to use.
+		- Renamed 'Path Debug Mode' to 'Graph Coloring' and 'Path Log Mode' to 'Path Logging' in the inspector.
+		- RecastGraph.UpdateArea (along with a few other functions) is now explicitly implemented for the IUpdatableGraph interface
+			as it is usually a bad idea to try to call those methods directly (use AstarPath.UpdateGraphs instead).
+		- Removed ConnectionType enum since it was not used anywhere.
+		- Removed NodeDelegate and GetNextTargetDelegate since they were not used anywhere.
+	- Fixes
+		- Fixed TinyJson not using culture invariant float parsing and printing.
+			This could cause deserialization errors on systems that formatted floats differently.
+		- Fixed the EndingCondition example script.
+		- Fixed speed being multiplied by Time.deltaTime in the AI script in the get started tutorial when it shouldn't have been.
+		- Fixed FunnelModifier could for some very short paths return a straight line even though a corner should have been inserted.
+		- Fixed typo. 'Descent' (as in 'Gradient Descent') was spelled as 'Decent' in some cases. Thanks Brad Grimm for finding the typo.
+		- Fixed some documentation typos.
+		- Fixed some edge cases in RandomPath and FleePath where a node outside the valid range of G scores could be picked in some cases (when it was not necessary to do so).
+		- Fixed editor scripts in some cases changing the editor gui styles instead of copying them which could result in headers in unrelated places in the Unity UI had the wrong sizes. Thanks HP for reporting the bug.
+		- Fixed NavmeshCut causing errors when cutting the navmesh if it was rotated upside down or scaled with a negative scale.
+		- Fixed TriangleMeshNode.ClosestPointOnNodeXZ could sometimes return the wrong point (still on the node surface however).
+			This could lead to characters (esp. when using the RichAI component) teleporting in rare cases. Thanks LordCecil for reporting the bug.
+		- Fixed GridNodes not serializing custom connections.
+		- Fixed nodes could potentially get incorrect graph indices assigned when additive loading was used.
+		- Added proper error message when trying to call RecastGraph.ReplaceTile with a vertex count higher than the upper limit.
+	- Known Bugs
+		- Calling GetNearest when a recast graph is currently being updated on another thread may in some cases result in a null reference exception
+			being thrown. This does not impact navmesh cutting. This bug has been present (but not discovered) in previous releases as well.
+		- Calling GetNearest on point graphs with 'optimizeForSparseGraph' enabled may in some edge cases return the wrong node as being the closest one.
+			It will not be widely off target though and the issue is pretty rare, so for real world use cases it should be fine.
+			This bug has been present (but not discovered) in previous releases as well.
+
+- 3.8.3 through 3.8.5 were beta versions
+
+- 3.8.2 (2016-02-29)
+	- Improvements
+		- DynamicGridObstacle now handles rotation and scaling better.
+		- Reduced allocations due to coroutines in DynamicGridObstacle.
+	- Fixes
+		- Fixed AstarPath.limitGraphUpdates not working properly most of the time.
+			In order to keep the most common behaviour after the upgrade, the value of this field will be reset to false when upgrading.
+		- Fixed DynamicGridObstacle not setting the correct bounds at start, so the first move of an object with the DynamicGridObstacle
+			component could leave some nodes unwalkable even though they should not be. Thanks Dima for reporting the bug.
+		- Fixed DynamicGridObstacle stopping to work after the GameObject it is attached to is deactivated and then activated again.
+		- Fixed RVOController not working after reloading the scene due to the C# '??' operator not being equivalent to checking
+			for '== null' (it doesn't use Unity's special comparison check). Thanks Khan-amil for reporting the bug.
+		- Fixed typo in documentation for ProceduralGridMover.floodFill.
+	- Changes
+		- Renamed AstarPath.limitGraphUpdates to AstarPath.batchGraphUpdates and AstarPath.maxGraphUpdateFreq to AstarPath.graphUpdateBatchingInterval.
+			Hopefully these new names are more descriptive. The documentation for the fields has also been improved slightly.
+
+- 3.8.1 (2016-02-17)
+	- Improvements
+		- The tag visualization mode for graphs can now use the custom list of colors
+			that can be configured in the inspector.
+			Thanks Arakade for the patch.
+	- Fixes
+		- Recast graphs now handle meshes and colliders with negative scales correctly.
+			Thanks bvance and peted for reporting it.
+		- Fixed GridGraphEditor throwing exceptions when a user had created a custom grid graph class
+			which inherits from GridGraph.
+		- Fixed Seeker.postProcessPath not being called properly.
+			Instead it would throw an exception if the postProcessPath delegate was set to a non-null value.
+			Thanks CodeSpeaker for finding the bug.
+
+- 3.8 (2016-02-16)
+	- The last version released on the Unity Asset Store was 3.7, so if you are upgrading
+		from that version check out the release notes for 3.7.1 through 3.7.5 as well.
+	- Breaking Changes
+		- For the few users that have written their own Path Modifiers. The 'source' parameter to the Apply method has been removed from the IPathModifier interface.
+			You will need to remove that parameter from your modifiers as well.
+		- Modifier priorities have been removed and the priorities are now set to sensible hard coded values since at least for the
+			included modifiers there really is only one ordering that makes sense (hopefully there is no use case I have forgotten).
+			This may affect your paths if you have used some other modifier order.
+			Hopefully this change will reduce confusion for new users.
+	- New Features and Improvements
+		- Added NodeConnection mode to the StartEndModifier on the Seeker component.
+			This mode will snap the start/end point to a point on the connections of the start/end node.
+			Similar to the Interpolate mode, but more often does what you actually want.
+		- SimpleSmoothModifier now has support for multi editing.
+		- Added a new movement script called AILerp which uses linear interpolation to follow the path.
+			This is good for games which want the agent to follow the path exactly and not use any
+			physics like behaviour. This movement script works in both 2D and 3D.
+		- Added a new 2D example scene which uses the new AILerp movement script.
+		- All scripts now have a <a href="http://docs.unity3d.com/ScriptReference/HelpURLAttribute.html">HelpURLAttribute</a>
+			so the documentation button at the top left corner of every script inspector now links directly to the documentation.
+		- Recast graphs can now draw the surface of a navmesh in the scene view instead of only
+			the node outlines. Enable it by checking the 'Show mesh surface' toggle in the inspector.
+			Drawing the surface instead of the node outlines is usually faster since it does not use
+			Unity Gizmos which have to rebuild the mesh every frame.
+		- Improved GUI for the tag mask field on the Seeker.
+		- All code is now consistently formatted, utilising the excellent Uncrustify tool.
+		- Added animated gifs to the \link Pathfinding.RecastGraph.cellSize Recast graph \endlink documentation showing how some parameters change the resulting navmesh.
+			If users like this, I will probably follow up and add similar gifs for variables in other classes.
+			\shadowimage{recast/character_radius.gif}
+	- Fixes
+		- Fixed objects in recast graphs being rasterized with an 0.5 voxel offset.
+			Note that this will change how your navmesh is rasterized (but usually for the better), so you may want to make sure it still looks good.
+		- Fixed graph updates to navmesh and recast graphs not checking against the y coordinate of the bounding box properly (introduced in 3.7.5).
+		- Fixed potential bug when loading graphs from a file and one or more of the graphs were null.
+		- Fixed invalid data being saved when calling AstarSerializer.SerializeGraphs with an array that was not equal to the AstarData.graphs array.
+			The AstarSerializer is mostly used internally (and internally it is always called with the AstarData.graphs array). Thanks munkman for reporting this.
+		- Fixed incorrect documentation for GridNode.NodeInGridIndex. Thanks mfjk for reporting it!
+		- Fixed typo in a recast graph log message (where -> were). Thanks bigdaddio for reporting it!
+		- Fixed not making sure the file is writable before writing graph cache files (Perforce could sometimes make it read-only). Thanks Jørgen Tjernø for the patch.
+		- Fixed RVOController always using FindObjectOfType during Awake, causing performance issues in large scenes. Thanks Jørgen Tjernø for the patch.
+		- Removed QuadtreeGraph, AstarParallel, NavMeshRenderer and NavmeshController from the released version.
+			These were internal dev files but due to typos they had been included in the released version by mistake.
+		- Fixed SimpleSmoothModifier not always including the exact start point of the path.
+		- Fixed ASTAR_GRID_NO_CUSTOM_CONNECTIONS being stripped out of the final build, so that entry in the Optimizations tab didn't actually do anything.
+		- Fixed performance issue with path pooling. If many paths were being calculated and pooled, the performance could be
+			severely reduced unless ASTAR_OPTIMIZE_POOLING was enabled (which it was not by default).
+		- Fixed 3 compiler warnings about using some deprecated Unity methods.
+	- Changes
+		- Recast graphs' 'Snap To Scene' button now snaps to the whole scene instead of the objects that intersect the bounds that are already set.
+			This has been a widely requested change. Thanks Jørgen Tjernø for the patch.
+		- Moved various AstarMath functions to the new class VectorMath and renamed some of them to reduce confusion.
+		- Removed various AstarMath functions because they were either not used or they already exist in e.g Mathf or System.Math.
+			DistancePointSegment2, ComputeVertexHash, Hermite, MapToRange, FormatBytes,
+			MagnitudeXZ, Repeat, Abs, Min, Max, Sign, Clamp, Clamp01, Lerp, RoundToInt.
+		- PathEndingCondition (used with XPath) is now abstract since it doesn't really make any sense to use the default implementation (always returns true).
+		- A 'Recyle' method is no longer required on path classes (reduced boilerplate).
+		- Removed old IFunnelGraph interface since it was not used by anything.
+		- Removed old ConvexMeshNode class since it was not used by anything.
+		- Removed old script NavmeshController since it has been disabled since a few versions.
+		- Removed Int3.DivBy2, Int3.unsafeSqrMagnitude and Int3.NormalizeTo since they were not used anywere.
+		- Removed Int2.sqrMagnitude, Int2.Dot since they were not used anywhere and are prone to overflow (use sqrMagnitudeLong/DotLong instead)
+		- Deprecated Int2.Rotate since it was not used anywhere.
+		- Deprecated Int3.worldMagnitude since it was not used anywhere.
+
+- 3.7.5 (2015-10-05)
+	- Breaking changes
+		- Graph updates to navmesh and recast graphs now also check that the nodes are contained in the supplied bounding box on the Y axis.
+			If the bounds you have been using were very short along the Y axis, you may have to change them so that they cover the nodes they should update.
+		- Added GridNode.ClosestPointOnNode
+	- Improvements
+		- Optimized GridGraph.CalculateConnections by approximately 20%.
+			This means slightly faster scans and graph updates.
+		- Graph updates to navmesh and recast graphs now also check that the nodes are contained in the supplied bounding box on the Y axis.
+			If the bounds you have been using were very short along the Y axis, you may have to change them so that they cover the nodes they should update.
+	- Fixes
+		- Fixed stack overflow exception when a pivot root with no children was assigned in the heuristic optimization settings.
+		- Fixed scanning in the editor could sometimes throw exceptions on new versions of Unity.
+			Exceptions contained the message "Trying to initialize a node when it is not safe to initialize any node".
+			This happened because Unity changed the EditorGUIUtility.DisplayProgressBar function to also call
+			OnSceneGUI and OnDrawGizmos and that interfered with the scanning.
+		- Fixed paths could be returned with invalid nodes if the path was calculated right
+			before a call to AstarPath.Scan() was done. This could result in
+			the funnel modifier becoming really confused and returning a straight line to the
+			target instead of avoiding obstacles.
+		- Fixed sometimes not being able to use the Optimizations tab on newer versions of Unity.
 
 - 3.7.4 (2015-09-13)
 	- Changes

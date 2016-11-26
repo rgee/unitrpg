@@ -1,18 +1,23 @@
 using UnityEngine;
 using System.Collections.Generic;
 using Pathfinding;
-using Pathfinding.Util;
-using Pathfinding.Serialization.JsonFx;
 
 // Empty namespace declaration to avoid errors in the free version
 // Which does not have any classes in the RVO namespace
 namespace Pathfinding.RVO {}
 
 namespace Pathfinding {
+	using Pathfinding.Util;
+	using Pathfinding.Serialization;
+
+#if UNITY_5_0
+	/** Used in Unity 5.0 since the HelpURLAttribute was first added in Unity 5.1 */
+	public class HelpURLAttribute : Attribute {}
+#endif
+
 	[System.Serializable]
 	/** Stores editor colors */
 	public class AstarColor {
-
 		public Color _NodeConnection;
 		public Color _UnwalkableNode;
 		public Color _BoundsHandles;
@@ -27,15 +32,15 @@ namespace Pathfinding {
 		 * Use GetAreaColor to get an area color */
 		public Color[] _AreaColors;
 
-		public static Color NodeConnection = new Color (1,1,1,0.9F);
-		public static Color UnwalkableNode = new Color (1,0,0,0.5F);
-		public static Color BoundsHandles = new Color (0.29F,0.454F,0.741F,0.9F);
+		public static Color NodeConnection = new Color(1, 1, 1, 0.9F);
+		public static Color UnwalkableNode = new Color(1, 0, 0, 0.5F);
+		public static Color BoundsHandles = new Color(0.29F, 0.454F, 0.741F, 0.9F);
 
-		public static Color ConnectionLowLerp = new Color (0,1,0,0.5F);
-		public static Color ConnectionHighLerp = new Color (1,0,0,0.5F);
+		public static Color ConnectionLowLerp = new Color(0, 1, 0, 0.5F);
+		public static Color ConnectionHighLerp = new Color(1, 0, 0, 0.5F);
 
-		public static Color MeshEdgeColor = new Color (0,0,0,0.5F);
-		public static Color MeshColor = new Color (0,0,0,0.5F);
+		public static Color MeshEdgeColor = new Color(0, 0, 0, 0.5F);
+		public static Color MeshColor = new Color(0, 0, 0, 0.5F);
 
 		/** Holds user set area colors.
 		 * Use GetAreaColor to get an area color */
@@ -46,14 +51,13 @@ namespace Pathfinding {
 		 * \see #AreaColors */
 		public static Color GetAreaColor (uint area) {
 			if (AreaColors == null || area >= AreaColors.Length) {
-				return AstarMath.IntToColor ((int)area,1F);
+				return AstarMath.IntToColor((int)area, 1F);
 			}
 			return AreaColors[(int)area];
 		}
 
 		/** Pushes all local variables out to static ones */
 		public void OnEnable () {
-
 			NodeConnection = _NodeConnection;
 			UnwalkableNode = _UnwalkableNode;
 			BoundsHandles = _BoundsHandles;
@@ -68,16 +72,15 @@ namespace Pathfinding {
 		}
 
 		public AstarColor () {
+			_NodeConnection = new Color(1, 1, 1, 0.9F);
+			_UnwalkableNode = new Color(1, 0, 0, 0.5F);
+			_BoundsHandles = new Color(0.29F, 0.454F, 0.741F, 0.9F);
 
-			_NodeConnection = new Color (1,1,1,0.9F);
-			_UnwalkableNode = new Color (1,0,0,0.5F);
-			_BoundsHandles = new Color (0.29F,0.454F,0.741F,0.9F);
+			_ConnectionLowLerp = new Color(0, 1, 0, 0.5F);
+			_ConnectionHighLerp = new Color(1, 0, 0, 0.5F);
 
-			_ConnectionLowLerp = new Color (0,1,0,0.5F);
-			_ConnectionHighLerp = new Color (1,0,0,0.5F);
-
-			_MeshEdgeColor = new Color (0,0,0,0.5F);
-			_MeshColor = new Color (0.125F, 0.686F, 0, 0.19F);
+			_MeshEdgeColor = new Color(0, 0, 0, 0.5F);
+			_MeshColor = new Color(0.125F, 0.686F, 0, 0.19F);
 		}
 	}
 
@@ -113,7 +116,6 @@ namespace Pathfinding {
 
 	/** Nearest node constraint. Constrains which nodes will be returned by the GetNearest function */
 	public class NNConstraint {
-
 		/** Graphs treated as valid to search on.
 		 * This is a bitmask meaning that bit 0 specifies whether or not the first graph in the graphs list should be able to be included in the search,
 		 * bit 1 specifies whether or not the second graph should be included and so on.
@@ -155,10 +157,10 @@ namespace Pathfinding {
 		public bool constrainDistance = true;
 
 		/** Returns whether or not the graph conforms to this NNConstraint's rules.
-		  * Note that only the first 31 graphs are considered using this function.
-		  * If the graphMask has bit 31 set (i.e the last graph possible to fit in the mask), all graphs
-		  * above index 31 will also be considered suitable.
-		  */
+		 * Note that only the first 31 graphs are considered using this function.
+		 * If the graphMask has bit 31 set (i.e the last graph possible to fit in the mask), all graphs
+		 * above index 31 will also be considered suitable.
+		 */
 		public virtual bool SuitableGraph (int graphIndex, NavGraph graph) {
 			return ((graphMask >> graphIndex) & 1) != 0;
 		}
@@ -175,19 +177,19 @@ namespace Pathfinding {
 		}
 
 		/** The default NNConstraint.
-		  * Equivalent to new NNConstraint ().
-		  * This NNConstraint has settings which works for most, it only finds walkable nodes
-		  * and it constrains distance set by A* Inspector -> Settings -> Max Nearest Node Distance */
+		 * Equivalent to new NNConstraint ().
+		 * This NNConstraint has settings which works for most, it only finds walkable nodes
+		 * and it constrains distance set by A* Inspector -> Settings -> Max Nearest Node Distance */
 		public static NNConstraint Default {
 			get {
-				return new NNConstraint ();
+				return new NNConstraint();
 			}
 		}
 
 		/** Returns a constraint which will not filter the results */
 		public static NNConstraint None {
 			get {
-				var n = new NNConstraint ();
+				var n = new NNConstraint();
 				n.constrainWalkability = false;
 				n.constrainArea = false;
 				n.constrainTags = false;
@@ -207,10 +209,9 @@ namespace Pathfinding {
 	 * The default PathNNConstraint will constrain the end point to lie inside the same area as the start point.
 	 */
 	public class PathNNConstraint : NNConstraint {
-
 		public static new PathNNConstraint Default {
 			get {
-				var n = new PathNNConstraint ();
+				var n = new PathNNConstraint();
 				n.constrainArea = true;
 				return n;
 			}
@@ -249,7 +250,7 @@ namespace Pathfinding {
 			clampedPosition = Vector3.zero;
 			constClampedPosition = Vector3.zero;
 
-			UpdateInfo ();
+			UpdateInfo();
 		}
 
 		/** Sets the constrained node */
@@ -273,7 +274,7 @@ namespace Pathfinding {
 		}
 
 		public static explicit operator NNInfo (GraphNode ob) {
-			return new NNInfo (ob);
+			return new NNInfo(ob);
 		}
 	}
 
@@ -293,7 +294,6 @@ namespace Pathfinding {
 
 	/** Graphs which can be updated during runtime */
 	public interface IUpdatableGraph {
-
 		/** Updates an area using the specified GraphUpdateObject.
 		 *
 		 * Notes to implementators.
@@ -330,7 +330,7 @@ namespace Pathfinding {
 		}
 
 		public override string ToString () {
-			return ""+System.Convert.ToString (tagsChange,2)+"\n"+System.Convert.ToString (tagsSet,2);
+			return ""+System.Convert.ToString(tagsChange, 2)+"\n"+System.Convert.ToString(tagsSet, 2);
 		}
 	}
 
@@ -339,9 +339,8 @@ namespace Pathfinding {
 	 * \see \ref graph-updates
 	 */
 	public class GraphUpdateObject {
-
 		/** The bounds to update nodes within.
-		  * Defined in world space.
+		 * Defined in world space.
 		 */
 		public Bounds bounds;
 
@@ -418,7 +417,7 @@ namespace Pathfinding {
 		public NNConstraint nnConstraint = NNConstraint.None;
 
 		/** Penalty to add to the nodes.
-		  * A penalty of 1000 is equivalent to the cost of moving 1 world unit.
+		 * A penalty of 1000 is equivalent to the cost of moving 1 world unit.
 		 */
 		public int addPenalty;
 
@@ -448,22 +447,26 @@ namespace Pathfinding {
 		private List<uint> backupData;
 		private List<Int3> backupPositionData;
 
-		/** A shape can be specified if a bounds object does not give enough precision */
+		/** A shape can be specified if a bounds object does not give enough precision.
+		 * Note that if you set this, you should set the bounds so that it encloses the shape
+		 * because the bounds will be used as an initial fast check for which nodes that should
+		 * be updated.
+		 */
 		public GraphUpdateShape shape;
 
 		/** Should be called on every node which is updated with this GUO before it is updated.
-		  * \param node The node to save fields for. If null, nothing will be done
-		  * \see #trackChangedNodes
-		  */
+		 * \param node The node to save fields for. If null, nothing will be done
+		 * \see #trackChangedNodes
+		 */
 		public virtual void WillUpdateNode (GraphNode node) {
 			if (trackChangedNodes && node != null) {
 				if (changedNodes == null) { changedNodes = ListPool<GraphNode>.Claim(); backupData = ListPool<uint>.Claim(); backupPositionData = ListPool<Int3>.Claim(); }
-				changedNodes.Add (node);
-				backupPositionData.Add (node.position);
-				backupData.Add (node.Penalty);
-				backupData.Add (node.Flags);
+				changedNodes.Add(node);
+				backupPositionData.Add(node.position);
+				backupData.Add(node.Penalty);
+				backupData.Add(node.Flags);
 				var gg = node as GridNode;
-				if ( gg != null ) backupData.Add (gg.InternalGridFlags);
+				if (gg != null) backupData.Add(gg.InternalGridFlags);
 			}
 		}
 
@@ -474,31 +477,30 @@ namespace Pathfinding {
 				if (changedNodes == null) return;
 
 				int counter = 0;
-				for (int i=0;i<changedNodes.Count;i++) {
+				for (int i = 0; i < changedNodes.Count; i++) {
 					changedNodes[i].Penalty = backupData[counter];
 					counter++;
 					changedNodes[i].Flags = backupData[counter];
 					counter++;
 					var gg = changedNodes[i] as GridNode;
-					if ( gg != null ) {
+					if (gg != null) {
 						gg.InternalGridFlags = (ushort)backupData[counter];
 						counter++;
 					}
 					changedNodes[i].position = backupPositionData[i];
 				}
 
-				ListPool<GraphNode>.Release (changedNodes);
+				ListPool<GraphNode>.Release(changedNodes);
 				ListPool<uint>.Release(backupData);
 				ListPool<Int3>.Release(backupPositionData);
 			} else {
-				throw new System.InvalidOperationException ("Changed nodes have not been tracked, cannot revert from backup");
+				throw new System.InvalidOperationException("Changed nodes have not been tracked, cannot revert from backup");
 			}
 		}
 
 		/** Updates the specified node using this GUO's settings */
 		public virtual void Apply (GraphNode node) {
-			if (shape == null || shape.Contains	(node)) {
-
+			if (shape == null || shape.Contains(node)) {
 				//Update penalty and walkability
 				node.Penalty = (uint)(node.Penalty+addPenalty);
 				if (modifyWalkability) {
@@ -528,7 +530,7 @@ namespace Pathfinding {
 
 	/** Holds info about one pathfinding thread.
 	 * Mainly used to send information about how the thread should execute when starting it
-	  */
+	 */
 	public struct PathThreadInfo {
 		public int threadIndex;
 		public AstarPath astar;
@@ -591,6 +593,7 @@ namespace Pathfinding {
 
 		public override bool Equals (System.Object _b) {
 			var b = (IntRect)_b;
+
 			return xmin == b.xmin && xmax == b.xmax && ymin == b.ymin && ymax == b.ymax;
 		}
 
@@ -605,11 +608,11 @@ namespace Pathfinding {
 		 */
 		public static IntRect Intersection (IntRect a, IntRect b) {
 			var r = new IntRect(
-			                        System.Math.Max(a.xmin,b.xmin),
-			                        System.Math.Max(a.ymin,b.ymin),
-			                        System.Math.Min(a.xmax,b.xmax),
-			                        System.Math.Min(a.ymax,b.ymax)
-			                        );
+				System.Math.Max(a.xmin, b.xmin),
+				System.Math.Max(a.ymin, b.ymin),
+				System.Math.Min(a.xmax, b.xmax),
+				System.Math.Min(a.ymax, b.ymax)
+				);
 
 			return r;
 		}
@@ -625,11 +628,11 @@ namespace Pathfinding {
 		 */
 		public static IntRect Union (IntRect a, IntRect b) {
 			var r = new IntRect(
-			                        System.Math.Min(a.xmin,b.xmin),
-			                        System.Math.Min(a.ymin,b.ymin),
-			                        System.Math.Max(a.xmax,b.xmax),
-			                        System.Math.Max(a.ymax,b.ymax)
-			                        );
+				System.Math.Min(a.xmin, b.xmin),
+				System.Math.Min(a.ymin, b.ymin),
+				System.Math.Max(a.xmax, b.xmax),
+				System.Math.Max(a.ymax, b.ymax)
+				);
 
 			return r;
 		}
@@ -637,11 +640,12 @@ namespace Pathfinding {
 		/** Returns a new IntRect which is expanded to contain the point */
 		public IntRect ExpandToContain (int x, int y) {
 			var r = new IntRect(
-			                        System.Math.Min(xmin,x),
-			                        System.Math.Min(ymin,y),
-			                        System.Math.Max(xmax,x),
-			                        System.Math.Max(ymax,y)
-			                        );
+				System.Math.Min(xmin, x),
+				System.Math.Min(ymin, y),
+				System.Math.Max(xmax, x),
+				System.Math.Max(ymax, y)
+				);
+
 			return r;
 		}
 
@@ -650,10 +654,10 @@ namespace Pathfinding {
 		 */
 		public IntRect Expand (int range) {
 			return new IntRect(xmin-range,
-			                   ymin-range,
-			                   xmax+range,
-			                   ymax+range
-			                   );
+				ymin-range,
+				xmax+range,
+				ymax+range
+				);
 		}
 
 		/** Matrices for rotation.
@@ -666,23 +670,23 @@ namespace Pathfinding {
 		 * \endcode
 		 */
 		private static readonly int[] Rotations = {
-			 1, 0, //Identity matrix
-			 0, 1,
+			1, 0,  //Identity matrix
+			0, 1,
 
-			 0, 1,
+			0, 1,
 			-1, 0,
 
 			-1, 0,
-			 0,-1,
+			0, -1,
 
-			 0,-1,
-			 1, 0
+			0, -1,
+			1, 0
 		};
 
 		/** Returns a new rect rotated around the origin 90*r degrees.
 		 * Ensures that a valid rect is returned.
 		 */
-		public IntRect Rotate ( int r ) {
+		public IntRect Rotate (int r) {
 			int mx1 = Rotations[r*4+0];
 			int mx2 = Rotations[r*4+1];
 			int my1 = Rotations[r*4+2];
@@ -694,24 +698,24 @@ namespace Pathfinding {
 			int p2x = mx1*xmax + mx2*ymax;
 			int p2y = my1*xmax + my2*ymax;
 
-			return new IntRect (
-				System.Math.Min ( p1x, p2x ),
-				System.Math.Min ( p1y, p2y ),
-				System.Math.Max ( p1x, p2x ),
-				System.Math.Max ( p1y, p2y )
-			);
+			return new IntRect(
+				System.Math.Min(p1x, p2x),
+				System.Math.Min(p1y, p2y),
+				System.Math.Max(p1x, p2x),
+				System.Math.Max(p1y, p2y)
+				);
 		}
 
 		/** Returns a new rect which is offset by the specified amount.
 		 */
-		public IntRect Offset ( Int2 offset ) {
-			return new IntRect ( xmin+offset.x, ymin + offset.y, xmax + offset.x, ymax + offset.y );
+		public IntRect Offset (Int2 offset) {
+			return new IntRect(xmin+offset.x, ymin + offset.y, xmax + offset.x, ymax + offset.y);
 		}
 
 		/** Returns a new rect which is offset by the specified amount.
 		 */
-		public IntRect Offset ( int x, int y ) {
-			return new IntRect ( xmin+x, ymin + y, xmax + x, ymax + y );
+		public IntRect Offset (int x, int y) {
+			return new IntRect(xmin+x, ymin + y, xmax + x, ymax + y);
 		}
 
 		public override string ToString () {
@@ -720,120 +724,111 @@ namespace Pathfinding {
 
 		/** Draws some debug lines representing the rect */
 		public void DebugDraw (Matrix4x4 matrix, Color col) {
-			Vector3 p1 = matrix.MultiplyPoint3x4 (new Vector3(xmin,0,ymin));
-			Vector3 p2 = matrix.MultiplyPoint3x4 (new Vector3(xmin,0,ymax));
-			Vector3 p3 = matrix.MultiplyPoint3x4 (new Vector3(xmax,0,ymax));
-			Vector3 p4 = matrix.MultiplyPoint3x4 (new Vector3(xmax,0,ymin));
+			Vector3 p1 = matrix.MultiplyPoint3x4(new Vector3(xmin, 0, ymin));
+			Vector3 p2 = matrix.MultiplyPoint3x4(new Vector3(xmin, 0, ymax));
+			Vector3 p3 = matrix.MultiplyPoint3x4(new Vector3(xmax, 0, ymax));
+			Vector3 p4 = matrix.MultiplyPoint3x4(new Vector3(xmax, 0, ymin));
 
-			Debug.DrawLine (p1,p2,col);
-			Debug.DrawLine (p2,p3,col);
-			Debug.DrawLine (p3,p4,col);
-			Debug.DrawLine (p4,p1,col);
+			Debug.DrawLine(p1, p2, col);
+			Debug.DrawLine(p2, p3, col);
+			Debug.DrawLine(p3, p4, col);
+			Debug.DrawLine(p4, p1, col);
 		}
 	}
+
+	#region Delegates
+
+	/* Delegate with on Path object as parameter.
+	 * This is used for callbacks when a path has finished calculation.\n
+	 * Example function:
+	 * \code
+	 * public void Start () {
+	 *  //Assumes a Seeker component is attached to the GameObject
+	 *  Seeker seeker = GetComponent<Seeker>();
+	 *
+	 *  //seeker.pathCallback is a OnPathDelegate, we add the function OnPathComplete to it so it will be called whenever a path has finished calculating on that seeker
+	 *  seeker.pathCallback += OnPathComplete;
+	 * }
+	 *
+	 * public void OnPathComplete (Path p) {
+	 *  Debug.Log ("This is called when a path is completed on the seeker attached to this GameObject");
+	 * }
+	 * \endcode
+	 */
+	public delegate void OnPathDelegate (Path p);
+
+	public delegate void OnGraphDelegate (NavGraph graph);
+
+	public delegate void OnScanDelegate (AstarPath script);
+
+	public delegate void OnScanStatus (Progress progress);
+
+	#endregion
+
+	#region Enums
+
+	public enum GraphUpdateThreading {
+		UnityThread,
+		SeparateThread,
+		SeparateAndUnityInit
+	}
+
+	/** How path results are logged by the system */
+	public enum PathLog {
+		None,       /**< Does not log anything */
+		Normal,     /**< Logs basic info about the paths */
+		Heavy,      /**< Includes additional info */
+		InGame,     /**< Same as heavy, but displays the info in-game using GUI */
+		OnlyErrors  /**< Same as normal, but logs only paths which returned an error */
+	}
+
+	/** Heuristic to use. Heuristic is the estimated cost from the current node to the target */
+	public enum Heuristic {
+		Manhattan,
+		DiagonalManhattan,
+		Euclidean,
+		None
+	}
+
+	/** What data to draw the graph debugging with */
+	public enum GraphDebugMode {
+		Areas,
+		G,
+		H,
+		F,
+		Penalty,
+		Connections,
+		Tags
+	}
+
+	public enum ThreadCount {
+		AutomaticLowLoad = -1,
+		AutomaticHighLoad = -2,
+		None = 0,
+		One = 1,
+		Two,
+		Three,
+		Four,
+		Five,
+		Six,
+		Seven,
+		Eight
+	}
+
+	public enum PathState {
+		Created = 0,
+		PathQueue = 1,
+		Processing = 2,
+		ReturnQueue = 3,
+		Returned = 4
+	}
+
+	public enum PathCompleteState {
+		NotCalculated = 0,
+		Error = 1,
+		Complete = 2,
+		Partial = 3
+	}
+
+	#endregion
 }
-
-#region Delegates
-
-/* Delegate with on Path object as parameter.
- * This is used for callbacks when a path has finished calculation.\n
- * Example function:
- * \code
-public void Start () {
-	//Assumes a Seeker component is attached to the GameObject
-	Seeker seeker = GetComponent<Seeker>();
-
-	//seeker.pathCallback is a OnPathDelegate, we add the function OnPathComplete to it so it will be called whenever a path has finished calculating on that seeker
-	seeker.pathCallback += OnPathComplete;
-}
-
-public void OnPathComplete (Path p) {
-	Debug.Log ("This is called when a path is completed on the seeker attached to this GameObject");
-}\endcode
-  */
-public delegate void OnPathDelegate (Path p);
-
-public delegate Vector3[] GetNextTargetDelegate (Path p, Vector3 currentPosition);
-
-public delegate void NodeDelegate (GraphNode node);
-
-public delegate void OnGraphDelegate (NavGraph graph);
-
-public delegate void OnScanDelegate (AstarPath script);
-
-public delegate void OnScanStatus (Progress progress);
-
-#endregion
-
-#region Enums
-
-public enum GraphUpdateThreading {
-	UnityThread,
-	SeparateThread,
-	SeparateAndUnityInit
-}
-
-/** How path results are logged by the system */
-public enum PathLog {
-	None,		/**< Does not log anything */
-	Normal,		/**< Logs basic info about the paths */
-	Heavy,		/**< Includes additional info */
-	InGame,		/**< Same as heavy, but displays the info in-game using GUI */
-	OnlyErrors	/**< Same as normal, but logs only paths which returned an error */
-}
-
-/** Heuristic to use. Heuristic is the estimated cost from the current node to the target */
-public enum Heuristic {
-	Manhattan,
-	DiagonalManhattan,
-	Euclidean,
-	None
-}
-
-/** What data to draw the graph debugging with */
-public enum GraphDebugMode {
-	Areas,
-	G,
-	H,
-	F,
-	Penalty,
-	Connections,
-	Tags
-}
-
-/** Type of connection for a user placed link */
-public enum ConnectionType {
-	Connection,
-	ModifyNode
-}
-
-public enum ThreadCount {
-	AutomaticLowLoad = -1,
-	AutomaticHighLoad = -2,
-	None = 0,
-	One = 1,
-	Two,
-	Three,
-	Four,
-	Five,
-	Six,
-	Seven,
-	Eight
-}
-
-public enum PathState {
-	Created = 0,
-	PathQueue = 1,
-	Processing = 2,
-	ReturnQueue = 3,
-	Returned = 4
-}
-
-public enum PathCompleteState {
-	NotCalculated = 0,
-	Error = 1,
-	Complete = 2,
-	Partial = 3
-}
-
-#endregion
