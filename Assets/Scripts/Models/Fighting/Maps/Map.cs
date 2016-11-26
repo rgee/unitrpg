@@ -207,6 +207,10 @@ namespace Models.Fighting.Maps {
                         continue;
                     }
 
+                    if (IsBlocked(neighbor)) {
+                        continue;
+                    }
+
                     var tentativeScore = exactCosts[currentCheapest] + CalculateDistance(currentCheapest, neighbor);
                     if (!estimates.ContainsKey(neighbor) || tentativeScore < estimates[neighbor]) {
                         var heuristicScore = tentativeScore + EstimateDistance(neighbor, goal);
