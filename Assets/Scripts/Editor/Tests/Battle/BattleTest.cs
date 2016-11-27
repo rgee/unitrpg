@@ -9,7 +9,7 @@ using Models.Fighting.Skills;
 using Models.SaveGames;
 using NUnit.Framework;
 using UnityEngine;
-using Assert = UnityEngine.Assertions.Assert;
+using Assert = NUnit.Framework.Assert;
 
 namespace Tests.Battle {
     [TestFixture]
