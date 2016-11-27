@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Models.Fighting.AI;
 using Models.Fighting.Buffs;
 using Models.Fighting.Characters;
 using Models.Fighting.Equip;
@@ -26,6 +27,7 @@ namespace Models.Fighting {
         void RemoveTemporaryBuff(IBuff temporaryBuff);
         ArmyType Army { get; set; }
         SkillType? SpecialSkill { get; set; }
+        ICombatantBrain Brain { get; set; }
 
         Signal<Vector2> MoveSignal { get; }
         Signal DeathSignal { get; }
