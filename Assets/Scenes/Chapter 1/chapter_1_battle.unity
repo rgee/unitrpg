@@ -3500,7 +3500,7 @@ MonoBehaviour:
     numRows: 1
     divX: 32
     divY: 32
-  prefabsRoot: {fileID: 0}
+  prefabsRoot: {fileID: 2078543220}
   tilePrefabsList:
   - x: 0
     y: 0
@@ -4222,7 +4222,7 @@ MonoBehaviour:
     y: 25
     layer: 8
     instance: {fileID: 0}
-  _inEditMode: 0
+  _inEditMode: 1
   serializedMeshPath: 
 --- !u!1 &607149895
 GameObject:
@@ -5220,6 +5220,7 @@ Transform:
   - {fileID: 1234834890}
   - {fileID: 70574578}
   - {fileID: 1389843036}
+  - {fileID: 2078543221}
   m_Father: {fileID: 1921427170}
   m_RootOrder: 1
 --- !u!1 &833905123
@@ -11171,6 +11172,34 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2070216943}
   m_Mesh: {fileID: 0}
+--- !u!1 &2078543220
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2078543221}
+  m_Layer: 0
+  m_Name: Prefabs
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2078543221
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2078543220}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 832189851}
+  m_RootOrder: 11
 --- !u!1 &2080487164
 GameObject:
   m_ObjectHideFlags: 0
