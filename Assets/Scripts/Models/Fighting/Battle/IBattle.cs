@@ -2,6 +2,7 @@
 using Models.Fighting.Battle.Objectives;
 using Models.Fighting.Characters;
 using Models.Fighting.Execution;
+using Models.Fighting.Maps;
 using Models.Fighting.Maps.Triggers;
 using Models.Fighting.Skills;
 using strange.extensions.signal.impl;
@@ -14,6 +15,8 @@ namespace Models.Fighting.Battle {
         int GetRemainingMoves(ICombatant combatant);
 
         int TurnNumber { get; }
+
+        IMap Map { get; }
 
         Signal<string> EventTileSignal { get; }
 

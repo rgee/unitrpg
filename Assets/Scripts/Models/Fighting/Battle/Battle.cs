@@ -14,6 +14,7 @@ using UnityEngine;
 
 namespace Models.Fighting.Battle {
     public class Battle : IBattle {
+        public IMap Map { get; private set; }
         public int TurnNumber { get; private set; }
         public Signal<string> EventTileSignal { get; private set; }
 
@@ -24,7 +25,6 @@ namespace Models.Fighting.Battle {
         private readonly List<ArmyType> _turnOrder;
         private readonly ICombatantDatabase _combatants;
         private readonly Dictionary<string, ICombatant> _combatantsById = new Dictionary<string, ICombatant>();
-        private readonly IMap _map;
         private readonly List<IObjective> _objectives;
         private Turn _currentTurn;
 
@@ -33,7 +33,7 @@ namespace Models.Fighting.Battle {
             TurnNumber = 0;
             EventTileSignal = new Signal<string>();
             _objectives = objectives;
-            _map = map;
+            Map = map;
             _randomizer = randomizer;
             _combatants = combatants;
 
@@ -47,7 +47,7 @@ namespace Models.Fighting.Battle {
             }
 
             foreach (var eventTile in eventTiles) {
-                _map.AddEventTile(eventTile);
+                Map.AddEventTile(eventTile);
             }
 
             var firstArmy = _turnOrder[TurnNumber];
@@ -56,17 +56,17 @@ namespace Models.Fighting.Battle {
         }
 
         public void SpawnCombatant(ICombatant combatant) {
-            _map.AddCombatant(combatant);
-            RegisterCombatant(combatant, _map);
+            Map.AddCombatant(combatant);
+            RegisterCombatant(combatant, Map);
             _currentTurn.AddNewCombatant(combatant);
         }
 
         public void AddEventTile(EventTile eventTile) {
-            _map.AddEventTile(eventTile);
+            Map.AddEventTile(eventTile);
         }
 
         public void RemoveEventTile(Vector2 location) {
-            _map.RemoveEventTile(location);
+            Map.RemoveEventTile(location);
         }
 
         private void RegisterCombatant(ICombatant combatant, IMap map) {
@@ -90,19 +90,19 @@ namespace Models.Fighting.Battle {
         public void MoveCombatant(ICombatant combatant, List<Vector2> path) {
             _validateMove(combatant, path);
 
-            _map.MoveCombatant(combatant, path.Last());
+            Map.MoveCombatant(combatant, path.Last());
             _currentTurn.MarkMove(combatant, path.Count);
             _processTriggers(path);
         }
 
         private void _processTriggers(IEnumerable<Vector2> path) {
             foreach (var tile in path) {
-                var eventTile = _map.GetEventTile(tile);
+                var eventTile = Map.GetEventTile(tile);
                 if (eventTile != null && eventTile.InteractionMode == InteractionMode.Walk) {
                     Debug.Log("Dispatching event tile trigger event: " + eventTile.EventName);
                     EventTileSignal.Dispatch(eventTile.EventName);
                     if (eventTile.OneTimeUse) {
-                        _map.RemoveEventTile(tile);
+                        Map.RemoveEventTile(tile);
                     }
                 }
             }
@@ -114,7 +114,7 @@ namespace Models.Fighting.Battle {
             }
 
             foreach (var location in path) {
-                if (location != combatant.Position && _map.IsBlocked(location)) {
+                if (location != combatant.Position && Map.IsBlocked(location)) {
                     var error = string.Format("Location ({0}, {1}) is blocked.", location.x, location.y);
                     throw new InvalidActionException(error);
                 }
@@ -122,7 +122,7 @@ namespace Models.Fighting.Battle {
         }
 
         public List<ICombatant> GetAliveByArmy(ArmyType army) {
-            return _map.GetAllOnMap()
+            return Map.GetAllOnMap()
                 .Where(combatant => combatant.Army == army)
                 .ToList();
         }
