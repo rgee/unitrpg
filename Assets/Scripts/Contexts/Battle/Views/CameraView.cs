@@ -21,7 +21,7 @@ namespace Contexts.Battle.Views {
             transform.Translate(adjustment);
         }
 
-        private IEnumerator PanTo(Vector3 target) {
+        public IEnumerator PanTo(Vector3 target) {
             var tween = transform.DOMove(target, 0.3f);
             yield return tween.WaitForCompletion();
         }
