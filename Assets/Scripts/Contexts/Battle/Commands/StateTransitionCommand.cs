@@ -34,9 +34,6 @@ namespace Contexts.Battle.Commands {
         public FightForecastDisableSignal FightForecastDisableSignal { get; set; }
 
         [Inject]
-        public EnemyTurnCompleteSignal EnemyTurnCompleteSignal { get; set; }
-
-        [Inject]
         public HoverTileEnableSignal HoverTileEnableSignal { get; set; }
 
         [Inject]
@@ -133,7 +130,6 @@ namespace Contexts.Battle.Commands {
                     CameraLockSignal.Dispatch();
                     HoverTileDisableSignal.Dispatch();
                     EnemyTurnStartSignal.Dispatch();
-                    EnemyTurnCompleteSignal.Dispatch();
                     break;
                 case BattleUIState.ContextMenu:
                     HoverTileDisableSignal.Dispatch();
