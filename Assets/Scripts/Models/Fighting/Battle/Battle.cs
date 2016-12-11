@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Remoting;
+using Models.Fighting.AI;
 using Models.Fighting.Battle.Objectives;
 using Models.Fighting.Characters;
 using Models.Fighting.Execution;
@@ -26,6 +27,7 @@ namespace Models.Fighting.Battle {
         private readonly ICombatantDatabase _combatants;
         private readonly Dictionary<string, ICombatant> _combatantsById = new Dictionary<string, ICombatant>();
         private readonly List<IObjective> _objectives;
+        private readonly IEnemyAICoordinator _ai;
         private Turn _currentTurn;
 
         public Battle(IMap map, IRandomizer randomizer, ICombatantDatabase combatants, List<ArmyType> turnOrder, List<IObjective> objectives, 
@@ -36,6 +38,8 @@ namespace Models.Fighting.Battle {
             Map = map;
             _randomizer = randomizer;
             _combatants = combatants;
+
+            _ai = new EnemyAICoordinator(this);
 
             var skillDatabase = new SkillDatabase(map);
             _forecaster = new FightForecaster(map, skillDatabase);
@@ -53,6 +57,10 @@ namespace Models.Fighting.Battle {
             var firstArmy = _turnOrder[TurnNumber];
             var firstCombatants = _combatants.GetCombatantsByArmy(firstArmy);
             _currentTurn = new Turn(firstCombatants);
+        }
+
+        public IList<ICombatAction> ComputeEnemyActions() {
+            return _ai.ComputeTurnActions();
         }
 
         public void SpawnCombatant(ICombatant combatant) {

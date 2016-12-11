@@ -111,6 +111,7 @@ namespace Contexts.Battle {
             commandBinder.Bind<PlayerTurnCompleteSignal>().To<NextPhaseCommand>();
             commandBinder.Bind<EnemyTurnCompleteSignal>().To<NextPhaseCommand>();
             commandBinder.Bind<IncrememtTurnSignal>().To<IncrementTurnCommand>();
+            commandBinder.Bind<EnemyTurnStartSignal>().To<RunEnemyActionsCommand>();
 
             mediationBinder.Bind<MapView>().To<MapViewMediator>();
             mediationBinder.Bind<MapHighlightView>().To<MapHighlightViewMediator>();

@@ -10,6 +10,10 @@ namespace Models.Fighting.AI {
     public class EnemyAICoordinator : IEnemyAICoordinator {
         private readonly IBattle _battle;
 
+        public EnemyAICoordinator(IBattle battle) {
+            _battle = battle;
+        }
+
         public IList<ICombatAction> ComputeTurnActions() {
             var livingEnemies = _battle.GetAliveByArmy(ArmyType.Enemy);
             var brains = livingEnemies.Select(enemy => enemy.Brain).Where(brain => brain != null).ToList();

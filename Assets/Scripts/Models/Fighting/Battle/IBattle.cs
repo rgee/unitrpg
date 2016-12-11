@@ -20,6 +20,8 @@ namespace Models.Fighting.Battle {
 
         Signal<string> EventTileSignal { get; }
 
+        IList<ICombatAction> ComputeEnemyActions();
+
         void SubmitAction(ICombatAction action);
 
         void EndTurn();

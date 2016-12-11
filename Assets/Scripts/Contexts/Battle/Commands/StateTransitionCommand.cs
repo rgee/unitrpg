@@ -45,6 +45,9 @@ namespace Contexts.Battle.Commands {
         [Inject]
         public CameraUnlockSignal CameraUnlockSignal { get; set; }
 
+        [Inject]
+        public EnemyTurnStartSignal EnemyTurnStartSignal { get; set; }
+
         public override void Execute() {
             Debug.LogFormat("State Transition from {0} to {1}", Transition.Previous, Transition.Next);
             Cleanup(Transition.Previous);
@@ -129,7 +132,7 @@ namespace Contexts.Battle.Commands {
                 case BattleUIState.EnemyTurn:
                     CameraLockSignal.Dispatch();
                     HoverTileDisableSignal.Dispatch();
-                    // TODO: Implement enemy turn AI
+                    EnemyTurnStartSignal.Dispatch();
                     EnemyTurnCompleteSignal.Dispatch();
                     break;
                 case BattleUIState.ContextMenu:
