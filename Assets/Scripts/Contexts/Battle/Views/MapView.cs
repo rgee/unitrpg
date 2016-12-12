@@ -14,6 +14,7 @@ using Utils;
 
 namespace Contexts.Battle.Views {
     public class MapView : View {
+        public const float FIGHT_PHASE_WAIT_SECONDS = 0.4f;
         public Signal<Vector2> MapClicked = new Signal<Vector2>();
         public Signal<Vector2> MapRightClicked = new Signal<Vector2>();
         public Signal<Vector2> MapHovered = new Signal<Vector2>(); 
@@ -49,11 +50,11 @@ namespace Contexts.Battle.Views {
             }
         }
 
-        public void MoveUnit(string id, List<Vector2> path) {
+        public IEnumerator MoveUnit(string id, List<Vector2> path) {
             var combatant = FindCombatantViewById(id);
             var dimensoins = GetDimensions(); 
             var worldPositions = path.Skip(1).Select(pos => dimensoins.GetWorldPositionForGridPosition(pos)).ToList();
-            StartCoroutine(DoMove(worldPositions, combatant));
+            yield return StartCoroutine(DoMove(worldPositions, combatant));
         }
 
         private CombatantView FindCombatantViewById(string id) {
@@ -88,7 +89,7 @@ namespace Contexts.Battle.Views {
             }).ToList();
         }
 
-        public void AnimateFight(FinalizedFight fight) {
+        public IEnumerator AnimateFight(FinalizedFight fight) {
             var phases = new List<FightPhase> {fight.InitialPhase};
 
             if (fight.FlankerPhase != null) {
@@ -125,22 +126,18 @@ namespace Contexts.Battle.Views {
                 participants.Add(flanker);
             }
 
-            FightComplete.AddOnce(() => {
-                foreach (var combatantView in participants) {
-                    combatantView.ReturnToRest();
-                }
-            });
+            yield return StartCoroutine(AnimateFights(phases));
 
-            StartCoroutine(AnimateFights(phases));
+            foreach (var combatantView in participants) {
+                combatantView.ReturnToRest();
+            }
         }
 
         private IEnumerator AnimateFights(IEnumerable<FightPhase> phases) {
             foreach (var phase in phases) {
                 yield return StartCoroutine(AnimateFightPhase(phase));
-                yield return new WaitForSeconds(0.4f);
+                yield return new WaitForSeconds(FIGHT_PHASE_WAIT_SECONDS);
             }
-
-            FightComplete.Dispatch();
         }
 
         private IEnumerator AnimateFightPhase(FightPhase phase) {

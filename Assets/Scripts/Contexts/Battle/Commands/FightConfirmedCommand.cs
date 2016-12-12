@@ -11,16 +11,13 @@ namespace Contexts.Battle.Commands {
         [Inject]
         public BattleViewState Model { get; set; }
 
-        [Inject]
-        public NewFinalizedFightSignal FinalizedFightSignal { get; set; }
-
         public override void Execute() {
             var skillDatabase = new SkillDatabase(Model.Map);
             var finalizer = new FightFinalizer(skillDatabase);
             var finalizedFight = finalizer.Finalize(Model.FightForecast, new BasicRandomizer());
 
-            Model.FinalizedFight = finalizedFight;
-            FinalizedFightSignal.Dispatch(finalizedFight);
+            var fightAction = new FightAction(finalizedFight);
+            Model.PendingAction = fightAction; 
             Model.State = BattleUIState.Fighting;
         }
     }

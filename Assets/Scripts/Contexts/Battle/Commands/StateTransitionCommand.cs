@@ -45,6 +45,9 @@ namespace Contexts.Battle.Commands {
         [Inject]
         public EnemyTurnStartSignal EnemyTurnStartSignal { get; set; }
 
+        [Inject]
+        public AnimateActionSignal AnimateActionSignal { get; set; }
+
         public override void Execute() {
             Debug.LogFormat("State Transition from {0} to {1}", Transition.Previous, Transition.Next);
             Cleanup(Transition.Previous);
@@ -119,6 +122,7 @@ namespace Contexts.Battle.Commands {
                     break;
                 case BattleUIState.Fighting:
                     HoverTileDisableSignal.Dispatch();
+                    AnimateActionSignal.Dispatch(Model.PendingAction);
                     break;
                 case BattleUIState.Uninitialized:
                     break;

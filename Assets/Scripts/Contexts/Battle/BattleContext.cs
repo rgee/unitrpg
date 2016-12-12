@@ -67,7 +67,6 @@ namespace Contexts.Battle {
             injectionBinder.Bind<NewFightForecastSignal>().ToSingleton();
             injectionBinder.Bind<FightForecastDisableSignal>().ToSingleton();
             injectionBinder.Bind<FightConfirmedSignal>().ToSingleton();
-            injectionBinder.Bind<NewFinalizedFightSignal>().ToSingleton();
             injectionBinder.Bind<AttackConnectedSignal>().ToSingleton();
             injectionBinder.Bind<IntroCutsceneStartSignal>().ToSingleton();
             injectionBinder.Bind<IntroCutsceneCompleteSignal>().ToSingleton();
@@ -84,6 +83,9 @@ namespace Contexts.Battle {
             injectionBinder.Bind<IncrememtTurnSignal>().ToSingleton();
             injectionBinder.Bind<ProcessTileEventsSignal>().ToSingleton();
             injectionBinder.Bind<BeginSurveyingSignal>().ToSingleton().CrossContext();
+            injectionBinder.Bind<AnimateActionSignal>().ToSingleton();
+            injectionBinder.Bind<CameraPanSignal>().ToSingleton();
+            injectionBinder.Bind<CameraPanCompleteSignal>().ToSingleton();
 
             commandBinder.Bind<SpawnCombatantSignal>().To<SpawnCombatantCommand>();
             commandBinder.Bind<BeginSurveyingSignal>().To<BeginSurveyingCommand>();

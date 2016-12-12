@@ -26,7 +26,7 @@ namespace Contexts.Battle.Commands {
         public UnitSelectedSignal UnitSelectedSignal { get; set; }
 
         [Inject]
-        public MoveCombatantSignal MoveCombatantSignal { get; set; }
+        public AnimateActionSignal AnimateActionSignal { get; set; }
 
         [Inject]
         public NewFightForecastSignal FightForecastSignal { get; set; }
@@ -59,7 +59,10 @@ namespace Contexts.Battle.Commands {
             } else if (state == BattleUIState.SelectingMoveLocation) {
                 // Make the unit move
                 if (BattleViewModel.CurrentMovementPath != null) {
-                    MoveCombatantSignal.Dispatch(BattleViewModel.CurrentMovementPath);
+                    var map = BattleViewModel.Map;
+                    var path = BattleViewModel.CurrentMovementPath;
+                    var action = new MoveAction(map, path.Combatant, path.Positions.Last(), path.Positions);
+                    AnimateActionSignal.Dispatch(action);
                     BattleViewModel.State = BattleUIState.CombatantMoving;
                 }
             } else if (state == BattleUIState.SelectingAttackTarget) {
