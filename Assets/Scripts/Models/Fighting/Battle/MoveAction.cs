@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Models.Fighting.Maps;
+using Models.Fighting.Maps.Triggers;
 using UnityEngine;
 using Utils;
 
@@ -41,10 +42,10 @@ namespace Models.Fighting.Battle {
             turn.MarkMove(Combatant, _pathLength);
 
             if (Path != null) {
-                foreach (var tile in Path) {
-                    var eventTile = _map.GetEventTile(tile);
-                    if (eventTile != null) {
-                        
+                foreach (var location in Path) {
+                    var eventTile = _map.GetEventTile(location);
+                    if (eventTile != null && eventTile.InteractionMode == InteractionMode.Walk) {
+                        _map.TriggerEventTile(location);
                     }
                 }                
             }

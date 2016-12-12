@@ -1,9 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using Models.Fighting.Maps.Triggers;
+using strange.extensions.signal.impl;
 
 namespace Models.Fighting.Maps {
     public interface IMap {
+        Signal<EventTile> EventTileTriggeredSignal { get; }
+
         void AddCombatant(ICombatant combatant);
 
         void RemoveCombatant(ICombatant combatant);
@@ -31,6 +34,8 @@ namespace Models.Fighting.Maps {
         void RemoveEventTile(Vector2 location);
 
         EventTile GetEventTile(Vector2 location);
+
+        void TriggerEventTile(Vector2 location);
 
 
 

@@ -40,8 +40,6 @@ namespace Models.Fighting.Battle {
 
         FinalizedFight FinalizeFight(FightForecast forecast);
 
-        void ExecuteFight(FinalizedFight fight);
-
         int GetMaxWeaponAttackRange(ICombatant combatant);
 
         SkillType GetWeaponSkillForRange(ICombatant combatant, int range);
@@ -51,8 +49,6 @@ namespace Models.Fighting.Battle {
         bool IsWon();
 
         bool IsLost();
-
-        void MoveCombatant(ICombatant combatant, List<Vector2> path);
 
         void AddEventTile(EventTile eventTile);
 

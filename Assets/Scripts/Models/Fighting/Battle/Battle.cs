@@ -39,6 +39,8 @@ namespace Models.Fighting.Battle {
             _randomizer = randomizer;
             _combatants = combatants;
 
+            map.EventTileTriggeredSignal.AddListener(_relayEvent);
+
             _ai = new EnemyAICoordinator(this);
 
             var skillDatabase = new SkillDatabase(map);
@@ -100,20 +102,10 @@ namespace Models.Fighting.Battle {
 
             Map.MoveCombatant(combatant, path.Last());
             _currentTurn.MarkMove(combatant, path.Count);
-            _processTriggers(path);
         }
 
-        private void _processTriggers(IEnumerable<Vector2> path) {
-            foreach (var tile in path) {
-                var eventTile = Map.GetEventTile(tile);
-                if (eventTile != null && eventTile.InteractionMode == InteractionMode.Walk) {
-                    Debug.Log("Dispatching event tile trigger event: " + eventTile.EventName);
-                    EventTileSignal.Dispatch(eventTile.EventName);
-                    if (eventTile.OneTimeUse) {
-                        Map.RemoveEventTile(tile);
-                    }
-                }
-            }
+        private void _relayEvent(EventTile eventTile) {
+            EventTileSignal.Dispatch(eventTile.EventName);
         }
 
         private void _validateMove(ICombatant combatant, List<Vector2> path) {
@@ -150,11 +142,6 @@ namespace Models.Fighting.Battle {
             }
 
             return SkillType.Melee;
-        }
-
-        public void ExecuteFight(FinalizedFight fight) {
-            _executor.Execute(fight);
-            _currentTurn.MarkAction(fight.InitialPhase.Initiator);
         }
 
         public int GetMaxWeaponAttackRange(ICombatant combatant) {

@@ -28,14 +28,11 @@ namespace Contexts.Battle.Commands {
         public BattleEventRegistry BattleEventRegistry { get; set; }
 
         public override void Execute() {
-            // TODO: Submit event
-            // Flush the move action
             var battle = Model.Battle;
+            battle.SubmitAction(Action);
+
             if (Model.State == BattleUIState.CombatantMoving) {
                 var path = Model.CurrentMovementPath.Positions.Skip(1).ToList();
-                battle.MoveCombatant(Model.CurrentMovementPath.Combatant, path);
-            } else if (Model.State == BattleUIState.Fighting) {
-                battle.ExecuteFight(Model.FinalizedFight);
             }
 
             if (Model.State == BattleUIState.Uninitialized) {
