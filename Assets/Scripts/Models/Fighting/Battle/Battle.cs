@@ -159,21 +159,22 @@ namespace Models.Fighting.Battle {
 
         public void EndTurn() {
             var combatants = new List<ICombatant>();
-            var turnCount = TurnNumber;
             var seenArmies = new HashSet<ArmyType>();
+            var index = TurnNumber;
 
             while (combatants.Count <= 0) {
-                var armyIndex = turnCount % _turnOrder.Count;
+                var armyIndex = index % _turnOrder.Count;
                 var army = _turnOrder[armyIndex];
-                seenArmies.Add(army);
                 combatants = _combatants.GetCombatantsByArmy(army);
-                turnCount++;
+                index++;
 
                 if (seenArmies.Contains(army)) {
                     break;
                 }
+                seenArmies.Add(army);
             }
 
+            TurnNumber++;
             _currentTurn = new Turn(combatants);
         }
 
