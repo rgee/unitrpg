@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using Models.Fighting.Battle;
+using Models.Fighting.Skills;
 
 namespace Models.Fighting.AI {
     /// <summary>
@@ -36,6 +37,9 @@ namespace Models.Fighting.AI {
             var attackSquares = map.BreadthFirstSearch(_self.Position, maxRange, true);
             if (attackSquares.Contains(target.Position)) {
                 // attack!
+                var forecast = battle.ForecastFight(_self, target, SkillType.Melee);
+                var fight = battle.FinalizeFight(forecast);
+                return new FightAction(fight);
             } else {
                 // we're out of range, move toward target
             }

@@ -54,6 +54,10 @@ namespace Models.Fighting {
             EquippedWeapons = character.Weapons
                 .Select(name => WeaponDatabase.Instance.GetByName(name))
                 .ToHashSet();
+
+            if (army == ArmyType.Enemy) {
+                Brain = new PursueTarget(this, "liat");
+            }
         }
 
         public void TakeDamage(int amount) {

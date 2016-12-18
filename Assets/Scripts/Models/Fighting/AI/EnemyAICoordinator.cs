@@ -18,7 +18,9 @@ namespace Models.Fighting.AI {
             var livingEnemies = _battle.GetAliveByArmy(ArmyType.Enemy);
             var brains = livingEnemies.Select(enemy => enemy.Brain).Where(brain => brain != null).ToList();
 
-            return brains.Select(brain => brain.ComputeAction(_battle)).ToList();
+            return brains.Select(brain => brain.ComputeAction(_battle))
+                .Where(action => action != null)
+                .ToList();
         }
     }
 }
