@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: ca0a89cf084cd4bfca299e1ee13c1746
-timeCreated: 1434982535
+timeCreated: 1482442874
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -31,12 +31,12 @@ TextureImporter:
     21300048: gatsu_dodge_50_24
     21300050: gatsu_dodge_50_25
     21300052: gatsu_dodge_50_26
-  serializedVersion: 2
+  serializedVersion: 4
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
+    sRGBTexture: 1
     linearTexture: 0
-    correctGamma: 0
     fadeOut: 0
     borderMipMap: 0
     mipMapFadeDistanceStart: 1
@@ -44,14 +44,12 @@ TextureImporter:
   bumpmap:
     convertToNormalMap: 0
     externalNormalMap: 0
-    heightScale: .25
+    heightScale: 0.25
     normalMapFilter: 0
   isReadable: 1
   grayScaleToAlpha: 0
-  generateCubemap: 0
+  generateCubemap: 6
   cubemapConvolution: 0
-  cubemapConvolutionSteps: 8
-  cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
   textureFormat: -3
   maxTextureSize: 8192
@@ -62,21 +60,36 @@ TextureImporter:
     wrapMode: 1
   nPOTScale: 0
   lightmap: 0
-  rGBM: 0
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
-  spritePivot: {x: .5, y: .5}
+  spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 1
+  alphaUsage: 1
   alphaIsTransparency: 1
-  textureType: 5
-  buildTargetSettings: []
+  spriteTessellationDetail: -1
+  textureType: 0
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
   spriteSheet:
+    serializedVersion: 2
     sprites:
-    - name: gatsu_dodge_50_0
+    - serializedVersion: 2
+      name: gatsu_dodge_50_0
       rect:
         serializedVersion: 2
         x: 0
@@ -84,9 +97,12 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: .5, y: .426999986}
+      pivot: {x: 0.5, y: 0.427}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: gatsu_dodge_50_1
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: gatsu_dodge_50_1
       rect:
         serializedVersion: 2
         x: 50
@@ -94,9 +110,12 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: .319488078, y: .425000012}
+      pivot: {x: 0.31948808, y: 0.425}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: gatsu_dodge_50_2
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: gatsu_dodge_50_2
       rect:
         serializedVersion: 2
         x: 100
@@ -104,9 +123,12 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: gatsu_dodge_50_3
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: gatsu_dodge_50_3
       rect:
         serializedVersion: 2
         x: 0
@@ -114,9 +136,12 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: .5, y: .39657411}
+      pivot: {x: 0.5, y: 0.3965741}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: gatsu_dodge_50_4
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: gatsu_dodge_50_4
       rect:
         serializedVersion: 2
         x: 50
@@ -124,9 +149,12 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: .319488108, y: .425000012}
+      pivot: {x: 0.3194881, y: 0.425}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: gatsu_dodge_50_5
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: gatsu_dodge_50_5
       rect:
         serializedVersion: 2
         x: 100
@@ -134,9 +162,12 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: gatsu_dodge_50_6
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: gatsu_dodge_50_6
       rect:
         serializedVersion: 2
         x: 0
@@ -144,9 +175,12 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: .5, y: .39657411}
+      pivot: {x: 0.5, y: 0.3965741}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: gatsu_dodge_50_7
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: gatsu_dodge_50_7
       rect:
         serializedVersion: 2
         x: 50
@@ -154,9 +188,12 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: .319488108, y: .425000012}
+      pivot: {x: 0.3194881, y: 0.425}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: gatsu_dodge_50_8
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: gatsu_dodge_50_8
       rect:
         serializedVersion: 2
         x: 100
@@ -164,9 +201,12 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: gatsu_dodge_50_9
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: gatsu_dodge_50_9
       rect:
         serializedVersion: 2
         x: 0
@@ -174,9 +214,12 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: .5, y: .39657411}
+      pivot: {x: 0.5, y: 0.3965741}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: gatsu_dodge_50_10
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: gatsu_dodge_50_10
       rect:
         serializedVersion: 2
         x: 50
@@ -184,9 +227,12 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: .319488108, y: .425000012}
+      pivot: {x: 0.3194881, y: 0.425}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: gatsu_dodge_50_11
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: gatsu_dodge_50_11
       rect:
         serializedVersion: 2
         x: 100
@@ -194,9 +240,12 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: gatsu_dodge_50_12
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: gatsu_dodge_50_12
       rect:
         serializedVersion: 2
         x: 0
@@ -204,9 +253,12 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: .5, y: .39657411}
+      pivot: {x: 0.5, y: 0.3965741}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: gatsu_dodge_50_13
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: gatsu_dodge_50_13
       rect:
         serializedVersion: 2
         x: 51
@@ -214,9 +266,12 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: .319488108, y: .425000012}
+      pivot: {x: 0.3194881, y: 0.425}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: gatsu_dodge_50_14
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: gatsu_dodge_50_14
       rect:
         serializedVersion: 2
         x: 100
@@ -224,9 +279,12 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: gatsu_dodge_50_15
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: gatsu_dodge_50_15
       rect:
         serializedVersion: 2
         x: 0
@@ -234,9 +292,12 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: .5, y: .39657411}
+      pivot: {x: 0.5, y: 0.3965741}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: gatsu_dodge_50_16
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: gatsu_dodge_50_16
       rect:
         serializedVersion: 2
         x: 50
@@ -244,9 +305,12 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: .319488108, y: .425000012}
+      pivot: {x: 0.3194881, y: 0.425}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: gatsu_dodge_50_17
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: gatsu_dodge_50_17
       rect:
         serializedVersion: 2
         x: 100
@@ -254,9 +318,12 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: gatsu_dodge_50_18
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: gatsu_dodge_50_18
       rect:
         serializedVersion: 2
         x: 0
@@ -264,9 +331,12 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: .5, y: .39657411}
+      pivot: {x: 0.5, y: 0.3965741}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: gatsu_dodge_50_19
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: gatsu_dodge_50_19
       rect:
         serializedVersion: 2
         x: 50
@@ -274,9 +344,12 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: .319488108, y: .425000012}
+      pivot: {x: 0.3194881, y: 0.425}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: gatsu_dodge_50_20
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: gatsu_dodge_50_20
       rect:
         serializedVersion: 2
         x: 100
@@ -284,9 +357,12 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: gatsu_dodge_50_21
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: gatsu_dodge_50_21
       rect:
         serializedVersion: 2
         x: 0
@@ -294,9 +370,12 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: .5, y: .39657411}
+      pivot: {x: 0.5, y: 0.3965741}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: gatsu_dodge_50_22
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: gatsu_dodge_50_22
       rect:
         serializedVersion: 2
         x: 51
@@ -304,9 +383,12 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: .319488108, y: .425000012}
+      pivot: {x: 0.3194881, y: 0.425}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: gatsu_dodge_50_23
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: gatsu_dodge_50_23
       rect:
         serializedVersion: 2
         x: 100
@@ -314,9 +396,12 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: gatsu_dodge_50_24
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: gatsu_dodge_50_24
       rect:
         serializedVersion: 2
         x: 50
@@ -324,9 +409,12 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: .319488108, y: .425000012}
+      pivot: {x: 0.3194881, y: 0.425}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: gatsu_dodge_50_25
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: gatsu_dodge_50_25
       rect:
         serializedVersion: 2
         x: 100
@@ -334,9 +422,12 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: gatsu_dodge_50_26
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: gatsu_dodge_50_26
       rect:
         serializedVersion: 2
         x: 50
@@ -344,8 +435,11 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: .319488108, y: .425000012}
+      pivot: {x: 0.3194881, y: 0.425}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    outline: []
   spritePackingTag: gatsu
   userData: 
   assetBundleName: 

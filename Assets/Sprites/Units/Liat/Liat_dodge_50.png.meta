@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: ea3aa426c98b64443bea0ce85ca9251b
-timeCreated: 1435418176
+timeCreated: 1482442882
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -40,12 +40,12 @@ TextureImporter:
     21300066: Liat_dodge_50_33
     21300068: Liat_dodge_50_34
     21300070: Liat_dodge_50_35
-  serializedVersion: 2
+  serializedVersion: 4
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
+    sRGBTexture: 1
     linearTexture: 0
-    correctGamma: 0
     fadeOut: 0
     borderMipMap: 0
     mipMapFadeDistanceStart: 1
@@ -53,14 +53,12 @@ TextureImporter:
   bumpmap:
     convertToNormalMap: 0
     externalNormalMap: 0
-    heightScale: .25
+    heightScale: 0.25
     normalMapFilter: 0
   isReadable: 1
   grayScaleToAlpha: 0
-  generateCubemap: 0
+  generateCubemap: 6
   cubemapConvolution: 0
-  cubemapConvolutionSteps: 8
-  cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
   textureFormat: -3
   maxTextureSize: 8192
@@ -71,21 +69,36 @@ TextureImporter:
     wrapMode: 1
   nPOTScale: 0
   lightmap: 0
-  rGBM: 0
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
-  spritePivot: {x: .5, y: .5}
+  spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 1
+  alphaUsage: 1
   alphaIsTransparency: 1
-  textureType: 5
-  buildTargetSettings: []
+  spriteTessellationDetail: -1
+  textureType: 0
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
   spriteSheet:
+    serializedVersion: 2
     sprites:
-    - name: Liat_dodge_50_0
+    - serializedVersion: 2
+      name: Liat_dodge_50_0
       rect:
         serializedVersion: 2
         x: 0
@@ -93,9 +106,12 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: .580200493, y: .439999998}
+      pivot: {x: 0.5802005, y: 0.44}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Liat_dodge_50_1
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Liat_dodge_50_1
       rect:
         serializedVersion: 2
         x: 50
@@ -103,9 +119,12 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: .478000045, y: .480001211}
+      pivot: {x: 0.47800004, y: 0.4800012}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Liat_dodge_50_2
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Liat_dodge_50_2
       rect:
         serializedVersion: 2
         x: 100
@@ -113,9 +132,12 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: .580200493, y: .439500004}
+      pivot: {x: 0.5802005, y: 0.4395}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Liat_dodge_50_3
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Liat_dodge_50_3
       rect:
         serializedVersion: 2
         x: 0
@@ -123,9 +145,12 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: .580200493, y: .439500004}
+      pivot: {x: 0.5802005, y: 0.4395}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Liat_dodge_50_4
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Liat_dodge_50_4
       rect:
         serializedVersion: 2
         x: 50
@@ -133,9 +158,12 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: .477999985, y: .480001211}
+      pivot: {x: 0.478, y: 0.4800012}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Liat_dodge_50_5
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Liat_dodge_50_5
       rect:
         serializedVersion: 2
         x: 100
@@ -143,9 +171,12 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: .580200493, y: .439500004}
+      pivot: {x: 0.5802005, y: 0.4395}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Liat_dodge_50_6
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Liat_dodge_50_6
       rect:
         serializedVersion: 2
         x: 0
@@ -153,9 +184,12 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: .580200493, y: .439500004}
+      pivot: {x: 0.5802005, y: 0.4395}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Liat_dodge_50_7
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Liat_dodge_50_7
       rect:
         serializedVersion: 2
         x: 50
@@ -163,9 +197,12 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: .477999985, y: .480001211}
+      pivot: {x: 0.478, y: 0.4800012}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Liat_dodge_50_8
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Liat_dodge_50_8
       rect:
         serializedVersion: 2
         x: 100
@@ -173,9 +210,12 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: .580200493, y: .439500004}
+      pivot: {x: 0.5802005, y: 0.4395}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Liat_dodge_50_9
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Liat_dodge_50_9
       rect:
         serializedVersion: 2
         x: 0
@@ -183,9 +223,12 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: .580200493, y: .439500004}
+      pivot: {x: 0.5802005, y: 0.4395}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Liat_dodge_50_10
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Liat_dodge_50_10
       rect:
         serializedVersion: 2
         x: 50
@@ -193,9 +236,12 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: .477999985, y: .480001211}
+      pivot: {x: 0.478, y: 0.4800012}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Liat_dodge_50_11
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Liat_dodge_50_11
       rect:
         serializedVersion: 2
         x: 100
@@ -203,9 +249,12 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: .580200493, y: .439500004}
+      pivot: {x: 0.5802005, y: 0.4395}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Liat_dodge_50_12
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Liat_dodge_50_12
       rect:
         serializedVersion: 2
         x: 0
@@ -213,9 +262,12 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: .580200493, y: .439500004}
+      pivot: {x: 0.5802005, y: 0.4395}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Liat_dodge_50_13
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Liat_dodge_50_13
       rect:
         serializedVersion: 2
         x: 50
@@ -223,9 +275,12 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: .477999985, y: .480001211}
+      pivot: {x: 0.478, y: 0.4800012}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Liat_dodge_50_14
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Liat_dodge_50_14
       rect:
         serializedVersion: 2
         x: 100
@@ -233,9 +288,12 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: .580200493, y: .439500004}
+      pivot: {x: 0.5802005, y: 0.4395}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Liat_dodge_50_15
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Liat_dodge_50_15
       rect:
         serializedVersion: 2
         x: 0
@@ -243,9 +301,12 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: .580200493, y: .439500004}
+      pivot: {x: 0.5802005, y: 0.4395}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Liat_dodge_50_16
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Liat_dodge_50_16
       rect:
         serializedVersion: 2
         x: 50
@@ -253,9 +314,12 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: .477999985, y: .480001211}
+      pivot: {x: 0.478, y: 0.4800012}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Liat_dodge_50_17
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Liat_dodge_50_17
       rect:
         serializedVersion: 2
         x: 100
@@ -263,9 +327,12 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: .580200493, y: .439500004}
+      pivot: {x: 0.5802005, y: 0.4395}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Liat_dodge_50_18
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Liat_dodge_50_18
       rect:
         serializedVersion: 2
         x: 0
@@ -273,9 +340,12 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: .580200493, y: .439500004}
+      pivot: {x: 0.5802005, y: 0.4395}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Liat_dodge_50_19
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Liat_dodge_50_19
       rect:
         serializedVersion: 2
         x: 50
@@ -283,9 +353,12 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: .477999985, y: .480001211}
+      pivot: {x: 0.478, y: 0.4800012}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Liat_dodge_50_20
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Liat_dodge_50_20
       rect:
         serializedVersion: 2
         x: 100
@@ -293,9 +366,12 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: .580200493, y: .439500004}
+      pivot: {x: 0.5802005, y: 0.4395}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Liat_dodge_50_21
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Liat_dodge_50_21
       rect:
         serializedVersion: 2
         x: 0
@@ -303,9 +379,12 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: .580200493, y: .439500004}
+      pivot: {x: 0.5802005, y: 0.4395}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Liat_dodge_50_22
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Liat_dodge_50_22
       rect:
         serializedVersion: 2
         x: 50
@@ -313,9 +392,12 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: .477999985, y: .480001211}
+      pivot: {x: 0.478, y: 0.4800012}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Liat_dodge_50_23
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Liat_dodge_50_23
       rect:
         serializedVersion: 2
         x: 100
@@ -323,9 +405,12 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: .580200493, y: .439500004}
+      pivot: {x: 0.5802005, y: 0.4395}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Liat_dodge_50_24
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Liat_dodge_50_24
       rect:
         serializedVersion: 2
         x: 0
@@ -333,9 +418,12 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: .580200493, y: .439500004}
+      pivot: {x: 0.5802005, y: 0.4395}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Liat_dodge_50_25
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Liat_dodge_50_25
       rect:
         serializedVersion: 2
         x: 50
@@ -343,9 +431,12 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: .477999985, y: .480001211}
+      pivot: {x: 0.478, y: 0.4800012}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Liat_dodge_50_26
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Liat_dodge_50_26
       rect:
         serializedVersion: 2
         x: 100
@@ -353,9 +444,12 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: .580200493, y: .439500004}
+      pivot: {x: 0.5802005, y: 0.4395}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Liat_dodge_50_27
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Liat_dodge_50_27
       rect:
         serializedVersion: 2
         x: 0
@@ -363,9 +457,12 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: .580200493, y: .439500004}
+      pivot: {x: 0.5802005, y: 0.4395}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Liat_dodge_50_28
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Liat_dodge_50_28
       rect:
         serializedVersion: 2
         x: 50
@@ -373,9 +470,12 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: .477999985, y: .480001211}
+      pivot: {x: 0.478, y: 0.4800012}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Liat_dodge_50_29
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Liat_dodge_50_29
       rect:
         serializedVersion: 2
         x: 100
@@ -383,9 +483,12 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: .580200493, y: .439500004}
+      pivot: {x: 0.5802005, y: 0.4395}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Liat_dodge_50_30
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Liat_dodge_50_30
       rect:
         serializedVersion: 2
         x: 0
@@ -393,9 +496,12 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: .580200493, y: .439500004}
+      pivot: {x: 0.5802005, y: 0.4395}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Liat_dodge_50_31
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Liat_dodge_50_31
       rect:
         serializedVersion: 2
         x: 50
@@ -403,9 +509,12 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: .477999985, y: .480001211}
+      pivot: {x: 0.478, y: 0.4800012}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Liat_dodge_50_32
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Liat_dodge_50_32
       rect:
         serializedVersion: 2
         x: 0
@@ -413,9 +522,12 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: .580200493, y: .439500004}
+      pivot: {x: 0.5802005, y: 0.4395}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Liat_dodge_50_33
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Liat_dodge_50_33
       rect:
         serializedVersion: 2
         x: 50
@@ -423,9 +535,12 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: .477999985, y: .480001211}
+      pivot: {x: 0.478, y: 0.4800012}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Liat_dodge_50_34
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Liat_dodge_50_34
       rect:
         serializedVersion: 2
         x: 0
@@ -433,9 +548,12 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: .580200493, y: .439500004}
+      pivot: {x: 0.5802005, y: 0.4395}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Liat_dodge_50_35
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Liat_dodge_50_35
       rect:
         serializedVersion: 2
         x: 50
@@ -443,8 +561,11 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: .477999985, y: .480001211}
+      pivot: {x: 0.478, y: 0.4800012}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    outline: []
   spritePackingTag: liat
   userData: 
   assetBundleName: 
