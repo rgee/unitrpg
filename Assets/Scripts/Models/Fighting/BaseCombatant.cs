@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Models.Fighting.AI;
+using Models.Fighting.AI.Brains;
 using Models.Fighting.Buffs;
 using Models.Fighting.Characters;
 using Models.Fighting.Equip;
@@ -56,7 +57,7 @@ namespace Models.Fighting {
                 .ToHashSet();
 
             if (army == ArmyType.Enemy) {
-                Brain = new PursueTarget(this, "liat");
+                Brain = new PursueNearest(this);
             }
         }
 

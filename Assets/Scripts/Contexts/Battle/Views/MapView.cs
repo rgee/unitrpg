@@ -53,7 +53,7 @@ namespace Contexts.Battle.Views {
         public IEnumerator MoveUnit(string id, List<Vector2> path) {
             var combatant = FindCombatantViewById(id);
             var dimensoins = GetDimensions(); 
-            var worldPositions = path.Skip(1).Select(pos => dimensoins.GetWorldPositionForGridPosition(pos)).ToList();
+            var worldPositions = path.Select(pos => dimensoins.GetWorldPositionForGridPosition(pos)).ToList();
             yield return StartCoroutine(DoMove(worldPositions, combatant));
         }
 

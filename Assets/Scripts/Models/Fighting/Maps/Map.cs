@@ -192,12 +192,22 @@ namespace Models.Fighting.Maps {
         }
 
         public List<Vector2> FindPath(Vector2 start, Vector2 goal) {
+            return FindPath(start, goal, false);
+        }
+
+        public List<Vector2> FindPath(Vector2 start, Vector2 goal, bool ignoreOtherUnits) {
             if (start == goal) {
                 return null;
             }
 
-            if (IsBlocked(goal)) {
-                return null;
+            if (ignoreOtherUnits) {
+                if (IsBlockedByEnvironment(goal)) {
+                    return null;
+                }                
+            } else {
+                if (IsBlocked(goal)) {
+                    return null;
+                }
             }
 
             var exactCosts = new Dictionary<Vector2, double>();
@@ -223,8 +233,14 @@ namespace Models.Fighting.Maps {
                         continue;
                     }
 
-                    if (IsBlocked(neighbor)) {
-                        continue;
+                    if (ignoreOtherUnits) {
+                        if (IsBlockedByEnvironment(neighbor)) {
+                            continue;
+                        }
+                    } else {
+                        if (IsBlocked(neighbor)) {
+                            continue;
+                        }
                     }
 
                     var tentativeScore = exactCosts[currentCheapest] + CalculateDistance(currentCheapest, neighbor);

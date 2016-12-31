@@ -61,7 +61,9 @@ namespace Contexts.Battle.Commands {
                 if (BattleViewModel.CurrentMovementPath != null) {
                     var map = BattleViewModel.Map;
                     var path = BattleViewModel.CurrentMovementPath;
-                    var action = new MoveAction(map, path.Combatant, path.Positions.Last(), path.Positions);
+                    var positions = path.Positions.GetRange(1, path.Positions.Count - 1);
+
+                    var action = new MoveAction(map, path.Combatant, positions.Last(), positions);
                     AnimateActionSignal.Dispatch(action);
                     BattleViewModel.State = BattleUIState.CombatantMoving;
                 }
