@@ -2,6 +2,7 @@
 using System.Linq;
 using Models.Fighting.Battle;
 using Models.Fighting.Characters;
+using UnityEngine;
 
 namespace Models.Fighting.AI {
     /// <summary>
@@ -16,11 +17,18 @@ namespace Models.Fighting.AI {
 
         public IList<ICombatAction> ComputeTurnActions() {
             var livingEnemies = _battle.GetAliveByArmy(ArmyType.Enemy);
-            var brains = livingEnemies.Select(enemy => enemy.Brain).Where(brain => brain != null).ToList();
+            var enemiesWithAi = livingEnemies.Where(enemy => enemy.Brain != null).ToList();
 
-            return brains.Select(brain => brain.ComputeAction(_battle))
-                .Where(action => action != null)
-                .ToList();
+            return enemiesWithAi.Select(enemy => {
+                var watch = System.Diagnostics.Stopwatch.StartNew();
+                var result = enemy.Brain.ComputeAction(_battle);
+                var endTime = watch.ElapsedMilliseconds;
+
+                Debug.LogFormat("Enemy {0} took {1} milliseconds to compute move", enemy.Name, endTime);
+                return result;
+            })
+            .Where(action => action != null)
+            .ToList();
         }
     }
 }

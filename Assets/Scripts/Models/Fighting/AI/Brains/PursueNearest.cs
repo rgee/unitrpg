@@ -4,6 +4,7 @@ using Models.Fighting.Characters;
 using Models.Fighting.Equip;
 using Models.Fighting.Maps;
 using Models.Fighting.Skills;
+using UnityEngine;
 
 namespace Models.Fighting.AI.Brains {
     public class PursueNearest : ICombatantBrain {
@@ -34,11 +35,10 @@ namespace Models.Fighting.AI.Brains {
                 }
 
                 // If there's actually a path to the target, move there
-                var path = map.FindPath(_self.Position, _target.Position, true);
+                var path = map.FindPathToAdjacentTile(_self.Position, _target.Position);
                 if (path != null) {
-                    // Remove the last node because it's exactly where the target is standing
                     // Remove the first node because it's exactly where we're standing
-                    path = path.GetRange(1, path.Count - 2);
+                    path = path.GetRange(1, path.Count - 1);
 
                     var destination = path[path.Count - 1];
                     return new MoveAction(map, _self, destination, path);
@@ -59,7 +59,7 @@ namespace Models.Fighting.AI.Brains {
             }
 
             _target = potentials.OrderBy(target => {
-                var path = map.FindPath(_self.Position, target.Position, true);
+                var path = map.FindPathToAdjacentTile(_self.Position, target.Position);
                 return path == null ? int.MaxValue : path.Count;
             }).First();
 

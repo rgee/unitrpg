@@ -119,7 +119,8 @@ namespace Models.Fighting.Maps {
         public void MoveCombatant(ICombatant combatant, Vector2 position) {
             var destination = GetTileByPosition(position);
             if (destination.Occupant != null) {
-                throw new ArgumentException("There's already a combatant " + "(" + destination.Occupant.Name + ")" + " at "+ position);
+                throw new ArgumentException("There's already a combatant " + "(" + destination.Occupant.Name + ")" +
+                                            " at " + position);
             }
 
             if (destination.Obstructed) {
@@ -148,11 +149,11 @@ namespace Models.Fighting.Maps {
         }
 
         public HashSet<Vector2> BreadthFirstSearch(Vector2 start, int maxDistance, bool ignoreOtherUnits) {
-            var fringe = new Queue<Vector2>();            
+            var fringe = new Queue<Vector2>();
             var results = new HashSet<Vector2>();
             var distances = new Dictionary<Vector2, int>();
             distances[start] = 1;
-            
+
             fringe.Enqueue(start);
             while (fringe.Count > 0) {
                 var current = fringe.Dequeue();
@@ -175,10 +176,10 @@ namespace Models.Fighting.Maps {
                     if (ignoreOtherUnits) {
                         return !IsBlockedByEnvironment(neighbor);
                     }
-                    
+
                     return !IsBlocked(neighbor);
                 });
-                
+
                 foreach (var node in openNeighbors) {
                     if (!results.Contains(node)) {
                         fringe.Enqueue(node);
@@ -187,27 +188,25 @@ namespace Models.Fighting.Maps {
                     }
                 }
             }
-            
+
             return results;
         }
 
-        public List<Vector2> FindPath(Vector2 start, Vector2 goal) {
-            return FindPath(start, goal, false);
-        }
-
-        public List<Vector2> FindPath(Vector2 start, Vector2 goal, bool ignoreOtherUnits) {
-            if (start == goal) {
-                return null;
+        public List<Vector2> FindPathToAdjacentTile(Vector2 start, Vector2 goal) {
+            var adjacentLocations = MathUtils.GetAdjacentPoints(goal);
+            foreach (var point in adjacentLocations) {
+                var path = FindPath(start, point);
+                if (path != null) {
+                    return path;
+                }
             }
 
-            if (ignoreOtherUnits) {
-                if (IsBlockedByEnvironment(goal)) {
-                    return null;
-                }                
-            } else {
-                if (IsBlocked(goal)) {
-                    return null;
-                }
+            return null;
+        }
+
+        public List<Vector2> FindPath(Vector2 start, Vector2 goal) {
+            if (start == goal || IsBlocked(goal)) {
+                return null;
             }
 
             var exactCosts = new Dictionary<Vector2, double>();
@@ -229,18 +228,8 @@ namespace Models.Fighting.Maps {
                 closedNodes.Add(currentCheapest);
                 var neighbors = MathUtils.GetAdjacentPoints(currentCheapest);
                 foreach (var neighbor in neighbors) {
-                    if (closedNodes.Contains(neighbor)) {
+                    if (closedNodes.Contains(neighbor) || IsBlocked(neighbor)) {
                         continue;
-                    }
-
-                    if (ignoreOtherUnits) {
-                        if (IsBlockedByEnvironment(neighbor)) {
-                            continue;
-                        }
-                    } else {
-                        if (IsBlocked(neighbor)) {
-                            continue;
-                        }
                     }
 
                     var tentativeScore = exactCosts[currentCheapest] + CalculateDistance(currentCheapest, neighbor);

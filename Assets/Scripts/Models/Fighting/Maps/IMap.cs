@@ -41,8 +41,8 @@ namespace Models.Fighting.Maps {
 
         HashSet<Vector2> BreadthFirstSearch(Vector2 start, int maxDistance, bool ignoreOtherUnits);
 
+        List<Vector2> FindPathToAdjacentTile(Vector2 start, Vector2 goal);
+        
         List<Vector2> FindPath(Vector2 start, Vector2 goal);
-
-        List<Vector2> FindPath(Vector2 start, Vector2 goal, bool ignoreOtherUnits);
     }
 }
