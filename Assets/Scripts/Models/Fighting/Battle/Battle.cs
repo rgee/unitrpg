@@ -160,7 +160,6 @@ namespace Models.Fighting.Battle {
 
         public void EndTurn() {
             var nextArmy = NextPhase.GetArmyType();
-            Debug.Log("New turn with combatants from army: " + nextArmy);
 
             TurnNumber++;
             _currentTurn = new Turn(_combatants, nextArmy);
