@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using Contexts.Battle.Models;
 using Contexts.Battle.Signals;
 using Contexts.Battle.Utilities;
@@ -39,24 +40,22 @@ namespace Contexts.Battle.Views {
         public ActionCompleteSignal ActionCompleteSignal{ get; set; }
 
         [Inject]
-        public NewFinalizedFightSignal FinalizedFightSignal { get; set; }
-
-        [Inject]
         public ContextRequestedSignal ContextRequestedSignal { get; set; }
 
         [Inject]
         public ISaveGameService SaveGameService { get; set; }
 
         [Inject]
+        public AnimateActionSignal AnimateActionSignal { get; set; }
+
+        [Inject]
         public Game Game { get; set; }
 
         public override void OnRegister() {
             View.MapClicked.AddListener(OnMapClicked);
-            View.MoveComplete.AddListener(OnMoveComplete);
             View.MapHovered.AddListener(OnMapHovered);
-            View.FightComplete.AddListener(OnFightComplete);
             View.MapRightClicked.AddListener(OnRightClick);
-            FinalizedFightSignal.AddListener(OnFight);
+            AnimateActionSignal.AddListener(AnimateAction);
 
             if (!Game.Maps.ContainsKey(View.MapId)) {
                 throw new Exception("Could not find map by id " + View.MapId);
@@ -77,31 +76,35 @@ namespace Contexts.Battle.Views {
             View.CombatantDatabase = combatantDb;
             View.Map = map;
 
-            MoveCombatantSignal.AddListener(OnMove);
             GatherSignal.AddOnce(() => {
                 var config = new MapConfiguration(View.GetDimensions(), View.Map, combatantDb, View.ChapterNumber);
                 InitializeMapSignal.Dispatch(config);
             });
         }
 
+        private void AnimateAction(ICombatAction action) {
+            if (action is MoveAction) {
+                var move = action as MoveAction;
+                StartCoroutine(AnimateMove(move));
+            } else if (action is FightAction) {
+                var fight = action as FightAction;
+                StartCoroutine(AnimateFight(fight));
+            }
+        }
+
+        private IEnumerator AnimateFight(FightAction action) {
+            yield return StartCoroutine(View.AnimateFight(action.Fight));
+            ActionCompleteSignal.Dispatch(action);
+        }
+
+        private IEnumerator AnimateMove(MoveAction action) {
+            var combatant = action.Combatant;
+            yield return StartCoroutine(View.MoveUnit(combatant.Id, action.Path));
+            ActionCompleteSignal.Dispatch(action);
+        }
+
         private void OnRightClick(Vector2 position) {
             ContextRequestedSignal.Dispatch(position);
-        }
-
-        private void OnMoveComplete() {
-           ActionCompleteSignal.Dispatch();
-        }
-
-        private void OnFightComplete() {
-           ActionCompleteSignal.Dispatch();   
-        }
-
-        private void OnMove(MovementPath path) {
-            View.MoveUnit(path.Combatant.Id, path.Positions);
-        }
-
-        private void OnFight(FinalizedFight finalizedFight) {
-            View.AnimateFight(finalizedFight);
         }
 
         private void OnMapHovered(Vector2 hoverPosition) {

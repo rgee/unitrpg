@@ -1,9 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using Models.Fighting.Maps.Triggers;
+using strange.extensions.signal.impl;
 
 namespace Models.Fighting.Maps {
     public interface IMap {
+        Signal<EventTile> EventTileTriggeredSignal { get; }
+
         void AddCombatant(ICombatant combatant);
 
         void RemoveCombatant(ICombatant combatant);
@@ -32,10 +35,14 @@ namespace Models.Fighting.Maps {
 
         EventTile GetEventTile(Vector2 location);
 
+        void TriggerEventTile(Vector2 location);
+
 
 
         HashSet<Vector2> BreadthFirstSearch(Vector2 start, int maxDistance, bool ignoreOtherUnits);
 
+        List<Vector2> FindPathToAdjacentTile(Vector2 start, Vector2 goal);
+        
         List<Vector2> FindPath(Vector2 start, Vector2 goal);
     }
 }

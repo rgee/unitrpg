@@ -34,9 +34,6 @@ namespace Contexts.Battle.Commands {
         public FightForecastDisableSignal FightForecastDisableSignal { get; set; }
 
         [Inject]
-        public EnemyTurnCompleteSignal EnemyTurnCompleteSignal { get; set; }
-
-        [Inject]
         public HoverTileEnableSignal HoverTileEnableSignal { get; set; }
 
         [Inject]
@@ -44,6 +41,12 @@ namespace Contexts.Battle.Commands {
 
         [Inject]
         public CameraUnlockSignal CameraUnlockSignal { get; set; }
+
+        [Inject]
+        public EnemyTurnStartSignal EnemyTurnStartSignal { get; set; }
+
+        [Inject]
+        public AnimateActionSignal AnimateActionSignal { get; set; }
 
         public override void Execute() {
             Debug.LogFormat("State Transition from {0} to {1}", Transition.Previous, Transition.Next);
@@ -119,6 +122,7 @@ namespace Contexts.Battle.Commands {
                     break;
                 case BattleUIState.Fighting:
                     HoverTileDisableSignal.Dispatch();
+                    AnimateActionSignal.Dispatch(Model.PendingAction);
                     break;
                 case BattleUIState.Uninitialized:
                     break;
@@ -129,8 +133,7 @@ namespace Contexts.Battle.Commands {
                 case BattleUIState.EnemyTurn:
                     CameraLockSignal.Dispatch();
                     HoverTileDisableSignal.Dispatch();
-                    // TODO: Implement enemy turn AI
-                    EnemyTurnCompleteSignal.Dispatch();
+                    EnemyTurnStartSignal.Dispatch();
                     break;
                 case BattleUIState.ContextMenu:
                     HoverTileDisableSignal.Dispatch();

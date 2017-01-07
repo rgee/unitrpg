@@ -2,6 +2,9 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using Pathfinding;
+#if UNITY_5_5_OR_NEWER
+using UnityEngine.Profiling;
+#endif
 
 #if NETFX_CORE
 using Thread = Pathfinding.WindowsStore.Thread;
@@ -26,7 +29,7 @@ public class AstarPath : MonoBehaviour {
 	 */
 	public static System.Version Version {
 		get {
-			return new System.Version(3, 8, 6);
+			return new System.Version(3, 8, 7);
 		}
 	}
 

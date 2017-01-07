@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using Contexts.Battle.Models;
 using Contexts.Battle.Signals;
+using Models.Fighting.Battle;
 using strange.extensions.command.impl;
 using UnityEngine;
 
 namespace Contexts.Battle.Commands {
     public class ActionCompleteCommand : Command {
+        [Inject]
+        public ICombatAction Action { get; set; }
+
         [Inject]
         public BattleViewState Model { get; set; }
 
@@ -24,18 +28,12 @@ namespace Contexts.Battle.Commands {
         public BattleEventRegistry BattleEventRegistry { get; set; }
 
         public override void Execute() {
-            // Flush the move action
-            var battle = Model.Battle;
-            if (Model.State == BattleUIState.CombatantMoving) {
-                var path = Model.CurrentMovementPath.Positions.Skip(1).ToList();
-                battle.MoveCombatant(Model.CurrentMovementPath.Combatant, path);
-            } else if (Model.State == BattleUIState.Fighting) {
-                battle.ExecuteFight(Model.FinalizedFight);
-            }
-
             if (Model.State == BattleUIState.Uninitialized) {
                 return;
             }
+
+            var battle = Model.Battle;
+            battle.SubmitAction(Action);
 
             if (battle.IsWon()) {
                 Debug.Log("The battle is won.");

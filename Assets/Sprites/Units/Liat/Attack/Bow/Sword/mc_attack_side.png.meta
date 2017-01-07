@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: c9c0e4ef9a7314384ae3410146f00dec
-timeCreated: 1434901380
+timeCreated: 1482442874
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -13,12 +13,12 @@ TextureImporter:
     21300012: mc_attack_side_6
     21300014: mc_attack_side_7
     21300016: mc_attack_side_8
-  serializedVersion: 2
+  serializedVersion: 4
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
+    sRGBTexture: 1
     linearTexture: 0
-    correctGamma: 0
     fadeOut: 0
     borderMipMap: 0
     mipMapFadeDistanceStart: 1
@@ -26,14 +26,12 @@ TextureImporter:
   bumpmap:
     convertToNormalMap: 0
     externalNormalMap: 0
-    heightScale: .25
+    heightScale: 0.25
     normalMapFilter: 0
   isReadable: 1
   grayScaleToAlpha: 0
-  generateCubemap: 0
+  generateCubemap: 6
   cubemapConvolution: 0
-  cubemapConvolutionSteps: 8
-  cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
   textureFormat: -3
   maxTextureSize: 8192
@@ -44,21 +42,36 @@ TextureImporter:
     wrapMode: 1
   nPOTScale: 0
   lightmap: 0
-  rGBM: 0
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
-  spritePivot: {x: .5, y: .5}
+  spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 1
+  alphaUsage: 1
   alphaIsTransparency: 1
-  textureType: 5
-  buildTargetSettings: []
+  spriteTessellationDetail: -1
+  textureType: 0
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
   spriteSheet:
+    serializedVersion: 2
     sprites:
-    - name: mc_attack_side_0
+    - serializedVersion: 2
+      name: mc_attack_side_0
       rect:
         serializedVersion: 2
         x: 0
@@ -66,9 +79,12 @@ TextureImporter:
         width: 70
         height: 70
       alignment: 9
-      pivot: {x: .428297818, y: .485000014}
+      pivot: {x: 0.42829782, y: 0.485}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: mc_attack_side_1
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: mc_attack_side_1
       rect:
         serializedVersion: 2
         x: 0
@@ -76,9 +92,12 @@ TextureImporter:
         width: 70
         height: 70
       alignment: 9
-      pivot: {x: .428297818, y: .485000014}
+      pivot: {x: 0.42829782, y: 0.485}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: mc_attack_side_2
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: mc_attack_side_2
       rect:
         serializedVersion: 2
         x: 0
@@ -86,9 +105,12 @@ TextureImporter:
         width: 70
         height: 70
       alignment: 9
-      pivot: {x: .428297788, y: .470670015}
+      pivot: {x: 0.4282978, y: 0.47067}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: mc_attack_side_3
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: mc_attack_side_3
       rect:
         serializedVersion: 2
         x: 0
@@ -96,9 +118,12 @@ TextureImporter:
         width: 70
         height: 70
       alignment: 9
-      pivot: {x: .428297818, y: .485000014}
+      pivot: {x: 0.42829782, y: 0.485}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: mc_attack_side_4
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: mc_attack_side_4
       rect:
         serializedVersion: 2
         x: 0
@@ -106,9 +131,12 @@ TextureImporter:
         width: 70
         height: 70
       alignment: 9
-      pivot: {x: .428297818, y: .485000014}
+      pivot: {x: 0.42829782, y: 0.485}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: mc_attack_side_5
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: mc_attack_side_5
       rect:
         serializedVersion: 2
         x: 0
@@ -116,9 +144,12 @@ TextureImporter:
         width: 70
         height: 70
       alignment: 9
-      pivot: {x: .428297818, y: .485000014}
+      pivot: {x: 0.42829782, y: 0.485}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: mc_attack_side_6
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: mc_attack_side_6
       rect:
         serializedVersion: 2
         x: 0
@@ -126,9 +157,12 @@ TextureImporter:
         width: 70
         height: 70
       alignment: 9
-      pivot: {x: .428297818, y: .485000014}
+      pivot: {x: 0.42829782, y: 0.485}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: mc_attack_side_7
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: mc_attack_side_7
       rect:
         serializedVersion: 2
         x: 0
@@ -136,9 +170,12 @@ TextureImporter:
         width: 70
         height: 70
       alignment: 9
-      pivot: {x: .428297818, y: .485000014}
+      pivot: {x: 0.42829782, y: 0.485}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: mc_attack_side_8
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: mc_attack_side_8
       rect:
         serializedVersion: 2
         x: 0
@@ -146,8 +183,11 @@ TextureImporter:
         width: 70
         height: 70
       alignment: 9
-      pivot: {x: .428297818, y: .485000014}
+      pivot: {x: 0.42829782, y: 0.485}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    outline: []
   spritePackingTag: liat
   userData: 
   assetBundleName: 

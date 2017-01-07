@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Remoting;
+using Contexts.Battle.Models;
+using Models.Fighting.AI;
 using Models.Fighting.Battle.Objectives;
 using Models.Fighting.Characters;
 using Models.Fighting.Execution;
 using Models.Fighting.Maps;
-using Models.Fighting.Maps.Configuration;
 using Models.Fighting.Maps.Triggers;
 using Models.Fighting.Skills;
 using strange.extensions.signal.impl;
@@ -14,18 +14,18 @@ using UnityEngine;
 
 namespace Models.Fighting.Battle {
     public class Battle : IBattle {
+        public IMap Map { get; private set; }
         public int TurnNumber { get; private set; }
         public Signal<string> EventTileSignal { get; private set; }
 
-        private readonly FightExecutor _executor = new FightExecutor();
         private readonly IRandomizer _randomizer;
         private readonly FightForecaster _forecaster;
         private readonly FightFinalizer _finalizer;
         private readonly List<ArmyType> _turnOrder;
         private readonly ICombatantDatabase _combatants;
         private readonly Dictionary<string, ICombatant> _combatantsById = new Dictionary<string, ICombatant>();
-        private readonly IMap _map;
         private readonly List<IObjective> _objectives;
+        private readonly IEnemyAICoordinator _ai;
         private Turn _currentTurn;
 
         public Battle(IMap map, IRandomizer randomizer, ICombatantDatabase combatants, List<ArmyType> turnOrder, List<IObjective> objectives, 
@@ -33,40 +33,49 @@ namespace Models.Fighting.Battle {
             TurnNumber = 0;
             EventTileSignal = new Signal<string>();
             _objectives = objectives;
-            _map = map;
+            Map = map;
             _randomizer = randomizer;
             _combatants = combatants;
+
+            map.EventTileTriggeredSignal.AddListener(_relayEvent);
+
+            _ai = new EnemyAICoordinator(this);
 
             var skillDatabase = new SkillDatabase(map);
             _forecaster = new FightForecaster(map, skillDatabase);
             _finalizer = new FightFinalizer(skillDatabase);
-            _turnOrder = turnOrder;
+            _turnOrder = turnOrder
+                .Where(army => combatants.GetCombatantsByArmy(army).Count > 0)
+                .ToList();
 
             foreach (var combatant in combatants.GetAllCombatants()) {
                 RegisterCombatant(combatant, map);
             }
 
             foreach (var eventTile in eventTiles) {
-                _map.AddEventTile(eventTile);
+                Map.AddEventTile(eventTile);
             }
 
-            var firstArmy = _turnOrder[TurnNumber];
-            var firstCombatants = _combatants.GetCombatantsByArmy(firstArmy);
-            _currentTurn = new Turn(firstCombatants);
+            var firstArmy = _turnOrder[0];
+            _currentTurn = new Turn(_combatants, firstArmy);
+        }
+
+        public IList<ICombatAction> ComputeEnemyActions() {
+            return _ai.ComputeTurnActions();
         }
 
         public void SpawnCombatant(ICombatant combatant) {
-            _map.AddCombatant(combatant);
-            RegisterCombatant(combatant, _map);
+            Map.AddCombatant(combatant);
+            RegisterCombatant(combatant, Map);
             _currentTurn.AddNewCombatant(combatant);
         }
 
         public void AddEventTile(EventTile eventTile) {
-            _map.AddEventTile(eventTile);
+            Map.AddEventTile(eventTile);
         }
 
         public void RemoveEventTile(Vector2 location) {
-            _map.RemoveEventTile(location);
+            Map.RemoveEventTile(location);
         }
 
         private void RegisterCombatant(ICombatant combatant, IMap map) {
@@ -87,42 +96,12 @@ namespace Models.Fighting.Battle {
             return _objectives.Any(obj => obj.HasFailed(this));
         }
 
-        public void MoveCombatant(ICombatant combatant, List<Vector2> path) {
-            _validateMove(combatant, path);
-
-            _map.MoveCombatant(combatant, path.Last());
-            _currentTurn.MarkMove(combatant, path.Count);
-            _processTriggers(path);
-        }
-
-        private void _processTriggers(IEnumerable<Vector2> path) {
-            foreach (var tile in path) {
-                var eventTile = _map.GetEventTile(tile);
-                if (eventTile != null && eventTile.InteractionMode == InteractionMode.Walk) {
-                    Debug.Log("Dispatching event tile trigger event: " + eventTile.EventName);
-                    EventTileSignal.Dispatch(eventTile.EventName);
-                    if (eventTile.OneTimeUse) {
-                        _map.RemoveEventTile(tile);
-                    }
-                }
-            }
-        }
-
-        private void _validateMove(ICombatant combatant, List<Vector2> path) {
-            if (_currentTurn.GetRemainingMoveDistance(combatant) < path.Count) {
-               throw new InvalidActionException(combatant.Id + " has already moved this turn.");
-            }
-
-            foreach (var location in path) {
-                if (location != combatant.Position && _map.IsBlocked(location)) {
-                    var error = string.Format("Location ({0}, {1}) is blocked.", location.x, location.y);
-                    throw new InvalidActionException(error);
-                }
-            }
+        private void _relayEvent(EventTile eventTile) {
+            EventTileSignal.Dispatch(eventTile.EventName);
         }
 
         public List<ICombatant> GetAliveByArmy(ArmyType army) {
-            return _map.GetAllOnMap()
+            return Map.GetAllOnMap()
                 .Where(combatant => combatant.Army == army)
                 .ToList();
         }
@@ -144,11 +123,6 @@ namespace Models.Fighting.Battle {
             return SkillType.Melee;
         }
 
-        public void ExecuteFight(FinalizedFight fight) {
-            _executor.Execute(fight);
-            _currentTurn.MarkAction(fight.InitialPhase.Initiator);
-        }
-
         public int GetMaxWeaponAttackRange(ICombatant combatant) {
             var weapons = combatant.EquippedWeapons;
             return weapons.Max(weapon => weapon.Range);
@@ -162,24 +136,33 @@ namespace Models.Fighting.Battle {
             return _currentTurn.GetRemainingMoveDistance(combatant);
         }
 
-        public void EndTurn() {
-            var combatants = new List<ICombatant>();
-            var turnCount = TurnNumber;
-            var seenArmies = new HashSet<ArmyType>();
+        public BattlePhase NextPhase {
+            get {
+                var index = _turnOrder.IndexOf(_currentTurn.Army) + 1;
+                var seenArmies = 0;
 
-            while (combatants.Count <= 0) {
-                var armyIndex = turnCount % _turnOrder.Count;
-                var army = _turnOrder[armyIndex];
-                seenArmies.Add(army);
-                combatants = _combatants.GetCombatantsByArmy(army);
-                turnCount++;
+                while (true) {
+                    var armyIndex = index % _turnOrder.Count;
+                    var army = _turnOrder[armyIndex];
+                    if (_combatants.GetCombatantsByArmy(army).Count > 0) {
+                        return army.GetBattlePhase();
+                    }
 
-                if (seenArmies.Contains(army)) {
-                    break;
+                    if (seenArmies >= Enum.GetNames(typeof(ArmyType)).Length) {
+                        throw new Exception("No eligible next battle phase.");
+                    }
+
+                    index++;
+                    seenArmies++;
                 }
             }
+        }
 
-            _currentTurn = new Turn(combatants);
+        public void EndTurn() {
+            var nextArmy = NextPhase.GetArmyType();
+
+            TurnNumber++;
+            _currentTurn = new Turn(_combatants, nextArmy);
         }
 
         public void SubmitAction(ICombatAction action) {

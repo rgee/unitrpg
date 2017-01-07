@@ -16,9 +16,7 @@ namespace Contexts.BattlePrep.Commands {
 
         public override void Execute() {
             var saveGame = SaveGameService.CurrentSave;
-            var lastCompleted = saveGame.ChapterNumber;
-            var currentBattle = lastCompleted + 1;
-            var config = BattleConfigRepository.GetConfigByIndex(currentBattle);
+            var config = BattleConfigRepository.GetConfigByIndex(saveGame.LastCompletedChapterNumber);
 
             BattleConfigSignal.Dispatch(config);
         }

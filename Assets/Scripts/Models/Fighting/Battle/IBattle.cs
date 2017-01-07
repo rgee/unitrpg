@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
+using Contexts.Battle.Models;
 using Models.Fighting.Battle.Objectives;
 using Models.Fighting.Characters;
 using Models.Fighting.Execution;
+using Models.Fighting.Maps;
 using Models.Fighting.Maps.Triggers;
 using Models.Fighting.Skills;
 using strange.extensions.signal.impl;
@@ -15,7 +17,11 @@ namespace Models.Fighting.Battle {
 
         int TurnNumber { get; }
 
+        IMap Map { get; }
+
         Signal<string> EventTileSignal { get; }
+
+        IList<ICombatAction> ComputeEnemyActions();
 
         void SubmitAction(ICombatAction action);
 
@@ -31,11 +37,11 @@ namespace Models.Fighting.Battle {
 
         void SpawnCombatant(ICombatant combatant);
 
+        BattlePhase NextPhase { get; }
+
         FightForecast ForecastFight(ICombatant attacker, ICombatant defender, SkillType type);
 
         FinalizedFight FinalizeFight(FightForecast forecast);
-
-        void ExecuteFight(FinalizedFight fight);
 
         int GetMaxWeaponAttackRange(ICombatant combatant);
 
@@ -46,8 +52,6 @@ namespace Models.Fighting.Battle {
         bool IsWon();
 
         bool IsLost();
-
-        void MoveCombatant(ICombatant combatant, List<Vector2> path);
 
         void AddEventTile(EventTile eventTile);
 

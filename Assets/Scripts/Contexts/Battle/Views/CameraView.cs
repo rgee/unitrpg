@@ -1,4 +1,6 @@
-﻿using strange.extensions.mediation.impl;
+﻿using System.Collections;
+using DG.Tweening;
+using strange.extensions.mediation.impl;
 using UnityEngine;
 
 namespace Contexts.Battle.Views {
@@ -17,6 +19,11 @@ namespace Contexts.Battle.Views {
             var adjustment = new Vector3(hSpeed, vSpeed, 0);
 
             transform.Translate(adjustment);
+        }
+
+        public IEnumerator PanTo(Vector3 target) {
+            var tween = transform.DOMove(target, 0.3f);
+            yield return tween.WaitForCompletion();
         }
 
         public void Lock() {

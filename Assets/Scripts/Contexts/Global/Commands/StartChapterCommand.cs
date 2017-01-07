@@ -31,7 +31,7 @@ namespace Contexts.Global.Commands {
 
         public override void Execute() {
             var save = SaveGameService.CurrentSave;
-            var battleConfig = BattleConfigRepository.GetConfigByIndex(save.ChapterNumber);
+            var battleConfig = BattleConfigRepository.GetConfigByIndex(save.LastCompletedChapterNumber);
             var preBattleCutscenes = battleConfig.DialogueResourceSequence;
             if (preBattleCutscenes.Count > 0) {
                 var parsedCutscenes = preBattleCutscenes.Select(name => CutsceneLoader.Load(name)).ToList();

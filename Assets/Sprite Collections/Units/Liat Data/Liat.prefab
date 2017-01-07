@@ -5,10 +5,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 449208}
-  - 114: {fileID: 11400882}
+  - component: {fileID: 449208}
+  - component: {fileID: 11400882}
   m_Layer: 0
   m_Name: Liat
   m_TagString: Untagged
@@ -28,6 +28,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &11400882
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7299,7 +7300,7 @@ MonoBehaviour:
   loadable: 0
   invOrthoSize: 2
   halfTargetHeight: 0.5
-  buildKey: 1994582628
+  buildKey: 1653916863
   dataGuid: c5b8422c97ea4904fbe130fd35e954d2
   managedSpriteCollection: 0
   hasPlatformData: 0

@@ -1,5 +1,9 @@
 /** \page changelog Changelog
 
+- 3.8.7 (2016-11-26)
+	- Fixes
+		- Improved compatibility with Unity 5.5 which was needed due to the newly introduced UnityEngine.Profiling namespace.
+
 - 3.8.6 (2016-10-31)
 	- Upgrade Notes
 		- Note that a few features and some fixes that have been available in the beta releases are not
