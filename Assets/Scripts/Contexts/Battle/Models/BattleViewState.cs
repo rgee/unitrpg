@@ -131,25 +131,12 @@ namespace Contexts.Battle.Models {
 
             uiStateMachine.Configure(CombatUIState.Fighting)
                 .Permit(CombatUITriggers.FightComplete, CombatUIState.Default);
+            Phase = BattlePhase.NotStarted;
         }
 
 
         public BattlePhase SelectNextPhase() {
-            
-            var phaseOrder = new List<BattlePhase> {BattlePhase.Player, BattlePhase.Enemy, BattlePhase.Other};
-            var nextPhase = Phase;
-            var hasUnits = false;
-            while (!hasUnits) {
-                nextPhase = phaseOrder[(phaseOrder.IndexOf(nextPhase) + 1)%phaseOrder.Count];
-
-                if (nextPhase == Phase) {
-                    return nextPhase;
-                }
-
-                hasUnits = Battle.GetAliveByArmy(GetArmyType(nextPhase)).Any();
-            }
-
-            return nextPhase;
+            return Battle.NextPhase;
         }
 
         private static ArmyType GetArmyType(BattlePhase phase) {

@@ -38,6 +38,7 @@ namespace Models.Fighting.Battle {
         }
 
         public void Perform(Turn turn) {
+            Debug.LogFormat("Moving Combatant {0} to {1}", Combatant.Name, _destination);
             _map.MoveCombatant(Combatant, _destination);
             turn.MarkMove(Combatant, _pathLength);
 

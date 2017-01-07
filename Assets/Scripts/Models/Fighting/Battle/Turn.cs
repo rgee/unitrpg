@@ -1,15 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Contexts.Battle.Models;
+using Models.Fighting.Characters;
 
 namespace Models.Fighting.Battle {
     public class Turn {
         private readonly Dictionary<string, int> _movesRemaining = new Dictionary<string, int>();  
         private readonly Dictionary<string, bool> _actionTaken = new Dictionary<string, bool>();
-        private readonly List<ICombatant> _combatants; 
+        private readonly List<ICombatant> _combatants;
+        public readonly ArmyType Army;
 
-        public Turn(List<ICombatant> combatants) {
-            _combatants = combatants;
+        public Turn(ICombatantDatabase combatantDatabase, ArmyType army) {
+            Army = army;
+            _combatants = combatantDatabase.GetCombatantsByArmy(army);
             _combatants.ForEach(AddNewCombatant);
         }
 

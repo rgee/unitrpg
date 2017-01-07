@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Remoting;
+using Contexts.Battle.Models;
 using Models.Fighting.AI;
 using Models.Fighting.Battle.Objectives;
 using Models.Fighting.Characters;
 using Models.Fighting.Execution;
 using Models.Fighting.Maps;
-using Models.Fighting.Maps.Configuration;
 using Models.Fighting.Maps.Triggers;
 using Models.Fighting.Skills;
 using strange.extensions.signal.impl;
@@ -19,7 +18,6 @@ namespace Models.Fighting.Battle {
         public int TurnNumber { get; private set; }
         public Signal<string> EventTileSignal { get; private set; }
 
-        private readonly FightExecutor _executor = new FightExecutor();
         private readonly IRandomizer _randomizer;
         private readonly FightForecaster _forecaster;
         private readonly FightFinalizer _finalizer;
@@ -46,7 +44,9 @@ namespace Models.Fighting.Battle {
             var skillDatabase = new SkillDatabase(map);
             _forecaster = new FightForecaster(map, skillDatabase);
             _finalizer = new FightFinalizer(skillDatabase);
-            _turnOrder = turnOrder;
+            _turnOrder = turnOrder
+                .Where(army => combatants.GetCombatantsByArmy(army).Count > 0)
+                .ToList();
 
             foreach (var combatant in combatants.GetAllCombatants()) {
                 RegisterCombatant(combatant, map);
@@ -56,9 +56,8 @@ namespace Models.Fighting.Battle {
                 Map.AddEventTile(eventTile);
             }
 
-            var firstArmy = _turnOrder[TurnNumber];
-            var firstCombatants = _combatants.GetCombatantsByArmy(firstArmy);
-            _currentTurn = new Turn(firstCombatants);
+            var firstArmy = _turnOrder[0];
+            _currentTurn = new Turn(_combatants, firstArmy);
         }
 
         public IList<ICombatAction> ComputeEnemyActions() {
@@ -97,28 +96,8 @@ namespace Models.Fighting.Battle {
             return _objectives.Any(obj => obj.HasFailed(this));
         }
 
-        public void MoveCombatant(ICombatant combatant, List<Vector2> path) {
-            _validateMove(combatant, path);
-
-            Map.MoveCombatant(combatant, path.Last());
-            _currentTurn.MarkMove(combatant, path.Count);
-        }
-
         private void _relayEvent(EventTile eventTile) {
             EventTileSignal.Dispatch(eventTile.EventName);
-        }
-
-        private void _validateMove(ICombatant combatant, List<Vector2> path) {
-            if (_currentTurn.GetRemainingMoveDistance(combatant) < path.Count) {
-               throw new InvalidActionException(combatant.Id + " has already moved this turn.");
-            }
-
-            foreach (var location in path) {
-                if (location != combatant.Position && Map.IsBlocked(location)) {
-                    var error = string.Format("Location ({0}, {1}) is blocked.", location.x, location.y);
-                    throw new InvalidActionException(error);
-                }
-            }
         }
 
         public List<ICombatant> GetAliveByArmy(ArmyType army) {
@@ -157,25 +136,34 @@ namespace Models.Fighting.Battle {
             return _currentTurn.GetRemainingMoveDistance(combatant);
         }
 
-        public void EndTurn() {
-            var combatants = new List<ICombatant>();
-            var seenArmies = new HashSet<ArmyType>();
-            var index = TurnNumber;
+        public BattlePhase NextPhase {
+            get {
+                var index = _turnOrder.IndexOf(_currentTurn.Army) + 1;
+                var seenArmies = 0;
 
-            while (combatants.Count <= 0) {
-                var armyIndex = index % _turnOrder.Count;
-                var army = _turnOrder[armyIndex];
-                combatants = _combatants.GetCombatantsByArmy(army);
-                index++;
+                while (true) {
+                    var armyIndex = index % _turnOrder.Count;
+                    var army = _turnOrder[armyIndex];
+                    if (_combatants.GetCombatantsByArmy(army).Count > 0) {
+                        return army.GetBattlePhase();
+                    }
 
-                if (seenArmies.Contains(army)) {
-                    break;
+                    if (seenArmies >= Enum.GetNames(typeof(ArmyType)).Length) {
+                        throw new Exception("No eligible next battle phase.");
+                    }
+
+                    index++;
+                    seenArmies++;
                 }
-                seenArmies.Add(army);
             }
+        }
+
+        public void EndTurn() {
+            var nextArmy = NextPhase.GetArmyType();
+            Debug.Log("New turn with combatants from army: " + nextArmy);
 
             TurnNumber++;
-            _currentTurn = new Turn(combatants);
+            _currentTurn = new Turn(_combatants, nextArmy);
         }
 
         public void SubmitAction(ICombatAction action) {

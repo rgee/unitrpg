@@ -40,7 +40,7 @@ namespace Contexts.Battle.Commands {
 
         private void ProcessActions(Stack<ICombatAction> actions) {
             var currentAction = actions.Pop();
-            ActiuonCompleteSignal.AddListener((action) => {
+            ActiuonCompleteSignal.AddOnce(action => {
                 if (actions.Count == 0) {
                     Release();
                     EnemyTurnCompleteSignal.Dispatch();

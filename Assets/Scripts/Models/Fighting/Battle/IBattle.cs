@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Contexts.Battle.Models;
 using Models.Fighting.Battle.Objectives;
 using Models.Fighting.Characters;
 using Models.Fighting.Execution;
@@ -35,6 +36,8 @@ namespace Models.Fighting.Battle {
         ICombatant GetById(string id);
 
         void SpawnCombatant(ICombatant combatant);
+
+        BattlePhase NextPhase { get; }
 
         FightForecast ForecastFight(ICombatant attacker, ICombatant defender, SkillType type);
 
