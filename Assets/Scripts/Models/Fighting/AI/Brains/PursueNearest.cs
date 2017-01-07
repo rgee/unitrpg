@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Models.Fighting.Battle;
 using Models.Fighting.Characters;
 using Models.Fighting.Equip;
@@ -15,14 +17,14 @@ namespace Models.Fighting.AI.Brains {
             _self = self;
         }
 
-        public ICombatAction ComputeAction(IBattle battle) {
+        public IEnumerable<ICombatAction> ComputeActions(IBattle battle) {
             var map = battle.Map;
             if (_target != null) {
                 // If the target has died since we last acted, give up on it and 
                 // try to find a new thing to do.
                 if (!_target.IsAlive) {
                     _target = null;
-                    return ComputeAction(battle);
+                    return ComputeActions(battle);
                 }
 
                 // If the target is in range of one of our weapons, use it
@@ -31,7 +33,7 @@ namespace Models.Fighting.AI.Brains {
                     var skill = weapon.Range > 1 ? SkillType.Ranged : SkillType.Melee;
                     var forecast = battle.ForecastFight(_self, _target, skill);
                     var finalized = battle.FinalizeFight(forecast);
-                    return new FightAction(finalized);
+                    return new List<ICombatAction> { new FightAction(finalized) };
                 }
 
                 // If there's actually a path to the target, move there
@@ -39,9 +41,15 @@ namespace Models.Fighting.AI.Brains {
                 if (path != null) {
                     // Remove the first node because it's exactly where we're standing
                     path = path.GetRange(1, path.Count - 1);
+                    
+                    // Move as far as we can toward the target, limited by our move range.
+                    var moveRange = _self.GetAttribute(Attribute.AttributeType.Move).Value;
+                    var maxPathLength = Math.Min(moveRange, path.Count);
+                    path = path.GetRange(0, maxPathLength - 1);
 
                     var destination = path[path.Count - 1];
-                    return new MoveAction(map, _self, destination, path);
+                    var action = new MoveAction(map, _self, destination, path);
+                    return new List<ICombatAction> { action };
                 }
 
                 // There's no path to the target, so do nothing for now.
@@ -63,7 +71,7 @@ namespace Models.Fighting.AI.Brains {
                 return path == null ? int.MaxValue : path.Count;
             }).First();
 
-            return ComputeAction(battle);
+            return ComputeActions(battle);
         }
 
         private bool IsInAttackRange(ICombatant target, Weapon weapon, IMap map) {

@@ -19,9 +19,9 @@ namespace Models.Fighting.AI {
             var livingEnemies = _battle.GetAliveByArmy(ArmyType.Enemy);
             var enemiesWithAi = livingEnemies.Where(enemy => enemy.Brain != null).ToList();
 
-            return enemiesWithAi.Select(enemy => {
+            return enemiesWithAi.SelectMany(enemy => {
                 var watch = System.Diagnostics.Stopwatch.StartNew();
-                var result = enemy.Brain.ComputeAction(_battle);
+                var result = enemy.Brain.ComputeActions(_battle);
                 var endTime = watch.ElapsedMilliseconds;
 
                 Debug.LogFormat("Enemy {0} took {1} milliseconds to compute move", enemy.Name, endTime);
