@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace Contexts.Common.Model {
     public class ApplicationState {
+        public Models.Dialogue.Cutscene CurrentCutscene;
         public readonly Stack<string> AdditionalSceneStack = new Stack<string>();
         public List<Models.Dialogue.Cutscene> CurrentCutsceneSequence { get; set; }
         private int _currentCutsceneIndex;
