@@ -40,12 +40,12 @@ namespace Models.Fighting.AI.Brains {
                 var path = map.FindPathToAdjacentTile(_self.Position, _target.Position);
                 if (path != null) {
                     // Remove the first node because it's exactly where we're standing
-                    path = path.GetRange(1, path.Count - 1);
+                    path.RemoveAt(0);
                     
                     // Move as far as we can toward the target, limited by our move range.
                     var moveRange = _self.GetAttribute(Attribute.AttributeType.Move).Value;
                     var maxPathLength = Math.Min(moveRange, path.Count);
-                    path = path.GetRange(0, maxPathLength - 1);
+                    path = path.GetRange(0, maxPathLength);
 
                     var destination = path[path.Count - 1];
                     var action = new MoveAction(map, _self, destination, path);
