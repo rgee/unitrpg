@@ -1,5 +1,7 @@
 ﻿using System;
 using Assets.Contexts.Application.Signals;
+using Assets.Contexts.Common.Services;
+using Assets.Scripts.Contexts.Global.Models;
 using Contexts.Base.Commands;
 using Contexts.Base.Signals;
 using Contexts.Common.Model;
@@ -56,6 +58,8 @@ namespace Assets.Contexts.Base {
                     throw new Exception("Could not find game configuration file.");
                 }
 
+                injectionBinder.Bind<ICutsceneLoader>().To<CutsceneLoader>().ToSingleton().CrossContext();
+                injectionBinder.Bind<Storyboard>().ToSingleton().CrossContext();
                 injectionBinder.Bind<ApplicationState>().ToValue(new ApplicationState()).CrossContext();
                 injectionBinder.Bind<IRoutineRunner>().To<RoutineRunner>().CrossContext();
 

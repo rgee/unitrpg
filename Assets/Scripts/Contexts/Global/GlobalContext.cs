@@ -52,13 +52,14 @@ namespace Contexts.Global {
             ConcreteSingleton<PushSceneSignal>();
             ConcreteSingleton<PopSceneSignal>();
             ConcreteSingleton<ScenePopCompleteSignal>();
+            ConcreteSingleton<NextStoryboardSceneSignal>();
 
-            //injectionBinder.Bind<Game>().ToValue(wholeGame).CrossContext();
-
-            Singleton<ICutsceneLoader>().ByWayOf<CutsceneLoader>();
 
             commandBinder.Bind<StartChapterSignal>()
                 .To<StartChapterCommand>();
+
+            commandBinder.Bind<NextStoryboardSceneSignal>()
+                .To<NextStoryboardSceneCommand>();
 
             commandBinder.Bind<PushSceneSignal>()
                 .To<FadeSceneBlackCommand>()

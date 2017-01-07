@@ -11,7 +11,7 @@ namespace Contexts.MainMenu.Commands {
     public class NewGameCommand : Command {
 
         [Inject]
-        public StartChapterSignal StartChapterSignal { get; set; }
+        public NextStoryboardSceneSignal NextStoryboardSceneSignal { get; set; }
 
         [Inject]
         public ISaveGameService SaveGameService { get; set; }
@@ -21,7 +21,7 @@ namespace Contexts.MainMenu.Commands {
 
         public override void Execute() {
             SaveGameService.CreateNewGame();
-            StartChapterSignal.Dispatch(Context);
+            NextStoryboardSceneSignal.Dispatch(Context);
         }
     }
 }

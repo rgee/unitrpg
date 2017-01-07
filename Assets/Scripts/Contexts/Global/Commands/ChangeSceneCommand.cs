@@ -1,5 +1,6 @@
 ﻿using strange.extensions.command.impl;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Contexts.Global.Commands {
     public class ChangeSceneCommand : Command {
@@ -10,7 +11,7 @@ namespace Contexts.Global.Commands {
         public string NextSceneName { get; set; }
 
         public override void Execute() {
-            UnityEngine.Application.LoadLevelAdditive(NextSceneName);
+            SceneManager.LoadScene(NextSceneName, LoadSceneMode.Additive);
             GameObject.Destroy(PreviousContext);
         }
     }

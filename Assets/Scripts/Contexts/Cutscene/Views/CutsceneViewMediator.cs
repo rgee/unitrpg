@@ -21,7 +21,7 @@ namespace Contexts.Cutscene.Views {
             base.OnRegister();
 
             CutsceneStartSignal.AddOnce(() => {
-                var cutscene = State.GetCurrentCutscene();
+                var cutscene = State.CurrentCutscene;
                 if (cutscene != null) {
                     View.Initialize(cutscene);
                     View.StartCutscene();
