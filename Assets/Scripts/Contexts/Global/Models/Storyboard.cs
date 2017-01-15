@@ -23,8 +23,8 @@ namespace Assets.Scripts.Contexts.Global.Models {
             CutsceneLoader = cutsceneLoader;
 
             _scenes = new LinkedList<IStoryboardScene> {
-               CreateCutscene("Chapter 1/Intro/male_soldier_report"),
-               CreateCutscene("Chapter 1/Intro/female_soldier_report"),
+                new StoryboardScene("male_soldier_report"),
+               new StoryboardScene("female_soldier_report"),
                CreateCutscene("Chapter 1/Intro/liat_janek_prep"),
                CreateCutscene("Chapter 1/Intro/liat_audric_h2h"),
                CreateCutscene("Chapter 1/Intro/liat_audric_balcony"),

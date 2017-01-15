@@ -60,7 +60,7 @@ LightmapSettings:
     m_TextureHeight: 1024
     m_AO: 0
     m_AOMaxDistance: 1
-    m_CompAOExponent: 0
+    m_CompAOExponent: 1
     m_CompAOExponentDirect: 0
     m_Padding: 2
     m_LightmapParameters: {fileID: 0}
@@ -69,7 +69,7 @@ LightmapSettings:
     m_DirectLightInLightProbes: 1
     m_FinalGather: 0
     m_FinalGatherFiltering: 1
-    m_FinalGatherRayCount: 1024
+    m_FinalGatherRayCount: 256
     m_ReflectionCompression: 2
   m_LightingDataAsset: {fileID: 0}
   m_RuntimeCPUUsage: 25
@@ -91,7 +91,7 @@ NavMeshSettings:
     cellSize: 0.16666667
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &1426341373
+--- !u!1001 &1525223240
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -130,7 +130,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 33718941586230852, guid: 6cbf9ee56ca01f24f867e2d5763fd902,
+    - target: {fileID: 33501460423898322, guid: 6cbf9ee56ca01f24f867e2d5763fd902,
         type: 2}
       propertyPath: m_Mesh
       value: 
@@ -140,11 +140,16 @@ Prefab:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 33501460423898322, guid: 6cbf9ee56ca01f24f867e2d5763fd902,
+    - target: {fileID: 33718941586230852, guid: 6cbf9ee56ca01f24f867e2d5763fd902,
         type: 2}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 114302822484592532, guid: 6cbf9ee56ca01f24f867e2d5763fd902,
+        type: 2}
+      propertyPath: SourceFile
+      value: 
+      objectReference: {fileID: 4900000, guid: d061ccba88acb9249b68804a0bb09381, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6cbf9ee56ca01f24f867e2d5763fd902, type: 2}
   m_IsPrefabParent: 0
