@@ -10,17 +10,15 @@ namespace Assets.Scripts.Contexts.Global.Models {
 
         public ApplicationState State { get; set; }
 
-        public ICutsceneLoader CutsceneLoader { get; set; }
 
         private readonly LinkedList<IStoryboardScene> _scenes;
 
         private int _storyboardIndex = 0;
 
         [Construct]
-        public Storyboard(ChangeSceneSignal changeSceneSignal, ApplicationState state, ICutsceneLoader cutsceneLoader) {
+        public Storyboard(ChangeSceneSignal changeSceneSignal, ApplicationState state) {
             ChangeSceneSignal = changeSceneSignal;
             State = state;
-            CutsceneLoader = cutsceneLoader;
 
             _scenes = new LinkedList<IStoryboardScene> {
                new StoryboardScene("male_soldier_report"),
