@@ -46,17 +46,17 @@ MonoBehaviour:
   spriteDefinitions:
   - name: black_pixel
     boundsData:
-    - {x: 0.0013888889, y: -0.0013888889, z: 0}
+    - {x: 0.0013888889, y: 0.0013888889, z: 0}
     - {x: 0.0027777778, y: 0.0027777778, z: 0}
     untrimmedBoundsData:
-    - {x: 0.0013888889, y: -0.0013888889, z: 0}
+    - {x: 0.0013888889, y: 0.0013888889, z: 0}
     - {x: 0.0027777778, y: 0.0027777778, z: 0}
     texelSize: {x: 0.0027777778, y: 0.0027777778}
     positions:
-    - {x: 0, y: -0.0027777778, z: 0}
-    - {x: 0.0027777778, y: -0.0027777778, z: 0}
     - {x: 0, y: 0, z: 0}
     - {x: 0.0027777778, y: 0, z: 0}
+    - {x: 0, y: 0.0027777778, z: 0}
+    - {x: 0.0027777778, y: 0.0027777778, z: 0}
     normals: []
     tangents: []
     uvs:
@@ -138,24 +138,73 @@ MonoBehaviour:
     polygonCollider2D: []
     edgeCollider2D: []
     attachPoints: []
+  - name: castle_night
+    boundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: 5.3333335, y: 3, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: 5.3333335, y: 3, z: 0}
+    texelSize: {x: 0.0027777778, y: 0.0027777778}
+    positions:
+    - {x: -2.6666667, y: -1.5, z: 0}
+    - {x: 2.6666667, y: -1.5, z: 0}
+    - {x: -2.6666667, y: 1.5, z: 0}
+    - {x: 2.6666667, y: 1.5, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.0009770507, y: 0.0009770507}
+    - {x: 0.9384761, y: 0.0009770507}
+    - {x: 0.0009770507, y: 0.52831984}
+    - {x: 0.9384761, y: 0.52831984}
+    normalizedUvs:
+    - {x: 0, y: 0}
+    - {x: 1, y: 0}
+    - {x: 0, y: 1}
+    - {x: 1, y: 1}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: 6594a0c218dc6334a8f1cfcd59864010, type: 2}
+    materialId: 1
+    sourceTextureGUID: d018cb957c320594d873b6e796fd8849
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd: 
+    colliderIndicesBack: 
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
   premultipliedAlpha: 0
   material: {fileID: 0}
   materials:
   - {fileID: 2100000, guid: 930431753f759874b85e7347561c70a4, type: 2}
+  - {fileID: 2100000, guid: 6594a0c218dc6334a8f1cfcd59864010, type: 2}
   textures:
   - {fileID: 2800000, guid: 07ec5ef66aeea4f409d814a075c143e6, type: 3}
+  - {fileID: 2800000, guid: 8bd19f46c3495454389723eadc60e0eb, type: 3}
   pngTextures: []
-  materialPngTextureId: 00000000
+  materialPngTextureId: 0000000001000000
   textureFilterMode: 1
   textureMipMaps: 0
-  allowMultipleAtlases: 0
+  allowMultipleAtlases: 1
   spriteCollectionGUID: 708fff217b1e0f4408062e769f8fc2c9
   spriteCollectionName: UI Sprites
   assetName: 
   loadable: 0
   invOrthoSize: 1
   halfTargetHeight: 360
-  buildKey: 972172571
+  buildKey: 1597598688
   dataGuid: 1e3f2808773f7a94db011fbc90c82787
   managedSpriteCollection: 0
   hasPlatformData: 0

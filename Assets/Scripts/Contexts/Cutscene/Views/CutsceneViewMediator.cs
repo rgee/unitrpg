@@ -24,8 +24,9 @@ namespace Contexts.Cutscene.Views {
                 var cutscene = State.CurrentCutscene;
                 if (cutscene != null) {
                     View.Initialize(cutscene);
-                    View.StartCutscene();
                 }
+
+                View.StartCutscene();
             });
 
             View.CutsceneComplete.AddOnce(() => {

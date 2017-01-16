@@ -66,7 +66,7 @@ MonoBehaviour:
   atlasHeight: 2048
   forceSquareAtlas: 0
   atlasWastage: 50.274445
-  allowMultipleAtlases: 0
+  allowMultipleAtlases: 1
   removeDuplicates: 1
   textureParams:
   - name: black_pixel
@@ -75,7 +75,7 @@ MonoBehaviour:
     scale: {x: 1, y: 1, z: 1}
     texture: {fileID: 2800000, guid: 64873847c6409b14d988e5550deb0210, type: 3}
     materialId: 0
-    anchor: 4
+    anchor: 6
     anchorX: 0
     anchorY: 0
     overrideMesh: {fileID: 0}
@@ -151,14 +151,56 @@ MonoBehaviour:
     colliderSmoothSphereCollisions: 0
     colliderColor: 0
     attachPoints: []
+  - name: castle_night
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: d018cb957c320594d873b6e796fd8849, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 0
+    anchorY: 0
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 64
+    diceFilter: 0
+    pad: 0
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 0
+    spriteSheetId: 0
+    spriteSheetX: 0
+    spriteSheetY: 0
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    regionId: 0
+    colliderType: 0
+    colliderData: []
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 1
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+    attachPoints: []
   spriteCollection: {fileID: 11457902, guid: 1e3f2808773f7a94db011fbc90c82787, type: 2}
   premultipliedAlpha: 0
-  altMaterials:
-  - {fileID: 2100000, guid: 930431753f759874b85e7347561c70a4, type: 2}
+  altMaterials: []
   atlasMaterials:
   - {fileID: 2100000, guid: 930431753f759874b85e7347561c70a4, type: 2}
+  - {fileID: 2100000, guid: 6594a0c218dc6334a8f1cfcd59864010, type: 2}
   atlasTextures:
   - {fileID: 2800000, guid: 07ec5ef66aeea4f409d814a075c143e6, type: 3}
+  - {fileID: 2800000, guid: 8bd19f46c3495454389723eadc60e0eb, type: 3}
   atlasTextureFiles: []
   useTk2dCamera: 0
   targetHeight: 640

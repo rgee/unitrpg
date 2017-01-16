@@ -10,25 +10,23 @@ namespace Assets.Scripts.Contexts.Global.Models {
 
         public ApplicationState State { get; set; }
 
-        public ICutsceneLoader CutsceneLoader { get; set; }
 
         private readonly LinkedList<IStoryboardScene> _scenes;
 
         private int _storyboardIndex = 0;
 
         [Construct]
-        public Storyboard(ChangeSceneSignal changeSceneSignal, ApplicationState state, ICutsceneLoader cutsceneLoader) {
+        public Storyboard(ChangeSceneSignal changeSceneSignal, ApplicationState state) {
             ChangeSceneSignal = changeSceneSignal;
             State = state;
-            CutsceneLoader = cutsceneLoader;
 
             _scenes = new LinkedList<IStoryboardScene> {
-               CreateCutscene("Chapter 1/Intro/male_soldier_report"),
-               CreateCutscene("Chapter 1/Intro/female_soldier_report"),
-               CreateCutscene("Chapter 1/Intro/liat_janek_prep"),
-               CreateCutscene("Chapter 1/Intro/liat_audric_h2h"),
-               CreateCutscene("Chapter 1/Intro/liat_audric_balcony"),
-               CreateCutscene("Chapter 1/Intro/liat_audric_overlook"),
+               new StoryboardScene("male_soldier_report"),
+               new StoryboardScene("female_soldier_report"),
+               new StoryboardScene("liat_janek_prep"),
+               new StoryboardScene("liat_audric_h2h"),
+               new StoryboardScene("liat_audric_balcony"),
+               new StoryboardScene("liat_audric_overlook"),
                new StoryboardScene("chapter_1_battle")
             };
         }
@@ -37,10 +35,6 @@ namespace Assets.Scripts.Contexts.Global.Models {
             var result = _scenes[_storyboardIndex];
             _storyboardIndex++;
             return result;
-        }
-
-        private IStoryboardScene CreateCutscene(string name) {
-            return new Cutscene(CutsceneLoader, "Cutscene", name);
         }
     }
 }
