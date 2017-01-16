@@ -27,7 +27,7 @@ namespace Assets.Scripts.Contexts.Global.Models {
                new StoryboardScene("female_soldier_report"),
                new StoryboardScene("liat_janek_prep"),
                new StoryboardScene("liat_audric_h2h"),
-               CreateCutscene("Chapter 1/Intro/liat_audric_balcony"),
+               new StoryboardScene("liat_audric_balcony"),
                CreateCutscene("Chapter 1/Intro/liat_audric_overlook"),
                new StoryboardScene("chapter_1_battle")
             };
