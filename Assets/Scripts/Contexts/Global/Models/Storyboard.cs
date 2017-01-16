@@ -38,9 +38,5 @@ namespace Assets.Scripts.Contexts.Global.Models {
             _storyboardIndex++;
             return result;
         }
-
-        private IStoryboardScene CreateCutscene(string name) {
-            return new Cutscene(CutsceneLoader, "Cutscene", name);
-        }
     }
 }
