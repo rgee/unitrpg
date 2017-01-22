@@ -148,6 +148,31 @@ namespace Models.Fighting.Maps {
             return _tiles.ContainsKey(position);
         }
 
+        public HashSet<Vector2> RangeQuery(Vector2 center, int distance) {
+            var innerBoundingBoxDist = distance*(Math.Sqrt(2)/2);
+            var distanceSquared = distance*distance;
+            return _tiles.Where(tile => {
+                var point = tile.Key;
+                var dx = Math.Abs(point.x - center.x);
+                var dy = Math.Abs(point.y - center.y);
+
+                // If the point falls outside the square bounding the circle of radius `distance`, reject it.
+                var fitsInOuterBoundingBox = dx <= distance && dy <= distance;
+                if (!fitsInOuterBoundingBox) {
+                    return false;
+                }
+
+                // If the point falls inside the square bounded BY the circle of radius `distance`, accept it.
+                var fitsInInnerBoundingBox = dx <= innerBoundingBoxDist && dy <= innerBoundingBoxDist;
+                if (fitsInInnerBoundingBox) {
+                    return true;
+                }
+
+                // For all other points, use the distance formula to check if it falls within the circle.
+                return (dx*dx) + (dy*dy) <= distanceSquared;
+            }).Select(entry => entry.Key).ToHashSet();
+        }
+
         public HashSet<Vector2> BreadthFirstSearch(Vector2 start, int maxDistance, bool ignoreOtherUnits) {
             var fringe = new Queue<Vector2>();
             var results = new HashSet<Vector2>();

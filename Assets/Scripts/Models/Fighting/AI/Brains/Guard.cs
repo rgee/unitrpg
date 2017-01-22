@@ -11,6 +11,7 @@ using UnityEngine;
 namespace Models.Fighting.AI.Brains {
     public class Guard : ICombatantBrain {
         private readonly ICombatant _self;
+        private readonly int _aggroRadius = 5;
         private ICombatant _target;
 
         public Guard(ICombatant self) {

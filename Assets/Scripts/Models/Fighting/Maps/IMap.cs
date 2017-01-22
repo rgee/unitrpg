@@ -38,6 +38,7 @@ namespace Models.Fighting.Maps {
         void TriggerEventTile(Vector2 location);
 
 
+        HashSet<Vector2> RangeQuery(Vector2 center, int distance);
 
         HashSet<Vector2> BreadthFirstSearch(Vector2 start, int maxDistance, bool ignoreOtherUnits);
 
