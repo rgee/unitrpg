@@ -149,28 +149,23 @@ namespace Models.Fighting.Maps {
         }
 
         public HashSet<Vector2> RangeQuery(Vector2 center, int distance) {
-            var innerBoundingBoxDist = distance*(Math.Sqrt(2)/2);
-            var distanceSquared = distance*distance;
+            return RangeQuery(center, distance, tile => true);
+        }
+
+        public HashSet<Vector2> RangeQuery(Vector2 center, int distance, Predicate<KeyValuePair<Vector2, Tile>> predicate) {
             return _tiles.Where(tile => {
-                var point = tile.Key;
-                var dx = Math.Abs(point.x - center.x);
-                var dy = Math.Abs(point.y - center.y);
+                return MathUtils.ManhattanDistance(center, tile.Key) <= distance;
+            })
+            .Where(entry => predicate(entry))
+            .Select(entry => entry.Key).ToHashSet();
+        }
 
-                // If the point falls outside the square bounding the circle of radius `distance`, reject it.
-                var fitsInOuterBoundingBox = dx <= distance && dy <= distance;
-                if (!fitsInOuterBoundingBox) {
-                    return false;
-                }
+        public HashSet<Vector2> FindSurroundingPoints(Vector2 center, int distance) {
+            return RangeQuery(center, distance, pair => pair.Key != center);
+        }
 
-                // If the point falls inside the square bounded BY the circle of radius `distance`, accept it.
-                var fitsInInnerBoundingBox = dx <= innerBoundingBoxDist && dy <= innerBoundingBoxDist;
-                if (fitsInInnerBoundingBox) {
-                    return true;
-                }
-
-                // For all other points, use the distance formula to check if it falls within the circle.
-                return (dx*dx) + (dy*dy) <= distanceSquared;
-            }).Select(entry => entry.Key).ToHashSet();
+        public HashSet<Vector2> FindUnoccupiedSurroundingPoints(Vector2 center, int distance) {
+            return RangeQuery(center, distance, pair => pair.Key != center && !pair.Value.Obstructed);
         }
 
         public HashSet<Vector2> BreadthFirstSearch(Vector2 start, int maxDistance, bool ignoreOtherUnits) {

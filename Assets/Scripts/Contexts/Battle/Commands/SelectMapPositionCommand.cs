@@ -105,7 +105,7 @@ namespace Contexts.Battle.Commands {
             if (battle.CanAct(combatant)) {
                 results.Add(CombatActionType.Item);
 
-                var attackableSquares = map.BreadthFirstSearch(combatant.Position, battle.GetMaxWeaponAttackRange(combatant), true);
+                var attackableSquares = map.FindSurroundingPoints(combatant.Position, battle.GetMaxWeaponAttackRange(combatant));
                 var attackableUnits = attackableSquares
                     .Select(square => map.GetAtPosition(square))
                     .Where(unit => unit != null && unit.Army == ArmyType.Enemy);

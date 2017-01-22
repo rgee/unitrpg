@@ -76,7 +76,7 @@ namespace Models.Fighting.AI.Brains {
         }
 
         private bool IsInAttackRange(ICombatant target, Weapon weapon, IMap map) {
-            var attackablePositions = map.BreadthFirstSearch(_self.Position, weapon.Range, true);
+            var attackablePositions = map.FindSurroundingPoints(_self.Position, weapon.Range);
             return attackablePositions.Contains(target.Position);
         }
 
