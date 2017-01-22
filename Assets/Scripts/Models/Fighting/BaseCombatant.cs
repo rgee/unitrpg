@@ -57,7 +57,7 @@ namespace Models.Fighting {
                 .ToHashSet();
 
             if (army == ArmyType.Enemy) {
-                Brain = new PursueNearest(this);
+                Brain = new Guard(this);
             }
         }
 

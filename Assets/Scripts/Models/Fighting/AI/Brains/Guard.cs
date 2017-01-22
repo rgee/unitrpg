@@ -9,11 +9,11 @@ using Models.Fighting.Skills;
 using UnityEngine;
 
 namespace Models.Fighting.AI.Brains {
-    public class PursueNearest : ICombatantBrain {
+    public class Guard : ICombatantBrain {
         private readonly ICombatant _self;
         private ICombatant _target;
 
-        public PursueNearest(ICombatant self) {
+        public Guard(ICombatant self) {
             _self = self;
         }
 
