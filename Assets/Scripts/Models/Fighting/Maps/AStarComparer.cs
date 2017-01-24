@@ -3,12 +3,9 @@ using UnityEngine;
 
 namespace Models.Fighting.Maps {
     class AStarComparer : IComparer<Vector2> {
-        private readonly Dictionary<Vector2, double> exactCosts;
-
         private readonly Dictionary<Vector2, double> estimatedCosts;
 
-        public AStarComparer(Dictionary<Vector2, double> exactCosts, Dictionary<Vector2, double> estimatedCosts) {
-            this.exactCosts = exactCosts;
+        public AStarComparer(Dictionary<Vector2, double> estimatedCosts) {
             this.estimatedCosts = estimatedCosts;
         }
 
@@ -27,7 +24,11 @@ namespace Models.Fighting.Maps {
         }
 
         private double GetHeuristicScore(Vector2 vec) {
-            return exactCosts[vec] + estimatedCosts[vec];
+            if (!estimatedCosts.ContainsKey(vec)) {
+                return double.MaxValue;
+            }
+
+            return estimatedCosts[vec];
         }
     }
 }

@@ -231,7 +231,7 @@ namespace Models.Fighting.Maps {
 
             var exactCosts = new Dictionary<Vector2, double>();
             var estimates = new Dictionary<Vector2, double>();
-            var openNodes = new C5.IntervalHeap<Vector2>(new AStarComparer(exactCosts, estimates));
+            var openNodes = new C5.IntervalHeap<Vector2>(new AStarComparer(estimates));
 
             var closedNodes = new HashSet<Vector2>();
             var path = new Dictionary<Vector2, Vector2>();
@@ -253,14 +253,16 @@ namespace Models.Fighting.Maps {
                     }
 
                     var tentativeScore = exactCosts[currentCheapest] + CalculateDistance(currentCheapest, neighbor);
-                    if (!estimates.ContainsKey(neighbor) || tentativeScore < estimates[neighbor]) {
-                        var heuristicScore = tentativeScore + EstimateDistance(neighbor, goal);
-                        estimates[neighbor] = heuristicScore;
-                        exactCosts[neighbor] = tentativeScore;
-                        path[neighbor] = currentCheapest;
-
+                    if (!estimates.ContainsKey(neighbor)) {
                         openNodes.Add(neighbor);
+                    } else if (tentativeScore >= exactCosts[neighbor]) {
+                        continue;
                     }
+
+                    var heuristicScore = tentativeScore + EstimateDistance(neighbor, goal);
+                    estimates[neighbor] = heuristicScore;
+                    exactCosts[neighbor] = tentativeScore;
+                    path[neighbor] = currentCheapest;
                 }
             }
 

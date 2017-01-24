@@ -12,6 +12,15 @@ namespace Tests.Battle {
     public class MapTest {
 
         [Test]
+        public void TestLargeMap() {
+            var map = new Map(45, 26);
+            var start = new Vector2(17, 21);
+            var end = new Vector2(27, 11);
+
+            map.FindPath(start, end);
+        }
+
+        [Test]
         public void TestRangeQuery() {
             var map = new Map(10);
             var result = map.RangeQuery(new Vector2(5, 5), 2);
