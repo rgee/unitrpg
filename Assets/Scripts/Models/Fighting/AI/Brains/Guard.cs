@@ -54,23 +54,25 @@ namespace Models.Fighting.AI.Brains {
                 }
 
                 // There's no path to the target, so do nothing for now.
-                return null;
+                return new List<ICombatAction>();
             }
 
             // Find a new target and restart
-            var friendlies = battle.GetAliveByArmy(ArmyType.Friendly);
-            var others = battle.GetAliveByArmy(ArmyType.Other);
-            var potentials = friendlies.Concat(others).ToList();
+            var potentials = map.FindSurroundingPoints(_self.Position, _aggroRadius)
+                .Select(pos => map.GetAtPosition(pos))
+                .Where(combatant => combatant != null && combatant.Army != _self.Army)
+                .ToList();
 
             // If there's nothing on the field to attack do nothing.
             if (!potentials.Any()) {
-                return null;
+                return new List<ICombatAction>();
             }
 
             _target = potentials.OrderBy(target => {
                 var path = map.FindPathToAdjacentTile(_self.Position, target.Position);
                 return path == null ? int.MaxValue : path.Count;
-            }).First();
+            })
+            .First();
 
             return ComputeActions(battle);
         }
