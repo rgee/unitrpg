@@ -30,7 +30,7 @@ namespace Models.Fighting.AI.Brains {
 
                 // If the target is in range of one of our weapons, use it
                 var weapon = ChooseWeapon();
-                if (IsInAttackRange(_target, weapon, map)) {
+                if (IsInAttackRange(_self.Position, _target, weapon, map)) {
                     var skill = weapon.Range > 1 ? SkillType.Ranged : SkillType.Melee;
                     var forecast = battle.ForecastFight(_self, _target, skill);
                     var finalized = battle.FinalizeFight(forecast);
@@ -49,8 +49,18 @@ namespace Models.Fighting.AI.Brains {
                     path = path.GetRange(0, maxPathLength);
 
                     var destination = path[path.Count - 1];
-                    var action = new MoveAction(map, _self, destination, path);
-                    return new List<ICombatAction> { action };
+                    var moveAction = new MoveAction(map, _self, destination, path);
+                    if (!IsInAttackRange(destination, _target, weapon, map)) {
+                        return new List<ICombatAction> { moveAction };
+                    }
+
+                    var skill = weapon.Range > 1 ? SkillType.Ranged : SkillType.Melee;
+                    var forecast = battle.ForecastFight(_self, _target, skill);
+                    var finalized = battle.FinalizeFight(forecast);
+                    return new List<ICombatAction> {
+                        moveAction,
+                        new FightAction(finalized)
+                    };
                 }
 
                 // There's no path to the target, so do nothing for now.
@@ -77,8 +87,8 @@ namespace Models.Fighting.AI.Brains {
             return ComputeActions(battle);
         }
 
-        private bool IsInAttackRange(ICombatant target, Weapon weapon, IMap map) {
-            var attackablePositions = map.FindSurroundingPoints(_self.Position, weapon.Range);
+        private bool IsInAttackRange(Vector2 combatantPosition, ICombatant target, Weapon weapon, IMap map) {
+            var attackablePositions = map.FindSurroundingPoints(combatantPosition, weapon.Range);
             return attackablePositions.Contains(target.Position);
         }
 

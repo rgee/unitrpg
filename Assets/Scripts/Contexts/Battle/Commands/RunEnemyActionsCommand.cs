@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Contexts.Battle.Models;
 using Contexts.Battle.Signals;
@@ -43,9 +44,12 @@ namespace Contexts.Battle.Commands {
 
         private void ProcessActions(List<ICombatAction> actions, IActionPlan plan) {
             if (actions.Count > 0) {
-                ActionCompleteSignal.AddOnce(() => {
+                Action listener = null;
+                listener = new Action(() => {
                     ProcessActions(actions.Skip(1).ToList(), plan);
+                    ActionCompleteSignal.RemoveListener(listener);
                 });
+                ActionCompleteSignal.AddListener(listener);
                 AnimateActionSignal.Dispatch(actions[0]);
             } else if (plan.HasActionsRemaining()) {
                 ProcessActions(plan.NextActionStep(BattleViewState.Battle), plan);
