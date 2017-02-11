@@ -165,7 +165,9 @@ namespace Models.Fighting.Maps {
         }
 
         public HashSet<Vector2> FindUnoccupiedSurroundingPoints(Vector2 center, int distance) {
-            return RangeQuery(center, distance, pair => pair.Key != center && !pair.Value.Obstructed);
+            return RangeQuery(center, distance, pair => pair.Key != center &&
+                                                        !pair.Value.Obstructed &&
+                                                        pair.Value.Occupant == null);
         }
 
         public HashSet<Vector2> BreadthFirstSearch(Vector2 start, int maxDistance, bool ignoreOtherUnits) {
