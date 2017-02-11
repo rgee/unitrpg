@@ -1,8 +1,11 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Contexts.Battle.Models;
 using Contexts.Battle.Signals;
 using Contexts.Battle.Signals.Camera;
+using Models.Fighting.AI;
 using Models.Fighting.Battle;
+using Models.Fighting.Characters;
 using strange.extensions.command.impl;
 
 namespace Contexts.Battle.Commands {
@@ -21,34 +24,35 @@ namespace Contexts.Battle.Commands {
         public CameraPanCompleteSignal CameraPanCompleteSignal { get; set; }
 
         [Inject]
-        public ActionCompleteSignal ActiuonCompleteSignal { get; set; }
+        public ActionCompleteSignal ActionCompleteSignal { get; set; }
 
         [Inject]
         public AnimateActionSignal AnimateActionSignal { get; set; }
 
         public override void Execute() {
             var battle = BattleViewState.Battle;
-            var actions = battle.ComputeEnemyActions();
+            var plan = battle.GetActionPlan(ArmyType.Enemy);
 
-            if (actions.Count > 0) {
+            if (plan.HasActionsRemaining()) {
                 Retain();
-                ProcessActions(new Stack<ICombatAction>(actions));
+                ProcessActions(plan.NextActionStep(battle), plan);
             } else {
                 EnemyTurnCompleteSignal.Dispatch();
             }
         }
 
-        private void ProcessActions(Stack<ICombatAction> actions) {
-            var currentAction = actions.Pop();
-            ActiuonCompleteSignal.AddOnce(action => {
-                if (actions.Count == 0) {
-                    Release();
-                    EnemyTurnCompleteSignal.Dispatch();
-                } else {
-                    ProcessActions(actions);
-                }
-            });
-            AnimateActionSignal.Dispatch(currentAction);
+        private void ProcessActions(List<ICombatAction> actions, IActionPlan plan) {
+            if (actions.Count > 0) {
+                ActionCompleteSignal.AddOnce(action => {
+                    ProcessActions(actions.Skip(1).ToList(), plan);
+                });
+                AnimateActionSignal.Dispatch(actions[0]);
+            } else if (plan.HasActionsRemaining()) {
+                ProcessActions(plan.NextActionStep(BattleViewState.Battle), plan);
+            } else {
+                Release();
+                EnemyTurnCompleteSignal.Dispatch();
+            }
         }
     }
 }

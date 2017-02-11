@@ -25,7 +25,6 @@ namespace Models.Fighting.Battle {
         private readonly ICombatantDatabase _combatants;
         private readonly Dictionary<string, ICombatant> _combatantsById = new Dictionary<string, ICombatant>();
         private readonly List<IObjective> _objectives;
-        private readonly IEnemyAICoordinator _ai;
         private Turn _currentTurn;
 
         public Battle(IMap map, IRandomizer randomizer, ICombatantDatabase combatants, List<ArmyType> turnOrder, List<IObjective> objectives, 
@@ -38,8 +37,6 @@ namespace Models.Fighting.Battle {
             _combatants = combatants;
 
             map.EventTileTriggeredSignal.AddListener(_relayEvent);
-
-            _ai = new EnemyAICoordinator(this);
 
             var skillDatabase = new SkillDatabase(map);
             _forecaster = new FightForecaster(map, skillDatabase);
@@ -60,8 +57,9 @@ namespace Models.Fighting.Battle {
             _currentTurn = new Turn(_combatants, firstArmy);
         }
 
-        public IList<ICombatAction> ComputeEnemyActions() {
-            return _ai.ComputeTurnActions();
+        public IActionPlan GetActionPlan(ArmyType army) {
+            var combatants = _combatants.GetCombatantsByArmy(army);
+            return new AIActionPlan(combatants);
         }
 
         public void SpawnCombatant(ICombatant combatant) {

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Contexts.Battle.Models;
+using Models.Fighting.AI;
 using Models.Fighting.Battle.Objectives;
 using Models.Fighting.Characters;
 using Models.Fighting.Execution;
@@ -21,7 +22,7 @@ namespace Models.Fighting.Battle {
 
         Signal<string> EventTileSignal { get; }
 
-        IList<ICombatAction> ComputeEnemyActions();
+        IActionPlan GetActionPlan(ArmyType army);
 
         void SubmitAction(ICombatAction action);
 
