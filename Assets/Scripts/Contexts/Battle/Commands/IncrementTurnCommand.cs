@@ -10,14 +10,20 @@ namespace Contexts.Battle.Commands {
 
         [Inject]
         public PlayerTurnCompleteSignal PlayerTurnCompleteSignal { get; set; }
+
+        [Inject]
+        public ActionCompleteSignal ActionCompleteSignal { get; set; }
         
         public override void Execute() {
             if (!Model.Battle.ShouldTurnEnd()) {
-                Model.ResetUnitState();
-                Model.State = BattleUIState.SelectingUnit;
+                if (Model.State != BattleUIState.EnemyTurn) {
+                    Model.ResetUnitState();
+                    Model.State = BattleUIState.SelectingUnit;
+                }
             } else {
                 PlayerTurnCompleteSignal.Dispatch();
             }
+            ActionCompleteSignal.Dispatch();
         }
     }
 }

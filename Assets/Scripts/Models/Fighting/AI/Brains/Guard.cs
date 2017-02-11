@@ -9,11 +9,12 @@ using Models.Fighting.Skills;
 using UnityEngine;
 
 namespace Models.Fighting.AI.Brains {
-    public class PursueNearest : ICombatantBrain {
+    public class Guard : ICombatantBrain {
         private readonly ICombatant _self;
+        private readonly int _aggroRadius = 5;
         private ICombatant _target;
 
-        public PursueNearest(ICombatant self) {
+        public Guard(ICombatant self) {
             _self = self;
         }
 
@@ -29,7 +30,7 @@ namespace Models.Fighting.AI.Brains {
 
                 // If the target is in range of one of our weapons, use it
                 var weapon = ChooseWeapon();
-                if (IsInAttackRange(_target, weapon, map)) {
+                if (IsInAttackRange(_self.Position, _target, weapon, map)) {
                     var skill = weapon.Range > 1 ? SkillType.Ranged : SkillType.Melee;
                     var forecast = battle.ForecastFight(_self, _target, skill);
                     var finalized = battle.FinalizeFight(forecast);
@@ -48,34 +49,46 @@ namespace Models.Fighting.AI.Brains {
                     path = path.GetRange(0, maxPathLength);
 
                     var destination = path[path.Count - 1];
-                    var action = new MoveAction(map, _self, destination, path);
-                    return new List<ICombatAction> { action };
+                    var moveAction = new MoveAction(map, _self, destination, path);
+                    if (!IsInAttackRange(destination, _target, weapon, map)) {
+                        return new List<ICombatAction> { moveAction };
+                    }
+
+                    var skill = weapon.Range > 1 ? SkillType.Ranged : SkillType.Melee;
+                    var forecast = battle.ForecastFight(_self, _target, skill);
+                    var finalized = battle.FinalizeFight(forecast);
+                    return new List<ICombatAction> {
+                        moveAction,
+                        new FightAction(finalized)
+                    };
                 }
 
                 // There's no path to the target, so do nothing for now.
-                return null;
+                return new List<ICombatAction>();
             }
 
             // Find a new target and restart
-            var friendlies = battle.GetAliveByArmy(ArmyType.Friendly);
-            var others = battle.GetAliveByArmy(ArmyType.Other);
-            var potentials = friendlies.Concat(others).ToList();
+            var potentials = map.FindSurroundingPoints(_self.Position, _aggroRadius)
+                .Select(pos => map.GetAtPosition(pos))
+                .Where(combatant => combatant != null && combatant.Army != _self.Army)
+                .ToList();
 
             // If there's nothing on the field to attack do nothing.
             if (!potentials.Any()) {
-                return null;
+                return new List<ICombatAction>();
             }
 
             _target = potentials.OrderBy(target => {
                 var path = map.FindPathToAdjacentTile(_self.Position, target.Position);
                 return path == null ? int.MaxValue : path.Count;
-            }).First();
+            })
+            .First();
 
             return ComputeActions(battle);
         }
 
-        private bool IsInAttackRange(ICombatant target, Weapon weapon, IMap map) {
-            var attackablePositions = map.BreadthFirstSearch(_self.Position, weapon.Range, true);
+        private bool IsInAttackRange(Vector2 combatantPosition, ICombatant target, Weapon weapon, IMap map) {
+            var attackablePositions = map.FindSurroundingPoints(combatantPosition, weapon.Range);
             return attackablePositions.Contains(target.Position);
         }
 

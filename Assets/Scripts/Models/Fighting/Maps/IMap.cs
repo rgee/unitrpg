@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections.Generic;
 using Models.Fighting.Maps.Triggers;
 using strange.extensions.signal.impl;
@@ -38,8 +39,15 @@ namespace Models.Fighting.Maps {
         void TriggerEventTile(Vector2 location);
 
 
+        HashSet<Vector2> RangeQuery(Vector2 center, int distance);
+
+        HashSet<Vector2> RangeQuery(Vector2 center, int distance, Predicate<KeyValuePair<Vector2, Tile>> predicate);
+
+        HashSet<Vector2> FindSurroundingPoints(Vector2 center, int distance);
 
         HashSet<Vector2> BreadthFirstSearch(Vector2 start, int maxDistance, bool ignoreOtherUnits);
+
+        HashSet<Vector2> FindUnoccupiedSurroundingPoints(Vector2 start, int distance);
 
         List<Vector2> FindPathToAdjacentTile(Vector2 start, Vector2 goal);
         

@@ -148,6 +148,28 @@ namespace Models.Fighting.Maps {
             return _tiles.ContainsKey(position);
         }
 
+        public HashSet<Vector2> RangeQuery(Vector2 center, int distance) {
+            return RangeQuery(center, distance, tile => true);
+        }
+
+        public HashSet<Vector2> RangeQuery(Vector2 center, int distance, Predicate<KeyValuePair<Vector2, Tile>> predicate) {
+            return _tiles.Where(tile => {
+                return MathUtils.ManhattanDistance(center, tile.Key) <= distance;
+            })
+            .Where(entry => predicate(entry))
+            .Select(entry => entry.Key).ToHashSet();
+        }
+
+        public HashSet<Vector2> FindSurroundingPoints(Vector2 center, int distance) {
+            return RangeQuery(center, distance, pair => pair.Key != center);
+        }
+
+        public HashSet<Vector2> FindUnoccupiedSurroundingPoints(Vector2 center, int distance) {
+            return RangeQuery(center, distance, pair => pair.Key != center &&
+                                                        !pair.Value.Obstructed &&
+                                                        pair.Value.Occupant == null);
+        }
+
         public HashSet<Vector2> BreadthFirstSearch(Vector2 start, int maxDistance, bool ignoreOtherUnits) {
             var fringe = new Queue<Vector2>();
             var results = new HashSet<Vector2>();
@@ -193,7 +215,9 @@ namespace Models.Fighting.Maps {
         }
 
         public List<Vector2> FindPathToAdjacentTile(Vector2 start, Vector2 goal) {
-            var adjacentLocations = MathUtils.GetAdjacentPoints(goal);
+            var adjacentLocations = MathUtils.GetAdjacentPoints(goal)
+                .OrderBy(location => MathUtils.ManhattanDistance(start, location))
+                .ThenBy(location => Vector3.Distance(start, location));
             foreach (var point in adjacentLocations) {
                 var path = FindPath(start, point);
                 if (path != null) {
@@ -211,7 +235,7 @@ namespace Models.Fighting.Maps {
 
             var exactCosts = new Dictionary<Vector2, double>();
             var estimates = new Dictionary<Vector2, double>();
-            var openNodes = new C5.IntervalHeap<Vector2>(new AStarComparer(exactCosts, estimates));
+            var openNodes = new C5.IntervalHeap<Vector2>(new AStarComparer(estimates));
 
             var closedNodes = new HashSet<Vector2>();
             var path = new Dictionary<Vector2, Vector2>();
@@ -233,14 +257,16 @@ namespace Models.Fighting.Maps {
                     }
 
                     var tentativeScore = exactCosts[currentCheapest] + CalculateDistance(currentCheapest, neighbor);
-                    if (!estimates.ContainsKey(neighbor) || tentativeScore < estimates[neighbor]) {
-                        var heuristicScore = tentativeScore + EstimateDistance(neighbor, goal);
-                        estimates[neighbor] = heuristicScore;
-                        exactCosts[neighbor] = tentativeScore;
-                        path[neighbor] = currentCheapest;
-
+                    if (!estimates.ContainsKey(neighbor)) {
                         openNodes.Add(neighbor);
+                    } else if (tentativeScore >= exactCosts[neighbor]) {
+                        continue;
                     }
+
+                    var heuristicScore = tentativeScore + EstimateDistance(neighbor, goal);
+                    estimates[neighbor] = heuristicScore;
+                    exactCosts[neighbor] = tentativeScore;
+                    path[neighbor] = currentCheapest;
                 }
             }
 

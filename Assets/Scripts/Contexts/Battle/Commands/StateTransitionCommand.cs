@@ -154,7 +154,7 @@ namespace Contexts.Battle.Commands {
             var battle = Model.Battle;
             var origin = Model.SelectedCombatant.Position;
             var range = battle.GetMaxWeaponAttackRange(Model.SelectedCombatant);
-            var attackableSquares = map.BreadthFirstSearch(origin, range, true);
+            var attackableSquares = map.FindSurroundingPoints(origin, range);
             var highlights = new MapHighlights(attackableSquares, HighlightLevel.PlayerAttack);
 
             HighlightSignal.Dispatch(highlights);
@@ -165,7 +165,7 @@ namespace Contexts.Battle.Commands {
             var map = Model.Map;
             var origin = Model.SelectedCombatant.Position;
             var moveRange = Model.Battle.GetRemainingMoves(Model.SelectedCombatant);
-            var squares = map.BreadthFirstSearch(origin, moveRange, false);
+            var squares = map.FindUnoccupiedSurroundingPoints(origin, moveRange);
             var highlights = new MapHighlights(squares, HighlightLevel.PlayerMove);
 
             HighlightSignal.Dispatch(highlights);

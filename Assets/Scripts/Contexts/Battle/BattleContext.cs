@@ -61,9 +61,10 @@ namespace Contexts.Battle {
             injectionBinder.Bind<NewMapHighlightSignal>().ToSingleton();
             injectionBinder.Bind<ClearHighlightSignal>().ToSingleton();
             injectionBinder.Bind<MovementPathReadySignal>().ToSingleton();
+            injectionBinder.Bind<ActionCompleteSignal>().ToSingleton();
             injectionBinder.Bind<MovementPathUnavailableSignal>().ToSingleton();
             injectionBinder.Bind<StateTransitionSignal>().ToSingleton();
-            injectionBinder.Bind<ActionCompleteSignal>().ToSingleton();
+            injectionBinder.Bind<ActionAnimationCompleteSignal>().ToSingleton();
             injectionBinder.Bind<NewFightForecastSignal>().ToSingleton();
             injectionBinder.Bind<FightForecastDisableSignal>().ToSingleton();
             injectionBinder.Bind<FightConfirmedSignal>().ToSingleton();
@@ -106,7 +107,7 @@ namespace Contexts.Battle {
             commandBinder.Bind<BackSignal>().To<BackCommand>();
             commandBinder.Bind<CombatActionSelectedSignal>().To<CombatActionSelectedCommand>();
             commandBinder.Bind<StateTransitionSignal>().To<StateTransitionCommand>();
-            commandBinder.Bind<ActionCompleteSignal>().To<ActionCompleteCommand>();
+            commandBinder.Bind<ActionAnimationCompleteSignal>().To<ActionCompleteCommand>();
             commandBinder.Bind<FightConfirmedSignal>().To<FightConfirmedCommand>();
             commandBinder.Bind<PhaseChangeStartSignal>().To<PhaseChangeStartCommand>();
             commandBinder.Bind<PhaseChangeCompleteSignal>().To<PhaseChangeCompleteCommand>();
