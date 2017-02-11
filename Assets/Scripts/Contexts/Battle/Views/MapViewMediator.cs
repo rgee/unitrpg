@@ -37,7 +37,7 @@ namespace Contexts.Battle.Views {
         public MoveCombatantSignal MoveCombatantSignal { get; set; }
 
         [Inject]
-        public ActionCompleteSignal ActionCompleteSignal{ get; set; }
+        public ActionAnimationCompleteSignal ActionAnimationCompleteSignal{ get; set; }
 
         [Inject]
         public ContextRequestedSignal ContextRequestedSignal { get; set; }
@@ -94,13 +94,13 @@ namespace Contexts.Battle.Views {
 
         private IEnumerator AnimateFight(FightAction action) {
             yield return StartCoroutine(View.AnimateFight(action.Fight));
-            ActionCompleteSignal.Dispatch(action);
+            ActionAnimationCompleteSignal.Dispatch(action);
         }
 
         private IEnumerator AnimateMove(MoveAction action) {
             var combatant = action.Combatant;
             yield return StartCoroutine(View.MoveUnit(combatant.Id, action.Path));
-            ActionCompleteSignal.Dispatch(action);
+            ActionAnimationCompleteSignal.Dispatch(action);
         }
 
         private void OnRightClick(Vector2 position) {

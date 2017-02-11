@@ -43,7 +43,7 @@ namespace Contexts.Battle.Commands {
 
         private void ProcessActions(List<ICombatAction> actions, IActionPlan plan) {
             if (actions.Count > 0) {
-                ActionCompleteSignal.AddOnce(action => {
+                ActionCompleteSignal.AddOnce(() => {
                     ProcessActions(actions.Skip(1).ToList(), plan);
                 });
                 AnimateActionSignal.Dispatch(actions[0]);

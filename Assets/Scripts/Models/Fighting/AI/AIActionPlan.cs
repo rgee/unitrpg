@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Models.Fighting.Battle;
+using UnityEngine;
 
 namespace Models.Fighting.AI {
     public class AIActionPlan : IActionPlan {
@@ -14,6 +15,7 @@ namespace Models.Fighting.AI {
 
         public List<ICombatAction> NextActionStep(IBattle battle) {
             var combatant = _combatants.Pop();
+            Debug.LogFormat("Computing move for {0}", combatant.Id);
             return combatant.Brain.ComputeActions(battle).ToList();
         }
 
