@@ -216,7 +216,8 @@ namespace Models.Fighting.Maps {
 
         public List<Vector2> FindPathToAdjacentTile(Vector2 start, Vector2 goal) {
             var adjacentLocations = MathUtils.GetAdjacentPoints(goal)
-                .OrderBy(location => MathUtils.ManhattanDistance(start, location));
+                .OrderBy(location => MathUtils.ManhattanDistance(start, location))
+                .ThenBy(location => Vector3.Distance(start, location));
             foreach (var point in adjacentLocations) {
                 var path = FindPath(start, point);
                 if (path != null) {
