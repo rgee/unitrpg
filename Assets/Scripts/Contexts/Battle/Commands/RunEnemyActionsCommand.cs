@@ -44,13 +44,14 @@ namespace Contexts.Battle.Commands {
 
         private void ProcessActions(List<ICombatAction> actions, IActionPlan plan) {
             if (actions.Count > 0) {
+                var nextAction = actions[0];
                 Action listener = null;
                 listener = new Action(() => {
                     ProcessActions(actions.Skip(1).ToList(), plan);
                     ActionCompleteSignal.RemoveListener(listener);
                 });
                 ActionCompleteSignal.AddListener(listener);
-                AnimateActionSignal.Dispatch(actions[0]);
+                AnimateActionSignal.Dispatch(nextAction);
             } else if (plan.HasActionsRemaining()) {
                 ProcessActions(plan.NextActionStep(BattleViewState.Battle), plan);
             } else {

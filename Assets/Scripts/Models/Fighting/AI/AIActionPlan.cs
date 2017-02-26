@@ -15,7 +15,6 @@ namespace Models.Fighting.AI {
 
         public List<ICombatAction> NextActionStep(IBattle battle) {
             var combatant = _combatants.Pop();
-            Debug.LogFormat("Computing move for {0}", combatant.Id);
             return combatant.Brain.ComputeActions(battle).ToList();
         }
 
