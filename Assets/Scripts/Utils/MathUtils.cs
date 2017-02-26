@@ -58,6 +58,10 @@ namespace Utils {
             return GetAdjacentPoint(GetAdjacentPoint(attackerPosition, direction), direction);
         }
 
+        public static Vector3 Midpoint(Vector3 start, Vector3 end) {
+            return Vector3.zero;
+        }
+
         public static CardinalDirection GetOpposite(this CardinalDirection dir) {
             switch (dir) {
                 case CardinalDirection.N:
