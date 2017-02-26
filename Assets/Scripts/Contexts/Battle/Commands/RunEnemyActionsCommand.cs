@@ -45,13 +45,23 @@ namespace Contexts.Battle.Commands {
         private void ProcessActions(List<ICombatAction> actions, IActionPlan plan) {
             if (actions.Count > 0) {
                 var nextAction = actions[0];
-                Action listener = null;
-                listener = new Action(() => {
-                    ProcessActions(actions.Skip(1).ToList(), plan);
-                    ActionCompleteSignal.RemoveListener(listener);
+                var poiFactory = new PointOfInterestFactory(BattleViewState.Dimensions);
+                var poi = nextAction.GetPointofInterest(poiFactory);
+
+                Action panListener = null;
+                panListener = new Action(() => {
+                    
+                    Action listener = null;
+                    listener = new Action(() => {
+                        ProcessActions(actions.Skip(1).ToList(), plan);
+                        ActionCompleteSignal.RemoveListener(listener);
+                    });
+                    ActionCompleteSignal.AddListener(listener);
+                    AnimateActionSignal.Dispatch(nextAction);
+
+                    CameraPanCompleteSignal.RemoveListener(panListener);
                 });
-                ActionCompleteSignal.AddListener(listener);
-                AnimateActionSignal.Dispatch(nextAction);
+                PanToPointOfInterestSignal.Dispatch(poi);
             } else if (plan.HasActionsRemaining()) {
                 ProcessActions(plan.NextActionStep(BattleViewState.Battle), plan);
             } else {
