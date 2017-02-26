@@ -39,6 +39,10 @@ namespace Contexts.Battle.Views {
         private void StartCameraPan(IPointOfInterest pointOfInterest) {
             var focalPoint = pointOfInterest.FocalPoint;
             var currentCameraPosition = View.transform.position;
+
+            // If the camera is not far enough away from the point of interest, don't
+            // move. We don't want to show and make the user wait for micro-movements of
+            // the camera.
             var distanceFromFocalPoint = Vector3.Distance(currentCameraPosition, focalPoint);
             if (distanceFromFocalPoint <= pointOfInterest.Tolerance) {
                 CameraPanCompleteSignal.Dispatch();
