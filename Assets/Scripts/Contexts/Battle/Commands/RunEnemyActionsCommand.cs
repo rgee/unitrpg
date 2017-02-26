@@ -19,9 +19,6 @@ namespace Contexts.Battle.Commands {
         public BattleViewState BattleViewState { get; set; }
 
         [Inject]
-        public CameraPanSignal CameraPanSignal { get; set; }
-
-        [Inject]
         public CameraPanCompleteSignal CameraPanCompleteSignal { get; set; }
 
         [Inject]
@@ -29,6 +26,9 @@ namespace Contexts.Battle.Commands {
 
         [Inject]
         public AnimateActionSignal AnimateActionSignal { get; set; }
+
+        [Inject]
+        public CameraPanToPointOfInterestSignal PanToPointOfInterestSignal { get; set; }
 
         public override void Execute() {
             var battle = BattleViewState.Battle;
