@@ -59,7 +59,9 @@ namespace Utils {
         }
 
         public static Vector3 Midpoint(Vector3 start, Vector3 end) {
-            return Vector3.zero;
+            var combined = start + end;
+            combined.Scale(new Vector3(0.5f, 0.5f, 0.5f));
+            return combined;
         }
 
         public static CardinalDirection GetOpposite(this CardinalDirection dir) {
