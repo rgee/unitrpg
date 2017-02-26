@@ -61,6 +61,7 @@ namespace Contexts.Battle.Commands {
 
                     CameraPanCompleteSignal.RemoveListener(panListener);
                 });
+                CameraPanCompleteSignal.AddListener(panListener);
                 PanToPointOfInterestSignal.Dispatch(poi);
             } else if (plan.HasActionsRemaining()) {
                 ProcessActions(plan.NextActionStep(BattleViewState.Battle), plan);
