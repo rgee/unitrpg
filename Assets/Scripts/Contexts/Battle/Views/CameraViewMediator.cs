@@ -22,14 +22,29 @@ namespace Contexts.Battle.Views {
         [Inject]
         public CameraPanCompleteSignal CameraPanCompleteSignal { get; set; }
 
+        [Inject]
+        public CameraPanToPointOfInterestSignal CameraPanToPointOfInterestSignal { get; set; }
+
         public override void OnRegister() {
             CameraLockSignal.AddListener(View.Lock);
             CameraUnlockSignal.AddListener(View.Unlock);
             CameraPanSignal.AddListener(StartCameraPan);
+            CameraPanToPointOfInterestSignal.AddListener(StartCameraPan);
         }
 
         private void StartCameraPan(Vector3 target) {
             StartCoroutine(DoPan(target));
+        }
+
+        private void StartCameraPan(IPointOfInterest pointOfInterest) {
+            var focalPoint = pointOfInterest.FocalPoint;
+            var currentCameraPosition = View.transform.position;
+            var distanceFromFocalPoint = Vector3.Distance(currentCameraPosition, focalPoint);
+            if (distanceFromFocalPoint <= pointOfInterest.Tolerance) {
+                CameraPanCompleteSignal.Dispatch();
+            } else {
+                StartCoroutine(DoPan(focalPoint));
+            }
         }
 
         private IEnumerator DoPan(Vector3 target) {
