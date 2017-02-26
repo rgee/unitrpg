@@ -12,7 +12,7 @@ namespace Models.Fighting.Battle {
             var defenderPosition = dimensions.GetWorldPositionForGridPosition(defender.Position);
             FocalPoint = MathUtils.Midpoint(attackerPosition, defenderPosition);
 
-            Tolerance = 1f;
+            Tolerance = 32f;
         }
     }
 }

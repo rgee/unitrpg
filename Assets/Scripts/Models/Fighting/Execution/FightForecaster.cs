@@ -27,7 +27,9 @@ namespace Models.Fighting.Execution {
                 var flanker = _map.GetAtPosition(flankerPosition);
                 if (flanker != null && flanker.Army == ArmyType.Friendly) {
                     var flankerStrategy = ChooseStrategyByDistance(flanker, flankerDistance);
-                    flankForecast = flankerStrategy.Forecast(flanker, defender);
+                    if (flankerStrategy != null) {
+                        flankForecast = flankerStrategy.Forecast(flanker, defender);
+                    }
                 }
             }
 
