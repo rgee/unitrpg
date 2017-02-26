@@ -2,12 +2,12 @@
 
 namespace Models.Fighting.Battle {
     public class UseItemAction : ICombatAction {
-        private readonly ICombatant _user;
+        public readonly ICombatant Combatant;
         private readonly string _itemId;
 
         public string GetValidationError(Turn turn) {
-            if (!turn.CanAct(_user)) {
-                return "The attacker, " + _user.Id + " has already acted this turn.";
+            if (!turn.CanAct(Combatant)) {
+                return "The attacker, " + Combatant.Id + " has already acted this turn.";
             }
 
             return null;
@@ -16,8 +16,12 @@ namespace Models.Fighting.Battle {
 
         public void Perform(Turn turn) {
             var item = ItemDatabase.Instance.GetItemById(_itemId);
-            item.Use(_user);
-            turn.MarkAction(_user);
+            item.Use(Combatant);
+            turn.MarkAction(Combatant);
+        }
+
+        public IPointOfInterest GetPointofInterest(ICombatActionVisitor visitor) {
+            return visitor.Visit(this);
         }
     }
 }

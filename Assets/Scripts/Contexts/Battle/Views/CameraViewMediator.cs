@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using Contexts.Battle.Models;
 using Contexts.Battle.Signals.Camera;
+using Models.Fighting.Battle;
 using strange.extensions.mediation.impl;
 using UnityEngine;
 

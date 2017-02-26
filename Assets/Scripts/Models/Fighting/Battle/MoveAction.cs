@@ -37,6 +37,10 @@ namespace Models.Fighting.Battle {
             return null;
         }
 
+        public IPointOfInterest GetPointofInterest(ICombatActionVisitor visitor) {
+            return visitor.Visit(this);
+        }
+
         public void Perform(Turn turn) {
             Debug.LogFormat("Moving Combatant {0}({1}) to {2}", Combatant.Name, Combatant.Id, _destination);
             _map.MoveCombatant(Combatant, _destination);

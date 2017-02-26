@@ -1,10 +1,8 @@
 ﻿using Contexts.Battle.Utilities;
-using Models.Fighting;
-using Models.Fighting.Battle;
 using UnityEngine;
 using Utils;
 
-namespace Contexts.Battle.Models {
+namespace Models.Fighting.Battle {
     public class FightPointOfInterest : IPointOfInterest {
         public Vector3 FocalPoint { get; private set; }
         public float Tolerance { get; private set; }

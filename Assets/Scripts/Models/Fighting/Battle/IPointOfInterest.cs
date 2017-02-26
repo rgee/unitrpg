@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Contexts.Battle.Models {
+namespace Models.Fighting.Battle {
     /// <summary>
     /// Information about the location of a point of interest on the map.
     /// </summary>

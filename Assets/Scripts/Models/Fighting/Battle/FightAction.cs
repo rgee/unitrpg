@@ -34,5 +34,9 @@ namespace Models.Fighting.Battle {
 
             turn.MarkAction(_attacker);
         }
+
+        public IPointOfInterest GetPointofInterest(ICombatActionVisitor visitor) {
+            return visitor.Visit(this);
+        }
     }
 }

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Contexts.Battle.Models;
+﻿using Models.Fighting.Battle;
 using strange.extensions.signal.impl;
 
 namespace Contexts.Battle.Signals.Camera {
