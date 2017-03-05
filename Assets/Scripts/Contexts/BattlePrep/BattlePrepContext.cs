@@ -33,7 +33,6 @@ namespace Contexts.BattlePrep {
                 .To<BattlePrepStartCommand>()
                 .To<ShowPrepCommand>().InSequence();
 
-            injectionBinder.Bind<NewBattleConfigSignal>().ToSingleton();
             injectionBinder.Bind<TransitionOutSignal>().ToSingleton();
             injectionBinder.Bind<TransitionInSignal>().ToSingleton();
             injectionBinder.Bind<TransitionCompleteSignal>().ToSingleton();
@@ -41,9 +40,6 @@ namespace Contexts.BattlePrep {
 
             commandBinder.Bind<ActionSelectedSignal>()
                 .To<ActionSelectedCommand>();
-
-            commandBinder.Bind<UpdateObjectiveSignal>()
-                .To<UpdateObjectiveCommand>();
 
             commandBinder.Bind<ClosePrepSignal>()
                 .To<ClosePrepCommand>();

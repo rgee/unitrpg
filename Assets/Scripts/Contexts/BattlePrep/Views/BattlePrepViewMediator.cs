@@ -20,9 +20,6 @@ namespace Contexts.BattlePrep.Views {
         [Inject]
         public TransitionCompleteSignal TransitionCompleteSignal { get; set; }
 
-        [Inject]
-        public NewBattleConfigSignal NewBattleConfigSignal { get; set; }
-
         public override void OnRegister() {
             View.ActionClickedSignal.AddListener(OnActionSelected);
             TransitionInSignal.AddListener(() => {
@@ -31,11 +28,6 @@ namespace Contexts.BattlePrep.Views {
 
             TransitionOutSignal.AddListener(() => {
                 StartCoroutine(TransitionOut());
-            });
-
-            NewBattleConfigSignal.AddListener((config) => {
-                //var objective = config.Objective;
-                //View.UpdateObjective(objective.Description);
             });
         }
 
