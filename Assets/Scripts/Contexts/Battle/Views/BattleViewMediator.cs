@@ -20,18 +20,18 @@ namespace Contexts.Battle.Views {
         public BattleViewState Model { get; set; }
 
         [Inject]
-        public ProcessTileEventsSignal ProcessTileEventsSignal { get; set; } 
+        public ProcessEventHandlersSignal ProcessEventHandlersSignal { get; set; } 
 
         public override void OnRegister() {
             View.TriggerEventsCompleteSignal.AddListener(OnEventTileProcessingComplete);
-            ProcessTileEventsSignal.AddListener(ProcessTileEvents);
+            ProcessEventHandlersSignal.AddListener(ProcessEventHandlers);
         }
 
         private void OnEventTileProcessingComplete() {
             IncrememtTurnSignal.Dispatch(); 
         }
 
-        private void ProcessTileEvents(IEnumerable<IEnumerator> events) {
+        private void ProcessEventHandlers(IEnumerable<IEnumerator> events) {
             View.TriggerEventHandlers(events);
         }
 

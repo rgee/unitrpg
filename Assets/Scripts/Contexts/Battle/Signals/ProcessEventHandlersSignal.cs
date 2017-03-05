@@ -3,6 +3,6 @@ using System.Collections.Generic;
 using strange.extensions.signal.impl;
 
 namespace Contexts.Battle.Signals {
-    public class ProcessTileEventsSignal : Signal<IEnumerable<IEnumerator>>  {
+    public class ProcessEventHandlersSignal : Signal<IEnumerable<IEnumerator>>  {
     }
 }

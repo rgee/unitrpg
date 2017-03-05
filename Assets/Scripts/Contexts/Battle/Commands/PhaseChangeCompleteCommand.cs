@@ -1,4 +1,6 @@
-﻿using Contexts.Battle.Models;
+﻿using System.Linq;
+using Contexts.Battle.Models;
+using Contexts.Battle.Signals;
 using strange.extensions.command.impl;
 
 namespace Contexts.Battle.Commands {
@@ -9,17 +11,45 @@ namespace Contexts.Battle.Commands {
         [Inject]
         public BattlePhase Phase { get; set; }
 
-        public override void Execute() {
+        [Inject]
+        public EventHandlersCompleteSignal EventHandlersCompleteSignal { get; set; }
 
+        [Inject]
+        public BattleEventRegistry BattleEventRegistry { get; set; }
+
+        [Inject]
+        public ProcessEventHandlersSignal ProcessEventHandlersSignal { get; set; }
+
+        public override void Execute() {
+            if (Model.Phase != BattlePhase.NotStarted) {
+                Model.ResetUnitState();
+                Model.Battle.EndTurn();
+            }
+
+            // If there are any events slated to happen at the start of this turn,
+            // run them before releasing control back to the player.
+            var turnEventHanders = Model.Battle.GetCurrentTurnEvents()
+                .Select(eventName => BattleEventRegistry.GetHandler(eventName))
+                .Where(x => x != null)
+               .ToList();
+            if (turnEventHanders.Count > 0) {
+                Retain();
+                EventHandlersCompleteSignal.AddOnce(() => {
+                   StartNextTurn();
+                   Release();
+                });
+
+                ProcessEventHandlersSignal.Dispatch(turnEventHanders);
+            } else {
+                StartNextTurn();                
+            }
+        }
+
+        void StartNextTurn() {
             if (Phase == BattlePhase.Enemy) {
                 Model.State = BattleUIState.EnemyTurn;
             } else if (Phase == BattlePhase.Player) {
                 Model.State = BattleUIState.SelectingUnit;
-            }
-
-            if (Model.Phase != BattlePhase.NotStarted) {
-                Model.ResetUnitState();
-                Model.Battle.EndTurn();
             }
 
             Model.Phase = Phase;

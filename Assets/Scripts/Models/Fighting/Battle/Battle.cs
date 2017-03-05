@@ -64,6 +64,14 @@ namespace Models.Fighting.Battle {
                 .ToDictionary(x => x.Key, x => x.ToList());
         }
 
+        public List<string> GetCurrentTurnEvents() {
+            if (!_eventsByTurn.ContainsKey(TurnNumber)) {
+                return new List<string>();
+            }
+
+            return _eventsByTurn[TurnNumber].Select(evt => evt.EventName).ToList();
+        }
+
         public IActionPlan GetActionPlan(ArmyType army) {
             var combatants = _combatants.GetCombatantsByArmy(army);
             return new AIActionPlan(combatants);

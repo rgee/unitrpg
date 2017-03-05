@@ -28,6 +28,8 @@ namespace Models.Fighting.Battle {
 
         void SubmitAction(ICombatAction action);
 
+        List<string> GetCurrentTurnEvents();
+
         void EndTurn();
 
         bool CanMove(ICombatant combatant);

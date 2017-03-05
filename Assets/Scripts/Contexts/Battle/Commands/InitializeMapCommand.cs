@@ -48,7 +48,7 @@ namespace Contexts.Battle.Commands {
             objectives.Add(config.Objective);
 
             var turnOrder = new List<ArmyType> {ArmyType.Friendly, ArmyType.Enemy, ArmyType.Other};
-            var mapConfig = MapConfigRepository.GetConfigByMapName(context.MapName);
+            var mapConfig = MapConfigRepository.GetConfigByMapName(Configuration.Id);
 
             Model.Battle = new global::Models.Fighting.Battle.Battle(
                 combatants: Configuration.Combatants,

@@ -4,6 +4,7 @@ using Models.Fighting.Battle;
 using Models.Fighting.Battle.Objectives;
 using Models.Fighting.Characters;
 using Models.Fighting.Maps;
+using Models.Fighting.Maps.Configuration;
 using Models.Fighting.Maps.Triggers;
 using Models.Fighting.Skills;
 using Models.SaveGames;
@@ -14,6 +15,8 @@ using Assert = NUnit.Framework.Assert;
 namespace Tests.Battle {
     [TestFixture]
     public class BattleTest {
+
+        private static readonly MapConfig EmptyMapConfig = new MapConfig(new List<EventTile>(), new List<TurnEvent>());
         private class EmptySaveGameRepository : ISaveGameRepository {
             public ISaveGame CurrentSave { get; set; }
 
@@ -58,7 +61,7 @@ namespace Tests.Battle {
 
             var database = new CombatantDatabase(references, new EmptySaveGameRepository());
             var battle = new Models.Fighting.Battle.Battle(map, random, database, turnOrder,
-                new List<IObjective> {new Rout()}, new List<EventTile>());
+                new List<IObjective> {new Rout()}, EmptyMapConfig);
 
             var liat = database.GetCombatantsByArmy(ArmyType.Friendly)[0];
             var janek = database.GetCombatantsByArmy(ArmyType.Enemy)[0];
@@ -106,7 +109,7 @@ namespace Tests.Battle {
 
             var database = new CombatantDatabase(references, new EmptySaveGameRepository());
             var battle = new Models.Fighting.Battle.Battle(map, random, database, turnOrder,
-                new List<IObjective> { new Rout() }, new List<EventTile>());
+                new List<IObjective> { new Rout() }, EmptyMapConfig);
 
             var liat = database.GetCombatantsByArmy(ArmyType.Friendly)[0];
             var janek = database.GetCombatantsByArmy(ArmyType.Enemy)[0];
@@ -145,7 +148,7 @@ namespace Tests.Battle {
 
             var database = new CombatantDatabase(references, new EmptySaveGameRepository());
             var battle = new Models.Fighting.Battle.Battle(map, random, database, turnOrder,
-                new List<IObjective> { new Rout() }, new List<EventTile>());
+                new List<IObjective> { new Rout() }, EmptyMapConfig);
 
             var liat = database.GetCombatantsByArmy(ArmyType.Friendly)[0];
             var janek = database.GetCombatantsByArmy(ArmyType.Enemy)[0];
@@ -184,7 +187,7 @@ namespace Tests.Battle {
 
             var database = new CombatantDatabase(references, new EmptySaveGameRepository());
             var battle = new Models.Fighting.Battle.Battle(map, random, database, turnOrder,
-                new List<IObjective> { new Rout() }, new List<EventTile>());
+                new List<IObjective> { new Rout() }, EmptyMapConfig);
 
             var liat = database.GetCombatantsByArmy(ArmyType.Friendly)[0];
             var janek = database.GetCombatantsByArmy(ArmyType.Enemy)[0];
@@ -265,7 +268,7 @@ namespace Tests.Battle {
 
             var database = new CombatantDatabase(references, saveGameRepo);
             var battle = new Models.Fighting.Battle.Battle(map, random, database, turnOrder,
-                new List<IObjective> { new Rout() }, new List<EventTile>());
+                new List<IObjective> { new Rout() }, EmptyMapConfig);
 
             var liat = database.GetCombatantsByArmy(ArmyType.Friendly)[0];
             var janek = database.GetCombatantsByArmy(ArmyType.Enemy)[0];
@@ -342,7 +345,7 @@ namespace Tests.Battle {
 
             var database = new CombatantDatabase(references, saveGameRepo);
             var battle = new Models.Fighting.Battle.Battle(map, random, database, turnOrder,
-                new List<IObjective> { new Rout() }, new List<EventTile>());
+               new List<IObjective> { new Rout() }, EmptyMapConfig);
 
             var liat = database.GetCombatantsByArmy(ArmyType.Friendly)[0];
             var janek = database.GetCombatantsByArmy(ArmyType.Enemy)[0];

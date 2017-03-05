@@ -46,6 +46,7 @@ namespace Contexts.Battle {
             injectionBinder.Bind<BattleStartSignal>().ToSingleton().CrossContext();
             injectionBinder.Bind<SpawnCombatantSignal>().ToSingleton().CrossContext();
 
+            injectionBinder.Bind<EventHandlersCompleteSignal>().ToSingleton();
             injectionBinder.Bind<HoverTileEnableSignal>().ToSingleton();
             injectionBinder.Bind<HoveredTileChangeSignal>().ToSingleton();
             injectionBinder.Bind<GatherBattleFromEditorSignal>().ToSingleton();
@@ -81,7 +82,7 @@ namespace Contexts.Battle {
             injectionBinder.Bind<CameraLockSignal>().ToSingleton();
             injectionBinder.Bind<CameraUnlockSignal>().ToSingleton();
             injectionBinder.Bind<IncrememtTurnSignal>().ToSingleton();
-            injectionBinder.Bind<ProcessTileEventsSignal>().ToSingleton();
+            injectionBinder.Bind<ProcessEventHandlersSignal>().ToSingleton();
             injectionBinder.Bind<BeginSurveyingSignal>().ToSingleton().CrossContext();
             injectionBinder.Bind<AnimateActionSignal>().ToSingleton();
             injectionBinder.Bind<CameraPanSignal>().ToSingleton();

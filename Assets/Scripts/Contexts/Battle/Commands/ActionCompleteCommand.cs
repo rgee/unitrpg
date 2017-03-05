@@ -22,7 +22,7 @@ namespace Contexts.Battle.Commands {
         public IncrememtTurnSignal IncrememtTurnSignal { get; set; }
 
         [Inject]
-        public ProcessTileEventsSignal ProcessTileEventsSignal { get; set; }
+        public ProcessEventHandlersSignal ProcessEventHandlersSignal { get; set; }
         
         [Inject]
         public BattleEventRegistry BattleEventRegistry { get; set; }
@@ -49,7 +49,7 @@ namespace Contexts.Battle.Commands {
             if (Model.EventsThisActionPhase.Count > 0) {
                 var events = Model.EventsThisActionPhase;
                 var handlers = events.Select(evt => BattleEventRegistry.GetHandler(evt)).ToList();
-                ProcessTileEventsSignal.Dispatch(handlers);
+                ProcessEventHandlersSignal.Dispatch(handlers);
             } else {
                 IncrememtTurnSignal.Dispatch();                                
             }

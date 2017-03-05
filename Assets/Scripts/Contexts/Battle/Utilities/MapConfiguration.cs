@@ -6,16 +6,18 @@ using UnityEngine;
 
 namespace Contexts.Battle.Utilities {
     public class MapConfiguration {
+        public readonly string Id;
         public readonly MapDimensions Dimensions;
         public readonly IMap Map;
         public readonly ICombatantDatabase Combatants;
         public readonly int ChapterNumber;
 
-        public MapConfiguration(MapDimensions dimensions, IMap map, ICombatantDatabase combatantDatabase, int chapterNumber) {
+        public MapConfiguration(MapDimensions dimensions, IMap map, ICombatantDatabase combatantDatabase, int chapterNumber, string id) {
             Dimensions = dimensions;
             Map = map;
             Combatants = combatantDatabase;
             ChapterNumber = chapterNumber;
+            Id = id;
         }
     }
 }
