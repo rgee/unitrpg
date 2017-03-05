@@ -2,6 +2,7 @@
 using Contexts.Battle.Signals;
 using Contexts.Battle.Utilities;
 using Models.Fighting;
+using Models.Fighting.Maps;
 using strange.extensions.command.impl;
 using UnityEngine;
 using UnityEngine.Assertions.Comparers;
@@ -36,7 +37,7 @@ namespace Contexts.Battle.Commands {
 
                 var combatant = Model.SelectedCombatant;
                 var moveRange = combatant.GetAttribute(Attribute.AttributeType.Move).Value;
-                var path = map.FindPath(combatant.Position, Position.GridCoordinates);
+                var path = map.FindPath(combatant.Position, Position.GridCoordinates, PathfindingUtils.GetCombatantTileFilter(combatant));
                 if (path == null || path.Count - 1 > moveRange) {
                     PathUnavailableSignal.Dispatch();
                     Model.CurrentMovementPath = null;

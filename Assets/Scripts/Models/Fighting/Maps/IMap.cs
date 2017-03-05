@@ -50,7 +50,11 @@ namespace Models.Fighting.Maps {
         HashSet<Vector2> FindUnoccupiedSurroundingPoints(Vector2 start, int distance);
 
         List<Vector2> FindPathToAdjacentTile(Vector2 start, Vector2 goal);
-        
+
+        List<Vector2> FindPathToAdjacentTile(Vector2 start, Vector2 goal, Predicate<Tile> blockedFilter);
+
         List<Vector2> FindPath(Vector2 start, Vector2 goal);
+
+        List<Vector2> FindPath(Vector2 start, Vector2 goal, Predicate<Tile> blockedFilter);
     }
 }

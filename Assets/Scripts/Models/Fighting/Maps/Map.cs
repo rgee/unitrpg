@@ -215,11 +215,15 @@ namespace Models.Fighting.Maps {
         }
 
         public List<Vector2> FindPathToAdjacentTile(Vector2 start, Vector2 goal) {
+            return FindPathToAdjacentTile(start, goal, tile => !tile.Obstructed && tile.Occupant == null);
+        }
+
+        public List<Vector2> FindPathToAdjacentTile(Vector2 start, Vector2 goal, Predicate<Tile> blockedFilter) {
             var adjacentLocations = MathUtils.GetAdjacentPoints(goal)
                 .OrderBy(location => MathUtils.ManhattanDistance(start, location))
                 .ThenBy(location => Vector3.Distance(start, location));
             foreach (var point in adjacentLocations) {
-                var path = FindPath(start, point);
+                var path = FindPath(start, point, blockedFilter);
                 if (path != null) {
                     return path;
                 }
@@ -229,7 +233,11 @@ namespace Models.Fighting.Maps {
         }
 
         public List<Vector2> FindPath(Vector2 start, Vector2 goal) {
-            if (start == goal || IsBlocked(goal)) {
+            return FindPath(start, goal, tile => !tile.Obstructed && tile.Occupant == null);
+        }
+
+        public List<Vector2> FindPath(Vector2 start, Vector2 goal, Predicate<Tile> blockedFilter) {
+            if (start == goal || !IsOnMap(goal) || !blockedFilter(GetTileByPosition(goal))) {
                 return null;
             }
 
@@ -252,7 +260,8 @@ namespace Models.Fighting.Maps {
                 closedNodes.Add(currentCheapest);
                 var neighbors = MathUtils.GetAdjacentPoints(currentCheapest);
                 foreach (var neighbor in neighbors) {
-                    if (closedNodes.Contains(neighbor) || IsBlocked(neighbor)) {
+                    var neighborTile = GetTileByPosition(neighbor);
+                    if (closedNodes.Contains(neighbor) || IsOnMap(neighbor) && neighborTile.Obstructed) {
                         continue;
                     }
 

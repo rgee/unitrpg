@@ -38,7 +38,7 @@ namespace Models.Fighting.AI.Brains {
                 }
 
                 // If there's actually a path to the target, move there
-                var path = map.FindPathToAdjacentTile(_self.Position, _target.Position);
+                var path = map.FindPathToAdjacentTile(_self.Position, _target.Position, PathfindingUtils.GetCombatantTileFilter(_self));
                 if (path != null) {
                     // Remove the first node because it's exactly where we're standing
                     path.RemoveAt(0);
@@ -79,7 +79,7 @@ namespace Models.Fighting.AI.Brains {
             }
 
             _target = potentials.OrderBy(target => {
-                var path = map.FindPathToAdjacentTile(_self.Position, target.Position);
+                var path = map.FindPathToAdjacentTile(_self.Position, target.Position, PathfindingUtils.GetCombatantTileFilter(_self));
                 return path == null ? int.MaxValue : path.Count;
             })
             .First();
