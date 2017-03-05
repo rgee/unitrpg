@@ -87,6 +87,21 @@ namespace Models.Fighting.Characters {
                 .Build())
                 .Weapons("Greatsword")
                 .Build());
+
+            Add(new CharacterBuilder()
+                .Id("speedy_chapter_2")
+                .Name("Soldier")
+                .Attributes(new AttributesBuilder()
+                    .Move(5)
+                    .Health(20)
+                    .Skill(3)
+                    .Speed(2)
+                    .Defense(2)
+                    .Special(0)
+                    .Strength(8)
+                .Build())
+                .Weapons("Greatsword")
+                .Build());
         }
 
         private void Add(ICharacter character) {
