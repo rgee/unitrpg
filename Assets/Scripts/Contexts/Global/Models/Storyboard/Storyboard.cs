@@ -4,6 +4,7 @@ using Assets.Contexts.Common.Services;
 using C5;
 using Contexts.Common.Model;
 using Contexts.Global.Signals;
+using Models.Fighting.Battle.Objectives;
 
 namespace Assets.Scripts.Contexts.Global.Models {
     public class Storyboard {
@@ -16,7 +17,7 @@ namespace Assets.Scripts.Contexts.Global.Models {
 
         private int _storyboardIndex = 0;
 
-        public int StorboardIndex {
+        public int StoryboardIndex {
             get { return _storyboardIndex; }
             set {
                 if (value >= _scenes.Count) {
@@ -27,21 +28,29 @@ namespace Assets.Scripts.Contexts.Global.Models {
             }
         }
 
+        public IStoryboardScene CurrentScene {
+            get { return _scenes[Math.Max(0, _storyboardIndex - 1)]; }
+        }
+
         [Construct]
         public Storyboard(ChangeSceneSignal changeSceneSignal, ApplicationState state) {
             ChangeSceneSignal = changeSceneSignal;
             State = state;
 
             _scenes = new LinkedList<IStoryboardScene> {
-               new StoryboardScene("male_soldier_report"),
-               new StoryboardScene("female_soldier_report"),
-               new StoryboardScene("liat_janek_prep"),
-               new StoryboardScene("liat_audric_h2h"),
-               new StoryboardScene("liat_audric_balcony"),
-               new StoryboardScene("liat_audric_overlook"),
-               new StoryboardScene("chapter_1_battle"),
-               new StoryboardScene("chapter_2_battle")
+               new StoryboardScene("MaleSoldierReport", "male_soldier_report"),
+               new StoryboardScene("FemaleSoldierReport", "female_soldier_report"),
+               new StoryboardScene("LiatJanekPrep", "liat_janek_prep"),
+               new StoryboardScene("LiatAudricH2H", "liat_audric_h2h"),
+               new StoryboardScene("LiatAudricBalcony", "liat_audric_balcony"),
+               new StoryboardScene("LiatAudricOverlook", "liat_audric_overlook"),
+               new BattleStoryboardScene("Chapter1", "chapter_1_battle", new Rout()),
+               new BattleStoryboardScene("Chapter2", "chapter_2_battle", new Rout())
             };
+        }
+
+        public int FindIndexForId(string id) {
+            return _scenes.FindIndex(scene => scene.Id == id);
         }
 
         public IStoryboardScene GetAndIncrementNextScene() {

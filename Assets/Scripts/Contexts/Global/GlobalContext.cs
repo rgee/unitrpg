@@ -47,16 +47,11 @@ namespace Contexts.Global {
             ConcreteSingleton<ScreenFadedSignal>();
             ConcreteSingleton<LoadSceneSignal>();
             ConcreteSingleton<ChangeSceneSignal>();
-            ConcreteSingleton<StartChapterSignal>();
             ConcreteSingleton<ChangeSceneMultiSignal>();
             ConcreteSingleton<PushSceneSignal>();
             ConcreteSingleton<PopSceneSignal>();
             ConcreteSingleton<ScenePopCompleteSignal>();
             ConcreteSingleton<NextStoryboardSceneSignal>();
-
-
-            commandBinder.Bind<StartChapterSignal>()
-                .To<StartChapterCommand>();
 
             commandBinder.Bind<NextStoryboardSceneSignal>()
                 .To<NextStoryboardSceneCommand>();

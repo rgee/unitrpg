@@ -1,4 +1,6 @@
-﻿using Contexts.Global.Services;
+﻿using System;
+using Assets.Scripts.Contexts.Global.Models;
+using Contexts.Global.Services;
 using Contexts.Global.Signals;
 using Models.SaveGames;
 using strange.extensions.command.impl;
@@ -15,14 +17,23 @@ namespace Assets.Contexts.SaveManagement.Load {
         public ISaveGame SelectedSave { get; set; }
 
         [Inject]
-        public StartChapterSignal StartChapterSignal { get; set; }
+        public Storyboard Storyboard { get; set; }
+
+        [Inject]
+        public NextStoryboardSceneSignal NextStoryboardSceneSignal { get; set; }
 
         [Inject(ContextKeys.CONTEXT_VIEW)]
         public GameObject Context { get; set; }
 
         public override void Execute() {
             SaveGameService.Choose(SelectedSave);
-            StartChapterSignal.Dispatch(Context);
+
+            var lastIndex = Storyboard.FindIndexForId(SelectedSave.LastSceneId);
+            if (lastIndex < 0) {
+                throw new Exception("Could not find storyboard scene by id " + SelectedSave.LastSceneId);
+            }
+            Storyboard.StoryboardIndex = lastIndex;
+            NextStoryboardSceneSignal.Dispatch(Context);
         }
     }
 }

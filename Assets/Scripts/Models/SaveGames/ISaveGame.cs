@@ -6,7 +6,7 @@ namespace Models.SaveGames {
     public interface ISaveGame {
         string Id { get; set; }
         string Path { get; set;  }
-        int LastCompletedChapterNumber { get; set; }
+        string LastSceneId { get; set; }
         List<ICharacter> Characters { get; set; }
         ICharacter GetCharacterByName(string name);
         DateTime LastSaveTime { get; set; }
