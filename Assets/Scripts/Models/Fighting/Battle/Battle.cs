@@ -7,6 +7,7 @@ using Models.Fighting.Battle.Objectives;
 using Models.Fighting.Characters;
 using Models.Fighting.Execution;
 using Models.Fighting.Maps;
+using Models.Fighting.Maps.Configuration;
 using Models.Fighting.Maps.Triggers;
 using Models.Fighting.Skills;
 using strange.extensions.signal.impl;
@@ -28,7 +29,7 @@ namespace Models.Fighting.Battle {
         private Turn _currentTurn;
 
         public Battle(IMap map, IRandomizer randomizer, ICombatantDatabase combatants, List<ArmyType> turnOrder, List<IObjective> objectives, 
-            List<EventTile> eventTiles) {
+            MapConfig mapConfig) {
             TurnNumber = 0;
             EventTileSignal = new Signal<string>();
             Objectives = objectives;
@@ -49,7 +50,7 @@ namespace Models.Fighting.Battle {
                 RegisterCombatant(combatant, map);
             }
 
-            foreach (var eventTile in eventTiles) {
+            foreach (var eventTile in mapConfig.EventTiles) {
                 Map.AddEventTile(eventTile);
             }
 

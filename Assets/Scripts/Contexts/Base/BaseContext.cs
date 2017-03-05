@@ -9,6 +9,7 @@ using Contexts.Common.Utils;
 using Contexts.Global.Models;
 using Contexts.Global.Services;
 using Models.Fighting.Characters;
+using Models.Fighting.Maps.Configuration;
 using Models.SaveGames;
 using Newtonsoft.Json.Linq;
 using strange.extensions.command.api;
@@ -54,6 +55,7 @@ namespace Assets.Contexts.Base {
 
                     Debug.LogFormat("Deserializing Game object took {0}ms", stopwatch.ElapsedMilliseconds);
                     injectionBinder.Bind<Game>().ToValue(game).CrossContext();
+                    injectionBinder.Bind<IMapConfigRepository>().To(new ExternalMapConfigurationRepository(game.Maps));
                 } else {
                     throw new Exception("Could not find game configuration file.");
                 }

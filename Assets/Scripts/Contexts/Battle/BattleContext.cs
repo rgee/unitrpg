@@ -46,7 +46,6 @@ namespace Contexts.Battle {
             injectionBinder.Bind<BattleStartSignal>().ToSingleton().CrossContext();
             injectionBinder.Bind<SpawnCombatantSignal>().ToSingleton().CrossContext();
 
-            injectionBinder.Bind<IMapConfigRepository>().To(new StaticMapConfigRepository());
             injectionBinder.Bind<HoverTileEnableSignal>().ToSingleton();
             injectionBinder.Bind<HoveredTileChangeSignal>().ToSingleton();
             injectionBinder.Bind<GatherBattleFromEditorSignal>().ToSingleton();

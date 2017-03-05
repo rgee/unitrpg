@@ -59,8 +59,7 @@ namespace Contexts.Global.Models {
                     .Select(prop => {
                         var tile = prop.Value;
                         var locationNode = tile["position"] as JObject;
-                        var location =
-                            new Vector2(locationNode["x"].ToObject<int>(), locationNode["y"].ToObject<int>());
+                        var location = new Vector2(locationNode["x"].ToObject<int>(), locationNode["y"].ToObject<int>());
 
                         var name = tile["eventName"].ToObject<string>();
                         var mode = tile["interactionMode"].ToObject<string>();
