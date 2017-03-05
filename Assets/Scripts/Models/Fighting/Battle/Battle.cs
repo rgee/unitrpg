@@ -17,6 +17,7 @@ namespace Models.Fighting.Battle {
         public IMap Map { get; private set; }
         public int TurnNumber { get; private set; }
         public Signal<string> EventTileSignal { get; private set; }
+        public List<IObjective> Objectives { get; set; }
 
         private readonly IRandomizer _randomizer;
         private readonly FightForecaster _forecaster;
@@ -24,14 +25,13 @@ namespace Models.Fighting.Battle {
         private readonly List<ArmyType> _turnOrder;
         private readonly ICombatantDatabase _combatants;
         private readonly Dictionary<string, ICombatant> _combatantsById = new Dictionary<string, ICombatant>();
-        private readonly List<IObjective> _objectives;
         private Turn _currentTurn;
 
         public Battle(IMap map, IRandomizer randomizer, ICombatantDatabase combatants, List<ArmyType> turnOrder, List<IObjective> objectives, 
             List<EventTile> eventTiles) {
             TurnNumber = 0;
             EventTileSignal = new Signal<string>();
-            _objectives = objectives;
+            Objectives = objectives;
             Map = map;
             _randomizer = randomizer;
             _combatants = combatants;
@@ -82,16 +82,12 @@ namespace Models.Fighting.Battle {
             combatant.DeathSignal.AddListener(() => map.RemoveCombatant(combatant));
         }
 
-        public List<IObjective> GetObjectives() {
-            return _objectives;
-        }
-
         public bool IsWon() {
-            return _objectives.All(obj => obj.IsComplete(this)) && !_objectives.Any(obj => obj.HasFailed(this));
+            return Objectives.All(obj => obj.IsComplete(this)) && !Objectives.Any(obj => obj.HasFailed(this));
         }
 
         public bool IsLost() {
-            return _objectives.Any(obj => obj.HasFailed(this));
+            return Objectives.Any(obj => obj.HasFailed(this));
         }
 
         private void _relayEvent(EventTile eventTile) {

@@ -22,6 +22,8 @@ namespace Models.Fighting.Battle {
 
         Signal<string> EventTileSignal { get; }
 
+        List<IObjective> Objectives { get; set; }
+
         IActionPlan GetActionPlan(ArmyType army);
 
         void SubmitAction(ICombatAction action);
@@ -47,8 +49,6 @@ namespace Models.Fighting.Battle {
         int GetMaxWeaponAttackRange(ICombatant combatant);
 
         SkillType GetWeaponSkillForRange(ICombatant combatant, int range);
-
-        List<IObjective> GetObjectives();
 
         bool IsWon();
 
