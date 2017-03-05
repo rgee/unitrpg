@@ -26,6 +26,8 @@ namespace Models.Fighting.Battle {
         private readonly List<ArmyType> _turnOrder;
         private readonly ICombatantDatabase _combatants;
         private readonly Dictionary<string, ICombatant> _combatantsById = new Dictionary<string, ICombatant>();
+        private readonly Dictionary<int, List<TurnEvent>> _eventsByTurn;
+        
         private Turn _currentTurn;
 
         public Battle(IMap map, IRandomizer randomizer, ICombatantDatabase combatants, List<ArmyType> turnOrder, List<IObjective> objectives, 
@@ -56,6 +58,10 @@ namespace Models.Fighting.Battle {
 
             var firstArmy = _turnOrder[0];
             _currentTurn = new Turn(_combatants, firstArmy);
+
+            _eventsByTurn = mapConfig.TurnEvents
+                .GroupBy(evt => evt.ActivationTurn)
+                .ToDictionary(x => x.Key, x => x.ToList());
         }
 
         public IActionPlan GetActionPlan(ArmyType army) {
