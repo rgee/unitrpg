@@ -1,11 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Assets.Scripts.Contexts.Global.Models;
+using Models.Fighting.Maps.Triggers;
 using Newtonsoft.Json.Linq;
 using UnityEngine;
 
 namespace Contexts.Global.Models {
-    public class MapConfiguration {
+    public class ExternalMapConfiguration {
         public readonly string DisplayName;
         public readonly int Width;
         public readonly int Height;
@@ -13,7 +15,7 @@ namespace Contexts.Global.Models {
         public readonly List<TurnEventConfiguration> TurnEvents;
         public readonly List<TriggerTileConfiguration> TriggerTiles;
 
-        public MapConfiguration(string displayName, int width, int height, List<Vector2> obstructionLocations, List<TurnEventConfiguration> turnEvents, List<TriggerTileConfiguration> triggerTiles) {
+        public ExternalMapConfiguration(string displayName, int width, int height, List<Vector2> obstructionLocations, List<TurnEventConfiguration> turnEvents, List<TriggerTileConfiguration> triggerTiles) {
             DisplayName = displayName;
             Width = width;
             Height = height;
@@ -22,7 +24,7 @@ namespace Contexts.Global.Models {
             TriggerTiles = triggerTiles;
         }
 
-        public static MapConfiguration CreateFromJson(JObject json) {
+        public static ExternalMapConfiguration CreateFromJson(JObject json) {
             var displayName = json["displayName"].ToObject<string>();
             var width = json["width"].ToObject<int>();
             var height = json["height"].ToObject<int>();
@@ -61,13 +63,29 @@ namespace Contexts.Global.Models {
                             new Vector2(locationNode["x"].ToObject<int>(), locationNode["y"].ToObject<int>());
 
                         var name = tile["eventName"].ToObject<string>();
+                        var mode = tile["interactionMode"].ToObject<string>();
 
-                        return new TriggerTileConfiguration(location, name);
+                        return new TriggerTileConfiguration(location, name, ParseInteractionMode(mode));
                     })
                     .ToList();
             }
 
-            return new MapConfiguration(displayName, width, height, obstructionValues, turnEvents, triggerTiles);
+            return new ExternalMapConfiguration(displayName, width, height, obstructionValues, turnEvents, triggerTiles);
+        }
+
+        private static InteractionMode ParseInteractionMode(string modeString) {
+            if (string.IsNullOrEmpty(modeString)) {
+                throw new ArgumentException("An interactino mode is required.");
+            }
+
+            switch (modeString) {
+                case "walk":
+                    return InteractionMode.Walk;
+                case "use":
+                    return InteractionMode.Use;
+                default:
+                    throw new ArgumentException("Invalid interaction mode: " + modeString);
+            }
         }
     }
 }
