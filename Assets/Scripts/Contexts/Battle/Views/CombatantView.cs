@@ -19,6 +19,7 @@ namespace Contexts.Battle.Views {
 
         public string CharacterName;
         public string CombatantId;
+        public string CharacterId;
         public ArmyType Army = ArmyType.Friendly;
         public CombatantState State = CombatantState.Idle;
         public MathUtils.CardinalDirection Facing = MathUtils.CardinalDirection.S;
@@ -36,7 +37,7 @@ namespace Contexts.Battle.Views {
         private tk2dSprite _sprite;
         private CombatantAnimator _animator;
 
-        protected virtual void Awake() {
+        protected override void Awake() {
             base.Awake();
 
             _sprite = GetComponent<tk2dSprite>();

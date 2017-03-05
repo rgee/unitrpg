@@ -5,17 +5,17 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 447874}
-  - 23: {fileID: 2360760}
-  - 33: {fileID: 3334218}
-  - 114: {fileID: 11497166}
-  - 114: {fileID: 11460922}
-  - 114: {fileID: 11483992}
-  - 114: {fileID: 11429778}
-  - 114: {fileID: 11402424}
-  - 114: {fileID: 11487094}
+  - component: {fileID: 447874}
+  - component: {fileID: 2360760}
+  - component: {fileID: 3334218}
+  - component: {fileID: 11497166}
+  - component: {fileID: 11460922}
+  - component: {fileID: 11483992}
+  - component: {fileID: 11429778}
+  - component: {fileID: 11402424}
+  - component: {fileID: 11487094}
   m_Layer: 0
   m_Name: Gatsu_Ch1
   m_TagString: Untagged
@@ -35,6 +35,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &2360760
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -44,17 +45,22 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: c9e620348ae8b5c4ca777fe9d3f53834, type: 2}
-  m_SubsetIndices: 
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
   m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
   m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -91,7 +97,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CharacterName: Soldier
-  CombatantId: gatsu_chapter_1
+  CombatantId: 
+  CharacterId: gatsu_chapter_1
   Army: 1
   State: 0
   Facing: 1

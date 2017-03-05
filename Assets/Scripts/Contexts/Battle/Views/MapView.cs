@@ -81,6 +81,7 @@ namespace Contexts.Battle.Views {
 
             return units.Select(unit => {
                 return new CombatantDatabase.CombatantReference {
+                    CharacterId = unit.CharacterId,
                     Id = unit.CombatantId,
                     Position = dimensions.GetGridPositionForWorldPosition(unit.transform.position),
                     Name = unit.CharacterName,

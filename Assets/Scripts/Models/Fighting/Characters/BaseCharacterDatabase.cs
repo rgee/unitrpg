@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Models.Fighting.Skills;
 
@@ -71,14 +72,32 @@ namespace Models.Fighting.Characters {
                 .Build())
                 .Weapons("Greatsword")
                 .Build());
+
+            Add(new CharacterBuilder()
+                .Id("gatsu_chapter_2")
+                .Name("Soldier")
+                .Attributes(new AttributesBuilder()
+                    .Move(5)
+                    .Health(20)
+                    .Skill(3)
+                    .Speed(2)
+                    .Defense(2)
+                    .Special(0)
+                    .Strength(8)
+                .Build())
+                .Weapons("Greatsword")
+                .Build());
         }
 
         private void Add(ICharacter character) {
-            _characters[character.Name] = character;
+            _characters[character.Id] = character;
         }
 
-        public ICharacter GetCharacter(string name) {
-            return _characters[name];
+        public ICharacter GetCharacter(string id) {
+            if (!_characters.ContainsKey(id)) {
+                throw new ArgumentException("No character with id: " + id + " found.");
+            }
+            return _characters[id];
         }
 
         public List<ICharacter> GetAllCharacters() {

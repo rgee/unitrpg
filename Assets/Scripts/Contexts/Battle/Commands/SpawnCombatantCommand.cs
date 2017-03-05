@@ -28,7 +28,7 @@ namespace Contexts.Battle.Commands {
             if (save != null) {
                 character = save.GetCharacterByName(view.CharacterName);
             } else {
-                character = BaseCharacterDatabase.Instance.GetCharacter(view.CharacterName);
+                character = BaseCharacterDatabase.Instance.GetCharacter(view.CharacterId);
             }
 
             var combatant = new BaseCombatant(character, view.Army) {

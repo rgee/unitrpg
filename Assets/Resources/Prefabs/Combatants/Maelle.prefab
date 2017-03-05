@@ -5,17 +5,17 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 469166}
-  - 23: {fileID: 2393258}
-  - 33: {fileID: 3363946}
-  - 114: {fileID: 11424528}
-  - 114: {fileID: 11409456}
-  - 114: {fileID: 11426916}
-  - 114: {fileID: 11480920}
-  - 114: {fileID: 11475622}
-  - 114: {fileID: 11480842}
+  - component: {fileID: 469166}
+  - component: {fileID: 2393258}
+  - component: {fileID: 3363946}
+  - component: {fileID: 11424528}
+  - component: {fileID: 11409456}
+  - component: {fileID: 11426916}
+  - component: {fileID: 11480920}
+  - component: {fileID: 11475622}
+  - component: {fileID: 11480842}
   m_Layer: 0
   m_Name: Maelle
   m_TagString: Untagged
@@ -35,6 +35,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &2393258
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -44,17 +45,22 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 95cab5c2420ea0d4598327da3bdc8be3, type: 2}
-  m_SubsetIndices: 
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
   m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
   m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -151,6 +157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CharacterName: Maelle
   CombatantId: maelle
+  CharacterId: maelle
   Army: 0
   State: 0
   Facing: 1

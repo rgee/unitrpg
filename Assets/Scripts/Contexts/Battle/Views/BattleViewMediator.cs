@@ -11,7 +11,7 @@ namespace Contexts.Battle.Views {
         public BackSignal BackSignal { get; set; }
 
         [Inject]
-        public IncrememtTurnSignal IncrememtTurnSignal { get; set; }
+        public EventHandlersCompleteSignal EvenHandlersCompleteSignal { get; set; }
 
         [Inject]
         public BattleView View { get; set; }
@@ -28,7 +28,7 @@ namespace Contexts.Battle.Views {
         }
 
         private void OnEventTileProcessingComplete() {
-            IncrememtTurnSignal.Dispatch(); 
+            EvenHandlersCompleteSignal.Dispatch();
         }
 
         private void ProcessEventHandlers(IEnumerable<IEnumerator> events) {

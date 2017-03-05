@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Contexts.Battle.Models;
@@ -23,6 +24,9 @@ namespace Contexts.Battle.Commands {
 
         [Inject]
         public ProcessEventHandlersSignal ProcessEventHandlersSignal { get; set; }
+
+        [Inject]
+        public EventHandlersCompleteSignal EventHandlersCompleteSignal { get; set; }
         
         [Inject]
         public BattleEventRegistry BattleEventRegistry { get; set; }
@@ -44,11 +48,22 @@ namespace Contexts.Battle.Commands {
                 return;
             }
 
+            var events = Model.EventsThisActionPhase;
+            var handlers = events
+                .Select(evt => BattleEventRegistry.GetHandler(evt))
+                .Where(x => x != null)
+                .ToList();
             // If there are events to process because units walked over event tiles
             // handle them first.
-            if (Model.EventsThisActionPhase.Count > 0) {
-                var events = Model.EventsThisActionPhase;
-                var handlers = events.Select(evt => BattleEventRegistry.GetHandler(evt)).ToList();
+            if (handlers.Count > 0) {
+                Retain();
+                Action action = null;
+                action = new Action(() => {
+                    IncrememtTurnSignal.Dispatch();
+                    Release();
+                    EventHandlersCompleteSignal.RemoveListener(action);
+                });
+                EventHandlersCompleteSignal.AddListener(action);
                 ProcessEventHandlersSignal.Dispatch(handlers);
             } else {
                 IncrememtTurnSignal.Dispatch();                                

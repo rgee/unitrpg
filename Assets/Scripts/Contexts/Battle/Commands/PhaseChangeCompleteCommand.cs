@@ -1,7 +1,9 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Contexts.Battle.Models;
 using Contexts.Battle.Signals;
 using strange.extensions.command.impl;
+using UnityEngine;
 
 namespace Contexts.Battle.Commands {
     public class PhaseChangeCompleteCommand : Command {
@@ -34,11 +36,12 @@ namespace Contexts.Battle.Commands {
                .ToList();
             if (turnEventHanders.Count > 0) {
                 Retain();
-                EventHandlersCompleteSignal.AddOnce(() => {
+                Action action = null;
+                action = new Action(() => {
                    StartNextTurn();
                    Release();
                 });
-
+                EventHandlersCompleteSignal.AddListener(action);
                 ProcessEventHandlersSignal.Dispatch(turnEventHanders);
             } else {
                 StartNextTurn();                

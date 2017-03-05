@@ -11,6 +11,7 @@ namespace Models.Fighting.Battle {
 
         public class CombatantReference {
             public string Id { get; set; }
+            public string CharacterId { get; set; }
             public string Name { get; set; }
             public Vector2 Position { get; set; }
             public ArmyType Army { get; set; }
@@ -41,7 +42,7 @@ namespace Models.Fighting.Battle {
         }
 
         private static BaseCombatant LoadCombatantFromReference(ISaveGame saveGame, CombatantReference reference) {
-            var character = BaseCharacterDatabase.Instance.GetCharacter(reference.Name);
+            var character = BaseCharacterDatabase.Instance.GetCharacter(reference.CharacterId);
             if (saveGame != null) {
                 var savedCharacter = saveGame.GetCharacterByName(reference.Name);
                 if (savedCharacter != null) {
