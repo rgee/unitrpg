@@ -11,7 +11,7 @@ namespace Assets.Contexts.Chapters.Chapter2.Views {
 
         public bool Enabled;
 
-        void Awake() {
+        void Start() {
             if (!Enabled) {
                 var lights = GetComponentsInChildren<HouseWindowLight>();
                 foreach (var houseLight in lights) {
