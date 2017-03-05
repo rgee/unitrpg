@@ -64,6 +64,19 @@ namespace Models.Fighting.Battle {
                 .ToDictionary(x => x.Key, x => x.ToList());
         }
 
+        public void ScheduleTurnEvent(int turn, string eventName) {
+            if (turn <= TurnNumber) {
+                throw new ArgumentOutOfRangeException("turn", "Must provide a turn number in the future.");
+            }
+
+            var turnEvent = new TurnEvent(turn, eventName);
+            if (!_eventsByTurn.ContainsKey(turn)) {
+                _eventsByTurn[turn] = new List<TurnEvent> { turnEvent };
+            } else {
+                _eventsByTurn[turn].Add(turnEvent);                  
+            }
+        }
+
         public List<string> GetCurrentTurnEvents() {
             if (!_eventsByTurn.ContainsKey(TurnNumber)) {
                 return new List<string>();

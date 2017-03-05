@@ -14,6 +14,13 @@ using UnityEngine;
 
 namespace Assets.Contexts.Chapters.Chapter2.Commands {
     public class BindBattleEventsCommand : Command {
+
+        // Event name for spawning reinforcements after maelle is recruited
+        private const string MaelleReinforcementsKey = "spawn_maelle_reinforcements";
+
+        // How many turns after Maelle is recruited to spawn the 2nd set of reinforcements
+        private const int ReinforcementTurnsAfterMaelle = 2;
+
         [Inject]
         public StartDialogueSignal StartDialogueSignal { get; set; }
 
@@ -63,8 +70,17 @@ namespace Assets.Contexts.Chapters.Chapter2.Commands {
                 { "Liat", "liat_house_visit" }
             };
             EventRegistry.RegisterHandler("inspect_house", DoVisit(genericHouseDialogues, House.Generic));
-
+            EventRegistry.RegisterHandler(MaelleReinforcementsKey, SpawnMaelleReinforcements());
             EventRegistry.RegisterHandler("inspect_clinic", DoClinicVisit());
+            EventRegistry.RegisterHandler("fountain_reinforcements", SpawnFountainReinforcements());
+        }
+
+        private IEnumerator SpawnMaelleReinforcements() {
+            yield return null;
+        }
+
+        private IEnumerator SpawnFountainReinforcements() {
+            yield return null;
         }
 
         private IEnumerator DoClinicVisit() {
@@ -103,6 +119,10 @@ namespace Assets.Contexts.Chapters.Chapter2.Commands {
             maelle.transform.position = worldPosition;
 
             SpawnCombatantSignal.Dispatch(maelle);
+
+            var battle = BattleModel.Battle;
+            var reinforcementsTurn = battle.TurnNumber + ReinforcementTurnsAfterMaelle;
+            BattleModel.Battle.ScheduleTurnEvent(reinforcementsTurn, MaelleReinforcementsKey);
         }
 
         private IEnumerator DoVisit(Dictionary<string, string> nameToDialogue, House houseType) {

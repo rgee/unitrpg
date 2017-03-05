@@ -30,6 +30,8 @@ namespace Models.Fighting.Battle {
 
         List<string> GetCurrentTurnEvents();
 
+        void ScheduleTurnEvent(int turn, string eventName);
+
         void EndTurn();
 
         bool CanMove(ICombatant combatant);
