@@ -1,4 +1,5 @@
 ﻿
+using System;
 using Assets.Contexts.Common.Services;
 using C5;
 using Contexts.Common.Model;
@@ -15,6 +16,17 @@ namespace Assets.Scripts.Contexts.Global.Models {
 
         private int _storyboardIndex = 0;
 
+        public int StorboardIndex {
+            get { return _storyboardIndex; }
+            set {
+                if (value >= _scenes.Count) {
+                    throw new ArgumentException("Cannot skip to scene index " + value + ". Too high.");
+                }
+
+                _storyboardIndex = value;
+            }
+        }
+
         [Construct]
         public Storyboard(ChangeSceneSignal changeSceneSignal, ApplicationState state) {
             ChangeSceneSignal = changeSceneSignal;
@@ -27,7 +39,8 @@ namespace Assets.Scripts.Contexts.Global.Models {
                new StoryboardScene("liat_audric_h2h"),
                new StoryboardScene("liat_audric_balcony"),
                new StoryboardScene("liat_audric_overlook"),
-               new StoryboardScene("chapter_1_battle")
+               new StoryboardScene("chapter_1_battle"),
+               new StoryboardScene("chapter_2_battle")
             };
         }
 
