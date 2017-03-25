@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Contexts.Battle.Models;
 using Contexts.Battle.Signals;
+using Contexts.Battle.Utilities;
 using Contexts.Battle.Views;
 using Models.Combat;
 using Models.Fighting;
@@ -31,6 +32,9 @@ namespace Contexts.Battle.Commands {
         [Inject]
         public NewFightForecastSignal FightForecastSignal { get; set; }
 
+        [Inject]
+        public AvailableActions AvailableActions { get; set; }
+
         public override void Execute() {
             var state = BattleViewModel.State;
             if (state == BattleUIState.Uninitialized ||
@@ -43,7 +47,7 @@ namespace Contexts.Battle.Commands {
             var combatant = BattleViewModel.Map.GetAtPosition(Position);
             if (state == BattleUIState.SelectingUnit) {
                 if (combatant != null && combatant.Army == ArmyType.Friendly) {
-                    var actions = GetActions(combatant);
+                    var actions = AvailableActions.GetAvailableActionTypes(combatant);
                     if (actions.Count <= 0) {
                         return;
                     }
@@ -94,44 +98,6 @@ namespace Contexts.Battle.Commands {
                     BattleViewModel.State = BattleUIState.ForecastingCombat;
                 }
             }
-        }
-
-        private HashSet<CombatActionType> GetActions(ICombatant combatant) {
-
-            var battle = BattleViewModel.Battle;
-            var map = BattleViewModel.Map;
-
-            var results = new HashSet<CombatActionType>();
-            if (battle.CanAct(combatant)) {
-                results.Add(CombatActionType.Item);
-
-                var attackableSquares = map.FindSurroundingPoints(combatant.Position, battle.GetMaxWeaponAttackRange(combatant));
-                var attackableUnits = attackableSquares
-                    .Select(square => map.GetAtPosition(square))
-                    .Where(unit => unit != null && unit.Army == ArmyType.Enemy);
-
-                if (attackableUnits.Any()) {
-                    results.Add(CombatActionType.Attack);
-                    results.Add(CombatActionType.Brace);
-
-                    if (combatant.SpecialSkill.HasValue) {
-                        results.Add(CombatActionType.Special);
-                    }
-                }
-
-                var friendlyUnits = attackableSquares
-                    .Select(square => map.GetAtPosition(square))
-                    .Where(unit => unit != null && unit.Army == ArmyType.Friendly);
-                if (friendlyUnits.Any()) {
-                    results.Add(CombatActionType.Trade);
-                }
-            }
-
-            if (battle.CanMove(combatant)) {
-                results.Add(CombatActionType.Move);
-            }
-
-            return results;
         }
     }
 }

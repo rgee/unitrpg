@@ -96,6 +96,10 @@ namespace Models.Fighting.Battle {
             _currentTurn.AddNewCombatant(combatant);
         }
 
+        public EventTile GetEventTile(Vector2 location) {
+            return Map.GetEventTile(location);
+        }
+
         public void AddEventTile(EventTile eventTile) {
             Map.AddEventTile(eventTile);
         }

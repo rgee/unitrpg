@@ -60,6 +60,8 @@ namespace Models.Fighting.Battle {
 
         void AddEventTile(EventTile eventTile);
 
+        EventTile GetEventTile(Vector2 location);
+
         void RemoveEventTile(Vector2 location);
     }
 }
