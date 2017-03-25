@@ -64,6 +64,9 @@ namespace Contexts.Battle.Views {
 
         protected void UpdateFacingFlip() {
             var inCorrectState = State != CombatantState.Idle;
+
+            // West-facing animations should be flipped. The sprite sheets should all be 
+            // drawn to the east
             _sprite.FlipX = inCorrectState && Facing == MathUtils.CardinalDirection.W;
         }
 
