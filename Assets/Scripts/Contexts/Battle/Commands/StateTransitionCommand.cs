@@ -189,8 +189,16 @@ namespace Contexts.Battle.Commands {
             var map = Model.Map;
             var origin = Model.SelectedCombatant.Position;
             var moveRange = Model.Battle.GetRemainingMoves(Model.SelectedCombatant);
-            var squares = map.FindUnoccupiedSurroundingPoints(origin, moveRange);
+            var squares = map.FindUnoccupiedSurroundingPoints(origin, moveRange)
+                .Where(square => {
+                    var path = map.FindPath(origin, square);
+                    // TODO: Add this filtering step in a method on IMap interface
+                    // Skip the origin square when evaluating path length
+                    return path != null && path.Skip(1).Count() <= moveRange;
+                })
+                .ToHashSet();
             var highlights = new MapHighlights(squares, HighlightLevel.PlayerMove);
+
 
             HighlightSignal.Dispatch(highlights);
             HoverTileDisableSignal.Dispatch();
