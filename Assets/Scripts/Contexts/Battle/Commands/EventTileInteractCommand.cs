@@ -1,7 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Contexts.Battle.Models;
 using Contexts.Battle.Signals;
+using Contexts.Battle.Signals.Camera;
 using Contexts.Battle.Utilities;
 using Models.Fighting.Battle;
 using Models.Fighting.Maps.Triggers;
@@ -27,10 +29,29 @@ namespace Contexts.Battle.Commands {
         [Inject]
         public ActionAnimationCompleteSignal ActionAnimationCompleteSignal { get; set; }
 
+        [Inject]
+        public CameraPanCompleteSignal CameraPanCompleteSignal { get; set; }
+
+        [Inject]
+        public CameraPanToPointOfInterestSignal PanToPointOfInterestSignal { get; set; }
+
         public override void Execute() {
             Model.State = BattleUIState.EventPlaying;
             Model.EventsThisActionPhase.Add(Tile.EventName);
-            ActionAnimationCompleteSignal.Dispatch(new InteractAction(Tile, Model.SelectedCombatant, Model.Map));
+
+            var poiFactory = new PointOfInterestFactory(Model.Dimensions);
+            var interaction = new InteractAction(Tile, Model.SelectedCombatant, Model.Map);
+            var pointOfInterest = interaction.GetPointofInterest(poiFactory);
+
+            Retain();
+            Action panListener = null;
+            panListener = new Action(() => {
+                Release();
+                CameraPanCompleteSignal.RemoveListener(panListener);
+                ActionAnimationCompleteSignal.Dispatch(new InteractAction(Tile, Model.SelectedCombatant, Model.Map));
+            });
+            CameraPanCompleteSignal.AddListener(panListener);
+            PanToPointOfInterestSignal.Dispatch(pointOfInterest);
         }
     }
 }
