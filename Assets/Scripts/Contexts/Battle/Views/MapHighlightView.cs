@@ -15,6 +15,7 @@ namespace Contexts.Battle.Views {
         public Material HoverSelectionMaterial;
         public Material MovementSelectionMaterial;
         public Material SpecificEnemyMaterial;
+        public Material InteractMaterial;
 
         private Dictionary<HighlightLevel, HashSet<GameObject>> _highlightsByLevel = new Dictionary<HighlightLevel, HashSet<GameObject>>();
 
@@ -78,6 +79,9 @@ namespace Contexts.Battle.Views {
                     break;
                 case HighlightLevel.SpecificEnemyMove:
                     highlightRenderer.material = SpecificEnemyMaterial;
+                    break;
+                case HighlightLevel.PlayerInteract:
+                    highlightRenderer.material = InteractMaterial;
                     break;
                 case HighlightLevel.GlobalEnemyMove:
                     highlightRenderer.material = GlobalEnemyMaterial;
