@@ -4,6 +4,8 @@ using Contexts.Battle.Models;
 using Models.Combat;
 using Models.Fighting;
 using Models.Fighting.Characters;
+using Models.Fighting.Maps.Triggers;
+using Utils;
 
 namespace Contexts.Battle.Utilities {
     public class AvailableActions {
@@ -37,6 +39,13 @@ namespace Contexts.Battle.Utilities {
                     .Where(unit => unit != null && unit.Army == ArmyType.Friendly);
                 if (friendlyUnits.Any()) {
                     results.Add(CombatActionType.Trade);
+                }
+
+                var canUseTile = MathUtils.GetAdjacentPoints(combatant.Position)
+                    .Select(position => map.GetEventTile(position))
+                    .Any(tile => tile.InteractionMode == InteractionMode.Use);
+                if (canUseTile) {
+                    results.Add(CombatActionType.Use);
                 }
             }
 
