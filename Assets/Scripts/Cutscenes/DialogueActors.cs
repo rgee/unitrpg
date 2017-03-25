@@ -14,6 +14,6 @@ public class DialogueActors : ScriptableObject {
             }
         }
 
-        throw new ArgumentException("Could not find actor by name " + name);
+        return null;
     }
 }

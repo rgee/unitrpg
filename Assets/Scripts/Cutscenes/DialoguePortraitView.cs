@@ -48,17 +48,29 @@ public class DialoguePortraitView : MonoBehaviour {
 
     public void SetActor(string name, EmotionType emotion, Facing direction) {
         var actor = ActorDatabase.FindByName(name);
-        var portrait = actor.FindPortraitByEmotion(emotion);
-        var portraitObject = Instantiate(portrait.Prefab);
-        AttachGameObject(portraitObject);
-        _portraitAligner.Align(portraitObject, direction, new Vector3(Scale, Scale, 1f));
 
-        ActorName = name;
+        // If the line refers to an actor that doesn't exist, say "???", for example,
+        // just show nothing.
+        if (actor == null) {
+           ClearGameObject(); 
+        } else {
+            var portrait = actor.FindPortraitByEmotion(emotion);
+            var portraitObject = Instantiate(portrait.Prefab);
+            AttachGameObject(portraitObject);
+            _portraitAligner.Align(portraitObject, direction, new Vector3(Scale, Scale, 1f));
+
+            ActorName = name;
+        }
+    }
+
+    private void ClearGameObject() {
+        Destroy(_currentActorPortrait);
+        _currentActorPortrait = null;
     }
 
     private void AttachGameObject(GameObject instantiatedGameObject) {
         if (_currentActorPortrait != null) {
-            Destroy(_currentActorPortrait);
+            ClearGameObject();
         }
 
         instantiatedGameObject.transform.SetParent(transform);
