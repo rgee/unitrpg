@@ -28,7 +28,7 @@ namespace Assets.Contexts.Chapters.Chapter2 {
             mediationBinder.Bind<Chapter2HouseView>().To<Chapter2HouseMediator>();
 
             commandBinder.Bind<MarkHouseVisitedSignal>().To<MarkHouseVisitedCommand>();
-            commandBinder.GetBinding<BattleStartSignal>().To<BindBattleEventsCommand>().InParallel();
+            commandBinder.GetBinding<BattleStartSignal>().To<BindChapter2BattleEventsCommand>().InParallel();
         }
     }
 }
