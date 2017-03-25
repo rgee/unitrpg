@@ -62,7 +62,7 @@ namespace Contexts.Battle.Commands {
             Model.State = BattleUIState.SelectingUnit;
             Model.ChapterIndex = Configuration.ChapterNumber;
             
-            Model.Battle.EventTileSignal.AddListener(eventName => {
+            Model.Battle.EventTileWalkedSignal.AddListener(eventName => {
                 Model.EventsThisActionPhase.Add(eventName);
             });
         }

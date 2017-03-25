@@ -100,6 +100,8 @@ namespace Contexts.Battle.Commands {
                     break;
                 case BattleUIState.Surveying:
                     break;
+                case BattleUIState.EventPlaying:
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException("state", state, null);
             }
@@ -151,6 +153,8 @@ namespace Contexts.Battle.Commands {
                     break;
                 case BattleUIState.Surveying:
                     CameraUnlockSignal.Dispatch();
+                    break;
+                case BattleUIState.EventPlaying:
                     break;
                 default:
                     throw new ArgumentOutOfRangeException("state", state, null);

@@ -3,5 +3,6 @@
         IPointOfInterest Visit(FightAction fight);
         IPointOfInterest Visit(MoveAction move);
         IPointOfInterest Visit(UseItemAction useItem);
+        IPointOfInterest Visit(InteractAction interact);
     }
 }

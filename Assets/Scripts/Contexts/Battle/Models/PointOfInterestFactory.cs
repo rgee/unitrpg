@@ -22,5 +22,9 @@ namespace Contexts.Battle.Models {
         public IPointOfInterest Visit(UseItemAction useItem) {
             return new CombatantPointOfInterest(_dimensions, useItem.Combatant);
         }
+
+        public IPointOfInterest Visit(InteractAction interact) {
+            return new TilePointOfInterest(_dimensions, interact.Tile.Location);
+        }
     }
 }

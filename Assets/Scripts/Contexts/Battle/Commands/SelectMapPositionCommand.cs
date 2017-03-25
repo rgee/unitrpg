@@ -10,6 +10,7 @@ using Models.Fighting;
 using Models.Fighting.Battle;
 using Models.Fighting.Characters;
 using Models.Fighting.Execution;
+using Models.Fighting.Maps.Triggers;
 using Models.Fighting.Skills;
 using strange.extensions.command.impl;
 using UnityEngine;
@@ -31,6 +32,9 @@ namespace Contexts.Battle.Commands {
 
         [Inject]
         public NewFightForecastSignal FightForecastSignal { get; set; }
+
+        [Inject]
+        public EventTileInteractedSignal EventTileInteractedSignal { get; set; }
 
         [Inject]
         public AvailableActions AvailableActions { get; set; }
@@ -70,6 +74,15 @@ namespace Contexts.Battle.Commands {
                     var action = new MoveAction(map, path.Combatant, positions.Last(), positions);
                     AnimateActionSignal.Dispatch(action);
                     BattleViewModel.State = BattleUIState.CombatantMoving;
+                }
+
+            } else if (state == BattleUIState.SelectingInteractTarget) {
+                var map = BattleViewModel.Map;
+                var tile = map.GetEventTile(Position);
+
+                // Only if the player clicks on a tile that is actually interactible by clicks
+                if (tile != null && tile.InteractionMode == InteractionMode.Use) {
+                    EventTileInteractedSignal.Dispatch(tile);
                 }
             } else if (state == BattleUIState.SelectingAttackTarget) {
                 if (combatant != null && combatant.Army == ArmyType.Enemy) {

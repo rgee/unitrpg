@@ -90,6 +90,7 @@ namespace Contexts.Battle {
             injectionBinder.Bind<CameraPanSignal>().ToSingleton();
             injectionBinder.Bind<CameraPanCompleteSignal>().ToSingleton();
             injectionBinder.Bind<CameraPanToPointOfInterestSignal>().ToSingleton();
+            injectionBinder.Bind<EventTileInteractedSignal>().ToSingleton();
 
             commandBinder.Bind<SpawnCombatantSignal>().To<SpawnCombatantCommand>();
             commandBinder.Bind<BeginSurveyingSignal>().To<BeginSurveyingCommand>();
@@ -97,6 +98,7 @@ namespace Contexts.Battle {
             commandBinder.Bind<EndTurnSignal>().To<EndTurnCommand>();
             commandBinder.Bind<ContextRequestedSignal>().To<ShowContextMenuCommand>();
             commandBinder.Bind<NextBattleSignal>().To<NextBattleCommand>();
+            commandBinder.Bind<EventTileInteractedSignal>().To<EventTileInteractCommand>();
 
             // When the intro cutscene completes, load the BattlePrep context into the scene
             // and then trigger it.

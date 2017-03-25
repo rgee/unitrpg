@@ -17,7 +17,7 @@ namespace Models.Fighting.Battle {
     public class Battle : IBattle {
         public IMap Map { get; private set; }
         public int TurnNumber { get; private set; }
-        public Signal<string> EventTileSignal { get; private set; }
+        public Signal<string> EventTileWalkedSignal { get; private set; }
         public List<IObjective> Objectives { get; set; }
 
         private readonly IRandomizer _randomizer;
@@ -33,7 +33,7 @@ namespace Models.Fighting.Battle {
         public Battle(IMap map, IRandomizer randomizer, ICombatantDatabase combatants, List<ArmyType> turnOrder, List<IObjective> objectives, 
             MapConfig mapConfig) {
             TurnNumber = 0;
-            EventTileSignal = new Signal<string>();
+            EventTileWalkedSignal = new Signal<string>();
             Objectives = objectives;
             Map = map;
             _randomizer = randomizer;
@@ -123,7 +123,7 @@ namespace Models.Fighting.Battle {
         }
 
         private void _relayEvent(EventTile eventTile) {
-            EventTileSignal.Dispatch(eventTile.EventName);
+            EventTileWalkedSignal.Dispatch(eventTile.EventName);
         }
 
         public List<ICombatant> GetAliveByArmy(ArmyType army) {

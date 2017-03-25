@@ -20,7 +20,7 @@ namespace Models.Fighting.Battle {
 
         IMap Map { get; }
 
-        Signal<string> EventTileSignal { get; }
+        Signal<string> EventTileWalkedSignal { get; }
 
         List<IObjective> Objectives { get; set; }
 

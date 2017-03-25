@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Contexts.Battle.Models;
 using Contexts.Battle.Signals;
+using Contexts.Battle.Utilities;
 using Models.Fighting.Battle;
 using strange.extensions.command.impl;
 using UnityEngine;
@@ -56,15 +57,7 @@ namespace Contexts.Battle.Commands {
             // If there are events to process because units walked over event tiles
             // handle them first.
             if (handlers.Count > 0) {
-                Retain();
-                Action action = null;
-                action = new Action(() => {
-                    IncrememtTurnSignal.Dispatch();
-                    Release();
-                    EventHandlersCompleteSignal.RemoveListener(action);
-                });
-                EventHandlersCompleteSignal.AddListener(action);
-                ProcessEventHandlersSignal.Dispatch(handlers);
+                EventHandlingUtils.ProcessEvents(this, handlers, ProcessEventHandlersSignal, EventHandlersCompleteSignal, IncrememtTurnSignal.Dispatch);
             } else {
                 IncrememtTurnSignal.Dispatch();                                
             }

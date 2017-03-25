@@ -10,6 +10,7 @@
         SelectingAttackTarget,
         SelectingMoveLocation,
         SelectingInteractTarget,
+        EventPlaying,
         ForecastingCombat,
         Fighting,
         CombatantMoving,
