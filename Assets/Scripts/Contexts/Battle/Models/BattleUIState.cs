@@ -9,6 +9,7 @@
         SelectingFightAction,
         SelectingAttackTarget,
         SelectingMoveLocation,
+        SelectingInteractTarget,
         ForecastingCombat,
         Fighting,
         CombatantMoving,

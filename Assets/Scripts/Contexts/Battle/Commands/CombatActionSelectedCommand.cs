@@ -19,8 +19,10 @@ namespace Contexts.Battle.Commands {
                 Model.State = BattleUIState.SelectingAttackTarget;
             } else if (ActionType == CombatActionType.Move) {
                 Model.State = BattleUIState.SelectingMoveLocation;
-            } else if (ActionType == CombatActionType.Fight) { 
+            } else if (ActionType == CombatActionType.Fight) {
                 Model.State = BattleUIState.SelectingFightAction;
+            } else if (ActionType == CombatActionType.Use) {
+                Model.State = BattleUIState.SelectingInteractTarget;
             } else {
                 
             }

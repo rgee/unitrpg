@@ -41,8 +41,7 @@ namespace Contexts.Battle.Utilities {
                     results.Add(CombatActionType.Trade);
                 }
 
-                var canUseTile = MathUtils.GetAdjacentPoints(combatant.Position)
-                    .Select(position => map.GetEventTile(position))
+                var canUseTile = map.GetEventTilesSurrounding(combatant.Position)
                     .Any(tile => tile.InteractionMode == InteractionMode.Use);
                 if (canUseTile) {
                     results.Add(CombatActionType.Use);

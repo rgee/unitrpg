@@ -30,6 +30,13 @@ namespace Models.Fighting.Maps {
         public Map(int size) : this(size, size) {
         }
 
+        public HashSet<EventTile> GetEventTilesSurrounding(Vector2 location) {
+            return MathUtils.GetAdjacentPoints(location)
+                .Select(position => GetEventTile(position))
+                .Where(tile => tile != null)
+                .ToHashSet();
+        }
+
         public void TriggerEventTile(Vector2 location) {
             var tile = GetEventTile(location);
             if (tile == null) {

@@ -36,6 +36,8 @@ namespace Models.Fighting.Maps {
 
         EventTile GetEventTile(Vector2 location);
 
+        HashSet<EventTile> GetEventTilesSurrounding(Vector2 location);
+
         void TriggerEventTile(Vector2 location);
 
 

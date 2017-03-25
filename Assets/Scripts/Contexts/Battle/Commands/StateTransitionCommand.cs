@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Linq;
 using Contexts.Battle.Models;
 using Contexts.Battle.Signals;
 using Contexts.Battle.Signals.Camera;
 using Contexts.Battle.Utilities;
+using Models.Fighting.Maps.Triggers;
 using strange.extensions.command.impl;
 using UnityEngine;
 using Attribute = Models.Fighting.Attribute;
@@ -67,6 +69,9 @@ namespace Contexts.Battle.Commands {
                 case BattleUIState.SelectingAttackTarget:
                     ClearHighlightSignal.Dispatch(HighlightLevel.PlayerAttack);
                     break;
+                case BattleUIState.SelectingInteractTarget:
+                    ClearHighlightSignal.Dispatch(HighlightLevel.PlayerInteract);
+                    break;
                 case BattleUIState.SelectingMoveLocation:
                     ClearHighlightSignal.Dispatch(HighlightLevel.PlayerMove);
                     PathUnavailableSignal.Dispatch();
@@ -117,6 +122,9 @@ namespace Contexts.Battle.Commands {
                 case BattleUIState.SelectingAttackTarget:
                     SetupAttackTargetState();
                     break;
+                case BattleUIState.SelectingInteractTarget:
+                    SetupInteractTargetState();
+                    break;
                 case BattleUIState.SelectingMoveLocation:
                     SetupMoveLocationState();
                     break;
@@ -147,6 +155,18 @@ namespace Contexts.Battle.Commands {
                 default:
                     throw new ArgumentOutOfRangeException("state", state, null);
             }
+        }
+
+        private void SetupInteractTargetState() {
+            var origin = Model.SelectedCombatant.Position;
+            var interactiveSquares = Model.Map.GetEventTilesSurrounding(origin)
+                .Where(tile => tile.InteractionMode == InteractionMode.Use)
+                .Select(tile => tile.Location)
+                .ToHashSet();
+            var highlights = new MapHighlights(interactiveSquares, HighlightLevel.PlayerInteract);
+
+            HighlightSignal.Dispatch(highlights);
+            HoverTileDisableSignal.Dispatch();
         }
 
         private void SetupAttackTargetState() {

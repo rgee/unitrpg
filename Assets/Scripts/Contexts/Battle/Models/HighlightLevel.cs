@@ -6,6 +6,7 @@
         SpecificEnemyMove,
         PlayerMove,
         PlayerAttack,
-        PlayerHover
+        PlayerHover,
+        PlayerInteract
     }
 }
