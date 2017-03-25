@@ -165,10 +165,13 @@ namespace Assets.Contexts.Chapters.Chapter2.Commands {
                 Action clinicEnabledCallback = null;
                 var clinicEnabled = false;
                 clinicEnabledCallback = () => {
+                    Debug.Log("Clinic enabled.");
                     clinicEnabled = true;
                     StrangeUtils.RemoveOnceListener(HouseLightTransitionCompleteSignal, clinicEnabledCallback);
                 };
                 HouseLightTransitionCompleteSignal.AddListener(clinicEnabledCallback);
+
+                Debug.Log("Enabling the clinic.");
                 HouseLightEnableSignal.Dispatch(House.Clinic);
 
                 yield return new WaitUntil(() => clinicEnabled);

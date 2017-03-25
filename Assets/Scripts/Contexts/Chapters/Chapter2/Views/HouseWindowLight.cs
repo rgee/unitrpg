@@ -8,7 +8,7 @@ namespace Assets.Contexts.Chapters.Chapter2.Views {
         private tk2dSprite _sprite;
 
         public void TurnOut() {
-            _sprite.transform.localScale = Vector3.zero;
+            _sprite.DOScale(Vector3.zero, 0f).Play();
         }
 
         public Tween GetTurnOutTween() {
@@ -16,7 +16,7 @@ namespace Assets.Contexts.Chapters.Chapter2.Views {
         }
 
         public Tween GetTurnOnTween() {
-            return _sprite.DOScale(Vector3.one, 0.3f);  
+            return _sprite.DOScale(new Vector3(0.5f, 0.5f, 1f), 0.3f);  
         }
 
         void Awake() {
