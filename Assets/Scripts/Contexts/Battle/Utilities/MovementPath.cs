@@ -11,6 +11,10 @@ namespace Contexts.Battle.Utilities {
             get { return Positions.Count - 1; }
         }
 
+        public Vector2 Terminus {
+            get { return Positions[Length];  }
+        }
+
         public MovementPath(List<Vector2> positions, ICombatant combatant) {
             Positions = positions;
             Combatant = combatant;

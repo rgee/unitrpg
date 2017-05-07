@@ -65,15 +65,19 @@ namespace Contexts.Battle.Commands {
                     UnitSelectedSignal.Dispatch(worldPosition);
                 }
             } else if (state == BattleUIState.SelectingMoveLocation) {
-                // Make the unit move
-                if (BattleViewModel.CurrentMovementPath != null) {
-                    var map = BattleViewModel.Map;
-                    var path = BattleViewModel.CurrentMovementPath;
-                    var positions = path.Positions.GetRange(1, path.Positions.Count - 1);
+                var map = BattleViewModel.Map;
+                var path = BattleViewModel.CurrentMovementPath;
+                if (path != null) {
 
-                    var action = new MoveAction(map, path.Combatant, positions.Last(), positions);
-                    AnimateActionSignal.Dispatch(action);
-                    BattleViewModel.State = BattleUIState.CombatantMoving;
+                    // Don't allow movement to the terminal points of a path if they are blocked.
+                    var terminus = path.Terminus;
+                    if (!map.IsBlocked(terminus)) {
+                        var positions = path.Positions.GetRange(1, path.Positions.Count - 1);
+
+                        var action = new MoveAction(map, path.Combatant, positions.Last(), positions);
+                        AnimateActionSignal.Dispatch(action);
+                        BattleViewModel.State = BattleUIState.CombatantMoving;
+                    }
                 }
 
             } else if (state == BattleUIState.SelectingInteractTarget) {

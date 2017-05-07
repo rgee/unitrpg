@@ -6,6 +6,7 @@ using Contexts.Battle.Signals;
 using Contexts.Battle.Signals.Camera;
 using Contexts.Battle.Utilities;
 using Models.Fighting.Characters;
+using Models.Fighting.Maps;
 using Models.Fighting.Maps.Triggers;
 using strange.extensions.command.impl;
 using UnityEngine;
@@ -193,14 +194,40 @@ namespace Contexts.Battle.Commands {
             var map = Model.Map;
             var origin = Model.SelectedCombatant.Position;
             var moveRange = Model.Battle.GetRemainingMoves(Model.SelectedCombatant);
-            var squares = map.FindUnoccupiedSurroundingPoints(origin, moveRange)
-                .Where(square => {
-                    var path = map.FindPath(origin, square);
-                    // TODO: Add this filtering step in a method on IMap interface
-                    // Skip the origin square when evaluating path length
-                    return path != null && path.Skip(1).Count() <= moveRange;
-                })
+            Predicate<KeyValuePair<Vector2, Tile>> movabilityPredicate = pair => {
+                // If the tile is obstructed by props don't let them in.
+                var tile = pair.Value;
+                if (tile.Obstructed) {
+                    return false;
+                }
+
+                // If the occupant is friendly, and they are NOT at a terminal point, let them in.
+                var location = pair.Key;
+                var occupant = tile.Occupant;
+                if (occupant != null && !occupant.Army.IsEnemyOf(Model.SelectedCombatant.Army)) {
+                    var distance = MathUtils.ManhattanDistance(origin, location);
+                    if (distance == moveRange) {
+                        return false;
+                    }
+                }
+
+                return true;
+            };
+
+            
+            var squares = map.RangeQuery(origin, moveRange, movabilityPredicate)
+                .Select(square => map.FindPath(origin, square))
+
+                // If the length of the path to the square (minus the start point) is within range, let it in
+                .Where(path => path != null && path.Count() - 1 <= moveRange)
+
+                // Collect all points along the path to make sure we highlight squares that were not themselves
+                // standable (due to being obstructed by a path, but can be walked-through becuase of the
+                // friendly unit passthru rule.
+                .SelectMany(path => path.Skip(1).ToList())
                 .ToHashSet();
+
+
             var moveHighlights = new MapHighlights(squares, HighlightLevel.PlayerMove);
             HighlightSignal.Dispatch(moveHighlights);
 
