@@ -5,10 +5,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 415166}
-  - 114: {fileID: 11477760}
+  - component: {fileID: 415166}
+  - component: {fileID: 11477760}
   m_Layer: 0
   m_Name: Janek
   m_TagString: Untagged
@@ -28,6 +28,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &11477760
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -553,7 +554,7 @@ MonoBehaviour:
       eventFloat: 0
     fps: 14
     loopStart: 0
-    wrapMode: 0
+    wrapMode: 2
   - name: attack north
     frames:
     - spriteCollection: {fileID: 11404484, guid: ec5fac889b4abc841ae89c03208fbea1,
@@ -635,7 +636,7 @@ MonoBehaviour:
       eventFloat: 0
     fps: 14
     loopStart: 0
-    wrapMode: 0
+    wrapMode: 2
   - name: idle
     frames:
     - spriteCollection: {fileID: 11404484, guid: ec5fac889b4abc841ae89c03208fbea1,
