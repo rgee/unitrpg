@@ -67,8 +67,7 @@ namespace Contexts.Battle.Views {
 
             var objRenderer = obj.AddComponent<SpriteRenderer>();
             objRenderer.sprite = sprite;
-            
-            obj.AddComponent<DynamicSortedObject>();
+            objRenderer.sortingOrder = -50;
 
             _pathSprites.Add(obj);
         }

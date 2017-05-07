@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace Contexts.Battle.Views {
     public class MapHighlightView : View {
-        public int BaseSortOrder = -1000;
+        public int BaseSortOrder = -99;
         public GameObject MapHighlightPrefab;
         public Material GlobalEnemyMaterial;
         public Material AttackSelectionMaterial;
