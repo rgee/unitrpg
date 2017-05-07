@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 11440304}
   - component: {fileID: 11460106}
   - component: {fileID: 11411100}
+  - component: {fileID: 65336826559341076}
   m_Layer: 0
   m_Name: Water
   m_TagString: Untagged
@@ -26,8 +27,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 131646}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 669, y: 330, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 416, y: 416, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -63,7 +64,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -100
 --- !u!33 &3333798
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -100,11 +101,11 @@ MonoBehaviour:
   boxCollider2D: {fileID: 0}
   polygonCollider2D: []
   edgeCollider2D: []
-  boxCollider: {fileID: 0}
+  boxCollider: {fileID: 65336826559341076}
   meshCollider: {fileID: 0}
   meshColliderPositions: []
   meshColliderMesh: {fileID: 0}
-  renderLayer: -1
+  renderLayer: -100
 --- !u!114 &11460106
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -130,3 +131,15 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 131646}
   m_IsPrefabParent: 1
+--- !u!65 &65336826559341076
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 131646}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 31, y: 31, z: 0.2}
+  m_Center: {x: -0.5, y: 0.5, z: 0}
