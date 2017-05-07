@@ -1,12 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Contexts.Battle.Models;
 using Contexts.Battle.Signals;
 using Contexts.Battle.Signals.Camera;
 using Contexts.Battle.Utilities;
+using Models.Fighting.Characters;
 using Models.Fighting.Maps.Triggers;
 using strange.extensions.command.impl;
 using UnityEngine;
+using Utils;
 using Attribute = Models.Fighting.Attribute;
 
 namespace Contexts.Battle.Commands {
@@ -73,6 +76,7 @@ namespace Contexts.Battle.Commands {
                     ClearHighlightSignal.Dispatch(HighlightLevel.PlayerInteract);
                     break;
                 case BattleUIState.SelectingMoveLocation:
+                    ClearHighlightSignal.Dispatch(HighlightLevel.PlayerAttack);
                     ClearHighlightSignal.Dispatch(HighlightLevel.PlayerMove);
                     PathUnavailableSignal.Dispatch();
                     break;
@@ -197,10 +201,23 @@ namespace Contexts.Battle.Commands {
                     return path != null && path.Skip(1).Count() <= moveRange;
                 })
                 .ToHashSet();
-            var highlights = new MapHighlights(squares, HighlightLevel.PlayerMove);
+            var moveHighlights = new MapHighlights(squares, HighlightLevel.PlayerMove);
+            HighlightSignal.Dispatch(moveHighlights);
 
+            var attackableSquares = squares.SelectMany(square => { return MathUtils.GetAdjacentPoints(square); })
+                .Distinct()
+                .Where(square => {
+                    if (map.IsBlockedByEnvironment(square)) {
+                        return false;
+                    }
 
-            HighlightSignal.Dispatch(highlights);
+                    var occupant = map.GetAtPosition(square);
+                    return occupant != null && occupant.Army.IsEnemyOf(Model.SelectedCombatant.Army);
+                })
+                .ToHashSet();
+
+            var attackHighlights = new MapHighlights(attackableSquares, HighlightLevel.PlayerAttack);
+            HighlightSignal.Dispatch(attackHighlights);
             HoverTileDisableSignal.Dispatch();
         }
     }
