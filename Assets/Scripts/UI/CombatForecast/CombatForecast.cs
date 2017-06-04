@@ -39,10 +39,18 @@ namespace UI.CombatForecast {
             var attackerHitCount = GetAmount("HitCount", CombatantParam.Attacker);
             attackerHitCount.SetActive(forecast.AttackerForecast.Hit.HitCount > 1);
 
+            var attackerDamageText = GetAmount("Damage", CombatantParam.Attacker).GetComponent<Text>();
+            attackerDamageText.text = forecast.AttackerForecast.Hit.BaseDamage.ToString();
+
+            var defenderDamage = 0;
             if (forecast.DefenderForecast != null) {
                 var defenderHitCount = GetAmount("HitCount", CombatantParam.Defender);
                 defenderHitCount.SetActive(forecast.DefenderForecast.Hit.HitCount > 1);
+                defenderDamage = forecast.DefenderForecast.Hit.BaseDamage;
             }
+
+            var defenderDamageText = GetAmount("Damage", CombatantParam.Defender).GetComponent<Text>();
+            defenderDamageText.text = defenderDamage.ToString();
         }
 
         private void PopulateChances(SkillChances chances, CombatantParam param) {
