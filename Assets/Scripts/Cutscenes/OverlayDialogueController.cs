@@ -33,7 +33,7 @@ public class OverlayDialogueController : MonoBehaviour, IDialogueController {
     public void ChangeEmotion(string speaker, EmotionalResponse response) {
         // The overlay only updates the actor currently speaking, and they always face left.
         if (speaker == _currentSpeakerName) {
-            _portraitView.SetActor(speaker, response.emotion, Facing.Left);
+            _portraitView.SetActor(speaker, response.Emotion, Facing.Left);
         }
     }
 

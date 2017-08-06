@@ -19,7 +19,6 @@ public class CenterPortraitAligner : MonoBehaviour, IPortraitAligner {
         var viewBottomCenter = -halfLayoutWidth;
         var portraitBottomCenter = facing == Facing.Left ? -halfPortraitWidth : halfPortraitWidth;
 
-
         portrait.transform.SetParent(transform);
         portrait.transform.localPosition = new Vector3(viewBottomCenter + portraitBottomCenter, height, 0);
     }

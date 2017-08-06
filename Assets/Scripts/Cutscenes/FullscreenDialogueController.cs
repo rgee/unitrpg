@@ -22,7 +22,7 @@ public class FullscreenDialogueController : MonoBehaviour, IDialogueController {
             _slotIndexBySpeaker[speaker] = firstEmotion.Slot;
             var slot = _slots[firstEmotion.Slot];
             var portraitView = slot.GetComponent<DialoguePortraitView>();
-            portraitView.SetActor(speaker, firstEmotion.emotion, firstEmotion.facing);
+            portraitView.SetActor(speaker, firstEmotion.Emotion, firstEmotion.Facing);
         }
     }
 
@@ -55,7 +55,7 @@ public class FullscreenDialogueController : MonoBehaviour, IDialogueController {
             StartCoroutine(MoveActor(speaker, response, currentView, nextView));
         } else {
             var view = FindViewBySpeaker(speaker);
-            view.SetActor(speaker, response.emotion, response.facing);
+            view.SetActor(speaker, response.Emotion, response.Facing);
         }
     }
     public IEnumerator Initialize(Cutscene model) {
@@ -72,7 +72,7 @@ public class FullscreenDialogueController : MonoBehaviour, IDialogueController {
         DialoguePortraitView destination) {
 
         yield return StartCoroutine(source.FadeToEmpty());
-        yield return StartCoroutine(destination.FadeInActor(speaker, response.emotion, response.facing));
+        yield return StartCoroutine(destination.FadeInActor(speaker, response.Emotion, response.Facing));
         _slotIndexBySpeaker[speaker] = response.Slot;
     }
 
