@@ -2,6 +2,11 @@
     public enum EmotionType {
         DEFAULT,
         WORRIED,
-        HAPPY
+        HAPPY,
+        PENSIVE,
+        CONTENT,
+        REGRET,
+        HORROR,
+        ANGER
     };
 }

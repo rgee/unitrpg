@@ -56,6 +56,26 @@ namespace Models.Dialogue {
                 return EmotionType.HAPPY;
             }
 
+            if (emotion == "pensive") {
+                return EmotionType.PENSIVE;
+            }
+
+            if (emotion == "content") {
+                return EmotionType.CONTENT;
+            }
+
+            if (emotion == "horror") {
+                return EmotionType.HORROR;
+            }
+
+            if (emotion == "anger") {
+                return EmotionType.ANGER;
+            }
+
+            if (emotion == "regret") {
+                return EmotionType.REGRET;
+            }
+
             throw new ArgumentException("Invalid emotion type " + emotion);
         }
     }
