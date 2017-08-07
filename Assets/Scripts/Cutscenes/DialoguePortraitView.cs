@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using DG.Tweening;
 using Models;
 using UnityEngine;
@@ -54,10 +55,24 @@ public class DialoguePortraitView : MonoBehaviour {
         if (actor == null) {
            ClearGameObject(); 
         } else {
+            var flipX = false;
             var portrait = actor.FindPortraitByEmotion(emotion, direction);
+            if (portrait == null) {
+                portrait = actor.FindPortraitByEmotion(emotion);
+
+                // Portraits without an assigned direction are left-facing so they must be flipped to the right in code.
+                flipX = direction == Facing.Right;
+                if (portrait == null) {
+                    throw new ArgumentException("Could not find portrait for emotion: " + emotion);
+                }
+            } 
+
             var portraitObject = Instantiate(portrait.Prefab);
             AttachGameObject(portraitObject);
-            _portraitAligner.Align(portraitObject, direction, new Vector3(Scale, Scale, 1f));
+            _portraitAligner.Align(portraitObject, new Vector3(Scale, Scale, 1f));
+            if (flipX) {
+                portraitObject.transform.localScale = new Vector3(-Scale, Scale, 1f);
+            }
 
             ActorName = name;
         }

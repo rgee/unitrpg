@@ -7,6 +7,7 @@
         CONTENT,
         REGRET,
         HORROR,
-        ANGER
+        ANGER,
+        EXASPERATED
     };
 }

@@ -1,0 +1,503 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1053742058091428}
+  m_IsPrefabParent: 1
+--- !u!1 &1053742058091428
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4775482425642266}
+  - component: {fileID: 114034503007522726}
+  m_Layer: 0
+  m_Name: Liat Portraits
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4775482425642266
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1053742058091428}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114034503007522726
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1053742058091428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d546f34a90531a14eaba82a43b05b86b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 3
+  materialIdsValid: 1
+  needMaterialInstance: 0
+  spriteDefinitions:
+  - name: liat_angry_left
+    boundsData:
+    - {x: 0, y: -0.00999999, z: 0}
+    - {x: 5.48, y: 5.74, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: -0.00999999, z: 0}
+    - {x: 5.48, y: 5.74, z: 0}
+    texelSize: {x: 0.01, y: 0.01}
+    positions:
+    - {x: -2.74, y: -2.8799999, z: 0}
+    - {x: 2.74, y: -2.8799999, z: 0}
+    - {x: -2.74, y: 2.86, z: 0}
+    - {x: 2.74, y: 2.86, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.0000009765625, y: 0.30712938}
+    - {x: 0.0000009765625, y: 0.4409175}
+    - {x: 0.28027245, y: 0.30712938}
+    - {x: 0.28027245, y: 0.4409175}
+    normalizedUvs:
+    - {x: 0, y: 0}
+    - {x: 0, y: 1}
+    - {x: 1, y: 0}
+    - {x: 1, y: 1}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: 0a22e9bb4fb2fed439bca87f280b28a4, type: 2}
+    materialId: 0
+    sourceTextureGUID: 105859298d17b394e9c05b66e224270e
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 1
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 1
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd: 
+    colliderIndicesBack: 
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: liat_content_left
+    boundsData:
+    - {x: 0, y: -0.00999999, z: 0}
+    - {x: 5.48, y: 5.74, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: -0.00999999, z: 0}
+    - {x: 5.48, y: 5.74, z: 0}
+    texelSize: {x: 0.01, y: 0.01}
+    positions:
+    - {x: -2.74, y: -2.8799999, z: 0}
+    - {x: 2.74, y: -2.8799999, z: 0}
+    - {x: -2.74, y: 2.86, z: 0}
+    - {x: 2.74, y: 2.86, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.28027442, y: 0.30712938}
+    - {x: 0.28027442, y: 0.4409175}
+    - {x: 0.5605459, y: 0.30712938}
+    - {x: 0.5605459, y: 0.4409175}
+    normalizedUvs:
+    - {x: 0, y: 0}
+    - {x: 0, y: 1}
+    - {x: 1, y: 0}
+    - {x: 1, y: 1}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: 0a22e9bb4fb2fed439bca87f280b28a4, type: 2}
+    materialId: 0
+    sourceTextureGUID: 254cd075f19f90d44bd4dcaf7ca36ffe
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 1
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 1
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd: 
+    colliderIndicesBack: 
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: liat_default_left
+    boundsData:
+    - {x: 0, y: -0.00999999, z: 0}
+    - {x: 5.48, y: 5.74, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: -0.00999999, z: 0}
+    - {x: 5.48, y: 5.74, z: 0}
+    texelSize: {x: 0.01, y: 0.01}
+    positions:
+    - {x: -2.74, y: -2.8799999, z: 0}
+    - {x: 2.74, y: -2.8799999, z: 0}
+    - {x: -2.74, y: 2.86, z: 0}
+    - {x: 2.74, y: 2.86, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.5605478, y: 0.30712938}
+    - {x: 0.5605478, y: 0.4409175}
+    - {x: 0.84081936, y: 0.30712938}
+    - {x: 0.84081936, y: 0.4409175}
+    normalizedUvs:
+    - {x: 0, y: 0}
+    - {x: 0, y: 1}
+    - {x: 1, y: 0}
+    - {x: 1, y: 1}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: 0a22e9bb4fb2fed439bca87f280b28a4, type: 2}
+    materialId: 0
+    sourceTextureGUID: cc71408c2a25cac478bf3b409ff5a8ae
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 1
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 1
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd: 
+    colliderIndicesBack: 
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: liat_exaspterated_left
+    boundsData:
+    - {x: 0, y: -0.00999999, z: 0}
+    - {x: 5.48, y: 5.74, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: -0.00999999, z: 0}
+    - {x: 5.48, y: 5.74, z: 0}
+    texelSize: {x: 0.01, y: 0.01}
+    positions:
+    - {x: -2.74, y: -2.8799999, z: 0}
+    - {x: 2.74, y: -2.8799999, z: 0}
+    - {x: -2.74, y: 2.86, z: 0}
+    - {x: 2.74, y: 2.86, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.0000009765625, y: 0.44091845}
+    - {x: 0.0000009765625, y: 0.57470655}
+    - {x: 0.28027245, y: 0.44091845}
+    - {x: 0.28027245, y: 0.57470655}
+    normalizedUvs:
+    - {x: 0, y: 0}
+    - {x: 0, y: 1}
+    - {x: 1, y: 0}
+    - {x: 1, y: 1}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: 0a22e9bb4fb2fed439bca87f280b28a4, type: 2}
+    materialId: 0
+    sourceTextureGUID: d624915152b9e984cb89445e05f38128
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 1
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 1
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd: 
+    colliderIndicesBack: 
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: liat_body_left
+    boundsData:
+    - {x: 0.010000229, y: 0, z: 0}
+    - {x: 12.58, y: 15.24, z: 0}
+    untrimmedBoundsData:
+    - {x: 0.010000229, y: 0, z: 0}
+    - {x: 12.58, y: 15.24, z: 0}
+    texelSize: {x: 0.01, y: 0.01}
+    positions:
+    - {x: -6.2799997, y: -7.62, z: 0}
+    - {x: 6.3, y: -7.62, z: 0}
+    - {x: -6.2799997, y: 7.62, z: 0}
+    - {x: 6.3, y: 7.62, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.0000009765625, y: 0.0000004882813}
+    - {x: 0.0000009765625, y: 0.30712843}
+    - {x: 0.7441397, y: 0.0000004882813}
+    - {x: 0.7441397, y: 0.30712843}
+    normalizedUvs:
+    - {x: 0, y: 0}
+    - {x: 0, y: 0.99999994}
+    - {x: 0.99999994, y: 0}
+    - {x: 0.99999994, y: 0.99999994}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: 0a22e9bb4fb2fed439bca87f280b28a4, type: 2}
+    materialId: 0
+    sourceTextureGUID: 382d39b5c9a869e478926e8001b96384
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 1
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 1
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd: 
+    colliderIndicesBack: 
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: liat_happy_left
+    boundsData:
+    - {x: 0, y: -0.00999999, z: 0}
+    - {x: 5.48, y: 5.74, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: -0.00999999, z: 0}
+    - {x: 5.48, y: 5.74, z: 0}
+    texelSize: {x: 0.01, y: 0.01}
+    positions:
+    - {x: -2.74, y: -2.8799999, z: 0}
+    - {x: 2.74, y: -2.8799999, z: 0}
+    - {x: -2.74, y: 2.86, z: 0}
+    - {x: 2.74, y: 2.86, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.28027442, y: 0.44091845}
+    - {x: 0.28027442, y: 0.57470655}
+    - {x: 0.5605459, y: 0.44091845}
+    - {x: 0.5605459, y: 0.57470655}
+    normalizedUvs:
+    - {x: 0, y: 0}
+    - {x: 0, y: 1}
+    - {x: 1, y: 0}
+    - {x: 1, y: 1}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: 0a22e9bb4fb2fed439bca87f280b28a4, type: 2}
+    materialId: 0
+    sourceTextureGUID: f24b601bc91380043a458a6192c8f484
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 1
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 1
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd: 
+    colliderIndicesBack: 
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: liat_pensive_left
+    boundsData:
+    - {x: 0, y: -0.00999999, z: 0}
+    - {x: 5.48, y: 5.74, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: -0.00999999, z: 0}
+    - {x: 5.48, y: 5.74, z: 0}
+    texelSize: {x: 0.01, y: 0.01}
+    positions:
+    - {x: -2.74, y: -2.8799999, z: 0}
+    - {x: 2.74, y: -2.8799999, z: 0}
+    - {x: -2.74, y: 2.86, z: 0}
+    - {x: 2.74, y: 2.86, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.5605478, y: 0.44091845}
+    - {x: 0.5605478, y: 0.57470655}
+    - {x: 0.84081936, y: 0.44091845}
+    - {x: 0.84081936, y: 0.57470655}
+    normalizedUvs:
+    - {x: 0, y: 0}
+    - {x: 0, y: 1}
+    - {x: 1, y: 0}
+    - {x: 1, y: 1}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: 0a22e9bb4fb2fed439bca87f280b28a4, type: 2}
+    materialId: 0
+    sourceTextureGUID: 70f906a29c69d20498877295454bf1e5
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 1
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 1
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd: 
+    colliderIndicesBack: 
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: liat_regret_left
+    boundsData:
+    - {x: 0, y: -0.00999999, z: 0}
+    - {x: 5.48, y: 5.74, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: -0.00999999, z: 0}
+    - {x: 5.48, y: 5.74, z: 0}
+    texelSize: {x: 0.01, y: 0.01}
+    positions:
+    - {x: -2.74, y: -2.8799999, z: 0}
+    - {x: 2.74, y: -2.8799999, z: 0}
+    - {x: -2.74, y: 2.86, z: 0}
+    - {x: 2.74, y: 2.86, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.0000009765625, y: 0.5747075}
+    - {x: 0.26757714, y: 0.5747075}
+    - {x: 0.0000009765625, y: 0.7148433}
+    - {x: 0.26757714, y: 0.7148433}
+    normalizedUvs:
+    - {x: 0, y: 0}
+    - {x: 1, y: 0}
+    - {x: 0, y: 1}
+    - {x: 1, y: 1}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: 0a22e9bb4fb2fed439bca87f280b28a4, type: 2}
+    materialId: 0
+    sourceTextureGUID: 1b80015cff9c0944bbdcbd4786b2c289
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 1
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd: 
+    colliderIndicesBack: 
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: liat_worried_left
+    boundsData:
+    - {x: 0, y: -0.00999999, z: 0}
+    - {x: 5.48, y: 5.74, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: -0.00999999, z: 0}
+    - {x: 5.48, y: 5.74, z: 0}
+    texelSize: {x: 0.01, y: 0.01}
+    positions:
+    - {x: -2.74, y: -2.8799999, z: 0}
+    - {x: 2.74, y: -2.8799999, z: 0}
+    - {x: -2.74, y: 2.86, z: 0}
+    - {x: 2.74, y: 2.86, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.0000009765625, y: 0.5747075}
+    - {x: 0.26757714, y: 0.5747075}
+    - {x: 0.0000009765625, y: 0.7148433}
+    - {x: 0.26757714, y: 0.7148433}
+    normalizedUvs:
+    - {x: 0, y: 0}
+    - {x: 1, y: 0}
+    - {x: 0, y: 1}
+    - {x: 1, y: 1}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: 0a22e9bb4fb2fed439bca87f280b28a4, type: 2}
+    materialId: 0
+    sourceTextureGUID: a3df4dbfdb64c2d48992438672c48cbd
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 1
+    customColliders: []
+    colliderVertices: []
+    colliderIndicesFwd: 
+    colliderIndicesBack: 
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  premultipliedAlpha: 0
+  material: {fileID: 0}
+  materials:
+  - {fileID: 2100000, guid: 0a22e9bb4fb2fed439bca87f280b28a4, type: 2}
+  textures:
+  - {fileID: 2800000, guid: 81ee36cb354d58b48bc781190d2728a3, type: 3}
+  pngTextures: []
+  materialPngTextureId: 00000000
+  textureFilterMode: 0
+  textureMipMaps: 0
+  allowMultipleAtlases: 0
+  spriteCollectionGUID: 3d3ec1a2c40a57749967413d43a98410
+  spriteCollectionName: Liat Portraits
+  assetName: 
+  loadable: 0
+  invOrthoSize: 2
+  halfTargetHeight: 50
+  buildKey: 572743269
+  dataGuid: 56fdcea629cc68f459d8197f322d770b
+  managedSpriteCollection: 0
+  hasPlatformData: 0
+  spriteCollectionPlatforms: []
+  spriteCollectionPlatformGUIDs: []

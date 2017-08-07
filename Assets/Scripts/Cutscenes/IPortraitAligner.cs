@@ -8,5 +8,5 @@ using UnityEngine;
 /// Responsible for aligning dialogue portrait children
 /// </summary>
 interface IPortraitAligner {
-    void Align(GameObject portrait, Facing facing, Vector3 scale);
+    void Align(GameObject portrait, Vector3 scale);
 }
