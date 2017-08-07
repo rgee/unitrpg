@@ -54,7 +54,7 @@ public class DialoguePortraitView : MonoBehaviour {
         if (actor == null) {
            ClearGameObject(); 
         } else {
-            var portrait = actor.FindPortraitByEmotion(emotion);
+            var portrait = actor.FindPortraitByEmotion(emotion, direction);
             var portraitObject = Instantiate(portrait.Prefab);
             AttachGameObject(portraitObject);
             _portraitAligner.Align(portraitObject, direction, new Vector3(Scale, Scale, 1f));
