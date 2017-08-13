@@ -15,6 +15,15 @@ public class DialogueActor {
             }
         }
 
-        throw new ArgumentException("Could not find portrait for emotion " + emotion);
+        return null;
+    }
+
+    public DialoguePortrait FindPortraitByEmotion(Models.EmotionType emotion, Facing facing) {
+        foreach (var portrait in Portraits) {
+            if (portrait.Emotion == emotion && portrait.Facing == facing) {
+                return portrait;
+            }
+        }
+        return null;
     }
 }

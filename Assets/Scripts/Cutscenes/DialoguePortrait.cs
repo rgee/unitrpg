@@ -8,4 +8,5 @@ using UnityEngine;
 public class DialoguePortrait {
     public GameObject Prefab;
     public Models.EmotionType Emotion;
+    public Facing Facing;
 }

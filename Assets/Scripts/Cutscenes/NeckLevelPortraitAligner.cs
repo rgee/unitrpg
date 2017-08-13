@@ -5,8 +5,8 @@ using System.Text;
 using UnityEngine;
 
 public class NeckLevelPortraitAligner : CenterPortraitAligner {
-    public override void Align(GameObject portrait, Facing facing, Vector3 scale) {
-        base.Align(portrait, facing, scale);
+    public override void Align(GameObject portrait, Vector3 scale) {
+        base.Align(portrait, scale);
 
         var bounds = GameObjectUtils.CalculateBounds(portrait);
         var portraitHeight = (bounds.max - bounds.min).y;
