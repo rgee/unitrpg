@@ -23,7 +23,7 @@ namespace Contexts.Battle.Views {
 
         void Awake() {
             base.Awake();
-            _hoverHighlight = transform.FindChild("Hover").gameObject;
+            _hoverHighlight = transform.Find("Hover").gameObject;
         }
 
         public void SetHighlightedPosition(Vector3 position) {

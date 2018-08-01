@@ -15,7 +15,7 @@ namespace Contexts.Battle.Views {
 
         void Awake() {
             base.Awake();
-            _text = transform.FindChild("Phase Text").gameObject;
+            _text = transform.Find("Phase Text").gameObject;
         }
 
         public IEnumerator ShowPhaseChangeText(BattlePhase phase) {

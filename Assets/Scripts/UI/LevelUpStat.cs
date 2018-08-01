@@ -6,8 +6,8 @@ public class LevelUpStat : MonoBehaviour {
     private GameObject text;
 
     public void Start() {
-        text = transform.FindChild("Stat Text").gameObject;
-        burst = transform.FindChild("Level Up Burst").gameObject;
+        text = transform.Find("Stat Text").gameObject;
+        burst = transform.Find("Level Up Burst").gameObject;
     }
 
     public void Increase() {

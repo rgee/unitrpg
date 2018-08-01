@@ -8,7 +8,7 @@ namespace Contexts.Cutscene.Views {
         private Dialogue _dialogue;
 
         private void Awake() {
-            _dialogue = transform.FindChild("Dialogue").GetComponent<Dialogue>();
+            _dialogue = transform.Find("Dialogue").GetComponent<Dialogue>();
 
             _dialogue.OnComplete += () => {
                 CutsceneComplete.Dispatch();

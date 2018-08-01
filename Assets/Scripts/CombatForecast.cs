@@ -6,8 +6,8 @@ public class CombatForecast : MonoBehaviour {
     private bool triggered;
     // Use this for initialization
     private void Start() {
-        attackerHalf = transform.FindChild("Attacker").gameObject;
-        defenderHalf = transform.FindChild("Defender").gameObject;
+        attackerHalf = transform.Find("Attacker").gameObject;
+        defenderHalf = transform.Find("Defender").gameObject;
     }
 
     // Update is called once per frame

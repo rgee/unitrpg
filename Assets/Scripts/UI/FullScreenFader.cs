@@ -9,7 +9,7 @@ namespace UI {
         private Image _image;
 
         void Awake() {
-            _image = transform.FindChild("Image").GetComponent<Image>();
+            _image = transform.Find("Image").GetComponent<Image>();
         }
 
         public IEnumerator FadeToBlack() {

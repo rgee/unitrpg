@@ -15,10 +15,10 @@ namespace UI.CombatForecast {
         };
 
         public void SetForecast(FightForecast forecast) {
-            var attackerName = transform.FindChild("Forecast/Attacker Name").GetComponent<Text>();
+            var attackerName = transform.Find("Forecast/Attacker Name").GetComponent<Text>();
             attackerName.text = forecast.AttackerForecast.Attacker.Name.ToUpper();
 
-            var defenderName = transform.FindChild("Forecast/Defender Name").GetComponent<Text>();
+            var defenderName = transform.Find("Forecast/Defender Name").GetComponent<Text>();
             defenderName.text = forecast.AttackerForecast.Defender.Name.ToUpper();
 
             PopulateChances(forecast.AttackerForecast.Chances, CombatantParam.Attacker);
@@ -71,10 +71,10 @@ namespace UI.CombatForecast {
         private GameObject GetAmount(string objectName, CombatantParam param) {
             
             var parent = param == CombatantParam.Attacker
-                ? transform.FindChild("Forecast/Attacker Parameters")
-                : transform.FindChild("Forecast/Defender Parameters");
+                ? transform.Find("Forecast/Attacker Parameters")
+                : transform.Find("Forecast/Defender Parameters");
 
-            return parent.FindChild(objectName + " Amount").gameObject;
+            return parent.Find(objectName + " Amount").gameObject;
         }
 
         public void Confirm() {

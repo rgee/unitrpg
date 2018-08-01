@@ -1,3 +1,5 @@
+// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
 Shader "tk2d/ColorDodge" 
 {
 	Properties 
@@ -57,7 +59,7 @@ Shader "tk2d/ColorDodge"
 			v2f_vct vert_vct(vin_vct v)
 			{
 				v2f_vct o;
-				o.vertex = mul(UNITY_MATRIX_MVP, v.vertex);
+				o.vertex = UnityObjectToClipPos(v.vertex);
 				o.color = v.color;
 				o.texcoord = v.texcoord;
 				o.screenPos = o.vertex;

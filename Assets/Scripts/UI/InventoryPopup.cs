@@ -12,7 +12,7 @@ public class InventoryPopup : MonoBehaviour {
     public event UseHandler OnItemUse;
 
     public void Awake() {
-        _itemsContainer = transform.FindChild("Stack/Items").gameObject;
+        _itemsContainer = transform.Find("Stack/Items").gameObject;
     }
 
     public void SetItems(List<Item> items) {
@@ -26,7 +26,7 @@ public class InventoryPopup : MonoBehaviour {
             GameObject itemObject = Instantiate(ItemPrefab);
             itemObject.transform.SetParent(containerTransform);
 
-            GameObject itemLabelObject = itemObject.transform.FindChild("Label").gameObject;
+            GameObject itemLabelObject = itemObject.transform.Find("Label").gameObject;
             Text textComponent = itemLabelObject.GetComponent<Text>();
             textComponent.text = item.Name;
 

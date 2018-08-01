@@ -11,7 +11,7 @@ namespace Assets.Contexts.SaveManagement.Common {
         public void SetSaveGame(ISaveGame saveGame) {
             SaveGame = saveGame;
 
-            var id = transform.FindChild("id").GetComponent<Text>();
+            var id = transform.Find("id").GetComponent<Text>();
             id.text = saveGame.Id;
         }
 

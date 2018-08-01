@@ -19,7 +19,7 @@ namespace Contexts.Battle.Views {
             _currentWindow = Instantiate(Prefab);
             _currentWindow.transform.SetParent(transform);
 
-            var forecastWindow = _currentWindow.transform.FindChild("Forecast");
+            var forecastWindow = _currentWindow.transform.Find("Forecast");
             var canvasGroup = forecastWindow.GetComponent<CanvasGroup>();
             canvasGroup.alpha = 0;
             forecastWindow.transform.localPosition = new Vector3(0, -40, 0);
@@ -40,7 +40,7 @@ namespace Contexts.Battle.Views {
                 return;
             }
 
-            var forecastWindow = _currentWindow.transform.FindChild("Forecast");
+            var forecastWindow = _currentWindow.transform.Find("Forecast");
             var canvasGroup = forecastWindow.GetComponent<CanvasGroup>();
 
 

@@ -18,12 +18,12 @@ public class OverlayDialogueController : MonoBehaviour, IDialogueController {
     private const float IntroTime = 0.5f;
 
     private void Awake() {
-        _portraitView = transform.FindChild("Portrait View").GetComponent<DialoguePortraitView>();
-        _panelSprite = transform.FindChild("Text Panel").GetComponent<tk2dSlicedSprite>();
-        _bodyText = transform.FindChild("Text Panel/Text").GetComponent<tk2dTextMesh>();
-        _speakerText = transform.FindChild("Text Panel/Speaker").GetComponent<tk2dTextMesh>();
-        _sideMask = transform.FindChild("Side Mask").gameObject;
-        _bottomMask = transform.FindChild("Bottom Mask").gameObject;
+        _portraitView = transform.Find("Portrait View").GetComponent<DialoguePortraitView>();
+        _panelSprite = transform.Find("Text Panel").GetComponent<tk2dSlicedSprite>();
+        _bodyText = transform.Find("Text Panel/Text").GetComponent<tk2dTextMesh>();
+        _speakerText = transform.Find("Text Panel/Speaker").GetComponent<tk2dTextMesh>();
+        _sideMask = transform.Find("Side Mask").gameObject;
+        _bottomMask = transform.Find("Bottom Mask").gameObject;
     }
 
     public void ChangeSpeaker(string speaker) {

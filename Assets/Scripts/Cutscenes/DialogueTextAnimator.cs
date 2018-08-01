@@ -34,8 +34,8 @@ public class DialogueTextAnimator : MonoBehaviour {
     }
 
     void Awake() {
-        _speakerNameText = transform.FindChild("Text Panel/Speaker").GetComponent<tk2dTextMesh>();
-        _bodyText = transform.FindChild("Text Panel/Text").GetComponent<tk2dTextMesh>();
+        _speakerNameText = transform.Find("Text Panel/Speaker").GetComponent<tk2dTextMesh>();
+        _bodyText = transform.Find("Text Panel/Text").GetComponent<tk2dTextMesh>();
     }
 
     public void ChangeSpeaker(string speakerName) {

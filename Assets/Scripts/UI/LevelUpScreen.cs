@@ -22,8 +22,8 @@ public class LevelUpScreen : MonoBehaviour {
 
     // Use this for initialization
     private void Start() {
-        headerText = transform.FindChild("Header").gameObject;
-        portraitContainer = transform.FindChild("Character").gameObject;
+        headerText = transform.Find("Header").gameObject;
+        portraitContainer = transform.Find("Character").gameObject;
     }
 
     private void UpdatePortrait(Character character) {

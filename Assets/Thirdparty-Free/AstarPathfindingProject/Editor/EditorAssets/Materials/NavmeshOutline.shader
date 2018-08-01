@@ -1,3 +1,5 @@
+// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
 Shader "Hidden/AstarPathfindingProject/Navmesh Outline" {
 Properties {
 	_Color ("Main Color", Color) = (1,1,1,0.5)
@@ -36,8 +38,8 @@ SubShader {
 
 		v2f vert (appdata_color v) {
 			v2f o;
-			float4 p1 = mul(UNITY_MATRIX_MVP, v.vertex);
-			float4 p2 = mul(UNITY_MATRIX_MVP, v.vertex + v.normal);
+			float4 p1 = UnityObjectToClipPos(v.vertex);
+			float4 p2 = UnityObjectToClipPos(v.vertex + v.normal);
 			float4 p1s = p1/p1.w;
 			float4 p2s = p2/p2.w;
 

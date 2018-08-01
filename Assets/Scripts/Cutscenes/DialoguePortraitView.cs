@@ -90,8 +90,8 @@ public class DialoguePortraitView : MonoBehaviour {
 
         instantiatedGameObject.transform.SetParent(transform);
         _currentActorPortrait = instantiatedGameObject;
-        _headSprite = _currentActorPortrait.transform.FindChild("Head").GetComponent<tk2dSprite>();
-        _bodySprite = _currentActorPortrait.transform.FindChild("Body").GetComponent<tk2dSprite>();
+        _headSprite = _currentActorPortrait.transform.Find("Head").GetComponent<tk2dSprite>();
+        _bodySprite = _currentActorPortrait.transform.Find("Body").GetComponent<tk2dSprite>();
     }
 
     public IEnumerator FadeToEmpty() {

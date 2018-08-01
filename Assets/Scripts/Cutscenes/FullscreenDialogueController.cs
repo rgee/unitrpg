@@ -27,10 +27,10 @@ public class FullscreenDialogueController : MonoBehaviour, IDialogueController {
     }
 
     private void Awake() {
-        _slots.Add(transform.FindChild("Slots/Slot 0").gameObject);
-        _slots.Add(transform.FindChild("Slots/Slot 1").gameObject);
-        _slots.Add(transform.FindChild("Slots/Slot 2").gameObject);
-        _slots.Add(transform.FindChild("Slots/Slot 3").gameObject);
+        _slots.Add(transform.Find("Slots/Slot 0").gameObject);
+        _slots.Add(transform.Find("Slots/Slot 1").gameObject);
+        _slots.Add(transform.Find("Slots/Slot 2").gameObject);
+        _slots.Add(transform.Find("Slots/Slot 3").gameObject);
     }
 
     public void ChangeSpeaker(string speaker) {

@@ -12,14 +12,14 @@ namespace UI.Images {
 
 
         public void Awake() {
-            var defaultImage = transform.FindChild("Default");
+            var defaultImage = transform.Find("Default");
             if (defaultImage != null) {
                 _default = defaultImage.GetComponent<Image>();
             } else {
               Debug.LogWarning("FadingImageSwapper requires a child component named \"Default\".");  
             }
 
-            var hoverImage = transform.FindChild("Hover");
+            var hoverImage = transform.Find("Hover");
             if (hoverImage != null) {
                 _hover = hoverImage.GetComponent<Image>();
             } else {

@@ -8,7 +8,7 @@ public class MovementDialog : MonoBehaviour {
     public int UsedMoves;
 
     private void Start() {
-        var pipParent = transform.FindChild("Panel/Pips").gameObject;
+        var pipParent = transform.Find("Panel/Pips").gameObject;
         for (var i = 0; i < TotalMoves; i++) {
             var pip = Instantiate(PipPrefab);
             Pips.Add(pip);

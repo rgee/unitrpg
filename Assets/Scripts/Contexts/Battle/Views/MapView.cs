@@ -58,7 +58,7 @@ namespace Contexts.Battle.Views {
         }
 
         private CombatantView FindCombatantViewById(string id) {
-            var unitContainer = transform.FindChild("Units");
+            var unitContainer = transform.Find("Units");
 
             return (from Transform unit in unitContainer select unit.GetComponent<CombatantView>())
                 .FirstOrDefault(combatantComponent => combatantComponent.CombatantId == id);
@@ -75,7 +75,7 @@ namespace Contexts.Battle.Views {
         }
 
         public List<CombatantDatabase.CombatantReference> GetCombatants() {
-            var unitContainer = transform.FindChild("Units").gameObject;
+            var unitContainer = transform.Find("Units").gameObject;
             var units = unitContainer.GetComponentsInChildren<CombatantView>();
             var dimensions = GetDimensions();
 

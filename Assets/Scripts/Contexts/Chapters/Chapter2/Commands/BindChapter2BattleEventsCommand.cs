@@ -103,7 +103,7 @@ namespace Assets.Contexts.Chapters.Chapter2.Commands {
 
             var maelle = GameObject.Instantiate(maellePrefab);
 
-            var units = View.transform.FindChild("Battle View/Map/Units");
+            var units = View.transform.Find("Battle View/Map/Units");
             maelle.transform.SetParent(units);
 
             var position = new Vector2(35, 19);

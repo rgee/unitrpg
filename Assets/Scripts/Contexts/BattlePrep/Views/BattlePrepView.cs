@@ -13,7 +13,7 @@ namespace Contexts.BattlePrep.Views {
         private Text _objectiveDescription;
 
         void Awake() {
-            _objectiveDescription = transform.FindChild("Objective/Description").GetComponent<Text>();
+            _objectiveDescription = transform.Find("Objective/Description").GetComponent<Text>();
         }
 
         public void SelectAction(string name) {
@@ -27,8 +27,8 @@ namespace Contexts.BattlePrep.Views {
         }
 
         public IEnumerator TransitionIn() {
-            var objectiveContainer = transform.FindChild("Objective").GetComponent<RectTransform>();
-            var buttonContainer = transform.FindChild("Buttons").GetComponent<RectTransform>();
+            var objectiveContainer = transform.Find("Objective").GetComponent<RectTransform>();
+            var buttonContainer = transform.Find("Buttons").GetComponent<RectTransform>();
 
             var seq = DOTween.Sequence()
                 .Insert(0, buttonContainer.DOAnchorPos(Vector2.zero, 0.3f).SetEase(Ease.OutCubic))
@@ -37,8 +37,8 @@ namespace Contexts.BattlePrep.Views {
         }
 
         public IEnumerator TransitionOut() {
-            var objectiveContainer = transform.FindChild("Objective").GetComponent<RectTransform>();
-            var buttonContainer = transform.FindChild("Buttons").GetComponent<RectTransform>();
+            var objectiveContainer = transform.Find("Objective").GetComponent<RectTransform>();
+            var buttonContainer = transform.Find("Buttons").GetComponent<RectTransform>();
 
             var seq = DOTween.Sequence()
                 .Insert(0, buttonContainer.DOAnchorPos(new Vector2(0, -100), 0.3f).SetEase(Ease.OutCubic))
